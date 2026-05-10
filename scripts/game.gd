@@ -4,6 +4,7 @@ const TILE_SIZE := 30.0
 const MAP_WIDTH := 32
 const MAP_HEIGHT := 18
 const VIEW_SIZE := Vector2(TILE_SIZE * MAP_WIDTH, TILE_SIZE * MAP_HEIGHT)
+const PLAYER_START_TILE := Vector2i(5, 13)
 const PLAYER_START := Vector2(165.0, 405.0)
 const PLAYER_SPEED := 240.0
 const PLAYER_RADIUS := 12.0
@@ -109,6 +110,9 @@ const PEDESTAL_COLOR := Color8(156, 145, 126)
 enum Phase { EXPLORE, ACCUSE, RESULT }
 
 var player_position := PLAYER_START
+var player_tile := PLAYER_START_TILE
+var player_target_position := PLAYER_START
+var player_is_stepping := false
 var clue_inspected: Array[bool] = [false, false, false]
 var suspect_talked: Array[bool] = [false, false, false]
 var suspect_conversations: Array = [[], [], []]
@@ -174,13 +178,19 @@ func _process(delta: float) -> void:
 	if dialog_open or clue_panel_open or game_phase != Phase.EXPLORE or request_in_flight:
 		return
 
-	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
-	if direction == Vector2.ZERO:
+	if player_is_stepping:
+		player_position = player_position.move_toward(player_target_position, PLAYER_SPEED * delta)
+		if player_position.is_equal_approx(player_target_position):
+			player_position = player_target_position
+			player_tile = _world_to_tile(player_position)
+			player_is_stepping = false
+			_update_hud()
+		queue_redraw()
 		return
 
-	player_position = _move_with_tile_collision(player_position + direction * PLAYER_SPEED * delta)
-	_update_hud()
-	queue_redraw()
+	var direction := _get_pressed_tile_direction()
+	if direction != Vector2i.ZERO:
+		_try_start_tile_step(direction)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -1106,7 +1116,10 @@ func _explanation_mentions_core_solution(explanation: String) -> bool:
 
 
 func _reset_game() -> void:
-	player_position = PLAYER_START
+	player_tile = PLAYER_START_TILE
+	player_position = _tile_to_world_center(player_tile)
+	player_target_position = player_position
+	player_is_stepping = false
 	clue_inspected = [false, false, false]
 	suspect_talked = [false, false, false]
 	suspect_conversations = [[], [], []]
@@ -1196,40 +1209,31 @@ func _ensure_input_actions() -> void:
 		InputMap.action_add_event("interact", interact_key)
 
 
-func _move_with_tile_collision(target_position: Vector2) -> Vector2:
-	if _is_world_position_walkable(target_position):
-		return target_position
-
-	var horizontal := Vector2(target_position.x, player_position.y)
-	if _is_world_position_walkable(horizontal):
-		return horizontal
-
-	var vertical := Vector2(player_position.x, target_position.y)
-	if _is_world_position_walkable(vertical):
-		return vertical
-
-	return player_position
+func _get_pressed_tile_direction() -> Vector2i:
+	var input := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
+	if input == Vector2.ZERO:
+		return Vector2i.ZERO
+	if absf(input.x) > absf(input.y):
+		return Vector2i(1 if input.x > 0.0 else -1, 0)
+	return Vector2i(0, 1 if input.y > 0.0 else -1)
 
 
-func _is_world_position_walkable(world_position: Vector2) -> bool:
-	var check_radius := PLAYER_RADIUS - 1.0
-	var sample_offsets := [
-		Vector2.ZERO,
-		Vector2(check_radius, 0.0),
-		Vector2(-check_radius, 0.0),
-		Vector2(0.0, check_radius),
-		Vector2(0.0, -check_radius),
-		Vector2(check_radius, check_radius),
-		Vector2(-check_radius, check_radius),
-		Vector2(check_radius, -check_radius),
-		Vector2(-check_radius, -check_radius),
-	]
+func _try_start_tile_step(direction: Vector2i) -> void:
+	var next_tile := player_tile + direction
+	if not _is_tile_walkable(next_tile):
+		return
+	player_tile = next_tile
+	player_target_position = _tile_to_world_center(next_tile)
+	player_is_stepping = true
+	queue_redraw()
 
-	for offset in sample_offsets:
-		var tile_position := _world_to_tile(world_position + offset)
-		if BLOCKING_TILES.has(_tile_at(tile_position)):
-			return false
-	return true
+
+func _is_tile_walkable(tile_position: Vector2i) -> bool:
+	return not BLOCKING_TILES.has(_tile_at(tile_position))
+
+
+func _tile_to_world_center(tile_position: Vector2i) -> Vector2:
+	return Vector2(tile_position) * TILE_SIZE + Vector2(TILE_SIZE * 0.5, TILE_SIZE * 0.5)
 
 
 func _world_to_tile(world_position: Vector2) -> Vector2i:
