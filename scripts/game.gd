@@ -2,54 +2,105 @@ extends Node2D
 
 const VIEW_SIZE := Vector2(960.0, 540.0)
 const ROOM_RECT := Rect2(Vector2(92.0, 92.0), Vector2(776.0, 356.0))
-const EXIT_RECT := Rect2(Vector2(768.0, 214.0), Vector2(84.0, 96.0))
 const PLAYER_START := Vector2(160.0, 274.0)
 const PLAYER_SPEED := 240.0
 const PLAYER_RADIUS := 18.0
-const NPC_POSITION := Vector2(640.0, 278.0)
 const NPC_RADIUS := 18.0
 const NPC_INTERACT_RADIUS := 54.0
-const CLUE_RADIUS := 12.0
-const CLUE_POSITIONS := [
-	Vector2(176.0, 156.0),
-	Vector2(476.0, 170.0),
-	Vector2(340.0, 368.0),
-]
+const CLUE_RADIUS := 14.0
+const CLUE_INTERACT_RADIUS := 48.0
 const MAX_CONVERSATION_LINES := 10
 const MAX_DIALOGUE_LINES := 12
-const NPC_NAME := "Mysterious Stranger"
-const NPC_INSTRUCTIONS := "You are a cautious witness in Fred the Detective. Stay in character, keep replies concise, and answer as if Fred is speaking to you inside a detective game. Do not include speaker labels in your reply."
+
+const SUSPECTS := [
+	{
+		"name": "Victoria Ashmore",
+		"subtitle": "Victim's wife",
+		"position": Vector2(540.0, 200.0),
+		"color": Color8(140, 90, 120),
+		"hat_color": Color8(90, 50, 80),
+		"instructions": "You are Victoria Ashmore, widow of Lord Pemberton who was found dead tonight in the drawing room. You killed him after discovering he changed his will, cutting you out entirely in favour of a distant cousin. You are poised, cold, and practised at deception. You deny any involvement. If pressed about the silk glove found near the body, claim you left it there earlier in the afternoon when you were reading. You do not know that James the butler saw you leave the drawing room quickly around 9pm. Speak as a composed aristocrat concealing guilt beneath good manners. Fred the Detective is questioning you. Keep replies under three sentences and do not include speaker labels.",
+		"is_murderer": true,
+	},
+	{
+		"name": "James",
+		"subtitle": "The Butler",
+		"position": Vector2(720.0, 390.0),
+		"color": Color8(70, 90, 130),
+		"hat_color": Color8(40, 55, 80),
+		"instructions": "You are James, the butler of Pemberton Manor. You are innocent. You spent the evening preparing the dining room. You saw Lady Victoria Ashmore leave the drawing room very quickly at approximately 9pm, which struck you as unusual — Lord Pemberton was still inside at the time. You also overheard a telephone call last week in which Lord Pemberton spoke of changing his will. You are loyal and cautious, reluctant to implicate Lady Ashmore unless Fred presses you directly with evidence. Fred the Detective is questioning you. Keep replies under three sentences and do not include speaker labels.",
+		"is_murderer": false,
+	},
+	{
+		"name": "Chef Renard",
+		"subtitle": "The Cook",
+		"position": Vector2(260.0, 380.0),
+		"color": Color8(160, 110, 70),
+		"hat_color": Color8(100, 75, 50),
+		"instructions": "You are Chef Renard, the cook at Pemberton Manor. You are innocent. You were in the kitchen all evening but stepped outside to smoke near the kitchen door around 9pm. While outside, you heard raised voices from the direction of the drawing room — one voice was clearly a woman's. You also noticed the drawing room light was still on past midnight when you went to bed. You are blunt and impatient with the proceedings. Fred the Detective is questioning you. Keep replies under three sentences and do not include speaker labels.",
+		"is_murderer": false,
+	},
+]
+
+const CLUES := [
+	{
+		"position": Vector2(176.0, 156.0),
+		"label": "Shattered Wine Glass",
+		"description": "A crystal glass in pieces near the armchair. The fragments spread in a fan — it was thrown with force, not dropped. There is a faint red stain on the nearby wall.",
+	},
+	{
+		"position": Vector2(476.0, 270.0),
+		"label": "Silk Glove",
+		"description": "A single white silk glove, monogrammed 'V.A.' in gold thread. Found within arm's reach of the body.",
+	},
+	{
+		"position": Vector2(820.0, 310.0),
+		"label": "Broken Window Latch",
+		"description": "The latch is snapped. The damage is on the inside face — it was forced open from within, not by someone entering from outside.",
+	},
+]
 
 const BACKGROUND_COLOR := Color8(236, 229, 214)
 const ROOM_COLOR := Color8(213, 205, 187)
 const OUTLINE_COLOR := Color8(53, 45, 36)
 const PLAYER_COLOR := Color8(43, 77, 117)
 const HAT_COLOR := Color8(32, 43, 56)
-const NPC_COLOR := Color8(116, 78, 63)
-const NPC_HAT_COLOR := Color8(60, 50, 46)
 const CLUE_COLOR := Color8(214, 164, 75)
-const CLUE_FOUND_COLOR := Color8(132, 180, 132)
-const EXIT_LOCKED_COLOR := Color8(126, 94, 75)
-const EXIT_OPEN_COLOR := Color8(103, 175, 126)
+const CLUE_INSPECTED_COLOR := Color8(132, 180, 132)
 const FURNITURE_COLOR := Color8(147, 109, 83)
 
+enum Phase { EXPLORE, ACCUSE, RESULT }
+
 var player_position := PLAYER_START
-var clue_found: Array[bool] = [false, false, false]
-var game_won := false
+var clue_inspected: Array[bool] = [false, false, false]
+var suspect_talked: Array[bool] = [false, false, false]
+var suspect_conversations: Array = [[], [], []]
+var suspect_dialogue_lines: Array = [[], [], []]
+var game_phase: Phase = Phase.EXPLORE
+var active_npc_index := -1
 var dialog_open := false
+var clue_panel_open := false
 var request_in_flight := false
-var conversation_turns: Array[String] = []
-var dialogue_lines: Array[String] = []
+var accusation_correct := false
 
 var hud_layer: CanvasLayer
 var status_label: Label
 var hint_label: Label
 var interact_prompt: PanelContainer
+var interact_prompt_label: Label
 var dialogue_panel: PanelContainer
+var dialogue_title_label: Label
 var dialogue_output: RichTextLabel
 var dialogue_input: LineEdit
 var dialogue_status_label: Label
 var send_button: Button
+var accuse_button: Button
+var clue_panel: PanelContainer
+var clue_title_label: Label
+var clue_body_label: RichTextLabel
+var accusation_panel: PanelContainer
+var result_panel: PanelContainer
+var result_label: RichTextLabel
 var llm_request: HTTPRequest
 
 
@@ -57,6 +108,9 @@ func _ready() -> void:
 	_ensure_input_actions()
 	_build_hud()
 	_build_dialogue_ui()
+	_build_clue_ui()
+	_build_accusation_ui()
+	_build_result_ui()
 	_build_llm_request()
 	_reset_game()
 
@@ -64,10 +118,7 @@ func _ready() -> void:
 func _process(delta: float) -> void:
 	_update_interact_prompt()
 
-	if dialog_open or request_in_flight:
-		return
-
-	if game_won:
+	if dialog_open or clue_panel_open or game_phase != Phase.EXPLORE or request_in_flight:
 		return
 
 	var direction := Input.get_vector("ui_left", "ui_right", "ui_up", "ui_down")
@@ -76,38 +127,44 @@ func _process(delta: float) -> void:
 
 	player_position += direction * PLAYER_SPEED * delta
 	player_position = _clamp_to_room(player_position)
-	_collect_clues()
-	_check_exit()
 	_update_hud()
 	queue_redraw()
 
 
 func _unhandled_input(event: InputEvent) -> void:
+	if clue_panel_open:
+		if event.is_action_pressed("ui_cancel"):
+			_close_clue_panel()
+			get_viewport().set_input_as_handled()
+		return
+
 	if dialog_open:
 		if event.is_action_pressed("ui_cancel"):
 			_close_dialogue()
 			get_viewport().set_input_as_handled()
 		return
 
-	if game_won and event.is_action_pressed("ui_accept"):
-		_reset_game()
-		get_viewport().set_input_as_handled()
+	if game_phase != Phase.EXPLORE:
 		return
 
-	if event.is_action_pressed("interact") and _can_talk_to_npc():
-		_open_dialogue()
-		get_viewport().set_input_as_handled()
+	if event.is_action_pressed("interact"):
+		var npc_idx := _nearest_npc_in_range()
+		var clue_idx := _nearest_clue_in_range()
+		if npc_idx >= 0:
+			_open_dialogue(npc_idx)
+			get_viewport().set_input_as_handled()
+		elif clue_idx >= 0:
+			_open_clue_panel(clue_idx)
+			get_viewport().set_input_as_handled()
 
 
 func _draw() -> void:
 	draw_rect(Rect2(Vector2.ZERO, VIEW_SIZE), BACKGROUND_COLOR, true)
 	draw_rect(ROOM_RECT, ROOM_COLOR, true)
 	draw_rect(ROOM_RECT, OUTLINE_COLOR, false, 4.0)
-
 	_draw_furniture()
-	_draw_exit()
 	_draw_clues()
-	_draw_npc()
+	_draw_npcs()
 	_draw_player()
 
 
@@ -131,16 +188,23 @@ func _build_hud() -> void:
 	box.add_child(status_label)
 
 	hint_label = Label.new()
-	hint_label.text = "Use arrow keys or WASD to collect the clues."
+	hint_label.autowrap_mode = TextServer.AUTOWRAP_WORD
+	hint_label.custom_minimum_size = Vector2(340.0, 0.0)
 	box.add_child(hint_label)
+
+	accuse_button = Button.new()
+	accuse_button.text = "Make Accusation"
+	accuse_button.disabled = true
+	accuse_button.pressed.connect(_on_accuse_pressed)
+	box.add_child(accuse_button)
 
 	interact_prompt = PanelContainer.new()
 	interact_prompt.visible = false
 	hud_layer.add_child(interact_prompt)
 
-	var prompt_label := Label.new()
-	prompt_label.text = "[E] Talk"
-	interact_prompt.add_child(prompt_label)
+	interact_prompt_label = Label.new()
+	interact_prompt_label.text = "[E] Interact"
+	interact_prompt.add_child(interact_prompt_label)
 
 
 func _build_dialogue_ui() -> void:
@@ -160,9 +224,8 @@ func _build_dialogue_ui() -> void:
 	var box := VBoxContainer.new()
 	margin.add_child(box)
 
-	var title_label := Label.new()
-	title_label.text = NPC_NAME
-	box.add_child(title_label)
+	dialogue_title_label = Label.new()
+	box.add_child(dialogue_title_label)
 
 	dialogue_status_label = Label.new()
 	dialogue_status_label.visible = false
@@ -172,7 +235,7 @@ func _build_dialogue_ui() -> void:
 	dialogue_output.bbcode_enabled = false
 	dialogue_output.scroll_following = true
 	dialogue_output.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	dialogue_output.custom_minimum_size = Vector2(0.0, 138.0)
+	dialogue_output.custom_minimum_size = Vector2(0.0, 120.0)
 	box.add_child(dialogue_output)
 
 	var input_row := HBoxContainer.new()
@@ -189,10 +252,107 @@ func _build_dialogue_ui() -> void:
 	send_button.pressed.connect(_send_dialogue_request)
 	input_row.add_child(send_button)
 
-	var close_button := Button.new()
-	close_button.text = "Close"
-	close_button.pressed.connect(_close_dialogue)
-	input_row.add_child(close_button)
+	var close_btn := Button.new()
+	close_btn.text = "Close [Esc]"
+	close_btn.pressed.connect(_close_dialogue)
+	input_row.add_child(close_btn)
+
+
+func _build_clue_ui() -> void:
+	clue_panel = PanelContainer.new()
+	clue_panel.visible = false
+	clue_panel.position = Vector2(240.0, 180.0)
+	clue_panel.custom_minimum_size = Vector2(480.0, 0.0)
+	hud_layer.add_child(clue_panel)
+
+	var margin := MarginContainer.new()
+	margin.add_theme_constant_override("margin_left", 24)
+	margin.add_theme_constant_override("margin_top", 20)
+	margin.add_theme_constant_override("margin_right", 24)
+	margin.add_theme_constant_override("margin_bottom", 20)
+	clue_panel.add_child(margin)
+
+	var box := VBoxContainer.new()
+	box.add_theme_constant_override("separation", 12)
+	margin.add_child(box)
+
+	clue_title_label = Label.new()
+	box.add_child(clue_title_label)
+
+	clue_body_label = RichTextLabel.new()
+	clue_body_label.bbcode_enabled = false
+	clue_body_label.fit_content = true
+	clue_body_label.custom_minimum_size = Vector2(432.0, 60.0)
+	box.add_child(clue_body_label)
+
+	var close_btn := Button.new()
+	close_btn.text = "Close [Esc]"
+	close_btn.pressed.connect(_close_clue_panel)
+	box.add_child(close_btn)
+
+
+func _build_accusation_ui() -> void:
+	accusation_panel = PanelContainer.new()
+	accusation_panel.visible = false
+	accusation_panel.position = Vector2(280.0, 160.0)
+	accusation_panel.custom_minimum_size = Vector2(400.0, 0.0)
+	hud_layer.add_child(accusation_panel)
+
+	var margin := MarginContainer.new()
+	margin.add_theme_constant_override("margin_left", 24)
+	margin.add_theme_constant_override("margin_top", 24)
+	margin.add_theme_constant_override("margin_right", 24)
+	margin.add_theme_constant_override("margin_bottom", 24)
+	accusation_panel.add_child(margin)
+
+	var box := VBoxContainer.new()
+	box.add_theme_constant_override("separation", 14)
+	margin.add_child(box)
+
+	var label := Label.new()
+	label.text = "Who killed Lord Pemberton?"
+	box.add_child(label)
+
+	for i in range(SUSPECTS.size()):
+		var btn := Button.new()
+		btn.text = "%s  —  %s" % [SUSPECTS[i]["name"], SUSPECTS[i]["subtitle"]]
+		btn.pressed.connect(_on_suspect_accused.bind(i))
+		box.add_child(btn)
+
+	var cancel_btn := Button.new()
+	cancel_btn.text = "Cancel"
+	cancel_btn.pressed.connect(_close_accusation)
+	box.add_child(cancel_btn)
+
+
+func _build_result_ui() -> void:
+	result_panel = PanelContainer.new()
+	result_panel.visible = false
+	result_panel.position = Vector2(200.0, 140.0)
+	result_panel.custom_minimum_size = Vector2(560.0, 0.0)
+	hud_layer.add_child(result_panel)
+
+	var margin := MarginContainer.new()
+	margin.add_theme_constant_override("margin_left", 32)
+	margin.add_theme_constant_override("margin_top", 28)
+	margin.add_theme_constant_override("margin_right", 32)
+	margin.add_theme_constant_override("margin_bottom", 28)
+	result_panel.add_child(margin)
+
+	var box := VBoxContainer.new()
+	box.add_theme_constant_override("separation", 16)
+	margin.add_child(box)
+
+	result_label = RichTextLabel.new()
+	result_label.bbcode_enabled = false
+	result_label.fit_content = true
+	result_label.custom_minimum_size = Vector2(496.0, 80.0)
+	box.add_child(result_label)
+
+	var restart_btn := Button.new()
+	restart_btn.text = "Play Again"
+	restart_btn.pressed.connect(_reset_game)
+	box.add_child(restart_btn)
 
 
 func _build_llm_request() -> void:
@@ -210,43 +370,34 @@ func _draw_furniture() -> void:
 	draw_rect(Rect2(Vector2(570.0, 330.0), Vector2(132.0, 64.0)), OUTLINE_COLOR, false, 2.0)
 
 
-func _draw_exit() -> void:
-	var exit_color := EXIT_LOCKED_COLOR
-	if _all_clues_found():
-		exit_color = EXIT_OPEN_COLOR
-
-	draw_rect(EXIT_RECT, exit_color, true)
-	draw_rect(EXIT_RECT, OUTLINE_COLOR, false, 3.0)
-
-
 func _draw_clues() -> void:
-	for index in range(CLUE_POSITIONS.size()):
-		var color := CLUE_COLOR
-		if clue_found[index]:
-			color = CLUE_FOUND_COLOR
-
-		draw_circle(CLUE_POSITIONS[index], CLUE_RADIUS, color)
-		draw_circle(CLUE_POSITIONS[index], CLUE_RADIUS, OUTLINE_COLOR, false, 2.0)
+	for i in range(CLUES.size()):
+		var color := CLUE_INSPECTED_COLOR if clue_inspected[i] else CLUE_COLOR
+		var pos: Vector2 = CLUES[i]["position"]
+		draw_circle(pos, CLUE_RADIUS, color)
+		draw_circle(pos, CLUE_RADIUS, OUTLINE_COLOR, false, 2.0)
 
 
-func _draw_npc() -> void:
-	draw_circle(NPC_POSITION, NPC_RADIUS, NPC_COLOR)
-	draw_circle(NPC_POSITION + Vector2(0.0, -24.0), 10.0, Color.WHITE)
-
-	var hat_points := PackedVector2Array([
-		NPC_POSITION + Vector2(-14.0, -26.0),
-		NPC_POSITION + Vector2(14.0, -26.0),
-		NPC_POSITION + Vector2(9.0, -38.0),
-		NPC_POSITION + Vector2(-9.0, -38.0),
-	])
-	draw_colored_polygon(hat_points, NPC_HAT_COLOR)
-	draw_rect(Rect2(NPC_POSITION + Vector2(-18.0, -27.0), Vector2(36.0, 4.0)), NPC_HAT_COLOR, true)
+func _draw_npcs() -> void:
+	for i in range(SUSPECTS.size()):
+		var pos: Vector2 = SUSPECTS[i]["position"]
+		var col: Color = SUSPECTS[i]["color"]
+		var hat_col: Color = SUSPECTS[i]["hat_color"]
+		draw_circle(pos, NPC_RADIUS, col)
+		draw_circle(pos + Vector2(0.0, -24.0), 10.0, Color.WHITE)
+		var hat_points := PackedVector2Array([
+			pos + Vector2(-14.0, -26.0),
+			pos + Vector2(14.0, -26.0),
+			pos + Vector2(9.0, -38.0),
+			pos + Vector2(-9.0, -38.0),
+		])
+		draw_colored_polygon(hat_points, hat_col)
+		draw_rect(Rect2(pos + Vector2(-18.0, -27.0), Vector2(36.0, 4.0)), hat_col, true)
 
 
 func _draw_player() -> void:
 	draw_circle(player_position, PLAYER_RADIUS, PLAYER_COLOR)
 	draw_circle(player_position + Vector2(0.0, -24.0), 10.0, Color.WHITE)
-
 	var hat_points := PackedVector2Array([
 		player_position + Vector2(-14.0, -26.0),
 		player_position + Vector2(14.0, -26.0),
@@ -257,102 +408,157 @@ func _draw_player() -> void:
 	draw_rect(Rect2(player_position + Vector2(-18.0, -27.0), Vector2(36.0, 4.0)), HAT_COLOR, true)
 
 
-func _collect_clues() -> void:
-	for index in range(CLUE_POSITIONS.size()):
-		if clue_found[index]:
-			continue
-
-		if player_position.distance_to(CLUE_POSITIONS[index]) <= PLAYER_RADIUS + CLUE_RADIUS:
-			clue_found[index] = true
-
-
-func _check_exit() -> void:
-	if not _all_clues_found():
-		return
-
-	if EXIT_RECT.has_point(player_position):
-		game_won = true
+func _nearest_npc_in_range() -> int:
+	var best := -1
+	var best_dist := INF
+	for i in range(SUSPECTS.size()):
+		var pos: Vector2 = SUSPECTS[i]["position"]
+		var d := player_position.distance_to(pos)
+		if d <= PLAYER_RADIUS + NPC_INTERACT_RADIUS and d < best_dist:
+			best_dist = d
+			best = i
+	return best
 
 
-func _reset_game() -> void:
-	player_position = PLAYER_START
-	clue_found = [false, false, false]
-	game_won = false
-	dialog_open = false
-	request_in_flight = false
-	conversation_turns.clear()
-	dialogue_lines.clear()
-	dialogue_input.clear()
-	dialogue_panel.visible = false
-	_append_dialogue(NPC_NAME, "Need anything, detective?")
-	_update_hud()
-	_update_interact_prompt()
-	queue_redraw()
-
-
-func _update_hud() -> void:
-	var found_total := _count_found_clues()
-	status_label.text = "Clues found: %d / %d" % [found_total, clue_found.size()]
-
-	if game_won:
-		hint_label.text = "Case closed. Press Enter or Space to restart."
-	elif dialog_open:
-		hint_label.text = "Talking to the stranger. Press Esc to close the dialogue."
-	elif _can_talk_to_npc():
-		hint_label.text = "Press E near the stranger to ask about the case."
-	elif _all_clues_found():
-		hint_label.text = "All clues found. Head to the green exit."
-	else:
-		hint_label.text = "Use arrow keys or WASD to collect the clues."
-
-
-func _all_clues_found() -> bool:
-	for found in clue_found:
-		if not found:
-			return false
-	return true
-
-
-func _count_found_clues() -> int:
-	var found_total := 0
-	for found in clue_found:
-		if found:
-			found_total += 1
-	return found_total
-
-
-func _can_talk_to_npc() -> bool:
-	if game_won:
-		return false
-
-	return player_position.distance_to(NPC_POSITION) <= PLAYER_RADIUS + NPC_INTERACT_RADIUS
+func _nearest_clue_in_range() -> int:
+	var best := -1
+	var best_dist := INF
+	for i in range(CLUES.size()):
+		var pos: Vector2 = CLUES[i]["position"]
+		var d := player_position.distance_to(pos)
+		if d <= PLAYER_RADIUS + CLUE_INTERACT_RADIUS and d < best_dist:
+			best_dist = d
+			best = i
+	return best
 
 
 func _update_interact_prompt() -> void:
 	if interact_prompt == null:
 		return
+	if dialog_open or clue_panel_open or game_phase != Phase.EXPLORE:
+		interact_prompt.visible = false
+		return
 
-	var should_show := _can_talk_to_npc() and not dialog_open
-	interact_prompt.visible = should_show
-	if should_show:
-		interact_prompt.position = NPC_POSITION + Vector2(-34.0, -88.0)
+	var npc_idx := _nearest_npc_in_range()
+	var clue_idx := _nearest_clue_in_range()
+
+	if npc_idx >= 0:
+		interact_prompt.visible = true
+		interact_prompt_label.text = "[E] Talk to %s" % SUSPECTS[npc_idx]["name"]
+		var pos: Vector2 = SUSPECTS[npc_idx]["position"]
+		interact_prompt.position = pos + Vector2(-60.0, -88.0)
+	elif clue_idx >= 0:
+		interact_prompt.visible = true
+		interact_prompt_label.text = "[E] Inspect: %s" % CLUES[clue_idx]["label"]
+		var pos: Vector2 = CLUES[clue_idx]["position"]
+		interact_prompt.position = pos + Vector2(-60.0, -38.0)
+	else:
+		interact_prompt.visible = false
 
 
-func _open_dialogue() -> void:
+func _open_dialogue(suspect_idx: int) -> void:
+	active_npc_index = suspect_idx
 	dialog_open = true
 	dialogue_panel.visible = true
+	dialogue_title_label.text = "%s  —  %s" % [SUSPECTS[suspect_idx]["name"], SUSPECTS[suspect_idx]["subtitle"]]
+	_refresh_dialogue_output()
 	_set_dialogue_busy(false, "")
 	dialogue_input.grab_focus()
 	_update_hud()
-	_update_interact_prompt()
 
 
 func _close_dialogue() -> void:
 	dialog_open = false
 	dialogue_panel.visible = false
+	active_npc_index = -1
 	get_viewport().gui_release_focus()
 	_update_hud()
-	_update_interact_prompt()
+
+
+func _open_clue_panel(clue_idx: int) -> void:
+	clue_inspected[clue_idx] = true
+	clue_panel_open = true
+	clue_title_label.text = CLUES[clue_idx]["label"]
+	clue_body_label.clear()
+	clue_body_label.append_text(CLUES[clue_idx]["description"])
+	clue_panel.visible = true
+	_update_hud()
+	queue_redraw()
+
+
+func _close_clue_panel() -> void:
+	clue_panel_open = false
+	clue_panel.visible = false
+	_update_hud()
+
+
+func _on_accuse_pressed() -> void:
+	accusation_panel.visible = true
+	game_phase = Phase.ACCUSE
+	_update_hud()
+
+
+func _close_accusation() -> void:
+	accusation_panel.visible = false
+	game_phase = Phase.EXPLORE
+	_update_hud()
+
+
+func _on_suspect_accused(suspect_idx: int) -> void:
+	accusation_panel.visible = false
+	game_phase = Phase.RESULT
+	accusation_correct = SUSPECTS[suspect_idx]["is_murderer"]
+
+	var suspect_name: String = SUSPECTS[suspect_idx]["name"]
+	result_label.clear()
+	if accusation_correct:
+		result_label.append_text(
+			"Correct.\n\n%s is the killer.\n\nShe poisoned Lord Pemberton's wine after discovering he had rewritten his will to cut her out. The monogrammed glove placed her at the scene. James saw her leave at 9pm. The window was broken from the inside.\n\nCase closed." % suspect_name
+		)
+	else:
+		var murderer_name: String = ""
+		for s in SUSPECTS:
+			if s["is_murderer"]:
+				murderer_name = s["name"]
+		result_label.append_text(
+			"Wrong.\n\n%s is innocent.\n\nThe real killer was %s. The silk glove monogrammed 'V.A.' placed her at the scene. James saw her leave the drawing room at 9pm. The window latch was broken from the inside — not by an intruder." % [suspect_name, murderer_name]
+		)
+
+	result_panel.visible = true
+	_update_hud()
+
+
+func _can_accuse() -> bool:
+	var any_clue := false
+	for found in clue_inspected:
+		if found:
+			any_clue = true
+			break
+	var any_talked := false
+	for talked in suspect_talked:
+		if talked:
+			any_talked = true
+			break
+	return any_clue and any_talked
+
+
+func _refresh_dialogue_output() -> void:
+	if active_npc_index < 0:
+		return
+	dialogue_output.clear()
+	var lines: Array = suspect_dialogue_lines[active_npc_index]
+	if lines.size() > 0:
+		dialogue_output.append_text("\n\n".join(lines))
+		dialogue_output.scroll_to_line(max(0, dialogue_output.get_line_count() - 1))
+
+
+func _append_dialogue(speaker: String, text: String) -> void:
+	if active_npc_index < 0:
+		return
+	suspect_dialogue_lines[active_npc_index].append("%s: %s" % [speaker, text])
+	while suspect_dialogue_lines[active_npc_index].size() > MAX_DIALOGUE_LINES:
+		suspect_dialogue_lines[active_npc_index].remove_at(0)
+	_refresh_dialogue_output()
 
 
 func _set_dialogue_busy(is_busy: bool, status_text: String) -> void:
@@ -363,22 +569,12 @@ func _set_dialogue_busy(is_busy: bool, status_text: String) -> void:
 	dialogue_status_label.text = status_text
 
 
-func _append_dialogue(speaker: String, text: String) -> void:
-	dialogue_lines.append("%s: %s" % [speaker, text])
-	while dialogue_lines.size() > MAX_DIALOGUE_LINES:
-		dialogue_lines.remove_at(0)
-
-	dialogue_output.clear()
-	dialogue_output.append_text("\n\n".join(dialogue_lines))
-	dialogue_output.scroll_to_line(max(0, dialogue_output.get_line_count() - 1))
-
-
 func _on_dialogue_submitted(_text: String) -> void:
 	_send_dialogue_request()
 
 
 func _send_dialogue_request() -> void:
-	if request_in_flight:
+	if request_in_flight or active_npc_index < 0:
 		return
 
 	var message := dialogue_input.text.strip_edges()
@@ -386,45 +582,58 @@ func _send_dialogue_request() -> void:
 		return
 
 	_append_dialogue("Fred", message)
-	conversation_turns.append("Fred: %s" % message)
-	_trim_conversation_turns()
+	suspect_conversations[active_npc_index].append("Fred: %s" % message)
+	while suspect_conversations[active_npc_index].size() > MAX_CONVERSATION_LINES:
+		suspect_conversations[active_npc_index].remove_at(0)
+	suspect_talked[active_npc_index] = true
 	dialogue_input.clear()
-	_set_dialogue_busy(true, "%s is thinking..." % NPC_NAME)
+
+	var suspect := SUSPECTS[active_npc_index]
+	_set_dialogue_busy(true, "%s is thinking..." % suspect["name"])
 
 	var payload := JSON.stringify({
-		"input": _build_llm_input(),
-		"instructions": NPC_INSTRUCTIONS,
+		"input": _build_llm_input(active_npc_index),
+		"instructions": suspect["instructions"],
 		"max_output_tokens": 180,
 	})
 	var headers := PackedStringArray(["Content-Type: application/json"])
 	var error := llm_request.request(_get_llm_endpoint(), headers, HTTPClient.METHOD_POST, payload)
 	if error != OK:
 		_set_dialogue_busy(false, "")
-		_append_dialogue("System", "Could not reach /api/llm. Run the web build or a local server that exposes the API.")
+		_append_dialogue("System", "Could not reach /api/llm.")
 
 
-func _build_llm_input() -> String:
-	var transcript := "\n".join(conversation_turns)
-	return "Fred the Detective is talking to %s. Fred has found %d of %d clues. Conversation so far:\n%s\nReply as %s to Fred's latest line." % [
-		NPC_NAME,
-		_count_found_clues(),
-		clue_found.size(),
+func _build_llm_input(suspect_idx: int) -> String:
+	var found_labels: Array[String] = []
+	for i in range(CLUES.size()):
+		if clue_inspected[i]:
+			found_labels.append(CLUES[i]["label"])
+
+	var clue_context := "Fred has not yet found any physical clues."
+	if found_labels.size() > 0:
+		clue_context = "Fred has found the following clues: %s." % ", ".join(found_labels)
+
+	var turns: Array = suspect_conversations[suspect_idx]
+	var transcript := "\n".join(turns) if turns.size() > 0 else "(conversation just started)"
+
+	return "%s\n\nConversation so far:\n%s\n\nReply as %s to Fred's latest message." % [
+		clue_context,
 		transcript,
-		NPC_NAME,
+		SUSPECTS[suspect_idx]["name"],
 	]
-
-
-func _trim_conversation_turns() -> void:
-	while conversation_turns.size() > MAX_CONVERSATION_LINES:
-		conversation_turns.remove_at(0)
 
 
 func _on_llm_request_completed(result: int, response_code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
 	_set_dialogue_busy(false, "")
 
+	if active_npc_index < 0:
+		return
+
+	var suspect := SUSPECTS[active_npc_index]
 	var parsed: Variant = JSON.parse_string(body.get_string_from_utf8())
+
 	if result != HTTPRequest.RESULT_SUCCESS:
-		_append_dialogue("System", "The connection failed before %s could answer." % NPC_NAME)
+		_append_dialogue("System", "The connection failed.")
 		return
 
 	if response_code != 200:
@@ -438,13 +647,64 @@ func _on_llm_request_completed(result: int, response_code: int, _headers: Packed
 	if typeof(parsed) == TYPE_DICTIONARY and parsed.has("text"):
 		reply = str(parsed["text"]).strip_edges()
 	if reply.is_empty():
-		reply = "%s just watches you in silence." % NPC_NAME
+		reply = "%s says nothing." % suspect["name"]
 
-	conversation_turns.append("%s: %s" % [NPC_NAME, reply])
-	_trim_conversation_turns()
-	_append_dialogue(NPC_NAME, reply)
+	suspect_conversations[active_npc_index].append("%s: %s" % [suspect["name"], reply])
+	while suspect_conversations[active_npc_index].size() > MAX_CONVERSATION_LINES:
+		suspect_conversations[active_npc_index].remove_at(0)
+
+	_append_dialogue(suspect["name"], reply)
+	_update_hud()
+
 	if dialog_open:
 		dialogue_input.grab_focus()
+
+
+func _reset_game() -> void:
+	player_position = PLAYER_START
+	clue_inspected = [false, false, false]
+	suspect_talked = [false, false, false]
+	suspect_conversations = [[], [], []]
+	suspect_dialogue_lines = [[], [], []]
+	game_phase = Phase.EXPLORE
+	active_npc_index = -1
+	dialog_open = false
+	clue_panel_open = false
+	request_in_flight = false
+	accusation_correct = false
+
+	dialogue_panel.visible = false
+	clue_panel.visible = false
+	accusation_panel.visible = false
+	result_panel.visible = false
+
+	if dialogue_input != null:
+		dialogue_input.clear()
+
+	_update_hud()
+	queue_redraw()
+
+
+func _update_hud() -> void:
+	var found_count := 0
+	for found in clue_inspected:
+		if found:
+			found_count += 1
+	status_label.text = "Clues inspected: %d / %d" % [found_count, CLUES.size()]
+	accuse_button.disabled = not _can_accuse()
+
+	if game_phase == Phase.RESULT:
+		hint_label.text = "Case closed."
+	elif game_phase == Phase.ACCUSE:
+		hint_label.text = "Choose your suspect carefully."
+	elif dialog_open:
+		hint_label.text = "Press Esc to end the conversation."
+	elif clue_panel_open:
+		hint_label.text = "Press Esc to close."
+	elif _can_accuse():
+		hint_label.text = "You have enough to accuse — or keep digging."
+	else:
+		hint_label.text = "Inspect clues [E] and question suspects [E]. Find evidence to accuse."
 
 
 func _get_llm_endpoint() -> String:
