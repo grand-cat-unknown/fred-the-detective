@@ -83,6 +83,7 @@ var accusation_suspect_idx := -1
 var dialog_open := false
 var clue_panel_open := false
 var request_in_flight := false
+var pending_request_npc_index := -1
 var accusation_correct := false
 
 var hud_layer: CanvasLayer
@@ -151,6 +152,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		return
 
 	if game_phase != Phase.EXPLORE:
+		return
+
+	if request_in_flight:
 		return
 
 	if event.is_action_pressed("interact"):
@@ -600,12 +604,17 @@ func _refresh_dialogue_output() -> void:
 
 
 func _append_dialogue(speaker: String, text: String) -> void:
-	if active_npc_index < 0:
+	_append_dialogue_for(active_npc_index, speaker, text)
+
+
+func _append_dialogue_for(suspect_idx: int, speaker: String, text: String) -> void:
+	if suspect_idx < 0 or suspect_idx >= suspect_dialogue_lines.size():
 		return
-	suspect_dialogue_lines[active_npc_index].append("%s: %s" % [speaker, text])
-	while suspect_dialogue_lines[active_npc_index].size() > MAX_DIALOGUE_LINES:
-		suspect_dialogue_lines[active_npc_index].remove_at(0)
-	_refresh_dialogue_output()
+	suspect_dialogue_lines[suspect_idx].append("%s: %s" % [speaker, text])
+	while suspect_dialogue_lines[suspect_idx].size() > MAX_DIALOGUE_LINES:
+		suspect_dialogue_lines[suspect_idx].remove_at(0)
+	if suspect_idx == active_npc_index:
+		_refresh_dialogue_output()
 
 
 func _set_dialogue_busy(is_busy: bool, status_text: String) -> void:
@@ -614,6 +623,8 @@ func _set_dialogue_busy(is_busy: bool, status_text: String) -> void:
 	send_button.disabled = is_busy
 	dialogue_status_label.visible = not status_text.is_empty()
 	dialogue_status_label.text = status_text
+	if status_label != null:
+		_update_hud()
 
 
 func _on_dialogue_submitted(_text: String) -> void:
@@ -624,28 +635,31 @@ func _send_dialogue_request() -> void:
 	if request_in_flight or active_npc_index < 0:
 		return
 
+	var suspect_idx := active_npc_index
 	var message := dialogue_input.text.strip_edges()
 	if message.is_empty():
 		return
 
 	_append_dialogue("Fred", message)
-	suspect_conversations[active_npc_index].append("Fred: %s" % message)
-	while suspect_conversations[active_npc_index].size() > MAX_CONVERSATION_LINES:
-		suspect_conversations[active_npc_index].remove_at(0)
-	suspect_talked[active_npc_index] = true
+	suspect_conversations[suspect_idx].append("Fred: %s" % message)
+	while suspect_conversations[suspect_idx].size() > MAX_CONVERSATION_LINES:
+		suspect_conversations[suspect_idx].remove_at(0)
+	suspect_talked[suspect_idx] = true
 	dialogue_input.clear()
 
-	var suspect: Dictionary = SUSPECTS[active_npc_index]
+	var suspect: Dictionary = SUSPECTS[suspect_idx]
 	_set_dialogue_busy(true, "%s is thinking..." % suspect["name"])
+	pending_request_npc_index = suspect_idx
 
 	var payload := JSON.stringify({
-		"input": _build_llm_input(active_npc_index),
+		"input": _build_llm_input(suspect_idx),
 		"instructions": suspect["instructions"],
 		"max_output_tokens": 180,
 	})
 	var headers := PackedStringArray(["Content-Type: application/json"])
 	var error := llm_request.request(_get_llm_endpoint(), headers, HTTPClient.METHOD_POST, payload)
 	if error != OK:
+		pending_request_npc_index = -1
 		_set_dialogue_busy(false, "")
 		_append_dialogue("System", "Could not reach /api/llm.")
 
@@ -671,23 +685,25 @@ func _build_llm_input(suspect_idx: int) -> String:
 
 
 func _on_llm_request_completed(result: int, response_code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
+	var suspect_idx := pending_request_npc_index
+	pending_request_npc_index = -1
 	_set_dialogue_busy(false, "")
 
-	if active_npc_index < 0:
+	if suspect_idx < 0 or suspect_idx >= SUSPECTS.size():
 		return
 
-	var suspect: Dictionary = SUSPECTS[active_npc_index]
+	var suspect: Dictionary = SUSPECTS[suspect_idx]
 	var parsed: Variant = JSON.parse_string(body.get_string_from_utf8())
 
 	if result != HTTPRequest.RESULT_SUCCESS:
-		_append_dialogue("System", "The connection failed.")
+		_append_dialogue_for(suspect_idx, "System", "The connection failed.")
 		return
 
 	if response_code != 200:
 		var error_text := "The line went dead."
 		if typeof(parsed) == TYPE_DICTIONARY and parsed.has("error"):
 			error_text = str(parsed["error"])
-		_append_dialogue("System", error_text)
+		_append_dialogue_for(suspect_idx, "System", error_text)
 		return
 
 	var reply := ""
@@ -696,14 +712,14 @@ func _on_llm_request_completed(result: int, response_code: int, _headers: Packed
 	if reply.is_empty():
 		reply = "%s says nothing." % suspect["name"]
 
-	suspect_conversations[active_npc_index].append("%s: %s" % [suspect["name"], reply])
-	while suspect_conversations[active_npc_index].size() > MAX_CONVERSATION_LINES:
-		suspect_conversations[active_npc_index].remove_at(0)
+	suspect_conversations[suspect_idx].append("%s: %s" % [suspect["name"], reply])
+	while suspect_conversations[suspect_idx].size() > MAX_CONVERSATION_LINES:
+		suspect_conversations[suspect_idx].remove_at(0)
 
-	_append_dialogue(suspect["name"], reply)
+	_append_dialogue_for(suspect_idx, suspect["name"], reply)
 	_update_hud()
 
-	if dialog_open:
+	if dialog_open and active_npc_index == suspect_idx:
 		dialogue_input.grab_focus()
 
 
@@ -720,6 +736,7 @@ func _reset_game() -> void:
 	dialog_open = false
 	clue_panel_open = false
 	request_in_flight = false
+	pending_request_npc_index = -1
 	accusation_correct = false
 
 	dialogue_panel.visible = false
@@ -740,12 +757,14 @@ func _update_hud() -> void:
 		if found:
 			found_count += 1
 	status_label.text = "Clues inspected: %d / %d" % [found_count, CLUES.size()]
-	accuse_button.disabled = not _can_accuse()
+	accuse_button.disabled = request_in_flight or not _can_accuse()
 
 	if game_phase == Phase.RESULT:
 		hint_label.text = "Case closed."
 	elif game_phase == Phase.ACCUSE:
 		hint_label.text = "Choose your suspect carefully."
+	elif request_in_flight:
+		hint_label.text = "Waiting for an answer."
 	elif dialog_open:
 		hint_label.text = "Press Esc to end the conversation."
 	elif clue_panel_open:

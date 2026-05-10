@@ -10,6 +10,11 @@ const {
 } = require('../lib/auth');
 
 module.exports = async function handler(req, res) {
+	if (req.method === 'DELETE') {
+		res.setHeader('Set-Cookie', buildSessionCookie('', 0));
+		return json(res, 200, { authenticated: false });
+	}
+
 	const { username, password, sessionSecret } = getSessionConfig();
 
 	if (!username || !password || !sessionSecret) {
@@ -20,16 +25,11 @@ module.exports = async function handler(req, res) {
 
 	if (req.method === 'GET') {
 		const session = getSession(req, sessionSecret);
-		if (!session) {
+		if (!session || !safeEqual(session.username, username)) {
 			return json(res, 401, { authenticated: false });
 		}
 
 		return json(res, 200, { authenticated: true, username: session.username });
-	}
-
-	if (req.method === 'DELETE') {
-		res.setHeader('Set-Cookie', buildSessionCookie('', 0));
-		return json(res, 200, { authenticated: false });
 	}
 
 	if (req.method !== 'POST') {

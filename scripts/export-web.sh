@@ -21,6 +21,16 @@ Environment:
 EOF
 }
 
+require_value() {
+	local option="$1"
+	local value="${2:-}"
+	if [[ -z "$value" || "$value" == --* ]]; then
+		echo "Missing value for $option." >&2
+		usage >&2
+		exit 1
+	fi
+}
+
 script_dir="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
 project_root="$(cd "$script_dir/.." && pwd)"
 template_path="$script_dir/index.template.html"
@@ -44,14 +54,17 @@ while [[ $# -gt 0 ]]; do
 			shift
 			;;
 		--preset)
+			require_value "$1" "${2:-}"
 			preset="$2"
 			shift 2
 			;;
 		--output)
+			require_value "$1" "${2:-}"
 			output="$2"
 			shift 2
 			;;
 		--godot)
+			require_value "$1" "${2:-}"
 			godot_bin="$2"
 			shift 2
 			;;
