@@ -301,6 +301,7 @@ var player_position := PLAYER_START
 var player_tile := PLAYER_START_TILE
 var player_target_position := PLAYER_START
 var player_is_stepping := false
+var player_face_direction := Vector2i(1, 0)
 var current_room: String = ROOM_START
 var clue_inspected: Array[bool] = []
 var suspect_talked: Array[bool] = []
@@ -821,7 +822,7 @@ func _draw_npcs() -> void:
 
 
 func _draw_player() -> void:
-	_draw_actor(player_position, PLAYER_COLOR, HAT_COLOR)
+	_draw_actor(player_position, PLAYER_COLOR, HAT_COLOR, player_face_direction)
 
 
 func _draw_character_texture(pos: Vector2, texture: Texture2D) -> void:
@@ -830,12 +831,14 @@ func _draw_character_texture(pos: Vector2, texture: Texture2D) -> void:
 	draw_texture_rect(texture, rect, false)
 
 
-func _draw_actor(pos: Vector2, body_color: Color, hat_color: Color) -> void:
+func _draw_actor(pos: Vector2, body_color: Color, hat_color: Color, face_dir: Vector2i = Vector2i(1, 0)) -> void:
 	draw_rect(Rect2(pos + Vector2(-11.0, 7.0), Vector2(22.0, 5.0)), Color(0.0, 0.0, 0.0, 0.18), true)
 	draw_rect(Rect2(pos + Vector2(-10.0, -6.0), Vector2(20.0, 22.0)), body_color, true)
 	draw_rect(Rect2(pos + Vector2(-10.0, -6.0), Vector2(20.0, 22.0)), OUTLINE_COLOR, false, 1.5)
 	draw_rect(Rect2(pos + Vector2(-8.0, -22.0), Vector2(16.0, 16.0)), Color8(238, 231, 215), true)
 	draw_rect(Rect2(pos + Vector2(-8.0, -22.0), Vector2(16.0, 16.0)), OUTLINE_COLOR, false, 1.5)
+	var nose_offset := Vector2(face_dir.x * 8.0, -14.0 + face_dir.y * 8.0)
+	draw_rect(Rect2(pos + nose_offset + Vector2(-2.0, -2.0), Vector2(4.0, 4.0)), Color(0.15, 0.08, 0.05), true)
 	var hat_points := PackedVector2Array([
 		pos + Vector2(-12.0, -21.0),
 		pos + Vector2(12.0, -21.0),
@@ -857,20 +860,25 @@ func _draw_actor(pos: Vector2, body_color: Color, hat_color: Color) -> void:
 func _nearest_npc_in_range() -> int:
 	var best := -1
 	var best_dist := INF
+	var face_vec := Vector2(player_face_direction)
 	for i in range(SUSPECTS.size()):
 		if str(SUSPECTS[i].get("room", "")) != current_room:
 			continue
 		var pos: Vector2 = SUSPECTS[i]["position"]
 		var d := player_position.distance_to(pos)
-		if d <= PLAYER_RADIUS + NPC_INTERACT_RADIUS and d < best_dist:
-			best_dist = d
-			best = i
+		if d > PLAYER_RADIUS + NPC_INTERACT_RADIUS or d >= best_dist:
+			continue
+		if (pos - player_position).dot(face_vec) <= 0.0:
+			continue
+		best_dist = d
+		best = i
 	return best
 
 
 func _nearest_clue_in_range() -> int:
 	var best := -1
 	var best_dist := INF
+	var face_vec := Vector2(player_face_direction)
 	for i in range(CLUES.size()):
 		if not _is_clue_available(i):
 			continue
@@ -878,9 +886,12 @@ func _nearest_clue_in_range() -> int:
 			continue
 		var pos: Vector2 = CLUES[i]["position"]
 		var d := player_position.distance_to(pos)
-		if d <= PLAYER_RADIUS + CLUE_INTERACT_RADIUS and d < best_dist:
-			best_dist = d
-			best = i
+		if d > PLAYER_RADIUS + CLUE_INTERACT_RADIUS or d >= best_dist:
+			continue
+		if (pos - player_position).dot(face_vec) <= 0.0:
+			continue
+		best_dist = d
+		best = i
 	return best
 
 
@@ -892,7 +903,7 @@ func _adjacent_door_index() -> int:
 			continue
 		var dt: Vector2i = door["tile"]
 		var diff := dt - player_tile
-		if abs(diff.x) + abs(diff.y) == 1:
+		if diff == player_face_direction:
 			return i
 	return -1
 
@@ -908,7 +919,7 @@ func _adjacent_elevator_index() -> int:
 		else:
 			continue
 		var diff := tile - player_tile
-		if abs(diff.x) + abs(diff.y) == 1:
+		if diff == player_face_direction:
 			return i
 	return -1
 
@@ -1532,6 +1543,7 @@ func _reset_game() -> void:
 	player_position = _tile_to_world_center(player_tile)
 	player_target_position = player_position
 	player_is_stepping = false
+	player_face_direction = Vector2i(1, 0)
 	current_room = ROOM_START
 	_build_room_labels()
 	clue_inspected = _make_false_array(CLUES.size())
@@ -1651,8 +1663,10 @@ func _get_pressed_tile_direction() -> Vector2i:
 
 
 func _try_start_tile_step(direction: Vector2i) -> void:
+	player_face_direction = direction
 	var next_tile := player_tile + direction
 	if not _is_tile_walkable(next_tile):
+		queue_redraw()
 		return
 	player_tile = next_tile
 	player_target_position = _tile_to_world_center(next_tile)
