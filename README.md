@@ -25,11 +25,18 @@ When both are present, real process env vars still win over `.env`, which keeps 
 
 ## Export for Vercel
 
-1. In Godot, add the Web export preset.
-2. Export the build into the `public/` folder in this repo.
-3. Keep the generated `.html`, `.js`, `.pck`, `.wasm`, and support files together.
-4. Preserve the custom auth bootstrap in `public/index.html` after exporting. A fresh Godot export can overwrite that file.
-5. Import this repo into Vercel and deploy it as a static site.
+1. The repo already includes a `Web` export preset that targets `public/index.html`.
+2. From the repo root, run `scripts/export-web.sh`.
+3. If Godot is not on your `PATH`, the script also checks common AppImage names in `~/Downloads`.
+4. You can still force a specific binary with `GODOT=/path/to/godot4 scripts/export-web.sh` or `--godot /path/to/godot4`.
+5. The script exports the build into `public/`, updating the generated `.html`, `.js`, `.pck`, `.wasm`, and support files together.
+6. Import this repo into Vercel and deploy it as a static site.
+
+Useful flags:
+
+- `--debug`: export a debug web build.
+- `--preset NAME`: use a different export preset.
+- `--output PATH`: write the HTML shell somewhere else.
 
 ## Simple access login
 
