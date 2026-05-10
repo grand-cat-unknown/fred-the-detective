@@ -1,4 +1,6 @@
+@tool
 extends Node2D
+class_name DetectiveGame
 
 const TILE_SIZE := 30.0
 const MAP_WIDTH := 32
@@ -6,14 +8,14 @@ const MAP_HEIGHT := 18
 const VIEW_SIZE := Vector2(TILE_SIZE * MAP_WIDTH, TILE_SIZE * MAP_HEIGHT)
 const PLAYER_START_TILE := Vector2i(5, 13)
 const PLAYER_START := Vector2(165.0, 405.0)
-const PLAYER_SPEED := 240.0
-const PLAYER_RADIUS := 12.0
+const DEFAULT_PLAYER_SPEED := 240.0
+const DEFAULT_PLAYER_RADIUS := 12.0
 const NPC_RADIUS := 12.0
-const NPC_INTERACT_RADIUS := 54.0
+const DEFAULT_NPC_INTERACT_RADIUS := 54.0
 const CLUE_RADIUS := 10.0
-const CLUE_INTERACT_RADIUS := 48.0
-const MAX_CONVERSATION_LINES := 10
-const MAX_DIALOGUE_LINES := 12
+const DEFAULT_CLUE_INTERACT_RADIUS := 48.0
+const DEFAULT_MAX_CONVERSATION_LINES := 10
+const DEFAULT_MAX_DIALOGUE_LINES := 12
 const UNTRUSTED_PLAYER_START := "[UNTRUSTED_PLAYER_MESSAGE_BEGIN]"
 const UNTRUSTED_PLAYER_END := "[UNTRUSTED_PLAYER_MESSAGE_END]"
 const SUSPECT_PEMBERTON := 0
@@ -39,9 +41,18 @@ const ROOM_LOBBY := "elevator_lobby"
 const ROOM_CHUTE := "chute_access"
 const ROOM_1223 := "room_1223"
 const ROOM_START := ROOM_LOBBY
+const EDITOR_PREVIEW_ROOM_IDS := [
+	ROOM_CONCIERGE,
+	ROOM_1220,
+	ROOM_GEAR,
+	ROOM_HALL,
+	ROOM_SUITE,
+	ROOM_LOBBY,
+	ROOM_CHUTE,
+	ROOM_1223,
+]
 const REQUIRED_ACCUSATION_CLUE_IDX := CLUE_GHOST_CELL
 const ACCUSATION_VERIFIER_INSTRUCTIONS := "You are the final case-verdict verifier for Fred the Detective. You are not a suspect and you do not roleplay. The case truth is authored by the game and must be treated as authoritative. Return only compact JSON with this exact shape: {\"is_correct\": boolean, \"headline\": string, \"feedback\": string}. Mark is_correct true only when the player accuses Dr. Otis Pemberton, cites the Ghost Cell in the Chute as the key evidence, and gives a coherent explanation connecting the ghost cell to the murder method, the stolen idol, and Pemberton's motive or opportunity. Mark false if the suspect is wrong, the key evidence is wrong, the explanation is vague, or the explanation contradicts the authored truth. Keep headline under 8 words. Keep feedback under 90 words, written as Fred's case-board verdict."
-const GHOSTBUSTER_TEXTURE := preload("res://assets/characters/Ghostbuster1.png")
 const MAP_ROWS := [
 	"################################",
 	"#........##........##..........#",
@@ -160,7 +171,6 @@ const SUSPECTS := [
 		"subtitle": "Ghostbusters physician",
 		"position": Vector2(555.0, 255.0),
 		"room": ROOM_HALL,
-		"texture": GHOSTBUSTER_TEXTURE,
 		"color": Color8(126, 89, 150),
 		"hat_color": Color8(74, 45, 94),
 		"instructions": "You are Dr. Otis Pemberton, a Ghostbusters physician and occult scholar. You murdered Reginald Vance in suite 1221 by opening a charged spare ghost cell at close range, stole the black anchor idol, hid it inside the cell's outer case, dropped it into the jammed laundry chute, and pretended you had checked room 1220. You wanted the idol for your research before Vance locked it away. Do not confess unless Fred has clearly named the ghost cell, the idol in the chute, your gloves, and the false 1220 sweep. Otherwise deny calmly, lean on the real haunting, and sound helpful but faintly superior. Keep replies under three sentences and do not include speaker labels.",
@@ -271,19 +281,19 @@ const CLUES := [
 	},
 ]
 
-const BACKGROUND_COLOR := Color8(34, 39, 43)
-const FLOOR_COLOR := Color8(195, 185, 160)
-const FLOOR_ALT_COLOR := Color8(184, 174, 149)
-const WALL_COLOR := Color8(94, 103, 111)
-const WALL_TOP_COLOR := Color8(128, 138, 145)
-const RUG_COLOR := Color8(112, 54, 62)
-const RUG_TRIM_COLOR := Color8(183, 150, 84)
-const RUNNER_COLOR := Color8(79, 119, 126)
-const OUTLINE_COLOR := Color8(45, 40, 36)
-const PLAYER_COLOR := Color8(43, 77, 117)
-const HAT_COLOR := Color8(32, 43, 56)
-const CLUE_COLOR := Color8(214, 164, 75)
-const CLUE_INSPECTED_COLOR := Color8(132, 180, 132)
+const DEFAULT_BACKGROUND_COLOR := Color8(34, 39, 43)
+const DEFAULT_FLOOR_COLOR := Color8(195, 185, 160)
+const DEFAULT_FLOOR_ALT_COLOR := Color8(184, 174, 149)
+const DEFAULT_WALL_COLOR := Color8(94, 103, 111)
+const DEFAULT_WALL_TOP_COLOR := Color8(128, 138, 145)
+const DEFAULT_RUG_COLOR := Color8(112, 54, 62)
+const DEFAULT_RUG_TRIM_COLOR := Color8(183, 150, 84)
+const DEFAULT_RUNNER_COLOR := Color8(79, 119, 126)
+const DEFAULT_OUTLINE_COLOR := Color8(45, 40, 36)
+const DEFAULT_PLAYER_COLOR := Color8(43, 77, 117)
+const DEFAULT_PLAYER_HAT_COLOR := Color8(32, 43, 56)
+const DEFAULT_CLUE_COLOR := Color8(214, 164, 75)
+const DEFAULT_CLUE_INSPECTED_COLOR := Color8(132, 180, 132)
 const WOOD_COLOR := Color8(126, 86, 59)
 const SOFA_COLOR := Color8(72, 109, 96)
 const CABINET_COLOR := Color8(116, 88, 121)
@@ -291,11 +301,104 @@ const GEAR_COLOR := Color8(66, 84, 89)
 const PEDESTAL_COLOR := Color8(156, 145, 126)
 const DOOR_COLOR := Color8(142, 98, 66)
 const DOOR_TRIM_COLOR := Color8(82, 58, 42)
-const ROOM_BORDER_COLOR := Color8(52, 48, 43)
-const ROOM_LABEL_COLOR := Color8(42, 38, 34)
-const ROOM_LABEL_FONT_SIZE := 12
+const DEFAULT_ROOM_BORDER_COLOR := Color8(52, 48, 43)
+const DEFAULT_ROOM_LABEL_COLOR := Color8(42, 38, 34)
+const DEFAULT_ROOM_LABEL_FONT_SIZE := 12
 
 enum Phase { EXPLORE, ACCUSE, RESULT }
+
+@export_group("Editor Preview")
+@export_enum(
+	"Concierge / Security",
+	"Room 1220",
+	"Gear Cart",
+	"Twelfth Floor Hall",
+	"Suite 1221",
+	"Elevator Lobby",
+	"Chute Access",
+	"Room 1223"
+) var editor_preview_room_index := 5:
+	set(value):
+		editor_preview_room_index = value
+		if Engine.is_editor_hint():
+			current_room = _editor_preview_room_id()
+		queue_redraw()
+@export var editor_show_locked_clues := true:
+	set(value):
+		editor_show_locked_clues = value
+		queue_redraw()
+
+@export_group("Movement")
+@export_range(60.0, 600.0, 5.0, "or_greater") var player_speed := DEFAULT_PLAYER_SPEED
+@export_range(4.0, 32.0, 1.0, "or_greater") var player_radius := DEFAULT_PLAYER_RADIUS
+
+@export_group("Interaction")
+@export_range(16.0, 128.0, 1.0, "or_greater") var npc_interact_radius := DEFAULT_NPC_INTERACT_RADIUS
+@export_range(16.0, 128.0, 1.0, "or_greater") var clue_interact_radius := DEFAULT_CLUE_INTERACT_RADIUS
+
+@export_group("Dialogue")
+@export_range(2, 30, 1, "or_greater") var max_conversation_lines := DEFAULT_MAX_CONVERSATION_LINES
+@export_range(2, 40, 1, "or_greater") var max_dialogue_lines := DEFAULT_MAX_DIALOGUE_LINES
+
+@export_group("Palette")
+@export var background_color := DEFAULT_BACKGROUND_COLOR:
+	set(value):
+		background_color = value
+		queue_redraw()
+@export var floor_color := DEFAULT_FLOOR_COLOR:
+	set(value):
+		floor_color = value
+		queue_redraw()
+@export var floor_alt_color := DEFAULT_FLOOR_ALT_COLOR:
+	set(value):
+		floor_alt_color = value
+		queue_redraw()
+@export var wall_color := DEFAULT_WALL_COLOR:
+	set(value):
+		wall_color = value
+		queue_redraw()
+@export var wall_top_color := DEFAULT_WALL_TOP_COLOR:
+	set(value):
+		wall_top_color = value
+		queue_redraw()
+@export var rug_color := DEFAULT_RUG_COLOR:
+	set(value):
+		rug_color = value
+		queue_redraw()
+@export var rug_trim_color := DEFAULT_RUG_TRIM_COLOR:
+	set(value):
+		rug_trim_color = value
+		queue_redraw()
+@export var runner_color := DEFAULT_RUNNER_COLOR:
+	set(value):
+		runner_color = value
+		queue_redraw()
+@export var outline_color := DEFAULT_OUTLINE_COLOR:
+	set(value):
+		outline_color = value
+		queue_redraw()
+@export var player_color := DEFAULT_PLAYER_COLOR:
+	set(value):
+		player_color = value
+		queue_redraw()
+@export var player_hat_color := DEFAULT_PLAYER_HAT_COLOR:
+	set(value):
+		player_hat_color = value
+		queue_redraw()
+@export var clue_color := DEFAULT_CLUE_COLOR:
+	set(value):
+		clue_color = value
+		queue_redraw()
+@export var clue_inspected_color := DEFAULT_CLUE_INSPECTED_COLOR:
+	set(value):
+		clue_inspected_color = value
+		queue_redraw()
+@export var room_border_color := DEFAULT_ROOM_BORDER_COLOR:
+	set(value):
+		room_border_color = value
+		queue_redraw()
+@export var room_label_color := DEFAULT_ROOM_LABEL_COLOR
+@export_range(8, 24, 1, "or_greater") var room_label_font_size := DEFAULT_ROOM_LABEL_FONT_SIZE
 
 var player_position := PLAYER_START
 var player_tile := PLAYER_START_TILE
@@ -352,15 +455,23 @@ var llm_request: HTTPRequest
 var room_label_nodes: Array[Label] = []
 
 
+func _editor_preview_room_id() -> String:
+	var index := clampi(editor_preview_room_index, 0, EDITOR_PREVIEW_ROOM_IDS.size() - 1)
+	return EDITOR_PREVIEW_ROOM_IDS[index]
+
+
 func _ready() -> void:
+	if Engine.is_editor_hint():
+		current_room = _editor_preview_room_id()
+		queue_redraw()
+		return
+
 	_ensure_input_actions()
+	_cache_scene_nodes()
+	_configure_scene_ui_defaults()
+	_wire_scene_signals()
+	_populate_accusation_buttons()
 	_build_room_labels()
-	_build_hud()
-	_build_dialogue_ui()
-	_build_clue_ui()
-	_build_accusation_ui()
-	_build_result_ui()
-	_build_llm_request()
 	_reset_game()
 
 
@@ -371,7 +482,7 @@ func _process(delta: float) -> void:
 		return
 
 	if player_is_stepping:
-		player_position = player_position.move_toward(player_target_position, PLAYER_SPEED * delta)
+		player_position = player_position.move_toward(player_target_position, player_speed * delta)
 		if player_position.is_equal_approx(player_target_position):
 			player_position = player_target_position
 			player_tile = _world_to_tile(player_position)
@@ -424,170 +535,85 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _draw() -> void:
-	draw_rect(Rect2(Vector2.ZERO, VIEW_SIZE), BACKGROUND_COLOR, true)
+	draw_rect(Rect2(Vector2.ZERO, VIEW_SIZE), background_color, true)
 	_draw_tile_map()
 	_draw_room_zones()
 	_draw_clues()
 	_draw_npcs()
-	_draw_player()
+	if not Engine.is_editor_hint():
+		_draw_player()
 
 
-func _build_hud() -> void:
-	hud_layer = CanvasLayer.new()
-	add_child(hud_layer)
+func _cache_scene_nodes() -> void:
+	hud_layer = %HUDLayer
+	status_label = %StatusLabel
+	hint_label = %HintLabel
+	interact_prompt = %InteractPrompt
+	interact_prompt_label = %InteractPromptLabel
+	dialogue_panel = %DialoguePanel
+	dialogue_title_label = %DialogueTitleLabel
+	dialogue_output = %DialogueOutput
+	dialogue_input = %DialogueInput
+	dialogue_status_label = %DialogueStatusLabel
+	send_button = %SendButton
+	accuse_button = %AccuseButton
+	clue_panel = %CluePanel
+	clue_title_label = %ClueTitleLabel
+	clue_body_label = %ClueBodyLabel
+	accusation_panel = %AccusationPanel
+	accusation_label = %AccusationLabel
+	accusation_suspect_box = %AccusationSuspectBox
+	accusation_evidence_box = %AccusationEvidenceBox
+	accusation_explanation_box = %AccusationExplanationBox
+	accusation_explanation_input = %AccusationExplanationInput
+	accusation_submit_button = %AccusationSubmitButton
+	accusation_status_label = %AccusationStatusLabel
+	result_panel = %ResultPanel
+	result_label = %ResultLabel
+	llm_request = %LLMRequest
 
-	var panel := PanelContainer.new()
-	panel.position = Vector2(20.0, 20.0)
-	panel.custom_minimum_size = Vector2(360.0, 0.0)
-	hud_layer.add_child(panel)
 
-	var box := VBoxContainer.new()
-	panel.add_child(box)
-
-	var title_label := Label.new()
-	title_label.text = "Fred the Detective"
-	box.add_child(title_label)
-
-	status_label = Label.new()
-	box.add_child(status_label)
-
-	hint_label = Label.new()
+func _configure_scene_ui_defaults() -> void:
 	hint_label.autowrap_mode = TextServer.AUTOWRAP_WORD
-	hint_label.custom_minimum_size = Vector2(340.0, 0.0)
-	box.add_child(hint_label)
-
-	accuse_button = Button.new()
-	accuse_button.text = "Make Accusation"
-	accuse_button.disabled = true
-	accuse_button.pressed.connect(_on_accuse_pressed)
-	box.add_child(accuse_button)
-
-	interact_prompt = PanelContainer.new()
-	interact_prompt.visible = false
-	hud_layer.add_child(interact_prompt)
-
-	interact_prompt_label = Label.new()
-	interact_prompt_label.text = "[E] Interact"
-	interact_prompt.add_child(interact_prompt_label)
-
-
-func _build_dialogue_ui() -> void:
-	dialogue_panel = PanelContainer.new()
-	dialogue_panel.visible = false
-	dialogue_panel.position = Vector2(140.0, 296.0)
-	dialogue_panel.custom_minimum_size = Vector2(680.0, 208.0)
-	hud_layer.add_child(dialogue_panel)
-
-	var margin := MarginContainer.new()
-	margin.add_theme_constant_override("margin_left", 16)
-	margin.add_theme_constant_override("margin_top", 14)
-	margin.add_theme_constant_override("margin_right", 16)
-	margin.add_theme_constant_override("margin_bottom", 14)
-	dialogue_panel.add_child(margin)
-
-	var box := VBoxContainer.new()
-	margin.add_child(box)
-
-	dialogue_title_label = Label.new()
-	box.add_child(dialogue_title_label)
-
-	dialogue_status_label = Label.new()
-	dialogue_status_label.visible = false
-	box.add_child(dialogue_status_label)
-
-	dialogue_output = RichTextLabel.new()
 	dialogue_output.bbcode_enabled = false
 	dialogue_output.scroll_following = true
-	dialogue_output.size_flags_vertical = Control.SIZE_EXPAND_FILL
-	dialogue_output.custom_minimum_size = Vector2(0.0, 120.0)
-	box.add_child(dialogue_output)
-
-	var input_row := HBoxContainer.new()
-	box.add_child(input_row)
-
-	dialogue_input = LineEdit.new()
-	dialogue_input.placeholder_text = "Ask a question..."
-	dialogue_input.size_flags_horizontal = Control.SIZE_EXPAND_FILL
-	dialogue_input.text_submitted.connect(_on_dialogue_submitted)
-	input_row.add_child(dialogue_input)
-
-	send_button = Button.new()
-	send_button.text = "Send"
-	send_button.pressed.connect(_send_dialogue_request)
-	input_row.add_child(send_button)
-
-	var close_btn := Button.new()
-	close_btn.text = "Close [Esc]"
-	close_btn.pressed.connect(_close_dialogue)
-	input_row.add_child(close_btn)
-
-
-func _build_clue_ui() -> void:
-	clue_panel = PanelContainer.new()
-	clue_panel.visible = false
-	clue_panel.position = Vector2(240.0, 180.0)
-	clue_panel.custom_minimum_size = Vector2(480.0, 0.0)
-	hud_layer.add_child(clue_panel)
-
-	var margin := MarginContainer.new()
-	margin.add_theme_constant_override("margin_left", 24)
-	margin.add_theme_constant_override("margin_top", 20)
-	margin.add_theme_constant_override("margin_right", 24)
-	margin.add_theme_constant_override("margin_bottom", 20)
-	clue_panel.add_child(margin)
-
-	var box := VBoxContainer.new()
-	box.add_theme_constant_override("separation", 12)
-	margin.add_child(box)
-
-	clue_title_label = Label.new()
-	box.add_child(clue_title_label)
-
-	clue_body_label = RichTextLabel.new()
 	clue_body_label.bbcode_enabled = false
 	clue_body_label.fit_content = true
-	clue_body_label.custom_minimum_size = Vector2(432.0, 60.0)
-	box.add_child(clue_body_label)
-
-	var close_btn := Button.new()
-	close_btn.text = "Close [Esc]"
-	close_btn.pressed.connect(_close_clue_panel)
-	box.add_child(close_btn)
+	accusation_explanation_input.wrap_mode = TextEdit.LINE_WRAPPING_BOUNDARY
+	accusation_status_label.autowrap_mode = TextServer.AUTOWRAP_WORD
+	result_label.bbcode_enabled = false
+	result_label.fit_content = true
 
 
-func _build_accusation_ui() -> void:
-	accusation_panel = PanelContainer.new()
-	accusation_panel.visible = false
-	accusation_panel.position = Vector2(280.0, 160.0)
-	accusation_panel.custom_minimum_size = Vector2(400.0, 0.0)
-	hud_layer.add_child(accusation_panel)
+func _wire_scene_signals() -> void:
+	_connect_once(accuse_button.pressed, _on_accuse_pressed)
+	_connect_once(dialogue_input.text_submitted, _on_dialogue_submitted)
+	_connect_once(send_button.pressed, _send_dialogue_request)
+	_connect_once(%DialogueCloseButton.pressed, _close_dialogue)
+	_connect_once(%ClueCloseButton.pressed, _close_clue_panel)
+	_connect_once(accusation_explanation_input.text_changed, _on_accusation_explanation_changed)
+	_connect_once(accusation_submit_button.pressed, _on_accusation_submit_pressed)
+	_connect_once(%AccusationCancelButton.pressed, _close_accusation)
+	_connect_once(%RestartButton.pressed, _reset_game)
+	_connect_once(llm_request.request_completed, _on_llm_request_completed)
 
-	var margin := MarginContainer.new()
-	margin.add_theme_constant_override("margin_left", 24)
-	margin.add_theme_constant_override("margin_top", 24)
-	margin.add_theme_constant_override("margin_right", 24)
-	margin.add_theme_constant_override("margin_bottom", 24)
-	accusation_panel.add_child(margin)
 
-	var box := VBoxContainer.new()
-	box.add_theme_constant_override("separation", 14)
-	margin.add_child(box)
+func _connect_once(signal_value: Signal, callable: Callable) -> void:
+	if not signal_value.is_connected(callable):
+		signal_value.connect(callable)
 
-	accusation_label = Label.new()
-	accusation_label.text = "Who killed Reginald Vance?"
-	box.add_child(accusation_label)
 
-	accusation_suspect_box = VBoxContainer.new()
-	box.add_child(accusation_suspect_box)
+func _populate_accusation_buttons() -> void:
+	_clear_children(accusation_suspect_box)
+	_clear_children(accusation_evidence_box)
+	accusation_clue_buttons.clear()
+
 	for i in range(SUSPECTS.size()):
 		var btn := Button.new()
-		btn.text = "%s  —  %s" % [SUSPECTS[i]["name"], SUSPECTS[i]["subtitle"]]
+		btn.text = "%s - %s" % [SUSPECTS[i]["name"], SUSPECTS[i]["subtitle"]]
 		btn.pressed.connect(_on_suspect_chosen.bind(i))
 		accusation_suspect_box.add_child(btn)
 
-	accusation_evidence_box = VBoxContainer.new()
-	accusation_evidence_box.visible = false
-	box.add_child(accusation_evidence_box)
 	for i in range(CLUES.size()):
 		var btn := Button.new()
 		btn.text = CLUES[i]["label"]
@@ -595,75 +621,10 @@ func _build_accusation_ui() -> void:
 		accusation_clue_buttons.append(btn)
 		accusation_evidence_box.add_child(btn)
 
-	accusation_explanation_box = VBoxContainer.new()
-	accusation_explanation_box.visible = false
-	box.add_child(accusation_explanation_box)
 
-	var explanation_hint := Label.new()
-	explanation_hint.text = "Explain how the suspect, clue, and motive fit together."
-	explanation_hint.autowrap_mode = TextServer.AUTOWRAP_WORD
-	explanation_hint.custom_minimum_size = Vector2(352.0, 0.0)
-	accusation_explanation_box.add_child(explanation_hint)
-
-	accusation_explanation_input = TextEdit.new()
-	accusation_explanation_input.placeholder_text = "Write your theory..."
-	accusation_explanation_input.custom_minimum_size = Vector2(352.0, 96.0)
-	accusation_explanation_input.wrap_mode = TextEdit.LINE_WRAPPING_BOUNDARY
-	accusation_explanation_input.text_changed.connect(_on_accusation_explanation_changed)
-	accusation_explanation_box.add_child(accusation_explanation_input)
-
-	accusation_status_label = Label.new()
-	accusation_status_label.visible = false
-	accusation_status_label.autowrap_mode = TextServer.AUTOWRAP_WORD
-	accusation_status_label.custom_minimum_size = Vector2(352.0, 0.0)
-	accusation_explanation_box.add_child(accusation_status_label)
-
-	accusation_submit_button = Button.new()
-	accusation_submit_button.text = "Submit Case"
-	accusation_submit_button.disabled = true
-	accusation_submit_button.pressed.connect(_on_accusation_submit_pressed)
-	accusation_explanation_box.add_child(accusation_submit_button)
-
-	var cancel_btn := Button.new()
-	cancel_btn.text = "Cancel"
-	cancel_btn.pressed.connect(_close_accusation)
-	box.add_child(cancel_btn)
-
-
-func _build_result_ui() -> void:
-	result_panel = PanelContainer.new()
-	result_panel.visible = false
-	result_panel.position = Vector2(200.0, 140.0)
-	result_panel.custom_minimum_size = Vector2(560.0, 0.0)
-	hud_layer.add_child(result_panel)
-
-	var margin := MarginContainer.new()
-	margin.add_theme_constant_override("margin_left", 32)
-	margin.add_theme_constant_override("margin_top", 28)
-	margin.add_theme_constant_override("margin_right", 32)
-	margin.add_theme_constant_override("margin_bottom", 28)
-	result_panel.add_child(margin)
-
-	var box := VBoxContainer.new()
-	box.add_theme_constant_override("separation", 16)
-	margin.add_child(box)
-
-	result_label = RichTextLabel.new()
-	result_label.bbcode_enabled = false
-	result_label.fit_content = true
-	result_label.custom_minimum_size = Vector2(496.0, 80.0)
-	box.add_child(result_label)
-
-	var restart_btn := Button.new()
-	restart_btn.text = "Play Again"
-	restart_btn.pressed.connect(_reset_game)
-	box.add_child(restart_btn)
-
-
-func _build_llm_request() -> void:
-	llm_request = HTTPRequest.new()
-	add_child(llm_request)
-	llm_request.request_completed.connect(_on_llm_request_completed)
+func _clear_children(parent: Node) -> void:
+	for child in parent.get_children():
+		child.queue_free()
 
 
 func _build_room_labels() -> void:
@@ -680,8 +641,8 @@ func _build_room_labels() -> void:
 		label.position = room["label_position"]
 		label.custom_minimum_size = Vector2(220.0, 18.0)
 		label.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		label.add_theme_color_override("font_color", ROOM_LABEL_COLOR)
-		label.add_theme_font_size_override("font_size", ROOM_LABEL_FONT_SIZE)
+		label.add_theme_color_override("font_color", room_label_color)
+		label.add_theme_font_size_override("font_size", room_label_font_size)
 		add_child(label)
 		room_label_nodes.append(label)
 
@@ -725,39 +686,39 @@ func _draw_room_zones() -> void:
 			continue
 		var rect: Rect2 = room["rect"]
 		draw_rect(rect, room["color"], true)
-		draw_rect(rect, ROOM_BORDER_COLOR, false, 2.0)
+		draw_rect(rect, room_border_color, false, 2.0)
 
 
 func _draw_floor_tile(rect: Rect2, x: int, y: int) -> void:
-	var color := FLOOR_COLOR if (x + y) % 2 == 0 else FLOOR_ALT_COLOR
+	var color := floor_color if (x + y) % 2 == 0 else floor_alt_color
 	draw_rect(rect, color, true)
 	draw_rect(rect, Color(0.0, 0.0, 0.0, 0.08), false, 1.0)
 
 
 func _draw_wall_tile(rect: Rect2) -> void:
-	draw_rect(rect, WALL_COLOR, true)
-	draw_rect(Rect2(rect.position, Vector2(rect.size.x, 8.0)), WALL_TOP_COLOR, true)
-	draw_rect(rect, OUTLINE_COLOR, false, 1.0)
+	draw_rect(rect, wall_color, true)
+	draw_rect(Rect2(rect.position, Vector2(rect.size.x, 8.0)), wall_top_color, true)
+	draw_rect(rect, outline_color, false, 1.0)
 
 
 func _draw_rug_tile(rect: Rect2, is_runner: bool) -> void:
-	var color := RUNNER_COLOR if is_runner else RUG_COLOR
+	var color := runner_color if is_runner else rug_color
 	draw_rect(rect.grow(-1.0), color, true)
 	draw_rect(rect.grow(-5.0), Color(0.0, 0.0, 0.0, 0.08), false, 1.0)
 	if (int(rect.position.x / TILE_SIZE) + int(rect.position.y / TILE_SIZE)) % 2 == 0:
-		draw_rect(Rect2(rect.position + Vector2(4.0, 4.0), Vector2(rect.size.x - 8.0, 3.0)), RUG_TRIM_COLOR, true)
+		draw_rect(Rect2(rect.position + Vector2(4.0, 4.0), Vector2(rect.size.x - 8.0, 3.0)), rug_trim_color, true)
 
 
 func _draw_object_tile(rect: Rect2, color: Color) -> void:
 	draw_rect(rect.grow(-3.0), color, true)
 	draw_rect(Rect2(rect.position + Vector2(3.0, 3.0), Vector2(rect.size.x - 6.0, 7.0)), Color(1.0, 1.0, 1.0, 0.12), true)
-	draw_rect(rect.grow(-3.0), OUTLINE_COLOR, false, 1.5)
+	draw_rect(rect.grow(-3.0), outline_color, false, 1.5)
 
 
 func _draw_pedestal_tile(rect: Rect2) -> void:
 	draw_rect(rect.grow(-5.0), PEDESTAL_COLOR, true)
 	draw_rect(rect.grow(-10.0), Color8(203, 195, 172), true)
-	draw_rect(rect.grow(-5.0), OUTLINE_COLOR, false, 1.5)
+	draw_rect(rect.grow(-5.0), outline_color, false, 1.5)
 
 
 func _draw_door_tile(rect: Rect2) -> void:
@@ -774,22 +735,23 @@ func _draw_elevator_tile(rect: Rect2) -> void:
 	draw_rect(rect.grow(-4.0), panel_color, true)
 	var seam_x := rect.position.x + rect.size.x * 0.5
 	draw_line(Vector2(seam_x, rect.position.y + 4.0), Vector2(seam_x, rect.position.y + rect.size.y - 4.0), seam_color, 1.5)
-	draw_rect(rect.grow(-2.0), OUTLINE_COLOR, false, 1.5)
+	draw_rect(rect.grow(-2.0), outline_color, false, 1.5)
 	var arrow := PackedVector2Array([
 		rect.position + Vector2(rect.size.x * 0.3, rect.size.y * 0.35),
 		rect.position + Vector2(rect.size.x * 0.7, rect.size.y * 0.35),
 		rect.position + Vector2(rect.size.x * 0.5, rect.size.y * 0.2),
 	])
-	draw_colored_polygon(arrow, OUTLINE_COLOR)
+	draw_colored_polygon(arrow, outline_color)
 
 
 func _draw_clues() -> void:
 	for i in range(CLUES.size()):
-		if not _is_clue_available(i):
-			continue
+		if not Engine.is_editor_hint() or not editor_show_locked_clues:
+			if not _is_clue_available(i):
+				continue
 		if str(CLUES[i].get("room", "")) != current_room:
 			continue
-		var color := CLUE_INSPECTED_COLOR if clue_inspected.size() > i and clue_inspected[i] else CLUE_COLOR
+		var color := clue_inspected_color if clue_inspected.size() > i and clue_inspected[i] else clue_color
 		var pos: Vector2 = CLUES[i]["position"]
 		var diamond := PackedVector2Array([
 			pos + Vector2(0.0, -CLUE_RADIUS),
@@ -805,7 +767,7 @@ func _draw_clues() -> void:
 			diamond[0],
 		])
 		draw_colored_polygon(diamond, color)
-		draw_polyline(diamond_outline, OUTLINE_COLOR, 2.0)
+		draw_polyline(diamond_outline, outline_color, 2.0)
 
 
 func _draw_npcs() -> void:
@@ -819,7 +781,7 @@ func _draw_npcs() -> void:
 
 
 func _draw_player() -> void:
-	_draw_actor(player_position, PLAYER_COLOR, HAT_COLOR, player_face_direction)
+	_draw_actor(player_position, player_color, player_hat_color, player_face_direction)
 
 
 func _draw_character_texture(pos: Vector2, texture: Texture2D) -> void:
@@ -833,9 +795,9 @@ func _draw_character_texture(pos: Vector2, texture: Texture2D) -> void:
 func _draw_actor(pos: Vector2, body_color: Color, hat_color: Color, face_dir: Vector2i = Vector2i(1, 0)) -> void:
 	draw_rect(Rect2(pos + Vector2(-11.0, 7.0), Vector2(22.0, 5.0)), Color(0.0, 0.0, 0.0, 0.18), true)
 	draw_rect(Rect2(pos + Vector2(-10.0, -6.0), Vector2(20.0, 22.0)), body_color, true)
-	draw_rect(Rect2(pos + Vector2(-10.0, -6.0), Vector2(20.0, 22.0)), OUTLINE_COLOR, false, 1.5)
+	draw_rect(Rect2(pos + Vector2(-10.0, -6.0), Vector2(20.0, 22.0)), outline_color, false, 1.5)
 	draw_rect(Rect2(pos + Vector2(-8.0, -22.0), Vector2(16.0, 16.0)), Color8(238, 231, 215), true)
-	draw_rect(Rect2(pos + Vector2(-8.0, -22.0), Vector2(16.0, 16.0)), OUTLINE_COLOR, false, 1.5)
+	draw_rect(Rect2(pos + Vector2(-8.0, -22.0), Vector2(16.0, 16.0)), outline_color, false, 1.5)
 	var nose_offset := Vector2(face_dir.x * 8.0, -14.0 + face_dir.y * 8.0)
 	draw_rect(Rect2(pos + nose_offset + Vector2(-2.0, -2.0), Vector2(4.0, 4.0)), Color(0.15, 0.08, 0.05), true)
 	var hat_points := PackedVector2Array([
@@ -853,7 +815,7 @@ func _draw_actor(pos: Vector2, body_color: Color, hat_color: Color, face_dir: Ve
 	])
 	draw_colored_polygon(hat_points, hat_color)
 	draw_rect(Rect2(pos + Vector2(-15.0, -22.0), Vector2(30.0, 4.0)), hat_color, true)
-	draw_polyline(hat_outline, OUTLINE_COLOR, 1.5)
+	draw_polyline(hat_outline, outline_color, 1.5)
 
 
 func _nearest_npc_in_range() -> int:
@@ -865,7 +827,7 @@ func _nearest_npc_in_range() -> int:
 			continue
 		var pos: Vector2 = SUSPECTS[i]["position"]
 		var d := player_position.distance_to(pos)
-		if d > PLAYER_RADIUS + NPC_INTERACT_RADIUS or d >= best_dist:
+		if d > player_radius + npc_interact_radius or d >= best_dist:
 			continue
 		if (pos - player_position).dot(face_vec) <= 0.0:
 			continue
@@ -885,7 +847,7 @@ func _nearest_clue_in_range() -> int:
 			continue
 		var pos: Vector2 = CLUES[i]["position"]
 		var d := player_position.distance_to(pos)
-		if d > PLAYER_RADIUS + CLUE_INTERACT_RADIUS or d >= best_dist:
+		if d > player_radius + clue_interact_radius or d >= best_dist:
 			continue
 		if (pos - player_position).dot(face_vec) <= 0.0:
 			continue
@@ -1276,7 +1238,7 @@ func _append_dialogue_for(suspect_idx: int, speaker: String, text: String) -> vo
 	if suspect_idx < 0 or suspect_idx >= suspect_dialogue_lines.size():
 		return
 	suspect_dialogue_lines[suspect_idx].append("%s: %s" % [speaker, text])
-	while suspect_dialogue_lines[suspect_idx].size() > MAX_DIALOGUE_LINES:
+	while suspect_dialogue_lines[suspect_idx].size() > max_dialogue_lines:
 		suspect_dialogue_lines[suspect_idx].remove_at(0)
 	if suspect_idx == active_npc_index:
 		_refresh_dialogue_output()
@@ -1307,7 +1269,7 @@ func _send_dialogue_request() -> void:
 
 	_append_dialogue("Fred", message)
 	suspect_conversations[suspect_idx].append(_format_player_turn(message))
-	while suspect_conversations[suspect_idx].size() > MAX_CONVERSATION_LINES:
+	while suspect_conversations[suspect_idx].size() > max_conversation_lines:
 		suspect_conversations[suspect_idx].remove_at(0)
 	suspect_talked[suspect_idx] = true
 	dialogue_input.clear()
@@ -1415,7 +1377,7 @@ func _on_llm_request_completed(result: int, response_code: int, _headers: Packed
 		reply = "%s says nothing." % suspect["name"]
 
 	suspect_conversations[suspect_idx].append("%s: %s" % [suspect["name"], reply])
-	while suspect_conversations[suspect_idx].size() > MAX_CONVERSATION_LINES:
+	while suspect_conversations[suspect_idx].size() > max_conversation_lines:
 		suspect_conversations[suspect_idx].remove_at(0)
 
 	_append_dialogue_for(suspect_idx, suspect["name"], reply)
