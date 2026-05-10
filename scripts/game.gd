@@ -16,77 +16,196 @@ const MAX_CONVERSATION_LINES := 10
 const MAX_DIALOGUE_LINES := 12
 const UNTRUSTED_PLAYER_START := "[UNTRUSTED_PLAYER_MESSAGE_BEGIN]"
 const UNTRUSTED_PLAYER_END := "[UNTRUSTED_PLAYER_MESSAGE_END]"
-const REQUIRED_ACCUSATION_CLUE_IDX := 1
-const ACCUSATION_VERIFIER_INSTRUCTIONS := "You are the final case-verdict verifier for Fred the Detective. You are not a suspect and you do not roleplay. The case truth is authored by the game and must be treated as authoritative. Return only compact JSON with this exact shape: {\"is_correct\": boolean, \"headline\": string, \"feedback\": string}. Mark is_correct true only when the player accuses Dr. Lena Faraday, cites the Amber Ectoplasm Smear, and gives a coherent explanation connecting the ectoplasm to Lena plus her motive or opportunity. Mark false if the suspect is wrong, the key evidence is wrong, the explanation is vague, or the explanation contradicts the authored truth. Keep headline under 8 words. Keep feedback under 90 words, written as Fred's case-board verdict."
-const LENA_TEXTURE := preload("res://assets/characters/lena.png")
+const SUSPECT_PEMBERTON := 0
+const SUSPECT_WALTER := 1
+const SUSPECT_MARA := 2
+const SUSPECT_THEO := 3
+const SUSPECT_LENA := 4
+const SUSPECT_VIV := 5
+const CLUE_BODY_WALL := 0
+const CLUE_PEDESTAL := 1
+const CLUE_AUCTION_RECEIPT := 2
+const CLUE_FIELD_BOOK := 3
+const CLUE_ROOM_1220_LOG := 4
+const CLUE_CHUTE_NOTICE := 5
+const CLUE_GHOST_CELL := 6
+const CLUE_GLOVES := 7
+const REQUIRED_ACCUSATION_CLUE_IDX := CLUE_GHOST_CELL
+const ACCUSATION_VERIFIER_INSTRUCTIONS := "You are the final case-verdict verifier for Fred the Detective. You are not a suspect and you do not roleplay. The case truth is authored by the game and must be treated as authoritative. Return only compact JSON with this exact shape: {\"is_correct\": boolean, \"headline\": string, \"feedback\": string}. Mark is_correct true only when the player accuses Dr. Otis Pemberton, cites the Ghost Cell in the Chute as the key evidence, and gives a coherent explanation connecting the ghost cell to the murder method, the stolen idol, and Pemberton's motive or opportunity. Mark false if the suspect is wrong, the key evidence is wrong, the explanation is vague, or the explanation contradicts the authored truth. Keep headline under 8 words. Keep feedback under 90 words, written as Fred's case-board verdict."
+const GHOSTBUSTER_TEXTURE := preload("res://assets/characters/Ghostbuster1.png")
 const MAP_ROWS := [
 	"################################",
+	"#........##........##..........#",
+	"#..DD....##...C....##....GG....#",
+	"#........##........##..........#",
+	"#........##........##..........#",
+	"####d#########d##########d######",
 	"#..............................#",
-	"#..DDDD...............CCCC.....#",
-	"#..D..D........................#",
 	"#..............................#",
-	"#..........,,,,,,,,,,,,........#",
-	"#..........,,,,,,,,,,,,........#",
-	"#..........,,,,PP,,,,,,........#",
-	"#..........,,,,,,,,,,,,........#",
 	"#..............................#",
-	"#..BBBB..................GGG...#",
-	"#..B..B........................#",
 	"#..............................#",
-	"#............======............#",
-	"#............=....=............#",
-	"#............======............#",
-	"#..............................#",
+	"####d#####d#####d#########d#####",
+	"#.......#.....#.........#......#",
+	"#..BB...#..C..#.,,PP,,..#..DD..#",
+	"#.......#.....#.........#......#",
+	"#.......#.....#.........#......#",
+	"#.......#.....#.........#......#",
+	"################################",
 	"################################",
 ]
 const BLOCKING_TILES := ["#", "D", "B", "C", "G", "P"]
 
+const ROOMS := [
+	{
+		"label": "CONCIERGE / SECURITY",
+		"rect": Rect2(30.0, 30.0, 240.0, 150.0),
+		"label_position": Vector2(45.0, 42.0),
+		"color": Color8(206, 184, 128, 44),
+	},
+	{
+		"label": "ROOM 1220",
+		"rect": Rect2(330.0, 30.0, 240.0, 150.0),
+		"label_position": Vector2(345.0, 42.0),
+		"color": Color8(150, 175, 190, 44),
+	},
+	{
+		"label": "SERVICE CORRIDOR / GEAR CART",
+		"rect": Rect2(630.0, 30.0, 300.0, 150.0),
+		"label_position": Vector2(645.0, 42.0),
+		"color": Color8(125, 155, 145, 44),
+	},
+	{
+		"label": "TWELFTH FLOOR HALL",
+		"rect": Rect2(30.0, 180.0, 900.0, 120.0),
+		"label_position": Vector2(45.0, 192.0),
+		"color": Color8(105, 130, 150, 34),
+	},
+	{
+		"label": "SUITE 1221 - VANCE",
+		"rect": Rect2(450.0, 300.0, 300.0, 180.0),
+		"label_position": Vector2(465.0, 312.0),
+		"color": Color8(160, 95, 105, 44),
+	},
+	{
+		"label": "ELEVATOR LOBBY / STAIRWELL",
+		"rect": Rect2(30.0, 300.0, 240.0, 180.0),
+		"label_position": Vector2(45.0, 312.0),
+		"color": Color8(110, 150, 180, 44),
+	},
+	{
+		"label": "11F CHUTE ACCESS",
+		"rect": Rect2(270.0, 300.0, 180.0, 180.0),
+		"label_position": Vector2(285.0, 312.0),
+		"color": Color8(130, 120, 105, 48),
+	},
+	{
+		"label": "ROOM 1223",
+		"rect": Rect2(750.0, 300.0, 180.0, 180.0),
+		"label_position": Vector2(765.0, 312.0),
+		"color": Color8(150, 115, 165, 44),
+	},
+]
+
 const SUSPECTS := [
 	{
-		"name": "Dr. Lena Faraday",
-		"subtitle": "Lead ghostbuster",
-		"position": Vector2(585.0, 165.0),
-		"texture": LENA_TEXTURE,
-		"color": Color8(138, 84, 148),
-		"hat_color": Color8(82, 48, 96),
-		"instructions": "You are Dr. Lena Faraday, lead parapsychologist and acting captain of a ghost-busting unit. During a city certification drill, a contained ghost escaped and possessed Jun Park, the trainee evaluator. You deliberately opened the containment trap with the manual override and whispered the ghost's stage name, Bellwether, because the city was about to cancel your contract and give control of the unit to Gus. You intended to stage a dramatic recapture, not leave Jun possessed. You deny causing the possession. If pressed about the amber ectoplasm on the override lever, claim it could have splashed there during the breach. You insist Gus's equipment is unreliable and that the ghost was unusually strong. Speak as a brilliant, theatrical expert hiding panic behind confidence. Fred the Detective is questioning you. Keep replies under three sentences and do not include speaker labels.",
-		"is_culprit": true,
+		"name": "Dr. Otis Pemberton",
+		"subtitle": "Ghostbusters physician",
+		"position": Vector2(555.0, 255.0),
+		"texture": GHOSTBUSTER_TEXTURE,
+		"color": Color8(126, 89, 150),
+		"hat_color": Color8(74, 45, 94),
+		"instructions": "You are Dr. Otis Pemberton, a Ghostbusters physician and occult scholar. You murdered Reginald Vance in suite 1221 by opening a charged spare ghost cell at close range, stole the black anchor idol, hid it inside the cell's outer case, dropped it into the jammed laundry chute, and pretended you had checked room 1220. You wanted the idol for your research before Vance locked it away. Do not confess unless Fred has clearly named the ghost cell, the idol in the chute, your gloves, and the false 1220 sweep. Otherwise deny calmly, lean on the real haunting, and sound helpful but faintly superior. Keep replies under three sentences and do not include speaker labels.",
+		"is_murderer": true,
 	},
 	{
-		"name": "Gus Moreno",
-		"subtitle": "Equipment engineer",
-		"position": Vector2(765.0, 375.0),
+		"name": "Walter Crane",
+		"subtitle": "Rival collector",
+		"position": Vector2(345.0, 255.0),
+		"color": Color8(157, 102, 70),
+		"hat_color": Color8(101, 64, 45),
+		"instructions": "You are Walter Crane, a theatrical rival collector staying below the Sedgewick Hotel's twelfth floor. You lost the black idol to Reginald Vance at auction and wanted it badly, which makes you look suspicious, but you are innocent. Around 9:12 PM you heard something heavy strike the laundry chute. You did not understand its importance at first and resent being treated as obvious. Keep replies under three sentences and do not include speaker labels.",
+		"is_murderer": false,
+	},
+	{
+		"name": "Mara Bell",
+		"subtitle": "Ghostbusters field lead",
+		"position": Vector2(165.0, 435.0),
+		"color": Color8(84, 128, 157),
+		"hat_color": Color8(43, 75, 101),
+		"instructions": "You are Mara Bell, the Ghostbusters field lead. You are innocent. During the haunting you assigned Otis Pemberton to clear room 1220, Lena Ortiz to check room 1223, Theo Griggs to guard the gear cart, and yourself to the elevator lobby and stairwell. You did not see Pemberton come out of room 1220; you saw him return from the direction of Vance's suite. You are disciplined, protective of your team, and increasingly troubled by the timeline. Keep replies under three sentences and do not include speaker labels.",
+		"is_murderer": false,
+	},
+	{
+		"name": "Theo Griggs",
+		"subtitle": "Ghostbusters technician",
+		"position": Vector2(765.0, 135.0),
 		"color": Color8(67, 119, 122),
 		"hat_color": Color8(38, 76, 82),
-		"instructions": "You are Gus Moreno, the equipment engineer for a ghost-busting unit. You are innocent. During the certification drill, Jun Park was possessed after the containment trap opened. You were in the equipment bay replacing proton pack cells, but you had argued with Dr. Lena Faraday because the city was considering putting you in charge of the unit. You know the trap seal did not rupture mechanically: the manual override was used from the console. Lena's amber ecto-lure gel is not part of your trap coolant, which is green. You are practical, defensive, and annoyed that everyone blames the gear first. Fred the Detective is questioning you. Keep replies under three sentences and do not include speaker labels.",
-		"is_culprit": false,
+		"instructions": "You are Theo Griggs, the Ghostbusters technician. You are innocent. You guarded the gear cart during the sweep and later noticed a charged spare ghost cell was missing; Pemberton waved it off as a paperwork error. You can explain that a purged charged cell can leave dark violet residue on protective gloves. You are practical, defensive about the equipment, and frustrated by sloppy assumptions. Keep replies under three sentences and do not include speaker labels.",
+		"is_murderer": false,
 	},
 	{
-		"name": "Priya Cross",
-		"subtitle": "Occult archivist",
-		"position": Vector2(195.0, 435.0),
-		"color": Color8(164, 117, 70),
-		"hat_color": Color8(104, 75, 50),
-		"instructions": "You are Priya Cross, the occult archivist and public liaison for a ghost-busting unit. You are innocent. During the certification drill, Jun Park was possessed by the ghost called Bellwether. You heard a woman whisper 'Bellwether' near the containment bay shortly before the breach, but you are nervous about accusing Lena because the whole unit could lose its city contract. You know Bellwether is the ghost's stage name and that Lena learned it from your archive notes. You are observant, anxious, and careful with your words. Fred the Detective is questioning you. Keep replies under three sentences and do not include speaker labels.",
-		"is_culprit": false,
+		"name": "Lena Ortiz",
+		"subtitle": "Ghostbusters trap operator",
+		"position": Vector2(825.0, 435.0),
+		"color": Color8(138, 84, 148),
+		"hat_color": Color8(82, 48, 96),
+		"instructions": "You are Lena Ortiz, a Ghostbusters trap operator. You are innocent. You were checking room 1223 during the sweep. You noticed Pemberton return with his gloves still on and one hand tucked against his side, as if hiding equipment or residue. You do not want to accuse a teammate without proof, but you are observant and honest when Fred asks pointed questions. Keep replies under three sentences and do not include speaker labels.",
+		"is_murderer": false,
+	},
+	{
+		"name": "Vivian Marsh",
+		"subtitle": "Hotel concierge",
+		"position": Vector2(150.0, 105.0),
+		"color": Color8(166, 133, 76),
+		"hat_color": Color8(96, 75, 46),
+		"instructions": "You are Vivian Marsh, the Sedgewick Hotel concierge. You are innocent and trying to protect guests and the hotel's reputation. The laundry chute has been jammed between floors 12 and 11 for a week. The security dashboard lagged during the haunting, but the room lock timestamps are accurate. Once Fred has found the 1220 door record and the ghost cell in the chute, you can clarify that you opened room 1220 at 9:18 PM after Vance's body was found; it was not Pemberton's sweep. Keep replies under three sentences and do not include speaker labels.",
+		"is_murderer": false,
 	},
 ]
 
 const CLUES := [
 	{
-		"position": Vector2(150.0, 315.0),
-		"label": "Cracked Ghost Trap",
-		"description": "The trap casing is split and smoking, but the metal teeth bend outward. The ghost did not smash its way in from outside; the trap opened first and then overloaded.",
+		"position": Vector2(525.0, 375.0),
+		"label": "Vance's Body and Wall Fan",
+		"description": "Reginald Vance has a small cold-burn wound under his ribs. Violet ectoplasm smears his jacket, and a narrow fan of matching residue runs from the body toward the wall.",
 	},
 	{
-		"position": Vector2(465.0, 225.0),
-		"label": "Amber Ectoplasm Smear",
-		"description": "A sticky amber smear glows on the manual override lever. It smells like hot sugar and ozone, matching the lure gel Lena keeps on her ritual gloves.",
+		"position": Vector2(585.0, 375.0),
+		"label": "Empty Idol Pedestal",
+		"description": "Gray binding dust surrounds a clean idol-shaped absence on the pedestal. The idol was present when the dust fell, then removed afterward.",
 	},
 	{
-		"position": Vector2(795.0, 105.0),
-		"label": "Whispering Tape Recorder",
-		"description": "A cassette recorder by the observation window plays a warped voice repeating, 'Bellwether wants applause.' The last clean sound is a woman's whisper.",
+		"position": Vector2(495.0, 435.0),
+		"label": "Auction Receipt",
+		"description": "The receipt shows Vance beat Walter Crane for the black stone idol. A folded note from Pemberton urges Vance to surrender the idol for scholarly study.",
+	},
+	{
+		"position": Vector2(615.0, 435.0),
+		"label": "Anchor Idol Field Book",
+		"description": "The field book says anchor idols attract hauntings but do not vanish when hauntings end. It also diagrams opened ghost cells: directional cones, cold-burn wounds, side-vent dust, and blocked silhouettes.",
+	},
+	{
+		"position": Vector2(435.0, 105.0),
+		"label": "Room 1220 Door Record",
+		"description": "The lock record shows room 1220 opened at 9:18 PM. The dashboard was lagging during the haunting, so the entry feels ambiguous until someone explains who opened it.",
+	},
+	{
+		"position": Vector2(225.0, 255.0),
+		"label": "Laundry Chute Notice",
+		"description": "A maintenance notice says the laundry chute is blocked between floors 12 and 11. If something heavy went down the chute tonight, it may still be wedged there.",
+	},
+	{
+		"position": Vector2(345.0, 435.0),
+		"label": "Ghost Cell in the Chute",
+		"description": "A spent spare ghost cell is wedged above floor 11. The black idol is hidden inside its outer case. Residue on the main port matches the wall fan, and gray dust on the side vents matches the pedestal.",
+		"unlock": "chute",
+	},
+	{
+		"position": Vector2(825.0, 105.0),
+		"label": "Pemberton's Gloves",
+		"description": "Pemberton's protective gloves are stained dark violet inside the fingers, the pattern Theo described for someone who opened and purged a charged ghost cell by hand.",
+		"unlock": "gloves",
 	},
 ]
 
@@ -108,6 +227,11 @@ const SOFA_COLOR := Color8(72, 109, 96)
 const CABINET_COLOR := Color8(116, 88, 121)
 const GEAR_COLOR := Color8(66, 84, 89)
 const PEDESTAL_COLOR := Color8(156, 145, 126)
+const DOOR_COLOR := Color8(142, 98, 66)
+const DOOR_TRIM_COLOR := Color8(82, 58, 42)
+const ROOM_BORDER_COLOR := Color8(52, 48, 43)
+const ROOM_LABEL_COLOR := Color8(42, 38, 34)
+const ROOM_LABEL_FONT_SIZE := 12
 
 enum Phase { EXPLORE, ACCUSE, RESULT }
 
@@ -115,10 +239,10 @@ var player_position := PLAYER_START
 var player_tile := PLAYER_START_TILE
 var player_target_position := PLAYER_START
 var player_is_stepping := false
-var clue_inspected: Array[bool] = [false, false, false]
-var suspect_talked: Array[bool] = [false, false, false]
-var suspect_conversations: Array = [[], [], []]
-var suspect_dialogue_lines: Array = [[], [], []]
+var clue_inspected: Array[bool] = []
+var suspect_talked: Array[bool] = []
+var suspect_conversations: Array = []
+var suspect_dialogue_lines: Array = []
 var game_phase: Phase = Phase.EXPLORE
 var active_npc_index := -1
 var accusation_step := 0
@@ -161,10 +285,12 @@ var accusation_clue_buttons: Array[Button] = []
 var result_panel: PanelContainer
 var result_label: RichTextLabel
 var llm_request: HTTPRequest
+var room_label_nodes: Array[Label] = []
 
 
 func _ready() -> void:
 	_ensure_input_actions()
+	_build_room_labels()
 	_build_hud()
 	_build_dialogue_ui()
 	_build_clue_ui()
@@ -228,6 +354,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _draw() -> void:
 	draw_rect(Rect2(Vector2.ZERO, VIEW_SIZE), BACKGROUND_COLOR, true)
 	_draw_tile_map()
+	_draw_room_zones()
 	_draw_clues()
 	_draw_npcs()
 	_draw_player()
@@ -375,7 +502,7 @@ func _build_accusation_ui() -> void:
 	margin.add_child(box)
 
 	accusation_label = Label.new()
-	accusation_label.text = "Who killed Lord Pemberton?"
+	accusation_label.text = "Who killed Reginald Vance?"
 	box.add_child(accusation_label)
 
 	accusation_suspect_box = VBoxContainer.new()
@@ -467,6 +594,24 @@ func _build_llm_request() -> void:
 	llm_request.request_completed.connect(_on_llm_request_completed)
 
 
+func _build_room_labels() -> void:
+	for node in room_label_nodes:
+		if is_instance_valid(node):
+			node.queue_free()
+	room_label_nodes.clear()
+
+	for room in ROOMS:
+		var label := Label.new()
+		label.text = str(room["label"])
+		label.position = room["label_position"]
+		label.custom_minimum_size = Vector2(220.0, 18.0)
+		label.mouse_filter = Control.MOUSE_FILTER_IGNORE
+		label.add_theme_color_override("font_color", ROOM_LABEL_COLOR)
+		label.add_theme_font_size_override("font_size", ROOM_LABEL_FONT_SIZE)
+		add_child(label)
+		room_label_nodes.append(label)
+
+
 func _draw_tile_map() -> void:
 	for y in range(MAP_HEIGHT):
 		for x in range(MAP_WIDTH):
@@ -480,6 +625,8 @@ func _draw_tile_map() -> void:
 					_draw_rug_tile(rect, false)
 				"=":
 					_draw_rug_tile(rect, true)
+				"d":
+					_draw_door_tile(rect)
 				"D":
 					_draw_object_tile(rect, WOOD_COLOR)
 				"B":
@@ -490,6 +637,13 @@ func _draw_tile_map() -> void:
 					_draw_object_tile(rect, GEAR_COLOR)
 				"P":
 					_draw_pedestal_tile(rect)
+
+
+func _draw_room_zones() -> void:
+	for room in ROOMS:
+		var rect: Rect2 = room["rect"]
+		draw_rect(rect, room["color"], true)
+		draw_rect(rect, ROOM_BORDER_COLOR, false, 2.0)
 
 
 func _draw_floor_tile(rect: Rect2, x: int, y: int) -> void:
@@ -524,9 +678,17 @@ func _draw_pedestal_tile(rect: Rect2) -> void:
 	draw_rect(rect.grow(-5.0), OUTLINE_COLOR, false, 1.5)
 
 
+func _draw_door_tile(rect: Rect2) -> void:
+	draw_rect(Rect2(rect.position + Vector2(2.0, 12.0), Vector2(rect.size.x - 4.0, 6.0)), DOOR_COLOR, true)
+	draw_rect(Rect2(rect.position + Vector2(2.0, 12.0), Vector2(rect.size.x - 4.0, 6.0)), DOOR_TRIM_COLOR, false, 1.5)
+	draw_circle(rect.position + Vector2(rect.size.x - 8.0, rect.size.y * 0.5), 2.0, DOOR_TRIM_COLOR)
+
+
 func _draw_clues() -> void:
 	for i in range(CLUES.size()):
-		var color := CLUE_INSPECTED_COLOR if clue_inspected[i] else CLUE_COLOR
+		if not _is_clue_available(i):
+			continue
+		var color := CLUE_INSPECTED_COLOR if clue_inspected.size() > i and clue_inspected[i] else CLUE_COLOR
 		var pos: Vector2 = CLUES[i]["position"]
 		var diamond := PackedVector2Array([
 			pos + Vector2(0.0, -CLUE_RADIUS),
@@ -606,12 +768,28 @@ func _nearest_clue_in_range() -> int:
 	var best := -1
 	var best_dist := INF
 	for i in range(CLUES.size()):
+		if not _is_clue_available(i):
+			continue
 		var pos: Vector2 = CLUES[i]["position"]
 		var d := player_position.distance_to(pos)
 		if d <= PLAYER_RADIUS + CLUE_INTERACT_RADIUS and d < best_dist:
 			best_dist = d
 			best = i
 	return best
+
+
+func _is_clue_available(clue_idx: int) -> bool:
+	if clue_idx < 0 or clue_idx >= CLUES.size():
+		return false
+	var clue: Dictionary = CLUES[clue_idx]
+	if not clue.has("unlock"):
+		return true
+	var unlock := str(clue["unlock"])
+	if unlock == "chute":
+		return clue_inspected.size() > CLUE_CHUTE_NOTICE and suspect_talked.size() > SUSPECT_WALTER and clue_inspected[CLUE_CHUTE_NOTICE] and suspect_talked[SUSPECT_WALTER]
+	if unlock == "gloves":
+		return clue_inspected.size() > CLUE_GHOST_CELL and clue_inspected.size() > CLUE_FIELD_BOOK and clue_inspected[CLUE_GHOST_CELL] and clue_inspected[CLUE_FIELD_BOOK]
+	return true
 
 
 func _update_interact_prompt() -> void:
@@ -678,7 +856,7 @@ func _on_accuse_pressed() -> void:
 	accusation_step = 0
 	accusation_suspect_idx = -1
 	accusation_evidence_idx = -1
-	accusation_label.text = "Who killed Lord Pemberton?"
+	accusation_label.text = "Who killed Reginald Vance?"
 	accusation_suspect_box.visible = true
 	accusation_evidence_box.visible = false
 	accusation_explanation_box.visible = false
@@ -795,7 +973,7 @@ func _build_accusation_verifier_input(suspect_idx: int, clue_idx: int, explanati
 	var found_text := "\n".join(found_clues) if found_clues.size() > 0 else "(no clues inspected)"
 	var talked_text := ", ".join(talked_names) if talked_names.size() > 0 else "(no suspects questioned)"
 
-	return "Trusted case truth:\n- Victim: Lord Pemberton.\n- Killer: Victoria Ashmore.\n- Motive: Lord Pemberton rewrote his will to cut Victoria out.\n- Required key evidence: Silk Glove, monogrammed 'V.A.', found within arm's reach of the body.\n- Supporting facts: James saw Victoria leave the drawing room quickly at about 9pm; Chef Renard heard a woman's voice and raised voices; the broken window latch was forced from inside, so the intruder story is false.\n\nPlayer progress:\nInspected clues:\n%s\nQuestioned suspects: %s\n\nPlayer accusation:\n- Accused suspect: %s\n- Chosen key evidence: %s\n- Explanation: %s" % [
+	return "Trusted case truth:\n- Victim: Reginald Vance, collector, killed in suite 1221 during a real haunting.\n- Killer: Dr. Otis Pemberton, Ghostbusters physician and occult scholar.\n- Motive: Pemberton wanted Vance's black anchor idol for research before Vance locked it away.\n- Required key evidence: Ghost Cell in the Chute. It contains the stolen idol, its main port residue matches the wall fan, and its side-vent dust matches the pedestal.\n- Supporting facts: Anchor idols do not vanish after hauntings; the body wound and wall fan match an opened charged ghost cell; the pedestal dust proves the idol was present during the discharge and removed afterward; Pemberton's gloves carry purge residue; Viv's clarification proves the 9:18 room 1220 entry happened after Vance's body was found, not during Pemberton's assigned sweep.\n\nPlayer progress:\nInspected clues:\n%s\nQuestioned suspects: %s\n\nPlayer accusation:\n- Accused suspect: %s\n- Chosen key evidence: %s\n- Explanation: %s" % [
 		found_text,
 		talked_text,
 		SUSPECTS[suspect_idx]["name"],
@@ -841,7 +1019,7 @@ func _show_result(suspect_idx: int, clue_idx: int, explanation: String, verdict:
 		)
 	elif right_suspect and not right_evidence:
 		result_label.append_text(
-			"%s.\n\n%s\n\nYou named the right person, but the %s does not place %s at the scene. The silk glove monogrammed 'V.A.' was the proof you needed." % [headline, feedback, clue_label_text, suspect_name]
+			"%s.\n\n%s\n\nYou named the right person, but the %s does not carry the whole case. The ghost cell in the chute connects the stolen idol, the residue pattern, and the murder weapon." % [headline, feedback, clue_label_text]
 		)
 	else:
 		var murderer_name: String = ""
@@ -849,7 +1027,7 @@ func _show_result(suspect_idx: int, clue_idx: int, explanation: String, verdict:
 			if s["is_murderer"]:
 				murderer_name = s["name"]
 		result_label.append_text(
-			"%s.\n\n%s\n\n%s is innocent. You cited the %s, but the evidence led to %s: the monogrammed glove, James's 9pm sighting, and the inside-broken latch." % [headline, feedback, suspect_name, clue_label_text, murderer_name]
+			"%s.\n\n%s\n\n%s is not proved by that evidence. The case points to %s: the ghost cell hid the idol and matched the discharge that killed Vance." % [headline, feedback, suspect_name, murderer_name]
 		)
 	result_panel.visible = true
 	_update_hud()
@@ -955,11 +1133,31 @@ func _build_llm_input(suspect_idx: int) -> String:
 	var turns: Array = suspect_conversations[suspect_idx]
 	var transcript := "\n".join(turns) if turns.size() > 0 else "(conversation just started)"
 
-	return "%s\n\nConversation so far:\n%s\n\nReply as %s to Fred's latest message." % [
+	var case_context := _build_unlocked_case_context()
+
+	return "%s\n\n%s\n\nConversation so far:\n%s\n\nReply as %s to Fred's latest message." % [
 		clue_context,
+		case_context,
 		transcript,
 		SUSPECTS[suspect_idx]["name"],
 	]
+
+
+func _build_unlocked_case_context() -> String:
+	var lines: Array[String] = []
+	if clue_inspected.size() > CLUE_FIELD_BOOK and clue_inspected[CLUE_FIELD_BOOK]:
+		lines.append("- Fred knows anchor idols do not vanish after hauntings and that opened charged cells leave directional residue cones.")
+	if clue_inspected.size() > CLUE_CHUTE_NOTICE and suspect_talked.size() > SUSPECT_WALTER and clue_inspected[CLUE_CHUTE_NOTICE] and suspect_talked[SUSPECT_WALTER]:
+		lines.append("- Fred can inspect the floor 11 chute access because the chute is jammed and Walter heard something heavy hit it.")
+	if clue_inspected.size() > CLUE_GHOST_CELL and clue_inspected[CLUE_GHOST_CELL]:
+		lines.append("- Fred found the stolen idol hidden inside the spent ghost cell in the jammed chute.")
+	if clue_inspected.size() > CLUE_ROOM_1220_LOG and clue_inspected.size() > CLUE_GHOST_CELL and clue_inspected[CLUE_ROOM_1220_LOG] and clue_inspected[CLUE_GHOST_CELL]:
+		lines.append("- Viv may now clarify that the 9:18 room 1220 entry was her post-discovery safety check, not Pemberton's sweep.")
+	if clue_inspected.size() > CLUE_GHOST_CELL and clue_inspected.size() > CLUE_FIELD_BOOK and clue_inspected[CLUE_GHOST_CELL] and clue_inspected[CLUE_FIELD_BOOK]:
+		lines.append("- Fred can inspect Pemberton's gloves for purge residue.")
+	if lines.is_empty():
+		return "No extra case unlocks are active yet."
+	return "Current investigation unlocks:\n%s" % "\n".join(lines)
 
 
 func _format_player_turn(message: String) -> String:
@@ -1111,19 +1309,21 @@ func _default_accusation_feedback(suspect_idx: int, clue_idx: int, explanation: 
 	var right_suspect: bool = SUSPECTS[suspect_idx]["is_murderer"] == true
 	var right_evidence := clue_idx == REQUIRED_ACCUSATION_CLUE_IDX
 	if right_suspect and right_evidence and _explanation_mentions_core_solution(explanation):
-		return "The theory holds: Victoria had the motive, her monogrammed glove places her beside the body, and the inside-broken latch undercuts the intruder story."
+		return "The theory holds: Pemberton used the charged ghost cell, hid the idol inside it, and his gloves and false 1220 sweep tie him to the cover-up."
 	if right_suspect and right_evidence:
-		return "The suspect and clue are right, but the explanation needs to connect Victoria's motive and the glove to the scene before Fred can make it stick."
+		return "The suspect and clue are right, but the explanation needs to connect the ghost cell to the idol, the murder method, and Pemberton's opportunity."
 	if right_suspect:
-		return "Victoria is the right suspect, but this clue does not directly place her at the body."
+		return "Pemberton is the right suspect, but this clue alone does not prove how the idol theft and cell discharge fit together."
 	return "The accusation does not fit the authored case facts."
 
 
 func _explanation_mentions_core_solution(explanation: String) -> bool:
 	var text := explanation.to_lower()
-	var mentions_motive := text.contains("will") or text.contains("inherit") or text.contains("cut out") or text.contains("money") or text.contains("motive")
-	var mentions_glove := text.contains("glove") or text.contains("monogram") or text.contains("v.a") or text.contains("va")
-	return mentions_motive and mentions_glove
+	var mentions_cell := text.contains("cell") or text.contains("ghost cell") or text.contains("spare")
+	var mentions_idol := text.contains("idol") or text.contains("anchor")
+	var mentions_method := text.contains("discharge") or text.contains("opened") or text.contains("purge") or text.contains("vent") or text.contains("residue") or text.contains("burn")
+	var mentions_pemberton_link := text.contains("glove") or text.contains("1220") or text.contains("sweep") or text.contains("motive") or text.contains("research") or text.contains("pemberton")
+	return mentions_cell and mentions_idol and mentions_method and mentions_pemberton_link
 
 
 func _reset_game() -> void:
@@ -1131,10 +1331,10 @@ func _reset_game() -> void:
 	player_position = _tile_to_world_center(player_tile)
 	player_target_position = player_position
 	player_is_stepping = false
-	clue_inspected = [false, false, false]
-	suspect_talked = [false, false, false]
-	suspect_conversations = [[], [], []]
-	suspect_dialogue_lines = [[], [], []]
+	clue_inspected = _make_false_array(CLUES.size())
+	suspect_talked = _make_false_array(SUSPECTS.size())
+	suspect_conversations = _make_empty_nested_array(SUSPECTS.size())
+	suspect_dialogue_lines = _make_empty_nested_array(SUSPECTS.size())
 	game_phase = Phase.EXPLORE
 	active_npc_index = -1
 	accusation_step = 0
@@ -1169,6 +1369,20 @@ func _reset_game() -> void:
 	queue_redraw()
 
 
+func _make_false_array(count: int) -> Array[bool]:
+	var values: Array[bool] = []
+	for _i in range(count):
+		values.append(false)
+	return values
+
+
+func _make_empty_nested_array(count: int) -> Array:
+	var values: Array = []
+	for _i in range(count):
+		values.append([])
+	return values
+
+
 func _update_hud() -> void:
 	var found_count := 0
 	for found in clue_inspected:
@@ -1187,6 +1401,10 @@ func _update_hud() -> void:
 		hint_label.text = "Press Esc to end the conversation."
 	elif clue_panel_open:
 		hint_label.text = "Press Esc to close."
+	elif _is_clue_available(CLUE_GHOST_CELL) and not clue_inspected[CLUE_GHOST_CELL]:
+		hint_label.text = "The chute lead is open. Check the floor 11 chute access."
+	elif _is_clue_available(CLUE_GLOVES) and not clue_inspected[CLUE_GLOVES]:
+		hint_label.text = "The ghost cell points back to the gear. Inspect Pemberton's gloves."
 	elif _can_accuse():
 		hint_label.text = "You have enough to accuse — or keep digging."
 	else:
