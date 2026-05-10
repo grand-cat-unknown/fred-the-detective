@@ -1,0 +1,38 @@
+class_name Palette
+extends RefCounted
+
+const BACKGROUND := Color8(34, 39, 43)
+const FLOOR := Color8(195, 185, 160)
+const FLOOR_ALT := Color8(184, 174, 149)
+const WALL := Color8(94, 103, 111)
+const WALL_TOP := Color8(128, 138, 145)
+const RUG := Color8(112, 54, 62)
+const RUG_TRIM := Color8(183, 150, 84)
+const RUNNER := Color8(79, 119, 126)
+const OUTLINE := Color8(45, 40, 36)
+const PLAYER_BODY := Color8(43, 77, 117)
+const PLAYER_HAT := Color8(32, 43, 56)
+const CLUE := Color8(214, 164, 75)
+const CLUE_INSPECTED := Color8(132, 180, 132)
+const ROOM_BORDER := Color8(52, 48, 43)
+const ROOM_LABEL := Color8(42, 38, 34)
+
+const WOOD := Color8(126, 86, 59)
+const SOFA := Color8(72, 109, 96)
+const CABINET := Color8(116, 88, 121)
+const GEAR := Color8(66, 84, 89)
+const PEDESTAL := Color8(156, 145, 126)
+const PEDESTAL_TOP := Color8(203, 195, 172)
+const DOOR := Color8(142, 98, 66)
+const DOOR_TRIM := Color8(82, 58, 42)
+const ELEVATOR_FRAME := Color8(70, 78, 92)
+const ELEVATOR_PANEL := Color8(150, 162, 178)
+const ELEVATOR_SEAM := Color8(40, 46, 56)
+const ACTOR_HEAD := Color8(238, 231, 215)
+const ACTOR_NOSE := Color(0.15, 0.08, 0.05)
+
+# Translucent overlays — used for shadows, highlights, and outlines.
+const FLOOR_OUTLINE := Color(0.0, 0.0, 0.0, 0.08)
+const RUG_INNER_OUTLINE := Color(0.0, 0.0, 0.0, 0.08)
+const OBJECT_HIGHLIGHT := Color(1.0, 1.0, 1.0, 0.12)
+const ACTOR_SHADOW := Color(0.0, 0.0, 0.0, 0.18)

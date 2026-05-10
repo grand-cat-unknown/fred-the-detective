@@ -1,6 +1,37 @@
 [gd_scene format=3 uid="uid://d2433iolsy4tl"]
 
 [ext_resource type="Script" uid="uid://budl0k0bws51r" path="res://scripts/game.gd" id="1_game"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud_panel.tscn" id="2_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/interact_prompt.tscn" id="3_prompt"]
+[ext_resource type="PackedScene" path="res://scenes/ui/dialogue_panel.tscn" id="4_dialogue"]
+[ext_resource type="PackedScene" path="res://scenes/ui/clue_panel.tscn" id="5_clue"]
+[ext_resource type="PackedScene" path="res://scenes/ui/accusation_panel.tscn" id="6_accusation"]
+[ext_resource type="PackedScene" path="res://scenes/ui/result_panel.tscn" id="7_result"]
+[ext_resource type="Script" uid="uid://xdd0ey5aqq13" path="res://scripts/world/world_view.gd" id="8_world"]
 
 [node name="Game" type="Node2D" unique_id=744785900]
 script = ExtResource("1_game")
+
+[node name="WorldView" type="Node2D" parent="." unique_id=1541119895]
+unique_name_in_owner = true
+script = ExtResource("8_world")
+
+[node name="HUDLayer" type="CanvasLayer" parent="." unique_id=946559991]
+unique_name_in_owner = true
+
+[node name="HUDPanel" parent="HUDLayer" unique_id=1935004664 instance=ExtResource("2_hud")]
+visible = false
+
+[node name="InteractPrompt" parent="HUDLayer" unique_id=1173601193 instance=ExtResource("3_prompt")]
+visible = true
+
+[node name="DialoguePanel" parent="HUDLayer" unique_id=103236698 instance=ExtResource("4_dialogue")]
+
+[node name="CluePanel" parent="HUDLayer" unique_id=1310181621 instance=ExtResource("5_clue")]
+
+[node name="AccusationPanel" parent="HUDLayer" unique_id=1162969231 instance=ExtResource("6_accusation")]
+
+[node name="ResultPanel" parent="HUDLayer" unique_id=1150150628 instance=ExtResource("7_result")]
+
+[node name="LLMRequest" type="HTTPRequest" parent="." unique_id=616474149]
+unique_name_in_owner = true

@@ -1,0 +1,37 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/hud_panel.gd" id="1_script"]
+
+[node name="HUDPanel" type="PanelContainer"]
+unique_name_in_owner = true
+offset_left = 20.0
+offset_top = 20.0
+offset_right = 380.0
+offset_bottom = 142.0
+custom_minimum_size = Vector2(360, 0)
+script = ExtResource("1_script")
+
+[node name="HUDMargin" type="MarginContainer" parent="."]
+theme_override_constants/margin_left = 10
+theme_override_constants/margin_top = 10
+theme_override_constants/margin_right = 10
+theme_override_constants/margin_bottom = 10
+
+[node name="HUDBox" type="VBoxContainer" parent="HUDMargin"]
+theme_override_constants/separation = 6
+
+[node name="TitleLabel" type="Label" parent="HUDMargin/HUDBox"]
+text = "Fred the Detective"
+
+[node name="StatusLabel" type="Label" parent="HUDMargin/HUDBox"]
+unique_name_in_owner = true
+
+[node name="HintLabel" type="Label" parent="HUDMargin/HUDBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(340, 0)
+autowrap_mode = 2
+
+[node name="AccuseButton" type="Button" parent="HUDMargin/HUDBox"]
+unique_name_in_owner = true
+disabled = true
+text = "Make Accusation"

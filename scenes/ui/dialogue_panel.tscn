@@ -1,0 +1,51 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/dialogue_panel.gd" id="1_script"]
+
+[node name="DialoguePanel" type="PanelContainer"]
+unique_name_in_owner = true
+visible = false
+offset_left = 140.0
+offset_top = 296.0
+offset_right = 820.0
+offset_bottom = 504.0
+custom_minimum_size = Vector2(680, 208)
+script = ExtResource("1_script")
+
+[node name="DialogueMargin" type="MarginContainer" parent="."]
+theme_override_constants/margin_left = 16
+theme_override_constants/margin_top = 14
+theme_override_constants/margin_right = 16
+theme_override_constants/margin_bottom = 14
+
+[node name="DialogueBox" type="VBoxContainer" parent="DialogueMargin"]
+theme_override_constants/separation = 8
+
+[node name="DialogueTitleLabel" type="Label" parent="DialogueMargin/DialogueBox"]
+unique_name_in_owner = true
+
+[node name="DialogueStatusLabel" type="Label" parent="DialogueMargin/DialogueBox"]
+unique_name_in_owner = true
+visible = false
+
+[node name="DialogueOutput" type="RichTextLabel" parent="DialogueMargin/DialogueBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 120)
+size_flags_vertical = 3
+scroll_following = true
+
+[node name="DialogueInputRow" type="HBoxContainer" parent="DialogueMargin/DialogueBox"]
+theme_override_constants/separation = 8
+
+[node name="DialogueInput" type="LineEdit" parent="DialogueMargin/DialogueBox/DialogueInputRow"]
+unique_name_in_owner = true
+size_flags_horizontal = 3
+placeholder_text = "Ask a question..."
+
+[node name="SendButton" type="Button" parent="DialogueMargin/DialogueBox/DialogueInputRow"]
+unique_name_in_owner = true
+text = "Send"
+
+[node name="DialogueCloseButton" type="Button" parent="DialogueMargin/DialogueBox/DialogueInputRow"]
+unique_name_in_owner = true
+text = "Close [Esc]"

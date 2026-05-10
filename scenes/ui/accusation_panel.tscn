@@ -1,0 +1,66 @@
+[gd_scene load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/ui/accusation_panel.gd" id="1_script"]
+
+[node name="AccusationPanel" type="PanelContainer"]
+unique_name_in_owner = true
+visible = false
+offset_left = 280.0
+offset_top = 160.0
+offset_right = 680.0
+offset_bottom = 494.0
+custom_minimum_size = Vector2(400, 0)
+script = ExtResource("1_script")
+
+[node name="AccusationMargin" type="MarginContainer" parent="."]
+theme_override_constants/margin_left = 24
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 24
+theme_override_constants/margin_bottom = 24
+
+[node name="AccusationBox" type="VBoxContainer" parent="AccusationMargin"]
+theme_override_constants/separation = 14
+
+[node name="AccusationLabel" type="Label" parent="AccusationMargin/AccusationBox"]
+unique_name_in_owner = true
+text = "Who killed Reginald Vance?"
+
+[node name="AccusationSuspectBox" type="VBoxContainer" parent="AccusationMargin/AccusationBox"]
+unique_name_in_owner = true
+theme_override_constants/separation = 6
+
+[node name="AccusationEvidenceBox" type="VBoxContainer" parent="AccusationMargin/AccusationBox"]
+unique_name_in_owner = true
+visible = false
+theme_override_constants/separation = 6
+
+[node name="AccusationExplanationBox" type="VBoxContainer" parent="AccusationMargin/AccusationBox"]
+unique_name_in_owner = true
+visible = false
+theme_override_constants/separation = 8
+
+[node name="ExplanationHint" type="Label" parent="AccusationMargin/AccusationBox/AccusationExplanationBox"]
+custom_minimum_size = Vector2(352, 0)
+text = "Explain how the suspect, clue, and motive fit together."
+autowrap_mode = 2
+
+[node name="AccusationExplanationInput" type="TextEdit" parent="AccusationMargin/AccusationBox/AccusationExplanationBox"]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(352, 96)
+placeholder_text = "Write your theory..."
+wrap_mode = 1
+
+[node name="AccusationStatusLabel" type="Label" parent="AccusationMargin/AccusationBox/AccusationExplanationBox"]
+unique_name_in_owner = true
+visible = false
+custom_minimum_size = Vector2(352, 0)
+autowrap_mode = 2
+
+[node name="AccusationSubmitButton" type="Button" parent="AccusationMargin/AccusationBox/AccusationExplanationBox"]
+unique_name_in_owner = true
+disabled = true
+text = "Submit Case"
+
+[node name="AccusationCancelButton" type="Button" parent="AccusationMargin/AccusationBox"]
+unique_name_in_owner = true
+text = "Cancel"
