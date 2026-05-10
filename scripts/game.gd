@@ -322,11 +322,11 @@ enum Phase { EXPLORE, ACCUSE, RESULT }
 		editor_preview_room_index = value
 		if Engine.is_editor_hint():
 			current_room = _editor_preview_room_id()
-		queue_redraw()
+		_queue_world_redraw()
 @export var editor_show_locked_clues := true:
 	set(value):
 		editor_show_locked_clues = value
-		queue_redraw()
+		_queue_world_redraw()
 
 @export_group("Movement")
 @export_range(60.0, 600.0, 5.0, "or_greater") var player_speed := DEFAULT_PLAYER_SPEED
@@ -344,59 +344,59 @@ enum Phase { EXPLORE, ACCUSE, RESULT }
 @export var background_color := DEFAULT_BACKGROUND_COLOR:
 	set(value):
 		background_color = value
-		queue_redraw()
+		_queue_world_redraw()
 @export var floor_color := DEFAULT_FLOOR_COLOR:
 	set(value):
 		floor_color = value
-		queue_redraw()
+		_queue_world_redraw()
 @export var floor_alt_color := DEFAULT_FLOOR_ALT_COLOR:
 	set(value):
 		floor_alt_color = value
-		queue_redraw()
+		_queue_world_redraw()
 @export var wall_color := DEFAULT_WALL_COLOR:
 	set(value):
 		wall_color = value
-		queue_redraw()
+		_queue_world_redraw()
 @export var wall_top_color := DEFAULT_WALL_TOP_COLOR:
 	set(value):
 		wall_top_color = value
-		queue_redraw()
+		_queue_world_redraw()
 @export var rug_color := DEFAULT_RUG_COLOR:
 	set(value):
 		rug_color = value
-		queue_redraw()
+		_queue_world_redraw()
 @export var rug_trim_color := DEFAULT_RUG_TRIM_COLOR:
 	set(value):
 		rug_trim_color = value
-		queue_redraw()
+		_queue_world_redraw()
 @export var runner_color := DEFAULT_RUNNER_COLOR:
 	set(value):
 		runner_color = value
-		queue_redraw()
+		_queue_world_redraw()
 @export var outline_color := DEFAULT_OUTLINE_COLOR:
 	set(value):
 		outline_color = value
-		queue_redraw()
+		_queue_world_redraw()
 @export var player_color := DEFAULT_PLAYER_COLOR:
 	set(value):
 		player_color = value
-		queue_redraw()
+		_queue_world_redraw()
 @export var player_hat_color := DEFAULT_PLAYER_HAT_COLOR:
 	set(value):
 		player_hat_color = value
-		queue_redraw()
+		_queue_world_redraw()
 @export var clue_color := DEFAULT_CLUE_COLOR:
 	set(value):
 		clue_color = value
-		queue_redraw()
+		_queue_world_redraw()
 @export var clue_inspected_color := DEFAULT_CLUE_INSPECTED_COLOR:
 	set(value):
 		clue_inspected_color = value
-		queue_redraw()
+		_queue_world_redraw()
 @export var room_border_color := DEFAULT_ROOM_BORDER_COLOR:
 	set(value):
 		room_border_color = value
-		queue_redraw()
+		_queue_world_redraw()
 @export var room_label_color := DEFAULT_ROOM_LABEL_COLOR
 @export_range(8, 24, 1, "or_greater") var room_label_font_size := DEFAULT_ROOM_LABEL_FONT_SIZE
 
@@ -449,7 +449,14 @@ var accusation_clue_buttons: Array[Button] = []
 var result_panel: PanelContainer
 var result_label: RichTextLabel
 var llm_request: HTTPRequest
-var room_label_nodes: Array[Label] = []
+var _world_layer: Node2D
+var _world_map: WorldMap
+var _player: Player
+var _room_zones: Array[RoomZone] = []
+var _npc_nodes: Array[NPC] = []
+var _clue_markers: Array[ClueMarker] = []
+var _door_nodes: Array[Door] = []
+var _elevator_nodes: Array[Elevator] = []
 
 
 func _editor_preview_room_id() -> StringName:
@@ -459,9 +466,10 @@ func _editor_preview_room_id() -> StringName:
 
 func _ready() -> void:
 	_case = CaseLoader.load_default()
+	_ensure_world_nodes()
 	if Engine.is_editor_hint():
 		current_room = _editor_preview_room_id()
-		queue_redraw()
+		_refresh_world_nodes()
 		return
 
 	_ensure_input_actions()
@@ -471,7 +479,6 @@ func _ready() -> void:
 	_wire_scene_signals()
 	_wire_event_bus()
 	_populate_accusation_buttons()
-	_build_room_labels()
 	_reset_game()
 
 
@@ -482,13 +489,10 @@ func _process(delta: float) -> void:
 		return
 
 	if player_is_stepping:
-		player_position = player_position.move_toward(player_target_position, player_speed * delta)
-		if player_position.is_equal_approx(player_target_position):
-			player_position = player_target_position
-			player_tile = _world_to_tile(player_position)
-			player_is_stepping = false
+		_player.process_step(delta)
+		_sync_player_state()
+		if not player_is_stepping:
 			_update_hud()
-		queue_redraw()
 		return
 
 	var direction := _get_pressed_tile_direction()
@@ -533,15 +537,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _draw() -> void:
-	if _case == null:
-		_case = CaseLoader.load_default()
-	draw_rect(Rect2(Vector2.ZERO, VIEW_SIZE), background_color, true)
-	_draw_tile_map()
-	_draw_room_zones()
-	_draw_clues()
-	_draw_npcs()
-	if not Engine.is_editor_hint():
-		_draw_player()
+	pass
 
 
 func _cache_scene_nodes() -> void:
@@ -650,195 +646,159 @@ func _clear_children(parent: Node) -> void:
 		child.queue_free()
 
 
-func _build_room_labels() -> void:
-	for node in room_label_nodes:
-		if is_instance_valid(node):
-			node.queue_free()
-	room_label_nodes.clear()
-
-	for room in _case.rooms:
-		if room.id != current_room:
-			continue
-		var label := Label.new()
-		label.text = room.label
-		label.position = room.label_position
-		label.custom_minimum_size = Vector2(220.0, 18.0)
-		label.mouse_filter = Control.MOUSE_FILTER_IGNORE
-		label.add_theme_color_override("font_color", room_label_color)
-		label.add_theme_font_size_override("font_size", room_label_font_size)
-		add_child(label)
-		room_label_nodes.append(label)
-
-
-func _draw_tile_map() -> void:
-	var room := _case.room_by_id(current_room)
-	if room == null:
+func _ensure_world_nodes() -> void:
+	if _world_layer != null:
 		return
-	var bounds := room.tile_bounds
-	for y in range(MAP_HEIGHT):
-		for x in range(MAP_WIDTH):
-			var tile_pos := Vector2i(x, y)
-			var rect := Rect2(Vector2(x, y) * TILE_SIZE, Vector2(TILE_SIZE, TILE_SIZE))
-			if not bounds.has_point(tile_pos):
-				continue
-			var tile := _tile_at(tile_pos)
-			_draw_floor_tile(rect, x, y)
-			match tile:
-				"#":
-					_draw_wall_tile(rect)
-				",":
-					_draw_rug_tile(rect, false)
-				"=":
-					_draw_rug_tile(rect, true)
-				"d":
-					_draw_door_tile(rect)
-				"E":
-					_draw_elevator_tile(rect)
-				"D":
-					_draw_object_tile(rect, WOOD_COLOR)
-				"B":
-					_draw_object_tile(rect, SOFA_COLOR)
-				"C":
-					_draw_object_tile(rect, CABINET_COLOR)
-				"G":
-					_draw_object_tile(rect, GEAR_COLOR)
-				"P":
-					_draw_pedestal_tile(rect)
+
+	_world_layer = Node2D.new()
+	_world_layer.name = "WorldLayer"
+	add_child(_world_layer)
+	move_child(_world_layer, 0)
+
+	_world_map = WorldMap.new()
+	_world_map.name = "WorldMap"
+	_world_layer.add_child(_world_map)
+
+	_rebuild_world_content()
 
 
-func _draw_room_zones() -> void:
+func _rebuild_world_content() -> void:
+	for child in _world_layer.get_children():
+		if child != _world_map:
+			child.queue_free()
+	_room_zones.clear()
+	_npc_nodes.clear()
+	_clue_markers.clear()
+	_door_nodes.clear()
+	_elevator_nodes.clear()
+
+	if _case == null:
+		return
+
+	_world_map.configure(_case)
+
+	for door in _case.doors:
+		var door_node := Door.new()
+		door_node.configure(door)
+		_world_layer.add_child(door_node)
+		_door_nodes.append(door_node)
+
+	for elevator in _case.elevators:
+		var elevator_node := Elevator.new()
+		elevator_node.configure(elevator)
+		_world_layer.add_child(elevator_node)
+		_elevator_nodes.append(elevator_node)
+
 	for room in _case.rooms:
-		if room.id != current_room:
-			continue
-		var rect := room.rect
-		draw_rect(rect, room.color, true)
-		draw_rect(rect, room_border_color, false, 2.0)
+		var room_zone := RoomZone.new()
+		room_zone.border_color = room_border_color
+		room_zone.label_color = room_label_color
+		room_zone.label_font_size = room_label_font_size
+		room_zone.configure(room)
+		_world_layer.add_child(room_zone)
+		_room_zones.append(room_zone)
 
-
-func _draw_floor_tile(rect: Rect2, x: int, y: int) -> void:
-	var color := floor_color if (x + y) % 2 == 0 else floor_alt_color
-	draw_rect(rect, color, true)
-	draw_rect(rect, Color(0.0, 0.0, 0.0, 0.08), false, 1.0)
-
-
-func _draw_wall_tile(rect: Rect2) -> void:
-	draw_rect(rect, wall_color, true)
-	draw_rect(Rect2(rect.position, Vector2(rect.size.x, 8.0)), wall_top_color, true)
-	draw_rect(rect, outline_color, false, 1.0)
-
-
-func _draw_rug_tile(rect: Rect2, is_runner: bool) -> void:
-	var color := runner_color if is_runner else rug_color
-	draw_rect(rect.grow(-1.0), color, true)
-	draw_rect(rect.grow(-5.0), Color(0.0, 0.0, 0.0, 0.08), false, 1.0)
-	if (int(rect.position.x / TILE_SIZE) + int(rect.position.y / TILE_SIZE)) % 2 == 0:
-		draw_rect(Rect2(rect.position + Vector2(4.0, 4.0), Vector2(rect.size.x - 8.0, 3.0)), rug_trim_color, true)
-
-
-func _draw_object_tile(rect: Rect2, color: Color) -> void:
-	draw_rect(rect.grow(-3.0), color, true)
-	draw_rect(Rect2(rect.position + Vector2(3.0, 3.0), Vector2(rect.size.x - 6.0, 7.0)), Color(1.0, 1.0, 1.0, 0.12), true)
-	draw_rect(rect.grow(-3.0), outline_color, false, 1.5)
-
-
-func _draw_pedestal_tile(rect: Rect2) -> void:
-	draw_rect(rect.grow(-5.0), PEDESTAL_COLOR, true)
-	draw_rect(rect.grow(-10.0), Color8(203, 195, 172), true)
-	draw_rect(rect.grow(-5.0), outline_color, false, 1.5)
-
-
-func _draw_door_tile(rect: Rect2) -> void:
-	draw_rect(Rect2(rect.position + Vector2(2.0, 4.0), Vector2(rect.size.x - 4.0, rect.size.y - 8.0)), DOOR_COLOR, true)
-	draw_rect(Rect2(rect.position + Vector2(2.0, 4.0), Vector2(rect.size.x - 4.0, rect.size.y - 8.0)), DOOR_TRIM_COLOR, false, 1.5)
-	draw_circle(rect.position + Vector2(rect.size.x - 8.0, rect.size.y * 0.5), 2.0, DOOR_TRIM_COLOR)
-
-
-func _draw_elevator_tile(rect: Rect2) -> void:
-	var frame_color := Color8(70, 78, 92)
-	var panel_color := Color8(150, 162, 178)
-	var seam_color := Color8(40, 46, 56)
-	draw_rect(rect.grow(-2.0), frame_color, true)
-	draw_rect(rect.grow(-4.0), panel_color, true)
-	var seam_x := rect.position.x + rect.size.x * 0.5
-	draw_line(Vector2(seam_x, rect.position.y + 4.0), Vector2(seam_x, rect.position.y + rect.size.y - 4.0), seam_color, 1.5)
-	draw_rect(rect.grow(-2.0), outline_color, false, 1.5)
-	var arrow := PackedVector2Array([
-		rect.position + Vector2(rect.size.x * 0.3, rect.size.y * 0.35),
-		rect.position + Vector2(rect.size.x * 0.7, rect.size.y * 0.35),
-		rect.position + Vector2(rect.size.x * 0.5, rect.size.y * 0.2),
-	])
-	draw_colored_polygon(arrow, outline_color)
-
-
-func _draw_clues() -> void:
 	for clue in _case.clues:
-		if not Engine.is_editor_hint() or not editor_show_locked_clues:
-			if not UnlockResolver.is_clue_available(clue):
-				continue
-		if clue.room != current_room:
-			continue
-		var color := clue_inspected_color if GameState.is_clue_inspected(clue.id) else clue_color
-		var pos := clue.position
-		var diamond := PackedVector2Array([
-			pos + Vector2(0.0, -CLUE_RADIUS),
-			pos + Vector2(CLUE_RADIUS, 0.0),
-			pos + Vector2(0.0, CLUE_RADIUS),
-			pos + Vector2(-CLUE_RADIUS, 0.0),
-		])
-		var diamond_outline := PackedVector2Array([
-			diamond[0],
-			diamond[1],
-			diamond[2],
-			diamond[3],
-			diamond[0],
-		])
-		draw_colored_polygon(diamond, color)
-		draw_polyline(diamond_outline, outline_color, 2.0)
+		var clue_marker := ClueMarker.new()
+		clue_marker.clue_color = clue_color
+		clue_marker.clue_inspected_color = clue_inspected_color
+		clue_marker.outline_color = outline_color
+		clue_marker.show_locked_clues = Engine.is_editor_hint() and editor_show_locked_clues
+		clue_marker.configure(clue)
+		_world_layer.add_child(clue_marker)
+		_clue_markers.append(clue_marker)
 
-
-func _draw_npcs() -> void:
 	for suspect in _case.suspects:
-		if suspect.room != current_room:
-			continue
-		_draw_actor(suspect.position, suspect.color, suspect.hat_color)
+		var npc := NPC.new()
+		npc.configure(suspect)
+		_world_layer.add_child(npc)
+		_npc_nodes.append(npc)
+
+	_player = Player.new()
+	_player.name = "Player"
+	_player.speed = player_speed
+	_player.body_color = player_color
+	_player.hat_color = player_hat_color
+	_world_layer.add_child(_player)
+	if Engine.is_editor_hint():
+		_player.visible = false
+
+	_refresh_world_nodes()
 
 
-func _draw_player() -> void:
-	_draw_actor(player_position, player_color, player_hat_color, player_face_direction)
+func _refresh_world_nodes() -> void:
+	if _world_map == null:
+		return
+
+	_world_map.background_color = background_color
+	_world_map.floor_color = floor_color
+	_world_map.floor_alt_color = floor_alt_color
+	_world_map.wall_color = wall_color
+	_world_map.wall_top_color = wall_top_color
+	_world_map.rug_color = rug_color
+	_world_map.rug_trim_color = rug_trim_color
+	_world_map.runner_color = runner_color
+	_world_map.outline_color = outline_color
+	_world_map.set_current_room(current_room)
+
+	for room_zone in _room_zones:
+		room_zone.border_color = room_border_color
+		room_zone.label_color = room_label_color
+		room_zone.label_font_size = room_label_font_size
+		room_zone.set_current_room(current_room)
+
+	for door_node in _door_nodes:
+		door_node.door_color = DOOR_COLOR
+		door_node.trim_color = DOOR_TRIM_COLOR
+		door_node.outline_color = outline_color
+		door_node.set_current_room(current_room)
+
+	for elevator_node in _elevator_nodes:
+		elevator_node.outline_color = outline_color
+		elevator_node.set_current_room(current_room)
+
+	for clue_marker in _clue_markers:
+		clue_marker.clue_color = clue_color
+		clue_marker.clue_inspected_color = clue_inspected_color
+		clue_marker.outline_color = outline_color
+		clue_marker.show_locked_clues = Engine.is_editor_hint() and editor_show_locked_clues
+		clue_marker.set_current_room(current_room)
+
+	for npc in _npc_nodes:
+		npc.set_current_room(current_room)
+
+	if _player != null:
+		_player.speed = player_speed
+		_player.body_color = player_color
+		_player.hat_color = player_hat_color
+		_player.queue_redraw()
+
+	_redraw_world_nodes()
 
 
-func _draw_character_texture(pos: Vector2, texture: Texture2D) -> void:
-	var orig := texture.get_size()
-	var scale := 45.0 / orig.y
-	var size := orig * scale
-	var rect := Rect2(pos - Vector2(size.x * 0.5, size.y - TILE_SIZE * 0.5), size)
-	draw_texture_rect(texture, rect, false)
+func _queue_world_redraw() -> void:
+	if _world_map != null:
+		_refresh_world_nodes()
+		return
+	queue_redraw()
 
 
-func _draw_actor(pos: Vector2, body_color: Color, hat_color: Color, face_dir: Vector2i = Vector2i(1, 0)) -> void:
-	draw_rect(Rect2(pos + Vector2(-11.0, 7.0), Vector2(22.0, 5.0)), Color(0.0, 0.0, 0.0, 0.18), true)
-	draw_rect(Rect2(pos + Vector2(-10.0, -6.0), Vector2(20.0, 22.0)), body_color, true)
-	draw_rect(Rect2(pos + Vector2(-10.0, -6.0), Vector2(20.0, 22.0)), outline_color, false, 1.5)
-	draw_rect(Rect2(pos + Vector2(-8.0, -22.0), Vector2(16.0, 16.0)), Color8(238, 231, 215), true)
-	draw_rect(Rect2(pos + Vector2(-8.0, -22.0), Vector2(16.0, 16.0)), outline_color, false, 1.5)
-	var nose_offset := Vector2(face_dir.x * 8.0, -14.0 + face_dir.y * 8.0)
-	draw_rect(Rect2(pos + nose_offset + Vector2(-2.0, -2.0), Vector2(4.0, 4.0)), Color(0.15, 0.08, 0.05), true)
-	var hat_points := PackedVector2Array([
-		pos + Vector2(-12.0, -21.0),
-		pos + Vector2(12.0, -21.0),
-		pos + Vector2(8.0, -30.0),
-		pos + Vector2(-8.0, -30.0),
-	])
-	var hat_outline := PackedVector2Array([
-		hat_points[0],
-		hat_points[1],
-		hat_points[2],
-		hat_points[3],
-		hat_points[0],
-	])
-	draw_colored_polygon(hat_points, hat_color)
-	draw_rect(Rect2(pos + Vector2(-15.0, -22.0), Vector2(30.0, 4.0)), hat_color, true)
-	draw_polyline(hat_outline, outline_color, 1.5)
+func _redraw_world_nodes() -> void:
+	if _world_map != null:
+		_world_map.queue_redraw()
+	for room_zone in _room_zones:
+		room_zone.queue_redraw()
+	for door_node in _door_nodes:
+		door_node.queue_redraw()
+	for elevator_node in _elevator_nodes:
+		elevator_node.queue_redraw()
+	for clue_marker in _clue_markers:
+		clue_marker.queue_redraw()
+	for npc in _npc_nodes:
+		npc.queue_redraw()
+	if _player != null:
+		_player.queue_redraw()
+	queue_redraw()
 
 
 func _enter_door(door_idx: int) -> void:
@@ -863,13 +823,11 @@ func _enter_elevator(elev_idx: int) -> void:
 func _transition_to(room_id: StringName, spawn_tile: Vector2i) -> void:
 	current_room = room_id
 	GameState.set_room(room_id)
-	player_tile = spawn_tile
-	player_position = _tile_to_world_center(spawn_tile)
-	player_target_position = player_position
-	player_is_stepping = false
-	_build_room_labels()
+	if _player != null:
+		_player.reset_to_tile(spawn_tile)
+	_sync_player_state()
+	_refresh_world_nodes()
 	_update_hud()
-	queue_redraw()
 
 
 func _is_clue_available(clue_idx: int) -> bool:
@@ -942,8 +900,8 @@ func _open_clue_panel(clue_idx: int) -> void:
 	clue_body_label.clear()
 	clue_body_label.append_text(clue.description)
 	clue_panel.visible = true
+	_refresh_world_nodes()
 	_update_hud()
-	queue_redraw()
 
 
 func _close_clue_panel() -> void:
@@ -1138,7 +1096,7 @@ func _send_dialogue_request() -> void:
 
 func _on_clue_inspected(_clue_id: StringName) -> void:
 	_update_hud()
-	queue_redraw()
+	_refresh_world_nodes()
 
 
 func _on_suspect_talked(_suspect_id: StringName) -> void:
@@ -1159,13 +1117,11 @@ func _reset_game() -> void:
 	GameState.reset(_case)
 	_dialogue.reset()
 	_accusation.reset()
-	player_tile = _case.player_start_tile
-	player_position = _tile_to_world_center(player_tile)
-	player_target_position = player_position
-	player_is_stepping = false
-	player_face_direction = Vector2i(1, 0)
 	current_room = _case.start_room
-	_build_room_labels()
+	if _player != null:
+		_player.reset_to_tile(_case.player_start_tile)
+	_sync_player_state()
+	_refresh_world_nodes()
 	game_phase = Phase.EXPLORE
 	active_npc_index = -1
 	accusation_step = 0
@@ -1192,7 +1148,7 @@ func _reset_game() -> void:
 		accusation_status_label.visible = false
 
 	_update_hud()
-	queue_redraw()
+	_queue_world_redraw()
 
 
 func _update_hud() -> void:
@@ -1246,45 +1202,48 @@ func _get_pressed_tile_direction() -> Vector2i:
 
 
 func _try_start_tile_step(direction: Vector2i) -> void:
-	player_face_direction = direction
-	var next_tile := player_tile + direction
-	if not _is_tile_walkable(next_tile) or _is_npc_at_tile(next_tile):
-		queue_redraw()
+	if _player == null:
 		return
-	player_tile = next_tile
-	player_target_position = _tile_to_world_center(next_tile)
-	player_is_stepping = true
-	queue_redraw()
+	_player.speed = player_speed
+	_player.try_step(direction, _world_map, _npc_tiles())
+	_sync_player_state()
 
 
 func _is_tile_walkable(tile_position: Vector2i) -> bool:
-	return not BLOCKING_TILES.has(_tile_at(tile_position))
+	if _world_map == null:
+		return TileMap2D.is_walkable(tile_position)
+	return _world_map.is_walkable(tile_position)
 
 
 func _is_npc_at_tile(tile: Vector2i) -> bool:
+	return _npc_tiles().has(tile)
+
+
+func _npc_tiles() -> Array[Vector2i]:
+	var tiles: Array[Vector2i] = []
 	for suspect in _case.suspects:
-		if suspect.room != current_room:
-			continue
-		if _world_to_tile(suspect.position) == tile:
-			return true
-	return false
+		if suspect.room == current_room:
+			tiles.append(TileMap2D.world_to_tile(suspect.position))
+	return tiles
 
 
 func _tile_to_world_center(tile_position: Vector2i) -> Vector2:
-	return Vector2(tile_position) * TILE_SIZE + Vector2(TILE_SIZE * 0.5, TILE_SIZE * 0.5)
+	return TileMap2D.tile_to_world_center(tile_position)
 
 
 func _world_to_tile(world_position: Vector2) -> Vector2i:
-	return Vector2i(
-		floori(world_position.x / TILE_SIZE),
-		floori(world_position.y / TILE_SIZE)
-	)
+	return TileMap2D.world_to_tile(world_position)
 
 
 func _tile_at(tile_position: Vector2i) -> String:
-	if tile_position.x < 0 or tile_position.x >= MAP_WIDTH or tile_position.y < 0 or tile_position.y >= MAP_HEIGHT:
-		return "#"
-	var row: String = MAP_ROWS[tile_position.y]
-	if tile_position.x >= row.length():
-		return "#"
-	return row.substr(tile_position.x, 1)
+	return TileMap2D.tile_at(tile_position)
+
+
+func _sync_player_state() -> void:
+	if _player == null:
+		return
+	player_position = _player.position
+	player_tile = _player.tile
+	player_target_position = _player.target_position
+	player_is_stepping = _player.is_stepping
+	player_face_direction = _player.face_direction

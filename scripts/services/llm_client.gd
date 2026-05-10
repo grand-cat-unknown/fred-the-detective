@@ -6,14 +6,13 @@ signal dialogue_failed(suspect_id: StringName, reason: String)
 signal accusation_completed(verdict_text: String, suspect_id: StringName, clue_id: StringName, explanation: String)
 signal accusation_failed(reason: String, suspect_id: StringName, clue_id: StringName, explanation: String)
 
-const _CONTENT_TYPE_HEADERS := PackedStringArray(["Content-Type: application/json"])
-
 var _http: HTTPRequest
 var _kind: GameEnums.RequestKind = GameEnums.RequestKind.NONE
 var _pending_suspect_id: StringName = &""
 var _pending_clue_id: StringName = &""
 var _pending_explanation: String = ""
 var _queue: Array[Dictionary] = []
+var _content_type_headers := PackedStringArray(["Content-Type: application/json"])
 
 
 func _init(http: HTTPRequest = null) -> void:
@@ -92,7 +91,7 @@ func _send(prompt_input: String, instructions: String) -> bool:
 		"instructions": instructions,
 		"max_output_tokens": Gameplay.LLM_MAX_OUTPUT_TOKENS,
 	})
-	var error := _http.request(_endpoint(), _CONTENT_TYPE_HEADERS, HTTPClient.METHOD_POST, payload)
+	var error := _http.request(_endpoint(), _content_type_headers, HTTPClient.METHOD_POST, payload)
 	return error == OK
 
 
@@ -178,7 +177,7 @@ static func _start_failure_message(kind: GameEnums.RequestKind) -> String:
 
 
 static func _parse_response_body(body: PackedByteArray) -> Dictionary:
-	var raw := JSON.parse_string(body.get_string_from_utf8())
+	var raw: Variant = JSON.parse_string(body.get_string_from_utf8())
 	if typeof(raw) != TYPE_DICTIONARY:
 		return {}
 	return raw
