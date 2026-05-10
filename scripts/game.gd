@@ -30,6 +30,15 @@ const CLUE_ROOM_1220_LOG := 4
 const CLUE_CHUTE_NOTICE := 5
 const CLUE_GHOST_CELL := 6
 const CLUE_GLOVES := 7
+const ROOM_CONCIERGE := "concierge"
+const ROOM_1220 := "room_1220"
+const ROOM_GEAR := "gear_cart"
+const ROOM_HALL := "twelfth_hall"
+const ROOM_SUITE := "suite_1221"
+const ROOM_LOBBY := "elevator_lobby"
+const ROOM_CHUTE := "chute_access"
+const ROOM_1223 := "room_1223"
+const ROOM_START := ROOM_LOBBY
 const REQUIRED_ACCUSATION_CLUE_IDX := CLUE_GHOST_CELL
 const ACCUSATION_VERIFIER_INSTRUCTIONS := "You are the final case-verdict verifier for Fred the Detective. You are not a suspect and you do not roleplay. The case truth is authored by the game and must be treated as authoritative. Return only compact JSON with this exact shape: {\"is_correct\": boolean, \"headline\": string, \"feedback\": string}. Mark is_correct true only when the player accuses Dr. Otis Pemberton, cites the Ghost Cell in the Chute as the key evidence, and gives a coherent explanation connecting the ghost cell to the murder method, the stolen idol, and Pemberton's motive or opportunity. Mark false if the suspect is wrong, the key evidence is wrong, the explanation is vague, or the explanation contradicts the authored truth. Keep headline under 8 words. Keep feedback under 90 words, written as Fred's case-board verdict."
 const GHOSTBUSTER_TEXTURE := preload("res://assets/characters/Ghostbuster1.png")
@@ -44,65 +53,104 @@ const MAP_ROWS := [
 	"#..............................#",
 	"#..............................#",
 	"#..............................#",
-	"####d#####d#####d#########d#####",
+	"####d###########d#########d#####",
 	"#.......#.....#.........#......#",
-	"#..BB...#..C..#.,,PP,,..#..DD..#",
+	"#..BB..E#E.C..#.,,PP,,..#..DD..#",
 	"#.......#.....#.........#......#",
 	"#.......#.....#.........#......#",
 	"#.......#.....#.........#......#",
 	"################################",
 	"################################",
 ]
-const BLOCKING_TILES := ["#", "D", "B", "C", "G", "P"]
+const BLOCKING_TILES := ["#", "D", "B", "C", "G", "P", "d", "E"]
 
 const ROOMS := [
 	{
+		"id": ROOM_CONCIERGE,
 		"label": "CONCIERGE / SECURITY",
 		"rect": Rect2(30.0, 30.0, 240.0, 150.0),
 		"label_position": Vector2(45.0, 42.0),
 		"color": Color8(206, 184, 128, 44),
 	},
 	{
+		"id": ROOM_1220,
 		"label": "ROOM 1220",
 		"rect": Rect2(330.0, 30.0, 240.0, 150.0),
 		"label_position": Vector2(345.0, 42.0),
 		"color": Color8(150, 175, 190, 44),
 	},
 	{
+		"id": ROOM_GEAR,
 		"label": "SERVICE CORRIDOR / GEAR CART",
 		"rect": Rect2(630.0, 30.0, 300.0, 150.0),
 		"label_position": Vector2(645.0, 42.0),
 		"color": Color8(125, 155, 145, 44),
 	},
 	{
+		"id": ROOM_HALL,
 		"label": "TWELFTH FLOOR HALL",
 		"rect": Rect2(30.0, 180.0, 900.0, 120.0),
 		"label_position": Vector2(45.0, 192.0),
 		"color": Color8(105, 130, 150, 34),
 	},
 	{
+		"id": ROOM_SUITE,
 		"label": "SUITE 1221 - VANCE",
 		"rect": Rect2(450.0, 300.0, 300.0, 180.0),
 		"label_position": Vector2(465.0, 312.0),
 		"color": Color8(160, 95, 105, 44),
 	},
 	{
+		"id": ROOM_LOBBY,
 		"label": "ELEVATOR LOBBY / STAIRWELL",
 		"rect": Rect2(30.0, 300.0, 240.0, 180.0),
 		"label_position": Vector2(45.0, 312.0),
 		"color": Color8(110, 150, 180, 44),
 	},
 	{
+		"id": ROOM_CHUTE,
 		"label": "11F CHUTE ACCESS",
 		"rect": Rect2(270.0, 300.0, 180.0, 180.0),
 		"label_position": Vector2(285.0, 312.0),
 		"color": Color8(130, 120, 105, 48),
 	},
 	{
+		"id": ROOM_1223,
 		"label": "ROOM 1223",
 		"rect": Rect2(750.0, 300.0, 180.0, 180.0),
 		"label_position": Vector2(765.0, 312.0),
 		"color": Color8(150, 115, 165, 44),
+	},
+]
+
+const ROOM_TILE_BOUNDS := {
+	ROOM_CONCIERGE: Rect2i(0, 0, 11, 6),
+	ROOM_1220: Rect2i(9, 0, 12, 6),
+	ROOM_GEAR: Rect2i(19, 0, 13, 6),
+	ROOM_HALL: Rect2i(0, 5, 32, 6),
+	ROOM_LOBBY: Rect2i(0, 10, 9, 7),
+	ROOM_CHUTE: Rect2i(8, 10, 7, 7),
+	ROOM_SUITE: Rect2i(14, 10, 11, 7),
+	ROOM_1223: Rect2i(24, 10, 8, 7),
+}
+
+const DOORS := [
+	{"tile": Vector2i(4, 5), "rooms": [ROOM_CONCIERGE, ROOM_HALL]},
+	{"tile": Vector2i(14, 5), "rooms": [ROOM_1220, ROOM_HALL]},
+	{"tile": Vector2i(25, 5), "rooms": [ROOM_GEAR, ROOM_HALL]},
+	{"tile": Vector2i(4, 10), "rooms": [ROOM_HALL, ROOM_LOBBY]},
+	{"tile": Vector2i(16, 10), "rooms": [ROOM_HALL, ROOM_SUITE]},
+	{"tile": Vector2i(26, 10), "rooms": [ROOM_HALL, ROOM_1223]},
+]
+
+const ELEVATORS := [
+	{
+		"tile_a": Vector2i(7, 12),
+		"spawn_a": Vector2i(6, 12),
+		"room_a": ROOM_LOBBY,
+		"tile_b": Vector2i(9, 12),
+		"spawn_b": Vector2i(10, 12),
+		"room_b": ROOM_CHUTE,
 	},
 ]
 
@@ -111,6 +159,7 @@ const SUSPECTS := [
 		"name": "Dr. Otis Pemberton",
 		"subtitle": "Ghostbusters physician",
 		"position": Vector2(555.0, 255.0),
+		"room": ROOM_HALL,
 		"texture": GHOSTBUSTER_TEXTURE,
 		"color": Color8(126, 89, 150),
 		"hat_color": Color8(74, 45, 94),
@@ -121,6 +170,7 @@ const SUSPECTS := [
 		"name": "Walter Crane",
 		"subtitle": "Rival collector",
 		"position": Vector2(345.0, 255.0),
+		"room": ROOM_HALL,
 		"color": Color8(157, 102, 70),
 		"hat_color": Color8(101, 64, 45),
 		"instructions": "You are Walter Crane, a theatrical rival collector staying below the Sedgewick Hotel's twelfth floor. You lost the black idol to Reginald Vance at auction and wanted it badly, which makes you look suspicious, but you are innocent. Around 9:12 PM you heard something heavy strike the laundry chute. You did not understand its importance at first and resent being treated as obvious. Keep replies under three sentences and do not include speaker labels.",
@@ -130,6 +180,7 @@ const SUSPECTS := [
 		"name": "Mara Bell",
 		"subtitle": "Ghostbusters field lead",
 		"position": Vector2(165.0, 435.0),
+		"room": ROOM_LOBBY,
 		"color": Color8(84, 128, 157),
 		"hat_color": Color8(43, 75, 101),
 		"instructions": "You are Mara Bell, the Ghostbusters field lead. You are innocent. During the haunting you assigned Otis Pemberton to clear room 1220, Lena Ortiz to check room 1223, Theo Griggs to guard the gear cart, and yourself to the elevator lobby and stairwell. You did not see Pemberton come out of room 1220; you saw him return from the direction of Vance's suite. You are disciplined, protective of your team, and increasingly troubled by the timeline. Keep replies under three sentences and do not include speaker labels.",
@@ -139,6 +190,7 @@ const SUSPECTS := [
 		"name": "Theo Griggs",
 		"subtitle": "Ghostbusters technician",
 		"position": Vector2(765.0, 135.0),
+		"room": ROOM_GEAR,
 		"color": Color8(67, 119, 122),
 		"hat_color": Color8(38, 76, 82),
 		"instructions": "You are Theo Griggs, the Ghostbusters technician. You are innocent. You guarded the gear cart during the sweep and later noticed a charged spare ghost cell was missing; Pemberton waved it off as a paperwork error. You can explain that a purged charged cell can leave dark violet residue on protective gloves. You are practical, defensive about the equipment, and frustrated by sloppy assumptions. Keep replies under three sentences and do not include speaker labels.",
@@ -148,6 +200,7 @@ const SUSPECTS := [
 		"name": "Lena Ortiz",
 		"subtitle": "Ghostbusters trap operator",
 		"position": Vector2(825.0, 435.0),
+		"room": ROOM_1223,
 		"color": Color8(138, 84, 148),
 		"hat_color": Color8(82, 48, 96),
 		"instructions": "You are Lena Ortiz, a Ghostbusters trap operator. You are innocent. You were checking room 1223 during the sweep. You noticed Pemberton return with his gloves still on and one hand tucked against his side, as if hiding equipment or residue. You do not want to accuse a teammate without proof, but you are observant and honest when Fred asks pointed questions. Keep replies under three sentences and do not include speaker labels.",
@@ -157,6 +210,7 @@ const SUSPECTS := [
 		"name": "Vivian Marsh",
 		"subtitle": "Hotel concierge",
 		"position": Vector2(150.0, 105.0),
+		"room": ROOM_CONCIERGE,
 		"color": Color8(166, 133, 76),
 		"hat_color": Color8(96, 75, 46),
 		"instructions": "You are Vivian Marsh, the Sedgewick Hotel concierge. You are innocent and trying to protect guests and the hotel's reputation. The laundry chute has been jammed between floors 12 and 11 for a week. The security dashboard lagged during the haunting, but the room lock timestamps are accurate. Once Fred has found the 1220 door record and the ghost cell in the chute, you can clarify that you opened room 1220 at 9:18 PM after Vance's body was found; it was not Pemberton's sweep. Keep replies under three sentences and do not include speaker labels.",
@@ -167,42 +221,50 @@ const SUSPECTS := [
 const CLUES := [
 	{
 		"position": Vector2(525.0, 375.0),
+		"room": ROOM_SUITE,
 		"label": "Vance's Body and Wall Fan",
 		"description": "Reginald Vance has a small cold-burn wound under his ribs. Violet ectoplasm smears his jacket, and a narrow fan of matching residue runs from the body toward the wall.",
 	},
 	{
 		"position": Vector2(585.0, 375.0),
+		"room": ROOM_SUITE,
 		"label": "Empty Idol Pedestal",
 		"description": "Gray binding dust surrounds a clean idol-shaped absence on the pedestal. The idol was present when the dust fell, then removed afterward.",
 	},
 	{
 		"position": Vector2(495.0, 435.0),
+		"room": ROOM_SUITE,
 		"label": "Auction Receipt",
 		"description": "The receipt shows Vance beat Walter Crane for the black stone idol. A folded note from Pemberton urges Vance to surrender the idol for scholarly study.",
 	},
 	{
 		"position": Vector2(615.0, 435.0),
+		"room": ROOM_SUITE,
 		"label": "Anchor Idol Field Book",
 		"description": "The field book says anchor idols attract hauntings but do not vanish when hauntings end. It also diagrams opened ghost cells: directional cones, cold-burn wounds, side-vent dust, and blocked silhouettes.",
 	},
 	{
 		"position": Vector2(435.0, 105.0),
+		"room": ROOM_1220,
 		"label": "Room 1220 Door Record",
 		"description": "The lock record shows room 1220 opened at 9:18 PM. The dashboard was lagging during the haunting, so the entry feels ambiguous until someone explains who opened it.",
 	},
 	{
 		"position": Vector2(225.0, 255.0),
+		"room": ROOM_HALL,
 		"label": "Laundry Chute Notice",
 		"description": "A maintenance notice says the laundry chute is blocked between floors 12 and 11. If something heavy went down the chute tonight, it may still be wedged there.",
 	},
 	{
 		"position": Vector2(345.0, 435.0),
+		"room": ROOM_CHUTE,
 		"label": "Ghost Cell in the Chute",
 		"description": "A spent spare ghost cell is wedged above floor 11. The black idol is hidden inside its outer case. Residue on the main port matches the wall fan, and gray dust on the side vents matches the pedestal.",
 		"unlock": "chute",
 	},
 	{
 		"position": Vector2(825.0, 105.0),
+		"room": ROOM_GEAR,
 		"label": "Pemberton's Gloves",
 		"description": "Pemberton's protective gloves are stained dark violet inside the fingers, the pattern Theo described for someone who opened and purged a charged ghost cell by hand.",
 		"unlock": "gloves",
@@ -239,6 +301,7 @@ var player_position := PLAYER_START
 var player_tile := PLAYER_START_TILE
 var player_target_position := PLAYER_START
 var player_is_stepping := false
+var current_room: String = ROOM_START
 var clue_inspected: Array[bool] = []
 var suspect_talked: Array[bool] = []
 var suspect_conversations: Array = []
@@ -343,11 +406,19 @@ func _unhandled_input(event: InputEvent) -> void:
 	if event.is_action_pressed("interact"):
 		var npc_idx := _nearest_npc_in_range()
 		var clue_idx := _nearest_clue_in_range()
+		var door_idx := _adjacent_door_index()
+		var elev_idx := _adjacent_elevator_index()
 		if npc_idx >= 0:
 			_open_dialogue(npc_idx)
 			get_viewport().set_input_as_handled()
 		elif clue_idx >= 0:
 			_open_clue_panel(clue_idx)
+			get_viewport().set_input_as_handled()
+		elif elev_idx >= 0:
+			_enter_elevator(elev_idx)
+			get_viewport().set_input_as_handled()
+		elif door_idx >= 0:
+			_enter_door(door_idx)
 			get_viewport().set_input_as_handled()
 
 
@@ -601,6 +672,8 @@ func _build_room_labels() -> void:
 	room_label_nodes.clear()
 
 	for room in ROOMS:
+		if room.get("id", "") != current_room:
+			continue
 		var label := Label.new()
 		label.text = str(room["label"])
 		label.position = room["label_position"]
@@ -613,10 +686,14 @@ func _build_room_labels() -> void:
 
 
 func _draw_tile_map() -> void:
+	var bounds: Rect2i = ROOM_TILE_BOUNDS[current_room]
 	for y in range(MAP_HEIGHT):
 		for x in range(MAP_WIDTH):
-			var tile := _tile_at(Vector2i(x, y))
+			var tile_pos := Vector2i(x, y)
 			var rect := Rect2(Vector2(x, y) * TILE_SIZE, Vector2(TILE_SIZE, TILE_SIZE))
+			if not bounds.has_point(tile_pos):
+				continue
+			var tile := _tile_at(tile_pos)
 			_draw_floor_tile(rect, x, y)
 			match tile:
 				"#":
@@ -627,6 +704,8 @@ func _draw_tile_map() -> void:
 					_draw_rug_tile(rect, true)
 				"d":
 					_draw_door_tile(rect)
+				"E":
+					_draw_elevator_tile(rect)
 				"D":
 					_draw_object_tile(rect, WOOD_COLOR)
 				"B":
@@ -641,6 +720,8 @@ func _draw_tile_map() -> void:
 
 func _draw_room_zones() -> void:
 	for room in ROOMS:
+		if room.get("id", "") != current_room:
+			continue
 		var rect: Rect2 = room["rect"]
 		draw_rect(rect, room["color"], true)
 		draw_rect(rect, ROOM_BORDER_COLOR, false, 2.0)
@@ -679,14 +760,33 @@ func _draw_pedestal_tile(rect: Rect2) -> void:
 
 
 func _draw_door_tile(rect: Rect2) -> void:
-	draw_rect(Rect2(rect.position + Vector2(2.0, 12.0), Vector2(rect.size.x - 4.0, 6.0)), DOOR_COLOR, true)
-	draw_rect(Rect2(rect.position + Vector2(2.0, 12.0), Vector2(rect.size.x - 4.0, 6.0)), DOOR_TRIM_COLOR, false, 1.5)
+	draw_rect(Rect2(rect.position + Vector2(2.0, 4.0), Vector2(rect.size.x - 4.0, rect.size.y - 8.0)), DOOR_COLOR, true)
+	draw_rect(Rect2(rect.position + Vector2(2.0, 4.0), Vector2(rect.size.x - 4.0, rect.size.y - 8.0)), DOOR_TRIM_COLOR, false, 1.5)
 	draw_circle(rect.position + Vector2(rect.size.x - 8.0, rect.size.y * 0.5), 2.0, DOOR_TRIM_COLOR)
+
+
+func _draw_elevator_tile(rect: Rect2) -> void:
+	var frame_color := Color8(70, 78, 92)
+	var panel_color := Color8(150, 162, 178)
+	var seam_color := Color8(40, 46, 56)
+	draw_rect(rect.grow(-2.0), frame_color, true)
+	draw_rect(rect.grow(-4.0), panel_color, true)
+	var seam_x := rect.position.x + rect.size.x * 0.5
+	draw_line(Vector2(seam_x, rect.position.y + 4.0), Vector2(seam_x, rect.position.y + rect.size.y - 4.0), seam_color, 1.5)
+	draw_rect(rect.grow(-2.0), OUTLINE_COLOR, false, 1.5)
+	var arrow := PackedVector2Array([
+		rect.position + Vector2(rect.size.x * 0.3, rect.size.y * 0.35),
+		rect.position + Vector2(rect.size.x * 0.7, rect.size.y * 0.35),
+		rect.position + Vector2(rect.size.x * 0.5, rect.size.y * 0.2),
+	])
+	draw_colored_polygon(arrow, OUTLINE_COLOR)
 
 
 func _draw_clues() -> void:
 	for i in range(CLUES.size()):
 		if not _is_clue_available(i):
+			continue
+		if str(CLUES[i].get("room", "")) != current_room:
 			continue
 		var color := CLUE_INSPECTED_COLOR if clue_inspected.size() > i and clue_inspected[i] else CLUE_COLOR
 		var pos: Vector2 = CLUES[i]["position"]
@@ -709,6 +809,8 @@ func _draw_clues() -> void:
 
 func _draw_npcs() -> void:
 	for i in range(SUSPECTS.size()):
+		if str(SUSPECTS[i].get("room", "")) != current_room:
+			continue
 		var pos: Vector2 = SUSPECTS[i]["position"]
 		if SUSPECTS[i].has("texture"):
 			_draw_character_texture(pos, SUSPECTS[i]["texture"])
@@ -756,6 +858,8 @@ func _nearest_npc_in_range() -> int:
 	var best := -1
 	var best_dist := INF
 	for i in range(SUSPECTS.size()):
+		if str(SUSPECTS[i].get("room", "")) != current_room:
+			continue
 		var pos: Vector2 = SUSPECTS[i]["position"]
 		var d := player_position.distance_to(pos)
 		if d <= PLAYER_RADIUS + NPC_INTERACT_RADIUS and d < best_dist:
@@ -770,12 +874,93 @@ func _nearest_clue_in_range() -> int:
 	for i in range(CLUES.size()):
 		if not _is_clue_available(i):
 			continue
+		if str(CLUES[i].get("room", "")) != current_room:
+			continue
 		var pos: Vector2 = CLUES[i]["position"]
 		var d := player_position.distance_to(pos)
 		if d <= PLAYER_RADIUS + CLUE_INTERACT_RADIUS and d < best_dist:
 			best_dist = d
 			best = i
 	return best
+
+
+func _adjacent_door_index() -> int:
+	for i in range(DOORS.size()):
+		var door: Dictionary = DOORS[i]
+		var rooms: Array = door["rooms"]
+		if not rooms.has(current_room):
+			continue
+		var dt: Vector2i = door["tile"]
+		var diff := dt - player_tile
+		if abs(diff.x) + abs(diff.y) == 1:
+			return i
+	return -1
+
+
+func _adjacent_elevator_index() -> int:
+	for i in range(ELEVATORS.size()):
+		var elev: Dictionary = ELEVATORS[i]
+		var tile := Vector2i.ZERO
+		if current_room == elev["room_a"]:
+			tile = elev["tile_a"]
+		elif current_room == elev["room_b"]:
+			tile = elev["tile_b"]
+		else:
+			continue
+		var diff := tile - player_tile
+		if abs(diff.x) + abs(diff.y) == 1:
+			return i
+	return -1
+
+
+func _door_target_room(door: Dictionary) -> String:
+	var rooms: Array = door["rooms"]
+	if rooms[0] == current_room:
+		return rooms[1]
+	return rooms[0]
+
+
+func _room_label_for_id(room_id: String) -> String:
+	for room in ROOMS:
+		if room.get("id", "") == room_id:
+			return str(room["label"])
+	return room_id
+
+
+func _enter_door(door_idx: int) -> void:
+	if door_idx < 0 or door_idx >= DOORS.size():
+		return
+	var door: Dictionary = DOORS[door_idx]
+	var door_tile: Vector2i = door["tile"]
+	var target_room := _door_target_room(door)
+	var spawn_tile: Vector2i = door_tile * 2 - player_tile
+	_transition_to(target_room, spawn_tile)
+
+
+func _enter_elevator(elev_idx: int) -> void:
+	if elev_idx < 0 or elev_idx >= ELEVATORS.size():
+		return
+	var elev: Dictionary = ELEVATORS[elev_idx]
+	var target_room: String
+	var spawn_tile: Vector2i
+	if current_room == elev["room_a"]:
+		target_room = elev["room_b"]
+		spawn_tile = elev["spawn_b"]
+	else:
+		target_room = elev["room_a"]
+		spawn_tile = elev["spawn_a"]
+	_transition_to(target_room, spawn_tile)
+
+
+func _transition_to(room_id: String, spawn_tile: Vector2i) -> void:
+	current_room = room_id
+	player_tile = spawn_tile
+	player_position = _tile_to_world_center(spawn_tile)
+	player_target_position = player_position
+	player_is_stepping = false
+	_build_room_labels()
+	_update_hud()
+	queue_redraw()
 
 
 func _is_clue_available(clue_idx: int) -> bool:
@@ -801,6 +986,8 @@ func _update_interact_prompt() -> void:
 
 	var npc_idx := _nearest_npc_in_range()
 	var clue_idx := _nearest_clue_in_range()
+	var door_idx := _adjacent_door_index()
+	var elev_idx := _adjacent_elevator_index()
 
 	if npc_idx >= 0:
 		interact_prompt.visible = true
@@ -812,6 +999,20 @@ func _update_interact_prompt() -> void:
 		interact_prompt_label.text = "[E] Inspect: %s" % CLUES[clue_idx]["label"]
 		var pos: Vector2 = CLUES[clue_idx]["position"]
 		interact_prompt.position = pos + Vector2(-60.0, -38.0)
+	elif elev_idx >= 0:
+		var elev: Dictionary = ELEVATORS[elev_idx]
+		var target_room: String = elev["room_b"] if current_room == elev["room_a"] else elev["room_a"]
+		var tile: Vector2i = elev["tile_a"] if current_room == elev["room_a"] else elev["tile_b"]
+		interact_prompt.visible = true
+		interact_prompt_label.text = "[E] Take elevator to %s" % _room_label_for_id(target_room)
+		interact_prompt.position = _tile_to_world_center(tile) + Vector2(-80.0, -44.0)
+	elif door_idx >= 0:
+		var door: Dictionary = DOORS[door_idx]
+		var target_room := _door_target_room(door)
+		var tile: Vector2i = door["tile"]
+		interact_prompt.visible = true
+		interact_prompt_label.text = "[E] Open door to %s" % _room_label_for_id(target_room)
+		interact_prompt.position = _tile_to_world_center(tile) + Vector2(-80.0, -44.0)
 	else:
 		interact_prompt.visible = false
 
@@ -1331,6 +1532,8 @@ func _reset_game() -> void:
 	player_position = _tile_to_world_center(player_tile)
 	player_target_position = player_position
 	player_is_stepping = false
+	current_room = ROOM_START
+	_build_room_labels()
 	clue_inspected = _make_false_array(CLUES.size())
 	suspect_talked = _make_false_array(SUSPECTS.size())
 	suspect_conversations = _make_empty_nested_array(SUSPECTS.size())
