@@ -2,6 +2,7 @@ const { getEnv, json, readJsonBody, requireSession } = require('../lib/auth');
 
 const OPENAI_API_URL = 'https://api.openai.com/v1/responses';
 const DEFAULT_OPENAI_MODEL = 'gpt-4.1-mini';
+const MAX_OUTPUT_TOKENS = 600;
 
 function extractText(data) {
 	if (typeof data.output_text === 'string' && data.output_text.length > 0) {
@@ -61,6 +62,10 @@ module.exports = async function handler(req, res) {
 		return json(res, 400, { error: 'The request body must include a non-empty input string.' });
 	}
 
+	if (typeof maxOutputTokens === 'number' && (maxOutputTokens <= 0 || maxOutputTokens > MAX_OUTPUT_TOKENS)) {
+		return json(res, 400, { error: `max_output_tokens must be between 1 and ${MAX_OUTPUT_TOKENS}.` });
+	}
+
 	const payload = {
 		model,
 		input,
@@ -70,7 +75,7 @@ module.exports = async function handler(req, res) {
 		payload.instructions = instructions;
 	}
 
-	if (typeof maxOutputTokens === 'number' && maxOutputTokens > 0) {
+	if (typeof maxOutputTokens === 'number') {
 		payload.max_output_tokens = maxOutputTokens;
 	}
 
