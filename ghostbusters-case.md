@@ -1,181 +1,232 @@
 # The Sedgewick Haunting
 
-A Ghostbusters-themed case for *Fred the Detective*, designed against `case-design-guidelines.md`. Written so it reads cleanly without prior knowledge of the films — the world has a famous team of ghost-hunters called the Ghostbusters, and that is all the player needs to know.
+A Ghostbusters-themed case for *Fred the Detective*, designed against `case-design-guidelines.md`. It should read cleanly without prior knowledge of the films: the world has a famous team of professional ghost-hunters called the Ghostbusters, and that is all the player needs to know.
 
 ## Pitch
 
-The penthouse suite of the Sedgewick Hotel is famously haunted. This morning a guest was found dead in it, the walls dripping with slime and the furniture overturned. The hotel called the Ghostbusters. The Ghostbusters confirmed a real haunting and closed the case as a paranormal incident.
+Last night, collector **Reginald Vance** brought a black stone idol back to the Sedgewick Hotel after winning it at auction. Within hours, suite 1221 was genuinely haunted: furniture shaking, mirrors icing over, and a dead bellhop's voice shouting from the walls.
 
-Fred isn't buying it. Ghosts don't leave stab wounds.
+The Ghostbusters arrived, fought the manifestation, and captured it in a portable containment cell. Everyone thought the danger was over.
 
-The truth the player slowly uncovers: someone used the haunting as cover. The suite has rattled tenants for decades — that part is real. Tonight's slime, broken lamps, and ghostly readings were staged by a human killer who knew exactly how to dress a scene to look paranormal.
+Then one of the Ghostbusters was found dead.
+
+Dr. Otis Pemberton, the team's paranormal physician and scholar, claims the captured ghost escaped, killed his teammate, and vanished with the idol. Fred doubts it. The ghost was already caught, the idol should still exist, and the empty containment cell tells the wrong story.
+
+The truth: the haunting was real, but the murder was human. Pemberton stole the idol after the capture, killed the teammate who caught him, purged the containment cell to fake a ghost escape, and hid both the idol and the emptied cell in the jammed laundry chute.
+
+## Case Shape
+
+This case works best if the player is allowed to believe the haunting happened.
+
+The mystery is not "were the ghosts fake?" The mystery is "what happened after the ghost was captured?"
+
+That distinction keeps the Ghostbusters premise alive while still making the solution depend on detective logic.
 
 ## Authored Truths
 
 ### Victim
 
-**Reginald Vance**, art collector, mid-sixties. Two days ago he won an obscure black stone idol at a private auction. The idol has a long, strange reputation — collectors and researchers say it stirs up spirits wherever it sits. Vance intended to lock it in a private vault.
+**Mara Bell**, Ghostbuster field lead, early forties. Practical, brave, and publicly credited with capturing the Sedgewick apparition.
+
+Mara was killed in the service corridor outside suite 1221, shortly after the real ghost was captured. Her body was dragged back into the ruined suite so the death would look like part of the haunting.
 
 ### Killer
 
-**Dr. Otis Pemberton**, senior member of the Ghostbusters team. Soft-spoken, academic, the kind of man who corrects your grammar mid-confession.
+**Dr. Otis Pemberton**, Ghostbusters physician, occult historian, and containment specialist. Soft-spoken, precise, and very good at sounding like the only adult in the room.
 
 ### Motive
 
-Pemberton has spent eleven years writing a book on the rarest kinds of hauntings. The idol is the missing piece of his research. Vance buying it meant it would vanish into a vault for the rest of Pemberton's career. He could not let that happen.
+Pemberton has spent eleven years trying to prove a theory about "anchor idols": physical objects that attract a ghost without being destroyed by it. Vance's idol is the missing proof.
 
-This is professional desperation more than greed. Pemberton genuinely believes he is rescuing the idol from someone who will misuse it.
+When Vance won the idol at auction, Pemberton believed it would disappear into a private vault forever. When the haunting broke out, Pemberton saw a chance to take the idol and blame its disappearance on the supernatural event.
+
+Mara caught him removing the idol from the suite after the ghost was safely contained. Pemberton killed her to protect the theft and his career.
 
 ### Opportunity
 
-The hotel called the Ghostbusters at 8:42 PM after guests reported screaming. Pemberton was first on scene at 9:01 PM and entered the suite alone, telling the rest of the team to set up gear in the lobby. He was alone with Vance for about twenty minutes before calling the team upstairs. Vance was alive when Pemberton entered.
+The Ghostbusters arrived at 9:04 PM. The capture happened at approximately 9:27 PM in suite 1221, witnessed by Vance, Vivian Marsh, and surviving team member Theo Griggs.
+
+After the capture, Pemberton sent the others downstairs to "clear civilians" while he and Mara performed the containment check. He was alone with Mara in the service corridor for roughly six minutes.
+
+### Murder Method
+
+Pemberton used a **charged containment probe** from his medical kit. The probe is normally used to test whether ectoplasmic residue is active. At close range, with its limiter removed, it can stop a heart and leave a pair of small, cold-burn punctures.
+
+Those marks can be mistaken for a ghost injury by frightened civilians, but a field reference and the intact containment timeline show that the ghost could not have made them.
 
 ### Key Physical Evidence
 
-**A spent battery cell from a Ghostbusters' gear pack, found wedged under the writing desk.**
+**The portable containment cell, found wedged in the jammed laundry chute with the idol hidden inside it.**
 
-These cells are issued only to certified Ghostbusters. Civilians cannot buy them. A real ghost would not leave one behind. Its presence places a Ghostbuster in the room *firing equipment* — and the only Ghostbuster alone in the room was Pemberton.
+The cell should contain the captured ghost. Instead, it is empty in a very specific way: it was chemically purged from outside the seal, not broken open from within.
 
-The cell alone does not solve the case. It implicates a Ghostbuster, but the player still has to figure out *which one*, and *why*.
+That matters because a purge leaves violet-black residue on full-spectrum gloves and can stain the user's fingers if the gloves are damaged. The player can later uncover Pemberton's stained gloves in his medical bag.
+
+The cell proves three things:
+
+- the ghost did not escape by force
+- someone who understood Ghostbusters equipment deliberately emptied it
+- the idol did not vanish supernaturally; it was hidden inside the cell
 
 ### Supporting Testimony
 
-- **Vivian "Viv" Marsh** (concierge) noticed a fleck of green slime on the *inside* of Pemberton's coat sleeve as he passed the front desk on his way out. She is the kind of concierge who notices a crooked bow tie at thirty feet; a stain on a coat does not slip past her. Slime sprays outward — the only way to get it inside your own sleeve is to be the one holding the canister.
-- **Walter Crane** (rival collector, suite 1219) heard Vance's voice through the wall around 9:05 PM — *arguing*, then a single shout, then silence. He assumed it was a fight with hotel staff and ignored it. The official Ghostbusters report places the "ghost attack" at 8:55 PM, before Pemberton arrived. Walter's timeline contradicts that.
+- **Reginald Vance** confirms the idol was still on its pedestal after the auction and during the first minutes of the haunting. He did not remove it, and he was never alone after the Ghostbusters arrived.
+- **Vivian "Viv" Marsh** saw the Ghostbusters carry a sealed, humming containment cell out of suite 1221 after the capture. Later, she noticed Pemberton returning from the service corridor without that cell.
+- **Theo Griggs** says Mara insisted on logging the captured ghost before anyone touched the idol. Mara and Pemberton argued quietly about "proper chain of custody" after the others were sent downstairs.
+- **Walter Crane**, the rival collector who lost the auction, heard a metal case strike the laundry chute from inside his room, below the suite. He assumes it was hotel staff dumping trash and does not realize it matters until asked about the chute.
 
-### Contradiction
+### Core Contradiction
 
-Pemberton's incident report claims he found Vance already dead, killed by the ghost at 8:55 PM. Three facts disprove this:
+Pemberton's report says:
 
-- The slime in 1221 is sprayed, not pooled — it came from a canister, not a haunting.
-- That canister is in the laundry chute, and a matching fleck is on the inside of Pemberton's sleeve (Viv) — *he* sprayed the room.
-- Vance was alive and arguing at 9:05 PM, four minutes after Pemberton went in alone (Walter).
+- the ghost escaped the containment cell
+- the ghost killed Mara
+- the idol vanished because its haunting had "completed"
 
-Any one of these is suggestive. Together they collapse the official story.
+The evidence says:
 
-### Cover-Up
+- the ghost was captured before Mara died
+- the containment cell was purged from outside, not breached from inside
+- anchor idols do not vanish when the haunting ends
+- the missing idol was physically hidden in the cell
+
+Once the player connects the field reference, the chute, the cell, and the gloves, Pemberton's story collapses.
+
+## Cover-Up
 
 Pemberton:
 
-- sprayed a canister of fake slime across the walls to mimic ghost residue
-- dumped the empty canister down the laundry chute on his way out, hoping it would be incinerated before anyone checked
-- overturned furniture to suggest a struggle with a spirit
-- ran his ghost-detector in calibration mode to leave a residual reading
-- pocketed the idol on the way out
+- stole the idol after the ghost was captured
+- killed Mara with a charged containment probe when she caught him
+- dragged her body back into suite 1221
+- purged the containment cell so it would appear empty after an "escape"
+- hid the idol inside the empty cell
+- dropped the cell into the laundry chute, expecting it to fall to the incinerator level
+- claimed the ghost killed Mara and vanished with the idol
 
-Two things he did not plan for: the chute is jammed half a floor down (housekeeping has been complaining about it for a week), so the canister never reaches the incinerator. And in the rush, a fleck of slime ended up on the inside of his sleeve.
+Two things went wrong.
 
-The slime in the room is the broader giveaway for an attentive player: real ghost slime *pools* under gravity within minutes. The slime in 1221 is sprayed evenly across vertical surfaces — consistent with a canister, not a haunting. Recovering the canister itself confirms it.
+First, the laundry chute had been jammed between floors 12 and 11 for a week, so the cell never reached the incinerator. Second, the purge residue leaked through a split seam in Pemberton's glove, staining his dominant hand and marking the inside of the glove.
 
 ## Suspect Roster
 
-The case has three suspects so the killer is not the only Ghostbuster present.
-
 | Suspect | Role | Public motive | Real role |
 | --- | --- | --- | --- |
-| **Dr. Otis Pemberton** | Ghostbuster | Called to the scene professionally | Killer |
-| **Vivian Marsh** | Hotel concierge | Knew Vance, friendly with him | Witness — saw the powered pack |
-| **Walter Crane** | Rival collector, suite 1219 | Lost the idol auction to Vance, has a clear grudge | Witness — heard the argument; the obvious red herring |
+| **Dr. Otis Pemberton** | Ghostbusters physician and scholar | Wants the idol for research | Killer |
+| **Reginald Vance** | Collector who won the idol | Could have staged danger to inflate the idol's value | Witness and theft victim |
+| **Walter Crane** | Rival collector in suite 1119 | Lost the idol auction to Vance | Red herring; heard the chute impact |
+| **Theo Griggs** | Surviving Ghostbuster technician | Could be blamed for a containment failure | Witness; confirms Mara challenged Pemberton |
+| **Vivian Marsh** | Hotel concierge | Protects the hotel reputation | Witness; notices movements and maintenance details |
 
-Walter is the obvious suspect at first glance. He has motive (the auction), proximity (next room), and attitude (bitter). He is not the killer. His role is to absorb the player's first wave of suspicion and to provide the timeline contradiction once trusted.
+Walter is the obvious early suspect because of the auction. Theo looks plausible because the cell failure appears to be technical. Vance looks plausible because collectors are slippery people with expensive secrets. Pemberton should feel helpful until the player understands that helpfulness is control.
 
 ## Inspectable Clues
 
-Eight clues.
+Ten clues.
 
-1. **The body.** Stab wound under the ribs, no scorch marks, no ghostly burns. Public fact: Vance is dead. Layered fact (after inspection): the wound is a knife, not anything paranormal.
-2. **The slime in the room.** Sprayed evenly on vertical surfaces. Inspecting it unlocks the topic *slime pattern*. Pemberton handwaves it; an experienced eye knows real slime pools. The field reference (clue 7) is what converts suspicion into certainty.
-3. **The empty display pedestal.** Clearly held something small and heavy. Unlocks the topic *idol*. Walter and Pemberton both react to this; Walter openly, Pemberton tightly.
-4. **The spent battery cell.** Under the desk. Civilian players will not know what it is until they ask a suspect or inspect it twice. Viv identifies it; Pemberton tries to dismiss it as "old stock."
-5. **A torn auction receipt.** Names the idol, the price, and a handwritten note from a colleague: *"Reggie — please reconsider. This belongs in a lab. — O.P."* Signed in Pemberton's hand. This is the motive clue. It is not damning on its own (academics write strongly worded notes), but combined with the cell and the canister it is.
-6. **The jammed laundry chute.** A maintenance notice on the service corridor door reads: *"Chute blocked between floors 12 and 11 — DO NOT USE — see housekeeping."* Viv confirms it has been jammed for a week. Inspecting the notice unlocks the topic *chute*. Asking Viv or maintenance about it opens the option to investigate the chute from the service level below — where the empty slime canister sits wedged half a floor down, never reaching the incinerator. The canister shows residual slime matching the spray in 1221: same color, same consistency, same fluorescence. Inspecting it unlocks the topic *canister*, which is the unlock that lets Viv volunteer the sleeve-fleck observation.
-7. **A worn field reference on paranormal residues.** Found in the writing desk drawer alongside the torn receipt. The margins are annotated in the same hand as the auction note — Pemberton's. Two passages are dog-eared:
-   - *"Ectoplasmic discharge from a genuine manifestation obeys gravity. It pools and concentrates at the lowest reachable point of the haunting site. A uniform spray pattern on vertical surfaces indicates a mechanical source, not a spectral one."* Reading this after seeing the room converts the slime pattern from merely suspicious to definitively staged.
-   - *"Pressurized slime canisters produce significant recoil on discharge. Operators should wear full-spectrum gloves; concentrated tinting penetrates standard kit within seconds of sustained contact."* This passage seeds the glove reveal.
-   The book is the first hard confirmation that the scene is scientifically wrong. The annotation in Pemberton's own hand means he knew exactly what a real haunting should look like — and faked the opposite.
-8. **Pemberton's gloves.** Not a physical object to inspect — a conversation-gated reveal. After the player has read the recoil passage in the field reference, they can ask any Ghostbuster to remove their gloves. The other team members comply without hesitation — clean hands. Pemberton hesitates before complying. His dominant hand is stained deep green on the fingers and palm: the same fluorescent tint as the slime on the walls. He cannot explain it away.
+1. **Mara's body.** Two cold-burn punctures under the ribs, no tearing, no blunt-force trauma, and no ectoplasmic residue around the wound. The death looks supernatural only from a distance. Close inspection suggests a precise instrument.
+2. **The empty idol pedestal.** Small, heavy object removed from a velvet-lined stand. Dust around the base shows the idol was present during the haunting and removed afterward, not days earlier.
+3. **The auction receipt.** Names the idol and Vance as buyer. A handwritten note from Pemberton reads: *"Vance - this object belongs in controlled study, not a private vault. You are burying the only proof we may ever get. - O.P."* This establishes motive without proving murder.
+4. **The field reference on anchor idols.** Found in Vance's desk, borrowed from the hotel library display after the auction. A dog-eared passage explains that anchor idols attract or focus hauntings but remain physically present after the ghost is captured. Reading this converts the missing idol from spooky flavor into evidence of theft.
+5. **The capture log.** A Ghostbusters printout near Theo's gear shows the Sedgewick apparition was successfully contained at 9:27 PM. The log has no breach alarm afterward. This undercuts the claim that the ghost escaped naturally.
+6. **The containment probe case.** Pemberton's medical kit has one probe slot with a fresh charge reading but no limiter cap. Inspecting Mara's wound after seeing the case unlocks the topic *charged probe*.
+7. **The laundry chute notice.** A service corridor sign reads: *"Chute blocked between floors 12 and 11 - DO NOT USE - housekeeping notified."* Inspecting it unlocks the option to check the chute from the service floor below.
+8. **The wedged containment cell.** Found in the chute, stuck above floor 11. The idol is inside the cell's equipment cavity, wrapped in a hotel towel. The ghost chamber is empty, but the seal is intact. The purge port is burned and stained, proving it was emptied deliberately from outside.
+9. **Purge residue.** Violet-black powder around the cell's purge port. The field reference says purge residue stains full-spectrum gloves and can mark skin through torn material. This creates the logic for asking about gloves.
+10. **Pemberton's gloves.** Conversation-gated reveal. After the player has found the purged cell and read about purge residue, they can ask the Ghostbusters to show their gloves. Theo's are clean. Pemberton's right glove has violet-black residue inside the palm and a split along the index finger. His hand has the same faint stain.
 
 ## Information Layers
 
-### Public facts
+### Public Facts
 
-- Vance is dead in suite 1221.
-- The Ghostbusters declared it a real haunting.
-- Vance recently bought the black stone idol.
-- Walter Crane lost the auction.
+- Vance won the black stone idol at auction earlier that day.
+- The idol was brought to suite 1221 at the Sedgewick Hotel.
+- A real haunting began in the suite that night.
+- The Ghostbusters arrived and captured the apparition.
+- Mara Bell died after the capture.
+- Pemberton says the ghost escaped and the idol vanished.
+- Walter Crane lost the auction and is staying one floor below.
 
-### Conversation-gated facts
+### Conversation-Gated Facts
 
 | Fact | Held by | Unlocks when |
 | --- | --- | --- |
-| Slime fleck on the inside of Pemberton's sleeve as he left | Viv | Player shows Viv the canister, or asks Viv about Pemberton's exit |
-| Vance was alive arguing at 9:05 PM | Walter | Player asks Walter about times, voices, or 9 PM specifically |
-| The note on the receipt is Pemberton's handwriting | Viv (she's seen it on hotel paperwork) | Player shows Viv the receipt |
-| Pemberton entered the suite alone for ~20 minutes | Viv or Walter | Player asks about the team's order of arrival |
-| Pemberton's book and his obsession with the idol | Walter (collectors gossip) | Player asks Walter about Pemberton, or about the idol's research history |
-| The chute has been jammed for a week; can be inspected from below | Viv or maintenance | Player asks about the chute notice or asks Viv about the hotel's maintenance issues |
-| Pemberton's hands are stained green on the dominant hand | Pemberton (physical reveal) | Player has read the recoil passage in the field reference and asks any Ghostbuster to remove their gloves |
+| The idol was still present during the haunting | Vance | Player asks about the pedestal, auction, or start of the haunting |
+| The captured cell was sealed and humming after the fight | Viv | Player asks about what she saw after the Ghostbusters left the suite |
+| Pemberton returned from the service corridor without the containment cell | Viv | Player has inspected the chute notice or asks about Pemberton's movements |
+| Mara challenged Pemberton about chain of custody | Theo | Player asks Theo about Mara, the idol, or the post-capture check |
+| No breach alarm sounded after the capture | Theo | Player has inspected the capture log or asks about the cell |
+| A metal case hit the jammed chute | Walter | Player asks Walter about noises after 9:30 PM, the chute, or the service corridor |
+| The idol's class should not vanish after capture | Field reference | Player reads the anchor idol passage |
+| Purging a cell stains gloves and sometimes skin | Field reference | Player reads the purge residue passage |
+| Pemberton's right glove is stained inside | Pemberton or Theo | Player has found the cell, read the purge passage, and asks to inspect gloves |
 
-### Contradictions the player can build
+## Contradictions The Player Can Build
 
-- **Field reference spray-pattern passage + room slime** → the scene is definitively staged; no real haunting produces this pattern.
-- **Canister slime + room slime match** → the scene was staged with a canister specifically.
-- **Canister + sleeve fleck (Viv)** → a Ghostbuster handled the canister, and that Ghostbuster was Pemberton.
-- **Battery cell + canister** → a Ghostbuster was in the room *and* faked the haunting.
-- **Walter's 9:05 PM + Pemberton's 8:55 PM report** → Pemberton's timeline is a lie.
-- **Receipt note + missing idol** → Pemberton had a documented reason to want the idol, and the idol is gone.
-- **Field reference recoil passage + Pemberton's stained hand** → Pemberton fired the canister; his own body is the evidence.
+- **Field reference + missing idol** -> the idol did not vanish because of the haunting; someone took it.
+- **Capture log + Pemberton's ghost-escape claim** -> the ghost was contained, and no normal breach occurred.
+- **Wedged cell + intact seal** -> the cell did not burst open from within.
+- **Purge residue + empty cell** -> someone deliberately emptied the cell from outside.
+- **Purge residue + Pemberton's stained glove** -> Pemberton handled the purge.
+- **Theo's testimony + Pemberton's opportunity** -> Pemberton was alone with Mara after she objected to his handling of the idol.
+- **Mara's wound + charged probe case** -> Mara was killed with Ghostbusters medical equipment, not by a ghost.
+- **Walter's chute noise + jammed chute** -> the hidden cell was dumped after the murder, and it never reached disposal.
 
-No single contradiction ends the case. The player needs at least two to feel certain. The book is the clue that makes the physical evidence feel inevitable rather than lucky.
+No single contradiction should solve the case. The player should need the missing-idol logic, the purged-cell logic, and one identity clue before the accusation feels earned.
 
 ## Accusation Requirements
 
 The accusation should require:
 
 - **Suspect:** Dr. Otis Pemberton
-- **Key evidence:** the spent battery cell
-- **Supporting reasoning:** at least one of —
-  - the canister + sleeve fleck pinning Pemberton as the one who staged the slime
-  - Walter's testimony that Vance was alive at 9:05 PM
-  - the receipt note tying Pemberton to the idol
-- **Motive named:** the idol / his research
+- **Key evidence:** the purged containment cell found in the laundry chute
+- **Murder method:** charged containment probe, or equivalent proof that Mara was killed by equipment rather than a ghost
+- **Identity proof:** Pemberton's stained glove/hand, or Viv's testimony that he returned without the cell plus Theo's testimony that he was alone with Mara
+- **Motive:** Pemberton wanted the anchor idol for his research
 
 Failure modes the verifier should distinguish:
 
-- Accuses **Walter** with the auction receipt → "Walter had reason to be angry, but he was in 1219 the whole evening — and the killer left equipment a civilian could not have." Teaches: physical evidence trumps motive alone.
-- Accuses **Pemberton** with only the slime pattern → "The slime tells you the scene was staged, but not by whom. What pins it on Pemberton specifically?" Teaches: stagecraft is not identity. (The canister + sleeve fleck is what bridges that gap.)
-- Accuses **Pemberton** with the cell but no motive → "The cell places a Ghostbuster in the room, but Pemberton was one of three on the team. What singled him out?" Teaches: opportunity needs motive.
-- Correct accusation → Pemberton confesses calmly, still convinced he was right about the idol.
+- Accuses **Walter** with only the auction motive -> "Walter wanted the idol, but the cell was purged with Ghostbusters equipment. How would Walter empty a sealed containment cell?"
+- Accuses **Theo** with the capture log -> "Theo could explain the equipment, but the log shows a successful capture, not a technical accident. What ties Theo to the purge or the idol?"
+- Accuses **Vance** with the missing idol -> "Vance lost the idol, and the field reference says it should still exist. But theft is not proof of murder. Who could empty the cell and hide it?"
+- Accuses **Pemberton** with only motive -> "Pemberton wanted the idol, but wanting it is not the same as killing Mara. What physical evidence puts the purge in his hands?"
+- Correct accusation -> Pemberton admits the ghost was real, the capture was real, and that is exactly why the theft mattered. He insists Mara would have let Vance bury the discovery.
 
 ## Target Loop
 
 ```text
-Inspect slime / battery cell / receipt / writing desk drawer
--> find field reference → read spray-pattern passage → slime is definitively staged
--> find field reference → read recoil passage → seeds glove question
--> inspect chute maintenance notice → ask Viv about the jammed chute
--> investigate chute from service level → find canister with matching slime
--> unlock topics: slime pattern, battery cell, idol, Pemberton's note, canister
--> show Viv the canister
--> Viv reveals the slime fleck on Pemberton's sleeve
--> ask Walter about 9 PM
--> Walter reveals the argument
--> ask Ghostbusters to remove gloves (field reference in hand)
--> Pemberton's stained hand revealed
--> contradiction unlocked: Pemberton staged the room, lied about the timeline, and the slime is on his hands
--> accuse Pemberton with battery cell + canister/sleeve testimony + stained hand + idol motive
+Inspect body / pedestal / auction receipt / capture log
+-> find field reference in desk
+-> read anchor idol passage
+-> learn the idol should not vanish after capture
+-> ask Vance about the idol and auction
+-> inspect service corridor
+-> find laundry chute notice
+-> ask Viv / Walter about chute and post-capture movements
+-> investigate chute from floor 11
+-> find containment cell with idol hidden inside
+-> inspect cell seal and purge port
+-> read purge residue passage in field reference
+-> ask Theo about breach alarms and Mara's chain-of-custody argument
+-> inspect Pemberton's medical kit / probe case
+-> ask Ghostbusters to show gloves
+-> reveal Pemberton's stained glove and stained hand
+-> accuse Pemberton with purged cell + glove stain + charged probe + idol motive
 ```
 
 ## Tone Notes
 
-- The Ghostbusters franchise is comedic; *Fred the Detective* is a deduction game. Lean into dry, slightly weary noir. The world takes ghosts seriously; Fred takes evidence seriously.
-- Pemberton should be likeable and articulate. The reveal lands harder when the player has spent ten minutes nodding along with him.
-- Walter is theatrically bitter — almost too suspicious. That theatricality is the point.
-- Viv is the player's ally without knowing it. She doesn't suspect Pemberton; she just notices things.
+- The haunting should be energetic and theatrical, but the investigation afterward should become dry, patient, and physical.
+- Let Fred accept that the ghost was real. His skepticism is aimed at sloppy conclusions, not at the existence of ghosts.
+- Pemberton should sound reasonable for most of the case. He is the person who explains the equipment, the ghost taxonomy, and why the scene is dangerous. The player should slowly realize he is also choosing which explanations are allowed to exist.
+- Mara should remain vivid through other people's testimony: competent, stubborn, and unwilling to let evidence leave the room without being logged.
+- Walter is bitter enough to be funny and suspicious enough to waste the player's first theory, but his testimony becomes useful once the chute matters.
+- Viv is the player's practical ally. She notices service corridors, staff notices, who carried what, and who came back without it.
 
 ## Why This Fits The Brief
 
-- The role is called Ghostbusters, so the case is set inside a world with a Ghostbusters team but solved with detective logic — showcasing both the theme and the deduction-driven design the guidelines call for.
-- Anyone can play it. There is no franchise vocabulary the game does not explain in-scene: "ghost slime," "gear pack," "battery cell," "ghost-detector." A player who has never seen the films understands every clue.
-- One murderer, one key piece of physical evidence, multiple supporting reveals, a real contradiction, a staged cover-up, and a red herring suspect — the full structure from §"Case Structure".
-- The LLM never needs to invent truth. Every fact above can be authored into suspect prompts and reveal gates.
+- The Ghostbusters are not just wallpaper: a real ghost appears, a real capture happens, and Ghostbusters equipment creates the murderer's cover-up.
+- The solution still belongs to detective logic. The player proves when the ghost stopped being the cause and when a human story took over.
+- The missing idol has a clean clue chain: public assumption says it vanished; the field reference says it should not; the chute reveals it was hidden.
+- The final proof is physical, authored, and inspectable: a purged containment cell, a stolen idol, a charged probe, and stained gloves.
+- The LLM never needs to invent the truth. The killer, motive, evidence meanings, reveal gates, and final accusation requirements are all authored here.
