@@ -17,7 +17,8 @@
 - Clue descriptions displayed in a popup panel; clue dots turn green once inspected
 - "Make Accusation" button unlocks after at least 1 clue inspected + 1 suspect questioned
 - Two-step accusation: pick suspect → pick key evidence (only shows inspected clues)
-- Result text is evidence-aware: naming the Silk Glove gives "perfect deduction" flavour; other correct clues still win with different text; wrong accusation names the cited clue explicitly
+- Three distinct outcomes: right suspect + Silk Glove = win; right suspect + wrong clue = "close but case collapses"; wrong suspect = failure
+- Evidence must actually implicate the suspect — scene clues (wine glass, window latch) do not win on their own
 - LLM clue context now includes full clue descriptions (not just labels) — suspects can react specifically when Fred mentions found evidence
 
 ### Case Summary (Spoilers)
@@ -35,7 +36,7 @@ Key evidence chain:
 
 - [ ] **Case content** — The current case is a placeholder. Is it good enough to ship as the V1 case, or do we want to redesign suspects, setting, and clues?
 - [x] **Clue-to-dialogue integration** — LLM now receives full clue descriptions; suspects can react specifically to evidence Fred has found.
-- [x] **Accusation depth** — Two-step flow: suspect → key evidence. Result flavour differs based on chosen clue.
+- [x] **Accusation depth** — Two-step flow: suspect → key evidence. Only the Silk Glove (directly naming V.A.) seals the case; citing other clues collapses the accusation even if the suspect is right.
 - [ ] **Visual improvements** — NPC names aren't drawn in the world (just shown in interact prompt). Should they be rendered as labels above heads?
 - [ ] **Suspect gating** — Right now there's no minimum requirement to talk to anyone before accusing. Is that OK for V1?
 - [ ] **Notebook / case log** — Decided against for now. Revisit after testing if players forget clues mid-game.
@@ -43,8 +44,7 @@ Key evidence chain:
 ---
 
 ## Next Steps (Proposed Order)
-1. Playtest the loop: does the accusation feel earned?
+1. Playtest the loop: does the accusation feel earned now that evidence matters?
 2. Polish the case or redesign it if the placeholder feels weak.
-3. Decide on accusation depth (evidence selection or just suspect pick).
-4. Add NPC name labels drawn above heads.
-5. Export and deploy the updated web build.
+3. Add NPC name labels drawn above heads.
+4. Export and deploy the updated web build.
