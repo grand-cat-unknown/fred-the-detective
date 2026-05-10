@@ -7,7 +7,7 @@ Super simple Godot 4 detective game for web export.
 - Move Fred with arrow keys or WASD.
 - Press E near clues to inspect evidence.
 - Press E near suspects to question them.
-- Once you have inspected evidence and questioned at least one suspect, make an accusation and choose the key clue.
+- Once you have inspected evidence and questioned at least one suspect, make an accusation, choose the key clue, and write the theory that ties it together.
 
 ## Run in Godot
 
@@ -59,7 +59,7 @@ Do not put the OpenAI key inside the Godot export or browser JavaScript. Set the
 - `OPENAI_MODEL`: optional default model for the proxy, for example `gpt-4.1-mini`.
 
 The repo now includes a protected server route at `/api/llm`. It only works after the login cookie has been set by `/api/auth`.
-The route also adds a server-side prompt-injection guard, scans for common injection attempts, and wraps the Godot-provided `input` as untrusted JSON data before sending it to the model. The Godot dialogue builder separately marks Fred's player-authored turns as untrusted text inside the transcript.
+The route also adds a server-side prompt-injection guard, scans for common injection attempts, and wraps the Godot-provided `input` as untrusted JSON data before sending it to the model. The Godot dialogue builder separately marks Fred's player-authored turns as untrusted text inside the transcript. Godot uses the same route for suspect dialogue and for the final accusation verifier.
 
 Send a `POST` request from Godot with JSON like this:
 
