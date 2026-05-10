@@ -96,7 +96,8 @@ func submit(explanation: String) -> bool:
 	EventBus.accusation_busy_changed.emit(true, "Reviewing your case...")
 	var prompt_input := _build_verifier_input(_suspect_id, _evidence_id, trimmed)
 	if not _llm.request_accusation(_suspect_id, _evidence_id, trimmed, prompt_input, _case.verifier_instructions):
-		_resolve_with_local("The verifier could not be reached, so Fred checked the theory against the case board.")
+		if _is_busy:
+			_resolve_with_local("The verifier could not be reached, so Fred checked the theory against the case board.")
 	return true
 
 

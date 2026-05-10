@@ -73,9 +73,7 @@ func submit_message(message: String) -> bool:
 	var prompt_input := _build_llm_input(suspect)
 	EventBus.dialogue_busy_changed.emit(true, "%s is thinking..." % suspect.display_name)
 	if not _llm.request_dialogue(suspect.id, prompt_input, suspect.instructions):
-		EventBus.dialogue_busy_changed.emit(false, "")
-		_append_line(suspect.id, "System", "Could not reach /api/llm.")
-		return false
+		return true
 	return true
 
 

@@ -13,6 +13,7 @@ var _kind: GameEnums.RequestKind = GameEnums.RequestKind.NONE
 var _pending_suspect_id: StringName = &""
 var _pending_clue_id: StringName = &""
 var _pending_explanation: String = ""
+var _queue: Array[Dictionary] = []
 
 
 func _init(http: HTTPRequest = null) -> void:
@@ -28,22 +29,19 @@ func _ready() -> void:
 
 
 func is_busy() -> bool:
-	return _kind != GameEnums.RequestKind.NONE
+	return _kind != GameEnums.RequestKind.NONE or not _queue.is_empty()
 
 
 func request_dialogue(suspect_id: StringName, prompt_input: String, instructions: String) -> bool:
-	if is_busy():
-		return false
-	_kind = GameEnums.RequestKind.DIALOGUE
-	_pending_suspect_id = suspect_id
-	_pending_clue_id = &""
-	_pending_explanation = ""
-	if not _send(prompt_input, instructions):
-		var sid := suspect_id
-		_clear_pending()
-		dialogue_failed.emit(sid, "Could not reach /api/llm.")
-		return false
-	return true
+	var entry := {
+		"kind": GameEnums.RequestKind.DIALOGUE,
+		"suspect_id": suspect_id,
+		"clue_id": &"",
+		"explanation": "",
+		"prompt_input": prompt_input,
+		"instructions": instructions,
+	}
+	return _enqueue_or_start(entry)
 
 
 func request_accusation(
@@ -53,18 +51,37 @@ func request_accusation(
 	prompt_input: String,
 	instructions: String,
 ) -> bool:
-	if is_busy():
-		return false
-	_kind = GameEnums.RequestKind.ACCUSATION
-	_pending_suspect_id = suspect_id
-	_pending_clue_id = clue_id
-	_pending_explanation = explanation
-	if not _send(prompt_input, instructions):
-		var sid := suspect_id
-		var cid := clue_id
-		var exp := explanation
+	var entry := {
+		"kind": GameEnums.RequestKind.ACCUSATION,
+		"suspect_id": suspect_id,
+		"clue_id": clue_id,
+		"explanation": explanation,
+		"prompt_input": prompt_input,
+		"instructions": instructions,
+	}
+	return _enqueue_or_start(entry)
+
+
+func _enqueue_or_start(entry: Dictionary) -> bool:
+	if _kind != GameEnums.RequestKind.NONE:
+		_queue.append(entry)
+		return true
+	return _start_request(entry)
+
+
+func _start_request(entry: Dictionary) -> bool:
+	_kind = int(entry["kind"])
+	_pending_suspect_id = StringName(entry["suspect_id"])
+	_pending_clue_id = StringName(entry["clue_id"])
+	_pending_explanation = str(entry["explanation"])
+	if not _send(str(entry["prompt_input"]), str(entry["instructions"])):
+		var failed_kind := _kind
+		var sid := _pending_suspect_id
+		var cid := _pending_clue_id
+		var exp := _pending_explanation
 		_clear_pending()
-		accusation_failed.emit("The verifier could not be reached, so Fred checked the theory against the case board.", sid, cid, exp)
+		_emit_failure(failed_kind, _start_failure_message(failed_kind), sid, cid, exp)
+		_start_next_request()
 		return false
 	return true
 
@@ -103,10 +120,12 @@ func _on_request_completed(
 	_clear_pending()
 
 	if kind == GameEnums.RequestKind.NONE:
+		_start_next_request()
 		return
 
 	if result != HTTPRequest.RESULT_SUCCESS:
 		_emit_failure(kind, "The connection failed.", suspect_id, clue_id, explanation)
+		_start_next_request()
 		return
 
 	var parsed := _parse_response_body(body)
@@ -114,6 +133,7 @@ func _on_request_completed(
 	if response_code != 200:
 		var error_text := _extract_error(parsed)
 		_emit_failure(kind, error_text, suspect_id, clue_id, explanation)
+		_start_next_request()
 		return
 
 	var reply: String = str(parsed.get("text", "")).strip_edges()
@@ -121,6 +141,7 @@ func _on_request_completed(
 		dialogue_completed.emit(suspect_id, reply)
 	elif kind == GameEnums.RequestKind.ACCUSATION:
 		accusation_completed.emit(reply, suspect_id, clue_id, explanation)
+	_start_next_request()
 
 
 func _emit_failure(
@@ -141,6 +162,19 @@ func _clear_pending() -> void:
 	_pending_suspect_id = &""
 	_pending_clue_id = &""
 	_pending_explanation = ""
+
+
+func _start_next_request() -> void:
+	if _kind != GameEnums.RequestKind.NONE or _queue.is_empty():
+		return
+	var next: Dictionary = _queue.pop_front()
+	_start_request(next)
+
+
+static func _start_failure_message(kind: GameEnums.RequestKind) -> String:
+	if kind == GameEnums.RequestKind.ACCUSATION:
+		return "The verifier could not be reached, so Fred checked the theory against the case board."
+	return "Could not reach /api/llm."
 
 
 static func _parse_response_body(body: PackedByteArray) -> Dictionary:
