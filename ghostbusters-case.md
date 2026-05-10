@@ -40,28 +40,32 @@ The cell alone does not solve the case. It implicates a Ghostbuster, but the pla
 
 ### Supporting Testimony
 
-- **Vivian "Viv" Marsh** (concierge) saw Pemberton stride past the front desk with his gear pack already humming and the indicator lit green. She knows the equipment because her brother is a Ghostbusters technician. *He came in armed.* If he were responding to an unknown haunting, the pack would have been cold.
+- **Vivian "Viv" Marsh** (concierge) noticed a fleck of green slime on the *inside* of Pemberton's coat sleeve as he passed the front desk on his way out. She is the kind of concierge who notices a crooked bow tie at thirty feet; a stain on a coat does not slip past her. Slime sprays outward — the only way to get it inside your own sleeve is to be the one holding the canister.
 - **Walter Crane** (rival collector, suite 1219) heard Vance's voice through the wall around 9:05 PM — *arguing*, then a single shout, then silence. He assumed it was a fight with hotel staff and ignored it. The official Ghostbusters report places the "ghost attack" at 8:55 PM, before Pemberton arrived. Walter's timeline contradicts that.
 
 ### Contradiction
 
-Pemberton's incident report claims he found Vance already dead, killed by the ghost at 8:55 PM. Two facts disprove this:
+Pemberton's incident report claims he found Vance already dead, killed by the ghost at 8:55 PM. Three facts disprove this:
 
-- His pack was powered up *before* he entered the suite (Viv).
-- Vance was alive and speaking at 9:05 PM, four minutes after Pemberton went in alone (Walter).
+- The slime in 1221 is sprayed, not pooled — it came from a canister, not a haunting.
+- That canister is in the laundry chute, and a matching fleck is on the inside of Pemberton's sleeve (Viv) — *he* sprayed the room.
+- Vance was alive and arguing at 9:05 PM, four minutes after Pemberton went in alone (Walter).
 
-Either fact alone is suggestive. Together they collapse the official story.
+Any one of these is suggestive. Together they collapse the official story.
 
 ### Cover-Up
 
 Pemberton:
 
 - sprayed a canister of fake slime across the walls to mimic ghost residue
+- dumped the empty canister down the laundry chute on his way out, hoping it would be incinerated before anyone checked
 - overturned furniture to suggest a struggle with a spirit
 - ran his ghost-detector in calibration mode to leave a residual reading
 - pocketed the idol on the way out
 
-The slime is the giveaway for an attentive player: real ghost slime *pools* under gravity within minutes. The slime in 1221 is sprayed evenly across vertical surfaces — consistent with a canister, not a haunting.
+Two things he did not plan for: the chute is jammed half a floor down (housekeeping has been complaining about it for a week), so the canister never reaches the incinerator. And in the rush, a fleck of slime ended up on the inside of his sleeve.
+
+The slime in the room is the broader giveaway for an attentive player: real ghost slime *pools* under gravity within minutes. The slime in 1221 is sprayed evenly across vertical surfaces — consistent with a canister, not a haunting. Recovering the canister itself confirms it.
 
 ## Suspect Roster
 
@@ -77,13 +81,14 @@ Walter is the obvious suspect at first glance. He has motive (the auction), prox
 
 ## Inspectable Clues
 
-Five clues, per the v1 budget.
+Six clues, within the v1 budget.
 
 1. **The body.** Stab wound under the ribs, no scorch marks, no ghostly burns. Public fact: Vance is dead. Layered fact (after inspection): the wound is a knife, not anything paranormal.
-2. **The slime.** Sprayed evenly on vertical surfaces. Inspecting it unlocks the topic *slime pattern*. Pemberton handwaves it; Viv's brother trained her to spot canister residue.
+2. **The slime in the room.** Sprayed evenly on vertical surfaces. Inspecting it unlocks the topic *slime pattern*. Pemberton handwaves it; an experienced eye knows real slime pools.
 3. **The empty display pedestal.** Clearly held something small and heavy. Unlocks the topic *idol*. Walter and Pemberton both react to this; Walter openly, Pemberton tightly.
 4. **The spent battery cell.** Under the desk. Civilian players will not know what it is until they ask a suspect or inspect it twice. Viv identifies it; Pemberton tries to dismiss it as "old stock."
-5. **A torn auction receipt.** Names the idol, the price, and a handwritten note from a colleague: *"Reggie — please reconsider. This belongs in a lab. — O.P."* Signed in Pemberton's hand. This is the motive clue. It is not damning on its own (academics write strongly worded notes), but combined with the cell it is.
+5. **A torn auction receipt.** Names the idol, the price, and a handwritten note from a colleague: *"Reggie — please reconsider. This belongs in a lab. — O.P."* Signed in Pemberton's hand. This is the motive clue. It is not damning on its own (academics write strongly worded notes), but combined with the cell and the canister it is.
+6. **The empty slime canister.** Found jammed in the laundry chute on a lower floor by maintenance. Standard issue Ghostbusters equipment. Inspecting it shows residual slime that visually matches the spray in 1221 — same color, same consistency, same fluorescence. Inspecting it unlocks the topic *canister*, which is the unlock that lets Viv volunteer the sleeve-fleck observation.
 
 ## Information Layers
 
@@ -98,7 +103,7 @@ Five clues, per the v1 budget.
 
 | Fact | Held by | Unlocks when |
 | --- | --- | --- |
-| Pemberton's pack was already humming on arrival | Viv | Player asks Viv about Pemberton, the team's arrival, or shows her the battery cell |
+| Slime fleck on the inside of Pemberton's sleeve as he left | Viv | Player shows Viv the canister, or asks Viv about Pemberton's exit |
 | Vance was alive arguing at 9:05 PM | Walter | Player asks Walter about times, voices, or 9 PM specifically |
 | The note on the receipt is Pemberton's handwriting | Viv (she's seen it on hotel paperwork) | Player shows Viv the receipt |
 | Pemberton entered the suite alone for ~20 minutes | Viv or Walter | Player asks about the team's order of arrival |
@@ -106,12 +111,13 @@ Five clues, per the v1 budget.
 
 ### Contradictions the player can build
 
-- **Cell + Viv's testimony** → a Ghostbuster fired in the room, and Pemberton arrived ready to fire.
+- **Canister slime + room slime match** → the scene is staged with a canister, not by a haunting.
+- **Canister + sleeve fleck (Viv)** → a Ghostbuster handled the canister, and that Ghostbuster was Pemberton.
+- **Battery cell + canister** → a Ghostbuster was in the room *and* faked the haunting.
 - **Walter's 9:05 PM + Pemberton's 8:55 PM report** → Pemberton's timeline is a lie.
-- **Slime pattern + the haunting verdict** → the scene is staged.
 - **Receipt note + missing idol** → Pemberton had a documented reason to want the idol, and the idol is gone.
 
-No single contradiction ends the case. The player needs at least two to feel certain — ideally the cell *and* one timeline contradiction.
+No single contradiction ends the case. The player needs at least two to feel certain — ideally one that pins Pemberton (sleeve fleck) *and* one that breaks his timeline (Walter's 9:05 PM).
 
 ## Accusation Requirements
 
@@ -120,7 +126,7 @@ The accusation should require:
 - **Suspect:** Dr. Otis Pemberton
 - **Key evidence:** the spent battery cell
 - **Supporting reasoning:** at least one of —
-  - Viv's testimony that Pemberton arrived with a powered pack
+  - the canister + sleeve fleck pinning Pemberton as the one who staged the slime
   - Walter's testimony that Vance was alive at 9:05 PM
   - the receipt note tying Pemberton to the idol
 - **Motive named:** the idol / his research
@@ -128,21 +134,21 @@ The accusation should require:
 Failure modes the verifier should distinguish:
 
 - Accuses **Walter** with the auction receipt → "Walter had reason to be angry, but he was in 1219 the whole evening — and the killer left equipment a civilian could not have." Teaches: physical evidence trumps motive alone.
-- Accuses **Pemberton** with only the slime pattern → "The slime tells you the scene was staged, but not by whom. What put a Ghostbuster alone in the room?" Teaches: stagecraft is not identity.
+- Accuses **Pemberton** with only the slime pattern → "The slime tells you the scene was staged, but not by whom. What pins it on Pemberton specifically?" Teaches: stagecraft is not identity. (The canister + sleeve fleck is what bridges that gap.)
 - Accuses **Pemberton** with the cell but no motive → "The cell places a Ghostbuster in the room, but Pemberton was one of three on the team. What singled him out?" Teaches: opportunity needs motive.
 - Correct accusation → Pemberton confesses calmly, still convinced he was right about the idol.
 
 ## Target Loop
 
 ```text
-Inspect slime / battery cell / receipt
--> unlock topics: slime pattern, battery cell, idol, Pemberton's note
--> ask Viv about Pemberton's arrival
--> Viv reveals the powered pack
+Inspect slime / battery cell / receipt / canister
+-> unlock topics: slime pattern, battery cell, idol, Pemberton's note, canister
+-> show Viv the canister
+-> Viv reveals the slime fleck on Pemberton's sleeve
 -> ask Walter about 9 PM
 -> Walter reveals the argument
--> contradiction unlocked: Pemberton's timeline is false
--> accuse Pemberton with the battery cell + Viv's testimony + the idol motive
+-> contradiction unlocked: Pemberton sprayed the room and lied about the timeline
+-> accuse Pemberton with the battery cell + canister/sleeve testimony + the idol motive
 ```
 
 ## Tone Notes
