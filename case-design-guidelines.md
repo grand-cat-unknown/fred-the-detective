@@ -188,6 +188,80 @@ Topic tracking does not need to be perfect. Even simple keyword matching can mak
 
 The goal is for suspects to reveal more when the player asks pointed questions instead of when the conversation merely starts.
 
+## Conditional Actions
+
+Investigation should be active, not only passive. The player should not just collect clues that sit in a list. New discoveries should unlock new things the player can *do* — and old objects, suspects, and locations should change in response to what the player has learned.
+
+There are two related kinds of unlock.
+
+### Information Unlocks
+
+A clue the player already inspected, or a suspect they already spoke to, can yield more once the player has the right context.
+
+Examples:
+
+- re-inspecting a clue surfaces a detail the player would have ignored on first pass
+- re-asking a suspect about a topic they were vague on produces a sharper statement
+- comparing two clues together reveals a match that neither carried alone
+
+This is the same pattern as conversation-gated facts, extended to revisits.
+
+### Action Unlocks
+
+Entirely new actions become available once prerequisites are met.
+
+Examples:
+
+- a previously inert object (a coat, a desk drawer, a phone, a coat rack) becomes interactive
+- a new dialogue branch opens with a suspect
+- a new location becomes reachable
+- the player can confront a suspect with a specific clue or contradiction
+
+A concrete case example: after the player has inspected the slime spray in the room *and* found the empty canister in the laundry chute, the suspect's coat at the coat rack becomes interactive. A new action — *examine the inside of the sleeve* — appears. Without the prior discoveries, the coat rack would have been visual furniture.
+
+### Modeling Conditions
+
+Each action or reveal can be authored as a small record:
+
+```text
+action_id: examine_coat_sleeve
+description: Look at the inside of Pemberton's coat sleeve at the coat rack.
+prerequisites:
+  - clue_inspected: empty_canister
+  - clue_inspected: slime_in_room
+effect:
+  - reveal_clue: sleeve_fleck
+  - unlock_topic: pemberton_held_canister
+```
+
+Useful prerequisite types:
+
+- `clue_inspected: <id>`
+- `revealed_fact: <id>`
+- `unlocked_topic: <id>`
+- `visited_location: <id>`
+- `exposed_contradiction: <id>`
+
+Prerequisites should support AND / OR combinations so that a clue can be reachable through more than one path.
+
+When an action becomes available, the game should make it *visible* — a highlight on a previously dim object, a new menu item in dialogue, a marker on the map. The player should notice the change on their own, without being told what the new action leads to.
+
+### Why This Matters
+
+Without conditional actions, a case is a static checklist. With them, the case has structure: each discovery opens up the next stretch of investigation. The player feels like they are *building a case*, not filling in a form.
+
+A good test: at any moment, the player should be able to point at something they recently found and say *"because of that, I now want to do this."* If no such chain exists, the case is too flat.
+
+### Hints (Optional, Future)
+
+The same prerequisites graph can power a hint system later.
+
+If the player is stuck, the game can scan for actions that are one prerequisite away from unlocking, and nudge toward the missing condition without naming the answer.
+
+For example, if `examine_coat_sleeve` needs both the canister and the slime, and the player has only inspected the slime, the hint might be: *"The slime in the room is not natural — but you have not yet found where the killer got rid of it."*
+
+The hint system is a later concern. The point now is to author prerequisites cleanly so this door stays open.
+
 ## Notebook And Case Memory
 
 Conversation reveals should become structured case notes.
