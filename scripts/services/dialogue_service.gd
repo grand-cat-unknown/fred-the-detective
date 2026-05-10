@@ -37,8 +37,10 @@ func is_open() -> bool:
 	return _active_suspect_id != &""
 
 
-func get_dialogue_lines(suspect_id: StringName) -> Array:
-	return _dialogue_lines.get(suspect_id, [] as Array[String])
+func get_dialogue_lines(suspect_id: StringName) -> Array[String]:
+	var lines: Array[String] = []
+	lines.assign(_dialogue_lines.get(suspect_id, [] as Array[String]))
+	return lines
 
 
 func open(suspect_id: StringName) -> void:
@@ -96,7 +98,8 @@ func _on_dialogue_failed(suspect_id: StringName, reason: String) -> void:
 
 
 func _append_line(suspect_id: StringName, speaker: String, text: String) -> void:
-	var lines: Array = _dialogue_lines.get(suspect_id, [] as Array[String])
+	var lines: Array[String] = []
+	lines.assign(_dialogue_lines.get(suspect_id, [] as Array[String]))
 	lines.append("%s: %s" % [speaker, text])
 	while lines.size() > Gameplay.MAX_DIALOGUE_LINES:
 		lines.remove_at(0)
@@ -105,7 +108,8 @@ func _append_line(suspect_id: StringName, speaker: String, text: String) -> void
 
 
 func _append_to_conversation(suspect_id: StringName, formatted_turn: String) -> void:
-	var turns: Array = _conversations.get(suspect_id, [] as Array[String])
+	var turns: Array[String] = []
+	turns.assign(_conversations.get(suspect_id, [] as Array[String]))
 	turns.append(formatted_turn)
 	while turns.size() > Gameplay.MAX_CONVERSATION_LINES:
 		turns.remove_at(0)
@@ -132,7 +136,8 @@ func _build_llm_input(suspect: SuspectData) -> String:
 	if not clue_lines.is_empty():
 		clue_context = "Fred has found the following physical evidence:\n%s" % "\n".join(clue_lines)
 
-	var turns: Array = _conversations.get(suspect.id, [] as Array[String])
+	var turns: Array[String] = []
+	turns.assign(_conversations.get(suspect.id, [] as Array[String]))
 	var transcript := "\n".join(turns) if turns.size() > 0 else "(conversation just started)"
 
 	var case_context := UnlockResolver.unlocked_context(_case)

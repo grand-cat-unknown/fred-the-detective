@@ -36,6 +36,7 @@ const ELEVATOR_ARROW_NORMALIZED: Array[Vector2] = [
 ]
 
 const CLUE_RADIUS := 10.0
+const CLUE_OUTLINE_WIDTH := 2.0
 
 const ACTOR_BODY_OFFSET := Vector2(-10.0, -6.0)
 const ACTOR_BODY_SIZE := Vector2(20.0, 22.0)

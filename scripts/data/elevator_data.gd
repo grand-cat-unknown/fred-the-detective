@@ -33,7 +33,9 @@ func tile_for(room_id: StringName) -> Vector2i:
 	return tile_a if room_id == room_a else tile_b
 
 
-func target_from(room_id: StringName) -> Dictionary:
-	if room_id == room_a:
-		return {"room": room_b, "spawn": spawn_b}
-	return {"room": room_a, "spawn": spawn_a}
+func target_room_from(room_id: StringName) -> StringName:
+	return room_b if room_id == room_a else room_a
+
+
+func target_spawn_from(room_id: StringName) -> Vector2i:
+	return spawn_b if room_id == room_a else spawn_a

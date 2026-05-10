@@ -31,7 +31,7 @@ static func find_target(
 	var elev_idx := _adjacent_elevator(case, current_room, player_tile, player_face_direction)
 	if elev_idx >= 0:
 		var elev := case.elevators[elev_idx]
-		var target_room := elev.target_from(current_room)["room"] as StringName
+		var target_room := elev.target_room_from(current_room)
 		var tile := elev.tile_for(current_room)
 		return InteractTarget.new(
 			GameEnums.InteractKind.ELEVATOR,

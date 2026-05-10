@@ -44,4 +44,4 @@ func _draw() -> void:
 		diamond[0],
 	])
 	draw_colored_polygon(diamond, color)
-	draw_polyline(diamond_outline, outline_color, 2.0)
+	draw_polyline(diamond_outline, outline_color, Layout.CLUE_OUTLINE_WIDTH)

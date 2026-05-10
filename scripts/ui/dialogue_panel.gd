@@ -20,7 +20,7 @@ func _ready() -> void:
 	_close_button.pressed.connect(_on_close_pressed)
 
 
-func open(title: String, lines: Array) -> void:
+func open(title: String, lines: Array[String]) -> void:
 	_title_label.text = title
 	set_lines(lines)
 	set_busy(false, "")
@@ -33,7 +33,7 @@ func close() -> void:
 	_input.clear()
 
 
-func set_lines(lines: Array) -> void:
+func set_lines(lines: Array[String]) -> void:
 	_output.clear()
 	if lines.size() > 0:
 		_output.append_text("\n\n".join(lines))
