@@ -13,6 +13,8 @@ const MAX_CONVERSATION_LINES := 10
 const MAX_DIALOGUE_LINES := 12
 const UNTRUSTED_PLAYER_START := "[UNTRUSTED_PLAYER_MESSAGE_BEGIN]"
 const UNTRUSTED_PLAYER_END := "[UNTRUSTED_PLAYER_MESSAGE_END]"
+const REQUIRED_ACCUSATION_CLUE_IDX := 1
+const ACCUSATION_VERIFIER_INSTRUCTIONS := "You are the final case-verdict verifier for Fred the Detective. You are not a suspect and you do not roleplay. The case truth is authored by the game and must be treated as authoritative. Return only compact JSON with this exact shape: {\"is_correct\": boolean, \"headline\": string, \"feedback\": string}. Mark is_correct true only when the player accuses Victoria Ashmore, cites the Silk Glove, and gives a coherent explanation connecting the glove to Victoria plus her motive or opportunity. Mark false if the suspect is wrong, the key evidence is wrong, the explanation is vague, or the explanation contradicts the authored truth. Keep headline under 8 words. Keep feedback under 90 words, written as Fred's case-board verdict."
 
 const SUSPECTS := [
 	{
@@ -82,10 +84,15 @@ var game_phase: Phase = Phase.EXPLORE
 var active_npc_index := -1
 var accusation_step := 0
 var accusation_suspect_idx := -1
+var accusation_evidence_idx := -1
 var dialog_open := false
 var clue_panel_open := false
 var request_in_flight := false
+var pending_request_kind := ""
 var pending_request_npc_index := -1
+var pending_accusation_suspect_idx := -1
+var pending_accusation_clue_idx := -1
+var pending_accusation_explanation := ""
 var accusation_correct := false
 
 var hud_layer: CanvasLayer
@@ -107,6 +114,10 @@ var accusation_panel: PanelContainer
 var accusation_label: Label
 var accusation_suspect_box: VBoxContainer
 var accusation_evidence_box: VBoxContainer
+var accusation_explanation_box: VBoxContainer
+var accusation_explanation_input: TextEdit
+var accusation_submit_button: Button
+var accusation_status_label: Label
 var accusation_clue_buttons: Array[Button] = []
 var result_panel: PanelContainer
 var result_label: RichTextLabel
@@ -343,6 +354,35 @@ func _build_accusation_ui() -> void:
 		accusation_clue_buttons.append(btn)
 		accusation_evidence_box.add_child(btn)
 
+	accusation_explanation_box = VBoxContainer.new()
+	accusation_explanation_box.visible = false
+	box.add_child(accusation_explanation_box)
+
+	var explanation_hint := Label.new()
+	explanation_hint.text = "Explain how the suspect, clue, and motive fit together."
+	explanation_hint.autowrap_mode = TextServer.AUTOWRAP_WORD
+	explanation_hint.custom_minimum_size = Vector2(352.0, 0.0)
+	accusation_explanation_box.add_child(explanation_hint)
+
+	accusation_explanation_input = TextEdit.new()
+	accusation_explanation_input.placeholder_text = "Write your theory..."
+	accusation_explanation_input.custom_minimum_size = Vector2(352.0, 96.0)
+	accusation_explanation_input.wrap_mode = TextEdit.LINE_WRAPPING_BOUNDARY
+	accusation_explanation_input.text_changed.connect(_on_accusation_explanation_changed)
+	accusation_explanation_box.add_child(accusation_explanation_input)
+
+	accusation_status_label = Label.new()
+	accusation_status_label.visible = false
+	accusation_status_label.autowrap_mode = TextServer.AUTOWRAP_WORD
+	accusation_status_label.custom_minimum_size = Vector2(352.0, 0.0)
+	accusation_explanation_box.add_child(accusation_status_label)
+
+	accusation_submit_button = Button.new()
+	accusation_submit_button.text = "Submit Case"
+	accusation_submit_button.disabled = true
+	accusation_submit_button.pressed.connect(_on_accusation_submit_pressed)
+	accusation_explanation_box.add_child(accusation_submit_button)
+
 	var cancel_btn := Button.new()
 	cancel_btn.text = "Cancel"
 	cancel_btn.pressed.connect(_close_accusation)
@@ -519,17 +559,25 @@ func _close_clue_panel() -> void:
 func _on_accuse_pressed() -> void:
 	accusation_step = 0
 	accusation_suspect_idx = -1
+	accusation_evidence_idx = -1
 	accusation_label.text = "Who killed Lord Pemberton?"
 	accusation_suspect_box.visible = true
 	accusation_evidence_box.visible = false
+	accusation_explanation_box.visible = false
+	accusation_explanation_input.clear()
+	accusation_status_label.visible = false
+	accusation_submit_button.disabled = true
 	accusation_panel.visible = true
 	game_phase = Phase.ACCUSE
 	_update_hud()
 
 
 func _close_accusation() -> void:
+	if request_in_flight:
+		return
 	accusation_step = 0
 	accusation_suspect_idx = -1
+	accusation_evidence_idx = -1
 	accusation_panel.visible = false
 	game_phase = Phase.EXPLORE
 	_update_hud()
@@ -540,34 +588,142 @@ func _on_suspect_chosen(suspect_idx: int) -> void:
 	accusation_step = 1
 	accusation_label.text = "What is your key evidence?"
 	accusation_suspect_box.visible = false
+	accusation_explanation_box.visible = false
 	for i in range(CLUES.size()):
 		accusation_clue_buttons[i].visible = clue_inspected[i]
 	accusation_evidence_box.visible = true
 
 
 func _on_evidence_chosen(clue_idx: int) -> void:
+	accusation_evidence_idx = clue_idx
+	accusation_step = 2
+	accusation_label.text = "Make the case."
+	accusation_evidence_box.visible = false
+	accusation_explanation_input.clear()
+	accusation_status_label.visible = false
+	accusation_submit_button.disabled = true
+	accusation_explanation_box.visible = true
+	accusation_explanation_input.grab_focus()
+
+
+func _on_accusation_explanation_changed() -> void:
+	if accusation_submit_button == null:
+		return
+	accusation_submit_button.disabled = request_in_flight or accusation_explanation_input.text.strip_edges().is_empty()
+
+
+func _on_accusation_submit_pressed() -> void:
+	if request_in_flight:
+		return
+	if accusation_suspect_idx < 0 or accusation_evidence_idx < 0:
+		return
+
+	var explanation := accusation_explanation_input.text.strip_edges()
+	if explanation.is_empty():
+		accusation_status_label.visible = true
+		accusation_status_label.text = "Fred needs a theory before he can close the case."
+		accusation_submit_button.disabled = true
+		return
+
+	_send_accusation_verification_request(accusation_suspect_idx, accusation_evidence_idx, explanation)
+
+
+func _send_accusation_verification_request(suspect_idx: int, clue_idx: int, explanation: String) -> void:
+	_set_accusation_busy(true, "Reviewing your case...")
+	pending_request_kind = "accusation"
+	pending_accusation_suspect_idx = suspect_idx
+	pending_accusation_clue_idx = clue_idx
+	pending_accusation_explanation = explanation
+
+	var payload := JSON.stringify({
+		"input": _build_accusation_verifier_input(suspect_idx, clue_idx, explanation),
+		"instructions": ACCUSATION_VERIFIER_INSTRUCTIONS,
+		"max_output_tokens": 180,
+	})
+	var headers := PackedStringArray(["Content-Type: application/json"])
+	var error := llm_request.request(_get_llm_endpoint(), headers, HTTPClient.METHOD_POST, payload)
+	if error != OK:
+		_finish_accusation_with_verdict(
+			suspect_idx,
+			clue_idx,
+			explanation,
+			_build_local_accusation_verdict(suspect_idx, clue_idx, explanation, "The verifier could not be reached, so Fred checked the theory against the case board.")
+		)
+
+
+func _set_accusation_busy(is_busy: bool, status_text: String) -> void:
+	request_in_flight = is_busy
+	if accusation_explanation_input != null:
+		accusation_explanation_input.editable = not is_busy
+	if accusation_submit_button != null:
+		accusation_submit_button.disabled = is_busy or accusation_explanation_input.text.strip_edges().is_empty()
+	if accusation_status_label != null:
+		accusation_status_label.visible = not status_text.is_empty()
+		accusation_status_label.text = status_text
+	_update_hud()
+
+
+func _build_accusation_verifier_input(suspect_idx: int, clue_idx: int, explanation: String) -> String:
+	var found_clues: Array[String] = []
+	for i in range(CLUES.size()):
+		if clue_inspected[i]:
+			found_clues.append("- %s: %s" % [CLUES[i]["label"], CLUES[i]["description"]])
+
+	var talked_names: Array[String] = []
+	for i in range(SUSPECTS.size()):
+		if suspect_talked[i]:
+			talked_names.append(SUSPECTS[i]["name"])
+
+	var found_text := "\n".join(found_clues) if found_clues.size() > 0 else "(no clues inspected)"
+	var talked_text := ", ".join(talked_names) if talked_names.size() > 0 else "(no suspects questioned)"
+
+	return "Trusted case truth:\n- Victim: Lord Pemberton.\n- Killer: Victoria Ashmore.\n- Motive: Lord Pemberton rewrote his will to cut Victoria out.\n- Required key evidence: Silk Glove, monogrammed 'V.A.', found within arm's reach of the body.\n- Supporting facts: James saw Victoria leave the drawing room quickly at about 9pm; Chef Renard heard a woman's voice and raised voices; the broken window latch was forced from inside, so the intruder story is false.\n\nPlayer progress:\nInspected clues:\n%s\nQuestioned suspects: %s\n\nPlayer accusation:\n- Accused suspect: %s\n- Chosen key evidence: %s\n- Explanation: %s" % [
+		found_text,
+		talked_text,
+		SUSPECTS[suspect_idx]["name"],
+		CLUES[clue_idx]["label"],
+		explanation,
+	]
+
+
+func _finish_accusation_with_verdict(suspect_idx: int, clue_idx: int, explanation: String, verdict: Dictionary) -> void:
+	_set_accusation_busy(false, "")
+	pending_request_kind = ""
+	pending_accusation_suspect_idx = -1
+	pending_accusation_clue_idx = -1
+	pending_accusation_explanation = ""
 	accusation_panel.visible = false
 	game_phase = Phase.RESULT
-	accusation_correct = SUSPECTS[accusation_suspect_idx]["is_murderer"]
-	_show_result(accusation_suspect_idx, clue_idx)
+	_show_result(suspect_idx, clue_idx, explanation, verdict)
 
 
-func _show_result(suspect_idx: int, clue_idx: int) -> void:
+func _show_result(suspect_idx: int, clue_idx: int, explanation: String, verdict: Dictionary) -> void:
 	var suspect_name: String = SUSPECTS[suspect_idx]["name"]
 	var clue_label_text: String = CLUES[clue_idx]["label"]
 	result_label.clear()
 
-	var right_suspect := accusation_correct
-	var right_evidence := clue_idx == 1  # Silk Glove — the only clue that directly names V.A.
-	accusation_correct = right_suspect and right_evidence
+	var right_suspect: bool = SUSPECTS[suspect_idx]["is_murderer"] == true
+	var right_evidence := clue_idx == REQUIRED_ACCUSATION_CLUE_IDX
+	var verifier_correct := bool(verdict.get("is_correct", false))
+	accusation_correct = verifier_correct and right_suspect and right_evidence
 
-	if right_suspect and right_evidence:
+	var headline := str(verdict.get("headline", "")).strip_edges()
+	var feedback := str(verdict.get("feedback", "")).strip_edges()
+	if headline.is_empty():
+		headline = "Correct" if accusation_correct else "Not proven"
+	if feedback.is_empty():
+		feedback = _default_accusation_feedback(suspect_idx, clue_idx, explanation)
+	if verifier_correct and not accusation_correct:
+		headline = "Not proven"
+		feedback = _default_accusation_feedback(suspect_idx, clue_idx, explanation)
+
+	if accusation_correct:
 		result_label.append_text(
-			"Correct.\n\n%s is the killer. The %s seals it.\n\nShe poisoned Lord Pemberton's wine after discovering he had rewritten his will to cut her out. Her monogrammed glove placed her at the scene. James saw her leave at 9pm. The window was forced from inside.\n\nCase closed." % [suspect_name, clue_label_text]
+			"%s.\n\n%s\n\nCase closed." % [headline, feedback]
 		)
 	elif right_suspect and not right_evidence:
 		result_label.append_text(
-			"Close — but it doesn't hold.\n\nYou named the right person, but the %s does not place %s at the scene.\n\nWithout direct evidence tying her to the body, the defence tears it apart. The silk glove monogrammed 'V.A.' was beside the body — that was the proof you needed." % [clue_label_text, suspect_name]
+			"%s.\n\n%s\n\nYou named the right person, but the %s does not place %s at the scene. The silk glove monogrammed 'V.A.' was the proof you needed." % [headline, feedback, clue_label_text, suspect_name]
 		)
 	else:
 		var murderer_name: String = ""
@@ -575,7 +731,7 @@ func _show_result(suspect_idx: int, clue_idx: int) -> void:
 			if s["is_murderer"]:
 				murderer_name = s["name"]
 		result_label.append_text(
-			"Wrong.\n\n%s is innocent. You cited the %s — but the evidence did not lead here.\n\nThe real killer was %s. The silk glove monogrammed 'V.A.' placed her at the scene. James saw her leave the drawing room at 9pm. The window latch was broken from the inside — not by an intruder." % [suspect_name, clue_label_text, murderer_name]
+			"%s.\n\n%s\n\n%s is innocent. You cited the %s, but the evidence led to %s: the monogrammed glove, James's 9pm sighting, and the inside-broken latch." % [headline, feedback, suspect_name, clue_label_text, murderer_name]
 		)
 	result_panel.visible = true
 	_update_hud()
@@ -651,6 +807,7 @@ func _send_dialogue_request() -> void:
 
 	var suspect: Dictionary = SUSPECTS[suspect_idx]
 	_set_dialogue_busy(true, "%s is thinking..." % suspect["name"])
+	pending_request_kind = "dialogue"
 	pending_request_npc_index = suspect_idx
 
 	var payload := JSON.stringify({
@@ -661,6 +818,7 @@ func _send_dialogue_request() -> void:
 	var headers := PackedStringArray(["Content-Type: application/json"])
 	var error := llm_request.request(_get_llm_endpoint(), headers, HTTPClient.METHOD_POST, payload)
 	if error != OK:
+		pending_request_kind = ""
 		pending_request_npc_index = -1
 		_set_dialogue_busy(false, "")
 		_append_dialogue("System", "Could not reach /api/llm.")
@@ -697,7 +855,12 @@ func _format_player_turn(message: String) -> String:
 
 
 func _on_llm_request_completed(result: int, response_code: int, _headers: PackedStringArray, body: PackedByteArray) -> void:
+	if pending_request_kind == "accusation":
+		_on_accusation_verification_completed(result, response_code, body)
+		return
+
 	var suspect_idx := pending_request_npc_index
+	pending_request_kind = ""
 	pending_request_npc_index = -1
 	_set_dialogue_busy(false, "")
 
@@ -735,6 +898,116 @@ func _on_llm_request_completed(result: int, response_code: int, _headers: Packed
 		dialogue_input.grab_focus()
 
 
+func _on_accusation_verification_completed(result: int, response_code: int, body: PackedByteArray) -> void:
+	var suspect_idx := pending_accusation_suspect_idx
+	var clue_idx := pending_accusation_clue_idx
+	var explanation := pending_accusation_explanation
+	var parsed: Variant = JSON.parse_string(body.get_string_from_utf8())
+
+	if suspect_idx < 0 or clue_idx < 0:
+		_finish_accusation_with_verdict(0, REQUIRED_ACCUSATION_CLUE_IDX, explanation, {
+			"is_correct": false,
+			"headline": "Not proven",
+			"feedback": "Fred loses the thread of the accusation before it reaches the case board.",
+		})
+		return
+
+	if result != HTTPRequest.RESULT_SUCCESS:
+		_finish_accusation_with_verdict(
+			suspect_idx,
+			clue_idx,
+			explanation,
+			_build_local_accusation_verdict(suspect_idx, clue_idx, explanation, "The verifier connection failed, so Fred checked the theory against the case board.")
+		)
+		return
+
+	if response_code != 200:
+		var error_text := "The verifier could not review the accusation."
+		if typeof(parsed) == TYPE_DICTIONARY and parsed.has("error"):
+			error_text = str(parsed["error"])
+		_finish_accusation_with_verdict(
+			suspect_idx,
+			clue_idx,
+			explanation,
+			_build_local_accusation_verdict(suspect_idx, clue_idx, explanation, error_text)
+		)
+		return
+
+	var reply := ""
+	if typeof(parsed) == TYPE_DICTIONARY and parsed.has("text"):
+		reply = str(parsed["text"]).strip_edges()
+
+	var verdict := _parse_accusation_verdict(reply)
+	if verdict.is_empty():
+		verdict = _build_local_accusation_verdict(suspect_idx, clue_idx, explanation, "The verifier returned an unclear verdict, so Fred checked the theory against the case board.")
+
+	_finish_accusation_with_verdict(suspect_idx, clue_idx, explanation, verdict)
+
+
+func _parse_accusation_verdict(reply: String) -> Dictionary:
+	var text := reply.strip_edges()
+	if text.begins_with("```"):
+		var first_newline := text.find("\n")
+		var last_fence := text.rfind("```")
+		if first_newline >= 0 and last_fence > first_newline:
+			text = text.substr(first_newline + 1, last_fence - first_newline - 1).strip_edges()
+
+	var parsed: Variant = JSON.parse_string(text)
+	if typeof(parsed) != TYPE_DICTIONARY:
+		var start := text.find("{")
+		var end := text.rfind("}")
+		if start >= 0 and end > start:
+			parsed = JSON.parse_string(text.substr(start, end - start + 1))
+
+	if typeof(parsed) != TYPE_DICTIONARY:
+		return {}
+
+	var verdict: Dictionary = parsed
+	if not verdict.has("is_correct"):
+		return {}
+
+	return {
+		"is_correct": bool(verdict.get("is_correct", false)),
+		"headline": str(verdict.get("headline", "")).strip_edges(),
+		"feedback": str(verdict.get("feedback", "")).strip_edges(),
+	}
+
+
+func _build_local_accusation_verdict(suspect_idx: int, clue_idx: int, explanation: String, prefix: String = "") -> Dictionary:
+	var right_suspect: bool = SUSPECTS[suspect_idx]["is_murderer"] == true
+	var right_evidence := clue_idx == REQUIRED_ACCUSATION_CLUE_IDX
+	var explanation_fits := _explanation_mentions_core_solution(explanation)
+	var is_correct: bool = right_suspect and right_evidence and explanation_fits
+	var feedback := _default_accusation_feedback(suspect_idx, clue_idx, explanation)
+	if not prefix.is_empty():
+		feedback = "%s %s" % [prefix, feedback]
+
+	return {
+		"is_correct": is_correct,
+		"headline": "Correct" if is_correct else "Not proven",
+		"feedback": feedback,
+	}
+
+
+func _default_accusation_feedback(suspect_idx: int, clue_idx: int, explanation: String) -> String:
+	var right_suspect: bool = SUSPECTS[suspect_idx]["is_murderer"] == true
+	var right_evidence := clue_idx == REQUIRED_ACCUSATION_CLUE_IDX
+	if right_suspect and right_evidence and _explanation_mentions_core_solution(explanation):
+		return "The theory holds: Victoria had the motive, her monogrammed glove places her beside the body, and the inside-broken latch undercuts the intruder story."
+	if right_suspect and right_evidence:
+		return "The suspect and clue are right, but the explanation needs to connect Victoria's motive and the glove to the scene before Fred can make it stick."
+	if right_suspect:
+		return "Victoria is the right suspect, but this clue does not directly place her at the body."
+	return "The accusation does not fit the authored case facts."
+
+
+func _explanation_mentions_core_solution(explanation: String) -> bool:
+	var text := explanation.to_lower()
+	var mentions_motive := text.contains("will") or text.contains("inherit") or text.contains("cut out") or text.contains("money") or text.contains("motive")
+	var mentions_glove := text.contains("glove") or text.contains("monogram") or text.contains("v.a") or text.contains("va")
+	return mentions_motive and mentions_glove
+
+
 func _reset_game() -> void:
 	player_position = PLAYER_START
 	clue_inspected = [false, false, false]
@@ -745,10 +1018,15 @@ func _reset_game() -> void:
 	active_npc_index = -1
 	accusation_step = 0
 	accusation_suspect_idx = -1
+	accusation_evidence_idx = -1
 	dialog_open = false
 	clue_panel_open = false
 	request_in_flight = false
+	pending_request_kind = ""
 	pending_request_npc_index = -1
+	pending_accusation_suspect_idx = -1
+	pending_accusation_clue_idx = -1
+	pending_accusation_explanation = ""
 	accusation_correct = false
 
 	dialogue_panel.visible = false
@@ -758,6 +1036,13 @@ func _reset_game() -> void:
 
 	if dialogue_input != null:
 		dialogue_input.clear()
+	if accusation_explanation_input != null:
+		accusation_explanation_input.clear()
+		accusation_explanation_input.editable = true
+	if accusation_explanation_box != null:
+		accusation_explanation_box.visible = false
+	if accusation_status_label != null:
+		accusation_status_label.visible = false
 
 	_update_hud()
 	queue_redraw()
@@ -773,10 +1058,10 @@ func _update_hud() -> void:
 
 	if game_phase == Phase.RESULT:
 		hint_label.text = "Case closed."
-	elif game_phase == Phase.ACCUSE:
-		hint_label.text = "Choose your suspect carefully."
 	elif request_in_flight:
 		hint_label.text = "Waiting for an answer."
+	elif game_phase == Phase.ACCUSE:
+		hint_label.text = "Name a suspect, cite evidence, and explain the theory."
 	elif dialog_open:
 		hint_label.text = "Press Esc to end the conversation."
 	elif clue_panel_open:
