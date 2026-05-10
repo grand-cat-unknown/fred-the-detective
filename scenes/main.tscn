@@ -1,6 +1,12 @@
-[gd_scene format=3 uid="uid://d2433iolsy4tl"]
+[gd_scene load_steps=8 format=3 uid="uid://d2433iolsy4tl"]
 
 [ext_resource type="Script" uid="uid://budl0k0bws51r" path="res://scripts/game.gd" id="1_game"]
+[ext_resource type="PackedScene" path="res://scenes/ui/hud_panel.tscn" id="2_hud"]
+[ext_resource type="PackedScene" path="res://scenes/ui/interact_prompt.tscn" id="3_prompt"]
+[ext_resource type="PackedScene" path="res://scenes/ui/dialogue_panel.tscn" id="4_dialogue"]
+[ext_resource type="PackedScene" path="res://scenes/ui/clue_panel.tscn" id="5_clue"]
+[ext_resource type="PackedScene" path="res://scenes/ui/accusation_panel.tscn" id="6_accusation"]
+[ext_resource type="PackedScene" path="res://scenes/ui/result_panel.tscn" id="7_result"]
 
 [node name="Game" type="Node2D" unique_id=744785900]
 script = ExtResource("1_game")
@@ -8,220 +14,23 @@ script = ExtResource("1_game")
 [node name="HUDLayer" type="CanvasLayer" parent="."]
 unique_name_in_owner = true
 
-[node name="HUDPanel" type="PanelContainer" parent="HUDLayer"]
-unique_name_in_owner = true
-offset_left = 20.0
-offset_top = 20.0
-offset_right = 380.0
-offset_bottom = 142.0
-custom_minimum_size = Vector2(360, 0)
-
-[node name="HUDMargin" type="MarginContainer" parent="HUDLayer/HUDPanel"]
-theme_override_constants/margin_left = 10
-theme_override_constants/margin_top = 10
-theme_override_constants/margin_right = 10
-theme_override_constants/margin_bottom = 10
-
-[node name="HUDBox" type="VBoxContainer" parent="HUDLayer/HUDPanel/HUDMargin"]
-theme_override_constants/separation = 6
-
-[node name="TitleLabel" type="Label" parent="HUDLayer/HUDPanel/HUDMargin/HUDBox"]
-text = "Fred the Detective"
-
-[node name="StatusLabel" type="Label" parent="HUDLayer/HUDPanel/HUDMargin/HUDBox"]
+[node name="HUDPanel" parent="HUDLayer" instance=ExtResource("2_hud")]
 unique_name_in_owner = true
 
-[node name="HintLabel" type="Label" parent="HUDLayer/HUDPanel/HUDMargin/HUDBox"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(340, 0)
-autowrap_mode = 2
-
-[node name="AccuseButton" type="Button" parent="HUDLayer/HUDPanel/HUDMargin/HUDBox"]
-unique_name_in_owner = true
-disabled = true
-text = "Make Accusation"
-
-[node name="InteractPrompt" type="PanelContainer" parent="HUDLayer"]
-unique_name_in_owner = true
-visible = false
-offset_right = 160.0
-offset_bottom = 34.0
-
-[node name="InteractPromptMargin" type="MarginContainer" parent="HUDLayer/InteractPrompt"]
-theme_override_constants/margin_left = 8
-theme_override_constants/margin_top = 6
-theme_override_constants/margin_right = 8
-theme_override_constants/margin_bottom = 6
-
-[node name="InteractPromptLabel" type="Label" parent="HUDLayer/InteractPrompt/InteractPromptMargin"]
-unique_name_in_owner = true
-text = "[E] Interact"
-
-[node name="DialoguePanel" type="PanelContainer" parent="HUDLayer"]
-unique_name_in_owner = true
-visible = false
-offset_left = 140.0
-offset_top = 296.0
-offset_right = 820.0
-offset_bottom = 504.0
-custom_minimum_size = Vector2(680, 208)
-
-[node name="DialogueMargin" type="MarginContainer" parent="HUDLayer/DialoguePanel"]
-theme_override_constants/margin_left = 16
-theme_override_constants/margin_top = 14
-theme_override_constants/margin_right = 16
-theme_override_constants/margin_bottom = 14
-
-[node name="DialogueBox" type="VBoxContainer" parent="HUDLayer/DialoguePanel/DialogueMargin"]
-theme_override_constants/separation = 8
-
-[node name="DialogueTitleLabel" type="Label" parent="HUDLayer/DialoguePanel/DialogueMargin/DialogueBox"]
+[node name="InteractPrompt" parent="HUDLayer" instance=ExtResource("3_prompt")]
 unique_name_in_owner = true
 
-[node name="DialogueStatusLabel" type="Label" parent="HUDLayer/DialoguePanel/DialogueMargin/DialogueBox"]
-unique_name_in_owner = true
-visible = false
-
-[node name="DialogueOutput" type="RichTextLabel" parent="HUDLayer/DialoguePanel/DialogueMargin/DialogueBox"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(0, 120)
-size_flags_vertical = 3
-scroll_following = true
-
-[node name="DialogueInputRow" type="HBoxContainer" parent="HUDLayer/DialoguePanel/DialogueMargin/DialogueBox"]
-theme_override_constants/separation = 8
-
-[node name="DialogueInput" type="LineEdit" parent="HUDLayer/DialoguePanel/DialogueMargin/DialogueBox/DialogueInputRow"]
-unique_name_in_owner = true
-size_flags_horizontal = 3
-placeholder_text = "Ask a question..."
-
-[node name="SendButton" type="Button" parent="HUDLayer/DialoguePanel/DialogueMargin/DialogueBox/DialogueInputRow"]
-unique_name_in_owner = true
-text = "Send"
-
-[node name="DialogueCloseButton" type="Button" parent="HUDLayer/DialoguePanel/DialogueMargin/DialogueBox/DialogueInputRow"]
-unique_name_in_owner = true
-text = "Close [Esc]"
-
-[node name="CluePanel" type="PanelContainer" parent="HUDLayer"]
-unique_name_in_owner = true
-visible = false
-offset_left = 240.0
-offset_top = 180.0
-offset_right = 720.0
-offset_bottom = 336.0
-custom_minimum_size = Vector2(480, 0)
-
-[node name="ClueMargin" type="MarginContainer" parent="HUDLayer/CluePanel"]
-theme_override_constants/margin_left = 24
-theme_override_constants/margin_top = 20
-theme_override_constants/margin_right = 24
-theme_override_constants/margin_bottom = 20
-
-[node name="ClueBox" type="VBoxContainer" parent="HUDLayer/CluePanel/ClueMargin"]
-theme_override_constants/separation = 12
-
-[node name="ClueTitleLabel" type="Label" parent="HUDLayer/CluePanel/ClueMargin/ClueBox"]
+[node name="DialoguePanel" parent="HUDLayer" instance=ExtResource("4_dialogue")]
 unique_name_in_owner = true
 
-[node name="ClueBodyLabel" type="RichTextLabel" parent="HUDLayer/CluePanel/ClueMargin/ClueBox"]
+[node name="CluePanel" parent="HUDLayer" instance=ExtResource("5_clue")]
 unique_name_in_owner = true
-custom_minimum_size = Vector2(432, 60)
-fit_content = true
 
-[node name="ClueCloseButton" type="Button" parent="HUDLayer/CluePanel/ClueMargin/ClueBox"]
+[node name="AccusationPanel" parent="HUDLayer" instance=ExtResource("6_accusation")]
 unique_name_in_owner = true
-text = "Close [Esc]"
 
-[node name="AccusationPanel" type="PanelContainer" parent="HUDLayer"]
+[node name="ResultPanel" parent="HUDLayer" instance=ExtResource("7_result")]
 unique_name_in_owner = true
-visible = false
-offset_left = 280.0
-offset_top = 160.0
-offset_right = 680.0
-offset_bottom = 494.0
-custom_minimum_size = Vector2(400, 0)
-
-[node name="AccusationMargin" type="MarginContainer" parent="HUDLayer/AccusationPanel"]
-theme_override_constants/margin_left = 24
-theme_override_constants/margin_top = 24
-theme_override_constants/margin_right = 24
-theme_override_constants/margin_bottom = 24
-
-[node name="AccusationBox" type="VBoxContainer" parent="HUDLayer/AccusationPanel/AccusationMargin"]
-theme_override_constants/separation = 14
-
-[node name="AccusationLabel" type="Label" parent="HUDLayer/AccusationPanel/AccusationMargin/AccusationBox"]
-unique_name_in_owner = true
-text = "Who killed Reginald Vance?"
-
-[node name="AccusationSuspectBox" type="VBoxContainer" parent="HUDLayer/AccusationPanel/AccusationMargin/AccusationBox"]
-unique_name_in_owner = true
-theme_override_constants/separation = 6
-
-[node name="AccusationEvidenceBox" type="VBoxContainer" parent="HUDLayer/AccusationPanel/AccusationMargin/AccusationBox"]
-unique_name_in_owner = true
-visible = false
-theme_override_constants/separation = 6
-
-[node name="AccusationExplanationBox" type="VBoxContainer" parent="HUDLayer/AccusationPanel/AccusationMargin/AccusationBox"]
-unique_name_in_owner = true
-visible = false
-theme_override_constants/separation = 8
-
-[node name="ExplanationHint" type="Label" parent="HUDLayer/AccusationPanel/AccusationMargin/AccusationBox/AccusationExplanationBox"]
-custom_minimum_size = Vector2(352, 0)
-text = "Explain how the suspect, clue, and motive fit together."
-autowrap_mode = 2
-
-[node name="AccusationExplanationInput" type="TextEdit" parent="HUDLayer/AccusationPanel/AccusationMargin/AccusationBox/AccusationExplanationBox"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(352, 96)
-placeholder_text = "Write your theory..."
-wrap_mode = 1
-
-[node name="AccusationStatusLabel" type="Label" parent="HUDLayer/AccusationPanel/AccusationMargin/AccusationBox/AccusationExplanationBox"]
-unique_name_in_owner = true
-visible = false
-custom_minimum_size = Vector2(352, 0)
-autowrap_mode = 2
-
-[node name="AccusationSubmitButton" type="Button" parent="HUDLayer/AccusationPanel/AccusationMargin/AccusationBox/AccusationExplanationBox"]
-unique_name_in_owner = true
-disabled = true
-text = "Submit Case"
-
-[node name="AccusationCancelButton" type="Button" parent="HUDLayer/AccusationPanel/AccusationMargin/AccusationBox"]
-unique_name_in_owner = true
-text = "Cancel"
-
-[node name="ResultPanel" type="PanelContainer" parent="HUDLayer"]
-unique_name_in_owner = true
-visible = false
-offset_left = 200.0
-offset_top = 140.0
-offset_right = 760.0
-offset_bottom = 296.0
-custom_minimum_size = Vector2(560, 0)
-
-[node name="ResultMargin" type="MarginContainer" parent="HUDLayer/ResultPanel"]
-theme_override_constants/margin_left = 32
-theme_override_constants/margin_top = 28
-theme_override_constants/margin_right = 32
-theme_override_constants/margin_bottom = 28
-
-[node name="ResultBox" type="VBoxContainer" parent="HUDLayer/ResultPanel/ResultMargin"]
-theme_override_constants/separation = 16
-
-[node name="ResultLabel" type="RichTextLabel" parent="HUDLayer/ResultPanel/ResultMargin/ResultBox"]
-unique_name_in_owner = true
-custom_minimum_size = Vector2(496, 80)
-fit_content = true
-
-[node name="RestartButton" type="Button" parent="HUDLayer/ResultPanel/ResultMargin/ResultBox"]
-unique_name_in_owner = true
-text = "Play Again"
 
 [node name="LLMRequest" type="HTTPRequest" parent="."]
 unique_name_in_owner = true

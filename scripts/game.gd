@@ -423,31 +423,12 @@ var request_in_flight := false
 var accusation_correct := false
 
 var hud_layer: CanvasLayer
-var status_label: Label
-var hint_label: Label
-var interact_prompt: PanelContainer
-var interact_prompt_label: Label
-var dialogue_panel: PanelContainer
-var dialogue_title_label: Label
-var dialogue_output: RichTextLabel
-var dialogue_input: LineEdit
-var dialogue_status_label: Label
-var send_button: Button
-var accuse_button: Button
-var clue_panel: PanelContainer
-var clue_title_label: Label
-var clue_body_label: RichTextLabel
-var accusation_panel: PanelContainer
-var accusation_label: Label
-var accusation_suspect_box: VBoxContainer
-var accusation_evidence_box: VBoxContainer
-var accusation_explanation_box: VBoxContainer
-var accusation_explanation_input: TextEdit
-var accusation_submit_button: Button
-var accusation_status_label: Label
-var accusation_clue_buttons: Array[Button] = []
-var result_panel: PanelContainer
-var result_label: RichTextLabel
+var hud_panel: HudPanel
+var interact_prompt: InteractPrompt
+var dialogue_panel: DialoguePanel
+var clue_panel: CluePanel
+var accusation_panel: AccusationPanel
+var result_panel: ResultPanel
 var llm_request: HTTPRequest
 var _world_layer: Node2D
 var _world_map: WorldMap
@@ -478,7 +459,6 @@ func _ready() -> void:
 	_build_services()
 	_wire_scene_signals()
 	_wire_event_bus()
-	_populate_accusation_buttons()
 	_reset_game()
 
 
@@ -542,43 +522,17 @@ func _draw() -> void:
 
 func _cache_scene_nodes() -> void:
 	hud_layer = %HUDLayer
-	status_label = %StatusLabel
-	hint_label = %HintLabel
+	hud_panel = %HUDPanel
 	interact_prompt = %InteractPrompt
-	interact_prompt_label = %InteractPromptLabel
 	dialogue_panel = %DialoguePanel
-	dialogue_title_label = %DialogueTitleLabel
-	dialogue_output = %DialogueOutput
-	dialogue_input = %DialogueInput
-	dialogue_status_label = %DialogueStatusLabel
-	send_button = %SendButton
-	accuse_button = %AccuseButton
 	clue_panel = %CluePanel
-	clue_title_label = %ClueTitleLabel
-	clue_body_label = %ClueBodyLabel
 	accusation_panel = %AccusationPanel
-	accusation_label = %AccusationLabel
-	accusation_suspect_box = %AccusationSuspectBox
-	accusation_evidence_box = %AccusationEvidenceBox
-	accusation_explanation_box = %AccusationExplanationBox
-	accusation_explanation_input = %AccusationExplanationInput
-	accusation_submit_button = %AccusationSubmitButton
-	accusation_status_label = %AccusationStatusLabel
 	result_panel = %ResultPanel
-	result_label = %ResultLabel
 	llm_request = %LLMRequest
 
 
 func _configure_scene_ui_defaults() -> void:
-	hint_label.autowrap_mode = TextServer.AUTOWRAP_WORD
-	dialogue_output.bbcode_enabled = false
-	dialogue_output.scroll_following = true
-	clue_body_label.bbcode_enabled = false
-	clue_body_label.fit_content = true
-	accusation_explanation_input.wrap_mode = TextEdit.LINE_WRAPPING_BOUNDARY
-	accusation_status_label.autowrap_mode = TextServer.AUTOWRAP_WORD
-	result_label.bbcode_enabled = false
-	result_label.fit_content = true
+	accusation_panel.configure(_case)
 
 
 func _build_services() -> void:
@@ -595,15 +549,16 @@ func _build_services() -> void:
 
 
 func _wire_scene_signals() -> void:
-	_connect_once(accuse_button.pressed, _on_accuse_pressed)
-	_connect_once(dialogue_input.text_submitted, _on_dialogue_submitted)
-	_connect_once(send_button.pressed, _send_dialogue_request)
-	_connect_once(%DialogueCloseButton.pressed, _close_dialogue)
-	_connect_once(%ClueCloseButton.pressed, _close_clue_panel)
-	_connect_once(accusation_explanation_input.text_changed, _on_accusation_explanation_changed)
-	_connect_once(accusation_submit_button.pressed, _on_accusation_submit_pressed)
-	_connect_once(%AccusationCancelButton.pressed, _close_accusation)
-	_connect_once(%RestartButton.pressed, _reset_game)
+	_connect_once(hud_panel.accuse_pressed, _on_accuse_pressed)
+	_connect_once(dialogue_panel.submitted, _send_dialogue_request)
+	_connect_once(dialogue_panel.closed, _close_dialogue)
+	_connect_once(clue_panel.closed, _close_clue_panel)
+	_connect_once(accusation_panel.suspect_chosen, _on_suspect_chosen)
+	_connect_once(accusation_panel.evidence_chosen, _on_evidence_chosen)
+	_connect_once(accusation_panel.explanation_changed, _on_accusation_explanation_changed)
+	_connect_once(accusation_panel.submitted, _on_accusation_submit_pressed)
+	_connect_once(accusation_panel.closed, _close_accusation)
+	_connect_once(result_panel.restart_pressed, _reset_game)
 
 
 func _wire_event_bus() -> void:
@@ -618,32 +573,6 @@ func _wire_event_bus() -> void:
 func _connect_once(signal_value: Signal, callable: Callable) -> void:
 	if not signal_value.is_connected(callable):
 		signal_value.connect(callable)
-
-
-func _populate_accusation_buttons() -> void:
-	_clear_children(accusation_suspect_box)
-	_clear_children(accusation_evidence_box)
-	accusation_clue_buttons.clear()
-
-	for i in range(_case.suspects.size()):
-		var suspect := _case.suspects[i]
-		var btn := Button.new()
-		btn.text = "%s - %s" % [suspect.display_name, suspect.subtitle]
-		btn.pressed.connect(_on_suspect_chosen.bind(i))
-		accusation_suspect_box.add_child(btn)
-
-	for i in range(_case.clues.size()):
-		var clue := _case.clues[i]
-		var btn := Button.new()
-		btn.text = clue.label
-		btn.pressed.connect(_on_evidence_chosen.bind(i))
-		accusation_clue_buttons.append(btn)
-		accusation_evidence_box.add_child(btn)
-
-
-func _clear_children(parent: Node) -> void:
-	for child in parent.get_children():
-		child.queue_free()
 
 
 func _ensure_world_nodes() -> void:
@@ -840,17 +769,15 @@ func _update_interact_prompt() -> void:
 	if interact_prompt == null:
 		return
 	if dialog_open or clue_panel_open or game_phase != Phase.EXPLORE:
-		interact_prompt.visible = false
+		interact_prompt.close()
 		return
 
 	_refresh_interact_target()
 	if _current_target.is_none():
-		interact_prompt.visible = false
+		interact_prompt.close()
 		return
 
-	interact_prompt.visible = true
-	interact_prompt_label.text = _current_target.label
-	interact_prompt.position = _current_target.prompt_position
+	interact_prompt.show_target(_current_target.label, _current_target.prompt_position)
 
 
 func _refresh_interact_target() -> void:
@@ -873,18 +800,17 @@ func _open_dialogue(suspect_idx: int) -> void:
 	active_npc_index = suspect_idx
 	dialog_open = true
 	_dialogue.open(suspect.id)
-	dialogue_panel.visible = true
-	dialogue_title_label.text = "%s  -  %s" % [suspect.display_name, suspect.subtitle]
-	_refresh_dialogue_output()
-	_set_dialogue_busy(false, "")
-	dialogue_input.grab_focus()
+	dialogue_panel.open(
+		"%s  -  %s" % [suspect.display_name, suspect.subtitle],
+		_dialogue.get_dialogue_lines(suspect.id),
+	)
 	_update_hud()
 
 
 func _close_dialogue() -> void:
 	_dialogue.close()
 	dialog_open = false
-	dialogue_panel.visible = false
+	dialogue_panel.close()
 	active_npc_index = -1
 	get_viewport().gui_release_focus()
 	_update_hud()
@@ -896,17 +822,14 @@ func _open_clue_panel(clue_idx: int) -> void:
 	var clue := _case.clues[clue_idx]
 	GameState.mark_clue_inspected(clue.id)
 	clue_panel_open = true
-	clue_title_label.text = clue.label
-	clue_body_label.clear()
-	clue_body_label.append_text(clue.description)
-	clue_panel.visible = true
+	clue_panel.open(clue.label, clue.description)
 	_refresh_world_nodes()
 	_update_hud()
 
 
 func _close_clue_panel() -> void:
 	clue_panel_open = false
-	clue_panel.visible = false
+	clue_panel.close()
 	_update_hud()
 
 
@@ -915,14 +838,7 @@ func _on_accuse_pressed() -> void:
 	accusation_step = 0
 	accusation_suspect_idx = -1
 	accusation_evidence_idx = -1
-	accusation_label.text = _case.question
-	accusation_suspect_box.visible = true
-	accusation_evidence_box.visible = false
-	accusation_explanation_box.visible = false
-	accusation_explanation_input.clear()
-	accusation_status_label.visible = false
-	accusation_submit_button.disabled = true
-	accusation_panel.visible = true
+	accusation_panel.open(_case.question)
 	game_phase = Phase.ACCUSE
 	GameState.set_phase(GameEnums.Phase.ACCUSE)
 	_update_hud()
@@ -935,7 +851,7 @@ func _close_accusation() -> void:
 	accusation_step = 0
 	accusation_suspect_idx = -1
 	accusation_evidence_idx = -1
-	accusation_panel.visible = false
+	accusation_panel.close()
 	game_phase = Phase.EXPLORE
 	GameState.set_phase(GameEnums.Phase.EXPLORE)
 	_update_hud()
@@ -947,12 +863,7 @@ func _on_suspect_chosen(suspect_idx: int) -> void:
 	accusation_suspect_idx = suspect_idx
 	_accusation.choose_suspect(_case.suspects[suspect_idx].id)
 	accusation_step = 1
-	accusation_label.text = "What is your key evidence?"
-	accusation_suspect_box.visible = false
-	accusation_explanation_box.visible = false
-	for i in range(_case.clues.size()):
-		accusation_clue_buttons[i].visible = GameState.is_clue_inspected(_case.clues[i].id)
-	accusation_evidence_box.visible = true
+	accusation_panel.show_evidence(_inspected_clue_ids())
 
 
 func _on_evidence_chosen(clue_idx: int) -> void:
@@ -961,53 +872,42 @@ func _on_evidence_chosen(clue_idx: int) -> void:
 	accusation_evidence_idx = clue_idx
 	_accusation.choose_evidence(_case.clues[clue_idx].id)
 	accusation_step = 2
-	accusation_label.text = "Make the case."
-	accusation_evidence_box.visible = false
-	accusation_explanation_input.clear()
-	accusation_status_label.visible = false
-	accusation_submit_button.disabled = true
-	accusation_explanation_box.visible = true
-	accusation_explanation_input.grab_focus()
+	accusation_panel.show_explanation()
 
 
 func _on_accusation_explanation_changed() -> void:
-	if accusation_submit_button == null:
+	if accusation_panel == null:
 		return
-	accusation_submit_button.disabled = request_in_flight or accusation_explanation_input.text.strip_edges().is_empty()
+	accusation_panel.set_submit_enabled(
+		not request_in_flight and not accusation_panel.explanation_text().strip_edges().is_empty()
+	)
 
 
-func _on_accusation_submit_pressed() -> void:
+func _on_accusation_submit_pressed(explanation_text: String) -> void:
 	if request_in_flight:
 		return
 	if accusation_suspect_idx < 0 or accusation_evidence_idx < 0:
 		return
 
-	var explanation := accusation_explanation_input.text.strip_edges()
+	var explanation := explanation_text.strip_edges()
 	if explanation.is_empty():
-		accusation_status_label.visible = true
-		accusation_status_label.text = "Fred needs a theory before he can close the case."
-		accusation_submit_button.disabled = true
+		accusation_panel.show_status("Fred needs a theory before he can close the case.")
+		accusation_panel.set_submit_enabled(false)
 		return
 
 	if not _accusation.submit(explanation):
-		accusation_status_label.visible = true
-		accusation_status_label.text = "Fred cannot submit that accusation yet."
+		accusation_panel.show_status("Fred cannot submit that accusation yet.")
 
 
 func _set_accusation_busy(is_busy: bool, status_text: String) -> void:
 	request_in_flight = is_busy
-	if accusation_explanation_input != null:
-		accusation_explanation_input.editable = not is_busy
-	if accusation_submit_button != null:
-		accusation_submit_button.disabled = is_busy or accusation_explanation_input.text.strip_edges().is_empty()
-	if accusation_status_label != null:
-		accusation_status_label.visible = not status_text.is_empty()
-		accusation_status_label.text = status_text
+	if accusation_panel != null:
+		accusation_panel.set_busy(is_busy, status_text)
 	_update_hud()
 
 
 func _on_accusation_resolved(verdict: AccusationVerdict) -> void:
-	accusation_panel.visible = false
+	accusation_panel.close()
 	game_phase = Phase.RESULT
 	GameState.set_phase(GameEnums.Phase.RESULT)
 	_show_result(verdict)
@@ -1018,7 +918,7 @@ func _show_result(verdict: AccusationVerdict) -> void:
 	var clue := _case.clue_by_id(verdict.clue_id)
 	var suspect_name := suspect.display_name if suspect != null else "(unknown)"
 	var clue_label_text := clue.label if clue != null else "(unknown)"
-	result_label.clear()
+	var result_text := ""
 
 	var right_suspect := verdict.suspect_id == _case.correct_suspect_id
 	var right_evidence := verdict.clue_id == _case.required_evidence_id
@@ -1036,22 +936,25 @@ func _show_result(verdict: AccusationVerdict) -> void:
 		feedback = "The accusation does not fit the authored case facts."
 
 	if accusation_correct:
-		result_label.append_text(
-			"%s.\n\n%s\n\nCase closed." % [headline, feedback]
-		)
+		result_text = "%s.\n\n%s\n\nCase closed." % [headline, feedback]
 	elif right_suspect and not right_evidence:
-		result_label.append_text(
-			"%s.\n\n%s\n\nYou named the right person, but the %s does not carry the whole case. The ghost cell in the chute connects the stolen idol, the residue pattern, and the murder weapon." % [headline, feedback, clue_label_text]
-		)
+		result_text = "%s.\n\n%s\n\nYou named the right person, but the %s does not carry the whole case. The ghost cell in the chute connects the stolen idol, the residue pattern, and the murder weapon." % [
+			headline,
+			feedback,
+			clue_label_text,
+		]
 	else:
 		var murderer_name: String = ""
 		for s in _case.suspects:
 			if s.is_murderer:
 				murderer_name = s.display_name
-		result_label.append_text(
-			"%s.\n\n%s\n\n%s is not proved by that evidence. The case points to %s: the ghost cell hid the idol and matched the discharge that killed Vance." % [headline, feedback, suspect_name, murderer_name]
-		)
-	result_panel.visible = true
+		result_text = "%s.\n\n%s\n\n%s is not proved by that evidence. The case points to %s: the ghost cell hid the idol and matched the discharge that killed Vance." % [
+			headline,
+			feedback,
+			suspect_name,
+			murderer_name,
+		]
+	result_panel.open(result_text)
 	_update_hud()
 
 
@@ -1062,36 +965,22 @@ func _can_accuse() -> bool:
 func _refresh_dialogue_output() -> void:
 	if active_npc_index < 0 or _dialogue == null or active_npc_index >= _case.suspects.size():
 		return
-	dialogue_output.clear()
-	var lines := _dialogue.get_dialogue_lines(_case.suspects[active_npc_index].id)
-	if lines.size() > 0:
-		dialogue_output.append_text("\n\n".join(lines))
-		dialogue_output.scroll_to_line(max(0, dialogue_output.get_line_count() - 1))
+	dialogue_panel.set_lines(_dialogue.get_dialogue_lines(_case.suspects[active_npc_index].id))
 
 
 func _set_dialogue_busy(is_busy: bool, status_text: String) -> void:
 	request_in_flight = is_busy
-	dialogue_input.editable = not is_busy
-	send_button.disabled = is_busy
-	dialogue_status_label.visible = not status_text.is_empty()
-	dialogue_status_label.text = status_text
-	if not is_busy and dialog_open:
-		dialogue_input.grab_focus()
-	if status_label != null:
-		_update_hud()
+	dialogue_panel.set_busy(is_busy, status_text)
+	_update_hud()
 
 
-func _on_dialogue_submitted(_text: String) -> void:
-	_send_dialogue_request()
-
-
-func _send_dialogue_request() -> void:
+func _send_dialogue_request(message: String) -> void:
 	if request_in_flight or active_npc_index < 0:
 		return
 
-	if not _dialogue.submit_message(dialogue_input.text):
+	if not _dialogue.submit_message(message):
 		return
-	dialogue_input.clear()
+	dialogue_panel.clear_input()
 
 
 func _on_clue_inspected(_clue_id: StringName) -> void:
@@ -1110,7 +999,7 @@ func _on_dialogue_line_appended(suspect_id: StringName, _speaker: String, _text:
 		return
 	_refresh_dialogue_output()
 	if not request_in_flight:
-		dialogue_input.grab_focus()
+		dialogue_panel.focus_input()
 
 
 func _reset_game() -> void:
@@ -1132,20 +1021,11 @@ func _reset_game() -> void:
 	request_in_flight = false
 	accusation_correct = false
 
-	dialogue_panel.visible = false
-	clue_panel.visible = false
-	accusation_panel.visible = false
-	result_panel.visible = false
-
-	if dialogue_input != null:
-		dialogue_input.clear()
-	if accusation_explanation_input != null:
-		accusation_explanation_input.clear()
-		accusation_explanation_input.editable = true
-	if accusation_explanation_box != null:
-		accusation_explanation_box.visible = false
-	if accusation_status_label != null:
-		accusation_status_label.visible = false
+	dialogue_panel.close()
+	clue_panel.close()
+	accusation_panel.close()
+	accusation_panel.set_busy(false, "")
+	result_panel.close()
 
 	_update_hud()
 	_queue_world_redraw()
@@ -1153,27 +1033,37 @@ func _reset_game() -> void:
 
 func _update_hud() -> void:
 	var found_count := GameState.inspected_clue_count()
-	status_label.text = "Clues inspected: %d / %d" % [found_count, _case.clues.size()]
-	accuse_button.disabled = request_in_flight or not _can_accuse()
+	hud_panel.set_status("Clues inspected: %d / %d" % [found_count, _case.clues.size()])
+	hud_panel.set_accuse_enabled(not request_in_flight and _can_accuse())
 
+	var hint_text := ""
 	if game_phase == Phase.RESULT:
-		hint_label.text = "Case closed."
+		hint_text = "Case closed."
 	elif request_in_flight:
-		hint_label.text = "Waiting for an answer."
+		hint_text = "Waiting for an answer."
 	elif game_phase == Phase.ACCUSE:
-		hint_label.text = "Name a suspect, cite evidence, and explain the theory."
+		hint_text = "Name a suspect, cite evidence, and explain the theory."
 	elif dialog_open:
-		hint_label.text = "Press Esc to end the conversation."
+		hint_text = "Press Esc to end the conversation."
 	elif clue_panel_open:
-		hint_label.text = "Press Esc to close."
+		hint_text = "Press Esc to close."
 	elif _is_clue_available(_case.clue_index(CaseLoader.CLUE_GHOST_CELL)) and not GameState.is_clue_inspected(CaseLoader.CLUE_GHOST_CELL):
-		hint_label.text = "The chute lead is open. Check the floor 11 chute access."
+		hint_text = "The chute lead is open. Check the floor 11 chute access."
 	elif _is_clue_available(_case.clue_index(CaseLoader.CLUE_GLOVES)) and not GameState.is_clue_inspected(CaseLoader.CLUE_GLOVES):
-		hint_label.text = "The ghost cell points back to the gear. Inspect Pemberton's gloves."
+		hint_text = "The ghost cell points back to the gear. Inspect Pemberton's gloves."
 	elif _can_accuse():
-		hint_label.text = "You have enough to accuse — or keep digging."
+		hint_text = "You have enough to accuse — or keep digging."
 	else:
-		hint_label.text = "Inspect clues [E] and question suspects [E]. Find evidence to accuse."
+		hint_text = "Inspect clues [E] and question suspects [E]. Find evidence to accuse."
+	hud_panel.set_hint(hint_text)
+
+
+func _inspected_clue_ids() -> Array[StringName]:
+	var clue_ids: Array[StringName] = []
+	for clue in _case.clues:
+		if GameState.is_clue_inspected(clue.id):
+			clue_ids.append(clue.id)
+	return clue_ids
 
 
 func _ensure_input_actions() -> void:
