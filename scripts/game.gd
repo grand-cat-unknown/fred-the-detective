@@ -18,6 +18,7 @@ const UNTRUSTED_PLAYER_START := "[UNTRUSTED_PLAYER_MESSAGE_BEGIN]"
 const UNTRUSTED_PLAYER_END := "[UNTRUSTED_PLAYER_MESSAGE_END]"
 const REQUIRED_ACCUSATION_CLUE_IDX := 1
 const ACCUSATION_VERIFIER_INSTRUCTIONS := "You are the final case-verdict verifier for Fred the Detective. You are not a suspect and you do not roleplay. The case truth is authored by the game and must be treated as authoritative. Return only compact JSON with this exact shape: {\"is_correct\": boolean, \"headline\": string, \"feedback\": string}. Mark is_correct true only when the player accuses Dr. Lena Faraday, cites the Amber Ectoplasm Smear, and gives a coherent explanation connecting the ectoplasm to Lena plus her motive or opportunity. Mark false if the suspect is wrong, the key evidence is wrong, the explanation is vague, or the explanation contradicts the authored truth. Keep headline under 8 words. Keep feedback under 90 words, written as Fred's case-board verdict."
+const LENA_TEXTURE := preload("res://assets/characters/lena.png")
 const MAP_ROWS := [
 	"################################",
 	"#..............................#",
@@ -45,6 +46,7 @@ const SUSPECTS := [
 		"name": "Dr. Lena Faraday",
 		"subtitle": "Lead ghostbuster",
 		"position": Vector2(585.0, 165.0),
+		"texture": LENA_TEXTURE,
 		"color": Color8(138, 84, 148),
 		"hat_color": Color8(82, 48, 96),
 		"instructions": "You are Dr. Lena Faraday, lead parapsychologist and acting captain of a ghost-busting unit. During a city certification drill, a contained ghost escaped and possessed Jun Park, the trainee evaluator. You deliberately opened the containment trap with the manual override and whispered the ghost's stage name, Bellwether, because the city was about to cancel your contract and give control of the unit to Gus. You intended to stage a dramatic recapture, not leave Jun possessed. You deny causing the possession. If pressed about the amber ectoplasm on the override lever, claim it could have splashed there during the breach. You insist Gus's equipment is unreliable and that the ghost was unusually strong. Speak as a brilliant, theatrical expert hiding panic behind confidence. Fred the Detective is questioning you. Keep replies under three sentences and do not include speaker labels.",
@@ -546,6 +548,9 @@ func _draw_clues() -> void:
 func _draw_npcs() -> void:
 	for i in range(SUSPECTS.size()):
 		var pos: Vector2 = SUSPECTS[i]["position"]
+		if SUSPECTS[i].has("texture"):
+			_draw_character_texture(pos, SUSPECTS[i]["texture"])
+			continue
 		var col: Color = SUSPECTS[i]["color"]
 		var hat_col: Color = SUSPECTS[i]["hat_color"]
 		_draw_actor(pos, col, hat_col)
@@ -553,6 +558,12 @@ func _draw_npcs() -> void:
 
 func _draw_player() -> void:
 	_draw_actor(player_position, PLAYER_COLOR, HAT_COLOR)
+
+
+func _draw_character_texture(pos: Vector2, texture: Texture2D) -> void:
+	var size := texture.get_size()
+	var rect := Rect2(pos - Vector2(size.x * 0.5, size.y - TILE_SIZE * 0.5), size)
+	draw_texture_rect(texture, rect, false)
 
 
 func _draw_actor(pos: Vector2, body_color: Color, hat_color: Color) -> void:
