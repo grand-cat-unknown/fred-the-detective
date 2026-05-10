@@ -78,6 +78,8 @@ var suspect_conversations: Array = [[], [], []]
 var suspect_dialogue_lines: Array = [[], [], []]
 var game_phase: Phase = Phase.EXPLORE
 var active_npc_index := -1
+var accusation_step := 0
+var accusation_suspect_idx := -1
 var dialog_open := false
 var clue_panel_open := false
 var request_in_flight := false
@@ -99,6 +101,10 @@ var clue_panel: PanelContainer
 var clue_title_label: Label
 var clue_body_label: RichTextLabel
 var accusation_panel: PanelContainer
+var accusation_label: Label
+var accusation_suspect_box: VBoxContainer
+var accusation_evidence_box: VBoxContainer
+var accusation_clue_buttons: Array[Button] = []
 var result_panel: PanelContainer
 var result_label: RichTextLabel
 var llm_request: HTTPRequest
@@ -309,15 +315,27 @@ func _build_accusation_ui() -> void:
 	box.add_theme_constant_override("separation", 14)
 	margin.add_child(box)
 
-	var label := Label.new()
-	label.text = "Who killed Lord Pemberton?"
-	box.add_child(label)
+	accusation_label = Label.new()
+	accusation_label.text = "Who killed Lord Pemberton?"
+	box.add_child(accusation_label)
 
+	accusation_suspect_box = VBoxContainer.new()
+	box.add_child(accusation_suspect_box)
 	for i in range(SUSPECTS.size()):
 		var btn := Button.new()
 		btn.text = "%s  —  %s" % [SUSPECTS[i]["name"], SUSPECTS[i]["subtitle"]]
-		btn.pressed.connect(_on_suspect_accused.bind(i))
-		box.add_child(btn)
+		btn.pressed.connect(_on_suspect_chosen.bind(i))
+		accusation_suspect_box.add_child(btn)
+
+	accusation_evidence_box = VBoxContainer.new()
+	accusation_evidence_box.visible = false
+	box.add_child(accusation_evidence_box)
+	for i in range(CLUES.size()):
+		var btn := Button.new()
+		btn.text = CLUES[i]["label"]
+		btn.pressed.connect(_on_evidence_chosen.bind(i))
+		accusation_clue_buttons.append(btn)
+		accusation_evidence_box.add_child(btn)
 
 	var cancel_btn := Button.new()
 	cancel_btn.text = "Cancel"
@@ -493,37 +511,62 @@ func _close_clue_panel() -> void:
 
 
 func _on_accuse_pressed() -> void:
+	accusation_step = 0
+	accusation_suspect_idx = -1
+	accusation_label.text = "Who killed Lord Pemberton?"
+	accusation_suspect_box.visible = true
+	accusation_evidence_box.visible = false
 	accusation_panel.visible = true
 	game_phase = Phase.ACCUSE
 	_update_hud()
 
 
 func _close_accusation() -> void:
+	accusation_step = 0
+	accusation_suspect_idx = -1
 	accusation_panel.visible = false
 	game_phase = Phase.EXPLORE
 	_update_hud()
 
 
-func _on_suspect_accused(suspect_idx: int) -> void:
+func _on_suspect_chosen(suspect_idx: int) -> void:
+	accusation_suspect_idx = suspect_idx
+	accusation_step = 1
+	accusation_label.text = "What is your key evidence?"
+	accusation_suspect_box.visible = false
+	for i in range(CLUES.size()):
+		accusation_clue_buttons[i].visible = clue_inspected[i]
+	accusation_evidence_box.visible = true
+
+
+func _on_evidence_chosen(clue_idx: int) -> void:
 	accusation_panel.visible = false
 	game_phase = Phase.RESULT
-	accusation_correct = SUSPECTS[suspect_idx]["is_murderer"]
+	accusation_correct = SUSPECTS[accusation_suspect_idx]["is_murderer"]
+	_show_result(accusation_suspect_idx, clue_idx)
 
+
+func _show_result(suspect_idx: int, clue_idx: int) -> void:
 	var suspect_name: String = SUSPECTS[suspect_idx]["name"]
+	var clue_label_text: String = CLUES[clue_idx]["label"]
 	result_label.clear()
 	if accusation_correct:
-		result_label.append_text(
-			"Correct.\n\n%s is the killer.\n\nShe poisoned Lord Pemberton's wine after discovering he had rewritten his will to cut her out. The monogrammed glove placed her at the scene. James saw her leave at 9pm. The window was broken from the inside.\n\nCase closed." % suspect_name
-		)
+		if clue_idx == 1:
+			result_label.append_text(
+				"Correct.\n\n%s is the killer. The %s seals it.\n\nShe poisoned Lord Pemberton's wine after discovering he had rewritten his will to cut her out. Her monogrammed glove placed her at the scene. James saw her leave at 9pm. The window was forced from inside.\n\nPerfect deduction. Case closed." % [suspect_name, clue_label_text]
+			)
+		else:
+			result_label.append_text(
+				"Correct.\n\n%s is the killer.\n\nYou cited the %s — solid supporting evidence. The sharpest single piece was the silk glove monogrammed 'V.A.' found beside the body. James saw her leave at 9pm. The window was forced from inside.\n\nCase closed." % [suspect_name, clue_label_text]
+			)
 	else:
 		var murderer_name: String = ""
 		for s in SUSPECTS:
 			if s["is_murderer"]:
 				murderer_name = s["name"]
 		result_label.append_text(
-			"Wrong.\n\n%s is innocent.\n\nThe real killer was %s. The silk glove monogrammed 'V.A.' placed her at the scene. James saw her leave the drawing room at 9pm. The window latch was broken from the inside — not by an intruder." % [suspect_name, murderer_name]
+			"Wrong.\n\n%s is innocent. You cited the %s — but the evidence did not lead here.\n\nThe real killer was %s. The silk glove monogrammed 'V.A.' placed her at the scene. James saw her leave the drawing room at 9pm. The window latch was broken from the inside — not by an intruder." % [suspect_name, clue_label_text, murderer_name]
 		)
-
 	result_panel.visible = true
 	_update_hud()
 
@@ -604,14 +647,14 @@ func _send_dialogue_request() -> void:
 
 
 func _build_llm_input(suspect_idx: int) -> String:
-	var found_labels: Array[String] = []
+	var clue_lines: Array[String] = []
 	for i in range(CLUES.size()):
 		if clue_inspected[i]:
-			found_labels.append(CLUES[i]["label"])
+			clue_lines.append("- %s: %s" % [CLUES[i]["label"], CLUES[i]["description"]])
 
-	var clue_context := "Fred has not yet found any physical clues."
-	if found_labels.size() > 0:
-		clue_context = "Fred has found the following clues: %s." % ", ".join(found_labels)
+	var clue_context := "Fred has not yet found any physical evidence."
+	if clue_lines.size() > 0:
+		clue_context = "Fred has found the following physical evidence:\n%s" % "\n".join(clue_lines)
 
 	var turns: Array = suspect_conversations[suspect_idx]
 	var transcript := "\n".join(turns) if turns.size() > 0 else "(conversation just started)"
@@ -668,6 +711,8 @@ func _reset_game() -> void:
 	suspect_dialogue_lines = [[], [], []]
 	game_phase = Phase.EXPLORE
 	active_npc_index = -1
+	accusation_step = 0
+	accusation_suspect_idx = -1
 	dialog_open = false
 	clue_panel_open = false
 	request_in_flight = false
