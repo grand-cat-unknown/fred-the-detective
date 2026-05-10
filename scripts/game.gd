@@ -449,7 +449,12 @@ func _on_llm_request_completed(result: int, response_code: int, _headers: Packed
 
 func _get_llm_endpoint() -> String:
 	if OS.has_feature("web"):
-		return "/api/llm"
+		var origin: String = ""
+		if Engine.has_singleton("JavaScriptBridge"):
+			origin = str(JavaScriptBridge.eval("window.location.origin", true)).strip_edges()
+		if not origin.is_empty() and origin != "null":
+			return "%s/api/llm" % origin.trim_suffix("/")
+		return "http://127.0.0.1:3000/api/llm"
 	return "http://127.0.0.1:3000/api/llm"
 
 
