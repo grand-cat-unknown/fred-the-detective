@@ -28,7 +28,8 @@ When both are present, real process env vars still win over `.env`, which keeps 
 1. In Godot, add the Web export preset.
 2. Export the build into the `public/` folder in this repo.
 3. Keep the generated `.html`, `.js`, `.pck`, `.wasm`, and support files together.
-4. Import this repo into Vercel and deploy it as a static site.
+4. Preserve the custom auth bootstrap in `public/index.html` after exporting. A fresh Godot export can overwrite that file.
+5. Import this repo into Vercel and deploy it as a static site.
 
 ## Simple access login
 

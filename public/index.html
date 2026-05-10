@@ -89,79 +89,6 @@ body {
 	text-align: center;
 	z-index: 1;
 }
-
-#auth-overlay {
-	position: fixed;
-	inset: 0;
-	background: rgba(12, 12, 12, 0.84);
-	display: none;
-	align-items: center;
-	justify-content: center;
-	z-index: 3;
-	padding: 1.5rem;
-	box-sizing: border-box;
-}
-
-#auth-card {
-	width: min(420px, 100%);
-	background: #1d1d1d;
-	border: 1px solid #474747;
-	border-radius: 0.75rem;
-	padding: 1.25rem;
-	box-sizing: border-box;
-	box-shadow: 0 24px 60px rgba(0, 0, 0, 0.35);
-	font-family: 'Noto Sans', 'Droid Sans', Arial, sans-serif;
-	color: #f3f3f3;
-}
-
-#auth-card h1 {
-	margin: 0 0 0.5rem;
-	font-size: 1.8rem;
-}
-
-#auth-card p {
-	margin: 0 0 1rem;
-	color: #d0d0d0;
-	line-height: 1.45;
-}
-
-#auth-form {
-	display: flex;
-	flex-direction: column;
-	gap: 0.75rem;
-}
-
-#auth-form input,
-#auth-form button {
-	font: inherit;
-	border-radius: 0.5rem;
-	border: 1px solid #5b5b5b;
-	padding: 0.8rem 0.9rem;
-	box-sizing: border-box;
-}
-
-#auth-form input {
-	background: #111;
-	color: #fff;
-}
-
-#auth-form button {
-	background: #f3f3f3;
-	color: #111;
-	font-weight: 700;
-	cursor: pointer;
-}
-
-#auth-form button[disabled] {
-	opacity: 0.6;
-	cursor: wait;
-}
-
-#auth-error {
-	min-height: 1.4rem;
-	color: #ff9b9b;
-	font-size: 0.95rem;
-}
 		</style>
 		<link id="-gd-engine-icon" rel="icon" type="image/png" href="index.icon.png" />
 <link rel="apple-touch-icon" href="index.apple-touch-icon.png"/>
@@ -182,19 +109,6 @@ body {
 			<div id="status-notice"></div>
 		</div>
 
-		<div id="auth-overlay">
-			<div id="auth-card">
-				<h1>Fred the Detective</h1>
-				<p>Sign in before entering the case.</p>
-				<form id="auth-form">
-					<input id="auth-username" name="username" type="text" placeholder="Username" autocomplete="username" required>
-					<input id="auth-password" name="password" type="password" placeholder="Password" autocomplete="current-password" required>
-					<div id="auth-error"></div>
-					<button id="auth-submit" type="submit">Enter</button>
-				</form>
-			</div>
-		</div>
-
 		<script src="index.js"></script>
 		<script>
 const GODOT_CONFIG = {"args":[],"canvasResizePolicy":2,"emscriptenPoolSize":8,"ensureCrossOriginIsolationHeaders":true,"executable":"index","experimentalVK":false,"fileSizes":{"index.pck":43812,"index.wasm":35749181},"focusCanvas":true,"gdextensionLibs":[],"godotPoolSize":4};
@@ -205,16 +119,9 @@ const engine = new Engine(GODOT_CONFIG);
 	const statusOverlay = document.getElementById('status');
 	const statusProgress = document.getElementById('status-progress');
 	const statusNotice = document.getElementById('status-notice');
-	const authOverlay = document.getElementById('auth-overlay');
-	const authForm = document.getElementById('auth-form');
-	const authUsername = document.getElementById('auth-username');
-	const authPassword = document.getElementById('auth-password');
-	const authSubmit = document.getElementById('auth-submit');
-	const authError = document.getElementById('auth-error');
 
 	let initializing = true;
 	let statusMode = '';
-	let gameStarted = false;
 
 	function setStatusMode(mode) {
 		if (statusMode === mode || !initializing) {
@@ -255,111 +162,6 @@ const engine = new Engine(GODOT_CONFIG);
 		initializing = false;
 	}
 
-	function setAuthVisible(visible) {
-		authOverlay.style.display = visible ? 'flex' : 'none';
-		if (visible) {
-			authUsername.focus();
-		}
-	}
-
-	function setAuthBusy(isBusy) {
-		authUsername.disabled = isBusy;
-		authPassword.disabled = isBusy;
-		authSubmit.disabled = isBusy;
-		authSubmit.textContent = isBusy ? 'Checking...' : 'Enter';
-	}
-
-	function setAuthError(message) {
-		authError.textContent = message || '';
-	}
-
-	async function authRequest(method, body) {
-		const response = await fetch('/api/auth', {
-			method,
-			headers: body ? { 'Content-Type': 'application/json' } : undefined,
-			credentials: 'same-origin',
-			cache: 'no-store',
-			body: body ? JSON.stringify(body) : undefined,
-		});
-
-		let data = {};
-		try {
-			data = await response.json();
-		} catch (error) {
-			data = {};
-		}
-
-		return { response, data };
-	}
-
-	async function ensureAuthenticated() {
-		const { response, data } = await authRequest('GET');
-		if (response.ok && data && data.authenticated === true) {
-			return true;
-		}
-
-		setStatusMode('hidden');
-		initializing = false;
-		setAuthVisible(true);
-		return false;
-	}
-
-	async function startGodot() {
-		if (gameStarted) {
-			return;
-		}
-
-		gameStarted = true;
-		setAuthVisible(false);
-		initializing = true;
-		setStatusMode('progress');
-
-		try {
-			await engine.startGame({
-				'onProgress': function (current, total) {
-					if (current > 0 && total > 0) {
-						statusProgress.value = current;
-						statusProgress.max = total;
-					} else {
-						statusProgress.removeAttribute('value');
-						statusProgress.removeAttribute('max');
-					}
-				},
-			});
-			setStatusMode('hidden');
-		} catch (error) {
-			gameStarted = false;
-			displayFailureNotice(error);
-		}
-	}
-
-	authForm.addEventListener('submit', async function (event) {
-		event.preventDefault();
-		setAuthError('');
-		setAuthBusy(true);
-
-		try {
-			const { response, data } = await authRequest('POST', {
-				username: authUsername.value,
-				password: authPassword.value,
-			});
-
-			if (!response.ok || !data || data.authenticated !== true) {
-				setAuthError(data && data.error ? data.error : 'Authentication failed.');
-				setAuthBusy(false);
-				return;
-			}
-
-			authPassword.value = '';
-			setAuthBusy(false);
-			await startGodot();
-		} catch (error) {
-			console.error(error);
-			setAuthError('Could not reach /api/auth.');
-			setAuthBusy(false);
-		}
-	});
-
 	const missing = Engine.getMissingFeatures({
 		threads: GODOT_THREADS_ENABLED,
 	});
@@ -397,12 +199,19 @@ const engine = new Engine(GODOT_CONFIG);
 		}
 	} else {
 		setStatusMode('progress');
-		ensureAuthenticated().then((authenticated) => {
-			if (authenticated) {
-				return startGodot();
-			}
-			return undefined;
-		}).catch(displayFailureNotice);
+		engine.startGame({
+			'onProgress': function (current, total) {
+				if (current > 0 && total > 0) {
+					statusProgress.value = current;
+					statusProgress.max = total;
+				} else {
+					statusProgress.removeAttribute('value');
+					statusProgress.removeAttribute('max');
+				}
+			},
+		}).then(() => {
+			setStatusMode('hidden');
+		}, displayFailureNotice);
 	}
 }());
 		</script>
