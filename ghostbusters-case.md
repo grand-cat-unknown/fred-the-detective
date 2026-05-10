@@ -12,7 +12,7 @@ Four Ghostbusters arrive and split up across the twelfth floor to contain the ha
 
 Fred is not satisfied. A field book says this kind of idol does not vanish after a haunting. If the idol is gone, someone took it.
 
-The truth: the haunting was real, but the murder was human. **Dr. Otis Pemberton** pretended to check his assigned room, slipped into Vance's suite instead, killed Vance by venting a charged spare ghost cell, stole the idol, hid it in that same cell's outer case, and rejoined the team before the body was "discovered."
+The truth: the haunting was real, but the murder was human. **Dr. Otis Pemberton** pretended to check his assigned room, slipped into Vance's suite instead, killed Vance by venting a charged spare ghost cell, stole the idol, hid it in that same cell's outer case, and rejoined the team before the body was "discovered." Vance let Pemberton in because he was a Ghostbuster responding to the haunting; after the murder, Pemberton pulled the warped suite door shut behind him, letting the haunting-damaged latch jam again before the group returned.
 
 ## Case Shape
 
@@ -64,7 +64,7 @@ The Ghostbusters arrive at 9:04 PM. The twelfth floor is chaotic, so the team sp
 
 Before the split fully separates them, Pemberton lifts a charged spare cell from the cart under the excuse of checking ectoplasm exposure. Theo notices the missing cell only after the team regroups.
 
-Pemberton never checks 1220 during the split. He slips into suite 1221, kills Vance with a charged spare ghost cell, steals the idol, hides it inside the cell's outer case, drops the case into the laundry chute, then returns to the hallway as if he has finished his assigned sweep.
+Pemberton never checks 1220 during the split. Vance admits him into suite 1221 because Pemberton appears to be responding to the haunting. Pemberton kills Vance with a charged spare ghost cell, steals the idol, hides it inside the cell's outer case, drops the case into the laundry chute, then pulls the warped suite door shut behind him so it jams again before he returns to the hallway as if he has finished his assigned sweep.
 
 All four Ghostbusters then regroup outside suite 1221 and "discover" Vance's body together.
 
