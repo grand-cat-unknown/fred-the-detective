@@ -550,15 +550,19 @@ func _show_result(suspect_idx: int, clue_idx: int) -> void:
 	var suspect_name: String = SUSPECTS[suspect_idx]["name"]
 	var clue_label_text: String = CLUES[clue_idx]["label"]
 	result_label.clear()
-	if accusation_correct:
-		if clue_idx == 1:
-			result_label.append_text(
-				"Correct.\n\n%s is the killer. The %s seals it.\n\nShe poisoned Lord Pemberton's wine after discovering he had rewritten his will to cut her out. Her monogrammed glove placed her at the scene. James saw her leave at 9pm. The window was forced from inside.\n\nPerfect deduction. Case closed." % [suspect_name, clue_label_text]
-			)
-		else:
-			result_label.append_text(
-				"Correct.\n\n%s is the killer.\n\nYou cited the %s — solid supporting evidence. The sharpest single piece was the silk glove monogrammed 'V.A.' found beside the body. James saw her leave at 9pm. The window was forced from inside.\n\nCase closed." % [suspect_name, clue_label_text]
-			)
+
+	var right_suspect := accusation_correct
+	var right_evidence := clue_idx == 1  # Silk Glove — the only clue that directly names V.A.
+	accusation_correct = right_suspect and right_evidence
+
+	if right_suspect and right_evidence:
+		result_label.append_text(
+			"Correct.\n\n%s is the killer. The %s seals it.\n\nShe poisoned Lord Pemberton's wine after discovering he had rewritten his will to cut her out. Her monogrammed glove placed her at the scene. James saw her leave at 9pm. The window was forced from inside.\n\nCase closed." % [suspect_name, clue_label_text]
+		)
+	elif right_suspect and not right_evidence:
+		result_label.append_text(
+			"Close — but it doesn't hold.\n\nYou named the right person, but the %s does not place %s at the scene.\n\nWithout direct evidence tying her to the body, the defence tears it apart. The silk glove monogrammed 'V.A.' was beside the body — that was the proof you needed." % [clue_label_text, suspect_name]
+		)
 	else:
 		var murderer_name: String = ""
 		for s in SUSPECTS:
