@@ -81,14 +81,19 @@ Walter is the obvious suspect at first glance. He has motive (the auction), prox
 
 ## Inspectable Clues
 
-Six clues, within the v1 budget.
+Eight clues.
 
 1. **The body.** Stab wound under the ribs, no scorch marks, no ghostly burns. Public fact: Vance is dead. Layered fact (after inspection): the wound is a knife, not anything paranormal.
-2. **The slime in the room.** Sprayed evenly on vertical surfaces. Inspecting it unlocks the topic *slime pattern*. Pemberton handwaves it; an experienced eye knows real slime pools.
+2. **The slime in the room.** Sprayed evenly on vertical surfaces. Inspecting it unlocks the topic *slime pattern*. Pemberton handwaves it; an experienced eye knows real slime pools. The field reference (clue 7) is what converts suspicion into certainty.
 3. **The empty display pedestal.** Clearly held something small and heavy. Unlocks the topic *idol*. Walter and Pemberton both react to this; Walter openly, Pemberton tightly.
 4. **The spent battery cell.** Under the desk. Civilian players will not know what it is until they ask a suspect or inspect it twice. Viv identifies it; Pemberton tries to dismiss it as "old stock."
 5. **A torn auction receipt.** Names the idol, the price, and a handwritten note from a colleague: *"Reggie — please reconsider. This belongs in a lab. — O.P."* Signed in Pemberton's hand. This is the motive clue. It is not damning on its own (academics write strongly worded notes), but combined with the cell and the canister it is.
-6. **The empty slime canister.** Found jammed in the laundry chute on a lower floor by maintenance. Standard issue Ghostbusters equipment. Inspecting it shows residual slime that visually matches the spray in 1221 — same color, same consistency, same fluorescence. Inspecting it unlocks the topic *canister*, which is the unlock that lets Viv volunteer the sleeve-fleck observation.
+6. **The jammed laundry chute.** A maintenance notice on the service corridor door reads: *"Chute blocked between floors 12 and 11 — DO NOT USE — see housekeeping."* Viv confirms it has been jammed for a week. Inspecting the notice unlocks the topic *chute*. Asking Viv or maintenance about it opens the option to investigate the chute from the service level below — where the empty slime canister sits wedged half a floor down, never reaching the incinerator. The canister shows residual slime matching the spray in 1221: same color, same consistency, same fluorescence. Inspecting it unlocks the topic *canister*, which is the unlock that lets Viv volunteer the sleeve-fleck observation.
+7. **A worn field reference on paranormal residues.** Found in the writing desk drawer alongside the torn receipt. The margins are annotated in the same hand as the auction note — Pemberton's. Two passages are dog-eared:
+   - *"Ectoplasmic discharge from a genuine manifestation obeys gravity. It pools and concentrates at the lowest reachable point of the haunting site. A uniform spray pattern on vertical surfaces indicates a mechanical source, not a spectral one."* Reading this after seeing the room converts the slime pattern from merely suspicious to definitively staged.
+   - *"Pressurized slime canisters produce significant recoil on discharge. Operators should wear full-spectrum gloves; concentrated tinting penetrates standard kit within seconds of sustained contact."* This passage seeds the glove reveal.
+   The book is the first hard confirmation that the scene is scientifically wrong. The annotation in Pemberton's own hand means he knew exactly what a real haunting should look like — and faked the opposite.
+8. **Pemberton's gloves.** Not a physical object to inspect — a conversation-gated reveal. After the player has read the recoil passage in the field reference, they can ask any Ghostbuster to remove their gloves. The other team members comply without hesitation — clean hands. Pemberton hesitates before complying. His dominant hand is stained deep green on the fingers and palm: the same fluorescent tint as the slime on the walls. He cannot explain it away.
 
 ## Information Layers
 
@@ -108,16 +113,20 @@ Six clues, within the v1 budget.
 | The note on the receipt is Pemberton's handwriting | Viv (she's seen it on hotel paperwork) | Player shows Viv the receipt |
 | Pemberton entered the suite alone for ~20 minutes | Viv or Walter | Player asks about the team's order of arrival |
 | Pemberton's book and his obsession with the idol | Walter (collectors gossip) | Player asks Walter about Pemberton, or about the idol's research history |
+| The chute has been jammed for a week; can be inspected from below | Viv or maintenance | Player asks about the chute notice or asks Viv about the hotel's maintenance issues |
+| Pemberton's hands are stained green on the dominant hand | Pemberton (physical reveal) | Player has read the recoil passage in the field reference and asks any Ghostbuster to remove their gloves |
 
 ### Contradictions the player can build
 
-- **Canister slime + room slime match** → the scene is staged with a canister, not by a haunting.
+- **Field reference spray-pattern passage + room slime** → the scene is definitively staged; no real haunting produces this pattern.
+- **Canister slime + room slime match** → the scene was staged with a canister specifically.
 - **Canister + sleeve fleck (Viv)** → a Ghostbuster handled the canister, and that Ghostbuster was Pemberton.
 - **Battery cell + canister** → a Ghostbuster was in the room *and* faked the haunting.
 - **Walter's 9:05 PM + Pemberton's 8:55 PM report** → Pemberton's timeline is a lie.
 - **Receipt note + missing idol** → Pemberton had a documented reason to want the idol, and the idol is gone.
+- **Field reference recoil passage + Pemberton's stained hand** → Pemberton fired the canister; his own body is the evidence.
 
-No single contradiction ends the case. The player needs at least two to feel certain — ideally one that pins Pemberton (sleeve fleck) *and* one that breaks his timeline (Walter's 9:05 PM).
+No single contradiction ends the case. The player needs at least two to feel certain. The book is the clue that makes the physical evidence feel inevitable rather than lucky.
 
 ## Accusation Requirements
 
@@ -141,14 +150,20 @@ Failure modes the verifier should distinguish:
 ## Target Loop
 
 ```text
-Inspect slime / battery cell / receipt / canister
+Inspect slime / battery cell / receipt / writing desk drawer
+-> find field reference → read spray-pattern passage → slime is definitively staged
+-> find field reference → read recoil passage → seeds glove question
+-> inspect chute maintenance notice → ask Viv about the jammed chute
+-> investigate chute from service level → find canister with matching slime
 -> unlock topics: slime pattern, battery cell, idol, Pemberton's note, canister
 -> show Viv the canister
 -> Viv reveals the slime fleck on Pemberton's sleeve
 -> ask Walter about 9 PM
 -> Walter reveals the argument
--> contradiction unlocked: Pemberton sprayed the room and lied about the timeline
--> accuse Pemberton with the battery cell + canister/sleeve testimony + the idol motive
+-> ask Ghostbusters to remove gloves (field reference in hand)
+-> Pemberton's stained hand revealed
+-> contradiction unlocked: Pemberton staged the room, lied about the timeline, and the slime is on his hands
+-> accuse Pemberton with battery cell + canister/sleeve testimony + stained hand + idol motive
 ```
 
 ## Tone Notes
