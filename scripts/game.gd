@@ -588,7 +588,7 @@ func _send_dialogue_request() -> void:
 	suspect_talked[active_npc_index] = true
 	dialogue_input.clear()
 
-	var suspect := SUSPECTS[active_npc_index]
+	var suspect: Dictionary = SUSPECTS[active_npc_index]
 	_set_dialogue_busy(true, "%s is thinking..." % suspect["name"])
 
 	var payload := JSON.stringify({
@@ -629,7 +629,7 @@ func _on_llm_request_completed(result: int, response_code: int, _headers: Packed
 	if active_npc_index < 0:
 		return
 
-	var suspect := SUSPECTS[active_npc_index]
+	var suspect: Dictionary = SUSPECTS[active_npc_index]
 	var parsed: Variant = JSON.parse_string(body.get_string_from_utf8())
 
 	if result != HTTPRequest.RESULT_SUCCESS:
