@@ -209,7 +209,7 @@ const SUSPECTS := [
 	{
 		"name": "Vivian Marsh",
 		"subtitle": "Hotel concierge",
-		"position": Vector2(150.0, 105.0),
+		"position": Vector2(165.0, 105.0),
 		"room": ROOM_CONCIERGE,
 		"color": Color8(166, 133, 76),
 		"hat_color": Color8(96, 75, 46),
@@ -813,9 +813,6 @@ func _draw_npcs() -> void:
 		if str(SUSPECTS[i].get("room", "")) != current_room:
 			continue
 		var pos: Vector2 = SUSPECTS[i]["position"]
-		if SUSPECTS[i].has("texture"):
-			_draw_character_texture(pos, SUSPECTS[i]["texture"])
-			continue
 		var col: Color = SUSPECTS[i]["color"]
 		var hat_col: Color = SUSPECTS[i]["hat_color"]
 		_draw_actor(pos, col, hat_col)
@@ -826,7 +823,9 @@ func _draw_player() -> void:
 
 
 func _draw_character_texture(pos: Vector2, texture: Texture2D) -> void:
-	var size := texture.get_size()
+	var orig := texture.get_size()
+	var scale := 45.0 / orig.y
+	var size := orig * scale
 	var rect := Rect2(pos - Vector2(size.x * 0.5, size.y - TILE_SIZE * 0.5), size)
 	draw_texture_rect(texture, rect, false)
 
@@ -1665,7 +1664,7 @@ func _get_pressed_tile_direction() -> Vector2i:
 func _try_start_tile_step(direction: Vector2i) -> void:
 	player_face_direction = direction
 	var next_tile := player_tile + direction
-	if not _is_tile_walkable(next_tile):
+	if not _is_tile_walkable(next_tile) or _is_npc_at_tile(next_tile):
 		queue_redraw()
 		return
 	player_tile = next_tile
@@ -1676,6 +1675,15 @@ func _try_start_tile_step(direction: Vector2i) -> void:
 
 func _is_tile_walkable(tile_position: Vector2i) -> bool:
 	return not BLOCKING_TILES.has(_tile_at(tile_position))
+
+
+func _is_npc_at_tile(tile: Vector2i) -> bool:
+	for suspect in SUSPECTS:
+		if str(suspect.get("room", "")) != current_room:
+			continue
+		if _world_to_tile(suspect["position"]) == tile:
+			return true
+	return false
 
 
 func _tile_to_world_center(tile_position: Vector2i) -> Vector2:
