@@ -11,6 +11,7 @@ extends Resource
 @export var rooms: Array[RoomData] = []
 @export var doors: Array[DoorData] = []
 @export var elevators: Array[ElevatorData] = []
+@export var unlock_hints: Array[UnlockHint] = []
 
 @export var correct_suspect_id: StringName = &""
 @export var required_evidence_id: StringName = &""

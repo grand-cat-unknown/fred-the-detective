@@ -66,8 +66,39 @@ static func load_default() -> CaseData:
 	case.elevators = _build_elevators()
 	case.suspects = _build_suspects()
 	case.clues = _build_clues()
+	case.unlock_hints = _build_unlock_hints()
 	case.build_indexes()
 	return case
+
+
+static func _build_unlock_hints() -> Array[UnlockHint]:
+	return [
+		UnlockHint.new(
+			[CLUE_FIELD_BOOK] as Array[StringName],
+			[] as Array[StringName],
+			"Fred knows anchor idols do not vanish after hauntings and that opened charged cells leave directional residue cones.",
+		),
+		UnlockHint.new(
+			[CLUE_CHUTE_NOTICE] as Array[StringName],
+			[SUSPECT_WALTER] as Array[StringName],
+			"Fred can inspect the floor 11 chute access because the chute is jammed and Walter heard something heavy hit it.",
+		),
+		UnlockHint.new(
+			[CLUE_GHOST_CELL] as Array[StringName],
+			[] as Array[StringName],
+			"Fred found the stolen idol hidden inside the spent ghost cell in the jammed chute.",
+		),
+		UnlockHint.new(
+			[CLUE_ROOM_1220_LOG, CLUE_GHOST_CELL] as Array[StringName],
+			[] as Array[StringName],
+			"Viv may now clarify that the 9:18 room 1220 entry was her post-discovery safety check, not Pemberton's sweep.",
+		),
+		UnlockHint.new(
+			[CLUE_GHOST_CELL, CLUE_FIELD_BOOK] as Array[StringName],
+			[] as Array[StringName],
+			"Fred can inspect Pemberton's gloves for purge residue.",
+		),
+	]
 
 
 static func _build_rooms() -> Array[RoomData]:
