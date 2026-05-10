@@ -2,3 +2,5 @@
 .godot/
 /android/
 .env
+.vercel
+.env*.local

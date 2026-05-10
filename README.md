@@ -13,6 +13,16 @@ Super simple Godot 4 detective game for web export.
 1. Open the project in Godot 4.
 2. Press F5 to run the main scene.
 
+## Local API env
+
+The server routes now read env vars from the repo root `.env` or `.env.local` in addition to normal process env.
+
+1. Copy `.env.example` to `.env`.
+2. Fill in `APP_USERNAME`, `APP_PASSWORD`, `APP_SESSION_SECRET`, and `OPENAI_API_KEY`.
+3. Run the local server layer with a tool that serves the `api/` directory, such as `vercel dev` from the repo root.
+
+When both are present, real process env vars still win over `.env`, which keeps production behavior unchanged.
+
 ## Export for Vercel
 
 1. In Godot, add the Web export preset.
