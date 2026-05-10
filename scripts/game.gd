@@ -1678,7 +1678,7 @@ func _is_tile_walkable(tile_position: Vector2i) -> bool:
 
 
 func _is_npc_at_tile(tile: Vector2i) -> bool:
-	for suspect in SUSPECTS:
+	for suspect: Dictionary in SUSPECTS:
 		if str(suspect.get("room", "")) != current_room:
 			continue
 		if _world_to_tile(suspect["position"]) == tile:
