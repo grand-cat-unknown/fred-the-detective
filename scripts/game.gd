@@ -14,53 +14,53 @@ const MAX_DIALOGUE_LINES := 12
 const UNTRUSTED_PLAYER_START := "[UNTRUSTED_PLAYER_MESSAGE_BEGIN]"
 const UNTRUSTED_PLAYER_END := "[UNTRUSTED_PLAYER_MESSAGE_END]"
 const REQUIRED_ACCUSATION_CLUE_IDX := 1
-const ACCUSATION_VERIFIER_INSTRUCTIONS := "You are the final case-verdict verifier for Fred the Detective. You are not a suspect and you do not roleplay. The case truth is authored by the game and must be treated as authoritative. Return only compact JSON with this exact shape: {\"is_correct\": boolean, \"headline\": string, \"feedback\": string}. Mark is_correct true only when the player accuses Victoria Ashmore, cites the Silk Glove, and gives a coherent explanation connecting the glove to Victoria plus her motive or opportunity. Mark false if the suspect is wrong, the key evidence is wrong, the explanation is vague, or the explanation contradicts the authored truth. Keep headline under 8 words. Keep feedback under 90 words, written as Fred's case-board verdict."
+const ACCUSATION_VERIFIER_INSTRUCTIONS := "You are the final case-verdict verifier for Fred the Detective. You are not a suspect and you do not roleplay. The case truth is authored by the game and must be treated as authoritative. Return only compact JSON with this exact shape: {\"is_correct\": boolean, \"headline\": string, \"feedback\": string}. Mark is_correct true only when the player accuses Dr. Lena Faraday, cites the Amber Ectoplasm Smear, and gives a coherent explanation connecting the ectoplasm to Lena plus her motive or opportunity. Mark false if the suspect is wrong, the key evidence is wrong, the explanation is vague, or the explanation contradicts the authored truth. Keep headline under 8 words. Keep feedback under 90 words, written as Fred's case-board verdict."
 
 const SUSPECTS := [
 	{
-		"name": "Victoria Ashmore",
-		"subtitle": "Victim's wife",
+		"name": "Dr. Lena Faraday",
+		"subtitle": "Lead ghostbuster",
 		"position": Vector2(540.0, 200.0),
-		"color": Color8(140, 90, 120),
-		"hat_color": Color8(90, 50, 80),
-		"instructions": "You are Victoria Ashmore, widow of Lord Pemberton who was found dead tonight in the drawing room. You killed him after discovering he changed his will, cutting you out entirely in favour of a distant cousin. You are poised, cold, and practised at deception. You deny any involvement. If pressed about the silk glove found near the body, claim you left it there earlier in the afternoon when you were reading. You do not know that James the butler saw you leave the drawing room quickly around 9pm. Speak as a composed aristocrat concealing guilt beneath good manners. Fred the Detective is questioning you. Keep replies under three sentences and do not include speaker labels.",
-		"is_murderer": true,
+		"color": Color8(138, 84, 148),
+		"hat_color": Color8(82, 48, 96),
+		"instructions": "You are Dr. Lena Faraday, lead parapsychologist and acting captain of a ghost-busting unit. During a city certification drill, a contained ghost escaped and possessed Jun Park, the trainee evaluator. You deliberately opened the containment trap with the manual override and whispered the ghost's stage name, Bellwether, because the city was about to cancel your contract and give control of the unit to Gus. You intended to stage a dramatic recapture, not leave Jun possessed. You deny causing the possession. If pressed about the amber ectoplasm on the override lever, claim it could have splashed there during the breach. You insist Gus's equipment is unreliable and that the ghost was unusually strong. Speak as a brilliant, theatrical expert hiding panic behind confidence. Fred the Detective is questioning you. Keep replies under three sentences and do not include speaker labels.",
+		"is_culprit": true,
 	},
 	{
-		"name": "James",
-		"subtitle": "The Butler",
+		"name": "Gus Moreno",
+		"subtitle": "Equipment engineer",
 		"position": Vector2(720.0, 390.0),
-		"color": Color8(70, 90, 130),
-		"hat_color": Color8(40, 55, 80),
-		"instructions": "You are James, the butler of Pemberton Manor. You are innocent. You spent the evening preparing the dining room. You saw Lady Victoria Ashmore leave the drawing room very quickly at approximately 9pm, which struck you as unusual — Lord Pemberton was still inside at the time. You also overheard a telephone call last week in which Lord Pemberton spoke of changing his will. You are loyal and cautious, reluctant to implicate Lady Ashmore unless Fred presses you directly with evidence. Fred the Detective is questioning you. Keep replies under three sentences and do not include speaker labels.",
-		"is_murderer": false,
+		"color": Color8(67, 119, 122),
+		"hat_color": Color8(38, 76, 82),
+		"instructions": "You are Gus Moreno, the equipment engineer for a ghost-busting unit. You are innocent. During the certification drill, Jun Park was possessed after the containment trap opened. You were in the equipment bay replacing proton pack cells, but you had argued with Dr. Lena Faraday because the city was considering putting you in charge of the unit. You know the trap seal did not rupture mechanically: the manual override was used from the console. Lena's amber ecto-lure gel is not part of your trap coolant, which is green. You are practical, defensive, and annoyed that everyone blames the gear first. Fred the Detective is questioning you. Keep replies under three sentences and do not include speaker labels.",
+		"is_culprit": false,
 	},
 	{
-		"name": "Chef Renard",
-		"subtitle": "The Cook",
+		"name": "Priya Cross",
+		"subtitle": "Occult archivist",
 		"position": Vector2(260.0, 380.0),
-		"color": Color8(160, 110, 70),
-		"hat_color": Color8(100, 75, 50),
-		"instructions": "You are Chef Renard, the cook at Pemberton Manor. You are innocent. You were in the kitchen all evening but stepped outside to smoke near the kitchen door around 9pm. While outside, you heard raised voices from the direction of the drawing room — one voice was clearly a woman's. You also noticed the drawing room light was still on past midnight when you went to bed. You are blunt and impatient with the proceedings. Fred the Detective is questioning you. Keep replies under three sentences and do not include speaker labels.",
-		"is_murderer": false,
+		"color": Color8(164, 117, 70),
+		"hat_color": Color8(104, 75, 50),
+		"instructions": "You are Priya Cross, the occult archivist and public liaison for a ghost-busting unit. You are innocent. During the certification drill, Jun Park was possessed by the ghost called Bellwether. You heard a woman whisper 'Bellwether' near the containment bay shortly before the breach, but you are nervous about accusing Lena because the whole unit could lose its city contract. You know Bellwether is the ghost's stage name and that Lena learned it from your archive notes. You are observant, anxious, and careful with your words. Fred the Detective is questioning you. Keep replies under three sentences and do not include speaker labels.",
+		"is_culprit": false,
 	},
 ]
 
 const CLUES := [
 	{
 		"position": Vector2(176.0, 156.0),
-		"label": "Shattered Wine Glass",
-		"description": "A crystal glass in pieces near the armchair. The fragments spread in a fan — it was thrown with force, not dropped. There is a faint red stain on the nearby wall.",
+		"label": "Cracked Ghost Trap",
+		"description": "The trap casing is split and smoking, but the metal teeth bend outward. The ghost did not smash its way in from outside; the trap opened first and then overloaded.",
 	},
 	{
 		"position": Vector2(476.0, 270.0),
-		"label": "Silk Glove",
-		"description": "A single white silk glove, monogrammed 'V.A.' in gold thread. Found within arm's reach of the body.",
+		"label": "Amber Ectoplasm Smear",
+		"description": "A sticky amber smear glows on the manual override lever. It smells like hot sugar and ozone, matching the lure gel Lena keeps on her ritual gloves.",
 	},
 	{
 		"position": Vector2(820.0, 310.0),
-		"label": "Broken Window Latch",
-		"description": "The latch is snapped. The damage is on the inside face — it was forced open from within, not by someone entering from outside.",
+		"label": "Whispering Tape Recorder",
+		"description": "A cassette recorder by the observation window plays a warped voice repeating, 'Bellwether wants applause.' The last clean sound is a woman's whisper.",
 	},
 ]
 
