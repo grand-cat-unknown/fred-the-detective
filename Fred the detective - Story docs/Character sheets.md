@@ -124,20 +124,6 @@ Here is the expanded character roster for the Ghostbusters team.
 - **What She Actually Saw (once broken):** "Nothing. That's the thing. I was in that corridor the whole time, from before 9 until past 9:15. Pemberton says he was sweeping it. He wasn't. Nobody walked that corridor during the noise. It was dead quiet — until I heard the thud down the chute around 9:10. After that, still nothing. He never came through."
 - **The Detective's Hook:** Mags is the **negative witness** — her presence in the corridor means Pemberton's "structural sweep" and "flanking the entity through the maintenance access" alibi is a lie. He wasn't in the corridor; he was inside 1221.
 
-## 8. Arthur "Artie" Sterling (The Manager)
-
-**The Liability Shield.** He doesn't care about the Idol; he cares about the hotel's "Haunted History" reputation, which allows him to charge $1,200 a night for a room with bad plumbing.
-
-- **Personality:** Pathologically allergic to bad reviews. He views the Ghostbusters as "janitors with better lighting" and the murder as an "unfortunate guest departure."
-- **Actual Timeline:** * **9:00 PM:** Receives an alert that the water main in 1218 is about to blow.
-    - **9:05 PM:** Instead of calling a plumber or evacuating, he **manually overrides the hotel's "smart" alarm system** to silent mode so other guests won't be disturbed by the sirens.
-    - **9:10 PM:** He is in the basement trying to "reset" the electrical grid to hide the fact that the hotel's wiring is a fire hazard.
-- **The Lie:** He claims the alarms and cameras were "malfunctioning due to the ghost."
-- **The Motive:** If he admits he manually silenced the alarms to avoid a refund for other guests, he is personally responsible for the delay in finding Vance’s body.
-- **The Detective's Hook:** The **"System Override" Log.** The player finds a digital log showing the alarms were silenced from the Manager's terminal at 9:05 PM. This proves the "Ghost" didn't disable the tech—the Manager did.
-
----
-
 ## Refined Interaction: The Maintenance Corridor (The "Smoky" Hall)
 
 This is the most critical location for the player to investigate to break Pemberton.

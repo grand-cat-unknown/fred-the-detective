@@ -18,5 +18,4 @@ Design principles and open questions for the case.
 
 - **Internal thoughts on inspect.** When the player examines an object or location, what does the detective think? How much detail do we surface? Needs a pass on tone and density.
 - **Chute inspectability.** Should the laundry chute always be inspectable, or only after a witness mentions "the thud"? Gating vs. open exploration trade-off.
-- **Artie Sterling's alarm-silencing subplot.** Originally meant to explain a delayed discovery of Vance's body, but in the theatrical-haunting model the team is right there when Vance "dies." Currently disconnected from the murder mechanics. Keep him as flavor (hotel-manager liability cover) or cut?
 - **Inventory slot UX.** When Theo's gear cart shows a missing Siren Cell, the player needs to be able to ask Theo what was there, what it's made of, and what it sounds like — then connect that to the chute thud and the wound. Pemberton should brush it off as "clerical error" or a rushed pack. Needs concrete UI for the gear log conversation.
