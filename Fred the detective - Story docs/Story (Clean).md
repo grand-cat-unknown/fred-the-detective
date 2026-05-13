@@ -41,7 +41,7 @@ This is the canonical timeline. All character testimony and other docs should al
 ### **Dr. Otis Pemberton (The Killer/The Expert)**
 
 - **The Role:** Volunteered to enter first because of his medical and occult training — the rest of the team are field hunters, not pathologists, so they defer to him on cause of death. ("Everybody on the team's a Ghostbuster, but each of us has a specialty. Mine happens to be the body.")
-- **Why He Signed Out the Cell:** Plausible cover. He told Theo during prep that he was prepping a "calibrated Manual Purge cell" for medical-emergency containment if Vance had a spectral reaction during the watch. Theo, terrified of being blamed for anything, didn't push back.
+- **How He Got the Cell:** He palmed it from Theo's cart during gear prep, when Theo was scrambling with the rest of the load-in. No sign-out, no paperwork. Theo — chronically disorganized and terrified of being blamed — assumes he miscounted or left it in the van. Pemberton lets that assumption sit.
 - **Early Alibi (The Stain):** If asked about his stained hands early, he waves it off vaguely. "Theo's gear has been a mess all night. I've been pitching in with prep, capture-tool maintenance, the usual. You touch enough hardware in one evening, you end up looking like this. It's a professional nuisance, not a crime." Deliberately unspecific about *when* and *where* he was "pitching in," so the player can't immediately disprove it by asking Theo or Mara about a specific moment.
 - **Defensive Wall:** He refuses "unprofessional" hand inspections unless confronted with proof of a **Manual Purge**.
 - **The Authority Trap:** As the team's medical/occult specialist on scene, he gets to "frame" the cause of death before anyone else looks at the body. The rest of the team are hunters, not pathologists — they take his diagnosis at face value.
@@ -52,7 +52,7 @@ The Ghostbusters' *Standard Operating Procedure & Equipment Safety Guide*. Playe
 
 ### **Section 4.2: Siren-Class Containment Cells**
 
-Pressurized ionized sludge (Violet-Grade). Charged cells weigh ~15 lbs. Standard discharge is at-distance (against a manifested entity). A **Manual Purge** is an emergency override that dumps the full charge at point-blank range.
+Pressurized ionized sludge (Violet-Grade). Charged cells weigh ~15 lbs. Standard discharge is at-distance (against a manifested entity). A **Manual Purge** is an emergency override that dumps the full charge at point-blank range. The inner pressure chamber is **lead-lined** to shield the sludge's spectral signature during storage and transport — a discharged cell reads as inert on a PKE sweep until refilled.
 
 ### **Section 5.3: Surface Residue vs. Purge Pigment**
 
@@ -68,9 +68,9 @@ Siren Cells include a safety valve that remains intact during "leaks" or "air-fi
 
 The manual override lever requires a deliberate two-stage pinch-and-twist to flip. Engineered to resist impact, vibration, falls, and spectral interference — a flipped lever can only result from a deliberate human action.
 
-### **Section 8.1: Spectral Trauma (Ghost-Touch)**
+### **Section 8.1: Spectral Trauma (Ghost-Touch) — Specialist Reference**
 
-Class-5 entities leave **jagged, branching frost patterns** on contact. Marks are irregular and never symmetrical. A precise circular wound is **not** consistent with any documented ghost-touch.
+*Specialist appendix. Field hunters are trained to contain entities; identifying contact trauma on a body is the responsibility of the team's medical/occult specialist.* Class-5 entities leave **jagged, branching frost patterns** on contact. Marks are irregular and never symmetrical. A precise circular wound is **not** consistent with any documented ghost-touch. (Outside the lab, this distinction is rarely tested — most teams never recover a body. The specialist's call is taken at face value.)
 
 ### **Section 8.2: Spectral Discharge & Ectoplasm Spread**
 
@@ -133,7 +133,7 @@ A manifested Class-5 entity radiates spectral discharge **omnidirectionally** fr
 ### 2. Theo Griggs (The Tech)
 
 - **The Inventory:** A Siren-Grade Containment Cell is missing from his gear cart. Theo assumes it’s his own clerical error and is terrified of being blamed. Pemberton quietly encourages this belief.
-- **Theo's Hook:** Once the player connects the missing cell to the one recovered from the chute, Theo can confirm the serial number — it's a cell that was checked out to the team that night and signed for by Pemberton during gear prep.
+- **Theo's Hook:** Once the player connects the missing cell to the one recovered from the chute, Theo can confirm the serial number — it was on his manifest for the night, never signed back in, and his cart was only ever in arm's reach of Pemberton during prep. (No paperwork ties Pemberton to it — that's the point. The chain of custody is silence, and silence is what the player has to break.)
 
 ### 3. Dr. Iris Thorne (The Anchor)
 
