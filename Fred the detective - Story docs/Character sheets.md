@@ -65,8 +65,12 @@ Here is the expanded character roster for the Ghostbusters team.
 
 - **Personality:** Calm, methodical, and by-the-book. The only team member who did exactly what they were supposed to do.
 - **Actual Timeline:**
-    - **9:00 – 9:14 PM:** Manning the **secondary observation post** in Suite 1222, next door to 1221. Listening at the shared wall, monitoring for spillover activity from the Anchor Idol.
-- **The Truth:** She is the only one telling the full truth. She is the "control group" the player uses to prove everyone else is full of it.
+    - **9:00 – 9:14 PM:** Manning the **secondary observation post** in Suite 1222, next door to 1221. Listening at the shared wall, monitoring for spillover activity from the Anchor Idol. Notes timestamps in her field book as a matter of habit.
+- **What She Said:** "Manifestation noises through the shared wall started around 9:07. They peaked, then faded. At about 9:10 I heard a heavy metallic thud somewhere in the walls — could have been the chute. I stepped into the hallway at 9:11. Pemberton arrived from the far end of the corridor at 9:13."
+- **The Truth:** She is the only one telling the full truth. She is the "control group" the player uses to corroborate the timeline.
+- **What She Gives the Player:**
+    - The **thud in the walls** at ~9:10 PM — points the detective at the laundry chute.
+    - The **direction Pemberton arrived from** — far end of the corridor at 9:13. (Consistent with his cover *story*; useful for anchoring the rest of the timeline once other pieces contradict him.)
 
 ---
 
@@ -115,8 +119,10 @@ Here is the expanded character roster for the Ghostbusters team.
     - **Earlier in the day:** Took a bribe from Julian Vane in exchange for a master key to Suite 1221. She rationalized it as harmless — "the gentleman just wants to look at the idol."
     - **9:00 – 9:15 PM:** Hiding in the **maintenance corridor** behind the 12th-floor suites. Officially on a forbidden smoke break; in reality also waiting for the moment Vane needed cover from staff. The corridor is quiet, hidden, and a known refuge for staff who want to disappear.
 - **What She Said:** "I was in the basement laundry room, minding my own business."
-- **The Lie:** She claims she was in the basement. She was actually crouched in the maintenance corridor on the 12th floor — the same corridor Pemberton used to access 1221.
+- **The Lie:** She claims she was in the basement. She was actually crouched in the maintenance corridor on the 12th floor — the same corridor Pemberton claims he was sweeping.
 - **Motive for Concealing:** **Doubly compromised.** Smoking on duty is an instant firing offense. Taking a bribe to hand a guest's master key to another guest is a *criminal* offense — accessory to whatever Vane was planning to do.
+- **What She Actually Saw (once broken):** "Nothing. That's the thing. I was in that corridor the whole time, from before 9 until past 9:15. Pemberton says he was sweeping it. He wasn't. Nobody walked that corridor during the noise. It was dead quiet — until I heard the thud down the chute around 9:10. After that, still nothing. He never came through."
+- **The Detective's Hook:** Mags is the **negative witness** — her presence in the corridor means Pemberton's "structural sweep" and "flanking the entity through the maintenance access" alibi is a lie. He wasn't in the corridor; he was inside 1221.
 
 ## 8. Arthur "Artie" Sterling (The Manager)
 

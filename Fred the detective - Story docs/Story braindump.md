@@ -75,13 +75,14 @@ Collector **Reginald Vance** is found dead in Suite 1221 during a scheduled Ghos
 | Julian Vane | Witness / Rival (Red Herring) | Bribed a maid for a master key to swap the idol during meditation; aborted when the watch team set up. Won't admit any of it — being there with means and motive looks like premeditated murder. |
 | Theo Griggs | Witness / Tech | Noticed a charged Siren Cell was missing from the gear cart — and the gear log shows Pemberton signed it out during prep. |
 | Mara Bell | Witness / Lead | Claims she held the main hallway and timestamps the manifestation noises starting at 9:07 — but was actually in 1218 dealing with the flood from 9:05 to ~9:11. |
-| Dr. Iris Thorne | Witness / Anchor (Truth-teller) | Manning the secondary observation post in 1222, listening at 1221's shared wall. |
-| Dottie "Mags" Higgins | Witness / Maid | Hiding in the maintenance corridor — smoke break and waiting on Vane's bribe handoff. Won't admit she was there (smoking + bribery). |
+| Dr. Iris Thorne | Witness / Anchor (Truth-teller) | Manning the secondary observation post in 1222, listening at 1221's shared wall. Her field book logs the manifestation noises (~9:07), a heavy thud in the walls (~9:10 — the cell down the chute), and Pemberton arriving from the far end of the corridor at 9:13. |
+| Dottie "Mags" Higgins | Witness / Maid (Negative Witness) | Hiding in the maintenance corridor the entire window — smoke break + waiting on Vane's bribe handoff. Heard the chute thud around 9:10. **Never saw Pemberton walk that corridor.** That contradicts his "structural sweep / flanking the entity" alibi. Won't admit she was there (smoking + bribery). |
 
 ---
 
 ## Core Contradictions for Accusation
 
+- **The empty corridor:** Mags was crouched in the maintenance corridor from before 9:00 to past 9:15 (smoke break + waiting on Vane's handoff). She never saw Pemberton walk that corridor. His "structural PKE sweep" and "flanked the entity through the maintenance access" alibi puts him in a hallway that another witness can confirm was empty.
 - **The secret route:** The ajar back service panel of 1221 — a disguised maintenance access Vance and the team didn't know about — is how Pemberton entered, killed, exited, and re-entered the main hallway from the far end.
 - **The weapon:** The popped back-pressure valve on the recovered Siren Cell, the circular wound on Vance, and the violet stain inside Pemberton's discarded gloves all indicate a human used a Ghostbusters weapon at point-blank range — not a ghost.
 
@@ -156,8 +157,8 @@ Why does a respected doctor steal an idol?
 
 The player has to confront Pemberton not with "I think you did it," but with **The Logistical Impossibility**:
 
-1. "You said it was a Shadow Stalker, but the wound matches the Siren Cell nozzle exactly."
-2. "A charged Siren Cell went missing from the gear cart tonight — and the gear log shows *you* signed it out during prep."
+1. "You said you were sweeping the maintenance corridor and then flanked the entity through it. The maid was hiding in that corridor the whole time. She never saw you. The corridor was empty."
+2. "You said it was a Shadow Stalker, but the wound matches the Siren Cell nozzle exactly. A charged cell went missing from the gear cart tonight — and the gear log shows *you* signed it out during prep. Dr. Thorne logged the thud of it going down the chute at 9:10 PM. We pulled it out of the basement bin."
 3. "And most importantly… the field manual says a point-blank Manual Purge stains the user's hands violet for 48–72 hours. Show me your hands, Doctor."
 
 ---

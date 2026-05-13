@@ -68,7 +68,7 @@ Class-5 entities leave **jagged, branching frost patterns** on contact. The mark
 2. **The First Wall:** Pemberton claims he touched a "spill" in Theo's messy gear bag.
 3. **The Audit:** Player checks Theo's bags. **Result:** All gear is clean. Pemberton is lying about the "spill."
 4. **The Wound Mismatch:** Vance’s wound is a precise 2-inch circle. Per Manual §8.1, ghost-touch is jagged and irregular. The wound matches the nozzle of a Siren Cell.
-5. **The Discovery:** Player follows the "Thud" (Julian Vane’s testimony) to the laundry chute and finds the **Missing Cell**.
+5. **The Discovery:** Player follows the "Thud" (Thorne's field-book entry — heard through the wall around 9:10 PM) to the laundry chute and finds the **Missing Cell**.
 6. **The Smoking Gun:** Player checks the cell. The **Manual Lever** is flipped and the **Back-Pressure Valve** is popped.
 7. **The Checkmate:** Per Manual §5.3 & §5.4, the popped valve proves a point-blank kill, and the lever proves he had to take his glove off. The permanent stain on his bare hand is now a forensic signature, not a "work accident."
 
@@ -114,7 +114,9 @@ Class-5 entities leave **jagged, branching frost patterns** on contact. The mark
 
 ### 3. Dr. Iris Thorne (The Anchor)
 
-- **The Critical Fact:** Thorne was at the secondary observation post in Suite 1222 next door, listening at 1221's shared wall.
+- **The Critical Fact:** Thorne was at the secondary observation post in Suite 1222 next door, listening at 1221's shared wall and noting timestamps in her field book.
+- **What She Heard:** Manifestation noises through the wall starting ~9:07 PM. A heavy metallic **thud in the walls at ~9:10 PM** (the cell down the chute). She stepped into the hallway at 9:11 PM and watched Pemberton arrive from the **far end of the corridor at 9:13 PM**.
+- **What She Gives the Player:** The chute thud (points the detective at the laundry chute) and a clean anchor for the rest of the timeline.
 
 ### 4. Julian Vane (The Rival / Red Herring)
 
