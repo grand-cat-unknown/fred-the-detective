@@ -83,11 +83,11 @@ Here is the expanded character roster for the Ghostbusters team.
 - **What He Said:** "I was in the hotel bar, mourning the loss of the idol over a dry martini."
 - **The Lie:** He claims he was never on the 12th floor.
 - **Motive for Concealing:** **Legal Fear.** Being caught outside a murder victim's door right before the crime looks like Premeditated Murder.
-- **The Detective's Hook:** He saw Pemberton slip into the Service Hall but is afraid to mention it because it places *him* at the scene.
+- **The Detective's Hook:** He saw Pemberton slip out of the back service door of 1221 and heard the thud down the chute — but is afraid to mention any of it because it places *him* at the scene.
 - **Why He Looks Like the Killer:**
     - Found in his suite with a **perfect wax replica** of the Anchor Idol.
     - Has a **vial of sedative** (chloroform) in his pocket.
-    - Seen on the 12th floor by Cassidy (the 4th Ghostbuster) just minutes before the "haunting."
+    - Seen on the 12th floor by Leo Rossi (the bellhop) just minutes before the "haunting."
 - **His Actual Plan:** He wasn't there to kill Vance. He was planning a "swap" — lurking in the hallway waiting for Vance to leave for dinner to switch the real idol with the fake.
 - **The Player's Path:** The player finds the replica idol and thinks, "He killed Vance to swap them!" But the sedative doesn't match the "Cold Burn" on the body.
 

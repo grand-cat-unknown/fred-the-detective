@@ -6,7 +6,7 @@
 
 Collector **Reginald Vance** is found dead in Suite 1221 after a reported haunting. The idol he won at auction is missing.
 
-**Dr. Otis Pemberton** (Ghostbusters physician and occult scholar) claims the team was “too late” and the ghost killed Vance before they could breach the door. In reality, Pemberton used his knowledge of the hotel’s layout to sneak in, commit the murder, and escape before his own team realized he was gone.
+**Dr. Otis Pemberton** (Ghostbusters physician and occult scholar) volunteered to be the team's "first in" for medical and security, locked the suite's front door behind him, and staged a violent fake haunting from inside while the rest of the team waited in the hallway. During the theatrics he killed Vance, took the idol, slipped out a back service door, circled through the maintenance corridor, and rejoined the team from the wrong end of the hall — then pronounced Vance dead from a "spectral seizure."
 
 ---
 

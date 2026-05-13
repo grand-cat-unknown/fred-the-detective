@@ -1,17 +1,22 @@
 # Base elements
 
-1. All the characters need to have their own:
-    1. Actual timelines.
-    2. What they said they did (Truths + Lie)
-    3. Motives for concealing
-    4. The parts that they would lie about
-    5. Personalities. Unique Manner of speech 
-    6. What would convince them to come out with the truth? What is the leverage aginst them?
-    7. How to get that leverage?
-2. Clues, should motivate the player to uncover and ask why things happened or what it could be?
-3. Internal thoughts on inspect? Add a bit more detail.
-4. The ghost must have been concealed in the jar, but someone accidentally cracked it a bit. One of the employees. 
-5. The Ghostbuster was in there for security and the first one in. This was all pre-meditated.
-6. More rival auctioneers 
-7. The inventory with a missing slot. Have to go ask the gear person for what it was. What it is made of. The player should then connect this to the sound that they heard. From the left side of the room. Pemberton should just chalk it up to clerical error or a rushed error
-8. The chute should be inspectable. Always?
+Design principles and open questions for the case.
+
+## Design Principles
+
+1. **Every character lies — even the innocent ones.** Each character (witness or suspect) needs:
+    1. An actual timeline (what really happened).
+    2. A public statement (truths + the lie).
+    3. A motive for concealing.
+    4. The specific part they would lie about.
+    5. A distinct personality and manner of speech.
+    6. Leverage that would make them tell the truth.
+    7. A path for the player to acquire that leverage.
+2. **Clues should provoke "why" questions**, not just "what" answers. A good clue is the start of an investigation thread, not the end.
+
+## Open Design Questions
+
+- **Internal thoughts on inspect.** When the player examines an object or location, what does the detective think? How much detail do we surface? Needs a pass on tone and density.
+- **Chute inspectability.** Should the laundry chute always be inspectable, or only after a witness mentions "the thud"? Gating vs. open exploration trade-off.
+- **The Spectral Lure that brought the Ghostbusters in.** Pemberton needed Vance (or the hotel) to call the Ghostbusters. Is that a separate planted object the player can find, or just backstory the player learns through dialogue? Open question — connected to the broader "too many pre-planted devices" concern (currently both a spectral lure and a 1218 water-hammer rig).
+- **Inventory slot UX.** When Theo's gear cart shows a missing Siren Cell, the player needs to be able to ask Theo what was there, what it's made of, and what it sounds like — then connect that to the chute thud and the wound. Pemberton should brush it off as "clerical error" or a rushed pack. Needs concrete UI for the gear log conversation.
