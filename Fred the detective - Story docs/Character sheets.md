@@ -13,18 +13,19 @@ Here is the expanded character roster for the Ghostbusters team.
 - **Personality:** Cold, precise, and condescending. He treats the other team members like blue-collar technicians and you like a nuisance. Views the murder not as a crime, but as a necessary "acquisition" of the Anchor Idol.
 - **Manner of Speech:** Clinical and formal. Uses medical Latin and complex jargon to confuse non-experts. Refers to the victim as "the biological variable." Never says "dead"; says "biological cessation."
 - **Actual Timeline:**
-    - **Earlier that evening:** Sabotages a pipe joint in the **maintenance corridor outside Room 1218** (the Grandview's standard Ghostbusters prep room). The joint is loosened to fail under normal pressure during the operation window. Critically, the sabotage is done from the corridor — not from inside 1218 — so access isn't restricted to anyone with team-room privileges. Anyone with corridor access could have done it.
-    - **9:04 PM:** Team arrives at Suite 1221. Pemberton volunteers to enter first as the team physician (protocol for a "live victim under spectral attack").
-    - **9:05 PM:** Enters 1221 and locks the front door behind him. Vance is alive. The 1218 pipe joint fails; Mara abandons the hallway to help Theo.
-    - **9:06 – 9:09 PM:** Stages the "haunting" from inside — slams furniture, shouts spectral warnings, simulates a Class-5 manifestation. The team in the hall hears what they believe is a real fight.
-    - **9:10 PM:** Kills Vance point-blank with a stolen Siren Containment Cell (Manual Purge). Takes the Anchor Idol.
-    - **9:12 PM:** Drops the spent cell down the laundry chute via the suite's back service door (**The Thud**).
-    - **9:13 PM:** Slips out the back service door, walks the maintenance corridor, and emerges into the main hallway from the **far end** — the opposite end from 1221's entrance.
-    - **9:14 PM:** Rejoins the team claiming he chased the entity through the service hall. "Leads" them back into 1221, performs a theatrical pulse check, and pronounces Vance dead — "Full-Body Spectral Seizure, Class-5 Shadow Stalker."
-- **What He Said:** "I had containment in hand but the entity broke through the suite's perimeter into the service corridor. I flanked it from the far end. By the time I got back inside, Vance was already gone — full-body spectral seizure. Textbook Class-5."
-- **The Lie:** There was no entity. The "haunting" was theater. He used the back service door to circle around so he could re-enter the hallway from a direction nobody could verify.
+    - **Earlier that evening:** Sabotages a pipe joint in the **maintenance corridor outside Room 1218** (the Grandview's standard Ghostbusters prep room). The joint is loosened to fail under normal pressure during the operation window. Done from the corridor, not from inside 1218 — so access isn't restricted to anyone with team-room privileges. Anyone with corridor access could have done it.
+    - **9:00 PM:** Watch begins. Pemberton's assigned station: **maintenance-corridor PKE sweep** (a roaming "structural perimeter" assignment). This is his cover for being unseen during the murder window.
+    - **9:05 PM:** The sabotaged pipe joint fails. Mara abandons the main hallway to help Theo in 1218.
+    - **9:06 PM:** Pemberton slips into 1221 via the **back service door** — a disguised maintenance-corridor access panel ("the pantry"). Vance doesn't know it exists; neither does the rest of the team. Only Pemberton knows, because he scouted the suite under his occult-scholar cover. Vance is mid-meditation, eyes closed, unprepared.
+    - **9:07 – 9:09 PM:** Kills Vance point-blank with a stolen Siren Containment Cell (Manual Purge). Takes the Anchor Idol. Then stages the "haunting" — slams furniture, simulates a Class-5 manifestation — loud enough for Mara (now returning to the hall) and Thorne (stepping out of 1222) to converge on the front door.
+    - **9:10 PM:** Drops the spent cell down the laundry chute via the back service door (**The Thud**). Slips back out the same way he came in.
+    - **9:11 – 9:12 PM:** Walks the maintenance corridor toward the far-end exit.
+    - **9:13 PM:** Emerges into the main hallway from the **far end**, breathing hard, claiming he heard the manifestation during his corridor sweep and ran to flank it.
+    - **9:14 PM:** Team opens 1221 with the auction-watch keycard. Pemberton steps in, performs a theatrical pulse check, declares: "Full-Body Spectral Seizure, Class-5 Shadow Stalker. The idol attracted exactly what we were here to contain."
+- **What He Said:** "I was on structural sweep at the far end of the corridor. The PKE spike hit hard — I tried to flank the entity through the maintenance access. By the time I got around to the front, Vance was already gone. Full-body spectral seizure. Textbook Class-5."
+- **The Lie:** There was no entity. The "manifestation" was theater. He was inside 1221 via the back service door, not "flanking" anything from the corridor.
 - **Motive for Concealing:** Obviously, the murder and theft of the Anchor Idol.
-- **The Detective's Hook:** **Directionality.** He claims he chased the entity out of the back of 1221, through the maintenance corridor, and back into the main hallway from the far end. Thorne's field book proves the hallway between 1222 and 1221 was empty the entire time — and Julian Vane saw him slip out of the back service door of 1221 alone, calmly, with no entity in sight.
+- **The Detective's Hook:** Thorne's PKE log shows **no spectral readings** during the "manifestation." Mags and Julian Vane both saw Pemberton at the back service door of 1221 — alone, calm, with no entity in sight. The Siren Cell from the chute has shirt fibers from Vance and a popped valve. The violet stain on his hand matches a point-blank manual purge.
 
 ---
 
@@ -35,11 +36,11 @@ Here is the expanded character roster for the Ghostbusters team.
 - **Personality:** High-strung and protective of the "Ghostbusters" brand. Terrified of a lawsuit or the team looking incompetent.
 - **Manner of Speech:** Fast, authoritative "Manager-speak." Constant focus on "protocol," "liability," and "perimeter."
 - **Actual Timeline:**
-    - **9:05 – 9:13 PM:** She was NOT in the hall outside 1221. She was in Room 1218 helping Theo move equipment away from a burst water pipe (a pre-meditated distraction orchestrated by Otis that can't be traced back to him directly).
-- **What She Said:** "I held the perimeter outside 1221. I had eyes on the front door the whole time. I heard Otis fighting the entity, then it broke into the service corridor and he chased it. He flanked it from the far end. Standard containment."
-- **The Lie:** She claims she had continuous visual on 1221's front door and can vouch for Otis's actions throughout the "fight." She wasn't there. She has no idea what actually happened inside or where Otis really came from.
-- **Motive for Concealing:** If she admits she left the hall to save equipment, she's legally liable for Vance's death. She's lying to prove she was "on duty" — and accidentally giving Otis the alibi he needs.
-- **The Detective's Hook:** **Physical Evidence.** Her boots and the hem of her trousers are soaking wet. There is no water in the hallway — only in Room 1218. Once you prove she was missing, the entire "I had eyes on the door" alibi collapses.
+    - **9:05 – ~9:11 PM:** She was NOT in the hall outside 1221. She was in Room 1218 helping Theo move equipment away from the sabotaged pipe (a pre-meditated distraction orchestrated by Otis that can't be traced back to him directly).
+- **What She Said:** "Standard watch protocol. I held the main hallway. Manifestation noises started around 9:07 — clear Class-5 signature. Pemberton was on his corridor sweep and ran to flank from the far end."
+- **The Lie:** She claims she had continuous visual on the hallway and can vouch for the timing of the manifestation noises. She wasn't there from 9:05 to 9:11. She doesn't actually know when the noises started — only when she rejoined the hall and heard them.
+- **Motive for Concealing:** If she admits she left the hall to save equipment, she's legally liable for Vance's death. She's lying to prove she was "on duty" — and accidentally giving Otis the timing alibi he needs.
+- **The Detective's Hook:** **Physical Evidence.** Her boots and the hem of her trousers are soaking wet. There is no water in the hallway — only in Room 1218. Once you prove she was missing, the entire "manifestation noises started at 9:07" timing collapses.
 
 ---
 
@@ -64,11 +65,11 @@ Here is the expanded character roster for the Ghostbusters team.
 
 - **Personality:** Calm, methodical, and by-the-book. The only team member who did exactly what they were supposed to do.
 - **Actual Timeline:**
-    - **9:04 – 9:14 PM:** Stationed at the doorway of Room 1222, next door to 1221, per containment protocol — monitoring the hallway during Pemberton's "engagement." Logged every event in her field book with timestamps.
-- **What She Said:** "I monitored the hallway throughout the operation. Pemberton entered 1221 at 9:05. The containment noises stopped at 9:11. He re-appeared in the main hallway from the far end at 9:13. I did not see him pass my doorway in either direction."
-- **The Truth:** She is the only one telling the truth. She is the "control group" the player uses to prove everyone else is full of it.
-- **The Leverage:** Her **Field Book**. She records everything meticulously.
-- **The Break:** Pemberton claims he chased the entity out of 1221's back, through the maintenance corridor, and emerged from the far end. Thorne's log proves the hallway between 1222 and 1221 was **empty** the entire time — and the "containment noises" stopped two full minutes before Pemberton re-appeared. Two minutes is enough time to drop a cell down a chute and circle around a service corridor.
+    - **9:00 – 9:14 PM:** Manning the **secondary observation post** in Suite 1222, next door to 1221. Running PKE logging gear pointed at the shared wall, monitoring for spillover spectral activity from the Anchor Idol. Logged every reading and timestamp in her field book.
+- **What She Said:** "Watch standard. PKE logger active on 1221's shared wall from 9:00 PM. Manifestation noises started at 9:07 PM. I stepped into the hallway at 9:11 when the noises peaked. Pemberton appeared from the far-end corridor entrance at 9:13."
+- **The Truth:** She is the only one telling the full truth. She is the "control group" the player uses to prove everyone else is full of it.
+- **The Leverage:** Her **field book** and her **PKE log printout**. Both are timestamped and tamper-evident.
+- **The Break:** Her PKE log shows **zero spectral readings** during the entire "manifestation." A real Class-5 of the kind Pemberton describes would have saturated her instruments through the shared wall. The noises were real but the entity signature was absent — meaning the "haunting" was mechanical, not entity-driven. That alone breaks Pemberton's diagnosis.
 
 ---
 
@@ -79,11 +80,13 @@ Here is the expanded character roster for the Ghostbusters team.
 - **Personality:** Refined, arrogant, and deeply bitter. Views Vance as a "nouveau riche" thug who doesn't appreciate history.
 - **Manner of Speech:** Mid-Atlantic accent, flowery vocabulary, dripping with sarcasm.
 - **Actual Timeline:**
-    - **9:08 PM:** Caught in the hallway outside Vance's room, hoping to "buy it off him" one last time. Saw the Ghostbusters arrive and hid in a nearby alcove.
+    - **Earlier in the day:** Bribed Mags (the maid) for a master key to 1221, planning to slip in during Vance's 9 PM meditation, swap the real idol for the wax replica, and slip out. His planned route was the front door, using the master key — he didn't know about the back service panel.
+    - **9:00 PM:** Arrived on the 12th floor for the swap. Saw the Ghostbusters' watch team setting up in the hallway. Plan dead. Retreated to a nearby alcove to wait it out.
+    - **9:10 PM:** From the alcove, saw Pemberton emerge from the back of 1221 via a panel he didn't know existed. Heard the metallic thud down the chute moments later.
 - **What He Said:** "I was in the hotel bar, mourning the loss of the idol over a dry martini."
 - **The Lie:** He claims he was never on the 12th floor.
-- **Motive for Concealing:** **Legal Fear.** Being caught outside a murder victim's door right before the crime looks like Premeditated Murder.
-- **The Detective's Hook:** He saw Pemberton slip out of the back service door of 1221 and heard the thud down the chute — but is afraid to mention any of it because it places *him* at the scene.
+- **Motive for Concealing:** **Legal Fear.** Being caught outside a murder victim's door with a fake idol, a vial of sedative, and a bribed master key looks like premeditated murder.
+- **The Detective's Hook:** He saw Pemberton at the back of 1221 and heard the thud — but is afraid to mention any of it because it places *him* at the scene with means and opportunity.
 - **Why He Looks Like the Killer:**
     - Found in his suite with a **perfect wax replica** of the Anchor Idol.
     - Has a **vial of sedative** (chloroform) in his pocket.
@@ -114,11 +117,12 @@ Here is the expanded character roster for the Ghostbusters team.
 - **Personality:** Mumbled, tired, and invisible. Knows the physical layout of the hotel better than anyone.
 - **Manner of Speech:** Mumbled, low-volume, uses "work-talk" (e.g., "The linens in 1219 were fresh").
 - **Actual Timeline:**
-    - **9:00 – 9:15 PM:** Hiding in the **maintenance corridor** behind the 12th-floor suites, taking a forbidden smoke break near the laundry chute access. The corridor is quiet, hidden, and a known refuge for staff who want to disappear.
+    - **Earlier in the day:** Took a bribe from Julian Vane in exchange for a master key to Suite 1221. She rationalized it as harmless — "the gentleman just wants to look at the idol."
+    - **9:00 – 9:15 PM:** Hiding in the **maintenance corridor** behind the 12th-floor suites. Officially on a forbidden smoke break; in reality also waiting for the moment Vane needed cover from staff. The corridor is quiet, hidden, and a known refuge for staff who want to disappear.
 - **What She Said:** "I was in the basement laundry room, minding my own business."
-- **The Lie:** She claims she was in the basement. She was actually crouched in the maintenance corridor on the 12th floor — the same corridor Pemberton used to circle around 1221.
-- **Motive for Concealing:** **Her Job.** Smoking on duty is an instant firing offense.
-- **The Detective's Hook:** She is the **Ultimate Witness**. She saw Pemberton emerge from the back service door of 1221 at 9:12 PM, walk past her hiding spot, drop something heavy down the chute (**The Thud**), and continue toward the far-end service door — all of this **calmly and alone**. No entity. No chase. No struggle. Just a man methodically covering his tracks.
+- **The Lie:** She claims she was in the basement. She was actually crouched in the maintenance corridor on the 12th floor — the same corridor Pemberton used to access 1221.
+- **Motive for Concealing:** **Doubly compromised.** Smoking on duty is an instant firing offense. Taking a bribe to hand a guest's master key to another guest is a *criminal* offense — accessory to whatever Vane was planning to do.
+- **The Detective's Hook:** She is the **Ultimate Witness**. She saw Pemberton emerge from the back service panel of 1221 at ~9:10 PM, walk past her hiding spot, drop something heavy down the chute (**The Thud**), and continue toward the far-end service door — all of this **calmly and alone**. No entity. No chase. No struggle. Just a man methodically covering his tracks.
 
 ## 8. Arthur "Artie" Sterling (The Manager)
 

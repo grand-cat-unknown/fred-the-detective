@@ -24,7 +24,7 @@ Collector **Reginald Vance** is found dead in Suite 1221 during a scheduled Ghos
 
 - **Role:** Ghostbusters physician + occult scholar
 - **Motive:** Believes the “Anchor Idol” is too valuable to remain in a private collection; wants it for personal research
-- **Plan:** Volunteer as "first in" for medical/security, stage a fake haunting from inside the suite, kill Vance, dump the cell, slip out the back service door, circle around through the maintenance corridor, and rejoin the team from the wrong end of the hall — then declare Vance the victim of a Class-5 spectral seizure.
+- **Plan:** Take the maintenance-corridor watch station as cover. Slip into 1221 through a disguised back service door (the "pantry" — a maintenance access panel Vance and the rest of the team don't know about). Kill Vance during his locked 9 PM meditation. Stage a fake "manifestation" loud enough for the team to converge on the front door. Drop the cell down the chute. Slip back out the same panel, walk the corridor, and emerge into the main hall from the far end. Rejoin the team at the front door of 1221, open it with the auction-watch keycard, and declare Vance the victim of a Class-5 spectral seizure.
 
 ---
 
@@ -40,29 +40,31 @@ Collector **Reginald Vance** is found dead in Suite 1221 during a scheduled Ghos
 
 ### Private Timeline (What Really Happened)
 
-- **9:04 PM:** Team arrives outside Suite 1221. Pemberton volunteers to enter first as the team physician.
-- **9:05 PM:** Pemberton enters 1221 and locks the front door behind him. Vance is alive. The sabotaged pipe joint outside 1218 fails; the tech-prep room floods, and Mara abandons her post to help Theo save the gear.
-- **9:06 – 9:09 PM:** Pemberton stages the haunting from inside — slamming furniture, shouting warnings, faking a Class-5 manifestation. To the team it sounds like a violent containment fight.
-- **9:10 PM:** Pemberton kills Vance with a stolen Siren Cell (point-blank Manual Purge). Takes the Anchor Idol.
-- **9:12 PM:** Pemberton drops the spent cell down the laundry chute via the suite's back service door, then slips out through it (leaving it slightly ajar).
-- **9:13 PM:** Walks the maintenance corridor and emerges into the main hallway from the far end.
-- **9:14 PM:** Rejoins the team, "leads" them back into 1221, and declares Vance the victim of a Full-Body Spectral Seizure.
+- **9:00 PM:** Watch begins. Stations: Mara (main hallway), Theo (1218 tech-prep), Thorne (1222 secondary observation post), Pemberton (maintenance-corridor PKE sweep — roaming). Vance locks 1221 from inside and begins meditation.
+- **9:05 PM:** Sabotaged pipe joint outside 1218 fails. Tech-prep floods. Mara abandons the hallway to help Theo save the gear.
+- **9:06 PM:** Pemberton slips into 1221 via the disguised back service door (the "pantry"). Vance is mid-meditation, eyes closed.
+- **9:07 – 9:09 PM:** Pemberton kills Vance with a stolen Siren Cell, takes the Anchor Idol, then stages the haunting — slamming, simulating a Class-5 manifestation — loud enough for Mara (returning to the hall) and Thorne (stepping out of 1222) to converge on 1221's front door.
+- **9:10 PM:** Pemberton drops the spent cell down the laundry chute via the back service door (leaving it slightly ajar), then slips out the same way he came in.
+- **9:11 – 9:12 PM:** Walks the maintenance corridor toward the far-end exit.
+- **9:13 PM:** Emerges into the main hallway from the far end, breathing hard.
+- **9:14 PM:** Team opens 1221 with the auction-watch keycard. Pemberton declares a Full-Body Spectral Seizure.
 
 ### Public Timeline (Pemberton’s Alibi)
 
-- **9:05 – 9:11 PM:** Claims he was engaging the entity inside 1221.
-- **9:11 – 9:13 PM:** Claims the entity broke through the suite's perimeter into the maintenance corridor and he gave chase.
-- **9:13 PM:** Claims he flanked it from the far-end service door, but it escaped — too late for Vance.
+- **9:00 – 9:07 PM:** Claims he was running structural PKE sweeps along the corridor perimeter.
+- **9:07 – 9:11 PM:** Claims he detected the manifestation spike in 1221 and moved to flank it through the maintenance access at the far end of the corridor system.
+- **9:13 PM:** Claims he intercepted the entity at the far end but it phased out before he could contain it — too late for Vance.
 
 ---
 
 ## Key Physical Evidence
 
-1. **Suite 1221 front door log:** Electronic lock record shows the door was locked from the inside at 9:05 PM and not opened again until 9:14 PM, when Pemberton re-entered with the team. Nobody else came or went through the front. Whatever happened to Vance happened with only Pemberton in the room.
-2. **Ajar back service door:** The "pantry cabinet" in 1221 is actually a disguised service door to the maintenance corridor. It was left slightly open — Pemberton's exit route.
-3. **Maintenance corridor scuffs:** Fresh scuff marks in the unlit service hall match Pemberton’s boots and run from 1221's back door to the far-end exit.
-4. **Spent Siren Cell:** Found jammed in the laundry chute. Back-pressure valve popped (point-blank discharge). Manual lever flipped. Nozzle has fibers from Vance's silk shirt.
-5. **Pemberton’s gloves:** Dark violet “purge residue” on the **inside** of the fingers, proving he manually emptied the cell at point-blank range. Discarded in a service-hall trash can.
+1. **Suite 1221 front door log:** Electronic lock record shows the door was locked by Vance from the inside at the start of his meditation and not opened until 9:14 PM, when the team entered together using the auction-watch keycard. Nobody used the front door during the murder window — meaning the killer entered another way.
+2. **Ajar back service panel:** The "pantry cabinet" in 1221 is actually a disguised maintenance-corridor access panel. It was left slightly open — Pemberton's entry and exit route. Vance didn't know it was a door; the rest of the team didn't either.
+3. **Maintenance corridor scuffs:** Fresh scuff marks in the unlit service hall match Pemberton's boots and run from the back service panel of 1221 to the far-end corridor exit.
+4. **Thorne's PKE log:** Zero spectral readings during the entire "manifestation." A real Class-5 of the kind Pemberton describes would have saturated her instruments through the shared wall with 1221.
+5. **Spent Siren Cell:** Found jammed in the laundry chute. Back-pressure valve popped (point-blank discharge). Manual lever flipped. Nozzle has fibers from Vance's silk shirt.
+6. **Pemberton's gloves:** Dark violet "purge residue" on the **inside** of the fingers, proving he manually emptied the cell at point-blank range. Discarded in a service-hall trash can.
 
 ---
 
@@ -70,20 +72,20 @@ Collector **Reginald Vance** is found dead in Suite 1221 during a scheduled Ghos
 
 | Suspect | Role | The “Blindspot” (Testimony) |
 | --- | --- | --- |
-| Dr. Otis Pemberton | Killer | Claims the entity broke through into the maintenance corridor and he chased it from the far end. |
-| Julian Vane | Witness / Rival (Red Herring) | Saw Pemberton slip calmly out of the back service door of 1221 at 9:12 PM. Heard the metallic “thud” down the chute. Won't admit he was there — he was waiting to swap the real idol for a wax replica. |
+| Dr. Otis Pemberton | Killer | Claims he was running structural PKE sweeps and tried to flank an entity through the corridor's far-end access. |
+| Julian Vane | Witness / Rival (Red Herring) | Bribed a maid for a master key to swap the idol during meditation; aborted when the watch team set up. Saw Pemberton emerge from the back of 1221 via a panel he didn't know existed. Won't admit any of it — being there with means and motive looks like premeditated murder. |
 | Theo Griggs | Witness / Tech | Noticed a charged Siren Cell was missing from the gear cart — and the gear log shows Pemberton signed it out during prep. |
-| Mara Bell | Witness / Lead | Claims she had eyes on 1221's front door the whole time — but was actually in 1218 dealing with the flood. |
-| Dr. Iris Thorne | Witness / Anchor (Truth-teller) | Her field book proves the hallway between 1222 and 1221 was empty the entire time, and the containment noises stopped two minutes before Pemberton "re-appeared." |
-| Dottie "Mags" Higgins | Witness / Maid | Hiding in the maintenance corridor on a smoke break. Saw Pemberton walk past calmly, alone, and drop something down the chute. Won't admit she was there. |
+| Mara Bell | Witness / Lead | Claims she held the main hallway and timestamps the manifestation noises starting at 9:07 — but was actually in 1218 dealing with the flood from 9:05 to ~9:11. |
+| Dr. Iris Thorne | Witness / Anchor (Truth-teller) | Manning the secondary observation post in 1222 with PKE logging gear on 1221's shared wall. Her log records **zero spectral readings** during the entire "manifestation." |
+| Dottie "Mags" Higgins | Witness / Maid | Hiding in the maintenance corridor — smoke break and waiting on Vane's bribe handoff. Saw Pemberton walk past calmly, alone, and drop something down the chute. Won't admit she was there (smoking + bribery). |
 
 ---
 
 ## Core Contradictions for Accusation
 
-- **Log vs. alibi:** Pemberton claims the entity escaped through the maintenance corridor and he chased it — but Thorne's field book records no spectral readings outside the suite and an empty hallway throughout.
-- **Calm vs. chase:** Julian Vane and Mags both place Pemberton in the service corridor — but walking calmly, alone, with no entity in sight. Not chasing anything.
-- **The secret route:** The ajar back service door of 1221 is how Pemberton circled around to "emerge from the far end."
+- **No spectral signature:** Thorne's PKE log shows zero readings during the "manifestation." A real Class-5 would have saturated her instruments. The noises were mechanical, not entity-driven — meaning the "haunting" was theater.
+- **Calm vs. chase:** Julian Vane and Mags both place Pemberton at the back of 1221 and in the service corridor — walking calmly, alone, with no entity in sight. Not chasing anything.
+- **The secret route:** The ajar back service panel of 1221 — a disguised maintenance access Vance and the team didn't know about — is how Pemberton entered, killed, exited, and re-entered the main hallway from the far end.
 - **The weapon:** The popped back-pressure valve on the recovered Siren Cell, the circular wound on Vance, and the violet stain inside Pemberton's discarded gloves all indicate a human used a Ghostbusters weapon at point-blank range — not a ghost.
 
 Pemberton is the **only medical authority** on the scene — his greatest weapon. It allows him to "frame" the cause of death before anyone else can even look at the body.
