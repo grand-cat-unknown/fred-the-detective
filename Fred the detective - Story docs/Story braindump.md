@@ -18,7 +18,7 @@ Collector **Reginald Vance** is found dead in Suite 1221 during a scheduled Ghos
 - **Location:** Suite 1221
 - **Cause:** Close-range discharge from a charged Ghost Cell
 - **Wound:** Small, precise “cold-burn” under the ribs
-- **Residue:** Directional “fan” of violet ectoplasm on the wall + a “dust silhouette” on the pedestal where the idol sat
+- **Residue:** Directional “fan” of violet ectoplasm on the wall behind the body (concentrated exit pattern, not a 360° spread) + a “dust silhouette” on the pedestal where the idol sat
 
 ### Killer: Dr. Otis Pemberton
 
@@ -46,7 +46,7 @@ Collector **Reginald Vance** is found dead in Suite 1221 during a scheduled Ghos
 - **9:05 PM:** Sabotaged pipe joint outside 1218 fails. Tech-prep floods. Mara abandons the hallway to help Theo.
 - **9:06 PM:** Pemberton slips into 1221 via the disguised back service door (the "pantry"). Vance mid-meditation, eyes closed.
 - **9:07 – 9:10 PM:** Kills Vance with a stolen Siren Cell, takes the Anchor Idol, stages the haunting — slamming, simulating a Class-5 manifestation. Noises carry into the hallway and through 1222's shared wall.
-- **9:10 PM:** Drops the spent cell down the laundry chute via the back service door — it falls to the basement laundry bin. Noises stop abruptly. Iris hears the thud through the wall.
+- **9:10 PM:** Stashes the Anchor Idol inside the spent Siren Cell's now-empty pressure chamber, then drops the cell down the laundry chute via the back service door — it falls to the basement laundry bin (idol concealed inside). Noises stop abruptly. Iris hears the thud through the wall.
 - **9:11 PM:** Iris steps into the main hallway. Mara returns from 1218. They converge at 1221's front door without Pemberton.
 - **9:11 – 9:12 PM:** Pemberton walks the maintenance corridor to the far-end exit (bypassing the Housekeeping Room).
 - **9:13 PM:** Emerges into the main hallway from the far end, breathing hard.
@@ -65,7 +65,7 @@ Collector **Reginald Vance** is found dead in Suite 1221 during a scheduled Ghos
 1. **Suite 1221 front door:** Locked by Vance from the inside at the start of his meditation and not opened until 9:14 PM, when the team forced it. Nobody used the front door during the murder window — meaning the killer entered another way.
 2. **Ajar back service panel:** The "pantry cabinet" in 1221 is actually a disguised maintenance-corridor access panel. It was left slightly open — Pemberton's entry and exit route. Vance didn't know it was a door; the rest of the team didn't either.
 3. **Maintenance corridor scuffs:** Fresh scuff marks in the unlit service hall match Pemberton's boots and run from the back service panel of 1221 to the far-end corridor exit.
-4. **Spent Siren Cell:** Found in the **basement laundry bin** after going down the chute. Back-pressure valve popped (point-blank discharge). Manual lever flipped.
+4. **Spent Siren Cell:** Found in the **basement laundry bin** after going down the chute. Back-pressure valve popped (point-blank discharge). Manual lever flipped. **The Anchor Idol is stashed inside the cell's empty pressure chamber** — Pemberton used the spent cell as both murder weapon and concealment for the stolen idol on the way out.
 5. **Pemberton's gloves:** Dark violet "purge residue" on the **inside** of the fingers, proving he manually emptied the cell at point-blank range. Discarded in a service-hall trash can.
 
 ---
@@ -79,7 +79,7 @@ Collector **Reginald Vance** is found dead in Suite 1221 during a scheduled Ghos
 | Theo Griggs | Witness / Tech | Noticed a charged Siren Cell was missing from the gear cart — and the gear log shows Pemberton signed it out during prep. |
 | Mara Bell | Witness / Lead | Claims she held the main hallway and timestamps the manifestation noises starting at 9:07 — but was actually in 1218 dealing with the flood from 9:05 to ~9:11. |
 | Dr. Iris Thorne | Witness / Anchor (Truth-teller) | Manning the secondary observation post in 1222, listening at 1221's shared wall. Her field book logs the manifestation noises (~9:07), a heavy thud in the walls (~9:10 — the cell down the chute), and Pemberton arriving from the far end of the corridor at 9:13. |
-| Dottie "Mags" Higgins | Witness / Maid (Negative Witness) | Shut inside the **12th-floor Housekeeping Room** (a known checkpoint on Pemberton's sweep route) from before 9 until past 9:15. Smoke break + waiting on Vane's handoff. **The door never opened.** Pemberton never came through, contradicting his "structural sweep / flanking the entity" alibi. Won't admit she was there (smoking + bribery). |
+| Dottie "Mags" Higgins | Witness / Maid (Negative Witness) | Shut inside the **12th-floor Housekeeping Room** (a known checkpoint on Pemberton's sweep route) from before 9 until past 9:15. A long, forbidden smoke break. **The door never opened.** Pemberton never came through, contradicting his "structural sweep / flanking the entity" alibi. Won't admit she was there (smoking on duty + the earlier bribery she's separately covering up). |
 
 ---
 
@@ -244,7 +244,7 @@ To make it a real game, Pemberton needs **Plausible Deniability**. "Just knowing
 
 If the player demands to see Pemberton’s hands early, he shouldn't just say "No." He should give a reason that makes the player doubt themselves.
 
-- **Pemberton's Alibi for the Stain:** He blames Theo. "Theo's bags are leaking everywhere tonight — I touched a damp nozzle while helping him stabilize the flood in 1218. It's a professional nuisance, not a crime." (The player can disprove this by auditing Theo's gear, which is dry and intact.)
+- **Pemberton's Alibi for the Stain:** He keeps it deliberately vague. "Theo's gear has been a mess all night. I've been pitching in with prep and capture-tool maintenance. Touch enough hardware in one evening, you end up looking like this. Professional nuisance, not a crime." No single witness can flatly contradict a story that has no specific *when* or *where*. (The player can erode it by auditing Theo's gear — no cell is leaking sludge, no nozzle is "damp" with Violet-Grade fluid — but Pemberton will keep retreating to "earlier" and "during prep." The stain alone can't close the case; the player still needs the cell.)
 
 **The Result:** The player knows he’s stained, but Pemberton has a "work-related" excuse. The stain is no longer a "Smoking Gun"—it's just "circumstantial evidence."
 

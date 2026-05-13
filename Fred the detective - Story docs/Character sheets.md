@@ -19,13 +19,14 @@ Here is the expanded character roster for the Ghostbusters team.
     - **9:05 PM:** The sabotaged pipe joint fails. Mara abandons the main hallway to help Theo in 1218.
     - **9:06 PM:** Pemberton slips into 1221 via the **back service door** — a disguised maintenance-corridor access panel ("the pantry"). Vance doesn't know it exists; neither does the rest of the team. Only Pemberton knows, because he scouted the suite under his occult-scholar cover. Vance is mid-meditation, eyes closed, unprepared.
     - **9:07 – 9:10 PM:** Kills Vance point-blank with a stolen Siren Containment Cell (Manual Purge). Takes the Anchor Idol. Stages the "haunting" — slams furniture, simulates a Class-5 manifestation — loud enough to be heard from the hall and through 1222's shared wall.
-    - **9:10 PM:** Drops the spent cell down the laundry chute (it falls to the basement bin) via the back service door. Noises stop abruptly. Slips back out the same way he came in.
+    - **9:10 PM:** Stashes the Anchor Idol inside the spent Siren Cell's now-empty pressure chamber, then drops the cell down the laundry chute via the back service door (it falls to the basement bin — idol concealed inside). Noises stop abruptly. Slips back out the same way he came in.
     - **9:11 – 9:12 PM:** Walks the maintenance corridor toward the far-end exit, bypassing the Housekeeping Room (Mags is inside, door shut). Mara (returning from 1218) and Iris (stepping out of 1222) converge at 1221's front door — without him.
     - **9:13 PM:** Emerges into the main hallway from the **far end**, breathing hard, claiming he heard the manifestation during his corridor sweep and ran to flank it.
     - **9:14 PM:** Team forces the locked front door of 1221. Pemberton steps in, performs a theatrical pulse check, declares: "Full-Body Spectral Seizure, Class-5 Shadow Stalker. The idol attracted exactly what we were here to contain."
 - **What He Said:** "I was on structural sweep at the far end of the corridor. The PKE spike hit hard — I tried to flank the entity through the maintenance access. By the time I got around to the front, Vance was already gone. Full-body spectral seizure. Textbook Class-5."
 - **The Lie:** There was no entity. The "manifestation" was theater. He was inside 1221 via the back service door, not "flanking" anything from the corridor.
 - **Motive for Concealing:** Obviously, the murder and theft of the Anchor Idol.
+- **The Stain Alibi:** If asked early about his stained hands, he keeps it vague — "I've been pitching in with gear and capture-tool prep all night, and Theo's setup has been a mess. Touch enough hardware in one evening, you end up looking like this." Deliberately unspecific about *when* or *where*, so no individual witness can flatly contradict him.
 - **The Detective's Hook:** Pemberton's hands are stained deep violet — **Purge Pigment**. The Ghostbusters' field manual documents that a point-blank Manual Purge of a Siren Cell drives violet sludge *through* standard gloves and into the skin, staining the cuticles and palms for **48–72 hours**. He ditched the gloves in a service-hall trash can right after the kill; the player can recover them, stain on the inside of the fingers. No ghost causes that. Only a human pulling the manual lever of a Siren Cell at point-blank range does. That's the case.
 
 ---
@@ -119,7 +120,7 @@ Here is the expanded character roster for the Ghostbusters team.
 - **Manner of Speech:** Mumbled, low-volume, uses "work-talk" (e.g., "The linens in 1219 were fresh").
 - **Actual Timeline:**
     - **Earlier in the day:** Took a bribe from Julian Vane in exchange for a master key to Suite 1221. She rationalized it as harmless — "the gentleman just wants to look at the idol."
-    - **9:00 – 9:15 PM:** Inside the **12th-floor Housekeeping Room** with the door shut. Officially on a forbidden smoke break; also waiting for the moment Vane needed cover from staff. The Housekeeping Room is the standard staff hideout on this floor — and it's a named checkpoint on Pemberton's "structural perimeter sweep."
+    - **9:00 – 9:15 PM:** Inside the **12th-floor Housekeeping Room** with the door shut, taking a long forbidden smoke break. The Housekeeping Room is the standard staff hideout on this floor — and it's a named checkpoint on Pemberton's "structural perimeter sweep."
 - **What She Said:** "I was in the basement laundry room, minding my own business."
 - **The Lie:** She claims she was in the basement. She was actually shut inside the **exact room Pemberton's alibi says he checked on his sweep**.
 - **Motive for Concealing:** **Doubly compromised.** Smoking on duty is an instant firing offense. Taking a bribe to hand a guest's master key to another guest is a *criminal* offense — accessory to whatever Vane was planning to do.

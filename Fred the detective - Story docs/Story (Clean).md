@@ -23,7 +23,7 @@ This is the canonical timeline. All character testimony and other docs should al
 | 9:05 PM | Sabotaged pipe joint outside 1218 fails. Theo panics about flooded gear; Mara abandons the hall to help. | Same — appears to be an unfortunate accident. |
 | 9:06 PM | Pemberton slips into 1221 via the back service door. Vance is mid-meditation, eyes closed. | "Running structural sweep at the far end of the corridor." |
 | 9:07 – 9:10 PM | Kills Vance point-blank with the Siren Cell. Takes the Anchor Idol. Stages the "haunting" — slams furniture, simulates a Class-5 manifestation. Noises are audible from the hall and through 1222's shared wall. | "The entity has manifested in 1221 — I'm cutting it off from the perimeter." |
-| 9:10 PM | Drops the spent cell down the laundry chute (it falls to the basement laundry bin) via the back service door. Noises in 1221 stop abruptly. Iris hears the thud through the wall. | Still on perimeter. |
+| 9:10 PM | Stashes the **Anchor Idol inside the spent Siren Cell's now-empty pressure chamber**, then drops the cell down the laundry chute via the back service door (it falls to the basement laundry bin — taking the idol with it). Noises in 1221 stop abruptly. Iris hears the thud through the wall. | Still on perimeter. |
 | 9:11 PM | Iris steps into the main hallway from 1222. Mara, having heard the noises from 1218, returns to the main hall. | Same. |
 | 9:11 – 9:12 PM | Mara and Iris converge at 1221's front door. Pemberton is **not** with them. | Same. |
 | 9:11 – 9:12 PM | Pemberton exits the back service door and takes the maintenance corridor to the far end (bypassing the Housekeeping Room — Mags is inside, door shut). | "Closing on the entity through the maintenance access." |
@@ -42,7 +42,7 @@ This is the canonical timeline. All character testimony and other docs should al
 
 - **The Role:** Volunteered to enter first because of his medical and occult training — the rest of the team are field hunters, not pathologists, so they defer to him on cause of death. ("Everybody on the team's a Ghostbuster, but each of us has a specialty. Mine happens to be the body.")
 - **Why He Signed Out the Cell:** Plausible cover. He told Theo during prep that he was prepping a "calibrated Manual Purge cell" for medical-emergency containment if Vance had a spectral reaction during the watch. Theo, terrified of being blamed for anything, didn't push back.
-- **Early Alibi (The Stain):** If asked about his stained hands early, he blames Theo. "Theo's bags are leaking everywhere. I touched a damp nozzle while helping him. It's a professional nuisance, not a crime."
+- **Early Alibi (The Stain):** If asked about his stained hands early, he waves it off vaguely. "Theo's gear has been a mess all night. I've been pitching in with prep, capture-tool maintenance, the usual. You touch enough hardware in one evening, you end up looking like this. It's a professional nuisance, not a crime." Deliberately unspecific about *when* and *where* he was "pitching in," so the player can't immediately disprove it by asking Theo or Mara about a specific moment.
 - **Defensive Wall:** He refuses "unprofessional" hand inspections unless confronted with proof of a **Manual Purge**.
 - **The Authority Trap:** As the team's medical/occult specialist on scene, he gets to "frame" the cause of death before anyone else looks at the body. The rest of the team are hunters, not pathologists — they take his diagnosis at face value.
 
@@ -111,13 +111,13 @@ A manifested Class-5 entity radiates spectral discharge **omnidirectionally** fr
 
 - **9:06 PM:** Pemberton slips into 1221 via the back service door. Vance is mid-meditation, eyes closed, unprepared. He doesn't fight back; he barely registers Pemberton's presence before the kill.
 - **9:07 – 9:10 PM:** Pemberton kills Vance with the stolen Siren Cell, takes the Anchor Idol, then stages the haunting — slamming furniture, simulating a Class-5 manifestation. The noise carries into the hallway and through the shared wall into 1222.
-- **9:10 PM:** Pemberton drops the spent cell down the laundry chute via the back service door (**The Thud** — Iris hears it through the wall; the cell falls to the basement laundry bin). Noises stop abruptly.
+- **9:10 PM:** Pemberton stashes the **Anchor Idol inside the spent Siren Cell's pressure chamber** (now empty, hollow, and conveniently lead-lined — masks the idol from any later PKE sweep), then drops the cell down the laundry chute via the back service door (**The Thud** — Iris hears it through the wall; the cell falls to the basement laundry bin, idol concealed inside). Noises stop abruptly.
 
 ## The Convergence (The "Wrong Direction" Arrival)
 
-- **9:11 – 9:12 PM:** Mara and Thorne are at the front door of 1221. The noises have stopped — they assume the "manifestation passed." Pemberton is **not with them** — he's still "on the corridor sweep."
+- **9:11 – 9:12 PM:** Mara and Thorne are at the front door of 1221, working on forcing it. The noises have stopped — they assume the "manifestation passed." The door is a solid hotel suite door; two people can't breach it cleanly. They're shouldering and prying without success, calling for backup. Pemberton is **not with them** — he's still "on the corridor sweep."
 - **9:13 PM:** Pemberton emerges into the main hallway from the **far end** of the corridor system, breathing hard. **His Excuse:** "It tried to phase out through the structural seams at the far end — I cut it off but it broke back through. Did anyone get a reading?"
-- **9:14 PM:** Team forces the locked front door of 1221. Pemberton steps in, performs a fake pulse check, pushes everyone back: *"Stay back — PKE residue is lethal."* Declares: *"Full-Body Spectral Seizure. He was dead before he hit the floor. Class-5 Shadow Stalker — textbook. The idol attracted exactly what we were here to contain."*
+- **9:14 PM:** With Pemberton's added weight on the door, the team finally forces it. Pemberton steps in first, performs a fake pulse check, pushes everyone back: *"Stay back — PKE residue is lethal."* Declares: *"Full-Body Spectral Seizure. He was dead before he hit the floor. Class-5 Shadow Stalker — textbook. The idol attracted exactly what we were here to contain."*
 - **The Visual:** The team is reeling from the noise they just heard. They don't question why Pemberton came from the far end of the corridor (his roaming sweep made that explainable). They accept the diagnosis — Pemberton is the team's medical and occult expert, and the rest of the team are hunters, not pathologists.
 
 ---
@@ -161,7 +161,7 @@ The Detective realizes the "Haunting" was theater, the "manifestation" was Pembe
 
 **The Evidence Stack:**
 
-- **The missing Siren Cell**, recovered from the **basement laundry bin** after going down the chute, has a popped back-pressure valve — proof of point-blank discharge.
-- **The directional fan of violet ectoplasm** on one wall of 1221 — per Manual §8.2, a real Class-5 sprays omnidirectionally. A one-wall fan is a nozzle spray.
+- **The missing Siren Cell**, recovered from the **basement laundry bin** after going down the chute, has a popped back-pressure valve — proof of point-blank discharge. **The Anchor Idol is inside it** — Pemberton's stash spot doubled as his disposal route. Recovering the cell recovers the missing idol, and connects the killer to the theft.
+- **The directional fan of violet ectoplasm** on the wall behind Vance's body — per Manual §8.2, a real Class-5 sprays omnidirectionally. A concentrated fan behind the body is sludge driven through a single point of contact (his chest) and exiting in a focused pattern on whatever's beyond.
 - **The wound on Vance** is circular, not jagged — inconsistent with any documented Class-5 ghost-touch.
 - **Pemberton's violet-stained hands.** He *was* wearing standard-issue Ghostbusters gloves during the kill — the field manual says the high-pressure Manual Purge drives violet sludge straight through the glove fabric and into the skin as **"Purge Pigment,"** lasting 48–72 hours. Pemberton ditched the gloves in a service-hall trash can immediately after; the player recovers them with the violet stain on the *inside* of the fingers. No ghost causes that; only a human pulling the manual lever does. His "Theo's leaky bag" alibi falls apart the moment the player audits Theo's gear. This is the final beat.
