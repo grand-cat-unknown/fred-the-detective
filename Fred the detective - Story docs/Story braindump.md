@@ -6,7 +6,7 @@
 
 Collector **Reginald Vance** is found dead in Suite 1221 during a scheduled Ghostbusters **containment watch** over his newly-acquired Anchor Idol — the most spectrally-active piece from a recent occult auction, rated for its capacity to attract other entities. The idol is missing.
 
-**Dr. Otis Pemberton** (a Ghostbuster whose specialties are medical and occult-scholarly work) volunteered to be the team's "first in" once the body was found, leveraging his medical/occult expertise. He'd already staged a fake haunting from inside the suite while the rest of the team waited at their stations. During the theatrics he killed Vance, took the idol, slipped out a back service door, circled through the maintenance corridor, and rejoined the team from the wrong end of the hall — then pronounced Vance dead from a "spectral seizure."
+**Dr. Otis Pemberton** (a Ghostbuster whose specialties are medical and occult-scholarly work) staged a fake haunting from inside the suite while the rest of the team waited at their stations. During the theatrics he killed Vance, took the idol, slipped out a back service door, circled through the maintenance corridor, and rejoined the team from the wrong end of the hall. When the team forced the locked front door, Pemberton — the obvious person to handle a body that "took a Class-5 hit" — performed the pulse check and pronounced Vance dead from a "spectral seizure."
 
 ---
 
@@ -79,7 +79,7 @@ Collector **Reginald Vance** is found dead in Suite 1221 during a scheduled Ghos
 | Theo Griggs | Witness / Tech | Noticed a charged Siren Cell was missing from the gear cart — and the gear log shows Pemberton signed it out during prep. |
 | Mara Bell | Witness / Lead | Claims she held the main hallway and timestamps the manifestation noises starting at 9:07 — but was actually in 1218 dealing with the flood from 9:05 to ~9:11. |
 | Dr. Iris Thorne | Witness / Anchor (Truth-teller) | Manning the secondary observation post in 1222, listening at 1221's shared wall. Her field book logs the manifestation noises (~9:07), a heavy thud in the walls (~9:10 — the cell down the chute), and Pemberton arriving from the far end of the corridor at 9:13. |
-| Dottie "Mags" Higgins | Witness / Maid (Negative Witness) | Shut inside the **12th-floor Housekeeping Room** (a known checkpoint on Pemberton's sweep route) from before 9 until past 9:15. Smoke break + waiting on Vane's handoff. Heard a far-off thud through the walls around 9:10. **The door never opened.** Pemberton never came through, contradicting his "structural sweep / flanking the entity" alibi. Won't admit she was there (smoking + bribery). |
+| Dottie "Mags" Higgins | Witness / Maid (Negative Witness) | Shut inside the **12th-floor Housekeeping Room** (a known checkpoint on Pemberton's sweep route) from before 9 until past 9:15. Smoke break + waiting on Vane's handoff. **The door never opened.** Pemberton never came through, contradicting his "structural sweep / flanking the entity" alibi. Won't admit she was there (smoking + bribery). |
 
 ---
 
@@ -148,7 +148,7 @@ The detective eventually finds the **Siren Cell** in the **basement laundry bin*
 
 Why does a respected doctor steal an idol?
 
-- **The "Scholar's Greed":** Pemberton doesn't want money. He believes the Idol is an **"Anchor"**—a device that can bridge the gap between the living and the dead. He believes he can use it to talk to his deceased wife/colleague.
+- **The "Scholar's Greed":** Pemberton doesn't want money. As a double doctor — MD plus a doctorate in occult studies — the Anchor Idol is the missing centerpiece for years of research into spectrally-active artifacts. In Vance's private vault it disappears forever; in Pemberton's hands, the work finally gets finished. He's convinced himself that makes the "acquisition" not just justified but necessary.
 - **Why Tonight (Shared Deadline):** Vance is checking out of The Grandview tomorrow morning with the idol, headed back to his private vault. Tonight is the last night the idol sits in a semi-public space. Both Pemberton and Julian Vane independently identified it as their one shot — neither knows about the other's plan.
 - **Why This Hour (Daily Ritual):** Vance does a private meditation every evening from 9:00 to 9:45 PM. Insists on being alone — no calls, no staff, no interruptions. The ritual is well-known in collector circles and to long-term Grandview staff. Vance's location and vulnerability at 9 PM are publicly predictable, which is what made tonight's specific hour usable by anyone — not just an insider.
 - **Why the Ghostbusters Are Here:** Not an emergency call. The recent occult auction included several spectrally-active artifacts, and the Anchor Idol — Vance's prize — is rated the most dangerous: documented capacity to **attract other entities**. Per the auction-house's standard contract, Ghostbusters Inc. provides a multi-night **containment watch** for the buyer of any high-rated artifact. The team is at the Grandview on a scheduled watch rotation, not responding to a haunting. Pemberton requested this assignment as the team's occult scholar — and used the contract cover to plan the murder. The 9 PM watch window is standard scheduling (and lore-wise coincides with peak "spectral pull," which is also Vance's meditation hour — convenient cover for Pemberton's strike).
@@ -244,7 +244,7 @@ To make it a real game, Pemberton needs **Plausible Deniability**. "Just knowing
 
 If the player demands to see Pemberton’s hands early, he shouldn't just say "No." He should give a reason that makes the player doubt themselves.
 
-- **Pemberton's Alibi for the Stain:** "Of course my hands have trace amounts of residue, Detective. Every Ghostbuster has a specialty — mine's medical and occult — so I'm the one prepping the calibrated cells before a high-risk watch. If you're going to arrest every Ghostbuster with a bit of smudge on their cuticles, we'd all be in handcuffs."
+- **Pemberton's Alibi for the Stain:** He blames Theo. "Theo's bags are leaking everywhere tonight — I touched a damp nozzle while helping him stabilize the flood in 1218. It's a professional nuisance, not a crime." (The player can disprove this by auditing Theo's gear, which is dry and intact.)
 
 **The Result:** The player knows he’s stained, but Pemberton has a "work-related" excuse. The stain is no longer a "Smoking Gun"—it's just "circumstantial evidence."
 

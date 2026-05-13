@@ -10,7 +10,8 @@ Here is the expanded character roster for the Ghostbusters team.
 
 **The Intellectual.** Uses the chaos of the "emergency" to mask a surgical execution. Thinks he's the only one who truly understands the "science" of the beyond.
 
-- **Personality:** Cold, precise, and condescending. He treats the other team members like blue-collar technicians and you like a nuisance. Views the murder not as a crime, but as a necessary "acquisition" of the Anchor Idol.
+- **Credentials:** A "double doctor" — MD plus a doctorate in occult studies, with a research focus on cult relics and spectrally-active artifacts. That's how he ended up the team's medical *and* occult-scholarly specialist; the rest of the team are field hunters by training. It's also how he knew the Anchor Idol's provenance — and the Grandview's suite layout — before anyone else did.
+- **Personality:** Cold, precise, and condescending. He treats the other team members like blue-collar technicians and you like a nuisance. Views the murder not as a crime, but as a necessary "acquisition" of the Anchor Idol for serious research it would never get inside Vance's private vault.
 - **Manner of Speech:** Clinical and formal. Uses medical Latin and complex jargon to confuse non-experts. Refers to the victim as "the biological variable." Never says "dead"; says "biological cessation."
 - **Actual Timeline:**
     - **Earlier that evening:** Sabotages a pipe joint in the **maintenance corridor outside Room 1218** (the Grandview's standard Ghostbusters prep room). The joint is loosened to fail under normal pressure during the operation window. Done from the corridor, not from inside 1218 — so access isn't restricted to anyone with team-room privileges. Anyone with corridor access could have done it.
@@ -65,7 +66,8 @@ Here is the expanded character roster for the Ghostbusters team.
 
 - **Personality:** Calm, methodical, and by-the-book. The only team member who did exactly what they were supposed to do.
 - **Actual Timeline:**
-    - **9:00 – 9:14 PM:** Manning the **secondary observation post** in Suite 1222, next door to 1221. Listening at the shared wall, monitoring for spillover activity from the Anchor Idol. Notes timestamps in her field book as a matter of habit.
+    - **9:00 – 9:11 PM:** Manning the **secondary observation post** in Suite 1222, next door to 1221. Listening at the shared wall, monitoring for spillover activity from the Anchor Idol. Notes timestamps in her field book as a matter of habit.
+    - **9:11 PM onward:** Steps into the main hallway when the noises in 1221 stop. Converges on the front door with Mara; watches Pemberton arrive from the far end of the corridor at 9:13.
 - **What She Said:** "Manifestation noises through the shared wall started around 9:07 and stopped abruptly at 9:10. Right around when they stopped I heard a heavy metallic thud somewhere in the walls — could have been the chute. I stepped into the hallway at 9:11. Pemberton arrived from the far end of the corridor at 9:13."
 - **The Truth:** She is the only one telling the full truth. She is the "control group" the player uses to corroborate the timeline.
 - **What She Gives the Player:**
