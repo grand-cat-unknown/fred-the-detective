@@ -25,7 +25,7 @@ Here is the expanded character roster for the Ghostbusters team.
 
 ---
 
-## 2. Mara Bell  Ghostbuster 2 (The Lead)
+## 2. Mara Bell - Ghostbuster 2 (The Lead)
 
 **The Professional.** Her entire identity is tied to the Ghostbusters' brand and her leadership. Her fear of a "Negligence" lawsuit makes her the killer's best accidental ally.
 
@@ -40,7 +40,7 @@ Here is the expanded character roster for the Ghostbusters team.
 
 ---
 
-## 3. Theo Griggs (The Tech) Ghostbuster 3
+## 3. Theo Griggs - Ghostbuster 3 (The Tech)
 
 **The Nervous Wreck.** Brilliant with a soldering iron, terrible with people. The only witness to Mara's absence, but too scared to speak up.
 
@@ -55,7 +55,7 @@ Here is the expanded character roster for the Ghostbusters team.
 
 ---
 
-## 4. Dr. Iris Thorne (The Anchor / The "Normal" One) Ghostbuster 4
+## 4. Dr. Iris Thorne - Ghostbuster 4 (The Anchor / The "Normal" One)
 
 **The Control Group.** The one whose boring, perfect adherence to rules breaks the case. Stoic, literal, and perfectly professional.
 
@@ -116,7 +116,7 @@ Here is the expanded character roster for the Ghostbusters team.
 - **Motive for Concealing:** **Her Job.** Smoking in a guest room is an instant firing offense.
 - **The Detective's Hook:** She is the **Ultimate Witness**. She knows for a fact Pemberton never entered Room 1220 because she was in there the whole time, and she would have smelled him.
 
-### 8. Arthur "Artie" Sterling (The Manager)
+## 8. Arthur "Artie" Sterling (The Manager)
 
 **The Liability Shield.** He doesn't care about the Idol; he cares about the hotel's "Haunted History" reputation, which allows him to charge $1,200 a night for a room with bad plumbing.
 

@@ -83,9 +83,7 @@ Collector **Reginald Vance** is found dead in Suite 1221 after a reported haunti
 - **The secret route:** The ajar pantry door explains how he entered a “locked” room without being seen by the team.
 - **The weapon:** The “fan” residue on the wall + stained gloves indicate a human used a Ghostbusters weapon, not a ghost.
 
-This is coming together perfectly. The fact that Pemberton is the **only medical authority** on the scene is his greatest weapon—it allows him to "frame" the cause of death before anyone else can even look at the body.
-
-Let’s refine the **Scene of the Crime** and the **Witness dynamics** to make the story even tighter for a detective to unravel.
+Pemberton is the **only medical authority** on the scene — his greatest weapon. It allows him to "frame" the cause of death before anyone else can even look at the body.
 
 ---
 
@@ -159,50 +157,78 @@ The player has to confront Pemberton not with "I think you did it," but with **T
 2. "You said it was a Shadow Stalker, but the wound matches the Siren Cell nozzle exactly."
 3. "And most importantly... why are there fibers from the victim's shirt inside the nozzle of a 'missing' piece of equipment?"
 
-**Does this story flow feel solid to you?** If so, we can talk about how to present the "Evidence" to the player in a way that feels like they're actually piecing it together.
+---
 
-This is a brilliant "Procedural Mystery" mechanic. By giving the player a **Field Manual**, you turn the game into a research puzzle. The player isn't just guessing; they are looking for **technical contradictions**.
-Here is how we integrate the **Field Manual** and the **"Stained Hands"** reveal to make the evidence airtight.
-**1. The Field Manual (The "Rulebook")**
+## The Field Manual & The "Stained Hands" Reveal
+
+By giving the player a **Field Manual**, the game becomes a research puzzle. The player isn't just guessing; they are looking for **technical contradictions**.
+
+### 1. The Field Manual (The "Rulebook")
+
 When the player asks Theo Griggs for the book, he hands over a dense, slightly greasy binder: *“The Ghostbusters Standard Operating Procedure & Equipment Safety Guide.”*
-To keep it from being a "wall of text" that the player ignores, we divide it into clear sections. The player has to find the **one specific rule** that breaks Pemberton’s story.
-**Key Entry: Section 4.2 - The Siren-Class Containment Cell***"**Safety Warning:** Siren Cells utilize a pressurized ionized sludge (Violet-Grade). Due to the high-pressure nature of a Manual Purge, the 'Aerosol Effect' often causes sludge to permeate standard-issue ghost-capture gloves. This results in **'Purge Pigment'**: a deep violet staining of the skin, particularly around the cuticles and palms, which is resistant to standard soaps and typically lasts 48–72 hours."*
-**Key Entry: Section 8.1 - Spectral Trauma (Ghost-Touch)***"Class-5 entities typically leave 'Jagged Frost' patterns upon physical contact with a human subject. The marks are irregular, branching, and never symmetrical."*
-**2. The Investigation Loop**
+
+To keep it from being a "wall of text" that the player ignores, divide it into clear sections. The player has to find the **one specific rule** that breaks Pemberton’s story.
+
+**Key Entry: Section 4.2 - The Siren-Class Containment Cell**
+
+> *Safety Warning: Siren Cells utilize a pressurized ionized sludge (Violet-Grade). Due to the high-pressure nature of a Manual Purge, the 'Aerosol Effect' often causes sludge to permeate standard-issue ghost-capture gloves. This results in **'Purge Pigment'**: a deep violet staining of the skin, particularly around the cuticles and palms, which is resistant to standard soaps and typically lasts 48–72 hours.*
+
+**Key Entry: Section 8.1 - Spectral Trauma (Ghost-Touch)**
+
+> *Class-5 entities typically leave 'Jagged Frost' patterns upon physical contact with a human subject. The marks are irregular, branching, and never symmetrical.*
+
+### 2. The Investigation Loop
+
 The player now has a "Reference" to check against the "Physical Evidence."
-• **Observation A:** The detective looks at the body. The wound is a **perfect circle**.
-• **Manual Check:** Section 8.1 says ghost wounds are **irregular and jagged**.
-• **Deduction:** This wasn't a ghost. Something circular (like a nozzle) caused this.
-**3. The "Gotcha" Moment: The Stained Hands**
+
+- **Observation A:** The detective looks at the body. The wound is a **perfect circle**.
+- **Manual Check:** Section 8.1 says ghost wounds are **irregular and jagged**.
+- **Deduction:** This wasn't a ghost. Something circular (like a nozzle) caused this.
+
+### 3. The "Gotcha" Moment: The Stained Hands
+
 Pemberton is a neat freak. He’s a doctor. He’s been washing his hands since the "attack."
-• **The Interaction:** The player notices Pemberton is wearing his medical latex gloves or keeping his hands in his pockets.
-• **The Confrontation:** The player remembers the "Purge Pigment" entry in the manual.
-• **The Dialogue:** * *Player:* "Doctor, you've been very helpful. But I noticed you haven't taken those gloves off since the 'ghost' appeared. Mind showing me your hands?"
-    ◦ *Pemberton:* "This is a crime scene, Detective. I'm maintaining sanitary protocols."
-    ◦ *Player:* "The Field Manual says a Siren Cell purge leaves a stain that doesn't wash off. If your hands are clean, I'll walk away."
+
+- **The Interaction:** The player notices Pemberton is wearing his medical latex gloves or keeping his hands in his pockets.
+- **The Confrontation:** The player remembers the "Purge Pigment" entry in the manual.
+- **The Dialogue:**
+    - *Player:* "Doctor, you've been very helpful. But I noticed you haven't taken those gloves off since the 'ghost' appeared. Mind showing me your hands?"
+    - *Pemberton:* "This is a crime scene, Detective. I'm maintaining sanitary protocols."
+    - *Player:* "The Field Manual says a Siren Cell purge leaves a stain that doesn't wash off. If your hands are clean, I'll walk away."
+
 **The Reveal:** When he shows his hands, his **fingertips and cuticles are stained deep violet**. Because he used the stolen Siren Cell to kill Vance at point-blank range, the pressure forced the dye through his Ghostbusters gloves and into his skin.
-**4. Why this works for an LLM Game**
+
+### 4. Why this works for an LLM Game
+
 This setup is perfect for "Gating" information:
+
 1. **The LLM (Pemberton) knows he has stained hands**, but he is instructed **never to mention them** unless the player explicitly asks to see his hands or mentions the "Purge Pigment."
 2. **The LLM (Theo) doesn't know Pemberton is the killer**, but he knows the Siren Cell is missing and he knows where the Manual is.
-3. **The Player must connect the dots:** * Missing Cell $\rightarrow$ Circular Wound $\rightarrow$ Field Manual Rule $\rightarrow$ Pemberton's Hands.
-**5. Final Story Refinement: The "Missing" Gloves**
-To make it even more "Detective-like," let's add one more layer:
+3. **The Player must connect the dots:** Missing Cell → Circular Wound → Field Manual Rule → Pemberton's Hands.
+
+### 5. Final Story Refinement: The "Missing" Gloves
+
 Pemberton realized his hands were stained right after the murder. He threw his **work gloves** away.
-• **Clue:** The player finds a pair of Ghostbusters work gloves in a trash can near the service exit.
-• **The Twist:** The *inside* of the gloves is stained violet.
-• **The Logic:** If a ghost had splashed him, the *outside* would be stained. The stain being on the *inside* proves the sludge was forced through the fabric by a high-pressure leak while he was holding the device.
-**How does this look for the Story Flow?**
+
+- **Clue:** The player finds a pair of Ghostbusters work gloves in a trash can near the service exit.
+- **The Twist:** The *inside* of the gloves is stained violet.
+- **The Logic:** If a ghost had splashed him, the *outside* would be stained. The stain being on the *inside* proves the sludge was forced through the fabric by a high-pressure leak while he was holding the device.
+
+### Story Flow Summary
+
 1. **Introduction:** Vance is dead. Pemberton blames a ghost.
 2. **The Manual:** Player gets the tech specs from Theo.
 3. **The Discrepancy:** Player notices the circular wound vs. the manual's "jagged" description.
 4. **The Search:** Player finds the discarded gloves or the "thud" in the laundry chute.
 5. **The Confrontation:** The "Hand Reveal" is the final nail in the coffin.
-**Is there any other part of the "Field Manual" you think we should include?** Maybe a section on "Ectoplasm Volatility" to explain why the room is dry?
 
-You’ve hit on the biggest challenge of designing a detective game: **The "Leap of Logic" Problem.** If a player is smart, they’ll read about the "Purge Pigment" and immediately look at the only person who was alone in the room. If the game just lets them "win" there, it feels like a short-circuit.
+---
 
-To make it a real game, Pemberton needs **Plausible Deniability**. Here is how we make it so that "just knowing" isn't enough to "prove" it.
+## The "Leap of Logic" Problem
+
+If a player is smart, they’ll read about the "Purge Pigment" and immediately look at the only person who was alone in the room. If the game just lets them "win" there, it feels like a short-circuit.
+
+To make it a real game, Pemberton needs **Plausible Deniability**. "Just knowing" isn't enough to "prove" it.
 
 ---
 
@@ -255,8 +281,4 @@ If the player tries to skip to the end, the NPCs should push back:
 2. **The Cell:** Proves the valve is popped (and it's not "missing in another dimension").
 3. **The Hands:** Matches the person who fired that specific cell.
 
----
-
-### Does this feel like it protects the "Mystery" better?
-
-It prevents the player from "blindly guessing" because Pemberton has a smart, professional excuse for every individual piece of evidence—until you put them all together.
+This prevents the player from "blindly guessing" because Pemberton has a smart, professional excuse for every individual piece of evidence — until you put them all together.
