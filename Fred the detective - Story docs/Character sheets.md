@@ -25,7 +25,7 @@ Here is the expanded character roster for the Ghostbusters team.
 - **What He Said:** "I was on structural sweep at the far end of the corridor. The PKE spike hit hard — I tried to flank the entity through the maintenance access. By the time I got around to the front, Vance was already gone. Full-body spectral seizure. Textbook Class-5."
 - **The Lie:** There was no entity. The "manifestation" was theater. He was inside 1221 via the back service door, not "flanking" anything from the corridor.
 - **Motive for Concealing:** Obviously, the murder and theft of the Anchor Idol.
-- **The Detective's Hook:** Thorne's PKE log shows **no spectral readings** during the "manifestation." Mags and Julian Vane both saw Pemberton at the back service door of 1221 — alone, calm, with no entity in sight. The Siren Cell from the chute has shirt fibers from Vance and a popped valve. The violet stain on his hand matches a point-blank manual purge.
+- **The Detective's Hook:** Pemberton's hands are stained deep violet — **Purge Pigment**. The Ghostbusters' field manual documents that a point-blank Manual Purge of a Siren Cell drives violet sludge through standard gloves and into the skin, staining the cuticles and palms for **48–72 hours**. No ghost causes that. Only a human pulling the manual lever of a Siren Cell at point-blank range does. That's the case.
 
 ---
 
@@ -65,11 +65,8 @@ Here is the expanded character roster for the Ghostbusters team.
 
 - **Personality:** Calm, methodical, and by-the-book. The only team member who did exactly what they were supposed to do.
 - **Actual Timeline:**
-    - **9:00 – 9:14 PM:** Manning the **secondary observation post** in Suite 1222, next door to 1221. Running PKE logging gear pointed at the shared wall, monitoring for spillover spectral activity from the Anchor Idol. Logged every reading and timestamp in her field book.
-- **What She Said:** "Watch standard. PKE logger active on 1221's shared wall from 9:00 PM. Manifestation noises started at 9:07 PM. I stepped into the hallway at 9:11 when the noises peaked. Pemberton appeared from the far-end corridor entrance at 9:13."
+    - **9:00 – 9:14 PM:** Manning the **secondary observation post** in Suite 1222, next door to 1221. Listening at the shared wall, monitoring for spillover activity from the Anchor Idol.
 - **The Truth:** She is the only one telling the full truth. She is the "control group" the player uses to prove everyone else is full of it.
-- **The Leverage:** Her **field book** and her **PKE log printout**. Both are timestamped and tamper-evident.
-- **The Break:** Her PKE log shows **zero spectral readings** during the entire "manifestation." A real Class-5 of the kind Pemberton describes would have saturated her instruments through the shared wall. The noises were real but the entity signature was absent — meaning the "haunting" was mechanical, not entity-driven. That alone breaks Pemberton's diagnosis.
 
 ---
 
@@ -82,11 +79,9 @@ Here is the expanded character roster for the Ghostbusters team.
 - **Actual Timeline:**
     - **Earlier in the day:** Bribed Mags (the maid) for a master key to 1221, planning to slip in during Vance's 9 PM meditation, swap the real idol for the wax replica, and slip out. His planned route was the front door, using the master key — he didn't know about the back service panel.
     - **9:00 PM:** Arrived on the 12th floor for the swap. Saw the Ghostbusters' watch team setting up in the hallway. Plan dead. Retreated to a nearby alcove to wait it out.
-    - **9:10 PM:** From the alcove, saw Pemberton emerge from the back of 1221 via a panel he didn't know existed. Heard the metallic thud down the chute moments later.
 - **What He Said:** "I was in the hotel bar, mourning the loss of the idol over a dry martini."
 - **The Lie:** He claims he was never on the 12th floor.
 - **Motive for Concealing:** **Legal Fear.** Being caught outside a murder victim's door with a fake idol, a vial of sedative, and a bribed master key looks like premeditated murder.
-- **The Detective's Hook:** He saw Pemberton at the back of 1221 and heard the thud — but is afraid to mention any of it because it places *him* at the scene with means and opportunity.
 - **Why He Looks Like the Killer:**
     - Found in his suite with a **perfect wax replica** of the Anchor Idol.
     - Has a **vial of sedative** (chloroform) in his pocket.
@@ -122,7 +117,6 @@ Here is the expanded character roster for the Ghostbusters team.
 - **What She Said:** "I was in the basement laundry room, minding my own business."
 - **The Lie:** She claims she was in the basement. She was actually crouched in the maintenance corridor on the 12th floor — the same corridor Pemberton used to access 1221.
 - **Motive for Concealing:** **Doubly compromised.** Smoking on duty is an instant firing offense. Taking a bribe to hand a guest's master key to another guest is a *criminal* offense — accessory to whatever Vane was planning to do.
-- **The Detective's Hook:** She is the **Ultimate Witness**. She saw Pemberton emerge from the back service panel of 1221 at ~9:10 PM, walk past her hiding spot, drop something heavy down the chute (**The Thud**), and continue toward the far-end service door — all of this **calmly and alone**. No entity. No chase. No struggle. Just a man methodically covering his tracks.
 
 ## 8. Arthur "Artie" Sterling (The Manager)
 

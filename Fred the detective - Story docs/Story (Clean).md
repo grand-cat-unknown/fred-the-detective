@@ -114,15 +114,12 @@ Class-5 entities leave **jagged, branching frost patterns** on contact. The mark
 
 ### 3. Dr. Iris Thorne (The Anchor)
 
-- **The Critical Fact:** Thorne was at the secondary observation post in Suite 1222 next door, running PKE logging gear pointed at 1221's shared wall.
-- **The Logic:** Her log shows **zero spectral readings** spilling out of 1221 during the entire "manifestation." A real Class-5 of the kind Pemberton describes would have saturated her instruments. The noises were real but the spectral signature was absent — meaning the "haunting" was mechanical, not entity-driven.
-- **The Leverage:** Her **field book** and equipment log. Both are timestamped and tamper-evident.
+- **The Critical Fact:** Thorne was at the secondary observation post in Suite 1222 next door, listening at 1221's shared wall.
 
 ### 4. Julian Vane (The Rival / Red Herring)
 
 - **What He Was Doing:** Bribed Mags (the maid) for a master key, planning to slip into 1221 during Vance's 9 PM meditation, swap the real idol for the wax replica, and slip out. He didn't know about the back service door — his planned route was the front, using the master key.
 - **What Went Wrong:** When the Ghostbusters' watch team set up in the hallway at 9 PM, his plan was dead. He retreated to a nearby alcove to wait it out.
-- **What He Saw:** From the alcove, he saw Pemberton emerge from the back of 1221 at ~9:10 PM (via a panel he didn't know existed), and heard the **metallic thud** down the chute moments later.
 - **Why He Won’t Talk:** Being placed outside Vance's door with a fake idol, a vial of sedative, and a bribed master key looks like premeditated murder. The detective has to give him a reason to talk.
 
 ---
@@ -139,9 +136,6 @@ The Detective realizes the "Haunting" was theater, the "manifestation" was Pembe
 
 **The Evidence Stack:**
 
-- **Dr. Thorne’s PKE log** proves there was **no spectral signature** in or around 1221 during the "manifestation" — the noises were mechanical, not entity-driven.
-- **Julian Vane’s testimony** (once broken) places Pemberton at the back service door of 1221 and identifies the chute thud.
-- **Mags's testimony** (once broken) confirms the same — Pemberton walking calmly, alone, dropping something heavy down the chute. No entity in sight.
 - **The missing Siren Cell**, recovered from the chute, has a popped back-pressure valve — proof of point-blank discharge.
 - **The wound on Vance** is circular, not jagged — inconsistent with any documented Class-5 ghost-touch.
-- **Pemberton’s violet-stained hand** matches the Purge Pigment signature of a Manual Purge — and his "Theo’s leaky bag" alibi fails the moment the player audits Theo’s gear.
+- **Pemberton's violet-stained hands.** Per the Ghostbusters' field manual, a point-blank Manual Purge of a Siren Cell drives violet sludge through standard gloves and into the skin — **"Purge Pigment,"** lasting 48–72 hours. No ghost causes that; only a human pulling the manual lever does. His "Theo's leaky bag" alibi falls apart the moment the player audits Theo's gear. This is the final beat.
