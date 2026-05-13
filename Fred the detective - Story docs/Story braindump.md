@@ -69,8 +69,7 @@ Collector **Reginald Vance** is found dead in Suite 1221 after a reported haunti
 | Suspect | Role | The “Blindspot” (Testimony) |
 | --- | --- | --- |
 | Dr. Otis Pemberton | Killer | Claims he was “pushed out of the suite” or “working next door.” |
-| Sloane Vane | Witness / Rival | Saw Pemberton arrive from the Service Hall (Left), not Room 1220 (Right). |
-| Walter Crane | Witness / Rival | Heard a heavy “metallic thud” in the wall (the chute) at 9:12 PM. |
+| Julian Vane | Witness / Rival (Red Herring) | Saw Pemberton arrive from the Service Hall (Left), not Room 1220 (Right). Also heard a heavy “metallic thud” in the wall (the chute) at 9:12 PM. Won’t admit he was there — he was waiting to swap the real idol with a wax replica. |
 | Theo Griggs | Witness / Tech | Noticed a charged cell was missing from the gear cart. |
 | Mara Bell | Witness / Lead | Confirms Pemberton was assigned to Room 1220. |
 
@@ -79,7 +78,7 @@ Collector **Reginald Vance** is found dead in Suite 1221 after a reported haunti
 ## Core Contradictions for Accusation
 
 - **Log vs. alibi:** Pemberton claims he checked Room 1220; the digital log proves he didn’t.
-- **Left vs. right:** Sloane Vane’s directional testimony contradicts his stated route/location during the murder window.
+- **Left vs. right:** Julian Vane’s directional testimony contradicts his stated route/location during the murder window.
 - **The secret route:** The ajar pantry door explains how he entered a “locked” room without being seen by the team.
 - **The weapon:** The “fan” residue on the wall + stained gloves indicate a human used a Ghostbusters weapon, not a ghost.
 
@@ -116,15 +115,18 @@ To make the player work for it, each witness should have one piece of the puzzle
 - **What he knows:** He’s stressed because a **Siren-Grade Containment Cell** is missing from his inventory.
 - **His Blindspot:** He thinks he just misplaced it in the chaos. He’ll tell the player: *"I’m gonna be in so much trouble. Those cells are lead-lined and pressurized... if you drop one, it sounds like a cannon going off."*
 
-### **Walter Crane (The Skeptic)**
+### **Julian Vane (The Rival / Red Herring)**
 
-- **What he knows:** He was stationed in the hallway near the laundry room. At 9:12 PM, he heard a **heavy metallic "clack-thud"** coming from inside the walls.
-- **His Blindspot:** He thinks it was the ghost moving through the plumbing. He doesn't realize it was Pemberton dropping the heavy, empty canister down the laundry chute.
+A prestigious collector who lost the Anchor Idol to Vance by a single bid. He was lurking in the 12th-floor hallway hoping to swap the real idol for a **wax replica** before Vance noticed — he never intended to kill anyone. When the chaos started, he hid in a nearby alcove.
 
-### **Sloane Vane (The Rival)**
-
-- **What she knows:** She saw Pemberton "rejoin" the team at 9:13 PM. She noticed he was **slightly out of breath** and his sleeves were rolled up.
-- **Her Blindspot:** She thinks he was just scared. She’ll say: *"Otis isn't a field guy. He’s a scholar. Seeing a man die like that probably rattled his nerves—he was sweating through his suit."*
+- **What he knows:**
+    - Saw Pemberton slip into the **Service Hall (Left)**, not Room 1220 (Right).
+    - At 9:12 PM, heard a **heavy metallic "clack-thud"** in the walls (the canister down the chute).
+    - Saw Pemberton "rejoin" the team at 9:13 PM, slightly out of breath, sleeves rolled up.
+- **His Blindspot:** He doesn't realize what he heard or saw matters. He's too busy hiding his own presence.
+- **The Lie:** Claims he was in the hotel bar mourning the loss of the idol.
+- **Why He Looks Like the Killer:** Found in his suite (1225) with a perfect wax replica of the Anchor Idol and a vial of sedative (chloroform). Seen on the 12th floor minutes before the "haunting."
+- **The Player's Path:** The replica makes the player think "He killed Vance to swap them!" — but the sedative doesn't match the "Cold Burn" wound, and the swap plan never required killing anyone.
 
 ---
 

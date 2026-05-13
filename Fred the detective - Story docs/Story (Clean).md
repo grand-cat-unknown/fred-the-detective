@@ -1,22 +1,28 @@
 # Story (Clean)
 
-# **Case File: The Sedgewick Haunting (Final Master Draft) V2**
+# **Case File: The Sedgewick Haunting (Final Master Draft) V3**
 
 This master blueprint incorporates the refined narrative logic, character profiles, and forensic details to ensure a foolproof detective experience.
 
-## **1. Narrative Premise: The "Silent Sweep"**
+## **1. Narrative Premise: The "Theatrical Haunting"**
 
-Unlike a traditional haunting, this murder relies on the **professional disappearance** of the killer. Dr. Otis Pemberton (team physician) is assigned to search Room 1220 (Right Hallway). Instead, he slips into the Maintenance Corridor (Left Hallway), enters Suite 1221 via a hidden "Prohibition Pass" (service door), and kills Reginald Vance using a Siren Containment Cell. He then rejoins the team from the wrong direction, claiming he heard a disturbance.
+The murder is not committed by a ghost — it’s committed by the man who pronounces the victim dead. Dr. Otis Pemberton (team physician and occult scholar) volunteers to be **first into Suite 1221** under the cover of "security and medical assessment." Once inside, he locks the front door behind him and **stages a violent haunting**: slamming furniture, shouting warnings about lethal spectral energy, mimicking the sound of a Class-5 manifestation. The rest of the team waits in the hallway, listening to what they believe is a fight for Vance’s life.
+
+During the fake haunting he kills Vance point-blank with a stolen **Siren Containment Cell**, takes the **Anchor Idol**, and drops the spent cell down the laundry chute via the suite’s back service door. He then slips out that service door, circles through the maintenance corridor, and **re-enters the main hallway from the wrong end** — telling the team he was "cut off trying to flank the entity." He then leads them back into 1221, performs a theatrical pulse check, and declares Vance the victim of a **"Full-Body Spectral Seizure"** by a Class-5 entity.
+
+The team isn’t hiding a murder — they genuinely believe a ghost did it, because the only "expert" in the room is also the killer.
 
 ## **2. Updated Timeline & Witness Log**
 
 | Time | Actual Event | The Public Alibi |
 | --- | --- | --- |
-| 9:05 PM | Pemberton enters the Service Hall (Left). | Claims he is "scanning" Room 1220 (Right). |
-| 9:10 PM | Kills Vance; triggers Manual Purge point-blank. | Claims he is "experiencing gear interference." |
-| 9:12 PM | Dashes to laundry chute; drops the cell. (**The Thud**). | Claims the "thud" was a ghost in the pipes. |
-| 9:14 PM | Goes to laundry room for "towels" to clean hands. | Claims he is "decontaminating" from a gear spill. |
-| 9:15 PM | Reappears from the Left side to rejoin the team. | Claims he "ran around the hallway" to help. |
+| 9:04 PM | Team arrives at Suite 1221. Pemberton insists on entering first as physician/security. | Same. |
+| 9:05 PM | Pemberton enters 1221, locks the front door behind him. Vance is alive. | "Engaging the entity. Stand back." |
+| 9:06 – 9:09 PM | Stages the haunting — slams furniture, shouts spectral warnings, fakes manifestation noises. | "PKE levels are lethal. Hold the perimeter." |
+| 9:10 PM | Kills Vance point-blank with a Siren Cell (Manual Purge). Takes the Anchor Idol. | "The entity has manifested. I’m attempting containment." |
+| 9:12 PM | Drops the spent cell down the laundry chute (**The Thud**). Slips out via the back service door. | Still inside, "stabilizing the breach." |
+| 9:13 PM | Walks the maintenance corridor and emerges into the main hallway from the wrong end. | "I tried to flank it through the service hall — it broke through." |
+| 9:14 PM | Leads team back into 1221. Fake pulse check. Declares "Full-Body Spectral Seizure." | Same. |
 
 ## **3. Character Profiles & Gating**
 
@@ -28,8 +34,10 @@ Unlike a traditional haunting, this murder relies on the **professional disappea
 
 ### **Dr. Otis Pemberton (The Killer/The Expert)**
 
+- **The Role:** Volunteered to enter first as the team physician — nobody questions a doctor going in to assess a "victim under spectral attack."
 - **Early Alibi (The Stain):** If asked about his stained hand early, he blames Theo. "Theo’s bags are leaking everywhere. I touched a damp nozzle while helping him. It's a professional nuisance, not a crime."
 - **Defensive Wall:** He uses his medical authority to refuse "unprofessional" hand inspections unless confronted with proof of a **Manual Purge**.
+- **The Authority Trap:** Because he is the only medical authority on the scene, he gets to "frame" the cause of death before anyone else looks at the body. The team are hunters, not pathologists — they take his diagnosis at face value.
 
 ## **4. The Field Manual (Master Evidence)**
 
@@ -49,66 +57,85 @@ Siren Cells include a safety valve that remains intact during "leaks" or "air-fi
 
 The manual override lever is protected by a 1.5-inch recessed guard. **Note:** Standard field gloves are too thick to enter the guard. The operator must remove their primary glove to flip the lever.
 
+### **Section 8.1: Spectral Trauma (Ghost-Touch)**
+
+Class-5 entities leave **jagged, branching frost patterns** on contact. The marks are irregular and never symmetrical. A precise circular wound is **not** consistent with any documented ghost-touch.
+
 ## **5. The Deduction Chain (Airtight Logic)**
 
 1. **The Observation:** Player notices Pemberton's violet-stained hand.
 2. **The First Wall:** Pemberton claims he touched a "spill" in Theo's messy gear bag.
 3. **The Audit:** Player checks Theo's bags. **Result:** All gear is clean. Pemberton is lying about the "spill."
-4. **The Discovery:** Player follows the "Thud" (Crane’s testimony) to the laundry chute and finds the **Missing Cell**.
-5. **The Smoking Gun:** Player checks the cell. The **Manual Lever** is flipped and the **Back-Pressure Valve** is popped.
-6. **The Checkmate:** Per Manual Section 5.3 & 5.4, the popped valve proves a point-blank kill, and the lever proves he had to take his glove off. The permanent stain on his bare hand is now a forensic signature, not a "work accident."
-
-—
-
-### The Setup
-
-- **The Assignment:** Mara orders I**ris Thorne** to Room 1222 and **Otis** to Room 1220. **Theo** is in the "Tech Suite" at 1218.
-- **The Distraction:** Otis triggers the pipe burst in Theo’s room (1218). Theo panics. Mara abandons her post to save the gear.
-
-### The Murder & The "Noise"
-
-- **9:10 PM:** Otis slips into 1221. He kills Vance and takes the Idol.
-- **The Signal:** To get everyone to the door and "reset" the scene, Otis triggers a **high-frequency feedback loop** on his own Proton Pack or a specialized device inside 1221. It sounds like a mechanical scream mixed with shattering glass—impossible to ignore.
-- **The Reaction:** * **Mara & Theo** bolt out of the flooded Room 1218 toward the noise.
-    - **Thorne** (The Normal One) steps out of 1222, looking toward the source (1221).
-
-### The Convergence (The "Late" Arrival)
-
-Mara, Theo, and Thorne all arrive at the door of 1221 at almost the same time. **Otis is missing for a heartbeat.**
-
-- **9:12 PM:** As they are about to kick in the door, Otis appears, coming from the far end of the hall (the direction of Thorne's room, 1222).
-- **His Excuse:** "I heard the resonance spike from the end of the corridor and moved to intercept a potential flank. It sounded like a Class 4 manifestation. Is the containment holding?"
-- **The Visual:** Everyone is so focused on the screaming noise coming from inside Vance's room that they don't question why Otis is coming from the "wrong" direction. They just see their teammate arriving to help.
+4. **The Wound Mismatch:** Vance’s wound is a precise 2-inch circle. Per Manual §8.1, ghost-touch is jagged and irregular. The wound matches the nozzle of a Siren Cell.
+5. **The Discovery:** Player follows the "Thud" (Julian Vane’s testimony) to the laundry chute and finds the **Missing Cell**.
+6. **The Smoking Gun:** Player checks the cell. The **Manual Lever** is flipped and the **Back-Pressure Valve** is popped.
+7. **The Checkmate:** Per Manual §5.3 & §5.4, the popped valve proves a point-blank kill, and the lever proves he had to take his glove off. The permanent stain on his bare hand is now a forensic signature, not a "work accident."
 
 ---
 
-### The Character Evidence
+## The Setup
+
+- **The Assignment:** The team arrives at Suite 1221 in response to the reported haunting. **Pemberton insists** on being first in — he’s the physician, and Vance may need immediate medical attention from the "spectral assault."
+- **The Cover:** Mara Bell (Lead) agrees. Standard protocol for a "live victim" call: medical first, then containment.
+
+## The Murder & The "Haunting"
+
+- **9:05 PM:** Pemberton enters 1221 alone and locks the door behind him. Vance is alive and confused.
+- **9:06 – 9:09 PM:** Pemberton stages the haunting from inside — slamming furniture, shouting warnings, simulating a Class-5 manifestation. To the team in the hall, it sounds like a violent containment operation.
+- **9:10 PM:** Pemberton kills Vance point-blank with the stolen Siren Cell. Takes the Anchor Idol.
+- **9:12 PM:** Pemberton drops the spent cell down the laundry chute via the back service door (**The Thud**).
+
+## The Convergence (The "Wrong Direction" Arrival)
+
+- **9:12 PM:** Pemberton slips out the back service door, walks the maintenance corridor, and emerges into the main hallway **from the far end** — the opposite end from Suite 1221’s entrance.
+- **9:13 PM:** He approaches the team from behind, breathing hard. **His Excuse:** "It broke through to the service hall. I tried to flank it — too late. Is anyone in the room?"
+- **9:14 PM:** Pemberton "leads" the team back into 1221. Performs a fake pulse check. Pushes everyone back: *"Stay back — PKE residue is lethal."* Declares: *"Full-Body Spectral Seizure. He was dead before he hit the floor. Class-5 Shadow Stalker — textbook."*
+- **The Visual:** The team is reeling from the noise they just heard. They don’t question why Pemberton came from the wrong direction or why his "medical assessment" took ten seconds. They see their teammate arriving to help, and they accept the diagnosis from the only doctor in the room.
+
+---
+
+## The Character Evidence
 
 ### 1. Mara Bell (The Lead)
 
-- **Her Statement:** "I was right there. I heard the crash in 1221, and the whole team converged. Pemberton arrived a second after us—he was likely just being cautious, checking the perimeter."
-- **The Lie:** She says she was "right there" (in the hall).
-- **The Break:** The Detective notices her boots are soaking wet. If she was in the hall, why is she dripping water? She has to admit she was in 1218. If she was in 1218, she couldn't have seen where Otis came from.
+- **Her Statement:** "Standard protocol. Medical in first. Pemberton was inside the suite the whole time — I could hear him fighting it."
+- **The Lie:** She implies she had eyes on the front door the entire time.
+- **The Break:** She was actually in Room 1218 (water main burst — a distraction Pemberton planted earlier). Her boots are soaking wet. If she was in the hall, why is she dripping water from a flood that only happened in 1218? Once she admits she abandoned her post, the "I heard him the whole time" alibi collapses.
 
 ### 2. Theo Griggs (The Tech)
 
-- **The "Nervous" Clue:** Theo noticed that when Otis arrived at the door, he wasn't out of breath, and more importantly, his PKE meter (which records ghost activity) was **turned off**.
-- **Theo's Hook:** "Otis says he was scanning... but I saw his screen. It was black. Why would you run toward a 'Class 4' noise with a dead scanner?"
+- **The "Nervous" Clue:** When Pemberton arrived from the far end of the hall, he wasn’t out of breath in the right way — and his PKE meter was **off**.
+- **Theo's Hook:** "Otis says he was chasing it through the service hall... but I saw his screen. It was black. Why would you chase a Class-5 with a dead scanner?"
+- **The Inventory:** A Siren-Grade Containment Cell is missing from his gear cart. Theo assumes it’s his own clerical error. Pemberton encourages this belief.
 
-### 3. Dr. Aris Thorne (The Anchor)
+### 3. Dr. Iris Thorne (The Anchor)
 
-- **The Critical Fact:** Thorne was in 1222. When he stepped out, he looked toward 1221. He **did not** see Otis pass him in the hallway.
-- **The Logic:** If Otis was in 1220 (his assigned room), he would have been *between* Mara and the Victim. If Otis arrived "late" from the other side, he must have teleported or—more likely—been inside 1221 the whole time.
+- **The Critical Fact:** Thorne was assigned to Suite 1222, next door. She was at her doorway during the "haunting," watching the hallway outside 1221.
+- **The Logic:** Pemberton "emerged from the far end of the hall" at 9:13 PM. But Thorne was watching that hallway the entire time. She **did not see him walk past 1222** — meaning he didn’t walk from any room down the hall. He must have come out of the service corridor entrance instead.
+- **The Leverage:** Her **field book** logs every second. The hallway was empty until Pemberton "appeared" at the service door.
+
+### 4. Julian Vane (The Rival / Red Herring)
+
+- **What He Saw:** Was lurking near 1221 to swap the real idol for a wax replica when Vance left for dinner. When the team arrived, he hid in a nearby alcove.
+- **The Two Critical Observations:** He saw Pemberton **slip out of the service door** behind 1221 at 9:12 PM. He heard the **metallic thud** down the chute moments later.
+- **Why He Won’t Talk:** Being placed outside Vance’s door with a fake idol and a vial of sedative looks like premeditated murder. The detective has to give him a reason to talk.
 
 ---
 
-### Summary of the "Gotcha"
+## Summary of the "Gotcha"
 
-The Detective realizes the "Late Arrival" was a calculated move.
+The Detective realizes the "Haunting" was theater and the "Late Arrival" was a calculated re-entry.
 
-1. Otis kills Vance.
-2. Otis starts the noise.
-3. Otis waits behind the door.
-4. As the team runs past 1221 toward the sound, Otis slips out behind them, walks five paces away, then turns around and "joins" the group from the back.
+1. Pemberton volunteers to go in first.
+2. He fakes the haunting from inside while the team listens.
+3. He kills Vance, takes the idol, drops the cell.
+4. He exits the back, circles around, and rejoins the team from the wrong end of the hall.
+5. He pronounces Vance dead — "ghost did it" — and the team believes their own doctor.
 
-**The Evidence:** **Dr. Thorne’s field book.** Thorne’s logs show he was looking at the hall from 1222. If Otis had walked from his room (1220) to the "back" of the group, Thorne would have seen him walk past. Since Thorne saw *nobody* until the group gathered, Otis had to have come from inside the room itself.
+**The Evidence Stack:**
+
+- **Dr. Thorne’s field book** proves Pemberton didn’t walk down the main hallway.
+- **Julian Vane’s testimony** (once broken) places Pemberton at the service door and identifies the chute thud.
+- **The missing Siren Cell**, recovered from the chute, has a popped back-pressure valve — proof of point-blank discharge.
+- **The wound on Vance** is circular, not jagged — inconsistent with any documented Class-5 ghost-touch.
+- **Pemberton’s violet-stained hand** matches the Purge Pigment signature of a Manual Purge — and his "Theo’s leaky bag" alibi fails the moment the player audits Theo’s gear.
