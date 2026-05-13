@@ -75,8 +75,11 @@ Class-5 entities leave **jagged, branching frost patterns** on contact. The mark
 
 ## The Setup
 
-- **The Assignment:** The team arrives at Suite 1221 in response to the reported haunting. **Pemberton insists** on being first in — he’s the physician, and Vance may need immediate medical attention from the "spectral assault."
+- **Why Tonight (The Shared Deadline):** Vance is **checking out of The Grandview tomorrow morning** with the Anchor Idol, headed back to his private vault. This is the last night the idol is in a semi-public space — a hotel suite, no private security, predictable layout. Both Pemberton and Julian Vane independently identified tonight as their one shot. They don't know about each other's plans.
+- **Why the Ghostbusters are Here:** Vance called them himself. He's been paranoid about the Anchor Idol's "occult properties" since the auction, and the Grandview's "haunted history" reputation primed him to hear ghosts in every creak. Pemberton didn't bait the call — he just had to be ready when his obsessed target made it.
+- **The Assignment:** The team arrives at Suite 1221. **Pemberton insists** on being first in — he’s the physician, and Vance may need immediate medical attention from the "spectral assault."
 - **The Cover:** Mara Bell (Lead) agrees. Standard protocol for a "live victim" call: medical first, then containment.
+- **The Distraction (Pre-Plant):** Earlier that evening, Pemberton sabotaged a pipe joint in the **maintenance corridor**, accessible from outside Room 1218 (the Grandview's standard Ghostbusters prep room). The joint fails under normal pressure during the operation window, flooding Theo's gear. Theo panics; Mara abandons her post to help save the equipment. **Critically: the sabotage is reachable by anyone with corridor access** — staff, long-term guests, master-keyholders. The detective initially suspects Julian Vane bribed his way to it.
 
 ## The Murder & The "Haunting"
 
@@ -100,7 +103,7 @@ Class-5 entities leave **jagged, branching frost patterns** on contact. The mark
 
 - **Her Statement:** "Standard protocol. Medical in first. Pemberton was inside the suite the whole time — I could hear him fighting it."
 - **The Lie:** She implies she had eyes on the front door the entire time.
-- **The Break:** She was actually in Room 1218 (water main burst — a distraction Pemberton planted earlier). Her boots are soaking wet. If she was in the hall, why is she dripping water from a flood that only happened in 1218? Once she admits she abandoned her post, the "I heard him the whole time" alibi collapses.
+- **The Break:** She was actually in Room 1218 (sabotaged pipe joint — flooded the tech-prep room during the operation). Her boots are soaking wet. If she was in the hall, why is she dripping water from a flood that only happened in 1218? Once she admits she abandoned her post, the "I heard him the whole time" alibi collapses. (Note: the sabotage was done from the maintenance corridor outside 1218, so the player can't trivially trace it to anyone — it stays ambiguous between Pemberton and Vane until the rest of the case lands.)
 
 ### 2. Theo Griggs (The Tech)
 

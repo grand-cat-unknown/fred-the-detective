@@ -13,9 +13,9 @@ Here is the expanded character roster for the Ghostbusters team.
 - **Personality:** Cold, precise, and condescending. He treats the other team members like blue-collar technicians and you like a nuisance. Views the murder not as a crime, but as a necessary "acquisition" of the Anchor Idol.
 - **Manner of Speech:** Clinical and formal. Uses medical Latin and complex jargon to confuse non-experts. Refers to the victim as "the biological variable." Never says "dead"; says "biological cessation."
 - **Actual Timeline:**
-    - **8:30 PM (earlier that evening):** Plants the "Water Hammer" rig in Room 1218 — a delayed pipe burst set to trigger during the operation, designed to draw Mara off her post.
+    - **Earlier that evening:** Sabotages a pipe joint in the **maintenance corridor outside Room 1218** (the Grandview's standard Ghostbusters prep room). The joint is loosened to fail under normal pressure during the operation window. Critically, the sabotage is done from the corridor — not from inside 1218 — so access isn't restricted to anyone with team-room privileges. Anyone with corridor access could have done it.
     - **9:04 PM:** Team arrives at Suite 1221. Pemberton volunteers to enter first as the team physician (protocol for a "live victim under spectral attack").
-    - **9:05 PM:** Enters 1221 and locks the front door behind him. Vance is alive. The 1218 pipe burst triggers; Mara abandons the hallway to help Theo.
+    - **9:05 PM:** Enters 1221 and locks the front door behind him. Vance is alive. The 1218 pipe joint fails; Mara abandons the hallway to help Theo.
     - **9:06 – 9:09 PM:** Stages the "haunting" from inside — slams furniture, shouts spectral warnings, simulates a Class-5 manifestation. The team in the hall hears what they believe is a real fight.
     - **9:10 PM:** Kills Vance point-blank with a stolen Siren Containment Cell (Manual Purge). Takes the Anchor Idol.
     - **9:12 PM:** Drops the spent cell down the laundry chute via the suite's back service door (**The Thud**).
@@ -88,7 +88,7 @@ Here is the expanded character roster for the Ghostbusters team.
     - Found in his suite with a **perfect wax replica** of the Anchor Idol.
     - Has a **vial of sedative** (chloroform) in his pocket.
     - Seen on the 12th floor by Leo Rossi (the bellhop) just minutes before the "haunting."
-- **His Actual Plan:** He wasn't there to kill Vance. He was planning a "swap" — lurking in the hallway waiting for Vance to leave for dinner to switch the real idol with the fake.
+- **His Actual Plan:** He wasn't there to kill Vance. He was planning a "swap" — lurking in the hallway waiting for Vance to leave for dinner to switch the real idol with the fake. **Why tonight?** Vance is checking out of The Grandview tomorrow morning with the idol — this is Vane's last chance before it disappears into Vance's private vault. (The same deadline drove Pemberton's plan, by pure coincidence, which is why both adversaries converged on the same night without knowing about each other.)
 - **The Player's Path:** The player finds the replica idol and thinks, "He killed Vance to swap them!" But the sedative doesn't match the "Cold Burn" on the body.
 
 ## 6. Leo Rossi (The Veteran Bellhop)

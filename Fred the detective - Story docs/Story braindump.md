@@ -41,7 +41,7 @@ Collector **Reginald Vance** is found dead in Suite 1221 after a reported haunti
 ### Private Timeline (What Really Happened)
 
 - **9:04 PM:** Team arrives outside Suite 1221. Pemberton volunteers to enter first as the team physician.
-- **9:05 PM:** Pemberton enters 1221 and locks the front door behind him. Vance is alive. The pre-planted pipe burst in 1218 triggers; Mara abandons her post to help Theo.
+- **9:05 PM:** Pemberton enters 1221 and locks the front door behind him. Vance is alive. The sabotaged pipe joint outside 1218 fails; the tech-prep room floods, and Mara abandons her post to help Theo save the gear.
 - **9:06 – 9:09 PM:** Pemberton stages the haunting from inside — slamming furniture, shouting warnings, faking a Class-5 manifestation. To the team it sounds like a violent containment fight.
 - **9:10 PM:** Pemberton kills Vance with a stolen Siren Cell (point-blank Manual Purge). Takes the Anchor Idol.
 - **9:12 PM:** Pemberton drops the spent cell down the laundry chute via the suite's back service door, then slips out through it (leaving it slightly ajar).
@@ -151,7 +151,9 @@ The detective eventually finds the **Siren Cell** jammed in the laundry chute (o
 Why does a respected doctor steal an idol?
 
 - **The "Scholar's Greed":** Pemberton doesn't want money. He believes the Idol is an **"Anchor"**—a device that can bridge the gap between the living and the dead. He believes he can use it to talk to his deceased wife/colleague.
-- **The Deception:** He orchestrated the "haunting" at the hotel by planting a small "Spectral Lure" in Vance's room earlier that day, ensuring the Ghostbusters would be called so he could commit the crime under the cover of a "professional investigation."
+- **Why Tonight (Shared Deadline):** Vance is checking out of The Grandview tomorrow morning with the idol, headed back to his private vault. Tonight is the last night the idol sits in a semi-public space. Both Pemberton and Julian Vane independently identified it as their one shot — neither knows about the other's plan.
+- **Why the Ghostbusters Are Called:** Vance phoned them himself. He's been paranoid about the idol's "occult properties" since the auction, and the Grandview's "haunted history" reputation primed him to hear ghosts in every creak. Pemberton didn't bait the call; he just waited for his obsessed target to make it.
+- **The Distraction (Pre-Plant):** Pemberton sabotaged a pipe joint in the **maintenance corridor outside 1218** earlier in the evening — accessible without entering the room, accessible to anyone with corridor access (staff, long-term guests, master-keyholders). The detective initially suspects Julian Vane bribed his way to it.
 
 ---
 
