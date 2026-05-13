@@ -6,7 +6,7 @@
 
 Collector **Reginald Vance** is found dead in Suite 1221 during a scheduled Ghostbusters **containment watch** over his newly-acquired Anchor Idol — the most spectrally-active piece from a recent occult auction, rated for its capacity to attract other entities. The idol is missing.
 
-**Dr. Otis Pemberton** (Ghostbusters physician and occult scholar) volunteered to be the team's "first in" for medical and security, locked the suite's front door behind him, and staged a violent fake haunting from inside while the rest of the team waited in the hallway. During the theatrics he killed Vance, took the idol, slipped out a back service door, circled through the maintenance corridor, and rejoined the team from the wrong end of the hall — then pronounced Vance dead from a "spectral seizure."
+**Dr. Otis Pemberton** (a Ghostbuster whose specialties are medical and occult-scholarly work) volunteered to be the team's "first in" once the body was found, leveraging his medical/occult expertise. He'd already staged a fake haunting from inside the suite while the rest of the team waited at their stations. During the theatrics he killed Vance, took the idol, slipped out a back service door, circled through the maintenance corridor, and rejoined the team from the wrong end of the hall — then pronounced Vance dead from a "spectral seizure."
 
 ---
 
@@ -22,7 +22,7 @@ Collector **Reginald Vance** is found dead in Suite 1221 during a scheduled Ghos
 
 ### Killer: Dr. Otis Pemberton
 
-- **Role:** Ghostbusters physician + occult scholar
+- **Role:** Ghostbuster — team specialist in medical and occult scholarship
 - **Motive:** Believes the “Anchor Idol” is too valuable to remain in a private collection; wants it for personal research
 - **Plan:** Take the maintenance-corridor watch station as cover. Slip into 1221 through a disguised back service door (the "pantry" — a maintenance access panel Vance and the rest of the team don't know about). Kill Vance during his locked 9 PM meditation. Stage a fake "manifestation" loud enough for the team to converge on the front door. Drop the cell down the chute. Slip back out the same panel, walk the corridor, and emerge into the main hall from the far end. Rejoin the team at the front door of 1221 (locked from the inside; the team forces it open), and declare Vance the victim of a Class-5 spectral seizure.
 
@@ -38,22 +38,25 @@ Collector **Reginald Vance** is found dead in Suite 1221 during a scheduled Ghos
 
 ## Timelines
 
+**Canonical timeline lives in `Story (Clean).md` § "Master Timeline & Witness Log".** This summary is for quick reference — if it drifts from the master, the master wins.
+
 ### Private Timeline (What Really Happened)
 
-- **9:00 PM:** Watch begins. Stations: Mara (main hallway), Theo (1218 tech-prep), Thorne (1222 secondary observation post), Pemberton (maintenance-corridor PKE sweep — roaming). Vance locks 1221 from inside and begins meditation.
-- **9:05 PM:** Sabotaged pipe joint outside 1218 fails. Tech-prep floods. Mara abandons the hallway to help Theo save the gear.
-- **9:06 PM:** Pemberton slips into 1221 via the disguised back service door (the "pantry"). Vance is mid-meditation, eyes closed.
-- **9:07 – 9:09 PM:** Pemberton kills Vance with a stolen Siren Cell, takes the Anchor Idol, then stages the haunting — slamming, simulating a Class-5 manifestation — loud enough for Mara (returning to the hall) and Thorne (stepping out of 1222) to converge on 1221's front door.
-- **9:10 PM:** Pemberton drops the spent cell down the laundry chute via the back service door (leaving it slightly ajar), then slips out the same way he came in.
-- **9:11 – 9:12 PM:** Walks the maintenance corridor toward the far-end exit.
+- **9:00 PM:** Watch begins. Stations: Mara (main hallway), Theo (1218 tech-prep), Iris (1222 secondary observation post), Pemberton (maintenance-corridor PKE sweep — roaming, with named checkpoints including the 12th-floor Housekeeping Room). Vance locks 1221 from inside. Mags is already inside the Housekeeping Room with the door shut.
+- **9:05 PM:** Sabotaged pipe joint outside 1218 fails. Tech-prep floods. Mara abandons the hallway to help Theo.
+- **9:06 PM:** Pemberton slips into 1221 via the disguised back service door (the "pantry"). Vance mid-meditation, eyes closed.
+- **9:07 – 9:10 PM:** Kills Vance with a stolen Siren Cell, takes the Anchor Idol, stages the haunting — slamming, simulating a Class-5 manifestation. Noises carry into the hallway and through 1222's shared wall.
+- **9:10 PM:** Drops the spent cell down the laundry chute via the back service door — it falls to the basement laundry bin. Noises stop abruptly. Iris hears the thud through the wall.
+- **9:11 PM:** Iris steps into the main hallway. Mara returns from 1218. They converge at 1221's front door without Pemberton.
+- **9:11 – 9:12 PM:** Pemberton walks the maintenance corridor to the far-end exit (bypassing the Housekeeping Room).
 - **9:13 PM:** Emerges into the main hallway from the far end, breathing hard.
 - **9:14 PM:** Team forces the locked front door of 1221. Pemberton declares a Full-Body Spectral Seizure.
 
-### Public Timeline (Pemberton’s Alibi)
+### Public Timeline (Pemberton's Alibi)
 
-- **9:00 – 9:07 PM:** Claims he was running structural PKE sweeps along the corridor perimeter.
-- **9:07 – 9:11 PM:** Claims he detected the manifestation spike in 1221 and moved to flank it through the maintenance access at the far end of the corridor system.
-- **9:13 PM:** Claims he intercepted the entity at the far end but it phased out before he could contain it — too late for Vance.
+- **9:00 – 9:07 PM:** Claims he was running structural PKE sweeps along the 12th-floor service area — including a checkpoint of the Housekeeping Room.
+- **9:07 – 9:11 PM:** Claims he detected the manifestation spike in 1221 and moved to flank it through the maintenance access toward the far-end exit.
+- **9:13 PM:** Claims he got to the front too late — the entity had already phased out.
 
 ---
 
@@ -62,7 +65,7 @@ Collector **Reginald Vance** is found dead in Suite 1221 during a scheduled Ghos
 1. **Suite 1221 front door:** Locked by Vance from the inside at the start of his meditation and not opened until 9:14 PM, when the team forced it. Nobody used the front door during the murder window — meaning the killer entered another way.
 2. **Ajar back service panel:** The "pantry cabinet" in 1221 is actually a disguised maintenance-corridor access panel. It was left slightly open — Pemberton's entry and exit route. Vance didn't know it was a door; the rest of the team didn't either.
 3. **Maintenance corridor scuffs:** Fresh scuff marks in the unlit service hall match Pemberton's boots and run from the back service panel of 1221 to the far-end corridor exit.
-4. **Spent Siren Cell:** Found jammed in the laundry chute. Back-pressure valve popped (point-blank discharge). Manual lever flipped.
+4. **Spent Siren Cell:** Found in the **basement laundry bin** after going down the chute. Back-pressure valve popped (point-blank discharge). Manual lever flipped.
 5. **Pemberton's gloves:** Dark violet "purge residue" on the **inside** of the fingers, proving he manually emptied the cell at point-blank range. Discarded in a service-hall trash can.
 
 ---
@@ -76,17 +79,17 @@ Collector **Reginald Vance** is found dead in Suite 1221 during a scheduled Ghos
 | Theo Griggs | Witness / Tech | Noticed a charged Siren Cell was missing from the gear cart — and the gear log shows Pemberton signed it out during prep. |
 | Mara Bell | Witness / Lead | Claims she held the main hallway and timestamps the manifestation noises starting at 9:07 — but was actually in 1218 dealing with the flood from 9:05 to ~9:11. |
 | Dr. Iris Thorne | Witness / Anchor (Truth-teller) | Manning the secondary observation post in 1222, listening at 1221's shared wall. Her field book logs the manifestation noises (~9:07), a heavy thud in the walls (~9:10 — the cell down the chute), and Pemberton arriving from the far end of the corridor at 9:13. |
-| Dottie "Mags" Higgins | Witness / Maid (Negative Witness) | Hiding in the maintenance corridor the entire window — smoke break + waiting on Vane's bribe handoff. Heard the chute thud around 9:10. **Never saw Pemberton walk that corridor.** That contradicts his "structural sweep / flanking the entity" alibi. Won't admit she was there (smoking + bribery). |
+| Dottie "Mags" Higgins | Witness / Maid (Negative Witness) | Shut inside the **12th-floor Housekeeping Room** (a known checkpoint on Pemberton's sweep route) from before 9 until past 9:15. Smoke break + waiting on Vane's handoff. Heard a far-off thud through the walls around 9:10. **The door never opened.** Pemberton never came through, contradicting his "structural sweep / flanking the entity" alibi. Won't admit she was there (smoking + bribery). |
 
 ---
 
 ## Core Contradictions for Accusation
 
-- **The empty corridor:** Mags was crouched in the maintenance corridor from before 9:00 to past 9:15 (smoke break + waiting on Vane's handoff). She never saw Pemberton walk that corridor. His "structural PKE sweep" and "flanked the entity through the maintenance access" alibi puts him in a hallway that another witness can confirm was empty.
+- **The unopened door:** Mags was shut inside the **12th-floor Housekeeping Room** — a named checkpoint on Pemberton's sweep route — from before 9:00 to past 9:15. The door never opened. His "structural PKE sweep" and "flanked the entity through the maintenance access" alibi puts him at a checkpoint a witness can confirm he never entered.
 - **The secret route:** The ajar back service panel of 1221 — a disguised maintenance access Vance and the team didn't know about — is how Pemberton entered, killed, exited, and re-entered the main hallway from the far end.
 - **The weapon:** The popped back-pressure valve on the recovered Siren Cell, the circular wound on Vance, and the violet stain inside Pemberton's discarded gloves all indicate a human used a Ghostbusters weapon at point-blank range — not a ghost.
 
-Pemberton is the **only medical authority** on the scene — his greatest weapon. It allows him to "frame" the cause of death before anyone else can even look at the body.
+Pemberton is the team's medical and occult specialist — the obvious person to step in over the body. The rest of the team defers to that expertise, which lets him "frame" the cause of death before anyone else even looks at it.
 
 ---
 
@@ -132,7 +135,7 @@ A prestigious collector who lost the Anchor Idol to Vance by a single bid. He wa
 
 ### 4. The "Smoking Gun" (The Empty Vessel)
 
-The detective eventually finds the **Siren Cell** jammed in the laundry chute (or in the basement bin).
+The detective eventually finds the **Siren Cell** in the **basement laundry bin** (where the chute deposits everything).
 
 1. **The Weight:** A full Siren Cell weighs 15 lbs because of the "Neutralizing Sludge."
 2. **The State:** This one is **empty and hissed out**. Back-pressure valve popped, manual lever flipped — the signature of a point-blank Manual Purge.
@@ -157,8 +160,8 @@ Why does a respected doctor steal an idol?
 
 The player has to confront Pemberton not with "I think you did it," but with **The Logistical Impossibility**:
 
-1. "You said you were sweeping the maintenance corridor and then flanked the entity through it. The maid was hiding in that corridor the whole time. She never saw you. The corridor was empty."
-2. "You said it was a Shadow Stalker, but the wound matches the Siren Cell nozzle exactly. A charged cell went missing from the gear cart tonight — and the gear log shows *you* signed it out during prep. Dr. Thorne logged the thud of it going down the chute at 9:10 PM. We pulled it out of the basement bin."
+1. "You said your sweep checkpoint covered the 12th-floor Housekeeping Room. The maid was shut inside that room the entire window. The door never opened. You never set foot in it."
+2. "You said it was a Shadow Stalker, but the wound matches the Siren Cell nozzle exactly — and a real Class-5 sprays ectoplasm omnidirectionally, not in a fan on a single wall. A charged cell went missing from the gear cart tonight; the gear log shows *you* signed it out during prep. Dr. Thorne logged the thud of it going down the chute at 9:10 PM. We pulled it out of the basement bin."
 3. "And most importantly… the field manual says a point-blank Manual Purge stains the user's hands violet for 48–72 hours. Show me your hands, Doctor."
 
 ---
@@ -173,13 +176,14 @@ When the player asks Theo Griggs for the book, he hands over a dense, slightly g
 
 To keep it from being a "wall of text" that the player ignores, divide it into clear sections. The player has to find the **one specific rule** that breaks Pemberton’s story.
 
-**Key Entry: Section 4.2 - The Siren-Class Containment Cell**
+Canonical section list lives in `Story (Clean).md` §4 ("The Field Manual"). Key entries for this case:
 
-> *Safety Warning: Siren Cells utilize a pressurized ionized sludge (Violet-Grade). Due to the high-pressure nature of a Manual Purge, the 'Aerosol Effect' often causes sludge to permeate standard-issue ghost-capture gloves. This results in **'Purge Pigment'**: a deep violet staining of the skin, particularly around the cuticles and palms, which is resistant to standard soaps and typically lasts 48–72 hours.*
-
-**Key Entry: Section 8.1 - Spectral Trauma (Ghost-Touch)**
-
-> *Class-5 entities typically leave 'Jagged Frost' patterns upon physical contact with a human subject. The marks are irregular, branching, and never symmetrical.*
+- **§4.2 — Siren-Class Containment Cells.** Pressurized ionized sludge (Violet-Grade); a Manual Purge dumps the full charge at point-blank.
+- **§5.3 — Surface Residue vs. Purge Pigment.** Manual Purge forces sludge **through** standard gloves into the operator's skin — **"Purge Pigment,"** persistent 48–72 hours.
+- **§5.4 — Back-Pressure Valve.** Pops only if the nozzle is obstructed by a solid object during discharge. A popped valve = point-blank kill.
+- **§7.2 — Safety Guard Clearance.** The manual override lever's recessed guard is too narrow for field gloves; the operator must remove their primary glove to flip it.
+- **§8.1 — Spectral Trauma (Ghost-Touch).** Class-5 entities leave jagged, branching frost patterns. A precise circular wound is not consistent with any documented ghost-touch.
+- **§8.2 — Spectral Discharge & Ectoplasm Spread.** A real Class-5 manifestation sprays ectoplasm **omnidirectionally** — uniform 360° coating. A directional fan on a single wall indicates a point-source nozzle, not a ghost.
 
 ### 2. The Investigation Loop
 
@@ -240,7 +244,7 @@ To make it a real game, Pemberton needs **Plausible Deniability**. "Just knowing
 
 If the player demands to see Pemberton’s hands early, he shouldn't just say "No." He should give a reason that makes the player doubt themselves.
 
-- **Pemberton’s Alibi for the Stain:** "Of course my hands have trace amounts of residue, Detective. I’m the team physician. I spent the last hour recalibrating the medical scanners and handling the gear. If you’re going to arrest every Ghostbuster with a bit of smudge on their cuticles, we’d all be in handcuffs."
+- **Pemberton's Alibi for the Stain:** "Of course my hands have trace amounts of residue, Detective. Every Ghostbuster has a specialty — mine's medical and occult — so I'm the one prepping the calibrated cells before a high-risk watch. If you're going to arrest every Ghostbuster with a bit of smudge on their cuticles, we'd all be in handcuffs."
 
 **The Result:** The player knows he’s stained, but Pemberton has a "work-related" excuse. The stain is no longer a "Smoking Gun"—it's just "circumstantial evidence."
 
@@ -250,16 +254,13 @@ If the player demands to see Pemberton’s hands early, he shouldn't just say "N
 
 To turn "I think it's you" into "I *know* it's you," the player needs to find the **Physical Cell** to disprove his excuse.
 
-In the **Field Book**, we add a tiny, crucial detail about the **Safety Valve**:
-
-> **Section 5.4: The Back-Pressure Valve***"The Siren Cell is equipped with a 'Dry-Fire' safety. If the cell is fired into open air (at a ghost), the pressure is released normally. However, if the nozzle is **obstructed** (pressed against a solid object), the internal 'Back-Pressure Valve' will pop. This is the **only** circumstance that causes a high-volume stain on the operator."*
-> 
+Per Manual §5.4, the Back-Pressure Valve only pops if the nozzle is obstructed by a solid object at discharge. The Manual Lever (§7.2) being flipped means the operator removed a glove to override the safety guard.
 
 **The "Gotcha" Logic:**
 
-1. **The Manual says:** You only get a heavy stain if you fire the cell against something solid (like a chest).
-2. **The Discovery:** The player finds the cell in the laundry chute and sees the **Back-Pressure Valve has popped**.
-3. **The Proof:** Now, Pemberton can't say "it leaked while I was cleaning it." The popped valve proves it was fired **against a victim**.
+1. **The Manual says:** The valve only pops if the cell was fired against something solid.
+2. **The Discovery:** The player recovers the cell from the basement laundry bin and sees the **Back-Pressure Valve has popped** and the **Manual Lever is flipped**.
+3. **The Proof:** Pemberton can't say "it leaked while I was cleaning it." The popped valve proves it was fired against a victim; the flipped lever proves a human hand pulled the override.
 
 ---
 

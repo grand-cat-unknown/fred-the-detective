@@ -17,9 +17,9 @@ Here is the expanded character roster for the Ghostbusters team.
     - **9:00 PM:** Watch begins. Pemberton's assigned station: **maintenance-corridor PKE sweep** (a roaming "structural perimeter" assignment). This is his cover for being unseen during the murder window.
     - **9:05 PM:** The sabotaged pipe joint fails. Mara abandons the main hallway to help Theo in 1218.
     - **9:06 PM:** Pemberton slips into 1221 via the **back service door** — a disguised maintenance-corridor access panel ("the pantry"). Vance doesn't know it exists; neither does the rest of the team. Only Pemberton knows, because he scouted the suite under his occult-scholar cover. Vance is mid-meditation, eyes closed, unprepared.
-    - **9:07 – 9:09 PM:** Kills Vance point-blank with a stolen Siren Containment Cell (Manual Purge). Takes the Anchor Idol. Then stages the "haunting" — slams furniture, simulates a Class-5 manifestation — loud enough for Mara (now returning to the hall) and Thorne (stepping out of 1222) to converge on the front door.
-    - **9:10 PM:** Drops the spent cell down the laundry chute via the back service door (**The Thud**). Slips back out the same way he came in.
-    - **9:11 – 9:12 PM:** Walks the maintenance corridor toward the far-end exit.
+    - **9:07 – 9:10 PM:** Kills Vance point-blank with a stolen Siren Containment Cell (Manual Purge). Takes the Anchor Idol. Stages the "haunting" — slams furniture, simulates a Class-5 manifestation — loud enough to be heard from the hall and through 1222's shared wall.
+    - **9:10 PM:** Drops the spent cell down the laundry chute (it falls to the basement bin) via the back service door. Noises stop abruptly. Slips back out the same way he came in.
+    - **9:11 – 9:12 PM:** Walks the maintenance corridor toward the far-end exit, bypassing the Housekeeping Room (Mags is inside, door shut). Mara (returning from 1218) and Iris (stepping out of 1222) converge at 1221's front door — without him.
     - **9:13 PM:** Emerges into the main hallway from the **far end**, breathing hard, claiming he heard the manifestation during his corridor sweep and ran to flank it.
     - **9:14 PM:** Team forces the locked front door of 1221. Pemberton steps in, performs a theatrical pulse check, declares: "Full-Body Spectral Seizure, Class-5 Shadow Stalker. The idol attracted exactly what we were here to contain."
 - **What He Said:** "I was on structural sweep at the far end of the corridor. The PKE spike hit hard — I tried to flank the entity through the maintenance access. By the time I got around to the front, Vance was already gone. Full-body spectral seizure. Textbook Class-5."
@@ -40,7 +40,7 @@ Here is the expanded character roster for the Ghostbusters team.
 - **What She Said:** "Standard watch protocol. I held the main hallway. Manifestation noises started around 9:07 — clear Class-5 signature. Pemberton was on his corridor sweep and ran to flank from the far end."
 - **The Lie:** She claims she had continuous visual on the hallway and can vouch for the timing of the manifestation noises. She wasn't there from 9:05 to 9:11. She doesn't actually know when the noises started — only when she rejoined the hall and heard them.
 - **Motive for Concealing:** If she admits she left the hall to save equipment, she's legally liable for Vance's death. She's lying to prove she was "on duty" — and accidentally giving Otis the timing alibi he needs.
-- **The Detective's Hook:** **Physical Evidence.** Her boots and the hem of her trousers are soaking wet. There is no water in the hallway — only in Room 1218. Once you prove she was missing, the entire "manifestation noises started at 9:07" timing collapses.
+- **The Detective's Hook:** **Physical Evidence.** Her boots and the hem of her trousers are soaking wet. There is no water in the hallway — only in Room 1218. Once you prove she abandoned her post, she can no longer corroborate Pemberton's window — and her "I had the hall the whole time" testimony, which was the cleanest cover his alibi had, is gone. (Iris's field book is the actual record of when the noises started; Mara was just confirming it.)
 
 ---
 
@@ -117,26 +117,27 @@ Here is the expanded character roster for the Ghostbusters team.
 - **Manner of Speech:** Mumbled, low-volume, uses "work-talk" (e.g., "The linens in 1219 were fresh").
 - **Actual Timeline:**
     - **Earlier in the day:** Took a bribe from Julian Vane in exchange for a master key to Suite 1221. She rationalized it as harmless — "the gentleman just wants to look at the idol."
-    - **9:00 – 9:15 PM:** Hiding in the **maintenance corridor** behind the 12th-floor suites. Officially on a forbidden smoke break; in reality also waiting for the moment Vane needed cover from staff. The corridor is quiet, hidden, and a known refuge for staff who want to disappear.
+    - **9:00 – 9:15 PM:** Inside the **12th-floor Housekeeping Room** with the door shut. Officially on a forbidden smoke break; also waiting for the moment Vane needed cover from staff. The Housekeeping Room is the standard staff hideout on this floor — and it's a named checkpoint on Pemberton's "structural perimeter sweep."
 - **What She Said:** "I was in the basement laundry room, minding my own business."
-- **The Lie:** She claims she was in the basement. She was actually crouched in the maintenance corridor on the 12th floor — the same corridor Pemberton claims he was sweeping.
+- **The Lie:** She claims she was in the basement. She was actually shut inside the **exact room Pemberton's alibi says he checked on his sweep**.
 - **Motive for Concealing:** **Doubly compromised.** Smoking on duty is an instant firing offense. Taking a bribe to hand a guest's master key to another guest is a *criminal* offense — accessory to whatever Vane was planning to do.
-- **What She Actually Saw (once broken):** "Nothing. That's the thing. I was in that corridor the whole time, from before 9 until past 9:15. Pemberton says he was sweeping it. He wasn't. Nobody walked that corridor during the noise. It was dead quiet — until I heard the thud down the chute around 9:10. After that, still nothing. He never came through."
-- **The Detective's Hook:** Mags is the **negative witness** — her presence in the corridor means Pemberton's "structural sweep" and "flanking the entity through the maintenance access" alibi is a lie. He wasn't in the corridor; he was inside 1221.
+- **What She Actually Saw (once broken):** "Nothing. That's the thing. I was inside the Housekeeping Room the whole time — from before 9 until past 9:15. Pemberton says he checked that room on his sweep. The door never opened. Nobody came in. I'd have heard them. I'd have *seen* them. He never came through."
+- **The Detective's Hook:** Mags is the **negative witness** — she was physically *inside* a room Pemberton's alibi says he checked. The door stayed shut. His "structural sweep / flanked the entity through the maintenance access" story is a fabrication.
 
-## Refined Interaction: The Maintenance Corridor (The "Smoky" Hall)
+## Refined Interaction: The 12th-Floor Housekeeping Room
 
 This is the most critical location for the player to investigate to break Pemberton.
 
-- **The Corridor State:** Mags was crouched in an alcove near the laundry chute, smoking a "Lady Finger" (a very slim, distinct cigarette). The corridor is dim, the air is hazy, and there's a warm butt by the chute.
-- **Posted Notice (above the chute):** *"HOUSEKEEPING — LINEN CHUTE EMPTIED AT 10:00 AM DAILY. PLEASE DEPOSIT ALL LAUNDRY THE NIGHT BEFORE. — Grandview Management."* This is Pemberton's bet: anything dropped in the chute tonight sits in the basement bin until morning, by which point he expects the "spectral seizure" diagnosis to have closed the case.
-- **The Discovery:** The player follows the "thud" lead into the maintenance corridor. They find the still-warm cigarette butt and faint smoke residue — proof that the corridor was occupied during the murder window, contradicting Pemberton's "I chased a Class-5 entity through here" story.
+- **What It Is:** A small service room off the maintenance corridor — linens, supplies, a chair, a single closed door. The known staff hideout on this floor. Pemberton's "structural perimeter sweep" assignment lists it as a checkpoint.
+- **Where Mags Was:** Sitting inside with the door shut, smoking a "Lady Finger" (a very slim, distinct cigarette). The room is dim, the air is hazy with smoke, and there's a warm butt in the ashtray.
+- **The Posted Notice (above the laundry chute, in the corridor outside):** *"HOUSEKEEPING — LINEN CHUTE EMPTIED AT 10:00 AM DAILY. PLEASE DEPOSIT ALL LAUNDRY THE NIGHT BEFORE. — Grandview Management."* This is Pemberton's bet: anything dropped in the chute tonight sits in the basement bin until morning, by which point he expects the "spectral seizure" diagnosis to have closed the case.
+- **The Discovery:** The player traces Mags to the Housekeeping Room and finds the smoke haze and warm cigarette butt — proof someone was inside the entire window. Pemberton's sweep route says he checked this room. The door didn't open.
 - **The Trap for Pemberton:**
 
-    > **Detective:** "Doctor, you said you chased a Class-5 entity through the maintenance corridor. Loud, manifest, leaving readings. Yes?"
+    > **Detective:** "Doctor, you said your sweep covered the 12th-floor service area, including the Housekeeping Room. Yes?"
     >
-    > **Pemberton:** "Correct. I had it on partial containment all the way to the far-end exit."
+    > **Pemberton:** "Standard checkpoint. Opened the door, cleared it, moved on."
     >
-    > **Detective:** "Strange. I found a maid in there, having a smoke break. From before nine until after the team forced the door. She didn't see a ghost. She didn't see *you* either. The corridor you say you swept and flanked through was empty the entire time."
+    > **Detective:** "There was a maid inside that room from before nine until after the team forced 1221. Door shut, smoking. She'd have heard the door open. She'd have seen you. She didn't. The room you say you cleared on your sweep was never entered."
     >
-    > **Pemberton:** (Pauses) "I... my sweep pattern took me to the far-end seams. The maid wouldn't have line-of-sight from a smoking alcove. Eyewitness testimony from staff in a state of statutory infraction is hardly... reliable."
+    > **Pemberton:** (Pauses) "Eyewitness testimony from staff in a state of statutory infraction is hardly... reliable."
