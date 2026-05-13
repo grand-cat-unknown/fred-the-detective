@@ -24,7 +24,7 @@ Collector **Reginald Vance** is found dead in Suite 1221 after a reported haunti
 
 - **Role:** Ghostbusters physician + occult scholar
 - **Motive:** Believes the “Anchor Idol” is too valuable to remain in a private collection; wants it for personal research
-- **Plan:** Use a “Split Sweep” to create an alibi, enter via a hidden route, kill Vance, take the idol, then blame the “haunting”
+- **Plan:** Volunteer as "first in" for medical/security, stage a fake haunting from inside the suite, kill Vance, dump the cell, slip out the back service door, circle around through the maintenance corridor, and rejoin the team from the wrong end of the hall — then declare Vance the victim of a Class-5 spectral seizure.
 
 ---
 
@@ -40,27 +40,29 @@ Collector **Reginald Vance** is found dead in Suite 1221 after a reported haunti
 
 ### Private Timeline (What Really Happened)
 
-- **9:04 PM:** Team arrives. Mara Bell orders a “perimeter sweep.”
-- **9:05 PM:** Pemberton is assigned to Room 1220 (right side of the hall). Instead, he enters the **Maintenance Corridor** via a service exit.
-- **9:08 PM:** Pemberton enters Suite 1221 through the **Hidden Pantry Door**.
-- **9:10 PM:** Pemberton kills Vance with a stolen Ghost Cell and takes the idol.
-- **9:12 PM:** Pemberton exits through the pantry (leaving it slightly ajar), runs to the laundry chute, and drops the cell inside.
-- **9:13 PM:** Pemberton re-emerges from the service corridor (left side) and rejoins the team just as they breach the suite’s front door.
+- **9:04 PM:** Team arrives outside Suite 1221. Pemberton volunteers to enter first as the team physician.
+- **9:05 PM:** Pemberton enters 1221 and locks the front door behind him. Vance is alive. The pre-planted pipe burst in 1218 triggers; Mara abandons her post to help Theo.
+- **9:06 – 9:09 PM:** Pemberton stages the haunting from inside — slamming furniture, shouting warnings, faking a Class-5 manifestation. To the team it sounds like a violent containment fight.
+- **9:10 PM:** Pemberton kills Vance with a stolen Siren Cell (point-blank Manual Purge). Takes the Anchor Idol.
+- **9:12 PM:** Pemberton drops the spent cell down the laundry chute via the suite's back service door, then slips out through it (leaving it slightly ajar).
+- **9:13 PM:** Walks the maintenance corridor and emerges into the main hallway from the far end.
+- **9:14 PM:** Rejoins the team, "leads" them back into 1221, and declares Vance the victim of a Full-Body Spectral Seizure.
 
 ### Public Timeline (Pemberton’s Alibi)
 
-- **9:05 PM – 9:12 PM:** Claims he was in Room 1220 performing a technical sweep.
-- **9:13 PM:** Claims he heard the “final scream” and ran from Room 1220 to the suite door.
+- **9:05 – 9:11 PM:** Claims he was engaging the entity inside 1221.
+- **9:11 – 9:13 PM:** Claims the entity broke through the suite's perimeter into the maintenance corridor and he gave chase.
+- **9:13 PM:** Claims he flanked it from the far-end service door, but it escaped — too late for Vance.
 
 ---
 
 ## Key Physical Evidence
 
-1. **Room 1220 door log:** Electronic lock record shows the room was **never opened** between 9:00 PM and 9:15 PM (contradicts his alibi).
-2. **Ajar pantry door:** In Suite 1221, the pantry cabinet is actually a disguised service door and is left slightly open.
-3. **Maintenance corridor scuffs:** Fresh scuff marks in the unlit service hall match Pemberton’s boots.
-4. **Spent Ghost Cell:** Found jammed in the laundry chute. Contains the stolen idol and matches the residue pattern on the wall.
-5. **Pemberton’s gloves:** Dark violet “purge residue” on the **inside** of the fingers, proving he manually emptied the Ghost Cell.
+1. **Suite 1221 front door log:** Electronic lock record shows the door was locked from the inside at 9:05 PM and not opened again until 9:14 PM, when Pemberton re-entered with the team. Nobody else came or went through the front. Whatever happened to Vance happened with only Pemberton in the room.
+2. **Ajar back service door:** The "pantry cabinet" in 1221 is actually a disguised service door to the maintenance corridor. It was left slightly open — Pemberton's exit route.
+3. **Maintenance corridor scuffs:** Fresh scuff marks in the unlit service hall match Pemberton’s boots and run from 1221's back door to the far-end exit.
+4. **Spent Siren Cell:** Found jammed in the laundry chute. Back-pressure valve popped (point-blank discharge). Manual lever flipped. Nozzle has fibers from Vance's silk shirt.
+5. **Pemberton’s gloves:** Dark violet “purge residue” on the **inside** of the fingers, proving he manually emptied the cell at point-blank range. Discarded in a service-hall trash can.
 
 ---
 
@@ -68,19 +70,21 @@ Collector **Reginald Vance** is found dead in Suite 1221 after a reported haunti
 
 | Suspect | Role | The “Blindspot” (Testimony) |
 | --- | --- | --- |
-| Dr. Otis Pemberton | Killer | Claims he was “pushed out of the suite” or “working next door.” |
-| Julian Vane | Witness / Rival (Red Herring) | Saw Pemberton arrive from the Service Hall (Left), not Room 1220 (Right). Also heard a heavy “metallic thud” in the wall (the chute) at 9:12 PM. Won’t admit he was there — he was waiting to swap the real idol with a wax replica. |
-| Theo Griggs | Witness / Tech | Noticed a charged cell was missing from the gear cart. |
-| Mara Bell | Witness / Lead | Confirms Pemberton was assigned to Room 1220. |
+| Dr. Otis Pemberton | Killer | Claims the entity broke through into the maintenance corridor and he chased it from the far end. |
+| Julian Vane | Witness / Rival (Red Herring) | Saw Pemberton slip calmly out of the back service door of 1221 at 9:12 PM. Heard the metallic “thud” down the chute. Won't admit he was there — he was waiting to swap the real idol for a wax replica. |
+| Theo Griggs | Witness / Tech | Noticed a charged Siren Cell was missing from the gear cart — and the gear log shows Pemberton signed it out during prep. |
+| Mara Bell | Witness / Lead | Claims she had eyes on 1221's front door the whole time — but was actually in 1218 dealing with the flood. |
+| Dr. Iris Thorne | Witness / Anchor (Truth-teller) | Her field book proves the hallway between 1222 and 1221 was empty the entire time, and the containment noises stopped two minutes before Pemberton "re-appeared." |
+| Dottie "Mags" Higgins | Witness / Maid | Hiding in the maintenance corridor on a smoke break. Saw Pemberton walk past calmly, alone, and drop something down the chute. Won't admit she was there. |
 
 ---
 
 ## Core Contradictions for Accusation
 
-- **Log vs. alibi:** Pemberton claims he checked Room 1220; the digital log proves he didn’t.
-- **Left vs. right:** Julian Vane’s directional testimony contradicts his stated route/location during the murder window.
-- **The secret route:** The ajar pantry door explains how he entered a “locked” room without being seen by the team.
-- **The weapon:** The “fan” residue on the wall + stained gloves indicate a human used a Ghostbusters weapon, not a ghost.
+- **Log vs. alibi:** Pemberton claims the entity escaped through the maintenance corridor and he chased it — but Thorne's field book records no spectral readings outside the suite and an empty hallway throughout.
+- **Calm vs. chase:** Julian Vane and Mags both place Pemberton in the service corridor — but walking calmly, alone, with no entity in sight. Not chasing anything.
+- **The secret route:** The ajar back service door of 1221 is how Pemberton circled around to "emerge from the far end."
+- **The weapon:** The popped back-pressure valve on the recovered Siren Cell, the circular wound on Vance, and the violet stain inside Pemberton's discarded gloves all indicate a human used a Ghostbusters weapon at point-blank range — not a ghost.
 
 Pemberton is the **only medical authority** on the scene — his greatest weapon. It allows him to "frame" the cause of death before anyone else can even look at the body.
 
@@ -120,7 +124,7 @@ To make the player work for it, each witness should have one piece of the puzzle
 A prestigious collector who lost the Anchor Idol to Vance by a single bid. He was lurking in the 12th-floor hallway hoping to swap the real idol for a **wax replica** before Vance noticed — he never intended to kill anyone. When the chaos started, he hid in a nearby alcove.
 
 - **What he knows:**
-    - Saw Pemberton slip into the **Service Hall (Left)**, not Room 1220 (Right).
+    - Saw Pemberton slip calmly out of the **back service door of 1221**, walk past, drop something heavy down the chute, and continue toward the far-end exit — alone, no entity in sight.
     - At 9:12 PM, heard a **heavy metallic "clack-thud"** in the walls (the canister down the chute).
     - Saw Pemberton "rejoin" the team at 9:13 PM, slightly out of breath, sleeves rolled up.
 - **His Blindspot:** He doesn't realize what he heard or saw matters. He's too busy hiding his own presence.
@@ -155,7 +159,7 @@ Why does a respected doctor steal an idol?
 
 The player has to confront Pemberton not with "I think you did it," but with **The Logistical Impossibility**:
 
-1. "Doctor, you said you were in Room 1220. But the door logs show it was never opened."
+1. "Doctor, you said you chased the entity through the maintenance corridor. But the maid was in there the whole time — she saw you walk past calmly, alone, and drop something heavy down the chute. No ghost."
 2. "You said it was a Shadow Stalker, but the wound matches the Siren Cell nozzle exactly."
 3. "And most importantly... why are there fibers from the victim's shirt inside the nozzle of a 'missing' piece of equipment?"
 

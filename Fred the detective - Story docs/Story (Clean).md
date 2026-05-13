@@ -104,9 +104,8 @@ Class-5 entities leave **jagged, branching frost patterns** on contact. The mark
 
 ### 2. Theo Griggs (The Tech)
 
-- **The "Nervous" Clue:** When Pemberton arrived from the far end of the hall, he wasn’t out of breath in the right way — and his PKE meter was **off**.
-- **Theo's Hook:** "Otis says he was chasing it through the service hall... but I saw his screen. It was black. Why would you chase a Class-5 with a dead scanner?"
-- **The Inventory:** A Siren-Grade Containment Cell is missing from his gear cart. Theo assumes it’s his own clerical error. Pemberton encourages this belief.
+- **The Inventory:** A Siren-Grade Containment Cell is missing from his gear cart. Theo assumes it’s his own clerical error and is terrified of being blamed. Pemberton quietly encourages this belief.
+- **Theo's Hook:** Once the player connects the missing cell to the one recovered from the chute, Theo can confirm the serial number — it's a cell that was checked out to the team that night and signed for by Pemberton during gear prep.
 
 ### 3. Dr. Iris Thorne (The Anchor)
 
