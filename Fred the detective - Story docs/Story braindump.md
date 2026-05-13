@@ -124,12 +124,12 @@ To make the player work for it, each witness should have one piece of the puzzle
 
 ### **Julian Vane (The Rival / Red Herring)**
 
-A prestigious collector who lost the Anchor Idol to Vance by a single bid. He was lurking in the 12th-floor hallway hoping to swap the real idol for a **wax replica** before Vance noticed — he never intended to kill anyone. When the chaos started, he hid in a nearby alcove.
+A prestigious collector who lost the Anchor Idol to Vance by a single bid. He was lurking in the 12th-floor hallway hoping to slip into 1221 with a bribed master key, chloroform Vance mid-meditation as insurance against him surfacing, and swap the real idol for a **wax replica** before he came around — he never intended to kill anyone. When the chaos started, he hid in a nearby alcove.
 
 - **His Blindspot:** He's too busy hiding his own presence to come forward at all.
 - **The Lie:** Claims he was in the hotel bar mourning the loss of the idol.
 - **Why He Looks Like the Killer:** Found in his suite (1225) with a perfect wax replica of the Anchor Idol and a vial of sedative (chloroform). Seen on the 12th floor minutes before the "haunting."
-- **The Player's Path:** The replica makes the player think "He killed Vance to swap them!" — but the sedative doesn't match the "Cold Burn" wound, and the swap plan never required killing anyone.
+- **The Player's Path:** The replica makes the player think "He killed Vance to swap them!" — but chloroform would have knocked Vance out, not left a precise circular point-blank chest wound. The swap plan never required killing anyone.
 
 ---
 
@@ -181,7 +181,7 @@ Canonical section list lives in `Story (Clean).md` §4 ("The Field Manual"). Key
 - **§4.2 — Siren-Class Containment Cells.** Pressurized ionized sludge (Violet-Grade); a Manual Purge dumps the full charge at point-blank.
 - **§5.3 — Surface Residue vs. Purge Pigment.** Manual Purge forces sludge **through** standard gloves into the operator's skin — **"Purge Pigment,"** persistent 48–72 hours.
 - **§5.4 — Back-Pressure Valve.** Pops only if the nozzle is obstructed by a solid object during discharge. A popped valve = point-blank kill.
-- **§7.2 — Safety Guard Clearance.** The manual override lever's recessed guard is too narrow for field gloves; the operator must remove their primary glove to flip it.
+- **§7.2 — Manual Override Lever.** Requires a deliberate two-stage pinch-and-twist; engineered to resist impact, vibration, and spectral interference. A flipped lever indicates deliberate human action.
 - **§8.1 — Spectral Trauma (Ghost-Touch).** Class-5 entities leave jagged, branching frost patterns. A precise circular wound is not consistent with any documented ghost-touch.
 - **§8.2 — Spectral Discharge & Ectoplasm Spread.** A real Class-5 manifestation sprays ectoplasm **omnidirectionally** — uniform 360° coating. A directional fan on a single wall indicates a point-source nozzle, not a ghost.
 
@@ -254,13 +254,13 @@ If the player demands to see Pemberton’s hands early, he shouldn't just say "N
 
 To turn "I think it's you" into "I *know* it's you," the player needs to find the **Physical Cell** to disprove his excuse.
 
-Per Manual §5.4, the Back-Pressure Valve only pops if the nozzle is obstructed by a solid object at discharge. The Manual Lever (§7.2) being flipped means the operator removed a glove to override the safety guard.
+Per Manual §5.4, the Back-Pressure Valve only pops if the nozzle is obstructed by a solid object at discharge. The Manual Lever (§7.2) being flipped means deliberate human action — the lever is designed to resist accidental, impact, or spectral triggering.
 
 **The "Gotcha" Logic:**
 
 1. **The Manual says:** The valve only pops if the cell was fired against something solid.
 2. **The Discovery:** The player recovers the cell from the basement laundry bin and sees the **Back-Pressure Valve has popped** and the **Manual Lever is flipped**.
-3. **The Proof:** Pemberton can't say "it leaked while I was cleaning it." The popped valve proves it was fired against a victim; the flipped lever proves a human hand pulled the override.
+3. **The Proof:** Pemberton can't say "it leaked while I was cleaning it." The popped valve proves it was fired against a victim; the flipped lever (a deliberate two-stage pinch-and-twist by design) proves a human hand pulled the override.
 
 ---
 

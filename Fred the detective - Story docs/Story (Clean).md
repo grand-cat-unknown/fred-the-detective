@@ -64,9 +64,9 @@ Pressurized ionized sludge (Violet-Grade). Charged cells weigh ~15 lbs. Standard
 
 Siren Cells include a safety valve that remains intact during "leaks" or "air-firing." The valve **only** pops if the nozzle is obstructed by a solid object (e.g., a victim's chest) during discharge. A popped valve is proof of point-blank usage.
 
-### **Section 7.2: Safety Guard Clearance**
+### **Section 7.2: Manual Override Lever**
 
-The manual override lever is protected by a 1.5-inch recessed guard. Standard field gloves are too thick to enter the guard — the operator must remove their primary glove to flip the lever. (This is what exposes the skin to the Aerosol Effect during a Manual Purge.)
+The manual override lever requires a deliberate two-stage pinch-and-twist to flip. Engineered to resist impact, vibration, falls, and spectral interference — a flipped lever can only result from a deliberate human action.
 
 ### **Section 8.1: Spectral Trauma (Ghost-Touch)**
 
@@ -74,7 +74,7 @@ Class-5 entities leave **jagged, branching frost patterns** on contact. Marks ar
 
 ### **Section 8.2: Spectral Discharge & Ectoplasm Spread**
 
-A manifested Class-5 entity radiates spectral discharge **omnidirectionally** from the manifestation point. Ectoplasm coats walls, ceiling, and floor in a roughly uniform 360° spread. **Directional "fan" or "spray" patterns on a single surface are not consistent with a Class-5 manifestation** — they indicate a localized point-source emission (e.g., a pressurized nozzle).
+A manifested Class-5 entity radiates spectral discharge **omnidirectionally** from the manifestation point. Ectoplasm coats walls, ceiling, and floor in a roughly uniform 360° spread. **Directional "fan" or "spray" patterns on a single surface are not consistent with a Class-5 manifestation** — they indicate a focused channel: pressurized sludge driven through a single point of contact (such as a victim's body) and emerging in a concentrated pattern on whatever lies beyond.
 
 ## **5. The Deduction Chain (Airtight Logic)**
 
@@ -82,10 +82,10 @@ A manifested Class-5 entity radiates spectral discharge **omnidirectionally** fr
 2. **The First Wall:** Pemberton claims he touched a "spill" in Theo's messy gear bag.
 3. **The Audit:** Player checks Theo's bags. **Result:** All gear is clean. Pemberton is lying about the "spill."
 4. **The Wound Mismatch:** Vance's wound is a precise 2-inch circle. Per Manual §8.1, ghost-touch is jagged and irregular. The wound matches the nozzle of a Siren Cell.
-5. **The Spray Pattern:** The violet ectoplasm in 1221 forms a **directional fan** across one wall, not a 360° coating. Per Manual §8.2, that's a point-source spray — a nozzle — not a real Class-5 manifestation.
+5. **The Spray Pattern:** The violet ectoplasm in 1221 forms a **directional fan** across the wall behind Vance's body, not a 360° coating. Per Manual §8.2, that's a focused channel — sludge driven through a single point of contact and exiting in a concentrated pattern — not a real Class-5 manifestation.
 6. **The Discovery:** Player follows the "Thud" (Thorne's field-book entry — heard through the wall around 9:10 PM) down the laundry chute to the **basement laundry bin** and recovers the **Missing Cell**.
 7. **The Smoking Gun:** Player checks the cell. The **Manual Lever** is flipped and the **Back-Pressure Valve** is popped.
-8. **The Checkmate:** Per Manual §5.3, §5.4 & §7.2, the popped valve proves a point-blank kill, and the lever proves he had to take his glove off to flip it. The permanent stain on his bare hand is now a forensic signature, not a "work accident."
+8. **The Checkmate:** Per Manual §5.3, §5.4 & §7.2, the popped valve proves a point-blank kill, and the flipped lever proves a deliberate human hand pulled the override — no ghost, no accident. The Purge Pigment stain driven through his gloves and into his skin is now a forensic signature, not a "work accident."
 
 ---
 
@@ -126,8 +126,8 @@ A manifested Class-5 entity radiates spectral discharge **omnidirectionally** fr
 
 ### 1. Mara Bell (The Lead)
 
-- **Her Statement:** "Standard watch protocol. I held the main hallway. Manifestation noises started around 9:07 — clear Class-5 signature. Pemberton was on his corridor sweep and ran to flank from the far end."
-- **The Lie:** She claims she had continuous visual on the hallway and can vouch for the timing of what she heard from 1221.
+- **Her Statement:** "Standard watch protocol. I held the main hallway. Manifestation noises started around 9:07 — clear Class-5 signature. I'd posted Pemberton on the far-end maintenance sweep; he came back through from that direction when the spike hit."
+- **The Lie:** She claims she had continuous visual on the hallway and can vouch for the timing of what she heard from 1221. (She's only repeating the assignment *she* gave Pemberton — she doesn't actually know where he was during the murder window, only where he was supposed to be and where he eventually emerged.)
 - **The Break:** She wasn't in the hall from 9:05 to ~9:11 — she was in Room 1218 helping Theo with the sabotaged pipe flood. Her boots are soaking wet. There is no water in the hallway. Once she admits she abandoned her post, she can no longer vouch for *when* the noises in 1221 started or whether Pemberton was actually walking the corridor the whole time. (Note: the sabotage was done from the maintenance corridor outside 1218, so the player can't trivially trace it to Pemberton — it stays ambiguous between him and Vane until the rest of the case lands.)
 
 ### 2. Theo Griggs (The Tech)
@@ -143,7 +143,7 @@ A manifested Class-5 entity radiates spectral discharge **omnidirectionally** fr
 
 ### 4. Julian Vane (The Rival / Red Herring)
 
-- **What He Was Doing:** Bribed Mags (the maid) for a master key, planning to slip into 1221 during Vance's 9 PM meditation, swap the real idol for the wax replica, and slip out. He didn't know about the back service door — his planned route was the front, using the master key.
+- **What He Was Doing:** Bribed Mags (the maid) for a master key, planning to slip into 1221 during Vance's 9 PM meditation, chloroform him as insurance against surfacing mid-swap, switch the real idol for the wax replica, and slip out before he came around. He didn't know about the back service door — his planned route was the front, using the master key.
 - **What Went Wrong:** When the Ghostbusters' watch team set up in the hallway at 9 PM, his plan was dead. He retreated to a nearby alcove to wait it out.
 - **Why He Won’t Talk:** Being placed outside Vance's door with a fake idol, a vial of sedative, and a bribed master key looks like premeditated murder. The detective has to give him a reason to talk.
 

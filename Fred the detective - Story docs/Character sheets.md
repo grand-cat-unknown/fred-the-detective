@@ -38,8 +38,8 @@ Here is the expanded character roster for the Ghostbusters team.
 - **Manner of Speech:** Fast, authoritative "Manager-speak." Constant focus on "protocol," "liability," and "perimeter."
 - **Actual Timeline:**
     - **9:05 – ~9:11 PM:** She was NOT in the hall outside 1221. She was in Room 1218 helping Theo move equipment away from the sabotaged pipe (a pre-meditated distraction orchestrated by Otis that can't be traced back to him directly).
-- **What She Said:** "Standard watch protocol. I held the main hallway. Manifestation noises started around 9:07 — clear Class-5 signature. Pemberton was on his corridor sweep and ran to flank from the far end."
-- **The Lie:** She claims she had continuous visual on the hallway and can vouch for the timing of the manifestation noises. She wasn't there from 9:05 to 9:11. She doesn't actually know when the noises started — only when she rejoined the hall and heard them.
+- **What She Said:** "Standard watch protocol. I held the main hallway. Manifestation noises started around 9:07 — clear Class-5 signature. I'd posted Pemberton on the far-end maintenance sweep; he came back through from that direction when the spike hit."
+- **The Lie:** She claims she had continuous visual on the hallway and can vouch for the timing of the manifestation noises. She wasn't there from 9:05 to 9:11. She doesn't actually know when the noises started — only when she rejoined the hall and heard them. (Her line about Pemberton is just her repeating the assignment she gave him; she's quietly conflating "where I posted him" with "where I saw him.")
 - **Motive for Concealing:** If she admits she left the hall to save equipment, she's legally liable for Vance's death. She's lying to prove she was "on duty" — and accidentally giving Otis the timing alibi he needs.
 - **The Detective's Hook:** **Physical Evidence.** Her boots and the hem of her trousers are soaking wet. There is no water in the hallway — only in Room 1218. Once you prove she abandoned her post, she can no longer corroborate Pemberton's window — and her "I had the hall the whole time" testimony, which was the cleanest cover his alibi had, is gone. (Iris's field book is the actual record of when the noises started; Mara was just confirming it.)
 
@@ -83,7 +83,7 @@ Here is the expanded character roster for the Ghostbusters team.
 - **Personality:** Refined, arrogant, and deeply bitter. Views Vance as a "nouveau riche" thug who doesn't appreciate history.
 - **Manner of Speech:** Mid-Atlantic accent, flowery vocabulary, dripping with sarcasm.
 - **Actual Timeline:**
-    - **Earlier in the day:** Bribed Mags (the maid) for a master key to 1221, planning to slip in during Vance's 9 PM meditation, swap the real idol for the wax replica, and slip out. His planned route was the front door, using the master key — he didn't know about the back service panel.
+    - **Earlier in the day:** Bribed Mags (the maid) for a master key to 1221, planning to slip in during Vance's 9 PM meditation, chloroform him as insurance against him surfacing mid-swap, switch the real idol for the wax replica, and slip out before he came around. His planned route was the front door, using the master key — he didn't know about the back service panel.
     - **9:00 PM:** Arrived on the 12th floor for the swap. Saw the Ghostbusters' watch team setting up in the hallway. Plan dead. Retreated to a nearby alcove to wait it out.
 - **What He Said:** "I was in the hotel bar, mourning the loss of the idol over a dry martini."
 - **The Lie:** He claims he was never on the 12th floor.
@@ -92,7 +92,7 @@ Here is the expanded character roster for the Ghostbusters team.
     - Found in his suite with a **perfect wax replica** of the Anchor Idol.
     - Has a **vial of sedative** (chloroform) in his pocket.
     - Seen on the 12th floor by Leo Rossi (the bellhop) just minutes before the "haunting."
-- **His Actual Plan:** He wasn't there to kill Vance. He was planning a "swap" — slip in during Vance's well-known nightly 9 PM meditation (when Vance is trance-deep and won't notice), switch the real idol for the wax replica, slip out. **Why tonight?** Vance is checking out of The Grandview tomorrow morning with the idol — this is Vane's last chance before it disappears into Vance's private vault. **Why this exact hour?** The meditation ritual is publicly known — 9:00 to 9:45 PM, alone, undisturbed. The same shared deadline and the same public ritual drove Pemberton's plan too, by pure coincidence, which is why both adversaries converged on the same night and hour without knowing about each other.
+- **His Actual Plan:** He wasn't there to kill Vance. He was planning a "swap" — slip in during Vance's well-known nightly 9 PM meditation, dose him with chloroform as insurance against him surfacing mid-swap, switch the real idol for the wax replica, and be out before he came around. **Why tonight?** Vance is checking out of The Grandview tomorrow morning with the idol — this is Vane's last chance before it disappears into Vance's private vault. **Why this exact hour?** The meditation ritual is publicly known — 9:00 to 9:45 PM, alone, undisturbed. The same shared deadline and the same public ritual drove Pemberton's plan too, by pure coincidence, which is why both adversaries converged on the same night and hour without knowing about each other.
 - **The Player's Path:** The player finds the replica idol and thinks, "He killed Vance to swap them!" But the sedative doesn't match the "Cold Burn" on the body.
 
 ## 6. Leo Rossi (The Veteran Bellhop)
