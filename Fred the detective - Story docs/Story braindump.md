@@ -4,7 +4,7 @@
 
 ## Pitch
 
-Collector **Reginald Vance** is found dead in Suite 1221 after a reported haunting. The idol he won at auction is missing.
+Collector **Reginald Vance** is found dead in Suite 1221 during a scheduled Ghostbusters **containment watch** over his newly-acquired Anchor Idol — the most spectrally-active piece from a recent occult auction, rated for its capacity to attract other entities. The idol is missing.
 
 **Dr. Otis Pemberton** (Ghostbusters physician and occult scholar) volunteered to be the team's "first in" for medical and security, locked the suite's front door behind him, and staged a violent fake haunting from inside while the rest of the team waited in the hallway. During the theatrics he killed Vance, took the idol, slipped out a back service door, circled through the maintenance corridor, and rejoined the team from the wrong end of the hall — then pronounced Vance dead from a "spectral seizure."
 
@@ -152,7 +152,8 @@ Why does a respected doctor steal an idol?
 
 - **The "Scholar's Greed":** Pemberton doesn't want money. He believes the Idol is an **"Anchor"**—a device that can bridge the gap between the living and the dead. He believes he can use it to talk to his deceased wife/colleague.
 - **Why Tonight (Shared Deadline):** Vance is checking out of The Grandview tomorrow morning with the idol, headed back to his private vault. Tonight is the last night the idol sits in a semi-public space. Both Pemberton and Julian Vane independently identified it as their one shot — neither knows about the other's plan.
-- **Why the Ghostbusters Are Called:** Vance phoned them himself. He's been paranoid about the idol's "occult properties" since the auction, and the Grandview's "haunted history" reputation primed him to hear ghosts in every creak. Pemberton didn't bait the call; he just waited for his obsessed target to make it.
+- **Why This Hour (Daily Ritual):** Vance does a private meditation every evening from 9:00 to 9:45 PM. Insists on being alone — no calls, no staff, no interruptions. The ritual is well-known in collector circles and to long-term Grandview staff. Vance's location and vulnerability at 9 PM are publicly predictable, which is what made tonight's specific hour usable by anyone — not just an insider.
+- **Why the Ghostbusters Are Here:** Not an emergency call. The recent occult auction included several spectrally-active artifacts, and the Anchor Idol — Vance's prize — is rated the most dangerous: documented capacity to **attract other entities**. Per the auction-house's standard contract, Ghostbusters Inc. provides a multi-night **containment watch** for the buyer of any high-rated artifact. The team is at the Grandview on a scheduled watch rotation, not responding to a haunting. Pemberton requested this assignment as the team's occult scholar — and used the contract cover to plan the murder. The 9 PM watch window is standard scheduling (and lore-wise coincides with peak "spectral pull," which is also Vance's meditation hour — convenient cover for Pemberton's strike).
 - **The Distraction (Pre-Plant):** Pemberton sabotaged a pipe joint in the **maintenance corridor outside 1218** earlier in the evening — accessible without entering the room, accessible to anyone with corridor access (staff, long-term guests, master-keyholders). The detective initially suspects Julian Vane bribed his way to it.
 
 ---

@@ -88,7 +88,7 @@ Here is the expanded character roster for the Ghostbusters team.
     - Found in his suite with a **perfect wax replica** of the Anchor Idol.
     - Has a **vial of sedative** (chloroform) in his pocket.
     - Seen on the 12th floor by Leo Rossi (the bellhop) just minutes before the "haunting."
-- **His Actual Plan:** He wasn't there to kill Vance. He was planning a "swap" — lurking in the hallway waiting for Vance to leave for dinner to switch the real idol with the fake. **Why tonight?** Vance is checking out of The Grandview tomorrow morning with the idol — this is Vane's last chance before it disappears into Vance's private vault. (The same deadline drove Pemberton's plan, by pure coincidence, which is why both adversaries converged on the same night without knowing about each other.)
+- **His Actual Plan:** He wasn't there to kill Vance. He was planning a "swap" — slip in during Vance's well-known nightly 9 PM meditation (when Vance is trance-deep and won't notice), switch the real idol for the wax replica, slip out. **Why tonight?** Vance is checking out of The Grandview tomorrow morning with the idol — this is Vane's last chance before it disappears into Vance's private vault. **Why this exact hour?** The meditation ritual is publicly known — 9:00 to 9:45 PM, alone, undisturbed. The same shared deadline and the same public ritual drove Pemberton's plan too, by pure coincidence, which is why both adversaries converged on the same night and hour without knowing about each other.
 - **The Player's Path:** The player finds the replica idol and thinks, "He killed Vance to swap them!" But the sedative doesn't match the "Cold Burn" on the body.
 
 ## 6. Leo Rossi (The Veteran Bellhop)
@@ -101,7 +101,8 @@ Here is the expanded character roster for the Ghostbusters team.
     - **9:00 PM:** Was at the elevator bank when the Ghostbusters arrived.
 - **The Truth:** He is 100% honest. He has no reason to lie.
 - **The Helpful Intel:**
-    - **Vance’s State of Mind:** He notes that Vance was "extremely agitated" and was expecting a visitor, but not a Ghostbuster.
+    - **Vance’s State of Mind:** He notes that Vance was "extremely agitated" all day, and was checking out tomorrow morning with the idol.
+    - **The Daily Ritual:** Leo confirms Vance's well-known meditation habit — 9:00 to 9:45 PM every evening, alone, no interruptions. "Set your watch by him, sir. The whole staff knows. Cocktail collectors talk about it like a tour stop." This makes Vance's 9 PM location and vulnerability public knowledge, not insider information.
     - **The Observation:** He noticed Dr. Pemberton was checking his watch repeatedly in the lobby, looking "more like a man catching a train than a man hunting a spirit."
 
 ---
