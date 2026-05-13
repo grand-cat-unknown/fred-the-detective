@@ -24,7 +24,7 @@ Collector **Reginald Vance** is found dead in Suite 1221 during a scheduled Ghos
 
 - **Role:** Ghostbusters physician + occult scholar
 - **Motive:** Believes the “Anchor Idol” is too valuable to remain in a private collection; wants it for personal research
-- **Plan:** Take the maintenance-corridor watch station as cover. Slip into 1221 through a disguised back service door (the "pantry" — a maintenance access panel Vance and the rest of the team don't know about). Kill Vance during his locked 9 PM meditation. Stage a fake "manifestation" loud enough for the team to converge on the front door. Drop the cell down the chute. Slip back out the same panel, walk the corridor, and emerge into the main hall from the far end. Rejoin the team at the front door of 1221, open it with the auction-watch keycard, and declare Vance the victim of a Class-5 spectral seizure.
+- **Plan:** Take the maintenance-corridor watch station as cover. Slip into 1221 through a disguised back service door (the "pantry" — a maintenance access panel Vance and the rest of the team don't know about). Kill Vance during his locked 9 PM meditation. Stage a fake "manifestation" loud enough for the team to converge on the front door. Drop the cell down the chute. Slip back out the same panel, walk the corridor, and emerge into the main hall from the far end. Rejoin the team at the front door of 1221 (locked from the inside; the team forces it open), and declare Vance the victim of a Class-5 spectral seizure.
 
 ---
 
@@ -47,7 +47,7 @@ Collector **Reginald Vance** is found dead in Suite 1221 during a scheduled Ghos
 - **9:10 PM:** Pemberton drops the spent cell down the laundry chute via the back service door (leaving it slightly ajar), then slips out the same way he came in.
 - **9:11 – 9:12 PM:** Walks the maintenance corridor toward the far-end exit.
 - **9:13 PM:** Emerges into the main hallway from the far end, breathing hard.
-- **9:14 PM:** Team opens 1221 with the auction-watch keycard. Pemberton declares a Full-Body Spectral Seizure.
+- **9:14 PM:** Team forces the locked front door of 1221. Pemberton declares a Full-Body Spectral Seizure.
 
 ### Public Timeline (Pemberton’s Alibi)
 
@@ -59,7 +59,7 @@ Collector **Reginald Vance** is found dead in Suite 1221 during a scheduled Ghos
 
 ## Key Physical Evidence
 
-1. **Suite 1221 front door log:** Electronic lock record shows the door was locked by Vance from the inside at the start of his meditation and not opened until 9:14 PM, when the team entered together using the auction-watch keycard. Nobody used the front door during the murder window — meaning the killer entered another way.
+1. **Suite 1221 front door:** Locked by Vance from the inside at the start of his meditation and not opened until 9:14 PM, when the team forced it. Nobody used the front door during the murder window — meaning the killer entered another way.
 2. **Ajar back service panel:** The "pantry cabinet" in 1221 is actually a disguised maintenance-corridor access panel. It was left slightly open — Pemberton's entry and exit route. Vance didn't know it was a door; the rest of the team didn't either.
 3. **Maintenance corridor scuffs:** Fresh scuff marks in the unlit service hall match Pemberton's boots and run from the back service panel of 1221 to the far-end corridor exit.
 4. **Spent Siren Cell:** Found jammed in the laundry chute. Back-pressure valve popped (point-blank discharge). Manual lever flipped.

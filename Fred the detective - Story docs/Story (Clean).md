@@ -8,7 +8,7 @@ This master blueprint incorporates the refined narrative logic, character profil
 
 The murder is not committed by a ghost — it’s committed by the man who pronounces the victim dead. Dr. Otis Pemberton (team physician and occult scholar) is assigned to the **maintenance-corridor watch station** during the operation — running PKE sweeps along the building's structural perimeter. That assignment is his cover. The corridor also gives him access to a disguised **back service door** into Suite 1221 (the "pantry cabinet") — a feature Vance doesn't know exists, and that no other Ghostbuster on the team is aware of either.
 
-While Vance is mid-meditation behind a locked front door and the team is at their stations, Pemberton slips in through the back service door, kills Vance point-blank with a stolen **Siren Containment Cell**, takes the **Anchor Idol**, and then **stages a violent haunting** — slamming furniture, simulating a Class-5 manifestation — loud enough for the team to hear from their stations. He drops the spent cell down the laundry chute on his way out, slips back into the maintenance corridor, and circles to the far end. By the time the team converges on 1221's front door, he emerges from the far end of the main hallway claiming he heard the manifestation during his perimeter sweep and ran to flank it. The team uses their auction-watch keycard to open the suite. They find Vance dead. Pemberton — the only doctor and the only occult scholar in the room — performs the pulse check and declares a **"Full-Body Spectral Seizure"** by a Class-5 entity.
+While Vance is mid-meditation behind a locked front door and the team is at their stations, Pemberton slips in through the back service door, kills Vance point-blank with a stolen **Siren Containment Cell**, takes the **Anchor Idol**, and then **stages a violent haunting** — slamming furniture, simulating a Class-5 manifestation — loud enough for the team to hear from their stations. He drops the spent cell down the laundry chute on his way out, slips back into the maintenance corridor, and circles to the far end. By the time the team converges on 1221's front door, he emerges from the far end of the main hallway claiming he heard the manifestation during his perimeter sweep and ran to flank it. The front door is locked from the inside; the team forces it open. They find Vance dead. Pemberton — the only doctor and the only occult scholar in the room — performs the pulse check and declares a **"Full-Body Spectral Seizure"** by a Class-5 entity.
 
 The team isn’t hiding a murder — they genuinely believe the idol attracted the very entity they were there to contain, because the only "expert" in the room is also the killer.
 
@@ -19,11 +19,10 @@ The team isn’t hiding a murder — they genuinely believe the idol attracted t
 | 9:00 PM | Watch begins. Team takes assigned stations: Mara in main hall, Theo in 1218 tech-prep, Thorne in 1222 observation post, Pemberton on maintenance-corridor PKE sweep. Vance locks himself in 1221 for meditation. | Same. |
 | 9:05 PM | Sabotaged pipe joint outside 1218 fails. Theo panics about flooded gear; Mara abandons her post to help. | Same — appears to be an unfortunate accident. |
 | 9:06 PM | Pemberton slips into 1221 via the back service door. Vance is mid-meditation, eyes closed. | "Running structural sweep at the far end of the corridor." |
-| 9:07 – 9:09 PM | Kills Vance point-blank with a Siren Cell. Takes the Anchor Idol. Stages the "haunting" — slamming furniture, simulating a Class-5 manifestation, loud enough to be heard from the hall. | "The entity has manifested in 1221 — I'm cutting it off from the perimeter." |
-| 9:10 PM | Drops the spent cell down the laundry chute via the back service door (**The Thud**). Slips back into the corridor. | Still on perimeter. |
-| 9:11 – 9:12 PM | Mara, hearing the noises, returns to the hall. Thorne steps out of 1222. They converge at 1221's front door. | Same — they're responding to what sounds like a real containment event. |
+| 9:07 – 9:09 PM | Kills Vance point-blank with a Siren Cell. Takes the Anchor Idol. Stages the "haunting" — slamming furniture, simulating a Class-5 manifestation, loud enough to be heard from the hall. Mara (returning from 1218) and Thorne (stepping out of 1222) hear the noises and converge on 1221's front door while they're still happening. | "The entity has manifested in 1221 — I'm cutting it off from the perimeter." |
+| 9:10 PM | Drops the spent cell down the laundry chute via the back service door (**The Thud**). Slips back into the corridor. Noises in 1221 stop — the team out front assumes the manifestation "passed." | Still on perimeter. |
 | 9:13 PM | Pemberton emerges into the main hallway from the **far end**, breathing hard, claiming he ran to flank the entity. | "It tried to phase out through the structural seams — I cut it off but too late." |
-| 9:14 PM | Team opens 1221 with the auction-watch keycard. Pemberton performs a theatrical pulse check. Declares "Full-Body Spectral Seizure." | Same. |
+| 9:14 PM | Team forces the locked front door of 1221. Pemberton performs a theatrical pulse check. Declares "Full-Body Spectral Seizure." | Same. |
 
 ## **3. Character Profiles & Gating**
 
@@ -92,9 +91,9 @@ Class-5 entities leave **jagged, branching frost patterns** on contact. The mark
 
 ## The Convergence (The "Wrong Direction" Arrival)
 
-- **9:11 – 9:12 PM:** Mara and Thorne are at the front door of 1221, hearing the manifestation noises fade. Pemberton is **not with them** — he's still "on the corridor sweep."
+- **9:11 – 9:12 PM:** Mara and Thorne are at the front door of 1221. The noises have stopped — they assume the "manifestation passed." Pemberton is **not with them** — he's still "on the corridor sweep."
 - **9:13 PM:** Pemberton emerges into the main hallway from the **far end** of the corridor system, breathing hard. **His Excuse:** "It tried to phase out through the structural seams at the far end — I cut it off but it broke back through. Did anyone get a reading?"
-- **9:14 PM:** Team opens 1221 with the auction-watch keycard. Pemberton steps in, performs a fake pulse check, pushes everyone back: *"Stay back — PKE residue is lethal."* Declares: *"Full-Body Spectral Seizure. He was dead before he hit the floor. Class-5 Shadow Stalker — textbook. The idol attracted exactly what we were here to contain."*
+- **9:14 PM:** Team forces the locked front door of 1221. Pemberton steps in, performs a fake pulse check, pushes everyone back: *"Stay back — PKE residue is lethal."* Declares: *"Full-Body Spectral Seizure. He was dead before he hit the floor. Class-5 Shadow Stalker — textbook. The idol attracted exactly what we were here to contain."*
 - **The Visual:** The team is reeling from the noise they just heard. They don’t question why Pemberton came from the far end of the corridor (his roaming sweep made that explainable). They accept the diagnosis from the only doctor and only occult scholar in the room.
 
 ---
@@ -140,4 +139,4 @@ The Detective realizes the "Haunting" was theater, the "manifestation" was Pembe
 
 - **The missing Siren Cell**, recovered from the chute, has a popped back-pressure valve — proof of point-blank discharge.
 - **The wound on Vance** is circular, not jagged — inconsistent with any documented Class-5 ghost-touch.
-- **Pemberton's violet-stained hands.** Per the Ghostbusters' field manual, a point-blank Manual Purge of a Siren Cell drives violet sludge through standard gloves and into the skin — **"Purge Pigment,"** lasting 48–72 hours. No ghost causes that; only a human pulling the manual lever does. His "Theo's leaky bag" alibi falls apart the moment the player audits Theo's gear. This is the final beat.
+- **Pemberton's violet-stained hands.** He *was* wearing standard-issue Ghostbusters gloves during the kill — the field manual says the high-pressure Manual Purge drives violet sludge straight through the glove fabric and into the skin as **"Purge Pigment,"** lasting 48–72 hours. Pemberton ditched the gloves in a service-hall trash can immediately after; the player recovers them with the violet stain on the *inside* of the fingers. No ghost causes that; only a human pulling the manual lever does. His "Theo's leaky bag" alibi falls apart the moment the player audits Theo's gear. This is the final beat.

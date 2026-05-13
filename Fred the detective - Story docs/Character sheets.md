@@ -21,11 +21,11 @@ Here is the expanded character roster for the Ghostbusters team.
     - **9:10 PM:** Drops the spent cell down the laundry chute via the back service door (**The Thud**). Slips back out the same way he came in.
     - **9:11 – 9:12 PM:** Walks the maintenance corridor toward the far-end exit.
     - **9:13 PM:** Emerges into the main hallway from the **far end**, breathing hard, claiming he heard the manifestation during his corridor sweep and ran to flank it.
-    - **9:14 PM:** Team opens 1221 with the auction-watch keycard. Pemberton steps in, performs a theatrical pulse check, declares: "Full-Body Spectral Seizure, Class-5 Shadow Stalker. The idol attracted exactly what we were here to contain."
+    - **9:14 PM:** Team forces the locked front door of 1221. Pemberton steps in, performs a theatrical pulse check, declares: "Full-Body Spectral Seizure, Class-5 Shadow Stalker. The idol attracted exactly what we were here to contain."
 - **What He Said:** "I was on structural sweep at the far end of the corridor. The PKE spike hit hard — I tried to flank the entity through the maintenance access. By the time I got around to the front, Vance was already gone. Full-body spectral seizure. Textbook Class-5."
 - **The Lie:** There was no entity. The "manifestation" was theater. He was inside 1221 via the back service door, not "flanking" anything from the corridor.
 - **Motive for Concealing:** Obviously, the murder and theft of the Anchor Idol.
-- **The Detective's Hook:** Pemberton's hands are stained deep violet — **Purge Pigment**. The Ghostbusters' field manual documents that a point-blank Manual Purge of a Siren Cell drives violet sludge through standard gloves and into the skin, staining the cuticles and palms for **48–72 hours**. No ghost causes that. Only a human pulling the manual lever of a Siren Cell at point-blank range does. That's the case.
+- **The Detective's Hook:** Pemberton's hands are stained deep violet — **Purge Pigment**. The Ghostbusters' field manual documents that a point-blank Manual Purge of a Siren Cell drives violet sludge *through* standard gloves and into the skin, staining the cuticles and palms for **48–72 hours**. He ditched the gloves in a service-hall trash can right after the kill; the player can recover them, stain on the inside of the fingers. No ghost causes that. Only a human pulling the manual lever of a Siren Cell at point-blank range does. That's the case.
 
 ---
 
@@ -66,7 +66,7 @@ Here is the expanded character roster for the Ghostbusters team.
 - **Personality:** Calm, methodical, and by-the-book. The only team member who did exactly what they were supposed to do.
 - **Actual Timeline:**
     - **9:00 – 9:14 PM:** Manning the **secondary observation post** in Suite 1222, next door to 1221. Listening at the shared wall, monitoring for spillover activity from the Anchor Idol. Notes timestamps in her field book as a matter of habit.
-- **What She Said:** "Manifestation noises through the shared wall started around 9:07. They peaked, then faded. At about 9:10 I heard a heavy metallic thud somewhere in the walls — could have been the chute. I stepped into the hallway at 9:11. Pemberton arrived from the far end of the corridor at 9:13."
+- **What She Said:** "Manifestation noises through the shared wall started around 9:07 and stopped abruptly at 9:10. Right around when they stopped I heard a heavy metallic thud somewhere in the walls — could have been the chute. I stepped into the hallway at 9:11. Pemberton arrived from the far end of the corridor at 9:13."
 - **The Truth:** She is the only one telling the full truth. She is the "control group" the player uses to corroborate the timeline.
 - **What She Gives the Player:**
     - The **thud in the walls** at ~9:10 PM — points the detective at the laundry chute.
@@ -143,6 +143,7 @@ Here is the expanded character roster for the Ghostbusters team.
 This is the most critical location for the player to investigate to break Pemberton.
 
 - **The Corridor State:** Mags was crouched in an alcove near the laundry chute, smoking a "Lady Finger" (a very slim, distinct cigarette). The corridor is dim, the air is hazy, and there's a warm butt by the chute.
+- **Posted Notice (above the chute):** *"HOUSEKEEPING — LINEN CHUTE EMPTIED AT 10:00 AM DAILY. PLEASE DEPOSIT ALL LAUNDRY THE NIGHT BEFORE. — Grandview Management."* This is Pemberton's bet: anything dropped in the chute tonight sits in the basement bin until morning, by which point he expects the "spectral seizure" diagnosis to have closed the case.
 - **The Discovery:** The player follows the "thud" lead into the maintenance corridor. They find the still-warm cigarette butt and faint smoke residue — proof that the corridor was occupied during the murder window, contradicting Pemberton's "I chased a Class-5 entity through here" story.
 - **The Trap for Pemberton:**
 
@@ -150,6 +151,6 @@ This is the most critical location for the player to investigate to break Pember
     >
     > **Pemberton:** "Correct. I had it on partial containment all the way to the far-end exit."
     >
-    > **Detective:** "Strange. I found a maid in there, having a smoke break. She didn't notice any ghost. She did, however, notice you — walking calmly, alone, dropping something heavy down the chute."
+    > **Detective:** "Strange. I found a maid in there, having a smoke break. From before nine until after the team forced the door. She didn't see a ghost. She didn't see *you* either. The corridor you say you swept and flanked through was empty the entire time."
     >
-    > **Pemberton:** (Pauses) "I... my sensors must have been focused on spectral frequencies. Eyewitness testimony from staff in a state of statutory infraction is hardly... reliable."
+    > **Pemberton:** (Pauses) "I... my sweep pattern took me to the far-end seams. The maid wouldn't have line-of-sight from a smoking alcove. Eyewitness testimony from staff in a state of statutory infraction is hardly... reliable."
