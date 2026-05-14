@@ -14,9 +14,10 @@ extends Node2D
 	set(value):
 		camera_zoom = value
 		_apply_camera_to_player(true)
-@export_range(0.0, 30.0, 0.5, "or_greater") var camera_follow_smoothing := 12.0:
+@export_range(0.0, 30.0, 0.5, "or_greater") var camera_follow_smoothing := 0.0:
 	set(value):
 		camera_follow_smoothing = value
+		_apply_camera_smoothing()
 
 @export_group("Palette")
 @export var background_color := Palette.BACKGROUND:
@@ -30,6 +31,10 @@ extends Node2D
 @export var player_hat_color := Palette.PLAYER_HAT:
 	set(value):
 		player_hat_color = value
+		_apply_palette()
+@export var player_texture: Texture2D = preload("res://HS-Characters Retro/WhiteBunny_A.png"):
+	set(value):
+		player_texture = value
 		_apply_palette()
 
 var case_data: CaseData
@@ -46,10 +51,10 @@ func _ready() -> void:
 		configure(CaseLoader.load_default())
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
-	_apply_camera_to_player(false, delta)
+	_apply_camera_to_player(false)
 
 
 func configure(new_case: CaseData) -> void:
@@ -64,23 +69,22 @@ func reset_player(start_tile: Vector2i) -> void:
 	_apply_camera_to_player(true)
 
 
-func process_player_step(delta: float) -> bool:
-	if _player == null:
-		return false
-	var was_stepping := _player.is_stepping
-	_player.process_step(delta)
-	return was_stepping and not _player.is_stepping
-
-
-func try_start_tile_step(direction: Vector2i) -> void:
+func update_player_movement(delta: float, held_direction: Vector2i) -> void:
 	if _player == null:
 		return
 	_player.speed = player_speed
-	_player.try_step(direction, _world_map, _blocked_tiles())
-
-
-func is_player_stepping() -> bool:
-	return _player != null and _player.is_stepping
+	var remaining := delta
+	var safety := 8
+	while safety > 0:
+		safety -= 1
+		if _player.is_stepping:
+			remaining = _player.process_step(remaining)
+			if _player.is_stepping or remaining <= 0.0:
+				return
+		if held_direction == Vector2i.ZERO:
+			return
+		if not _player.try_step(held_direction, _world_map, _blocked_tiles()):
+			return
 
 
 func _apply_palette() -> void:
@@ -89,29 +93,38 @@ func _apply_palette() -> void:
 	if _player != null:
 		_player.body_color = player_color
 		_player.hat_color = player_hat_color
+		_player.texture = player_texture
 		_player.queue_redraw()
 
 
-func _apply_camera_to_player(instant: bool, delta: float = 0.0) -> void:
+func _apply_camera_to_player(instant: bool) -> void:
 	if _camera == null:
 		return
 
 	if Engine.is_editor_hint() or _player == null:
+		_camera.position_smoothing_enabled = false
 		_camera.position = TileMap2D.VIEW_SIZE * 0.5
 		_camera.zoom = Vector2.ONE
 		return
 
-	var target_position := _player.position
-	var target_zoom := Vector2(camera_zoom, camera_zoom)
+	_camera.zoom = Vector2(camera_zoom, camera_zoom)
+	_camera.position = _player.position
 
-	if instant or camera_follow_smoothing <= 0.0 or not is_inside_tree():
-		_camera.position = target_position
-		_camera.zoom = target_zoom
+	if instant:
+		_camera.position_smoothing_enabled = false
+		_camera.reset_smoothing()
+		_apply_camera_smoothing()
+	else:
+		_apply_camera_smoothing()
+
+
+func _apply_camera_smoothing() -> void:
+	if _camera == null:
 		return
-
-	var follow_weight := clampf(1.0 - exp(-camera_follow_smoothing * delta), 0.0, 1.0)
-	_camera.position = _camera.position.lerp(target_position, follow_weight)
-	_camera.zoom = target_zoom
+	var enabled := camera_follow_smoothing > 0.0 and not Engine.is_editor_hint()
+	_camera.position_smoothing_enabled = enabled
+	if enabled:
+		_camera.position_smoothing_speed = camera_follow_smoothing
 
 
 func find_inspectable_at_player() -> Inspectable:
@@ -131,6 +144,49 @@ func find_inspectable_at_player() -> Inspectable:
 			if inspectable.get_tile() == tile:
 				return inspectable
 	return null
+
+
+func find_npc_at_player() -> NPC:
+	if _player == null:
+		return null
+	for tile in _adjacent_tiles():
+		for npc in _npc_nodes:
+			if npc.get_tile() == tile:
+				return npc
+	return null
+
+
+func find_inspection_at_player() -> Dictionary:
+	var inspectable := find_inspectable_at_player()
+	if inspectable != null:
+		return {
+			"object_id": inspectable.object_id,
+			"title": inspectable.title,
+			"description": inspectable.description,
+		}
+
+	if _player == null or _world_map == null:
+		return {}
+
+	for tile in _adjacent_tiles():
+		var inspection := _world_map.get_tile_inspection(tile)
+		if not inspection.is_empty():
+			return inspection
+
+	return {}
+
+
+func _adjacent_tiles() -> Array[Vector2i]:
+	var player_tile := _player.tile
+	var facing_tile := player_tile + _player.face_direction
+	var tiles: Array[Vector2i] = [
+		facing_tile,
+		player_tile + Vector2i(1, 0),
+		player_tile + Vector2i(-1, 0),
+		player_tile + Vector2i(0, 1),
+		player_tile + Vector2i(0, -1),
+	]
+	return tiles
 
 
 func _rebuild_content() -> void:

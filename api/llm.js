@@ -46,29 +46,8 @@ function buildGuardedInput(input, injectionDetected) {
 	].join('\n');
 }
 
-function extractText(data) {
-	if (typeof data.output_text === 'string' && data.output_text.length > 0) {
-		return data.output_text;
-	}
-
-	if (!Array.isArray(data.output)) {
-		return '';
-	}
-
-	const textParts = [];
-	for (const item of data.output) {
-		if (!item || !Array.isArray(item.content)) {
-			continue;
-		}
-
-		for (const content of item.content) {
-			if (content && typeof content.text === 'string') {
-				textParts.push(content.text);
-			}
-		}
-	}
-
-	return textParts.join('\n').trim();
+function writeNdjson(res, obj) {
+	res.write(JSON.stringify(obj) + '\n');
 }
 
 module.exports = async function handler(req, res) {
@@ -121,6 +100,7 @@ module.exports = async function handler(req, res) {
 		model,
 		instructions: buildInstructions(instructions),
 		input: buildGuardedInput(input, injectionDetected),
+		stream: true,
 	};
 
 	if (typeof maxOutputTokens === 'number') {
@@ -134,6 +114,7 @@ module.exports = async function handler(req, res) {
 			headers: {
 				'Authorization': `Bearer ${apiKey}`,
 				'Content-Type': 'application/json',
+				'Accept': 'text/event-stream',
 			},
 			body: JSON.stringify(payload),
 		});
@@ -141,23 +122,87 @@ module.exports = async function handler(req, res) {
 		return json(res, 502, { error: 'Failed to reach OpenAI.' });
 	}
 
-	let upstreamBody = {};
-	try {
-		upstreamBody = await upstreamResponse.json();
-	} catch {
-		upstreamBody = {};
-	}
-
-	if (!upstreamResponse.ok) {
+	if (!upstreamResponse.ok || !upstreamResponse.body) {
+		let upstreamBody = {};
+		try { upstreamBody = await upstreamResponse.json(); } catch { upstreamBody = {}; }
 		const upstreamError = upstreamBody && upstreamBody.error && typeof upstreamBody.error.message === 'string'
 			? upstreamBody.error.message
 			: 'OpenAI request failed.';
-		return json(res, upstreamResponse.status, { error: upstreamError });
+		return json(res, upstreamResponse.status || 502, { error: upstreamError });
 	}
 
-	return json(res, 200, {
-		model,
-		text: extractText(upstreamBody),
-		response: upstreamBody,
-	});
+	res.statusCode = 200;
+	res.setHeader('Content-Type', 'application/x-ndjson; charset=utf-8');
+	res.setHeader('Cache-Control', 'no-cache, no-store, no-transform');
+	res.setHeader('X-Accel-Buffering', 'no');
+	res.setHeader('Connection', 'keep-alive');
+	if (res.socket && typeof res.socket.setNoDelay === 'function') {
+		res.socket.setNoDelay(true);
+	}
+	if (typeof res.flushHeaders === 'function') {
+		res.flushHeaders();
+	}
+	// Pad past dev-proxy buffer thresholds so the first real delta isn't held back.
+	writeNdjson(res, { padding: ' '.repeat(2048) });
+
+	const reader = upstreamResponse.body.getReader();
+	const decoder = new TextDecoder();
+	let buffer = '';
+	let fullText = '';
+	let errorMessage = '';
+	const startedAt = Date.now();
+	let deltaCount = 0;
+	console.log(`[llm] upstream connected status=${upstreamResponse.status} model=${model}`);
+
+	const handleEvent = (rawEvent) => {
+		const dataLines = [];
+		for (const line of rawEvent.split('\n')) {
+			if (line.startsWith('data:')) {
+				dataLines.push(line.slice(5).replace(/^ /, ''));
+			}
+		}
+		if (dataLines.length === 0) return;
+		const dataStr = dataLines.join('\n');
+		if (dataStr === '[DONE]') return;
+		let evt;
+		try { evt = JSON.parse(dataStr); } catch { return; }
+		const type = evt && evt.type;
+		if (type === 'response.output_text.delta' && typeof evt.delta === 'string') {
+			fullText += evt.delta;
+			deltaCount += 1;
+			const now = Date.now();
+			console.log(`[llm] delta #${deltaCount} +${now - startedAt}ms len=${evt.delta.length}`);
+			writeNdjson(res, { delta: evt.delta });
+		} else if (type === 'error' || type === 'response.failed' || type === 'response.error') {
+			errorMessage = (evt.error && evt.error.message) || evt.message || 'OpenAI stream failed.';
+		}
+	};
+
+	try {
+		while (true) {
+			const { value, done } = await reader.read();
+			if (done) break;
+			buffer += decoder.decode(value, { stream: true });
+			let idx;
+			while ((idx = buffer.indexOf('\n\n')) !== -1) {
+				const rawEvent = buffer.slice(0, idx);
+				buffer = buffer.slice(idx + 2);
+				handleEvent(rawEvent);
+			}
+		}
+		if (buffer.trim()) {
+			handleEvent(buffer);
+		}
+	} catch (err) {
+		errorMessage = errorMessage || (err && err.message) || 'Stream interrupted.';
+	}
+
+	if (errorMessage) {
+		console.log(`[llm] stream error after ${Date.now() - startedAt}ms: ${errorMessage}`);
+		writeNdjson(res, { error: errorMessage });
+	} else {
+		console.log(`[llm] stream done after ${Date.now() - startedAt}ms, ${deltaCount} deltas, ${fullText.length} chars`);
+		writeNdjson(res, { done: true, text: fullText, model });
+	}
+	res.end();
 };

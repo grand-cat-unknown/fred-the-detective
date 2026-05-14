@@ -2,9 +2,16 @@
 
 [ext_resource type="Script" uid="uid://xdd0ey5aqq13" path="res://scripts/world/world_view.gd" id="1_world"]
 [ext_resource type="PackedScene" uid="uid://55n455pd115y" path="res://scenes/world/world_map.tscn" id="2_map"]
+[ext_resource type="Texture2D" uid="uid://7xcs3a6s2jbk" path="res://HS-Characters Retro/Char 01_B.png" id="4_dlabj"]
+[ext_resource type="Texture2D" uid="uid://detfinf5avccy" path="res://HS-Characters Retro/Char 02_C.png" id="5_srmg5"]
+[ext_resource type="Texture2D" uid="uid://c73tsx1obq4hj" path="res://HS-Characters Retro/Char 12_B.png" id="6_umvgx"]
+[ext_resource type="Texture2D" uid="uid://hn13xxrncxjp" path="res://HS-Characters Retro/Char 06_B.png" id="7_mxkvs"]
 [ext_resource type="PackedScene" uid="uid://cola5578jq7bk" path="res://scenes/world/npc.tscn" id="7_npc"]
+[ext_resource type="Texture2D" uid="uid://bqe1rohu2v06n" path="res://HS-Characters Retro/Char 13_A.png" id="8_m114p"]
 [ext_resource type="PackedScene" uid="uid://b1plyr00scn01" path="res://scenes/world/player.tscn" id="8_player"]
-[ext_resource type="PackedScene" path="res://scenes/world/inspectable.tscn" id="9_insp"]
+[ext_resource type="Texture2D" uid="uid://dclp7r6tg3uso" path="res://HS-Characters Retro/Char 11_A.png" id="9_71ii3"]
+[ext_resource type="PackedScene" uid="uid://clhnu3j67t0j1" path="res://scenes/world/inspectable.tscn" id="9_insp"]
+[ext_resource type="Texture2D" uid="uid://dvwllyt0k77pj" path="res://HS-Characters Retro/Char 14_A.png" id="10_bt7bg"]
 
 [node name="World" type="Node2D" unique_id=1805681752]
 position = Vector2(466, 292)
@@ -14,31 +21,49 @@ script = ExtResource("1_world")
 position = Vector2(512, 288)
 
 [node name="WorldMap" parent="." unique_id=630295776 instance=ExtResource("2_map")]
-position = Vector2(0, 0)
+position = Vector2(-2, -4)
 
-[node name="NPC_pemberton" parent="." unique_id=597478776 instance=ExtResource("7_npc")]
-position = Vector2(624, 272)
-entity_id = &"pemberton"
-
-[node name="NPC_walter" parent="." unique_id=1178170094 instance=ExtResource("7_npc")]
-position = Vector2(432, 240)
-entity_id = &"walter"
-
-[node name="NPC_mara" parent="." unique_id=429012096 instance=ExtResource("7_npc")]
+[node name="NPC_mara" parent="." unique_id=1794848584 instance=ExtResource("7_npc")]
 position = Vector2(80, 400)
 entity_id = &"mara"
+preview_name = "Mara"
+preview_texture = ExtResource("4_dlabj")
 
-[node name="NPC_theo" parent="." unique_id=2017799620 instance=ExtResource("7_npc")]
+[node name="NPC_theo" parent="." unique_id=1440069773 instance=ExtResource("7_npc")]
 position = Vector2(784, 144)
 entity_id = &"theo"
+preview_name = "Theo"
+preview_texture = ExtResource("5_srmg5")
 
-[node name="NPC_lena" parent="." unique_id=1495388826 instance=ExtResource("7_npc")]
-position = Vector2(848, 464)
-entity_id = &"lena"
+[node name="NPC_otis" parent="." unique_id=2073294398 instance=ExtResource("7_npc")]
+position = Vector2(528, 336)
+entity_id = &"otis"
+preview_name = "Otis"
+preview_texture = ExtResource("6_umvgx")
 
-[node name="NPC_viv" parent="." unique_id=1868512981 instance=ExtResource("7_npc")]
-position = Vector2(112, 144)
-entity_id = &"viv"
+[node name="NPC_iris" parent="." unique_id=602351030 instance=ExtResource("7_npc")]
+position = Vector2(432, 240)
+entity_id = &"iris"
+preview_name = "Iris"
+preview_texture = ExtResource("7_mxkvs")
+
+[node name="NPC_rival" parent="." unique_id=639808501 instance=ExtResource("7_npc")]
+position = Vector2(784, 464)
+entity_id = &"rival"
+preview_name = "Rival"
+preview_texture = ExtResource("8_m114p")
+
+[node name="NPC_bellhop" parent="." unique_id=1106624191 instance=ExtResource("7_npc")]
+position = Vector2(176, 240)
+entity_id = &"bellhop"
+preview_name = "Bellhop"
+preview_texture = ExtResource("9_71ii3")
+
+[node name="NPC_maid" parent="." unique_id=1314534877 instance=ExtResource("7_npc")]
+position = Vector2(400, 432)
+entity_id = &"maid"
+preview_name = "Maid"
+preview_texture = ExtResource("10_bt7bg")
 
 [node name="Inspectable_desk" parent="." unique_id=1062109499 instance=ExtResource("9_insp")]
 position = Vector2(304, 272)

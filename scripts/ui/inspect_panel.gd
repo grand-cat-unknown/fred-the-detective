@@ -12,8 +12,12 @@ func _ready() -> void:
 
 
 func show_inspectable(inspectable: Inspectable) -> void:
-	_title_label.text = inspectable.title
-	_description_label.text = inspectable.description
+	show_text(inspectable.title, inspectable.description)
+
+
+func show_text(title: String, description: String) -> void:
+	_title_label.text = title
+	_description_label.text = description
 	_hint_label.text = "Press E or Space to close"
 	_root.visible = true
 
