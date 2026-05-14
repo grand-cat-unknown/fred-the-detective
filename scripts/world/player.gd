@@ -60,4 +60,11 @@ func process_step(delta: float) -> float:
 
 
 func _draw() -> void:
-	ActorDraw.draw_actor(self, Vector2.ZERO, body_color, hat_color, face_direction, texture)
+	ActorDraw.draw_actor(self, Vector2.ZERO, body_color, hat_color, face_direction, texture, is_stepping, _walk_phase())
+
+
+func _walk_phase() -> float:
+	if not is_stepping:
+		return 0.0
+	var distance_remaining := position.distance_to(target_position)
+	return 1.0 - clampf(distance_remaining / TileMap2D.TILE_SIZE, 0.0, 1.0)
