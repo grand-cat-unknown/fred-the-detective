@@ -32,6 +32,10 @@ extends Node2D
 	set(value):
 		player_hat_color = value
 		_apply_palette()
+@export var player_texture: Texture2D = preload("res://assets/sprites/characters/char_03.png"):
+	set(value):
+		player_texture = value
+		_apply_palette()
 
 var case_data: CaseData
 
@@ -89,6 +93,7 @@ func _apply_palette() -> void:
 	if _player != null:
 		_player.body_color = player_color
 		_player.hat_color = player_hat_color
+		_player.texture = player_texture
 		_player.queue_redraw()
 
 

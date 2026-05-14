@@ -29,4 +29,4 @@ func configure(new_suspect: SuspectData) -> void:
 func _draw() -> void:
 	if suspect == null:
 		return
-	ActorDraw.draw_actor(self, Vector2.ZERO, suspect.color, suspect.hat_color)
+	ActorDraw.draw_actor(self, Vector2.ZERO, suspect.color, suspect.hat_color, Vector2i(1, 0), suspect.texture)

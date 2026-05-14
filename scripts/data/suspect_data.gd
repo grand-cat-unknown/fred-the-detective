@@ -6,6 +6,7 @@ extends Resource
 @export var position: Vector2
 @export var color: Color
 @export var hat_color: Color
+@export var texture: Texture2D
 
 
 func _init(
@@ -14,9 +15,11 @@ func _init(
 	p_position: Vector2 = Vector2.ZERO,
 	p_color: Color = Color.WHITE,
 	p_hat_color: Color = Color.BLACK,
+	p_texture: Texture2D = null,
 ) -> void:
 	id = p_id
 	display_name = p_display_name
 	position = p_position
 	color = p_color
 	hat_color = p_hat_color
+	texture = p_texture

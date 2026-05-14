@@ -11,6 +11,7 @@ var face_direction := Vector2i(1, 0)
 var speed := Gameplay.PLAYER_SPEED
 var body_color := Palette.PLAYER_BODY
 var hat_color := Palette.PLAYER_HAT
+@export var texture: Texture2D
 
 
 func reset_to_tile(start_tile: Vector2i) -> void:
@@ -59,4 +60,4 @@ func process_step(delta: float) -> float:
 
 
 func _draw() -> void:
-	ActorDraw.draw_actor(self, Vector2.ZERO, body_color, hat_color, face_direction)
+	ActorDraw.draw_actor(self, Vector2.ZERO, body_color, hat_color, face_direction, texture)
