@@ -16,14 +16,6 @@ var background_color := Palette.BACKGROUND:
 	set(value):
 		background_color = value
 		queue_redraw()
-var floor_color := Palette.FLOOR
-var floor_alt_color := Palette.FLOOR_ALT
-var wall_color := Palette.WALL
-var wall_top_color := Palette.WALL_TOP
-var rug_color := Palette.RUG
-var rug_trim_color := Palette.RUG_TRIM
-var runner_color := Palette.RUNNER
-var outline_color := Palette.OUTLINE
 
 var _tile_layers: Dictionary = {}
 var _source_cells_by_layer: Dictionary = {}

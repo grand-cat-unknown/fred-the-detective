@@ -59,34 +59,6 @@ const _EDITOR_PREVIEW_ROOM_IDS: Array[StringName] = [
 	set(value):
 		background_color = value
 		refresh()
-@export var floor_color := Palette.FLOOR:
-	set(value):
-		floor_color = value
-		refresh()
-@export var floor_alt_color := Palette.FLOOR_ALT:
-	set(value):
-		floor_alt_color = value
-		refresh()
-@export var wall_color := Palette.WALL:
-	set(value):
-		wall_color = value
-		refresh()
-@export var wall_top_color := Palette.WALL_TOP:
-	set(value):
-		wall_top_color = value
-		refresh()
-@export var rug_color := Palette.RUG:
-	set(value):
-		rug_color = value
-		refresh()
-@export var rug_trim_color := Palette.RUG_TRIM:
-	set(value):
-		rug_trim_color = value
-		refresh()
-@export var runner_color := Palette.RUNNER:
-	set(value):
-		runner_color = value
-		refresh()
 @export var outline_color := Palette.OUTLINE:
 	set(value):
 		outline_color = value
@@ -202,14 +174,6 @@ func refresh() -> void:
 	var show_all := Engine.is_editor_hint() and editor_show_all_rooms
 	_world_map.show_all_rooms = show_all
 	_world_map.background_color = background_color
-	_world_map.floor_color = floor_color
-	_world_map.floor_alt_color = floor_alt_color
-	_world_map.wall_color = wall_color
-	_world_map.wall_top_color = wall_top_color
-	_world_map.rug_color = rug_color
-	_world_map.rug_trim_color = rug_trim_color
-	_world_map.runner_color = runner_color
-	_world_map.outline_color = outline_color
 	_world_map.set_current_room(current_room)
 
 	for room_zone in _room_zones:
@@ -223,15 +187,11 @@ func refresh() -> void:
 			room_zone.queue_redraw()
 
 	for door_node in _door_nodes:
-		door_node.door_color = Palette.DOOR
-		door_node.trim_color = Palette.DOOR_TRIM
-		door_node.outline_color = outline_color
 		door_node.set_current_room(current_room)
 		if show_all:
 			door_node.visible = true
 
 	for elevator_node in _elevator_nodes:
-		elevator_node.outline_color = outline_color
 		elevator_node.set_current_room(current_room)
 		if show_all:
 			elevator_node.visible = true
@@ -394,10 +354,6 @@ func _redraw_content() -> void:
 		_world_map.queue_redraw()
 	for room_zone in _room_zones:
 		room_zone.queue_redraw()
-	for door_node in _door_nodes:
-		door_node.queue_redraw()
-	for elevator_node in _elevator_nodes:
-		elevator_node.queue_redraw()
 	for clue_marker in _clue_markers:
 		clue_marker.queue_redraw()
 	for npc in _npc_nodes:

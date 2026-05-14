@@ -4,36 +4,7 @@ extends RefCounted
 const ROOM_LABEL_FONT_SIZE := 12
 const ROOM_LABEL_MIN_SIZE := Vector2(220.0, 18.0)
 
-const WALL_TOP_HEIGHT := 8.0
-
-const RUG_INSET := 1.0
-const RUG_TRIM_OUTLINE_INSET := 5.0
-const RUG_TRIM_OFFSET := Vector2(4.0, 4.0)
-const RUG_TRIM_THICKNESS := 3.0
-const RUG_TRIM_HORIZONTAL_PAD := 8.0
-
-const OBJECT_INSET := 3.0
-const OBJECT_HIGHLIGHT_OFFSET := Vector2(3.0, 3.0)
-const OBJECT_HIGHLIGHT_HORIZONTAL_PAD := 6.0
-const OBJECT_HIGHLIGHT_HEIGHT := 7.0
 const OBJECT_OUTLINE_WIDTH := 1.5
-
-const PEDESTAL_OUTER_INSET := 5.0
-const PEDESTAL_INNER_INSET := 10.0
-
-const DOOR_OFFSET := Vector2(2.0, 4.0)
-const DOOR_PAD := Vector2(4.0, 8.0)
-const DOOR_KNOB_OFFSET_RIGHT := 8.0
-const DOOR_KNOB_RADIUS := 2.0
-
-const ELEVATOR_FRAME_INSET := 2.0
-const ELEVATOR_PANEL_INSET := 4.0
-const ELEVATOR_SEAM_INSET := 4.0
-const ELEVATOR_ARROW_NORMALIZED: Array[Vector2] = [
-	Vector2(0.3, 0.35),
-	Vector2(0.7, 0.35),
-	Vector2(0.5, 0.2),
-]
 
 const CLUE_RADIUS := 10.0
 const CLUE_OUTLINE_WIDTH := 2.0
