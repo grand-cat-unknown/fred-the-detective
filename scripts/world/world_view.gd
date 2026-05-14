@@ -38,6 +38,7 @@ var _world_map: WorldMap
 var _player: Player
 var _camera: Camera2D
 var _npc_nodes: Array[NPC] = []
+var _inspectables: Array[Inspectable] = []
 
 
 func _ready() -> void:
@@ -75,7 +76,7 @@ func try_start_tile_step(direction: Vector2i) -> void:
 	if _player == null:
 		return
 	_player.speed = player_speed
-	_player.try_step(direction, _world_map, _npc_tiles())
+	_player.try_step(direction, _world_map, _blocked_tiles())
 
 
 func is_player_stepping() -> bool:
@@ -113,8 +114,28 @@ func _apply_camera_to_player(instant: bool, delta: float = 0.0) -> void:
 	_camera.zoom = target_zoom
 
 
+func find_inspectable_at_player() -> Inspectable:
+	if _player == null:
+		return null
+	var player_tile := _player.tile
+	var facing_tile := player_tile + _player.face_direction
+	var candidates: Array[Vector2i] = [
+		facing_tile,
+		player_tile + Vector2i(1, 0),
+		player_tile + Vector2i(-1, 0),
+		player_tile + Vector2i(0, 1),
+		player_tile + Vector2i(0, -1),
+	]
+	for tile in candidates:
+		for inspectable in _inspectables:
+			if inspectable.get_tile() == tile:
+				return inspectable
+	return null
+
+
 func _rebuild_content() -> void:
 	_npc_nodes.clear()
+	_inspectables.clear()
 	_world_map = null
 	_player = null
 	_camera = null
@@ -128,6 +149,8 @@ func _rebuild_content() -> void:
 			_camera = child
 		elif child is NPC:
 			_npc_nodes.append(child)
+		elif child is Inspectable:
+			_inspectables.append(child)
 
 	if _camera != null and not Engine.is_editor_hint():
 		_camera.make_current()
@@ -148,8 +171,11 @@ func _rebuild_content() -> void:
 	_apply_camera_to_player(false)
 
 
-func _npc_tiles() -> Array[Vector2i]:
+func _blocked_tiles() -> Array[Vector2i]:
 	var tiles: Array[Vector2i] = []
 	for npc in _npc_nodes:
 		tiles.append(TileMap2D.world_to_tile(npc.position))
+	for inspectable in _inspectables:
+		if inspectable.blocks_movement:
+			tiles.append(inspectable.get_tile())
 	return tiles
