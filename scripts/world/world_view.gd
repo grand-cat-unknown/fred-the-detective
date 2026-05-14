@@ -146,6 +146,16 @@ func find_inspectable_at_player() -> Inspectable:
 	return null
 
 
+func find_npc_at_player() -> NPC:
+	if _player == null:
+		return null
+	for tile in _adjacent_tiles():
+		for npc in _npc_nodes:
+			if npc.get_tile() == tile:
+				return npc
+	return null
+
+
 func find_inspection_at_player() -> Dictionary:
 	var inspectable := find_inspectable_at_player()
 	if inspectable != null:
@@ -155,40 +165,28 @@ func find_inspection_at_player() -> Dictionary:
 			"description": inspectable.description,
 		}
 
-	if _player == null:
+	if _player == null or _world_map == null:
 		return {}
 
+	for tile in _adjacent_tiles():
+		var inspection := _world_map.get_tile_inspection(tile)
+		if not inspection.is_empty():
+			return inspection
+
+	return {}
+
+
+func _adjacent_tiles() -> Array[Vector2i]:
 	var player_tile := _player.tile
 	var facing_tile := player_tile + _player.face_direction
-	var candidates: Array[Vector2i] = [
+	var tiles: Array[Vector2i] = [
 		facing_tile,
 		player_tile + Vector2i(1, 0),
 		player_tile + Vector2i(-1, 0),
 		player_tile + Vector2i(0, 1),
 		player_tile + Vector2i(0, -1),
 	]
-
-	for tile in candidates:
-		for npc in _npc_nodes:
-			if npc.get_tile() == tile:
-				var line := ""
-				if npc.suspect != null:
-					line = npc.suspect.dialogue
-				return {
-					"object_id": npc.entity_id,
-					"title": npc.get_display_name(),
-					"description": line,
-				}
-
-	if _world_map == null:
-		return {}
-
-	for tile in candidates:
-		var inspection := _world_map.get_tile_inspection(tile)
-		if not inspection.is_empty():
-			return inspection
-
-	return {}
+	return tiles
 
 
 func _rebuild_content() -> void:

@@ -3,6 +3,7 @@
 [ext_resource type="Script" uid="uid://budl0k0bws51r" path="res://scripts/game.gd" id="1_game"]
 [ext_resource type="PackedScene" uid="uid://cqsvrol4iinpm" path="res://scenes/world/world.tscn" id="8_world"]
 [ext_resource type="PackedScene" uid="uid://b0xfredinspectui1" path="res://scenes/ui/inspect_panel.tscn" id="9_panel"]
+[ext_resource type="PackedScene" uid="uid://b0xfreddialogueui1" path="res://scenes/ui/dialogue_panel.tscn" id="10_dialogue"]
 
 [node name="Game" type="Node2D" unique_id=744785900]
 script = ExtResource("1_game")
@@ -11,4 +12,7 @@ script = ExtResource("1_game")
 unique_name_in_owner = true
 
 [node name="InspectPanel" parent="." instance=ExtResource("9_panel")]
+unique_name_in_owner = true
+
+[node name="DialoguePanel" parent="." instance=ExtResource("10_dialogue")]
 unique_name_in_owner = true
