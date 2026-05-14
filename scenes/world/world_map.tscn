@@ -4,7 +4,7 @@
 [ext_resource type="TileSet" uid="uid://dnk2jdbdo1k4o" path="res://assets/tile_sets/interior_world_tiles.tres" id="2_jabx1"]
 
 [node name="WorldMap" type="Node2D" unique_id=137116852]
-position = Vector2(722, 340)
+position = Vector2(0, 0)
 script = ExtResource("1_lhxl1")
 
 [node name="Floor" type="TileMapLayer" parent="." unique_id=1544721600]

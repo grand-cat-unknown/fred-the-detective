@@ -18,11 +18,6 @@ func _ready() -> void:
 
 
 func is_walkable(tile_position: Vector2i) -> bool:
-	if tile_position.x < 0 or tile_position.x >= TileMap2D.MAP_WIDTH:
-		return false
-	if tile_position.y < 0 or tile_position.y >= TileMap2D.MAP_HEIGHT:
-		return false
-
 	var floor_layer := _layer(FLOOR_LAYER)
 	if floor_layer == null or floor_layer.get_cell_source_id(tile_position) == -1:
 		return false
