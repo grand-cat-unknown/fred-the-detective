@@ -1,7 +1,7 @@
 [gd_scene format=3 uid="uid://cqsvrol4iinpm"]
 
 [ext_resource type="Script" uid="uid://xdd0ey5aqq13" path="res://scripts/world/world_view.gd" id="1_world"]
-[ext_resource type="PackedScene" uid="uid://55n455pd115y" path="res://scenes/world/world_map.tscn" id="2_map"]
+[ext_resource type="PackedScene" path="res://scenes/world/world_map.tscn" id="2_map"]
 [ext_resource type="PackedScene" uid="uid://45l51ar7xkim" path="res://scenes/world/room_zone.tscn" id="3_zone"]
 [ext_resource type="PackedScene" uid="uid://c0baj7o0s07ka" path="res://scenes/world/door.tscn" id="4_door"]
 [ext_resource type="PackedScene" uid="uid://cbx5kdq567nk" path="res://scenes/world/elevator.tscn" id="5_elev"]
