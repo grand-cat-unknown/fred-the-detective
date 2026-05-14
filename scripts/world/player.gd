@@ -67,7 +67,7 @@ func process_step(delta: float) -> float:
 
 
 func _draw() -> void:
-	ActorDraw.draw_actor(self, Vector2.ZERO, body_color, hat_color, face_direction, texture, is_stepping, _walk_phase())
+	ActorDraw.draw_actor(self , Vector2.ZERO, body_color, hat_color, face_direction, texture, is_stepping, _walk_phase())
 
 
 func _walk_phase() -> float:

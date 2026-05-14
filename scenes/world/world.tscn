@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://55n455pd115y" path="res://scenes/world/world_map.tscn" id="2_map"]
 [ext_resource type="PackedScene" uid="uid://cola5578jq7bk" path="res://scenes/world/npc.tscn" id="7_npc"]
 [ext_resource type="PackedScene" uid="uid://b1plyr00scn01" path="res://scenes/world/player.tscn" id="8_player"]
-[ext_resource type="PackedScene" path="res://scenes/world/inspectable.tscn" id="9_insp"]
+[ext_resource type="PackedScene" uid="uid://clhnu3j67t0j1" path="res://scenes/world/inspectable.tscn" id="9_insp"]
 
 [node name="World" type="Node2D" unique_id=1805681752]
 position = Vector2(466, 292)
@@ -14,7 +14,6 @@ script = ExtResource("1_world")
 position = Vector2(512, 288)
 
 [node name="WorldMap" parent="." unique_id=630295776 instance=ExtResource("2_map")]
-position = Vector2(0, 0)
 
 [node name="NPC_pemberton" parent="." unique_id=597478776 instance=ExtResource("7_npc")]
 position = Vector2(624, 272)
