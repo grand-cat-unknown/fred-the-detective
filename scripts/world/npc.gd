@@ -26,10 +26,6 @@ func configure(new_suspect: SuspectData) -> void:
 	queue_redraw()
 
 
-func set_current_room(room_id: StringName) -> void:
-	visible = suspect != null and suspect.room == room_id
-
-
 func _draw() -> void:
 	if suspect == null:
 		return

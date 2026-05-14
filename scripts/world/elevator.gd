@@ -14,9 +14,3 @@ func configure(new_elevator: ElevatorData) -> void:
 		room_a = elevator_data.room_a
 		room_b = elevator_data.room_b
 		name = "Elevator_%s_%s" % [elevator_data.room_a, elevator_data.room_b]
-
-
-func set_current_room(room_id: StringName) -> void:
-	visible = elevator_data != null and elevator_data.connects(room_id)
-	if visible:
-		position = Vector2(elevator_data.tile_for(room_id)) * TileMap2D.TILE_SIZE

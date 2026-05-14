@@ -2,38 +2,6 @@
 class_name WorldView
 extends Node2D
 
-const _EDITOR_PREVIEW_ROOM_IDS: Array[StringName] = [
-	CaseLoader.ROOM_CONCIERGE,
-	CaseLoader.ROOM_1220,
-	CaseLoader.ROOM_GEAR,
-	CaseLoader.ROOM_HALL,
-	CaseLoader.ROOM_SUITE,
-	CaseLoader.ROOM_LOBBY,
-	CaseLoader.ROOM_CHUTE,
-	CaseLoader.ROOM_1223,
-]
-
-@export_group("Editor Preview")
-@export_enum(
-	"Concierge / Security",
-	"Room 1220",
-	"Gear Cart",
-	"Twelfth Floor Hall",
-	"Suite 1221",
-	"Elevator Lobby",
-	"Chute Access",
-	"Room 1223"
-) var editor_preview_room_index := 5:
-	set(value):
-		editor_preview_room_index = value
-		if Engine.is_editor_hint():
-			current_room = _editor_preview_room_id()
-		refresh()
-@export var editor_show_locked_clues := true:
-	set(value):
-		editor_show_locked_clues = value
-		refresh()
-
 @export_group("Movement")
 @export_range(60.0, 600.0, 5.0, "or_greater") var player_speed := Gameplay.PLAYER_SPEED:
 	set(value):
@@ -49,10 +17,6 @@ const _EDITOR_PREVIEW_ROOM_IDS: Array[StringName] = [
 @export_range(0.0, 30.0, 0.5, "or_greater") var camera_follow_smoothing := 12.0:
 	set(value):
 		camera_follow_smoothing = value
-@export var editor_show_all_rooms := true:
-	set(value):
-		editor_show_all_rooms = value
-		refresh()
 
 @export_group("Palette")
 @export var background_color := Palette.BACKGROUND:
@@ -105,9 +69,7 @@ func _process(delta: float) -> void:
 
 func configure(new_case: CaseData) -> void:
 	case_data = new_case
-	if Engine.is_editor_hint():
-		current_room = _editor_preview_room_id()
-	elif case_data != null:
+	if case_data != null:
 		current_room = case_data.start_room
 	_rebuild_content()
 
@@ -164,34 +126,13 @@ func refresh() -> void:
 	if _world_map == null:
 		return
 
-	var show_all := Engine.is_editor_hint() and editor_show_all_rooms
-	_world_map.show_all_rooms = show_all
 	_world_map.background_color = background_color
-	_world_map.set_current_room(current_room)
-
-	for door_node in _door_nodes:
-		door_node.set_current_room(current_room)
-		if show_all:
-			door_node.visible = true
-
-	for elevator_node in _elevator_nodes:
-		elevator_node.set_current_room(current_room)
-		if show_all:
-			elevator_node.visible = true
 
 	for clue_marker in _clue_markers:
 		clue_marker.clue_color = clue_color
 		clue_marker.clue_inspected_color = clue_inspected_color
 		clue_marker.outline_color = outline_color
-		clue_marker.show_locked_clues = Engine.is_editor_hint() and editor_show_locked_clues
-		clue_marker.set_current_room(current_room)
-		if show_all:
-			clue_marker.visible = true
-
-	for npc in _npc_nodes:
-		npc.set_current_room(current_room)
-		if show_all:
-			npc.visible = true
+		clue_marker.refresh()
 
 	if _player != null:
 		_player.speed = player_speed
@@ -226,11 +167,6 @@ func _apply_camera_to_player(instant: bool, delta: float = 0.0) -> void:
 	_camera.zoom = target_zoom
 
 
-func _editor_preview_room_id() -> StringName:
-	var index := clampi(editor_preview_room_index, 0, _EDITOR_PREVIEW_ROOM_IDS.size() - 1)
-	return _EDITOR_PREVIEW_ROOM_IDS[index]
-
-
 func _rebuild_content() -> void:
 	_npc_nodes.clear()
 	_clue_markers.clear()
@@ -261,9 +197,6 @@ func _rebuild_content() -> void:
 
 	if case_data == null:
 		return
-
-	if _world_map != null:
-		_world_map.configure(case_data)
 
 	for npc in _npc_nodes:
 		var suspect := case_data.suspect_by_id(npc.entity_id)
@@ -326,6 +259,5 @@ func _npc_tiles() -> Array[Vector2i]:
 	if case_data == null:
 		return tiles
 	for suspect in case_data.suspects:
-		if suspect.room == current_room:
-			tiles.append(TileMap2D.world_to_tile(suspect.position))
+		tiles.append(TileMap2D.world_to_tile(suspect.position))
 	return tiles

@@ -144,10 +144,19 @@ func _enter_elevator(elevator_idx: int) -> void:
 	if elevator_idx < 0 or elevator_idx >= _case.elevators.size():
 		return
 	var elevator := _case.elevators[elevator_idx]
+	var source_room := _elevator_source_room(elevator)
 	_transition_to(
-		elevator.target_room_from(_world.current_room),
-		elevator.target_spawn_from(_world.current_room),
+		elevator.target_room_from(source_room),
+		elevator.target_spawn_from(source_room),
 	)
+
+
+func _elevator_source_room(elevator: ElevatorData) -> StringName:
+	var player_tile := _world.player_tile()
+	var face := _world.player_face_direction()
+	if (elevator.tile_b - player_tile) == face:
+		return elevator.room_a
+	return elevator.room_b
 
 
 func _transition_to(room_id: StringName, spawn_tile: Vector2i) -> void:

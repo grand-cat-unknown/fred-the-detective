@@ -27,14 +27,14 @@ func configure(new_clue: ClueData) -> void:
 	if clue != null:
 		entity_id = clue.id
 		name = "Clue_%s" % clue.id
-	queue_redraw()
+	refresh()
 
 
-func set_current_room(room_id: StringName) -> void:
+func refresh() -> void:
 	if clue == null:
 		visible = false
 		return
-	visible = clue.room == room_id and (show_locked_clues or UnlockResolver.is_clue_available(clue))
+	visible = show_locked_clues or UnlockResolver.is_clue_available(clue)
 	queue_redraw()
 
 

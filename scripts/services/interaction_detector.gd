@@ -31,8 +31,9 @@ static func find_target(
 	var elev_idx := _adjacent_elevator(case, current_room, player_tile, player_face_direction)
 	if elev_idx >= 0:
 		var elev := case.elevators[elev_idx]
-		var target_room := elev.target_room_from(current_room)
-		var tile := elev.tile_for(current_room)
+		var source_room := _elevator_source_room(elev, player_tile, player_face_direction)
+		var target_room := elev.target_room_from(source_room)
+		var tile := elev.tile_for(source_room)
 		return InteractTarget.new(
 			GameEnums.InteractKind.ELEVATOR,
 			elev_idx,
@@ -63,7 +64,7 @@ static func _nearest_npc(
 	var face_vec := Vector2(player_face_direction)
 	var best: SuspectData = null
 	var best_dist := INF
-	for suspect in case.suspects_in_room(current_room):
+	for suspect in case.suspects:
 		var d := player_position.distance_to(suspect.position)
 		if d > Gameplay.PLAYER_RADIUS + Gameplay.NPC_INTERACT_RADIUS or d >= best_dist:
 			continue
@@ -83,7 +84,7 @@ static func _nearest_clue(
 	var face_vec := Vector2(player_face_direction)
 	var best: ClueData = null
 	var best_dist := INF
-	for clue in case.clues_in_room(current_room):
+	for clue in case.clues:
 		if not UnlockResolver.is_clue_available(clue):
 			continue
 		var d := player_position.distance_to(clue.position)
@@ -104,8 +105,6 @@ static func _adjacent_door(
 ) -> int:
 	for i in range(case.doors.size()):
 		var door := case.doors[i]
-		if not door.connects(current_room):
-			continue
 		if (door.tile - player_tile) == player_face_direction:
 			return i
 	return -1
@@ -119,11 +118,21 @@ static func _adjacent_elevator(
 ) -> int:
 	for i in range(case.elevators.size()):
 		var elev := case.elevators[i]
-		if not elev.connects(current_room):
-			continue
-		if (elev.tile_for(current_room) - player_tile) == player_face_direction:
+		if (elev.tile_a - player_tile) == player_face_direction:
+			return i
+		if (elev.tile_b - player_tile) == player_face_direction:
 			return i
 	return -1
+
+
+static func _elevator_source_room(
+	elev: ElevatorData,
+	player_tile: Vector2i,
+	player_face_direction: Vector2i,
+) -> StringName:
+	if (elev.tile_b - player_tile) == player_face_direction:
+		return elev.room_a
+	return elev.room_b
 
 
 static func _room_label(case: CaseData, room_id: StringName) -> String:

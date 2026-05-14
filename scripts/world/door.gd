@@ -25,7 +25,3 @@ func configure(new_door: DoorData) -> void:
 		room_a = door_data.room_a
 		room_b = door_data.room_b
 		name = "Door_%s_%s" % [door_data.room_a, door_data.room_b]
-
-
-func set_current_room(room_id: StringName) -> void:
-	visible = door_data != null and door_data.connects(room_id)
