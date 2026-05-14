@@ -2,14 +2,6 @@
 class_name WorldView
 extends Node2D
 
-const _WORLD_MAP_SCENE: PackedScene = preload("res://scenes/world/world_map.tscn")
-const _PLAYER_SCENE: PackedScene = preload("res://scenes/world/player.tscn")
-const _NPC_SCENE: PackedScene = preload("res://scenes/world/npc.tscn")
-const _CLUE_MARKER_SCENE: PackedScene = preload("res://scenes/world/clue_marker.tscn")
-const _DOOR_SCENE: PackedScene = preload("res://scenes/world/door.tscn")
-const _ELEVATOR_SCENE: PackedScene = preload("res://scenes/world/elevator.tscn")
-const _ROOM_ZONE_SCENE: PackedScene = preload("res://scenes/world/room_zone.tscn")
-
 const _EDITOR_PREVIEW_ROOM_IDS: Array[StringName] = [
 	CaseLoader.ROOM_CONCIERGE,
 	CaseLoader.ROOM_1220,
@@ -245,8 +237,6 @@ func _editor_preview_room_id() -> StringName:
 
 
 func _rebuild_content() -> void:
-	for child in get_children():
-		child.queue_free()
 	_room_zones.clear()
 	_npc_nodes.clear()
 	_clue_markers.clear()
@@ -255,46 +245,68 @@ func _rebuild_content() -> void:
 	_world_map = null
 	_player = null
 
+	for child in get_children():
+		if child is WorldMap:
+			_world_map = child
+		elif child is Player:
+			_player = child
+		elif child is RoomZone:
+			_room_zones.append(child)
+		elif child is NPC:
+			_npc_nodes.append(child)
+		elif child is ClueMarker:
+			_clue_markers.append(child)
+		elif child is Door:
+			_door_nodes.append(child)
+		elif child is Elevator:
+			_elevator_nodes.append(child)
+
 	if case_data == null:
 		return
 
-	_world_map = _WORLD_MAP_SCENE.instantiate() as WorldMap
-	add_child(_world_map)
-	_world_map.configure(case_data)
+	if _world_map != null:
+		_world_map.configure(case_data)
 
-	for door in case_data.doors:
-		var door_node := _DOOR_SCENE.instantiate() as Door
-		add_child(door_node)
-		door_node.configure(door)
-		_door_nodes.append(door_node)
+	for room_zone in _room_zones:
+		var room := case_data.room_by_id(room_zone.entity_id)
+		if room != null:
+			room_zone.configure(room)
 
-	for elevator in case_data.elevators:
-		var elevator_node := _ELEVATOR_SCENE.instantiate() as Elevator
-		add_child(elevator_node)
-		elevator_node.configure(elevator)
-		_elevator_nodes.append(elevator_node)
+	for npc in _npc_nodes:
+		var suspect := case_data.suspect_by_id(npc.entity_id)
+		if suspect != null:
+			npc.configure(suspect)
 
-	for room in case_data.rooms:
-		var room_zone := _ROOM_ZONE_SCENE.instantiate() as RoomZone
-		add_child(room_zone)
-		room_zone.configure(room)
-		_room_zones.append(room_zone)
+	for clue_marker in _clue_markers:
+		var clue := case_data.clue_by_id(clue_marker.entity_id)
+		if clue != null:
+			clue_marker.configure(clue)
 
-	for clue in case_data.clues:
-		var clue_marker := _CLUE_MARKER_SCENE.instantiate() as ClueMarker
-		add_child(clue_marker)
-		clue_marker.configure(clue)
-		_clue_markers.append(clue_marker)
+	for door_node in _door_nodes:
+		var door := _find_door(door_node.room_a, door_node.room_b)
+		if door != null:
+			door_node.configure(door)
 
-	for suspect in case_data.suspects:
-		var npc := _NPC_SCENE.instantiate() as NPC
-		add_child(npc)
-		npc.configure(suspect)
-		_npc_nodes.append(npc)
+	for elevator_node in _elevator_nodes:
+		var elevator := _find_elevator(elevator_node.room_a, elevator_node.room_b)
+		if elevator != null:
+			elevator_node.configure(elevator)
 
-	_player = _PLAYER_SCENE.instantiate() as Player
-	add_child(_player)
 	refresh()
+
+
+func _find_door(a: StringName, b: StringName) -> DoorData:
+	for door in case_data.doors:
+		if (door.room_a == a and door.room_b == b) or (door.room_a == b and door.room_b == a):
+			return door
+	return null
+
+
+func _find_elevator(a: StringName, b: StringName) -> ElevatorData:
+	for elevator in case_data.elevators:
+		if (elevator.room_a == a and elevator.room_b == b) or (elevator.room_a == b and elevator.room_b == a):
+			return elevator
+	return null
 
 
 func _redraw_content() -> void:

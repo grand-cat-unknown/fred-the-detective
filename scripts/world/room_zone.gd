@@ -2,6 +2,8 @@
 class_name RoomZone
 extends Node2D
 
+@export var entity_id: StringName
+
 var room: RoomData
 var border_color := Palette.ROOM_BORDER
 var label_color := Palette.ROOM_LABEL
@@ -12,6 +14,7 @@ var _label: Label
 func configure(new_room: RoomData) -> void:
 	room = new_room
 	if room != null:
+		entity_id = room.id
 		name = "RoomZone_%s" % room.id
 	_ensure_label()
 	_apply_label()

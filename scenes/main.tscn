@@ -7,14 +7,13 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/clue_panel.tscn" id="5_clue"]
 [ext_resource type="PackedScene" path="res://scenes/ui/accusation_panel.tscn" id="6_accusation"]
 [ext_resource type="PackedScene" path="res://scenes/ui/result_panel.tscn" id="7_result"]
-[ext_resource type="Script" uid="uid://xdd0ey5aqq13" path="res://scripts/world/world_view.gd" id="8_world"]
+[ext_resource type="PackedScene" uid="uid://b1worldscn00001" path="res://scenes/world/world.tscn" id="8_world"]
 
 [node name="Game" type="Node2D" unique_id=744785900]
 script = ExtResource("1_game")
 
-[node name="WorldView" type="Node2D" parent="." unique_id=1541119895]
+[node name="WorldView" parent="." unique_id=1541119895 instance=ExtResource("8_world")]
 unique_name_in_owner = true
-script = ExtResource("8_world")
 
 [node name="HUDLayer" type="CanvasLayer" parent="." unique_id=946559991]
 unique_name_in_owner = true

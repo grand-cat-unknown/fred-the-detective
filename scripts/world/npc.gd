@@ -2,14 +2,16 @@
 class_name NPC
 extends Node2D
 
+@export var entity_id: StringName
+
 var suspect: SuspectData
 
 
 func configure(new_suspect: SuspectData) -> void:
 	suspect = new_suspect
 	if suspect != null:
+		entity_id = suspect.id
 		name = "NPC_%s" % suspect.id
-		position = suspect.position
 	queue_redraw()
 
 

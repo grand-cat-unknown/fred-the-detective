@@ -2,6 +2,8 @@
 class_name ClueMarker
 extends Node2D
 
+@export var entity_id: StringName
+
 var clue: ClueData
 var show_locked_clues := false
 var clue_color := Palette.CLUE
@@ -12,8 +14,8 @@ var outline_color := Palette.OUTLINE
 func configure(new_clue: ClueData) -> void:
 	clue = new_clue
 	if clue != null:
+		entity_id = clue.id
 		name = "Clue_%s" % clue.id
-		position = clue.position
 	queue_redraw()
 
 

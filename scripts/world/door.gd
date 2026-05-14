@@ -2,6 +2,9 @@
 class_name Door
 extends Node2D
 
+@export var room_a: StringName
+@export var room_b: StringName
+
 var door_data: DoorData
 var door_color := Palette.DOOR
 var trim_color := Palette.DOOR_TRIM
@@ -11,8 +14,9 @@ var outline_color := Palette.OUTLINE
 func configure(new_door: DoorData) -> void:
 	door_data = new_door
 	if door_data != null:
+		room_a = door_data.room_a
+		room_b = door_data.room_b
 		name = "Door_%s_%s" % [door_data.room_a, door_data.room_b]
-		position = Vector2(door_data.tile) * TileMap2D.TILE_SIZE
 	queue_redraw()
 
 
