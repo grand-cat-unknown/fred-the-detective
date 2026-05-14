@@ -1,8 +1,8 @@
-[gd_resource type="TileSet" format=3]
+[gd_resource type="TileSet" format=3 uid="uid://dnk2jdbdo1k4o"]
 
-[ext_resource type="Texture2D" path="res://Epic RPG World - Village(interiors) V1.3/assets/Interiors_tilesets.png" id="1_q48nj"]
-[ext_resource type="Texture2D" path="res://Epic RPG World - Village(interiors) V1.3/assets/furniture_and_props.png" id="2_x5m63"]
-[ext_resource type="Texture2D" path="res://Epic RPG World - Village(interiors) V1.3/assets/windows_and_doors.png" id="3_yuyor"]
+[ext_resource type="Texture2D" uid="uid://c71usgaa8fojp" path="res://Epic RPG World - Village(interiors) V1.3/assets/Interiors_tilesets.png" id="1_q48nj"]
+[ext_resource type="Texture2D" uid="uid://dbgrk5yooixm7" path="res://Epic RPG World - Village(interiors) V1.3/assets/furniture_and_props.png" id="2_x5m63"]
+[ext_resource type="Texture2D" uid="uid://bevobalpq17nd" path="res://Epic RPG World - Village(interiors) V1.3/assets/windows_and_doors.png" id="3_yuyor"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ov7ph"]
 texture = ExtResource("1_q48nj")
@@ -6525,6 +6525,7 @@ texture = ExtResource("1_q48nj")
 52:99/0 = 0
 53:99/0 = 0
 54:99/0 = 0
+43:50/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gqa5y"]
 texture = ExtResource("2_x5m63")
