@@ -13,6 +13,10 @@ var body_color := Palette.PLAYER_BODY
 var hat_color := Palette.PLAYER_HAT
 @export var texture: Texture2D
 
+const WALK_CYCLE_SECONDS := 0.65
+
+var _walk_animation_time := 0.0
+
 
 func reset_to_tile(start_tile: Vector2i) -> void:
 	tile = start_tile
@@ -21,6 +25,7 @@ func reset_to_tile(start_tile: Vector2i) -> void:
 	target_position = position
 	is_stepping = false
 	face_direction = Vector2i(1, 0)
+	_walk_animation_time = 0.0
 	queue_redraw()
 	moved.emit(tile)
 
@@ -47,6 +52,7 @@ func process_step(delta: float) -> float:
 	var distance_remaining := position.distance_to(target_position)
 	var frame_distance := speed * delta
 	if frame_distance >= distance_remaining:
+		_walk_animation_time += distance_remaining / speed
 		position = target_position
 		tile = TileMap2D.world_to_tile(position)
 		is_stepping = false
@@ -54,6 +60,7 @@ func process_step(delta: float) -> float:
 		moved.emit(tile)
 		return delta - distance_remaining / speed
 
+	_walk_animation_time += delta
 	position = position.move_toward(target_position, frame_distance)
 	queue_redraw()
 	return 0.0
@@ -66,5 +73,4 @@ func _draw() -> void:
 func _walk_phase() -> float:
 	if not is_stepping:
 		return 0.0
-	var distance_remaining := position.distance_to(target_position)
-	return 1.0 - clampf(distance_remaining / TileMap2D.TILE_SIZE, 0.0, 1.0)
+	return fmod(_walk_animation_time / WALK_CYCLE_SECONDS, 1.0)
