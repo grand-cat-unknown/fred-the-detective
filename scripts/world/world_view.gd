@@ -275,16 +275,19 @@ func _rebuild_content() -> void:
 	for npc in _npc_nodes:
 		var suspect := case_data.suspect_by_id(npc.entity_id)
 		if suspect != null:
+			suspect.position = npc.position
 			npc.configure(suspect)
 
 	for clue_marker in _clue_markers:
 		var clue := case_data.clue_by_id(clue_marker.entity_id)
 		if clue != null:
+			clue.position = clue_marker.position
 			clue_marker.configure(clue)
 
 	for door_node in _door_nodes:
 		var door := _find_door(door_node.room_a, door_node.room_b)
 		if door != null:
+			door.tile = _node_to_tile(door_node.position)
 			door_node.configure(door)
 
 	for elevator_node in _elevator_nodes:
@@ -293,6 +296,13 @@ func _rebuild_content() -> void:
 			elevator_node.configure(elevator)
 
 	refresh()
+
+
+func _node_to_tile(world_position: Vector2) -> Vector2i:
+	return Vector2i(
+		roundi(world_position.x / TileMap2D.TILE_SIZE),
+		roundi(world_position.y / TileMap2D.TILE_SIZE),
+	)
 
 
 func _find_door(a: StringName, b: StringName) -> DoorData:
