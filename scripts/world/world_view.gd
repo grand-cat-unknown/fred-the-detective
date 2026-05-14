@@ -46,7 +46,7 @@ const _EDITOR_PREVIEW_ROOM_IDS: Array[StringName] = [
 	set(value):
 		camera_padding = value
 		_apply_camera_to_room(true)
-@export_range(0.0, 3.0, 0.05, "or_greater") var camera_transition_seconds := 0.9:
+@export_range(0.0, 3.0, 0.05, "or_greater") var camera_transition_seconds := 1.3:
 	set(value):
 		camera_transition_seconds = value
 @export var editor_show_all_rooms := true:
