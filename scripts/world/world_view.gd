@@ -14,9 +14,10 @@ extends Node2D
 	set(value):
 		camera_zoom = value
 		_apply_camera_to_player(true)
-@export_range(0.0, 30.0, 0.5, "or_greater") var camera_follow_smoothing := 12.0:
+@export_range(0.0, 30.0, 0.5, "or_greater") var camera_follow_smoothing := 0.0:
 	set(value):
 		camera_follow_smoothing = value
+		_apply_camera_smoothing()
 
 @export_group("Palette")
 @export var background_color := Palette.BACKGROUND:
@@ -46,10 +47,10 @@ func _ready() -> void:
 		configure(CaseLoader.load_default())
 
 
-func _process(delta: float) -> void:
+func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
-	_apply_camera_to_player(false, delta)
+	_apply_camera_to_player(false)
 
 
 func configure(new_case: CaseData) -> void:
@@ -92,26 +93,34 @@ func _apply_palette() -> void:
 		_player.queue_redraw()
 
 
-func _apply_camera_to_player(instant: bool, delta: float = 0.0) -> void:
+func _apply_camera_to_player(instant: bool) -> void:
 	if _camera == null:
 		return
 
 	if Engine.is_editor_hint() or _player == null:
+		_camera.position_smoothing_enabled = false
 		_camera.position = TileMap2D.VIEW_SIZE * 0.5
 		_camera.zoom = Vector2.ONE
 		return
 
-	var target_position := _player.position
-	var target_zoom := Vector2(camera_zoom, camera_zoom)
+	_camera.zoom = Vector2(camera_zoom, camera_zoom)
+	_camera.position = _player.position
 
-	if instant or camera_follow_smoothing <= 0.0 or not is_inside_tree():
-		_camera.position = target_position
-		_camera.zoom = target_zoom
+	if instant:
+		_camera.position_smoothing_enabled = false
+		_camera.reset_smoothing()
+		_apply_camera_smoothing()
+	else:
+		_apply_camera_smoothing()
+
+
+func _apply_camera_smoothing() -> void:
+	if _camera == null:
 		return
-
-	var follow_weight := clampf(1.0 - exp(-camera_follow_smoothing * delta), 0.0, 1.0)
-	_camera.position = _camera.position.lerp(target_position, follow_weight)
-	_camera.zoom = target_zoom
+	var enabled := camera_follow_smoothing > 0.0 and not Engine.is_editor_hint()
+	_camera.position_smoothing_enabled = enabled
+	if enabled:
+		_camera.position_smoothing_speed = camera_follow_smoothing
 
 
 func find_inspectable_at_player() -> Inspectable:
