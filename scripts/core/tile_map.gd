@@ -1,7 +1,7 @@
 class_name TileMap2D
 extends RefCounted
 
-const TILE_SIZE := 30.0
+const TILE_SIZE := 32.0
 const MAP_WIDTH := 32
 const MAP_HEIGHT := 18
 const VIEW_SIZE := Vector2(TILE_SIZE * MAP_WIDTH, TILE_SIZE * MAP_HEIGHT)

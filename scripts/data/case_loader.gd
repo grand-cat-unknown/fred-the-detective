@@ -105,42 +105,42 @@ static func _build_rooms() -> Array[RoomData]:
 	return [
 		RoomData.new(
 			ROOM_CONCIERGE, "CONCIERGE / SECURITY",
-			Rect2(30.0, 30.0, 240.0, 150.0), Vector2(45.0, 42.0),
+			Rect2(32.0, 32.0, 256.0, 160.0), Vector2(48.0, 44.8),
 			Color8(206, 184, 128, 44), Rect2i(0, 0, 11, 6),
 		),
 		RoomData.new(
 			ROOM_1220, "ROOM 1220",
-			Rect2(330.0, 30.0, 240.0, 150.0), Vector2(345.0, 42.0),
+			Rect2(352.0, 32.0, 256.0, 160.0), Vector2(368.0, 44.8),
 			Color8(150, 175, 190, 44), Rect2i(9, 0, 12, 6),
 		),
 		RoomData.new(
 			ROOM_GEAR, "SERVICE CORRIDOR / GEAR CART",
-			Rect2(630.0, 30.0, 300.0, 150.0), Vector2(645.0, 42.0),
+			Rect2(672.0, 32.0, 320.0, 160.0), Vector2(688.0, 44.8),
 			Color8(125, 155, 145, 44), Rect2i(19, 0, 13, 6),
 		),
 		RoomData.new(
 			ROOM_HALL, "TWELFTH FLOOR HALL",
-			Rect2(30.0, 180.0, 900.0, 120.0), Vector2(45.0, 192.0),
+			Rect2(32.0, 192.0, 960.0, 128.0), Vector2(48.0, 204.8),
 			Color8(105, 130, 150, 34), Rect2i(0, 5, 32, 6),
 		),
 		RoomData.new(
 			ROOM_SUITE, "SUITE 1221 - VANCE",
-			Rect2(450.0, 300.0, 300.0, 180.0), Vector2(465.0, 312.0),
+			Rect2(480.0, 320.0, 320.0, 192.0), Vector2(496.0, 332.8),
 			Color8(160, 95, 105, 44), Rect2i(14, 10, 11, 7),
 		),
 		RoomData.new(
 			ROOM_LOBBY, "ELEVATOR LOBBY / STAIRWELL",
-			Rect2(30.0, 300.0, 240.0, 180.0), Vector2(45.0, 312.0),
+			Rect2(32.0, 320.0, 256.0, 192.0), Vector2(48.0, 332.8),
 			Color8(110, 150, 180, 44), Rect2i(0, 10, 9, 7),
 		),
 		RoomData.new(
 			ROOM_CHUTE, "11F CHUTE ACCESS",
-			Rect2(270.0, 300.0, 180.0, 180.0), Vector2(285.0, 312.0),
+			Rect2(288.0, 320.0, 192.0, 192.0), Vector2(304.0, 332.8),
 			Color8(130, 120, 105, 48), Rect2i(8, 10, 7, 7),
 		),
 		RoomData.new(
 			ROOM_1223, "ROOM 1223",
-			Rect2(750.0, 300.0, 180.0, 180.0), Vector2(765.0, 312.0),
+			Rect2(800.0, 320.0, 192.0, 192.0), Vector2(816.0, 332.8),
 			Color8(150, 115, 165, 44), Rect2i(24, 10, 8, 7),
 		),
 	]
