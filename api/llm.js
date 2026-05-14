@@ -133,11 +133,17 @@ module.exports = async function handler(req, res) {
 
 	res.statusCode = 200;
 	res.setHeader('Content-Type', 'application/x-ndjson; charset=utf-8');
-	res.setHeader('Cache-Control', 'no-cache, no-transform');
+	res.setHeader('Cache-Control', 'no-cache, no-store, no-transform');
 	res.setHeader('X-Accel-Buffering', 'no');
+	res.setHeader('Connection', 'keep-alive');
+	if (res.socket && typeof res.socket.setNoDelay === 'function') {
+		res.socket.setNoDelay(true);
+	}
 	if (typeof res.flushHeaders === 'function') {
 		res.flushHeaders();
 	}
+	// Pad past dev-proxy buffer thresholds so the first real delta isn't held back.
+	writeNdjson(res, { padding: ' '.repeat(2048) });
 
 	const reader = upstreamResponse.body.getReader();
 	const decoder = new TextDecoder();

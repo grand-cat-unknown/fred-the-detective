@@ -56,9 +56,11 @@ func append_line(speaker: String, text: String) -> void:
 func update_last_line(text: String) -> void:
 	var last := _last_line_label()
 	if last == null:
+		print("[DialoguePanel] update_last_line: no label found")
 		return
 	var speaker := str(last.get_meta("speaker", ""))
 	last.text = _format_line(speaker, text)
+	print("[DialoguePanel] update_last_line speaker=%s len=%d" % [speaker, text.length()])
 	_scroll_to_bottom()
 
 

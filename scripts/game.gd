@@ -80,7 +80,9 @@ func _on_dialogue_line_appended(speaker: String, text: String) -> void:
 
 func _on_dialogue_line_updated(text: String) -> void:
 	if not _dialogue_panel.is_open():
+		print("[game] line_updated ignored: panel closed")
 		return
+	print("[game] line_updated len=%d" % text.length())
 	_dialogue_panel.update_last_line(text)
 
 

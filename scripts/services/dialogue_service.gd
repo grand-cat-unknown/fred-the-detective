@@ -121,10 +121,13 @@ func _build_input(suspect: SuspectData) -> String:
 
 func _on_llm_delta(chunk: String) -> void:
 	if _streaming_suspect_id == &"":
+		print("[DialogueService] delta ignored: no streaming suspect")
 		return
 	_streaming_text += chunk
 	_update_last_line(_streaming_suspect_id, _streaming_text)
-	if _active_suspect != null and _active_suspect.id == _streaming_suspect_id:
+	var emitting := _active_suspect != null and _active_suspect.id == _streaming_suspect_id
+	print("[DialogueService] delta chars=%d total=%d emit=%s" % [chunk.length(), _streaming_text.length(), str(emitting)])
+	if emitting:
 		line_updated.emit(_streaming_text)
 
 
