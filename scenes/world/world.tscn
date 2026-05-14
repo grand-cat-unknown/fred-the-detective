@@ -4,7 +4,7 @@
 [ext_resource type="PackedScene" uid="uid://55n455pd115y" path="res://scenes/world/world_map.tscn" id="2_map"]
 [ext_resource type="PackedScene" uid="uid://cola5578jq7bk" path="res://scenes/world/npc.tscn" id="7_npc"]
 [ext_resource type="PackedScene" uid="uid://b1plyr00scn01" path="res://scenes/world/player.tscn" id="8_player"]
-[ext_resource type="PackedScene" uid="uid://clhnu3j67t0j1" path="res://scenes/world/inspectable.tscn" id="9_insp"]
+[ext_resource type="PackedScene" path="res://scenes/world/inspectable.tscn" id="9_insp"]
 
 [node name="World" type="Node2D" unique_id=1805681752]
 script = ExtResource("1_world")
@@ -39,13 +39,13 @@ entity_id = &"lena"
 position = Vector2(112, 144)
 entity_id = &"viv"
 
-[node name="Inspectable_desk" parent="." instance=ExtResource("9_insp")]
+[node name="Inspectable_desk" parent="." unique_id=1062109499 instance=ExtResource("9_insp")]
 position = Vector2(304, 272)
 object_id = &"desk"
 title = "Cluttered Desk"
 description = "Papers piled high, a half-eaten sandwich, and an open ledger. The last entry is from yesterday."
 
-[node name="Inspectable_painting" parent="." instance=ExtResource("9_insp")]
+[node name="Inspectable_painting" parent="." unique_id=934983568 instance=ExtResource("9_insp")]
 position = Vector2(560, 144)
 object_id = &"painting"
 title = "Crooked Painting"
