@@ -8,47 +8,43 @@ static func find_target(
 	player_tile: Vector2i,
 	player_face_direction: Vector2i,
 ) -> InteractTarget:
-	var npc := _nearest_npc(case, current_room, player_position, player_face_direction)
+	var npc := _nearest_npc(case, player_position, player_face_direction)
 	if npc != null:
-		var npc_idx := case.suspect_index(npc.id)
 		return InteractTarget.new(
 			GameEnums.InteractKind.NPC,
-			npc_idx,
+			case.suspect_index(npc.id),
 			"[E] Talk to %s" % npc.display_name,
 			npc.position + Layout.INTERACT_PROMPT_NPC_OFFSET,
 		)
 
-	var clue := _nearest_clue(case, current_room, player_position, player_face_direction)
+	var clue := _nearest_clue(case, player_position, player_face_direction)
 	if clue != null:
-		var clue_idx := case.clue_index(clue.id)
 		return InteractTarget.new(
 			GameEnums.InteractKind.CLUE,
-			clue_idx,
+			case.clue_index(clue.id),
 			"[E] Inspect: %s" % clue.label,
 			clue.position + Layout.INTERACT_PROMPT_CLUE_OFFSET,
 		)
 
-	var elev_idx := _adjacent_elevator(case, current_room, player_tile, player_face_direction)
+	var elev_idx := _adjacent_elevator(case, player_tile, player_face_direction)
 	if elev_idx >= 0:
 		var elev := case.elevators[elev_idx]
 		var source_room := _elevator_source_room(elev, player_tile, player_face_direction)
 		var target_room := elev.target_room_from(source_room)
-		var tile := elev.tile_for(source_room)
 		return InteractTarget.new(
 			GameEnums.InteractKind.ELEVATOR,
 			elev_idx,
 			"[E] Take elevator to %s" % _room_label(case, target_room),
-			TileMap2D.tile_to_world_center(tile) + Layout.INTERACT_PROMPT_TILE_OFFSET,
+			TileMap2D.tile_to_world_center(elev.tile_for(source_room)) + Layout.INTERACT_PROMPT_TILE_OFFSET,
 		)
 
-	var door_idx := _adjacent_door(case, current_room, player_tile, player_face_direction)
+	var door_idx := _adjacent_door(case, player_tile, player_face_direction)
 	if door_idx >= 0:
 		var door := case.doors[door_idx]
-		var target_room := door.target_from(current_room)
 		return InteractTarget.new(
 			GameEnums.InteractKind.DOOR,
 			door_idx,
-			"[E] Open door to %s" % _room_label(case, target_room),
+			"[E] Open door to %s" % _room_label(case, door.target_from(current_room)),
 			TileMap2D.tile_to_world_center(door.tile) + Layout.INTERACT_PROMPT_TILE_OFFSET,
 		)
 
@@ -57,7 +53,6 @@ static func find_target(
 
 static func _nearest_npc(
 	case: CaseData,
-	current_room: StringName,
 	player_position: Vector2,
 	player_face_direction: Vector2i,
 ) -> SuspectData:
@@ -77,7 +72,6 @@ static func _nearest_npc(
 
 static func _nearest_clue(
 	case: CaseData,
-	current_room: StringName,
 	player_position: Vector2,
 	player_face_direction: Vector2i,
 ) -> ClueData:
@@ -99,20 +93,17 @@ static func _nearest_clue(
 
 static func _adjacent_door(
 	case: CaseData,
-	current_room: StringName,
 	player_tile: Vector2i,
 	player_face_direction: Vector2i,
 ) -> int:
 	for i in range(case.doors.size()):
-		var door := case.doors[i]
-		if (door.tile - player_tile) == player_face_direction:
+		if (case.doors[i].tile - player_tile) == player_face_direction:
 			return i
 	return -1
 
 
 static func _adjacent_elevator(
 	case: CaseData,
-	current_room: StringName,
 	player_tile: Vector2i,
 	player_face_direction: Vector2i,
 ) -> int:

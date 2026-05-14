@@ -5,7 +5,6 @@ extends Node2D
 @export var entity_id: StringName
 
 var clue: ClueData
-var show_locked_clues := false
 var clue_color := Palette.CLUE
 var clue_inspected_color := Palette.CLUE_INSPECTED
 var outline_color := Palette.OUTLINE
@@ -34,7 +33,7 @@ func refresh() -> void:
 	if clue == null:
 		visible = false
 		return
-	visible = show_locked_clues or UnlockResolver.is_clue_available(clue)
+	visible = Engine.is_editor_hint() or UnlockResolver.is_clue_available(clue)
 	queue_redraw()
 
 

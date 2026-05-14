@@ -6,7 +6,6 @@ extends Resource
 @export var rect: Rect2
 @export var label_position: Vector2
 @export var color: Color
-@export var tile_bounds: Rect2i
 
 
 func _init(
@@ -15,11 +14,9 @@ func _init(
 	p_rect: Rect2 = Rect2(),
 	p_label_position: Vector2 = Vector2.ZERO,
 	p_color: Color = Color(1, 1, 1, 0.2),
-	p_tile_bounds: Rect2i = Rect2i(),
 ) -> void:
 	id = p_id
 	label = p_label
 	rect = p_rect
 	label_position = p_label_position
 	color = p_color
-	tile_bounds = p_tile_bounds

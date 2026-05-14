@@ -63,19 +63,3 @@ func suspect_index(id: StringName) -> int:
 
 func clue_index(id: StringName) -> int:
 	return _clue_index.get(id, -1)
-
-
-func suspects_in_room(room_id: StringName) -> Array[SuspectData]:
-	var result: Array[SuspectData] = []
-	for s in suspects:
-		if s.room == room_id:
-			result.append(s)
-	return result
-
-
-func clues_in_room(room_id: StringName) -> Array[ClueData]:
-	var result: Array[ClueData] = []
-	for c in clues:
-		if c.room == room_id:
-			result.append(c)
-	return result

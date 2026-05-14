@@ -25,10 +25,6 @@ func _init(
 	room_b = p_room_b
 
 
-func connects(room_id: StringName) -> bool:
-	return room_id == room_a or room_id == room_b
-
-
 func tile_for(room_id: StringName) -> Vector2i:
 	return tile_a if room_id == room_a else tile_b
 

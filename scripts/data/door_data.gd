@@ -20,7 +20,3 @@ func target_from(room_id: StringName) -> StringName:
 	if room_id == room_a:
 		return room_b
 	return room_a
-
-
-func connects(room_id: StringName) -> bool:
-	return room_id == room_a or room_id == room_b
