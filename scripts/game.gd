@@ -17,9 +17,9 @@ func _unhandled_input(event: InputEvent) -> void:
 		_inspect_panel.hide_panel()
 		get_viewport().set_input_as_handled()
 		return
-	var inspectable := _world.find_inspectable_at_player()
-	if inspectable != null:
-		_inspect_panel.show_inspectable(inspectable)
+	var inspection := _world.find_inspection_at_player()
+	if not inspection.is_empty():
+		_inspect_panel.show_text(str(inspection["title"]), str(inspection["description"]))
 		get_viewport().set_input_as_handled()
 
 

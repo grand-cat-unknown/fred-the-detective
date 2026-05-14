@@ -146,6 +146,35 @@ func find_inspectable_at_player() -> Inspectable:
 	return null
 
 
+func find_inspection_at_player() -> Dictionary:
+	var inspectable := find_inspectable_at_player()
+	if inspectable != null:
+		return {
+			"object_id": inspectable.object_id,
+			"title": inspectable.title,
+			"description": inspectable.description,
+		}
+
+	if _player == null or _world_map == null:
+		return {}
+
+	var player_tile := _player.tile
+	var facing_tile := player_tile + _player.face_direction
+	var candidates: Array[Vector2i] = [
+		facing_tile,
+		player_tile + Vector2i(1, 0),
+		player_tile + Vector2i(-1, 0),
+		player_tile + Vector2i(0, 1),
+		player_tile + Vector2i(0, -1),
+	]
+	for tile in candidates:
+		var inspection := _world_map.get_tile_inspection(tile)
+		if not inspection.is_empty():
+			return inspection
+
+	return {}
+
+
 func _rebuild_content() -> void:
 	_npc_nodes.clear()
 	_inspectables.clear()
