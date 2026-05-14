@@ -41,6 +41,15 @@ const _EDITOR_PREVIEW_ROOM_IDS: Array[StringName] = [
 		if _player != null:
 			_player.speed = player_speed
 
+@export_group("Camera")
+@export_range(0.0, 200.0, 1.0, "or_greater") var camera_padding := 30.0:
+	set(value):
+		camera_padding = value
+		_apply_camera_to_room(true)
+@export_range(0.0, 1.5, 0.05, "or_greater") var camera_transition_seconds := 0.45:
+	set(value):
+		camera_transition_seconds = value
+
 @export_group("Palette")
 @export var background_color := Palette.BACKGROUND:
 	set(value):
@@ -112,6 +121,8 @@ var current_room: StringName = CaseLoader.ROOM_LOBBY
 
 var _world_map: WorldMap
 var _player: Player
+var _camera: Camera2D
+var _camera_tween: Tween
 var _room_zones: Array[RoomZone] = []
 var _npc_nodes: Array[NPC] = []
 var _clue_markers: Array[ClueMarker] = []
@@ -229,6 +240,35 @@ func refresh() -> void:
 		_player.queue_redraw()
 
 	_redraw_content()
+	_apply_camera_to_room(false)
+
+
+func _apply_camera_to_room(instant: bool) -> void:
+	if _camera == null or case_data == null:
+		return
+	var room := case_data.room_by_id(current_room)
+	if room == null:
+		return
+
+	var viewport_size := Vector2(TileMap2D.VIEW_SIZE)
+	var padded_size := room.rect.size + Vector2(camera_padding, camera_padding) * 2.0
+	if padded_size.x <= 0.0 or padded_size.y <= 0.0:
+		return
+	var zoom_factor := minf(viewport_size.x / padded_size.x, viewport_size.y / padded_size.y)
+	var target_zoom := Vector2(zoom_factor, zoom_factor)
+	var target_position := room.rect.position + room.rect.size * 0.5
+
+	if _camera_tween != null and _camera_tween.is_valid():
+		_camera_tween.kill()
+
+	if instant or Engine.is_editor_hint() or camera_transition_seconds <= 0.0 or not is_inside_tree():
+		_camera.position = target_position
+		_camera.zoom = target_zoom
+		return
+
+	_camera_tween = create_tween().set_parallel(true).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
+	_camera_tween.tween_property(_camera, "position", target_position, camera_transition_seconds)
+	_camera_tween.tween_property(_camera, "zoom", target_zoom, camera_transition_seconds)
 
 
 func _editor_preview_room_id() -> StringName:
@@ -244,12 +284,15 @@ func _rebuild_content() -> void:
 	_elevator_nodes.clear()
 	_world_map = null
 	_player = null
+	_camera = null
 
 	for child in get_children():
 		if child is WorldMap:
 			_world_map = child
 		elif child is Player:
 			_player = child
+		elif child is Camera2D:
+			_camera = child
 		elif child is RoomZone:
 			_room_zones.append(child)
 		elif child is NPC:
@@ -260,6 +303,9 @@ func _rebuild_content() -> void:
 			_door_nodes.append(child)
 		elif child is Elevator:
 			_elevator_nodes.append(child)
+
+	if _camera != null and not Engine.is_editor_hint():
+		_camera.make_current()
 
 	if case_data == null:
 		return
