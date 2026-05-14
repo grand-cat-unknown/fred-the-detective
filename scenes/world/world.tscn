@@ -18,51 +18,41 @@ position = Vector2(480, 270)
 [node name="WorldMap" parent="." unique_id=630295776 instance=ExtResource("2_map")]
 
 [node name="RoomZone_concierge" parent="." unique_id=1767785095 instance=ExtResource("3_zone")]
-visible = false
 entity_id = &"concierge"
 
 [node name="RoomZone_room_1220" parent="." unique_id=1400554782 instance=ExtResource("3_zone")]
-visible = false
 entity_id = &"room_1220"
 
 [node name="RoomZone_gear_cart" parent="." unique_id=1648006743 instance=ExtResource("3_zone")]
-visible = false
 entity_id = &"gear_cart"
 
 [node name="RoomZone_twelfth_hall" parent="." unique_id=535038557 instance=ExtResource("3_zone")]
-visible = false
 entity_id = &"twelfth_hall"
 
 [node name="RoomZone_suite_1221" parent="." unique_id=297149631 instance=ExtResource("3_zone")]
-visible = false
 entity_id = &"suite_1221"
 
 [node name="RoomZone_elevator_lobby" parent="." unique_id=1539966925 instance=ExtResource("3_zone")]
 entity_id = &"elevator_lobby"
 
 [node name="RoomZone_chute_access" parent="." unique_id=372665145 instance=ExtResource("3_zone")]
-visible = false
 entity_id = &"chute_access"
 
 [node name="RoomZone_room_1223" parent="." unique_id=317765694 instance=ExtResource("3_zone")]
-visible = false
 entity_id = &"room_1223"
 
 [node name="Door_concierge_twelfth_hall" parent="." unique_id=1323024959 instance=ExtResource("4_door")]
-visible = false
-position = Vector2(60, 150)
+position = Vector2(120, 150)
 room_a = &"concierge"
 room_b = &"twelfth_hall"
 
 [node name="Door_room_1220_twelfth_hall" parent="." unique_id=1434965199 instance=ExtResource("4_door")]
-visible = false
 position = Vector2(420, 150)
 room_a = &"room_1220"
 room_b = &"twelfth_hall"
 
 [node name="Door_gear_cart_twelfth_hall" parent="." unique_id=1473023580 instance=ExtResource("4_door")]
-visible = false
-position = Vector2(660, 150)
+position = Vector2(750, 150)
 room_a = &"gear_cart"
 room_b = &"twelfth_hall"
 
@@ -72,13 +62,11 @@ room_a = &"twelfth_hall"
 room_b = &"elevator_lobby"
 
 [node name="Door_twelfth_hall_suite_1221" parent="." unique_id=1118190145 instance=ExtResource("4_door")]
-visible = false
 position = Vector2(480, 300)
 room_a = &"twelfth_hall"
 room_b = &"suite_1221"
 
 [node name="Door_twelfth_hall_room_1223" parent="." unique_id=1111671202 instance=ExtResource("4_door")]
-visible = false
 position = Vector2(780, 300)
 room_a = &"twelfth_hall"
 room_b = &"room_1223"
@@ -89,42 +77,34 @@ room_a = &"elevator_lobby"
 room_b = &"chute_access"
 
 [node name="Clue_body_wall" parent="." unique_id=1530053993 instance=ExtResource("6_clue")]
-visible = false
 position = Vector2(525, 375)
 entity_id = &"body_wall"
 
 [node name="Clue_pedestal" parent="." unique_id=1776678538 instance=ExtResource("6_clue")]
-visible = false
 position = Vector2(585, 375)
 entity_id = &"pedestal"
 
 [node name="Clue_auction_receipt" parent="." unique_id=1063465991 instance=ExtResource("6_clue")]
-visible = false
 position = Vector2(495, 435)
 entity_id = &"auction_receipt"
 
 [node name="Clue_field_book" parent="." unique_id=120464370 instance=ExtResource("6_clue")]
-visible = false
 position = Vector2(615, 435)
 entity_id = &"field_book"
 
 [node name="Clue_room_1220_log" parent="." unique_id=485722227 instance=ExtResource("6_clue")]
-visible = false
 position = Vector2(435, 105)
 entity_id = &"room_1220_log"
 
 [node name="Clue_chute_notice" parent="." unique_id=2035099413 instance=ExtResource("6_clue")]
-visible = false
 position = Vector2(225, 255)
 entity_id = &"chute_notice"
 
 [node name="Clue_ghost_cell" parent="." unique_id=867042395 instance=ExtResource("6_clue")]
-visible = false
 position = Vector2(345, 435)
 entity_id = &"ghost_cell"
 
 [node name="Clue_gloves" parent="." unique_id=1706963291 instance=ExtResource("6_clue")]
-visible = false
 position = Vector2(825, 105)
 entity_id = &"gloves"
 
