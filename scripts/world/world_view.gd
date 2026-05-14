@@ -46,9 +46,13 @@ const _EDITOR_PREVIEW_ROOM_IDS: Array[StringName] = [
 	set(value):
 		camera_padding = value
 		_apply_camera_to_room(true)
-@export_range(0.0, 1.5, 0.05, "or_greater") var camera_transition_seconds := 0.45:
+@export_range(0.0, 3.0, 0.05, "or_greater") var camera_transition_seconds := 0.9:
 	set(value):
 		camera_transition_seconds = value
+@export var editor_show_all_rooms := true:
+	set(value):
+		editor_show_all_rooms = value
+		refresh()
 
 @export_group("Palette")
 @export var background_color := Palette.BACKGROUND:
@@ -195,6 +199,8 @@ func refresh() -> void:
 	if _world_map == null:
 		return
 
+	var show_all := Engine.is_editor_hint() and editor_show_all_rooms
+	_world_map.show_all_rooms = show_all
 	_world_map.background_color = background_color
 	_world_map.floor_color = floor_color
 	_world_map.floor_alt_color = floor_alt_color
@@ -211,16 +217,24 @@ func refresh() -> void:
 		room_zone.label_color = room_label_color
 		room_zone.label_font_size = room_label_font_size
 		room_zone.set_current_room(current_room)
+		if show_all:
+			room_zone.visible = true
+			room_zone._apply_label()
+			room_zone.queue_redraw()
 
 	for door_node in _door_nodes:
 		door_node.door_color = Palette.DOOR
 		door_node.trim_color = Palette.DOOR_TRIM
 		door_node.outline_color = outline_color
 		door_node.set_current_room(current_room)
+		if show_all:
+			door_node.visible = true
 
 	for elevator_node in _elevator_nodes:
 		elevator_node.outline_color = outline_color
 		elevator_node.set_current_room(current_room)
+		if show_all:
+			elevator_node.visible = true
 
 	for clue_marker in _clue_markers:
 		clue_marker.clue_color = clue_color
@@ -228,9 +242,13 @@ func refresh() -> void:
 		clue_marker.outline_color = outline_color
 		clue_marker.show_locked_clues = Engine.is_editor_hint() and editor_show_locked_clues
 		clue_marker.set_current_room(current_room)
+		if show_all:
+			clue_marker.visible = true
 
 	for npc in _npc_nodes:
 		npc.set_current_room(current_room)
+		if show_all:
+			npc.visible = true
 
 	if _player != null:
 		_player.speed = player_speed
@@ -246,17 +264,23 @@ func refresh() -> void:
 func _apply_camera_to_room(instant: bool) -> void:
 	if _camera == null or case_data == null:
 		return
-	var room := case_data.room_by_id(current_room)
-	if room == null:
-		return
+
+	var target_rect: Rect2
+	if Engine.is_editor_hint() and editor_show_all_rooms:
+		target_rect = Rect2(Vector2.ZERO, TileMap2D.VIEW_SIZE)
+	else:
+		var room := case_data.room_by_id(current_room)
+		if room == null:
+			return
+		target_rect = room.rect
 
 	var viewport_size := Vector2(TileMap2D.VIEW_SIZE)
-	var padded_size := room.rect.size + Vector2(camera_padding, camera_padding) * 2.0
+	var padded_size := target_rect.size + Vector2(camera_padding, camera_padding) * 2.0
 	if padded_size.x <= 0.0 or padded_size.y <= 0.0:
 		return
 	var zoom_factor := minf(viewport_size.x / padded_size.x, viewport_size.y / padded_size.y)
 	var target_zoom := Vector2(zoom_factor, zoom_factor)
-	var target_position := room.rect.position + room.rect.size * 0.5
+	var target_position := target_rect.position + target_rect.size * 0.5
 
 	if _camera_tween != null and _camera_tween.is_valid():
 		_camera_tween.kill()

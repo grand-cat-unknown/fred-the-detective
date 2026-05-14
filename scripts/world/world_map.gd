@@ -4,6 +4,7 @@ extends Node2D
 
 var case_data: CaseData
 var current_room: StringName = &""
+var show_all_rooms := false
 
 var background_color := Palette.BACKGROUND
 var floor_color := Palette.FLOOR
@@ -45,11 +46,18 @@ func _draw() -> void:
 	if case_data == null:
 		return
 
+	if show_all_rooms:
+		for room_data in case_data.rooms:
+			_draw_room_tiles(room_data.tile_bounds)
+		return
+
 	var room := case_data.room_by_id(current_room)
 	if room == null:
 		return
+	_draw_room_tiles(room.tile_bounds)
 
-	var bounds := room.tile_bounds
+
+func _draw_room_tiles(bounds: Rect2i) -> void:
 	for y in range(TileMap2D.MAP_HEIGHT):
 		for x in range(TileMap2D.MAP_WIDTH):
 			var tile_pos := Vector2i(x, y)
