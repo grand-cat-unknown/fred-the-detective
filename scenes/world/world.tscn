@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://xdd0ey5aqq13" path="res://scripts/world/world_view.gd" id="1_world"]
 [ext_resource type="PackedScene" uid="uid://55n455pd115y" path="res://scenes/world/world_map.tscn" id="2_map"]
-[ext_resource type="PackedScene" uid="uid://45l51ar7xkim" path="res://scenes/world/room_zone.tscn" id="3_zone"]
 [ext_resource type="PackedScene" uid="uid://c0baj7o0s07ka" path="res://scenes/world/door.tscn" id="4_door"]
 [ext_resource type="PackedScene" uid="uid://cbx5kdq567nk" path="res://scenes/world/elevator.tscn" id="5_elev"]
 [ext_resource type="PackedScene" uid="uid://cc6dj5vtptnnc" path="res://scenes/world/clue_marker.tscn" id="6_clue"]
@@ -16,30 +15,6 @@ script = ExtResource("1_world")
 position = Vector2(512, 288)
 
 [node name="WorldMap" parent="." unique_id=630295776 instance=ExtResource("2_map")]
-
-[node name="RoomZone_concierge" parent="." unique_id=1767785095 instance=ExtResource("3_zone")]
-entity_id = &"concierge"
-
-[node name="RoomZone_room_1220" parent="." unique_id=1400554782 instance=ExtResource("3_zone")]
-entity_id = &"room_1220"
-
-[node name="RoomZone_gear_cart" parent="." unique_id=1648006743 instance=ExtResource("3_zone")]
-entity_id = &"gear_cart"
-
-[node name="RoomZone_twelfth_hall" parent="." unique_id=535038557 instance=ExtResource("3_zone")]
-entity_id = &"twelfth_hall"
-
-[node name="RoomZone_suite_1221" parent="." unique_id=297149631 instance=ExtResource("3_zone")]
-entity_id = &"suite_1221"
-
-[node name="RoomZone_elevator_lobby" parent="." unique_id=1539966925 instance=ExtResource("3_zone")]
-entity_id = &"elevator_lobby"
-
-[node name="RoomZone_chute_access" parent="." unique_id=372665145 instance=ExtResource("3_zone")]
-entity_id = &"chute_access"
-
-[node name="RoomZone_room_1223" parent="." unique_id=317765694 instance=ExtResource("3_zone")]
-entity_id = &"room_1223"
 
 [node name="Door_concierge_twelfth_hall" parent="." unique_id=1323024959 instance=ExtResource("4_door")]
 position = Vector2(128, 160)

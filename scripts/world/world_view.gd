@@ -42,13 +42,13 @@ const _EDITOR_PREVIEW_ROOM_IDS: Array[StringName] = [
 			_player.speed = player_speed
 
 @export_group("Camera")
-@export_range(0.0, 200.0, 1.0, "or_greater") var camera_padding := 30.0:
+@export_range(0.25, 4.0, 0.05, "or_greater") var camera_zoom := 2.0:
 	set(value):
-		camera_padding = value
-		_apply_camera_to_room(true)
-@export_range(0.0, 3.0, 0.05, "or_greater") var camera_transition_seconds := 1.3:
+		camera_zoom = value
+		_apply_camera_to_player(true)
+@export_range(0.0, 30.0, 0.5, "or_greater") var camera_follow_smoothing := 12.0:
 	set(value):
-		camera_transition_seconds = value
+		camera_follow_smoothing = value
 @export var editor_show_all_rooms := true:
 	set(value):
 		editor_show_all_rooms = value
@@ -79,18 +79,6 @@ const _EDITOR_PREVIEW_ROOM_IDS: Array[StringName] = [
 	set(value):
 		clue_inspected_color = value
 		refresh()
-@export var room_border_color := Palette.ROOM_BORDER:
-	set(value):
-		room_border_color = value
-		refresh()
-@export var room_label_color := Palette.ROOM_LABEL:
-	set(value):
-		room_label_color = value
-		refresh()
-@export_range(8, 24, 1, "or_greater") var room_label_font_size := Layout.ROOM_LABEL_FONT_SIZE:
-	set(value):
-		room_label_font_size = value
-		refresh()
 
 var case_data: CaseData
 var current_room: StringName = CaseLoader.ROOM_LOBBY
@@ -98,8 +86,6 @@ var current_room: StringName = CaseLoader.ROOM_LOBBY
 var _world_map: WorldMap
 var _player: Player
 var _camera: Camera2D
-var _camera_tween: Tween
-var _room_zones: Array[RoomZone] = []
 var _npc_nodes: Array[NPC] = []
 var _clue_markers: Array[ClueMarker] = []
 var _door_nodes: Array[Door] = []
@@ -109,6 +95,12 @@ var _elevator_nodes: Array[Elevator] = []
 func _ready() -> void:
 	if Engine.is_editor_hint() and case_data == null:
 		configure(CaseLoader.load_default())
+
+
+func _process(delta: float) -> void:
+	if Engine.is_editor_hint():
+		return
+	_apply_camera_to_player(false, delta)
 
 
 func configure(new_case: CaseData) -> void:
@@ -124,6 +116,7 @@ func reset_player(start_tile: Vector2i) -> void:
 	if _player == null:
 		return
 	_player.reset_to_tile(start_tile)
+	_apply_camera_to_player(true)
 
 
 func transition_to(room_id: StringName, spawn_tile: Vector2i) -> void:
@@ -176,16 +169,6 @@ func refresh() -> void:
 	_world_map.background_color = background_color
 	_world_map.set_current_room(current_room)
 
-	for room_zone in _room_zones:
-		room_zone.border_color = room_border_color
-		room_zone.label_color = room_label_color
-		room_zone.label_font_size = room_label_font_size
-		room_zone.set_current_room(current_room)
-		if show_all:
-			room_zone.visible = true
-			room_zone._apply_label()
-			room_zone.queue_redraw()
-
 	for door_node in _door_nodes:
 		door_node.set_current_room(current_room)
 		if show_all:
@@ -218,41 +201,29 @@ func refresh() -> void:
 		_player.queue_redraw()
 
 	_redraw_content()
-	_apply_camera_to_room(false)
+	_apply_camera_to_player(false)
 
 
-func _apply_camera_to_room(instant: bool) -> void:
-	if _camera == null or case_data == null:
+func _apply_camera_to_player(instant: bool, delta: float = 0.0) -> void:
+	if _camera == null:
 		return
 
-	var target_rect: Rect2
-	if Engine.is_editor_hint() and editor_show_all_rooms:
-		target_rect = Rect2(Vector2.ZERO, TileMap2D.VIEW_SIZE)
-	else:
-		var room := case_data.room_by_id(current_room)
-		if room == null:
-			return
-		target_rect = room.rect
-
-	var viewport_size := Vector2(TileMap2D.VIEW_SIZE)
-	var padded_size := target_rect.size + Vector2(camera_padding, camera_padding) * 2.0
-	if padded_size.x <= 0.0 or padded_size.y <= 0.0:
+	if Engine.is_editor_hint() or _player == null:
+		_camera.position = TileMap2D.VIEW_SIZE * 0.5
+		_camera.zoom = Vector2.ONE
 		return
-	var zoom_factor := minf(viewport_size.x / padded_size.x, viewport_size.y / padded_size.y)
-	var target_zoom := Vector2(zoom_factor, zoom_factor)
-	var target_position := target_rect.position + target_rect.size * 0.5
 
-	if _camera_tween != null and _camera_tween.is_valid():
-		_camera_tween.kill()
+	var target_position := _player.position
+	var target_zoom := Vector2(camera_zoom, camera_zoom)
 
-	if instant or Engine.is_editor_hint() or camera_transition_seconds <= 0.0 or not is_inside_tree():
+	if instant or camera_follow_smoothing <= 0.0 or not is_inside_tree():
 		_camera.position = target_position
 		_camera.zoom = target_zoom
 		return
 
-	_camera_tween = create_tween().set_parallel(true).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_IN_OUT)
-	_camera_tween.tween_property(_camera, "position", target_position, camera_transition_seconds)
-	_camera_tween.tween_property(_camera, "zoom", target_zoom, camera_transition_seconds)
+	var follow_weight := clampf(1.0 - exp(-camera_follow_smoothing * delta), 0.0, 1.0)
+	_camera.position = _camera.position.lerp(target_position, follow_weight)
+	_camera.zoom = target_zoom
 
 
 func _editor_preview_room_id() -> StringName:
@@ -261,7 +232,6 @@ func _editor_preview_room_id() -> StringName:
 
 
 func _rebuild_content() -> void:
-	_room_zones.clear()
 	_npc_nodes.clear()
 	_clue_markers.clear()
 	_door_nodes.clear()
@@ -277,8 +247,6 @@ func _rebuild_content() -> void:
 			_player = child
 		elif child is Camera2D:
 			_camera = child
-		elif child is RoomZone:
-			_room_zones.append(child)
 		elif child is NPC:
 			_npc_nodes.append(child)
 		elif child is ClueMarker:
@@ -296,11 +264,6 @@ func _rebuild_content() -> void:
 
 	if _world_map != null:
 		_world_map.configure(case_data)
-
-	for room_zone in _room_zones:
-		var room := case_data.room_by_id(room_zone.entity_id)
-		if room != null:
-			room_zone.configure(room)
 
 	for npc in _npc_nodes:
 		var suspect := case_data.suspect_by_id(npc.entity_id)
@@ -352,8 +315,6 @@ func _find_elevator(a: StringName, b: StringName) -> ElevatorData:
 func _redraw_content() -> void:
 	if _world_map != null:
 		_world_map.queue_redraw()
-	for room_zone in _room_zones:
-		room_zone.queue_redraw()
 	for clue_marker in _clue_markers:
 		clue_marker.queue_redraw()
 	for npc in _npc_nodes:
