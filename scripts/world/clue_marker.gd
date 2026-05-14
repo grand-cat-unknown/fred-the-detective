@@ -41,7 +41,8 @@ func _draw() -> void:
 	if clue == null:
 		return
 
-	var color := clue_inspected_color if GameState.is_clue_inspected(clue.id) else clue_color
+	var inspected := not Engine.is_editor_hint() and GameState.is_clue_inspected(clue.id)
+	var color := clue_inspected_color if inspected else clue_color
 	var diamond := PackedVector2Array([
 		Vector2(0.0, -Layout.CLUE_RADIUS),
 		Vector2(Layout.CLUE_RADIUS, 0.0),
