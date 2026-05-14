@@ -39,18 +39,23 @@ func try_step(direction: Vector2i, world_map: WorldMap, blocked_tiles: Array[Vec
 	return true
 
 
-func process_step(delta: float) -> bool:
-	if not is_stepping:
-		return false
+func process_step(delta: float) -> float:
+	if not is_stepping or speed <= 0.0:
+		return delta
 
-	position = position.move_toward(target_position, speed * delta)
-	if position.is_equal_approx(target_position):
+	var distance_remaining := position.distance_to(target_position)
+	var frame_distance := speed * delta
+	if frame_distance >= distance_remaining:
 		position = target_position
 		tile = TileMap2D.world_to_tile(position)
 		is_stepping = false
+		queue_redraw()
 		moved.emit(tile)
+		return delta - distance_remaining / speed
+
+	position = position.move_toward(target_position, frame_distance)
 	queue_redraw()
-	return true
+	return 0.0
 
 
 func _draw() -> void:

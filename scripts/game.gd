@@ -26,13 +26,7 @@ func _unhandled_input(event: InputEvent) -> void:
 func _process(delta: float) -> void:
 	if _inspect_panel.is_open():
 		return
-	if _world.is_player_stepping():
-		_world.process_player_step(delta)
-		return
-
-	var direction := _get_pressed_tile_direction()
-	if direction != Vector2i.ZERO:
-		_world.try_start_tile_step(direction)
+	_world.update_player_movement(delta, _get_pressed_tile_direction())
 
 
 func _get_pressed_tile_direction() -> Vector2i:

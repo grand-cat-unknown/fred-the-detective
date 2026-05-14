@@ -65,23 +65,22 @@ func reset_player(start_tile: Vector2i) -> void:
 	_apply_camera_to_player(true)
 
 
-func process_player_step(delta: float) -> bool:
-	if _player == null:
-		return false
-	var was_stepping := _player.is_stepping
-	_player.process_step(delta)
-	return was_stepping and not _player.is_stepping
-
-
-func try_start_tile_step(direction: Vector2i) -> void:
+func update_player_movement(delta: float, held_direction: Vector2i) -> void:
 	if _player == null:
 		return
 	_player.speed = player_speed
-	_player.try_step(direction, _world_map, _blocked_tiles())
-
-
-func is_player_stepping() -> bool:
-	return _player != null and _player.is_stepping
+	var remaining := delta
+	var safety := 8
+	while safety > 0:
+		safety -= 1
+		if _player.is_stepping:
+			remaining = _player.process_step(remaining)
+			if _player.is_stepping or remaining <= 0.0:
+				return
+		if held_direction == Vector2i.ZERO:
+			return
+		if not _player.try_step(held_direction, _world_map, _blocked_tiles()):
+			return
 
 
 func _apply_palette() -> void:
