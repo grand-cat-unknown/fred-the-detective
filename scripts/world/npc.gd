@@ -14,6 +14,18 @@ extends Node2D
 var suspect: SuspectData
 
 
+func get_tile() -> Vector2i:
+	return TileMap2D.world_to_tile(position)
+
+
+func get_display_name() -> String:
+	if suspect != null and suspect.display_name != "":
+		return suspect.display_name
+	if preview_name != "":
+		return preview_name
+	return "Stranger"
+
+
 func _ready() -> void:
 	set_notify_transform(true)
 	_refresh_editor_preview()

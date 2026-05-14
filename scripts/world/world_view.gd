@@ -155,7 +155,7 @@ func find_inspection_at_player() -> Dictionary:
 			"description": inspectable.description,
 		}
 
-	if _player == null or _world_map == null:
+	if _player == null:
 		return {}
 
 	var player_tile := _player.tile
@@ -167,6 +167,22 @@ func find_inspection_at_player() -> Dictionary:
 		player_tile + Vector2i(0, 1),
 		player_tile + Vector2i(0, -1),
 	]
+
+	for tile in candidates:
+		for npc in _npc_nodes:
+			if npc.get_tile() == tile:
+				var line := ""
+				if npc.suspect != null:
+					line = npc.suspect.dialogue
+				return {
+					"object_id": npc.entity_id,
+					"title": npc.get_display_name(),
+					"description": line,
+				}
+
+	if _world_map == null:
+		return {}
+
 	for tile in candidates:
 		var inspection := _world_map.get_tile_inspection(tile)
 		if not inspection.is_empty():

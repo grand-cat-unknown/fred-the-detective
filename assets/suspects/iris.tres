@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SuspectData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/suspect_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://HS-Characters Retro/Char 06_B.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"iris"
+display_name = "Iris"
+position = Vector2(432, 240)
+color = Color(0.615686, 0.400000, 0.274510, 1)
+hat_color = Color(0.396078, 0.250980, 0.176471, 1)
+texture = ExtResource("2_tex")
+subtitle = ""
+persona = ""
+dialogue = "Iris tilts her head, listening."
+system_prompt = ""

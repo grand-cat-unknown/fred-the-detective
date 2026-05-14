@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SuspectData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/suspect_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://HS-Characters Retro/Char 12_B.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"otis"
+display_name = "Otis"
+position = Vector2(624, 272)
+color = Color(0.494118, 0.349020, 0.588235, 1)
+hat_color = Color(0.290196, 0.176471, 0.368627, 1)
+texture = ExtResource("2_tex")
+subtitle = ""
+persona = ""
+dialogue = "Otis gives a slow, theatrical bow."
+system_prompt = ""

@@ -8,6 +8,14 @@ extends Resource
 @export var hat_color: Color
 @export var texture: Texture2D
 
+@export_group("Character")
+@export var subtitle: String = ""
+@export_multiline var persona: String = ""
+
+@export_group("Dialogue")
+@export_multiline var dialogue: String = "They glance up but say nothing of note."
+@export_multiline var system_prompt: String = ""
+
 
 func _init(
 	p_id: StringName = &"",

@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SuspectData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/suspect_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://HS-Characters Retro/Char 01_B.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"mara"
+display_name = "Mara"
+position = Vector2(80, 400)
+color = Color(0.329412, 0.501961, 0.615686, 1)
+hat_color = Color(0.168627, 0.294118, 0.396078, 1)
+texture = ExtResource("2_tex")
+subtitle = ""
+persona = ""
+dialogue = "Mara nods curtly. \"Detective.\""
+system_prompt = ""

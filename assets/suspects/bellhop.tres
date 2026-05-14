@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="SuspectData" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/suspect_data.gd" id="1_script"]
+[ext_resource type="Texture2D" path="res://HS-Characters Retro/Char 11_A.png" id="2_tex"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"bellhop"
+display_name = "Bellhop"
+position = Vector2(112, 144)
+color = Color(0.650980, 0.521569, 0.298039, 1)
+hat_color = Color(0.376471, 0.294118, 0.180392, 1)
+texture = ExtResource("2_tex")
+subtitle = ""
+persona = ""
+dialogue = "The bellhop straightens up. \"Sir.\""
+system_prompt = ""
