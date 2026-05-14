@@ -3,7 +3,7 @@ class_name WorldMap
 extends Node2D
 
 const FLOOR_LAYER := "Floor"
-const BLOCKING_LAYERS := ["Walls"]
+const BLOCKING_LAYERS := ["Walls", "Props"]
 const INSPECT_TITLE_DATA := "inspect_title"
 const INSPECT_DESCRIPTION_DATA := "inspect_description"
 const INSPECT_OBJECT_ID_DATA := "inspect_object_id"
