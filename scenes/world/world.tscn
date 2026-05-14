@@ -2,8 +2,6 @@
 
 [ext_resource type="Script" uid="uid://xdd0ey5aqq13" path="res://scripts/world/world_view.gd" id="1_world"]
 [ext_resource type="PackedScene" uid="uid://55n455pd115y" path="res://scenes/world/world_map.tscn" id="2_map"]
-[ext_resource type="PackedScene" uid="uid://cbx5kdq567nk" path="res://scenes/world/elevator.tscn" id="5_elev"]
-[ext_resource type="PackedScene" uid="uid://cc6dj5vtptnnc" path="res://scenes/world/clue_marker.tscn" id="6_clue"]
 [ext_resource type="PackedScene" uid="uid://cola5578jq7bk" path="res://scenes/world/npc.tscn" id="7_npc"]
 [ext_resource type="PackedScene" uid="uid://b1plyr00scn01" path="res://scenes/world/player.tscn" id="8_player"]
 
@@ -15,43 +13,6 @@ position = Vector2(512, 288)
 
 [node name="WorldMap" parent="." unique_id=630295776 instance=ExtResource("2_map")]
 position = Vector2(224, 34)
-
-[node name="Elevator_elevator_lobby_chute_access" parent="." unique_id=1591055066 instance=ExtResource("5_elev")]
-position = Vector2(224, 384)
-room_a = &"elevator_lobby"
-room_b = &"chute_access"
-
-[node name="Clue_body_wall" parent="." unique_id=1530053993 instance=ExtResource("6_clue")]
-position = Vector2(560, 400)
-entity_id = &"body_wall"
-
-[node name="Clue_pedestal" parent="." unique_id=1776678538 instance=ExtResource("6_clue")]
-position = Vector2(624, 400)
-entity_id = &"pedestal"
-
-[node name="Clue_auction_receipt" parent="." unique_id=1063465991 instance=ExtResource("6_clue")]
-position = Vector2(528, 464)
-entity_id = &"auction_receipt"
-
-[node name="Clue_field_book" parent="." unique_id=120464370 instance=ExtResource("6_clue")]
-position = Vector2(656, 464)
-entity_id = &"field_book"
-
-[node name="Clue_room_1220_log" parent="." unique_id=485722227 instance=ExtResource("6_clue")]
-position = Vector2(464, 112)
-entity_id = &"room_1220_log"
-
-[node name="Clue_chute_notice" parent="." unique_id=2035099413 instance=ExtResource("6_clue")]
-position = Vector2(240, 272)
-entity_id = &"chute_notice"
-
-[node name="Clue_ghost_cell" parent="." unique_id=867042395 instance=ExtResource("6_clue")]
-position = Vector2(368, 464)
-entity_id = &"ghost_cell"
-
-[node name="Clue_gloves" parent="." unique_id=1706963291 instance=ExtResource("6_clue")]
-position = Vector2(880, 112)
-entity_id = &"gloves"
 
 [node name="NPC_pemberton" parent="." unique_id=597478776 instance=ExtResource("7_npc")]
 position = Vector2(624, 272)

@@ -3,7 +3,7 @@ class_name WorldMap
 extends Node2D
 
 const FLOOR_LAYER := "Floor"
-const BLOCKING_LAYERS := ["Walls", "Props"]
+const BLOCKING_LAYERS := ["Walls"]
 
 var background_color := Palette.BACKGROUND:
 	set(value):

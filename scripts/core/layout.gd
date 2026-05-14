@@ -1,13 +1,7 @@
 class_name Layout
 extends RefCounted
 
-const ROOM_LABEL_FONT_SIZE := 12
-const ROOM_LABEL_MIN_SIZE := Vector2(220.0, 18.0)
-
 const OBJECT_OUTLINE_WIDTH := 1.5
-
-const CLUE_RADIUS := 10.0
-const CLUE_OUTLINE_WIDTH := 2.0
 
 const ACTOR_BODY_OFFSET := Vector2(-10.0, -6.0)
 const ACTOR_BODY_SIZE := Vector2(20.0, 22.0)
@@ -27,10 +21,3 @@ const ACTOR_HAT_POINTS: Array[Vector2] = [
 	Vector2(8.0, -30.0),
 	Vector2(-8.0, -30.0),
 ]
-
-const INTERACT_PROMPT_NPC_OFFSET := Vector2(-60.0, -88.0)
-const INTERACT_PROMPT_CLUE_OFFSET := Vector2(-60.0, -38.0)
-const INTERACT_PROMPT_TILE_OFFSET := Vector2(-80.0, -44.0)
-
-const ROOM_BORDER_WIDTH := 2.0
-const TILE_OUTLINE_WIDTH := 1.0

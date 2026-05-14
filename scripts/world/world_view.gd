@@ -22,27 +22,15 @@ extends Node2D
 @export var background_color := Palette.BACKGROUND:
 	set(value):
 		background_color = value
-		refresh()
-@export var outline_color := Palette.OUTLINE:
-	set(value):
-		outline_color = value
-		refresh()
+		_apply_palette()
 @export var player_color := Palette.PLAYER_BODY:
 	set(value):
 		player_color = value
-		refresh()
+		_apply_palette()
 @export var player_hat_color := Palette.PLAYER_HAT:
 	set(value):
 		player_hat_color = value
-		refresh()
-@export var clue_color := Palette.CLUE:
-	set(value):
-		clue_color = value
-		refresh()
-@export var clue_inspected_color := Palette.CLUE_INSPECTED:
-	set(value):
-		clue_inspected_color = value
-		refresh()
+		_apply_palette()
 
 var case_data: CaseData
 
@@ -50,8 +38,6 @@ var _world_map: WorldMap
 var _player: Player
 var _camera: Camera2D
 var _npc_nodes: Array[NPC] = []
-var _clue_markers: Array[ClueMarker] = []
-var _elevator_nodes: Array[Elevator] = []
 
 
 func _ready() -> void:
@@ -96,39 +82,13 @@ func is_player_stepping() -> bool:
 	return _player != null and _player.is_stepping
 
 
-func player_position() -> Vector2:
-	return _player.position if _player != null else TileMap2D.tile_to_world_center(Vector2i.ZERO)
-
-
-func player_tile() -> Vector2i:
-	return _player.tile if _player != null else Vector2i.ZERO
-
-
-func player_face_direction() -> Vector2i:
-	return _player.face_direction if _player != null else Vector2i(1, 0)
-
-
-func refresh() -> void:
-	if _world_map == null:
-		return
-
-	_world_map.background_color = background_color
-
-	for clue_marker in _clue_markers:
-		clue_marker.clue_color = clue_color
-		clue_marker.clue_inspected_color = clue_inspected_color
-		clue_marker.outline_color = outline_color
-		clue_marker.refresh()
-
+func _apply_palette() -> void:
+	if _world_map != null:
+		_world_map.background_color = background_color
 	if _player != null:
-		_player.speed = player_speed
 		_player.body_color = player_color
 		_player.hat_color = player_hat_color
-		_player.visible = not Engine.is_editor_hint()
 		_player.queue_redraw()
-
-	_redraw_content()
-	_apply_camera_to_player(false)
 
 
 func _apply_camera_to_player(instant: bool, delta: float = 0.0) -> void:
@@ -155,8 +115,6 @@ func _apply_camera_to_player(instant: bool, delta: float = 0.0) -> void:
 
 func _rebuild_content() -> void:
 	_npc_nodes.clear()
-	_clue_markers.clear()
-	_elevator_nodes.clear()
 	_world_map = null
 	_player = null
 	_camera = null
@@ -170,57 +128,28 @@ func _rebuild_content() -> void:
 			_camera = child
 		elif child is NPC:
 			_npc_nodes.append(child)
-		elif child is ClueMarker:
-			_clue_markers.append(child)
-		elif child is Elevator:
-			_elevator_nodes.append(child)
 
 	if _camera != null and not Engine.is_editor_hint():
 		_camera.make_current()
 
-	if case_data == null:
-		return
+	if case_data != null:
+		for npc in _npc_nodes:
+			for suspect in case_data.suspects:
+				if suspect.id == npc.entity_id:
+					suspect.position = npc.position
+					npc.configure(suspect)
+					break
 
-	for npc in _npc_nodes:
-		var suspect := case_data.suspect_by_id(npc.entity_id)
-		if suspect != null:
-			suspect.position = npc.position
-			npc.configure(suspect)
+	if _player != null:
+		_player.speed = player_speed
+		_player.visible = not Engine.is_editor_hint()
 
-	for clue_marker in _clue_markers:
-		var clue := case_data.clue_by_id(clue_marker.entity_id)
-		if clue != null:
-			clue.position = clue_marker.position
-			clue_marker.configure(clue)
-
-	for elevator_node in _elevator_nodes:
-		var elevator := _find_elevator(elevator_node.room_a, elevator_node.room_b)
-		if elevator != null:
-			elevator_node.configure(elevator)
-
-	refresh()
-
-
-func _find_elevator(a: StringName, b: StringName) -> ElevatorData:
-	for elevator in case_data.elevators:
-		if (elevator.room_a == a and elevator.room_b == b) or (elevator.room_a == b and elevator.room_b == a):
-			return elevator
-	return null
-
-
-func _redraw_content() -> void:
-	if _world_map != null:
-		_world_map.queue_redraw()
-	for clue_marker in _clue_markers:
-		clue_marker.queue_redraw()
-	for npc in _npc_nodes:
-		npc.queue_redraw()
+	_apply_palette()
+	_apply_camera_to_player(false)
 
 
 func _npc_tiles() -> Array[Vector2i]:
 	var tiles: Array[Vector2i] = []
-	if case_data == null:
-		return tiles
-	for suspect in case_data.suspects:
-		tiles.append(TileMap2D.world_to_tile(suspect.position))
+	for npc in _npc_nodes:
+		tiles.append(TileMap2D.world_to_tile(npc.position))
 	return tiles
