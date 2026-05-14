@@ -4,6 +4,7 @@ extends Node2D
 
 @export var room_a: StringName
 @export var room_b: StringName
+@export var draw_debug_marker := false
 
 var elevator_data: ElevatorData
 var outline_color := Palette.OUTLINE
@@ -26,6 +27,9 @@ func set_current_room(room_id: StringName) -> void:
 
 
 func _draw() -> void:
+	if not draw_debug_marker:
+		return
+
 	var rect := Rect2(Vector2.ZERO, Vector2(TileMap2D.TILE_SIZE, TileMap2D.TILE_SIZE))
 	draw_rect(rect.grow(-Layout.ELEVATOR_FRAME_INSET), Palette.ELEVATOR_FRAME, true)
 	draw_rect(rect.grow(-Layout.ELEVATOR_PANEL_INSET), Palette.ELEVATOR_PANEL, true)

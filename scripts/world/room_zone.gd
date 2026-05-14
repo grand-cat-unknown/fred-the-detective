@@ -35,7 +35,8 @@ func _ready() -> void:
 func _draw() -> void:
 	if room == null:
 		return
-	draw_rect(room.rect, room.color, true)
+	if Engine.is_editor_hint():
+		draw_rect(room.rect, room.color, true)
 	draw_rect(room.rect, border_color, false, Layout.ROOM_BORDER_WIDTH)
 
 

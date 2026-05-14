@@ -4,6 +4,7 @@ extends Node2D
 
 @export var room_a: StringName
 @export var room_b: StringName
+@export var draw_debug_marker := false
 
 var door_data: DoorData
 var door_color := Palette.DOOR
@@ -36,6 +37,9 @@ func set_current_room(room_id: StringName) -> void:
 
 
 func _draw() -> void:
+	if not draw_debug_marker:
+		return
+
 	var rect := Rect2(Vector2.ZERO, Vector2(TileMap2D.TILE_SIZE, TileMap2D.TILE_SIZE))
 	var door_rect := Rect2(rect.position + Layout.DOOR_OFFSET, rect.size - Layout.DOOR_PAD)
 	draw_rect(door_rect, door_color, true)

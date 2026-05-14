@@ -7,7 +7,7 @@
 [ext_resource type="PackedScene" path="res://scenes/ui/clue_panel.tscn" id="5_clue"]
 [ext_resource type="PackedScene" path="res://scenes/ui/accusation_panel.tscn" id="6_accusation"]
 [ext_resource type="PackedScene" path="res://scenes/ui/result_panel.tscn" id="7_result"]
-[ext_resource type="PackedScene" uid="uid://b1worldscn00001" path="res://scenes/world/world.tscn" id="8_world"]
+[ext_resource type="PackedScene" uid="uid://cqsvrol4iinpm" path="res://scenes/world/world.tscn" id="8_world"]
 
 [node name="Game" type="Node2D" unique_id=744785900]
 script = ExtResource("1_game")
