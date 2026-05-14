@@ -1,13 +1,11 @@
 extends Node
 
-var current_room: StringName = &""
 var phase: GameEnums.Phase = GameEnums.Phase.EXPLORE
 var clues_inspected: Dictionary[StringName, bool] = {}
 var suspects_talked: Dictionary[StringName, bool] = {}
 
 
 func reset(case: CaseData) -> void:
-	current_room = case.start_room
 	phase = GameEnums.Phase.EXPLORE
 	clues_inspected.clear()
 	suspects_talked.clear()
@@ -15,7 +13,6 @@ func reset(case: CaseData) -> void:
 		clues_inspected[clue.id] = false
 	for suspect in case.suspects:
 		suspects_talked[suspect.id] = false
-	EventBus.room_changed.emit(current_room)
 	EventBus.phase_changed.emit(phase)
 
 
@@ -24,13 +21,6 @@ func set_phase(new_phase: GameEnums.Phase) -> void:
 		return
 	phase = new_phase
 	EventBus.phase_changed.emit(phase)
-
-
-func set_room(room_id: StringName) -> void:
-	if current_room == room_id:
-		return
-	current_room = room_id
-	EventBus.room_changed.emit(current_room)
 
 
 func mark_clue_inspected(clue_id: StringName) -> void:

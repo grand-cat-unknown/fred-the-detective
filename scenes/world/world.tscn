@@ -2,7 +2,6 @@
 
 [ext_resource type="Script" uid="uid://xdd0ey5aqq13" path="res://scripts/world/world_view.gd" id="1_world"]
 [ext_resource type="PackedScene" uid="uid://55n455pd115y" path="res://scenes/world/world_map.tscn" id="2_map"]
-[ext_resource type="PackedScene" uid="uid://c0baj7o0s07ka" path="res://scenes/world/door.tscn" id="4_door"]
 [ext_resource type="PackedScene" uid="uid://cbx5kdq567nk" path="res://scenes/world/elevator.tscn" id="5_elev"]
 [ext_resource type="PackedScene" uid="uid://cc6dj5vtptnnc" path="res://scenes/world/clue_marker.tscn" id="6_clue"]
 [ext_resource type="PackedScene" uid="uid://cola5578jq7bk" path="res://scenes/world/npc.tscn" id="7_npc"]
@@ -15,36 +14,6 @@ script = ExtResource("1_world")
 position = Vector2(512, 288)
 
 [node name="WorldMap" parent="." unique_id=630295776 instance=ExtResource("2_map")]
-
-[node name="Door_concierge_twelfth_hall" parent="." unique_id=1323024959 instance=ExtResource("4_door")]
-position = Vector2(128, 160)
-room_a = &"concierge"
-room_b = &"twelfth_hall"
-
-[node name="Door_room_1220_twelfth_hall" parent="." unique_id=1434965199 instance=ExtResource("4_door")]
-position = Vector2(448, 160)
-room_a = &"room_1220"
-room_b = &"twelfth_hall"
-
-[node name="Door_gear_cart_twelfth_hall" parent="." unique_id=1473023580 instance=ExtResource("4_door")]
-position = Vector2(800, 160)
-room_a = &"gear_cart"
-room_b = &"twelfth_hall"
-
-[node name="Door_twelfth_hall_elevator_lobby" parent="." unique_id=1200324982 instance=ExtResource("4_door")]
-position = Vector2(128, 320)
-room_a = &"twelfth_hall"
-room_b = &"elevator_lobby"
-
-[node name="Door_twelfth_hall_suite_1221" parent="." unique_id=1118190145 instance=ExtResource("4_door")]
-position = Vector2(512, 320)
-room_a = &"twelfth_hall"
-room_b = &"suite_1221"
-
-[node name="Door_twelfth_hall_room_1223" parent="." unique_id=1111671202 instance=ExtResource("4_door")]
-position = Vector2(832, 320)
-room_a = &"twelfth_hall"
-room_b = &"room_1223"
 
 [node name="Elevator_elevator_lobby_chute_access" parent="." unique_id=1591055066 instance=ExtResource("5_elev")]
 position = Vector2(224, 384)
@@ -108,3 +77,4 @@ position = Vector2(112, 144)
 entity_id = &"viv"
 
 [node name="Player" parent="." unique_id=1010292065 instance=ExtResource("8_player")]
+position = Vector2(-227, -36)

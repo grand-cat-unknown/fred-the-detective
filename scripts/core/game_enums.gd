@@ -4,7 +4,7 @@ extends RefCounted
 enum Phase { EXPLORE, ACCUSE, RESULT }
 enum RequestKind { NONE, DIALOGUE, ACCUSATION }
 enum AccusationStep { PICK_SUSPECT, PICK_EVIDENCE, EXPLAIN, RESOLVING, DONE }
-enum InteractKind { NONE, NPC, CLUE, DOOR, ELEVATOR }
+enum InteractKind { NONE, NPC, CLUE, ELEVATOR }
 enum FaceDir { RIGHT, LEFT, UP, DOWN }
 
 

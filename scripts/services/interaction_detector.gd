@@ -3,7 +3,6 @@ extends RefCounted
 
 static func find_target(
 	case: CaseData,
-	current_room: StringName,
 	player_position: Vector2,
 	player_tile: Vector2i,
 	player_face_direction: Vector2i,
@@ -36,16 +35,6 @@ static func find_target(
 			elev_idx,
 			"[E] Take elevator to %s" % _room_label(case, target_room),
 			TileMap2D.tile_to_world_center(elev.tile_for(source_room)) + Layout.INTERACT_PROMPT_TILE_OFFSET,
-		)
-
-	var door_idx := _adjacent_door(case, player_tile, player_face_direction)
-	if door_idx >= 0:
-		var door := case.doors[door_idx]
-		return InteractTarget.new(
-			GameEnums.InteractKind.DOOR,
-			door_idx,
-			"[E] Open door to %s" % _room_label(case, door.target_from(current_room)),
-			TileMap2D.tile_to_world_center(door.tile) + Layout.INTERACT_PROMPT_TILE_OFFSET,
 		)
 
 	return InteractTarget.none()
@@ -89,17 +78,6 @@ static func _nearest_clue(
 		best_dist = d
 		best = clue
 	return best
-
-
-static func _adjacent_door(
-	case: CaseData,
-	player_tile: Vector2i,
-	player_face_direction: Vector2i,
-) -> int:
-	for i in range(case.doors.size()):
-		if (case.doors[i].tile - player_tile) == player_face_direction:
-			return i
-	return -1
 
 
 static func _adjacent_elevator(

@@ -126,42 +126,19 @@ func _use_interact_target() -> void:
 			_open_clue_panel(_current_target.index)
 		GameEnums.InteractKind.ELEVATOR:
 			_enter_elevator(_current_target.index)
-		GameEnums.InteractKind.DOOR:
-			_enter_door(_current_target.index)
 		_:
 			return
 	get_viewport().set_input_as_handled()
-
-
-func _enter_door(door_idx: int) -> void:
-	if door_idx < 0 or door_idx >= _case.doors.size():
-		return
-	var door := _case.doors[door_idx]
-	_transition_to(door.target_from(_world.current_room), _world.door_spawn_tile(door))
 
 
 func _enter_elevator(elevator_idx: int) -> void:
 	if elevator_idx < 0 or elevator_idx >= _case.elevators.size():
 		return
 	var elevator := _case.elevators[elevator_idx]
-	var source_room := _elevator_source_room(elevator)
-	_transition_to(
-		elevator.target_room_from(source_room),
-		elevator.target_spawn_from(source_room),
-	)
-
-
-func _elevator_source_room(elevator: ElevatorData) -> StringName:
 	var player_tile := _world.player_tile()
 	var face := _world.player_face_direction()
-	if (elevator.tile_b - player_tile) == face:
-		return elevator.room_a
-	return elevator.room_b
-
-
-func _transition_to(room_id: StringName, spawn_tile: Vector2i) -> void:
-	_world.transition_to(room_id, spawn_tile)
-	GameState.set_room(room_id)
+	var source_room: StringName = elevator.room_a if (elevator.tile_b - player_tile) == face else elevator.room_b
+	_world.reset_player(elevator.target_spawn_from(source_room))
 	_update_hud()
 
 
@@ -180,7 +157,6 @@ func _update_interact_prompt() -> void:
 func _refresh_interact_target() -> void:
 	_current_target = InteractionDetector.find_target(
 		_case,
-		_world.current_room,
 		_world.player_position(),
 		_world.player_tile(),
 		_world.player_face_direction(),
@@ -369,7 +345,6 @@ func _reset_game() -> void:
 	GameState.reset(_case)
 	_dialogue.reset()
 	_accusation.reset()
-	_world.current_room = _case.start_room
 	_world.reset_player(_case.player_start_tile)
 	_world.refresh()
 	_set_phase(GameEnums.Phase.EXPLORE)

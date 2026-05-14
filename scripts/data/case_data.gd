@@ -3,13 +3,11 @@ extends Resource
 
 @export var title: String = ""
 @export var question: String = ""
-@export var start_room: StringName = &""
 @export var player_start_tile: Vector2i = Vector2i.ZERO
 
 @export var suspects: Array[SuspectData] = []
 @export var clues: Array[ClueData] = []
 @export var rooms: Array[RoomData] = []
-@export var doors: Array[DoorData] = []
 @export var elevators: Array[ElevatorData] = []
 @export var unlock_hints: Array[UnlockHint] = []
 

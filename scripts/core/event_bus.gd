@@ -1,6 +1,5 @@
 extends Node
 
-signal room_changed(room_id: StringName)
 signal phase_changed(phase: GameEnums.Phase)
 
 signal clue_inspected(clue_id: StringName)

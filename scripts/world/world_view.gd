@@ -45,14 +45,12 @@ extends Node2D
 		refresh()
 
 var case_data: CaseData
-var current_room: StringName = CaseLoader.ROOM_LOBBY
 
 var _world_map: WorldMap
 var _player: Player
 var _camera: Camera2D
 var _npc_nodes: Array[NPC] = []
 var _clue_markers: Array[ClueMarker] = []
-var _door_nodes: Array[Door] = []
 var _elevator_nodes: Array[Elevator] = []
 
 
@@ -69,8 +67,6 @@ func _process(delta: float) -> void:
 
 func configure(new_case: CaseData) -> void:
 	case_data = new_case
-	if case_data != null:
-		current_room = case_data.start_room
 	_rebuild_content()
 
 
@@ -79,12 +75,6 @@ func reset_player(start_tile: Vector2i) -> void:
 		return
 	_player.reset_to_tile(start_tile)
 	_apply_camera_to_player(true)
-
-
-func transition_to(room_id: StringName, spawn_tile: Vector2i) -> void:
-	current_room = room_id
-	reset_player(spawn_tile)
-	refresh()
 
 
 func process_player_step(delta: float) -> bool:
@@ -116,10 +106,6 @@ func player_tile() -> Vector2i:
 
 func player_face_direction() -> Vector2i:
 	return _player.face_direction if _player != null else Vector2i(1, 0)
-
-
-func door_spawn_tile(door: DoorData) -> Vector2i:
-	return door.tile * 2 - player_tile()
 
 
 func refresh() -> void:
@@ -170,7 +156,6 @@ func _apply_camera_to_player(instant: bool, delta: float = 0.0) -> void:
 func _rebuild_content() -> void:
 	_npc_nodes.clear()
 	_clue_markers.clear()
-	_door_nodes.clear()
 	_elevator_nodes.clear()
 	_world_map = null
 	_player = null
@@ -187,8 +172,6 @@ func _rebuild_content() -> void:
 			_npc_nodes.append(child)
 		elif child is ClueMarker:
 			_clue_markers.append(child)
-		elif child is Door:
-			_door_nodes.append(child)
 		elif child is Elevator:
 			_elevator_nodes.append(child)
 
@@ -210,32 +193,12 @@ func _rebuild_content() -> void:
 			clue.position = clue_marker.position
 			clue_marker.configure(clue)
 
-	for door_node in _door_nodes:
-		var door := _find_door(door_node.room_a, door_node.room_b)
-		if door != null:
-			door.tile = _node_to_tile(door_node.position)
-			door_node.configure(door)
-
 	for elevator_node in _elevator_nodes:
 		var elevator := _find_elevator(elevator_node.room_a, elevator_node.room_b)
 		if elevator != null:
 			elevator_node.configure(elevator)
 
 	refresh()
-
-
-func _node_to_tile(world_position: Vector2) -> Vector2i:
-	return Vector2i(
-		roundi(world_position.x / TileMap2D.TILE_SIZE),
-		roundi(world_position.y / TileMap2D.TILE_SIZE),
-	)
-
-
-func _find_door(a: StringName, b: StringName) -> DoorData:
-	for door in case_data.doors:
-		if (door.room_a == a and door.room_b == b) or (door.room_a == b and door.room_b == a):
-			return door
-	return null
 
 
 func _find_elevator(a: StringName, b: StringName) -> ElevatorData:

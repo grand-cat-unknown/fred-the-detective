@@ -55,14 +55,12 @@ static func load_default() -> CaseData:
 	var case := CaseData.new()
 	case.title = "Sedgewick Hotel: The Vance Case"
 	case.question = "Who killed Reginald Vance?"
-	case.start_room = ROOM_LOBBY
 	case.player_start_tile = PLAYER_START_TILE
 	case.correct_suspect_id = SUSPECT_PEMBERTON
 	case.required_evidence_id = CLUE_GHOST_CELL
 	case.verifier_instructions = VERIFIER_INSTRUCTIONS
 	case.trusted_case_truth = TRUSTED_CASE_TRUTH
 	case.rooms = _build_rooms()
-	case.doors = _build_doors()
 	case.elevators = _build_elevators()
 	case.suspects = _build_suspects()
 	case.clues = _build_clues()
@@ -143,17 +141,6 @@ static func _build_rooms() -> Array[RoomData]:
 			Rect2(800.0, 320.0, 192.0, 192.0), Vector2(816.0, 332.8),
 			Color8(150, 115, 165, 44),
 		),
-	]
-
-
-static func _build_doors() -> Array[DoorData]:
-	return [
-		DoorData.new(Vector2i(4, 5), ROOM_CONCIERGE, ROOM_HALL),
-		DoorData.new(Vector2i(14, 5), ROOM_1220, ROOM_HALL),
-		DoorData.new(Vector2i(25, 5), ROOM_GEAR, ROOM_HALL),
-		DoorData.new(Vector2i(4, 10), ROOM_HALL, ROOM_LOBBY),
-		DoorData.new(Vector2i(16, 10), ROOM_HALL, ROOM_SUITE),
-		DoorData.new(Vector2i(26, 10), ROOM_HALL, ROOM_1223),
 	]
 
 
