@@ -15,29 +15,33 @@ position = Vector2(512, 288)
 
 [node name="WorldMap" parent="." unique_id=630295776 instance=ExtResource("2_map")]
 
-[node name="NPC_pemberton" parent="." unique_id=597478776 instance=ExtResource("7_npc")]
-position = Vector2(624, 272)
-entity_id = &"pemberton"
-
-[node name="NPC_walter" parent="." unique_id=1178170094 instance=ExtResource("7_npc")]
-position = Vector2(432, 240)
-entity_id = &"walter"
-
-[node name="NPC_mara" parent="." unique_id=429012096 instance=ExtResource("7_npc")]
+[node name="NPC_mara" parent="." instance=ExtResource("7_npc")]
 position = Vector2(80, 400)
 entity_id = &"mara"
 
-[node name="NPC_theo" parent="." unique_id=2017799620 instance=ExtResource("7_npc")]
+[node name="NPC_theo" parent="." instance=ExtResource("7_npc")]
 position = Vector2(784, 144)
 entity_id = &"theo"
 
-[node name="NPC_lena" parent="." unique_id=1495388826 instance=ExtResource("7_npc")]
-position = Vector2(848, 464)
-entity_id = &"lena"
+[node name="NPC_otis" parent="." instance=ExtResource("7_npc")]
+position = Vector2(624, 272)
+entity_id = &"otis"
 
-[node name="NPC_viv" parent="." unique_id=1868512981 instance=ExtResource("7_npc")]
+[node name="NPC_iris" parent="." instance=ExtResource("7_npc")]
+position = Vector2(432, 240)
+entity_id = &"iris"
+
+[node name="NPC_rival" parent="." instance=ExtResource("7_npc")]
+position = Vector2(784, 464)
+entity_id = &"rival"
+
+[node name="NPC_bellhop" parent="." instance=ExtResource("7_npc")]
 position = Vector2(112, 144)
-entity_id = &"viv"
+entity_id = &"bellhop"
+
+[node name="NPC_maid" parent="." instance=ExtResource("7_npc")]
+position = Vector2(304, 400)
+entity_id = &"maid"
 
 [node name="Inspectable_desk" parent="." unique_id=1062109499 instance=ExtResource("9_insp")]
 position = Vector2(304, 272)
