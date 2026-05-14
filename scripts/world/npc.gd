@@ -7,6 +7,17 @@ extends Node2D
 var suspect: SuspectData
 
 
+func _ready() -> void:
+	set_notify_transform(true)
+
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_TRANSFORM_CHANGED and Engine.is_editor_hint():
+		var snapped_pos := TileMap2D.tile_to_world_center(TileMap2D.world_to_tile(position))
+		if position != snapped_pos:
+			position = snapped_pos
+
+
 func configure(new_suspect: SuspectData) -> void:
 	suspect = new_suspect
 	if suspect != null:

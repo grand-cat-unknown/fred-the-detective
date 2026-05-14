@@ -11,6 +11,17 @@ var clue_inspected_color := Palette.CLUE_INSPECTED
 var outline_color := Palette.OUTLINE
 
 
+func _ready() -> void:
+	set_notify_transform(true)
+
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_TRANSFORM_CHANGED and Engine.is_editor_hint():
+		var snapped_pos := TileMap2D.tile_to_world_center(TileMap2D.world_to_tile(position))
+		if position != snapped_pos:
+			position = snapped_pos
+
+
 func configure(new_clue: ClueData) -> void:
 	clue = new_clue
 	if clue != null:

@@ -11,6 +11,17 @@ var trim_color := Palette.DOOR_TRIM
 var outline_color := Palette.OUTLINE
 
 
+func _ready() -> void:
+	set_notify_transform(true)
+
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_TRANSFORM_CHANGED and Engine.is_editor_hint():
+		var snapped_pos := (position / TileMap2D.TILE_SIZE).round() * TileMap2D.TILE_SIZE
+		if position != snapped_pos:
+			position = snapped_pos
+
+
 func configure(new_door: DoorData) -> void:
 	door_data = new_door
 	if door_data != null:
