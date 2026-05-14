@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://cc6dj5vtptnnc"]
+
+[ext_resource type="Script" uid="uid://h72v4qihaw25" path="res://scripts/world/clue_marker.gd" id="1_clue"]
+
+[node name="ClueMarker" type="Node2D"]
+script = ExtResource("1_clue")

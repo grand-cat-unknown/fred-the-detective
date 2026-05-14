@@ -2,6 +2,14 @@
 class_name WorldView
 extends Node2D
 
+const _WORLD_MAP_SCENE: PackedScene = preload("res://scenes/world/world_map.tscn")
+const _PLAYER_SCENE: PackedScene = preload("res://scenes/world/player.tscn")
+const _NPC_SCENE: PackedScene = preload("res://scenes/world/npc.tscn")
+const _CLUE_MARKER_SCENE: PackedScene = preload("res://scenes/world/clue_marker.tscn")
+const _DOOR_SCENE: PackedScene = preload("res://scenes/world/door.tscn")
+const _ELEVATOR_SCENE: PackedScene = preload("res://scenes/world/elevator.tscn")
+const _ROOM_ZONE_SCENE: PackedScene = preload("res://scenes/world/room_zone.tscn")
+
 const _EDITOR_PREVIEW_ROOM_IDS: Array[StringName] = [
 	CaseLoader.ROOM_CONCIERGE,
 	CaseLoader.ROOM_1220,
@@ -250,43 +258,41 @@ func _rebuild_content() -> void:
 	if case_data == null:
 		return
 
-	_world_map = WorldMap.new()
-	_world_map.name = "WorldMap"
+	_world_map = _WORLD_MAP_SCENE.instantiate() as WorldMap
 	add_child(_world_map)
 	_world_map.configure(case_data)
 
 	for door in case_data.doors:
-		var door_node := Door.new()
-		door_node.configure(door)
+		var door_node := _DOOR_SCENE.instantiate() as Door
 		add_child(door_node)
+		door_node.configure(door)
 		_door_nodes.append(door_node)
 
 	for elevator in case_data.elevators:
-		var elevator_node := Elevator.new()
-		elevator_node.configure(elevator)
+		var elevator_node := _ELEVATOR_SCENE.instantiate() as Elevator
 		add_child(elevator_node)
+		elevator_node.configure(elevator)
 		_elevator_nodes.append(elevator_node)
 
 	for room in case_data.rooms:
-		var room_zone := RoomZone.new()
-		room_zone.configure(room)
+		var room_zone := _ROOM_ZONE_SCENE.instantiate() as RoomZone
 		add_child(room_zone)
+		room_zone.configure(room)
 		_room_zones.append(room_zone)
 
 	for clue in case_data.clues:
-		var clue_marker := ClueMarker.new()
-		clue_marker.configure(clue)
+		var clue_marker := _CLUE_MARKER_SCENE.instantiate() as ClueMarker
 		add_child(clue_marker)
+		clue_marker.configure(clue)
 		_clue_markers.append(clue_marker)
 
 	for suspect in case_data.suspects:
-		var npc := NPC.new()
-		npc.configure(suspect)
+		var npc := _NPC_SCENE.instantiate() as NPC
 		add_child(npc)
+		npc.configure(suspect)
 		_npc_nodes.append(npc)
 
-	_player = Player.new()
-	_player.name = "Player"
+	_player = _PLAYER_SCENE.instantiate() as Player
 	add_child(_player)
 	refresh()
 
