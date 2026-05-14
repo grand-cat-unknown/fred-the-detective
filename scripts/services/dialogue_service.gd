@@ -2,6 +2,7 @@ class_name DialogueService
 extends Node
 
 signal line_appended(speaker: String, text: String)
+signal line_updated(text: String)
 signal busy_changed(is_busy: bool)
 signal error_received(message: String)
 
@@ -11,14 +12,20 @@ const MAX_HISTORY_LINES := 40
 var _llm: LLMClient
 var _active_suspect: SuspectData
 var _history: Dictionary = {}  # StringName id -> Array[Dictionary]
+var _streaming_suspect_id: StringName = &""
+var _streaming_text := ""
 
 
 func configure(llm: LLMClient) -> void:
-	if _llm != null and _llm.completed.is_connected(_on_llm_completed):
-		_llm.completed.disconnect(_on_llm_completed)
+	if _llm != null:
+		if _llm.completed.is_connected(_on_llm_completed):
+			_llm.completed.disconnect(_on_llm_completed)
+		if _llm.delta_received.is_connected(_on_llm_delta):
+			_llm.delta_received.disconnect(_on_llm_delta)
 	_llm = llm
 	if _llm != null:
 		_llm.completed.connect(_on_llm_completed)
+		_llm.delta_received.connect(_on_llm_delta)
 
 
 func open(suspect: SuspectData) -> void:
@@ -55,6 +62,9 @@ func submit(message: String) -> bool:
 	if err != OK:
 		error_received.emit("Could not reach the LLM (%s)." % err)
 		return false
+	_streaming_suspect_id = _active_suspect.id
+	_streaming_text = ""
+	_append(_active_suspect.id, _active_suspect.display_name, "")
 	busy_changed.emit(true)
 	return true
 
@@ -62,6 +72,8 @@ func submit(message: String) -> bool:
 func reset() -> void:
 	_history.clear()
 	_active_suspect = null
+	_streaming_suspect_id = &""
+	_streaming_text = ""
 
 
 func _append(suspect_id: StringName, speaker: String, text: String) -> void:
@@ -71,6 +83,14 @@ func _append(suspect_id: StringName, speaker: String, text: String) -> void:
 		lines.pop_front()
 	_history[suspect_id] = lines
 	line_appended.emit(speaker, text)
+
+
+func _update_last_line(suspect_id: StringName, text: String) -> void:
+	var lines: Array = _history.get(suspect_id, [])
+	if lines.is_empty():
+		return
+	lines[lines.size() - 1]["text"] = text
+	_history[suspect_id] = lines
 
 
 func _build_instructions(suspect: SuspectData) -> String:
@@ -90,19 +110,42 @@ func _build_input(suspect: SuspectData) -> String:
 	var lines: Array = _history.get(suspect.id, [])
 	var transcript: Array[String] = []
 	for entry in lines:
-		transcript.append("%s: %s" % [entry["speaker"], entry["text"]])
+		var speaker := str(entry.get("speaker", ""))
+		var text := str(entry.get("text", ""))
+		if speaker == suspect.display_name and text.strip_edges().is_empty():
+			continue
+		transcript.append("%s: %s" % [speaker, text])
 	transcript.append("%s:" % suspect.display_name)
 	return "Conversation so far:\n" + "\n".join(transcript)
 
 
+func _on_llm_delta(chunk: String) -> void:
+	if _streaming_suspect_id == &"":
+		return
+	_streaming_text += chunk
+	_update_last_line(_streaming_suspect_id, _streaming_text)
+	if _active_suspect != null and _active_suspect.id == _streaming_suspect_id:
+		line_updated.emit(_streaming_text)
+
+
 func _on_llm_completed(text: String, error: String) -> void:
 	busy_changed.emit(false)
-	if _active_suspect == null:
-		return
+	var suspect_id := _streaming_suspect_id
+	var accumulated := _streaming_text
+	_streaming_suspect_id = &""
+	_streaming_text = ""
 	if error != "":
+		if suspect_id != &"":
+			_update_last_line(suspect_id, accumulated)
 		error_received.emit(error)
 		return
-	if text.strip_edges().is_empty():
+	var final_text := text.strip_edges()
+	if final_text.is_empty():
+		final_text = accumulated.strip_edges()
+	if final_text.is_empty():
 		error_received.emit("(no response)")
 		return
-	_append(_active_suspect.id, _active_suspect.display_name, text)
+	if suspect_id != &"":
+		_update_last_line(suspect_id, final_text)
+		if _active_suspect != null and _active_suspect.id == suspect_id:
+			line_updated.emit(final_text)

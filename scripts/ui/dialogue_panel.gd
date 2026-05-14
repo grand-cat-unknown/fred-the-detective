@@ -53,6 +53,15 @@ func append_line(speaker: String, text: String) -> void:
 	_scroll_to_bottom()
 
 
+func update_last_line(text: String) -> void:
+	var last := _last_line_label()
+	if last == null:
+		return
+	var speaker := str(last.get_meta("speaker", ""))
+	last.text = _format_line(speaker, text)
+	_scroll_to_bottom()
+
+
 func set_busy(busy: bool, status: String = "") -> void:
 	_input_field.editable = not busy
 	_send_button.disabled = busy
@@ -109,8 +118,26 @@ func _append_line_view(speaker: String, text: String) -> void:
 	elif speaker == "":
 		color = COLOR_SYSTEM
 	label.add_theme_color_override("font_color", color)
-	label.text = "%s: %s" % [speaker, text] if speaker != "" else text
+	label.set_meta("speaker", speaker)
+	label.text = _format_line(speaker, text)
 	_lines_box.add_child(label)
+
+
+func _format_line(speaker: String, text: String) -> String:
+	if speaker == "":
+		return text
+	if text == "":
+		return "%s: …" % speaker
+	return "%s: %s" % [speaker, text]
+
+
+func _last_line_label() -> Label:
+	var children := _lines_box.get_children()
+	for i in range(children.size() - 1, -1, -1):
+		var child = children[i]
+		if child is Label:
+			return child as Label
+	return null
 
 
 func _scroll_to_bottom() -> void:

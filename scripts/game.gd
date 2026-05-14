@@ -23,6 +23,7 @@ func _ready() -> void:
 	_dialogue.configure(_llm)
 
 	_dialogue.line_appended.connect(_on_dialogue_line_appended)
+	_dialogue.line_updated.connect(_on_dialogue_line_updated)
 	_dialogue.busy_changed.connect(_on_dialogue_busy_changed)
 	_dialogue.error_received.connect(_on_dialogue_error)
 	_dialogue_panel.submitted.connect(_on_dialogue_submitted)
@@ -75,6 +76,12 @@ func _on_dialogue_line_appended(speaker: String, text: String) -> void:
 	if not _dialogue_panel.is_open():
 		return
 	_dialogue_panel.append_line(speaker, text)
+
+
+func _on_dialogue_line_updated(text: String) -> void:
+	if not _dialogue_panel.is_open():
+		return
+	_dialogue_panel.update_last_line(text)
 
 
 func _on_dialogue_busy_changed(is_busy: bool) -> void:
