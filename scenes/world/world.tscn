@@ -1,0 +1,57 @@
+[gd_scene format=3 uid="uid://cqsvrol4iinpm"]
+
+[ext_resource type="Script" uid="uid://xdd0ey5aqq13" path="res://scripts/world/world_view.gd" id="1_world"]
+[ext_resource type="PackedScene" uid="uid://55n455pd115y" path="res://scenes/world/world_map.tscn" id="2_map"]
+[ext_resource type="PackedScene" uid="uid://cola5578jq7bk" path="res://scenes/world/npc.tscn" id="7_npc"]
+[ext_resource type="PackedScene" uid="uid://b1plyr00scn01" path="res://scenes/world/player.tscn" id="8_player"]
+[ext_resource type="PackedScene" path="res://scenes/world/inspectable.tscn" id="9_insp"]
+
+[node name="World" type="Node2D" unique_id=1805681752]
+position = Vector2(466, 292)
+script = ExtResource("1_world")
+
+[node name="Camera2D" type="Camera2D" parent="." unique_id=1916203111]
+position = Vector2(512, 288)
+
+[node name="WorldMap" parent="." unique_id=630295776 instance=ExtResource("2_map")]
+position = Vector2(0, 0)
+
+[node name="NPC_pemberton" parent="." unique_id=597478776 instance=ExtResource("7_npc")]
+position = Vector2(624, 272)
+entity_id = &"pemberton"
+
+[node name="NPC_walter" parent="." unique_id=1178170094 instance=ExtResource("7_npc")]
+position = Vector2(432, 240)
+entity_id = &"walter"
+
+[node name="NPC_mara" parent="." unique_id=429012096 instance=ExtResource("7_npc")]
+position = Vector2(80, 400)
+entity_id = &"mara"
+
+[node name="NPC_theo" parent="." unique_id=2017799620 instance=ExtResource("7_npc")]
+position = Vector2(784, 144)
+entity_id = &"theo"
+
+[node name="NPC_lena" parent="." unique_id=1495388826 instance=ExtResource("7_npc")]
+position = Vector2(848, 464)
+entity_id = &"lena"
+
+[node name="NPC_viv" parent="." unique_id=1868512981 instance=ExtResource("7_npc")]
+position = Vector2(112, 144)
+entity_id = &"viv"
+
+[node name="Inspectable_desk" parent="." unique_id=1062109499 instance=ExtResource("9_insp")]
+position = Vector2(304, 272)
+object_id = &"desk"
+title = "Cluttered Desk"
+description = "Papers piled high, a half-eaten sandwich, and an open ledger. The last entry is from yesterday."
+
+[node name="Inspectable_painting" parent="." unique_id=934983568 instance=ExtResource("9_insp")]
+position = Vector2(560, 144)
+object_id = &"painting"
+title = "Crooked Painting"
+description = "A landscape hanging slightly askew. Recently disturbed?"
+body_color = Color(0.45, 0.25, 0.55, 1)
+
+[node name="Player" parent="." unique_id=1010292065 instance=ExtResource("8_player")]
+position = Vector2(-227, -36)

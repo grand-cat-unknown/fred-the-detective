@@ -1,0 +1,6 @@
+[gd_scene format=3 uid="uid://clhnu3j67t0j1"]
+
+[ext_resource type="Script" path="res://scripts/world/inspectable.gd" id="1_insp"]
+
+[node name="Inspectable" type="Node2D"]
+script = ExtResource("1_insp")

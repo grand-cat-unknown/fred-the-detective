@@ -2,38 +2,6 @@
 class_name WorldView
 extends Node2D
 
-const _EDITOR_PREVIEW_ROOM_IDS: Array[StringName] = [
-	CaseLoader.ROOM_CONCIERGE,
-	CaseLoader.ROOM_1220,
-	CaseLoader.ROOM_GEAR,
-	CaseLoader.ROOM_HALL,
-	CaseLoader.ROOM_SUITE,
-	CaseLoader.ROOM_LOBBY,
-	CaseLoader.ROOM_CHUTE,
-	CaseLoader.ROOM_1223,
-]
-
-@export_group("Editor Preview")
-@export_enum(
-	"Concierge / Security",
-	"Room 1220",
-	"Gear Cart",
-	"Twelfth Floor Hall",
-	"Suite 1221",
-	"Elevator Lobby",
-	"Chute Access",
-	"Room 1223"
-) var editor_preview_room_index := 5:
-	set(value):
-		editor_preview_room_index = value
-		if Engine.is_editor_hint():
-			current_room = _editor_preview_room_id()
-		refresh()
-@export var editor_show_locked_clues := true:
-	set(value):
-		editor_show_locked_clues = value
-		refresh()
-
 @export_group("Movement")
 @export_range(60.0, 600.0, 5.0, "or_greater") var player_speed := Gameplay.PLAYER_SPEED:
 	set(value):
@@ -41,82 +9,36 @@ const _EDITOR_PREVIEW_ROOM_IDS: Array[StringName] = [
 		if _player != null:
 			_player.speed = player_speed
 
+@export_group("Camera")
+@export_range(0.25, 4.0, 0.05, "or_greater") var camera_zoom := 2.0:
+	set(value):
+		camera_zoom = value
+		_apply_camera_to_player(true)
+@export_range(0.0, 30.0, 0.5, "or_greater") var camera_follow_smoothing := 12.0:
+	set(value):
+		camera_follow_smoothing = value
+
 @export_group("Palette")
 @export var background_color := Palette.BACKGROUND:
 	set(value):
 		background_color = value
-		refresh()
-@export var floor_color := Palette.FLOOR:
-	set(value):
-		floor_color = value
-		refresh()
-@export var floor_alt_color := Palette.FLOOR_ALT:
-	set(value):
-		floor_alt_color = value
-		refresh()
-@export var wall_color := Palette.WALL:
-	set(value):
-		wall_color = value
-		refresh()
-@export var wall_top_color := Palette.WALL_TOP:
-	set(value):
-		wall_top_color = value
-		refresh()
-@export var rug_color := Palette.RUG:
-	set(value):
-		rug_color = value
-		refresh()
-@export var rug_trim_color := Palette.RUG_TRIM:
-	set(value):
-		rug_trim_color = value
-		refresh()
-@export var runner_color := Palette.RUNNER:
-	set(value):
-		runner_color = value
-		refresh()
-@export var outline_color := Palette.OUTLINE:
-	set(value):
-		outline_color = value
-		refresh()
+		_apply_palette()
 @export var player_color := Palette.PLAYER_BODY:
 	set(value):
 		player_color = value
-		refresh()
+		_apply_palette()
 @export var player_hat_color := Palette.PLAYER_HAT:
 	set(value):
 		player_hat_color = value
-		refresh()
-@export var clue_color := Palette.CLUE:
-	set(value):
-		clue_color = value
-		refresh()
-@export var clue_inspected_color := Palette.CLUE_INSPECTED:
-	set(value):
-		clue_inspected_color = value
-		refresh()
-@export var room_border_color := Palette.ROOM_BORDER:
-	set(value):
-		room_border_color = value
-		refresh()
-@export var room_label_color := Palette.ROOM_LABEL:
-	set(value):
-		room_label_color = value
-		refresh()
-@export_range(8, 24, 1, "or_greater") var room_label_font_size := Layout.ROOM_LABEL_FONT_SIZE:
-	set(value):
-		room_label_font_size = value
-		refresh()
+		_apply_palette()
 
 var case_data: CaseData
-var current_room: StringName = CaseLoader.ROOM_LOBBY
 
 var _world_map: WorldMap
 var _player: Player
-var _room_zones: Array[RoomZone] = []
+var _camera: Camera2D
 var _npc_nodes: Array[NPC] = []
-var _clue_markers: Array[ClueMarker] = []
-var _door_nodes: Array[Door] = []
-var _elevator_nodes: Array[Elevator] = []
+var _inspectables: Array[Inspectable] = []
 
 
 func _ready() -> void:
@@ -124,12 +46,14 @@ func _ready() -> void:
 		configure(CaseLoader.load_default())
 
 
+func _process(delta: float) -> void:
+	if Engine.is_editor_hint():
+		return
+	_apply_camera_to_player(false, delta)
+
+
 func configure(new_case: CaseData) -> void:
 	case_data = new_case
-	if Engine.is_editor_hint():
-		current_room = _editor_preview_room_id()
-	elif case_data != null:
-		current_room = case_data.start_room
 	_rebuild_content()
 
 
@@ -137,12 +61,7 @@ func reset_player(start_tile: Vector2i) -> void:
 	if _player == null:
 		return
 	_player.reset_to_tile(start_tile)
-
-
-func transition_to(room_id: StringName, spawn_tile: Vector2i) -> void:
-	current_room = room_id
-	reset_player(spawn_tile)
-	refresh()
+	_apply_camera_to_player(true)
 
 
 func process_player_step(delta: float) -> bool:
@@ -157,160 +76,106 @@ func try_start_tile_step(direction: Vector2i) -> void:
 	if _player == null:
 		return
 	_player.speed = player_speed
-	_player.try_step(direction, _world_map, _npc_tiles())
+	_player.try_step(direction, _world_map, _blocked_tiles())
 
 
 func is_player_stepping() -> bool:
 	return _player != null and _player.is_stepping
 
 
-func player_position() -> Vector2:
-	return _player.position if _player != null else TileMap2D.tile_to_world_center(Vector2i.ZERO)
-
-
-func player_tile() -> Vector2i:
-	return _player.tile if _player != null else Vector2i.ZERO
-
-
-func player_face_direction() -> Vector2i:
-	return _player.face_direction if _player != null else Vector2i(1, 0)
-
-
-func door_spawn_tile(door: DoorData) -> Vector2i:
-	return door.tile * 2 - player_tile()
-
-
-func refresh() -> void:
-	if _world_map == null:
-		return
-
-	_world_map.background_color = background_color
-	_world_map.floor_color = floor_color
-	_world_map.floor_alt_color = floor_alt_color
-	_world_map.wall_color = wall_color
-	_world_map.wall_top_color = wall_top_color
-	_world_map.rug_color = rug_color
-	_world_map.rug_trim_color = rug_trim_color
-	_world_map.runner_color = runner_color
-	_world_map.outline_color = outline_color
-	_world_map.set_current_room(current_room)
-
-	for room_zone in _room_zones:
-		room_zone.border_color = room_border_color
-		room_zone.label_color = room_label_color
-		room_zone.label_font_size = room_label_font_size
-		room_zone.set_current_room(current_room)
-
-	for door_node in _door_nodes:
-		door_node.door_color = Palette.DOOR
-		door_node.trim_color = Palette.DOOR_TRIM
-		door_node.outline_color = outline_color
-		door_node.set_current_room(current_room)
-
-	for elevator_node in _elevator_nodes:
-		elevator_node.outline_color = outline_color
-		elevator_node.set_current_room(current_room)
-
-	for clue_marker in _clue_markers:
-		clue_marker.clue_color = clue_color
-		clue_marker.clue_inspected_color = clue_inspected_color
-		clue_marker.outline_color = outline_color
-		clue_marker.show_locked_clues = Engine.is_editor_hint() and editor_show_locked_clues
-		clue_marker.set_current_room(current_room)
-
-	for npc in _npc_nodes:
-		npc.set_current_room(current_room)
-
+func _apply_palette() -> void:
+	if _world_map != null:
+		_world_map.background_color = background_color
 	if _player != null:
-		_player.speed = player_speed
 		_player.body_color = player_color
 		_player.hat_color = player_hat_color
-		_player.visible = not Engine.is_editor_hint()
 		_player.queue_redraw()
 
-	_redraw_content()
+
+func _apply_camera_to_player(instant: bool, delta: float = 0.0) -> void:
+	if _camera == null:
+		return
+
+	if Engine.is_editor_hint() or _player == null:
+		_camera.position = TileMap2D.VIEW_SIZE * 0.5
+		_camera.zoom = Vector2.ONE
+		return
+
+	var target_position := _player.position
+	var target_zoom := Vector2(camera_zoom, camera_zoom)
+
+	if instant or camera_follow_smoothing <= 0.0 or not is_inside_tree():
+		_camera.position = target_position
+		_camera.zoom = target_zoom
+		return
+
+	var follow_weight := clampf(1.0 - exp(-camera_follow_smoothing * delta), 0.0, 1.0)
+	_camera.position = _camera.position.lerp(target_position, follow_weight)
+	_camera.zoom = target_zoom
 
 
-func _editor_preview_room_id() -> StringName:
-	var index := clampi(editor_preview_room_index, 0, _EDITOR_PREVIEW_ROOM_IDS.size() - 1)
-	return _EDITOR_PREVIEW_ROOM_IDS[index]
+func find_inspectable_at_player() -> Inspectable:
+	if _player == null:
+		return null
+	var player_tile := _player.tile
+	var facing_tile := player_tile + _player.face_direction
+	var candidates: Array[Vector2i] = [
+		facing_tile,
+		player_tile + Vector2i(1, 0),
+		player_tile + Vector2i(-1, 0),
+		player_tile + Vector2i(0, 1),
+		player_tile + Vector2i(0, -1),
+	]
+	for tile in candidates:
+		for inspectable in _inspectables:
+			if inspectable.get_tile() == tile:
+				return inspectable
+	return null
 
 
 func _rebuild_content() -> void:
-	for child in get_children():
-		child.queue_free()
-	_room_zones.clear()
 	_npc_nodes.clear()
-	_clue_markers.clear()
-	_door_nodes.clear()
-	_elevator_nodes.clear()
+	_inspectables.clear()
 	_world_map = null
 	_player = null
+	_camera = null
 
-	if case_data == null:
-		return
+	for child in get_children():
+		if child is WorldMap:
+			_world_map = child
+		elif child is Player:
+			_player = child
+		elif child is Camera2D:
+			_camera = child
+		elif child is NPC:
+			_npc_nodes.append(child)
+		elif child is Inspectable:
+			_inspectables.append(child)
 
-	_world_map = WorldMap.new()
-	_world_map.name = "WorldMap"
-	add_child(_world_map)
-	_world_map.configure(case_data)
+	if _camera != null and not Engine.is_editor_hint():
+		_camera.make_current()
 
-	for door in case_data.doors:
-		var door_node := Door.new()
-		door_node.configure(door)
-		add_child(door_node)
-		_door_nodes.append(door_node)
+	if case_data != null:
+		for npc in _npc_nodes:
+			for suspect in case_data.suspects:
+				if suspect.id == npc.entity_id:
+					suspect.position = npc.position
+					npc.configure(suspect)
+					break
 
-	for elevator in case_data.elevators:
-		var elevator_node := Elevator.new()
-		elevator_node.configure(elevator)
-		add_child(elevator_node)
-		_elevator_nodes.append(elevator_node)
+	if _player != null:
+		_player.speed = player_speed
+		_player.visible = not Engine.is_editor_hint()
 
-	for room in case_data.rooms:
-		var room_zone := RoomZone.new()
-		room_zone.configure(room)
-		add_child(room_zone)
-		_room_zones.append(room_zone)
-
-	for clue in case_data.clues:
-		var clue_marker := ClueMarker.new()
-		clue_marker.configure(clue)
-		add_child(clue_marker)
-		_clue_markers.append(clue_marker)
-
-	for suspect in case_data.suspects:
-		var npc := NPC.new()
-		npc.configure(suspect)
-		add_child(npc)
-		_npc_nodes.append(npc)
-
-	_player = Player.new()
-	_player.name = "Player"
-	add_child(_player)
-	refresh()
+	_apply_palette()
+	_apply_camera_to_player(false)
 
 
-func _redraw_content() -> void:
-	if _world_map != null:
-		_world_map.queue_redraw()
-	for room_zone in _room_zones:
-		room_zone.queue_redraw()
-	for door_node in _door_nodes:
-		door_node.queue_redraw()
-	for elevator_node in _elevator_nodes:
-		elevator_node.queue_redraw()
-	for clue_marker in _clue_markers:
-		clue_marker.queue_redraw()
-	for npc in _npc_nodes:
-		npc.queue_redraw()
-
-
-func _npc_tiles() -> Array[Vector2i]:
+func _blocked_tiles() -> Array[Vector2i]:
 	var tiles: Array[Vector2i] = []
-	if case_data == null:
-		return tiles
-	for suspect in case_data.suspects:
-		if suspect.room == current_room:
-			tiles.append(TileMap2D.world_to_tile(suspect.position))
+	for npc in _npc_nodes:
+		tiles.append(TileMap2D.world_to_tile(npc.position))
+	for inspectable in _inspectables:
+		if inspectable.blocks_movement:
+			tiles.append(inspectable.get_tile())
 	return tiles
