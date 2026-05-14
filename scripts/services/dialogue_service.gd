@@ -58,7 +58,7 @@ func submit(message: String) -> bool:
 	if trimmed.is_empty() or _llm.is_busy():
 		return false
 	_append(_active_suspect.id, DETECTIVE_LABEL, trimmed)
-	var err := _llm.send(_build_instructions(_active_suspect), _build_input(_active_suspect))
+	var err := _llm.send(_build_instructions(_active_suspect), _build_messages(_active_suspect))
 	if err != OK:
 		error_received.emit("Could not reach the LLM (%s)." % err)
 		return false
@@ -106,28 +106,25 @@ func _build_instructions(suspect: SuspectData) -> String:
 	return "\n\n".join(parts)
 
 
-func _build_input(suspect: SuspectData) -> String:
+func _build_messages(suspect: SuspectData) -> Array:
 	var lines: Array = _history.get(suspect.id, [])
-	var transcript: Array[String] = []
+	var messages: Array = []
 	for entry in lines:
 		var speaker := str(entry.get("speaker", ""))
-		var text := str(entry.get("text", ""))
-		if speaker == suspect.display_name and text.strip_edges().is_empty():
+		var text := str(entry.get("text", "")).strip_edges()
+		if text.is_empty():
 			continue
-		transcript.append("%s: %s" % [speaker, text])
-	transcript.append("%s:" % suspect.display_name)
-	return "Conversation so far:\n" + "\n".join(transcript)
+		var role := "user" if speaker == DETECTIVE_LABEL else "assistant"
+		messages.append({"role": role, "content": text})
+	return messages
 
 
 func _on_llm_delta(chunk: String) -> void:
 	if _streaming_suspect_id == &"":
-		print("[DialogueService] delta ignored: no streaming suspect")
 		return
 	_streaming_text += chunk
 	_update_last_line(_streaming_suspect_id, _streaming_text)
-	var emitting := _active_suspect != null and _active_suspect.id == _streaming_suspect_id
-	print("[DialogueService] delta chars=%d total=%d emit=%s" % [chunk.length(), _streaming_text.length(), str(emitting)])
-	if emitting:
+	if _active_suspect != null and _active_suspect.id == _streaming_suspect_id:
 		line_updated.emit(_streaming_text)
 
 
