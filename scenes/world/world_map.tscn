@@ -7,6 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://da534ivjnno6k" path="res://assets/art/environments/splatter/splatter_purple_03.png" id="5_epqkq"]
 [ext_resource type="Texture2D" uid="uid://dyoqjxak8cxa0" path="res://assets/art/environments/splatter/splatter_purple_04.png" id="6_itcdo"]
 [ext_resource type="Texture2D" uid="uid://4v8bsut1gvl7" path="res://assets/art/environments/splatter/splatter_purple_05.png" id="7_ef1lp"]
+[ext_resource type="Texture2D" uid="uid://gs6bvi0htpae" path="res://assets/art/characters/dead_body/dead_body_13_c_rotated_32.png" id="8_rxoah"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_we3bw"]
 texture = ExtResource("3_vv8dq")
@@ -50,6 +51,17 @@ sources/2 = SubResource("TileSetAtlasSource_n6hmn")
 sources/3 = SubResource("TileSetAtlasSource_v2wwm")
 sources/4 = SubResource("TileSetAtlasSource_tf64y")
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_epqkq"]
+texture = ExtResource("8_rxoah")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSet" id="TileSet_itcdo"]
+sources/0 = SubResource("TileSetAtlasSource_epqkq")
+
 [node name="WorldMap" type="Node2D" unique_id=137116852]
 script = ExtResource("1_lhxl1")
 
@@ -83,3 +95,7 @@ tile_set = ExtResource("2_jabx1")
 [node name="accessoriy-props" type="TileMapLayer" parent="." unique_id=1647053891]
 tile_map_data = PackedByteArray("AAAEAAMAAQALABAAAAAFAAMAAQAMABAAAAAGAAMAAQANABAAAAAEAAUAAQAJAAwAAAAEAAYAAQAeAAEAAAAGAAQAAQAfAAEAAAA=")
 tile_set = ExtResource("2_jabx1")
+
+[node name="Deadbody" type="TileMapLayer" parent="." unique_id=1761017006]
+tile_map_data = PackedByteArray("AABOACUAAAAAAAAAAAA=")
+tile_set = SubResource("TileSet_itcdo")
