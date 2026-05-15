@@ -181,13 +181,16 @@ func find_inspection_at_player() -> Dictionary:
 func _resolve_inspection(static_inspection: Dictionary) -> Dictionary:
 	if case_data == null:
 		return static_inspection
-	var object_id := StringName(str(static_inspection.get("object_id", "")))
+	var object_id := StringName(str(static_inspection.get("object_id", "")).strip_edges())
 	if object_id == &"":
 		return static_inspection
 	var definition := case_data.get_interactable(object_id)
 	if definition == null:
 		return static_inspection
-	return definition.resolve(case_state, static_inspection)
+	if not definition.has_method("resolve"):
+		push_warning("Interactable definition for '%s' does not implement resolve()." % object_id)
+		return static_inspection
+	return definition.call("resolve", case_state, static_inspection)
 
 
 func _adjacent_tiles() -> Array[Vector2i]:

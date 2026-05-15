@@ -13,6 +13,7 @@ var _dialogue: DialogueService
 
 func _ready() -> void:
 	var case := CaseLoader.load_default()
+	print("[case] loaded %d facts and %d interactables" % [case.fact_definitions.size(), case.interactables.size()])
 
 	_case_state = CaseState.new()
 	_case_state.name = "CaseState"

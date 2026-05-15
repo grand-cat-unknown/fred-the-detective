@@ -89,7 +89,7 @@ func _get_custom_data(tile_set: TileSet, tile_data: TileData, data_name: String)
 	if tile_set == null or not _has_custom_data_layer(tile_set, data_name):
 		return ""
 	var value: Variant = tile_data.get_custom_data(data_name)
-	return str(value) if value != null else ""
+	return str(value).strip_edges() if value != null else ""
 
 
 func _has_custom_data_layer(tile_set: TileSet, data_name: String) -> bool:

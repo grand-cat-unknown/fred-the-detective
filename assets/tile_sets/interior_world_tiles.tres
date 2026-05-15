@@ -3768,7 +3768,7 @@ texture_region_size = Vector2i(32, 32)
 
 [resource]
 tile_size = Vector2i(32, 32)
-custom_data_layer_0/name = "object_id"
+custom_data_layer_0/name = "inspect_object_id"
 custom_data_layer_0/type = 4
 sources/0 = SubResource("TileSetAtlasSource_ov7ph")
 sources/1 = SubResource("TileSetAtlasSource_gqa5y")
