@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="InteractableDefinition" load_steps=8 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/interactable_definition.gd" id="1_definition"]
+[ext_resource type="Script" path="res://scripts/data/gate_condition.gd" id="2_condition"]
+[ext_resource type="Script" path="res://scripts/data/inspectable_variant.gd" id="3_variant"]
+[ext_resource type="Script" path="res://scripts/data/state_effect.gd" id="4_effect"]
+
+[sub_resource type="Resource" id="GateCondition_unread"]
+script = ExtResource("2_condition")
+none_of = Array[StringName]([&"debug_found_note"])
+
+[sub_resource type="Resource" id="StateEffect_found_note"]
+script = ExtResource("4_effect")
+fact_id = &"debug_found_note"
+
+[sub_resource type="Resource" id="InspectableVariant_unread"]
+script = ExtResource("3_variant")
+condition = SubResource("GateCondition_unread")
+title = "Debug Note"
+description = "A test note says: ask Theo about the phrase 'blue umbrella'."
+effects = [SubResource("StateEffect_found_note")]
+
+[sub_resource type="Resource" id="GateCondition_read"]
+script = ExtResource("2_condition")
+all_of = Array[StringName]([&"debug_found_note"])
+
+[sub_resource type="Resource" id="InspectableVariant_read"]
+script = ExtResource("3_variant")
+condition = SubResource("GateCondition_read")
+title = "Debug Note"
+description = "The note still says: ask Theo about 'blue umbrella'."
+
+[resource]
+script = ExtResource("1_definition")
+object_id = &"debug_note"
+variants = [SubResource("InspectableVariant_unread"), SubResource("InspectableVariant_read")]
