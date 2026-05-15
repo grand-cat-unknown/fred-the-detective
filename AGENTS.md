@@ -14,7 +14,7 @@ Yes. Since your sprites are already in the TileSet/TileMap, the easiest setup is
 Option 1: Make a TileSet tile inspectable
 
 In Godot:
-
+<!-- 
 Open assets/tile_sets/interior_world_tiles.tres.
 In the TileSet editor, add custom data layers:
 inspect_title as String
@@ -33,4 +33,14 @@ Paint the desk tile normally.
 Add an Inspectable node on top of that tile.
 Set draw_marker = false.
 Set the unique title and description.
-I wired both paths in code. TileMap tiles are read from custom data, and Inspectable can now be invisible or sprite-backed. I couldn’t run Godot validation because godot/godot4 is not available on PATH here.
+I wired both paths in code. TileMap tiles are read from custom data, and Inspectable can now be invisible or sprite-backed. I couldn’t run Godot validation because godot/godot4 is not available on PATH here. -->
+
+New way:
+
+Paint/place the visual object.
+Add inspect_object_id on the tile, or place an invisible Inspectable.
+Create/edit the matching .tres interactable definition.
+Set conditions/effects in the inspector.
+
+
+Godot executable app image -> [text](../../Apps/Godot_v4.6.2-stable_linux.x86_64)

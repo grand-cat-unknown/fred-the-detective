@@ -5,22 +5,44 @@ extends Node2D
 @onready var _dialogue_panel: DialoguePanel = %DialoguePanel
 
 var _llm: LLMClient
+var _effect_llm: LLMClient
+var _case_state: CaseState
+var _effect_judge: ConversationEffectJudge
 var _dialogue: DialogueService
 
 
 func _ready() -> void:
 	var case := CaseLoader.load_default()
-	_world.configure(case)
+	print("[case] loaded %d facts and %d interactables" % [case.fact_definitions.size(), case.interactables.size()])
+
+	_case_state = CaseState.new()
+	_case_state.name = "CaseState"
+	add_child(_case_state)
+	_case_state.configure(case.fact_definitions)
+	_case_state.fact_changed.connect(_on_case_fact_changed)
+
+	_world.configure(case, _case_state)
 	_world.reset_player(case.player_start_tile)
 
 	_llm = LLMClient.new()
 	_llm.name = "LLMClient"
 	add_child(_llm)
 
+	_effect_llm = LLMClient.new()
+	_effect_llm.name = "ConversationEffectLLM"
+	add_child(_effect_llm)
+
+	_effect_judge = ConversationEffectJudge.new()
+	_effect_judge.name = "ConversationEffectJudge"
+	add_child(_effect_judge)
+	_effect_judge.configure(_effect_llm, _case_state)
+	_effect_judge.effects_applied.connect(_on_conversation_effects_applied)
+	_effect_judge.judge_failed.connect(_on_conversation_judge_failed)
+
 	_dialogue = DialogueService.new()
 	_dialogue.name = "DialogueService"
 	add_child(_dialogue)
-	_dialogue.configure(_llm)
+	_dialogue.configure(_llm, _case_state, _effect_judge)
 
 	_dialogue.line_appended.connect(_on_dialogue_line_appended)
 	_dialogue.line_updated.connect(_on_dialogue_line_updated)
@@ -53,6 +75,8 @@ func _unhandled_input(event: InputEvent) -> void:
 	var inspection := _world.find_inspection_at_player()
 	if not inspection.is_empty():
 		_inspect_panel.show_text(str(inspection["title"]), str(inspection["description"]))
+		if _case_state != null:
+			_case_state.apply_effects(inspection.get("effects", []))
 		get_viewport().set_input_as_handled()
 
 
@@ -96,6 +120,18 @@ func _on_dialogue_error(message: String) -> void:
 
 func _on_dialogue_closed() -> void:
 	_dialogue.close()
+
+
+func _on_case_fact_changed(fact_id: StringName, value: bool) -> void:
+	print("[case] %s = %s" % [fact_id, value])
+
+
+func _on_conversation_effects_applied(changed_facts: Array) -> void:
+	print("[case] conversation effects applied: %s" % [changed_facts])
+
+
+func _on_conversation_judge_failed(message: String) -> void:
+	print("[case] conversation effect judge failed: %s" % message)
 
 
 func _get_pressed_tile_direction() -> Vector2i:

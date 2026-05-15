@@ -60,6 +60,7 @@ Do not put the OpenAI key inside the Godot export or browser JavaScript. Set the
 
 The repo now includes a protected server route at `/api/llm`. It only works after the login cookie has been set by `/api/auth`.
 The route also adds a server-side prompt-injection guard, scans for common injection attempts, and wraps the Godot-provided `input` as untrusted JSON data before sending it to the model. The Godot dialogue builder separately marks Fred's player-authored turns as untrusted text inside the transcript. Godot uses the same route for suspect dialogue and for the final accusation verifier.
+For machine-read game-state decisions, include `text_format` with an OpenAI Responses API JSON Schema format. The proxy forwards it as `text.format`, enabling Structured Outputs instead of relying on prompt-only JSON instructions.
 
 Send a `POST` request from Godot with JSON like this:
 

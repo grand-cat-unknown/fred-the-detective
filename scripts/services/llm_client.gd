@@ -5,13 +5,10 @@ signal delta_received(chunk: String)
 signal completed(text: String, error: String)
 
 const LOCAL_ENDPOINT := "http://127.0.0.1:3000/api/llm"
-const MAX_OUTPUT_TOKENS := 400
+const MAX_OUTPUT_TOKENS := 2000
 
 const _WEB_BRIDGE_JS := """
 window.fredLLMStream = async function(url, body, cb) {
-	const t0 = performance.now();
-	const log = (...a) => console.log('[fredLLM]', ((performance.now() - t0) | 0) + 'ms', ...a);
-	log('request', url);
 	try {
 		const r = await fetch(url, {
 			method: 'POST',
@@ -19,11 +16,9 @@ window.fredLLMStream = async function(url, body, cb) {
 			body: body,
 			credentials: 'include',
 		});
-		log('response headers status=' + r.status);
 		if (!r.ok || !r.body) {
 			let msg = 'HTTP ' + r.status;
 			try { const j = await r.json(); if (j && j.error) msg = j.error; } catch (_) {}
-			log('error response', msg);
 			cb('error', msg);
 			return;
 		}
@@ -31,11 +26,9 @@ window.fredLLMStream = async function(url, body, cb) {
 		const dec = new TextDecoder();
 		let buf = '';
 		let full = '';
-		let deltas = 0;
 		while (true) {
 			const { value, done } = await reader.read();
 			if (done) break;
-			log('chunk bytes=' + (value ? value.length : 0));
 			buf += dec.decode(value, { stream: true });
 			let idx;
 			while ((idx = buf.indexOf('\\n')) !== -1) {
@@ -45,25 +38,19 @@ window.fredLLMStream = async function(url, body, cb) {
 				let obj;
 				try { obj = JSON.parse(line); } catch (_) { continue; }
 				if (typeof obj.delta === 'string') {
-					deltas++;
 					full += obj.delta;
-					log('delta #' + deltas + ' len=' + obj.delta.length);
 					cb('delta', obj.delta);
 				} else if (typeof obj.error === 'string') {
-					log('stream error', obj.error);
 					cb('error', obj.error);
 					return;
 				} else if (obj.done) {
-					log('stream done deltas=' + deltas + ' chars=' + full.length);
 					cb('done', typeof obj.text === 'string' ? obj.text : full);
 					return;
 				}
 			}
 		}
-		log('stream ended (no done marker) deltas=' + deltas);
 		cb('done', full);
 	} catch (e) {
-		log('exception', e);
 		cb('error', String(e && e.message ? e.message : e));
 	}
 };
@@ -87,19 +74,19 @@ func is_busy() -> bool:
 	return _in_flight
 
 
-func send(instructions: String, input: String) -> Error:
+func send(instructions: String, messages: Array, text_format: Dictionary = {}, max_output_tokens := MAX_OUTPUT_TOKENS) -> Error:
 	if _in_flight:
 		return ERR_BUSY
 	var payload := {
 		"instructions": instructions,
-		"input": input,
-		"max_output_tokens": MAX_OUTPUT_TOKENS,
+		"messages": messages,
+		"max_output_tokens": max_output_tokens,
 	}
+	if not text_format.is_empty():
+		payload["text_format"] = text_format
 	var body := JSON.stringify(payload)
 	_request_started_msec = Time.get_ticks_msec()
 	_delta_count = 0
-	var via := "web" if _use_web_bridge() else "native"
-	print("[LLMClient] send via=%s endpoint=%s body_chars=%d" % [via, _endpoint(), body.length()])
 	if _use_web_bridge():
 		return _send_web(body)
 	return _send_native(body)
@@ -147,16 +134,13 @@ func _on_web_event(args: Array) -> void:
 		"delta":
 			_delta_count += 1
 			_web_full_text += text
-			print("[LLMClient] +%dms delta #%d len=%d" % [_elapsed_ms(), _delta_count, text.length()])
 			delta_received.emit(text)
 		"done":
 			_in_flight = false
 			var final_text := text if text != "" else _web_full_text
-			print("[LLMClient] +%dms done deltas=%d chars=%d" % [_elapsed_ms(), _delta_count, final_text.length()])
 			completed.emit(final_text.strip_edges(), "")
 		"error":
 			_in_flight = false
-			print("[LLMClient] +%dms error: %s" % [_elapsed_ms(), text])
 			completed.emit("", text if text != "" else "Stream failed.")
 
 
@@ -257,7 +241,6 @@ func _consume_native_buffer() -> void:
 			var chunk := str(parsed["delta"])
 			_delta_count += 1
 			_native_request["full_text"] = str(_native_request["full_text"]) + chunk
-			print("[LLMClient] +%dms native delta #%d len=%d" % [_elapsed_ms(), _delta_count, chunk.length()])
 			delta_received.emit(chunk)
 		elif parsed.has("error"):
 			_finish_native_error(str(parsed["error"]))

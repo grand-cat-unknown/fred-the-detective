@@ -16,11 +16,12 @@ extends Node2D
 		queue_redraw()
 @export var blocks_movement: bool = true
 
-@onready var _sprite: Sprite2D = $Sprite2D
+var _sprite: Sprite2D
 
 
 func _ready() -> void:
 	set_notify_transform(true)
+	_sprite = get_node_or_null("Sprite2D") as Sprite2D
 	_apply_texture()
 
 
@@ -52,6 +53,8 @@ func _draw() -> void:
 
 
 func _apply_texture() -> void:
-	if is_node_ready():
+	if _sprite == null and is_node_ready():
+		_sprite = get_node_or_null("Sprite2D") as Sprite2D
+	if _sprite != null:
 		_sprite.texture = texture
 	queue_redraw()

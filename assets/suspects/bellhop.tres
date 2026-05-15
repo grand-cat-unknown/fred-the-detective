@@ -1,14 +1,14 @@
-[gd_resource type="Resource" script_class="SuspectData" load_steps=3 format=3]
+[gd_resource type="Resource" script_class="SuspectData" format=3 uid="uid://qemwssteyibb"]
 
-[ext_resource type="Script" path="res://scripts/data/suspect_data.gd" id="1_script"]
-[ext_resource type="Texture2D" path="res://HS-Characters Retro/Char 11_A.png" id="2_tex"]
+[ext_resource type="Script" uid="uid://cxvank1ob4s06" path="res://scripts/data/suspect_data.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://dclp7r6tg3uso" path="res://HS-Characters Retro/Char 11_A.png" id="2_tex"]
 
 [resource]
 script = ExtResource("1_script")
 id = &"bellhop"
 display_name = "Leo Rossi"
-position = Vector2(112, 144)
-color = Color(0.650980, 0.521569, 0.298039, 1)
+position = Vector2(176, 240)
+color = Color(0.65098, 0.521569, 0.298039, 1)
 hat_color = Color(0.376471, 0.294118, 0.180392, 1)
 texture = ExtResource("2_tex")
 subtitle = "Veteran Bellhop"
