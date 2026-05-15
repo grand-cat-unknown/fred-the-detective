@@ -7,7 +7,6 @@
 [ext_resource type="Texture2D" uid="uid://da534ivjnno6k" path="res://assets/art/environments/splatter/splatter_purple_03.png" id="5_epqkq"]
 [ext_resource type="Texture2D" uid="uid://dyoqjxak8cxa0" path="res://assets/art/environments/splatter/splatter_purple_04.png" id="6_itcdo"]
 [ext_resource type="Texture2D" uid="uid://4v8bsut1gvl7" path="res://assets/art/environments/splatter/splatter_purple_05.png" id="7_ef1lp"]
-[ext_resource type="Texture2D" uid="uid://gs6bvi0htpae" path="res://assets/art/characters/dead_body/dead_body_13_c_rotated_32.png" id="8_rxoah"]
 [ext_resource type="Texture2D" uid="uid://rqluvh3urtn5" path="res://assets/art/environments/radioactive_items/Icon10_01.png" id="8_sloqf"]
 [ext_resource type="Texture2D" uid="uid://d0yiktjflggr4" path="res://assets/art/environments/radioactive_items/Icon10_02.png" id="9_t1rse"]
 [ext_resource type="Texture2D" uid="uid://bs1ncn8gyf7y2" path="res://assets/art/environments/radioactive_items/Icon10_11.png" id="10_1pnen"]
@@ -45,6 +44,7 @@
 [ext_resource type="Texture2D" uid="uid://bcrerqpyn0nym" path="res://assets/art/environments/radioactive_items/Icon10_05.png" id="42_0j1q4"]
 [ext_resource type="Texture2D" uid="uid://bdilx22cecdr6" path="res://assets/art/environments/radioactive_items/Iconset10.png" id="43_umhnj"]
 [ext_resource type="Texture2D" uid="uid://paenhtlw4oc0" path="res://assets/art/environments/radioactive_items/Icon10_06.png" id="44_83lhf"]
+[ext_resource type="Texture2D" path="res://assets/art/environments/cells.png" id="44_sloqf"]
 [ext_resource type="Texture2D" uid="uid://wdor07rowlgk" path="res://assets/art/environments/radioactive_items/Icon10_07.png" id="45_rc0i4"]
 [ext_resource type="Texture2D" uid="uid://dseim50pnf7qg" path="res://assets/art/environments/radioactive_items/Icon10_08.png" id="46_6ysv6"]
 [ext_resource type="Texture2D" uid="uid://c5eorl2dauucm" path="res://assets/art/environments/radioactive_items/Icon10_09.png" id="47_lbaiu"]
@@ -500,6 +500,13 @@ texture = ExtResource("43_umhnj")
 18:7/0 = 0
 19:7/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8yxgw"]
+texture = ExtResource("44_sloqf")
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_83lhf"]
 texture = ExtResource("44_83lhf")
 0:0/0 = 0
@@ -577,14 +584,7 @@ sources/37 = SubResource("TileSetAtlasSource_ywhfu")
 sources/38 = SubResource("TileSetAtlasSource_c8qor")
 sources/39 = SubResource("TileSetAtlasSource_2pk2m")
 sources/40 = SubResource("TileSetAtlasSource_umhnj")
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_epqkq"]
-texture = ExtResource("8_rxoah")
-texture_region_size = Vector2i(32, 32)
-0:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_itcdo"]
-sources/0 = SubResource("TileSetAtlasSource_epqkq")
+sources/41 = SubResource("TileSetAtlasSource_8yxgw")
 
 [node name="WorldMap" type="Node2D" unique_id=137116852]
 script = ExtResource("1_lhxl1")
@@ -623,6 +623,3 @@ tile_set = SubResource("TileSet_8yxgw")
 [node name="accessoriy-props" type="TileMapLayer" parent="." unique_id=1647053891]
 tile_map_data = PackedByteArray("AAAEAAMAAQALABAAAAAFAAMAAQAMABAAAAAGAAMAAQANABAAAAAEAAUAAQAJAAwAAAAEAAYAAQAeAAEAAAAGAAQAAQAfAAEAAAD//wMAAQACAAwAAAA=")
 tile_set = ExtResource("2_jabx1")
-
-[node name="Deadbody" type="TileMapLayer" parent="." unique_id=1761017006]
-tile_set = SubResource("TileSet_itcdo")
