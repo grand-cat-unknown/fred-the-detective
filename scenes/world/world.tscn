@@ -21,28 +21,28 @@ script = ExtResource("1_world")
 position = Vector2(512, 288)
 
 [node name="WorldMap" parent="." unique_id=630295776 instance=ExtResource("2_map")]
-position = Vector2(-2, -4)
+position = Vector2(-55, -134)
 
 [node name="NPC_mara" parent="." unique_id=1794848584 instance=ExtResource("7_npc")]
-position = Vector2(80, 400)
+position = Vector2(720, 240)
 entity_id = &"mara"
 preview_name = "Mara Bell"
 preview_texture = ExtResource("5_umvgx")
 
 [node name="NPC_theo" parent="." unique_id=1440069773 instance=ExtResource("7_npc")]
-position = Vector2(304, 336)
+position = Vector2(592, 80)
 entity_id = &"theo"
 preview_name = "Theo Griggs"
 preview_texture = ExtResource("6_mxkvs")
 
 [node name="NPC_otis" parent="." unique_id=2073294398 instance=ExtResource("7_npc")]
-position = Vector2(528, 336)
+position = Vector2(-16, 272)
 entity_id = &"otis"
 preview_name = "Dr. Otis Pemberton"
 preview_texture = ExtResource("7_m114p")
 
 [node name="NPC_iris" parent="." unique_id=602351030 instance=ExtResource("7_npc")]
-position = Vector2(432, 240)
+position = Vector2(1296, 272)
 entity_id = &"iris"
 preview_name = "Dr. Iris Thorne"
 preview_texture = ExtResource("8_71ii3")
@@ -54,7 +54,7 @@ preview_name = "Julian Vane"
 preview_texture = ExtResource("9_bt7bg")
 
 [node name="NPC_bellhop" parent="." unique_id=1106624191 instance=ExtResource("7_npc")]
-position = Vector2(16, 368)
+position = Vector2(944, 368)
 entity_id = &"bellhop"
 preview_name = "Leo Rossi"
 preview_texture = ExtResource("10_wbwoo")
