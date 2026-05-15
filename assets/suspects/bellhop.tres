@@ -7,7 +7,7 @@
 script = ExtResource("1_script")
 id = &"bellhop"
 display_name = "Leo Rossi"
-position = Vector2(176, 240)
+position = Vector2(16, 368)
 color = Color(0.65098, 0.521569, 0.298039, 1)
 hat_color = Color(0.376471, 0.294118, 0.180392, 1)
 texture = ExtResource("2_tex")
