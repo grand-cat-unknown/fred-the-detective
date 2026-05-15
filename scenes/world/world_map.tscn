@@ -72,6 +72,7 @@ tile_map_data = PackedByteArray("AAD7/wIAAAAIAAIAAAD7/wMAAAAIAAMAAAD7/wQAAAAIAAM
 tile_set = ExtResource("2_jabx1")
 
 [node name="Weird Splatter" type="TileMapLayer" parent="." unique_id=1905757985]
+z_index = 3
 tile_map_data = PackedByteArray("AABNACMAAwAAAAAAAABNACQAAwAAAAEAAABOACMAAwABAAAAAABOACQAAwABAAEAAABPACMAAQABAAAAAABPACQAAQABAAEAAAA=")
 tile_set = SubResource("TileSet_rsffu")
 
