@@ -32,7 +32,7 @@ extends Node2D
 	set(value):
 		player_hat_color = value
 		_apply_palette()
-@export var player_texture: Texture2D = preload("res://HS-Characters Retro/WhiteBunny_A.png"):
+@export var player_texture: Texture2D = preload("res://assets/art/characters/hs_retro/WhiteBunny_A.png"):
 	set(value):
 		player_texture = value
 		_apply_palette()

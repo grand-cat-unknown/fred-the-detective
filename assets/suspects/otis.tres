@@ -1,7 +1,7 @@
 [gd_resource type="Resource" script_class="SuspectData" format=3 uid="uid://ct6tm67g22dsf"]
 
 [ext_resource type="Script" uid="uid://cxvank1ob4s06" path="res://scripts/data/suspect_data.gd" id="1_script"]
-[ext_resource type="Texture2D" uid="uid://c73tsx1obq4hj" path="res://HS-Characters Retro/Char 12_B.png" id="2_tex"]
+[ext_resource type="Texture2D" uid="uid://c73tsx1obq4hj" path="res://assets/art/characters/hs_retro/Char 12_B.png" id="2_tex"]
 
 [resource]
 script = ExtResource("1_script")

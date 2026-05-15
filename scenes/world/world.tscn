@@ -2,16 +2,16 @@
 
 [ext_resource type="Script" uid="uid://xdd0ey5aqq13" path="res://scripts/world/world_view.gd" id="1_world"]
 [ext_resource type="PackedScene" uid="uid://55n455pd115y" path="res://scenes/world/world_map.tscn" id="2_map"]
-[ext_resource type="Texture2D" uid="uid://7xcs3a6s2jbk" path="res://HS-Characters Retro/Char 01_B.png" id="4_dlabj"]
-[ext_resource type="Texture2D" uid="uid://detfinf5avccy" path="res://HS-Characters Retro/Char 02_C.png" id="5_srmg5"]
-[ext_resource type="Texture2D" uid="uid://c73tsx1obq4hj" path="res://HS-Characters Retro/Char 12_B.png" id="6_umvgx"]
-[ext_resource type="Texture2D" uid="uid://hn13xxrncxjp" path="res://HS-Characters Retro/Char 06_B.png" id="7_mxkvs"]
+[ext_resource type="Texture2D" uid="uid://7xcs3a6s2jbk" path="res://assets/art/characters/hs_retro/Char 01_B.png" id="4_dlabj"]
+[ext_resource type="Texture2D" uid="uid://detfinf5avccy" path="res://assets/art/characters/hs_retro/Char 02_C.png" id="5_srmg5"]
+[ext_resource type="Texture2D" uid="uid://c73tsx1obq4hj" path="res://assets/art/characters/hs_retro/Char 12_B.png" id="6_umvgx"]
+[ext_resource type="Texture2D" uid="uid://hn13xxrncxjp" path="res://assets/art/characters/hs_retro/Char 06_B.png" id="7_mxkvs"]
 [ext_resource type="PackedScene" uid="uid://cola5578jq7bk" path="res://scenes/world/npc.tscn" id="7_npc"]
-[ext_resource type="Texture2D" uid="uid://bqe1rohu2v06n" path="res://HS-Characters Retro/Char 13_A.png" id="8_m114p"]
+[ext_resource type="Texture2D" uid="uid://bqe1rohu2v06n" path="res://assets/art/characters/hs_retro/Char 13_A.png" id="8_m114p"]
 [ext_resource type="PackedScene" uid="uid://b1plyr00scn01" path="res://scenes/world/player.tscn" id="8_player"]
-[ext_resource type="Texture2D" uid="uid://dclp7r6tg3uso" path="res://HS-Characters Retro/Char 11_A.png" id="9_71ii3"]
+[ext_resource type="Texture2D" uid="uid://dclp7r6tg3uso" path="res://assets/art/characters/hs_retro/Char 11_A.png" id="9_71ii3"]
 [ext_resource type="PackedScene" uid="uid://clhnu3j67t0j1" path="res://scenes/world/inspectable.tscn" id="9_insp"]
-[ext_resource type="Texture2D" uid="uid://dvwllyt0k77pj" path="res://HS-Characters Retro/Char 14_A.png" id="10_bt7bg"]
+[ext_resource type="Texture2D" uid="uid://dvwllyt0k77pj" path="res://assets/art/characters/hs_retro/Char 14_A.png" id="10_bt7bg"]
 
 [node name="World" type="Node2D" unique_id=1805681752]
 position = Vector2(466, 292)
