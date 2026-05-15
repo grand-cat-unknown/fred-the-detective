@@ -49,7 +49,7 @@ static func draw_actor(
 	canvas.draw_polyline(hat_outline, Palette.OUTLINE, Layout.OBJECT_OUTLINE_WIDTH)
 
 
-const SPRITE_FEET_OFFSET := Vector2(0.0, 8.0)
+const SPRITE_FEET_OFFSET := Vector2(0.0, 14.0)
 const SHEET_FRAME_SIZE := Vector2(32.0, 32.0)
 const SHEET_COLUMNS := 3
 const SHEET_ROWS := 4

@@ -3,6 +3,12 @@ class_name WorldMap
 extends Node2D
 
 const FLOOR_LAYER := "Floor"
+const BLOCKING_LAYERS := {
+	"Walls": true,
+	"furniture": true,
+	"accessoriy-props": true,
+	"Deadbody": true,
+}
 const INSPECT_TITLE_DATA := "inspect_title"
 const INSPECT_DESCRIPTION_DATA := "inspect_description"
 const INSPECT_OBJECT_ID_DATA := "inspect_object_id"
@@ -25,7 +31,7 @@ func is_walkable(tile_position: Vector2i) -> bool:
 		return false
 
 	for layer_name in _tile_layers:
-		if layer_name == FLOOR_LAYER:
+		if layer_name == FLOOR_LAYER or not BLOCKING_LAYERS.has(layer_name):
 			continue
 		var blocking_layer := _tile_layers[layer_name] as TileMapLayer
 		if blocking_layer.get_cell_source_id(tile_position) != -1:
