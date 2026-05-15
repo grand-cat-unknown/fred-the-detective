@@ -56,6 +56,7 @@ func _process(_delta: float) -> void:
 	if Engine.is_editor_hint():
 		return
 	_apply_camera_to_player(false)
+	_update_npc_facing()
 
 
 func configure(new_case: CaseData, new_state: CaseState = null) -> void:
@@ -69,6 +70,7 @@ func reset_player(start_tile: Vector2i) -> void:
 		return
 	_player.reset_to_tile(start_tile, _world_map)
 	_apply_camera_to_player(true)
+	_update_npc_facing()
 
 
 func update_player_movement(delta: float, held_direction: Vector2i) -> void:
@@ -239,9 +241,17 @@ func _rebuild_content() -> void:
 	if _player != null:
 		_player.speed = player_speed
 		_player.visible = not Engine.is_editor_hint()
+		_update_npc_facing()
 
 	_apply_palette()
 	_apply_camera_to_player(false)
+
+
+func _update_npc_facing() -> void:
+	if _player == null:
+		return
+	for npc in _npc_nodes:
+		npc.look_at_position(_player.position)
 
 
 func _blocked_tiles() -> Array[Vector2i]:
