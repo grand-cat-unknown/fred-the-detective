@@ -35,11 +35,11 @@ func is_walkable(tile_position: Vector2i) -> bool:
 
 
 func tile_to_world(tile_position: Vector2i) -> Vector2:
-	return TileMap2D.tile_to_world_center(tile_position)
+	return transform * TileMap2D.tile_to_world_center(tile_position)
 
 
 func world_to_tile(world_position: Vector2) -> Vector2i:
-	return TileMap2D.world_to_tile(world_position)
+	return TileMap2D.world_to_tile(transform.affine_inverse() * world_position)
 
 
 func get_tile_inspection(tile_position: Vector2i) -> Dictionary:
