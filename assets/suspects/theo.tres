@@ -1,10 +1,10 @@
-[gd_resource type="Resource" script_class="SuspectData" load_steps=10 format=3]
+[gd_resource type="Resource" script_class="SuspectData" format=3 uid="uid://duchvseblknna"]
 
-[ext_resource type="Script" path="res://scripts/data/suspect_data.gd" id="1_script"]
-[ext_resource type="Texture2D" path="res://HS-Characters Retro/Char 02_C.png" id="2_tex"]
-[ext_resource type="Script" path="res://scripts/data/conversation_effect.gd" id="3_effect"]
-[ext_resource type="Script" path="res://scripts/data/gate_condition.gd" id="4_condition"]
-[ext_resource type="Script" path="res://scripts/data/prompt_block.gd" id="5_prompt_block"]
+[ext_resource type="Script" uid="uid://cxvank1ob4s06" path="res://scripts/data/suspect_data.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://detfinf5avccy" path="res://HS-Characters Retro/Char 02_C.png" id="2_tex"]
+[ext_resource type="Script" uid="uid://dqx0ob7wf7eix" path="res://scripts/data/conversation_effect.gd" id="3_effect"]
+[ext_resource type="Script" uid="uid://dy1gfjjj466vx" path="res://scripts/data/gate_condition.gd" id="4_condition"]
+[ext_resource type="Script" uid="uid://dabftyaocc5ft" path="res://scripts/data/prompt_block.gd" id="5_prompt_block"]
 
 [sub_resource type="Resource" id="GateCondition_no_field_book_permission"]
 script = ExtResource("4_condition")
@@ -14,7 +14,6 @@ none_of = Array[StringName]([&"theo_granted_field_book_permission"])
 script = ExtResource("3_effect")
 condition = SubResource("GateCondition_no_field_book_permission")
 fact_id = &"theo_granted_field_book_permission"
-value = true
 description = "Set this only if Theo clearly permits Fred to borrow, take, use, or inspect Theo's field book."
 
 [sub_resource type="Resource" id="GateCondition_has_field_book"]
@@ -32,7 +31,7 @@ id = &"theo"
 display_name = "Theo Griggs"
 position = Vector2(784, 144)
 color = Color(0.262745, 0.466667, 0.478431, 1)
-hat_color = Color(0.149020, 0.298039, 0.321569, 1)
+hat_color = Color(0.14902, 0.298039, 0.321569, 1)
 texture = ExtResource("2_tex")
 subtitle = "Ghostbusters — Tech"
 persona = "Fidgety, eager to please, chronically insecure. Stammers. Brilliant with hardware, terrible with people."

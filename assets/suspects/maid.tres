@@ -1,15 +1,15 @@
-[gd_resource type="Resource" script_class="SuspectData" load_steps=3 format=3]
+[gd_resource type="Resource" script_class="SuspectData" format=3 uid="uid://b8odx6s7p0bbx"]
 
-[ext_resource type="Script" path="res://scripts/data/suspect_data.gd" id="1_script"]
-[ext_resource type="Texture2D" path="res://HS-Characters Retro/Char 14_A.png" id="2_tex"]
+[ext_resource type="Script" uid="uid://cxvank1ob4s06" path="res://scripts/data/suspect_data.gd" id="1_script"]
+[ext_resource type="Texture2D" uid="uid://dvwllyt0k77pj" path="res://HS-Characters Retro/Char 14_A.png" id="2_tex"]
 
 [resource]
 script = ExtResource("1_script")
 id = &"maid"
 display_name = "Mags Higgins"
-position = Vector2(304, 400)
-color = Color(0.439216, 0.549020, 0.411765, 1)
-hat_color = Color(0.239216, 0.325490, 0.227451, 1)
+position = Vector2(400, 432)
+color = Color(0.439216, 0.54902, 0.411765, 1)
+hat_color = Color(0.239216, 0.32549, 0.227451, 1)
 texture = ExtResource("2_tex")
 subtitle = "Maid — 12th Floor"
 persona = "Mumbled, tired, invisible. Knows the hotel's layout better than anyone. Uses work-talk."

@@ -41,3 +41,6 @@ Paint/place the visual object.
 Add inspect_object_id on the tile, or place an invisible Inspectable.
 Create/edit the matching .tres interactable definition.
 Set conditions/effects in the inspector.
+
+
+Godot executable app image -> [text](../../Apps/Godot_v4.6.2-stable_linux.x86_64)
