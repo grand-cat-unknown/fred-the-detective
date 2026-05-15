@@ -24,7 +24,7 @@ position = Vector2(512, 288)
 position = Vector2(-55, -134)
 
 [node name="NPC_mara" parent="." unique_id=1794848584 instance=ExtResource("7_npc")]
-position = Vector2(720, 240)
+position = Vector2(688, 240)
 entity_id = &"mara"
 preview_name = "Mara Bell"
 preview_texture = ExtResource("5_umvgx")
