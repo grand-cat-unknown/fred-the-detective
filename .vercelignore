@@ -1,0 +1,25 @@
+# Vercel runtime needs public/, api/, lib/, and vercel.json.
+# The Godot project source below should not be uploaded by `vercel deploy`
+# after scripts/export-web.sh has produced a fresh public/ export.
+
+.git
+.godot
+.vercel
+.claude
+
+assets
+scenes
+scripts
+Fred the detective - Story docs
+
+project.godot
+export_presets.cfg
+icon.svg
+icon.svg.import
+AGENTS.md
+CLAUDE.md
+README.md
+
+.env
+.env.*
+*.tmp
