@@ -24,43 +24,50 @@ position = Vector2(512, 288)
 position = Vector2(-55, -134)
 
 [node name="NPC_mara" parent="." unique_id=1794848584 instance=ExtResource("7_npc")]
+z_index = 10
 position = Vector2(688, 240)
 entity_id = &"mara"
 preview_name = "Mara Bell"
 preview_texture = ExtResource("5_umvgx")
 
 [node name="NPC_theo" parent="." unique_id=1440069773 instance=ExtResource("7_npc")]
+z_index = 10
 position = Vector2(592, 80)
 entity_id = &"theo"
 preview_name = "Theo Griggs"
 preview_texture = ExtResource("6_mxkvs")
 
 [node name="NPC_otis" parent="." unique_id=2073294398 instance=ExtResource("7_npc")]
+z_index = 10
 position = Vector2(-16, 272)
 entity_id = &"otis"
 preview_name = "Dr. Otis Pemberton"
 preview_texture = ExtResource("7_m114p")
 
 [node name="NPC_iris" parent="." unique_id=602351030 instance=ExtResource("7_npc")]
+z_index = 10
 position = Vector2(1296, 272)
 entity_id = &"iris"
 preview_name = "Dr. Iris Thorne"
 preview_texture = ExtResource("8_71ii3")
 
 [node name="NPC_rival" parent="." unique_id=639808501 instance=ExtResource("7_npc")]
-position = Vector2(784, 464)
+z_index = 10
+position = Vector2(784, 368)
 entity_id = &"rival"
 preview_name = "Julian Vane"
 preview_texture = ExtResource("9_bt7bg")
 
 [node name="NPC_bellhop" parent="." unique_id=1106624191 instance=ExtResource("7_npc")]
+z_index = 10
 position = Vector2(944, 368)
 entity_id = &"bellhop"
 preview_name = "Leo Rossi"
 preview_texture = ExtResource("10_wbwoo")
 
 [node name="NPC_maid" parent="." unique_id=1314534877 instance=ExtResource("7_npc")]
-position = Vector2(400, 432)
+z_index = 10
+position = Vector2(1680, 304)
 entity_id = &"maid"
 preview_name = "Mags Higgins"
 preview_texture = ExtResource("11_tytul")

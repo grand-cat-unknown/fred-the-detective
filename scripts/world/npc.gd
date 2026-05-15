@@ -27,6 +27,7 @@ func get_display_name() -> String:
 
 
 func _ready() -> void:
+	ActorDraw.configure_canvas(self)
 	set_notify_transform(true)
 	_refresh_editor_preview()
 

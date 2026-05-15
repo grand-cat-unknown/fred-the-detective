@@ -18,6 +18,10 @@ const WALK_CYCLE_SECONDS := 0.65
 var _walk_animation_time := 0.0
 
 
+func _ready() -> void:
+	ActorDraw.configure_canvas(self)
+
+
 func reset_to_tile(start_tile: Vector2i, world_map: WorldMap = null) -> void:
 	tile = start_tile
 	target_tile = start_tile

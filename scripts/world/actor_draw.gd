@@ -1,6 +1,12 @@
 class_name ActorDraw
 extends RefCounted
 
+const ACTOR_Z_INDEX := 10
+
+
+static func configure_canvas(canvas: CanvasItem) -> void:
+	canvas.z_index = ACTOR_Z_INDEX
+
 
 static func draw_actor(
 	canvas: CanvasItem,
