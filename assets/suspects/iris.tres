@@ -7,7 +7,7 @@
 script = ExtResource("1_script")
 id = &"iris"
 display_name = "Dr. Iris Thorne"
-position = Vector2(432, 240)
+position = Vector2(1296, 272)
 color = Color(0.615686, 0.4, 0.27451, 1)
 hat_color = Color(0.396078, 0.25098, 0.176471, 1)
 texture = ExtResource("2_tex")
