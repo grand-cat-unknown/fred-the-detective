@@ -2,7 +2,7 @@
 
 [ext_resource type="Script" uid="uid://xdd0ey5aqq13" path="res://scripts/world/world_view.gd" id="1_world"]
 [ext_resource type="PackedScene" uid="uid://55n455pd115y" path="res://scenes/world/world_map.tscn" id="2_map"]
-[ext_resource type="Texture2D" path="res://HS-Characters Retro/WhiteBunny_A.png" id="2_srmg5"]
+[ext_resource type="Texture2D" uid="uid://hmshkq4uirje" path="res://assets/art/characters/hs_retro/WhiteBunny_A.png" id="2_srmg5"]
 [ext_resource type="Texture2D" uid="uid://7xcs3a6s2jbk" path="res://assets/art/characters/hs_retro/Char 01_B.png" id="5_umvgx"]
 [ext_resource type="Texture2D" uid="uid://detfinf5avccy" path="res://assets/art/characters/hs_retro/Char 02_C.png" id="6_mxkvs"]
 [ext_resource type="Texture2D" uid="uid://c73tsx1obq4hj" path="res://assets/art/characters/hs_retro/Char 12_B.png" id="7_m114p"]
