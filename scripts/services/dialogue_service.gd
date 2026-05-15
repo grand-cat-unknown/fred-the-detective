@@ -10,19 +10,25 @@ const DETECTIVE_LABEL := "Fred"
 const MAX_HISTORY_LINES := 40
 
 var _llm: LLMClient
+var _state: CaseState
+var _effect_judge: ConversationEffectJudge
 var _active_suspect: SuspectData
 var _history: Dictionary = {}  # StringName id -> Array[Dictionary]
 var _streaming_suspect_id: StringName = &""
+var _streaming_suspect: SuspectData
+var _streaming_latest_player_message := ""
 var _streaming_text := ""
 
 
-func configure(llm: LLMClient) -> void:
+func configure(llm: LLMClient, state: CaseState = null, effect_judge: ConversationEffectJudge = null) -> void:
 	if _llm != null:
 		if _llm.completed.is_connected(_on_llm_completed):
 			_llm.completed.disconnect(_on_llm_completed)
 		if _llm.delta_received.is_connected(_on_llm_delta):
 			_llm.delta_received.disconnect(_on_llm_delta)
 	_llm = llm
+	_state = state
+	_effect_judge = effect_judge
 	if _llm != null:
 		_llm.completed.connect(_on_llm_completed)
 		_llm.delta_received.connect(_on_llm_delta)
@@ -63,6 +69,8 @@ func submit(message: String) -> bool:
 		error_received.emit("Could not reach the LLM (%s)." % err)
 		return false
 	_streaming_suspect_id = _active_suspect.id
+	_streaming_suspect = _active_suspect
+	_streaming_latest_player_message = trimmed
 	_streaming_text = ""
 	_append(_active_suspect.id, _active_suspect.display_name, "")
 	busy_changed.emit(true)
@@ -73,6 +81,8 @@ func reset() -> void:
 	_history.clear()
 	_active_suspect = null
 	_streaming_suspect_id = &""
+	_streaming_suspect = null
+	_streaming_latest_player_message = ""
 	_streaming_text = ""
 
 
@@ -102,6 +112,8 @@ func _build_instructions(suspect: SuspectData) -> String:
 		parts.append("Character notes: %s" % suspect.persona)
 	if suspect.system_prompt != "":
 		parts.append(suspect.system_prompt)
+	for block in suspect.available_prompt_blocks(_state):
+		parts.append(block.text)
 	parts.append("Reply as the character only. Do not narrate actions in brackets. Do not include your name as a prefix. Keep replies under 80 words.")
 	return "\n\n".join(parts)
 
@@ -131,8 +143,12 @@ func _on_llm_delta(chunk: String) -> void:
 func _on_llm_completed(text: String, error: String) -> void:
 	busy_changed.emit(false)
 	var suspect_id := _streaming_suspect_id
+	var suspect := _streaming_suspect
+	var latest_player_message := _streaming_latest_player_message
 	var accumulated := _streaming_text
 	_streaming_suspect_id = &""
+	_streaming_suspect = null
+	_streaming_latest_player_message = ""
 	_streaming_text = ""
 	if error != "":
 		if suspect_id != &"":
@@ -149,3 +165,20 @@ func _on_llm_completed(text: String, error: String) -> void:
 		_update_last_line(suspect_id, final_text)
 		if _active_suspect != null and _active_suspect.id == suspect_id:
 			line_updated.emit(final_text)
+		if _effect_judge != null:
+			_effect_judge.judge(suspect, _build_recent_transcript(suspect_id), latest_player_message, final_text)
+
+
+func _build_recent_transcript(suspect_id: StringName) -> Array:
+	var lines: Array = _history.get(suspect_id, [])
+	var transcript: Array = []
+	for entry in lines:
+		var speaker := str(entry.get("speaker", ""))
+		var text := str(entry.get("text", "")).strip_edges()
+		if text.is_empty():
+			continue
+		transcript.append({
+			"speaker": speaker,
+			"text": text,
+		})
+	return transcript

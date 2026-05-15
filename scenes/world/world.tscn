@@ -67,9 +67,9 @@ preview_texture = ExtResource("10_bt7bg")
 
 [node name="Inspectable_desk" parent="." unique_id=1062109499 instance=ExtResource("9_insp")]
 position = Vector2(304, 272)
-object_id = &"desk"
-title = "Cluttered Desk"
-description = "Papers piled high, a half-eaten sandwich, and an open ledger. The last entry is from yesterday."
+object_id = &"theo_field_book"
+title = "Ghostbuster Field Book"
+description = "Theo's field book is open on the desk. Useful, probably. Also very much not yours."
 
 [node name="Inspectable_painting" parent="." unique_id=934983568 instance=ExtResource("9_insp")]
 position = Vector2(560, 144)

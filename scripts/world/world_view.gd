@@ -38,6 +38,7 @@ extends Node2D
 		_apply_palette()
 
 var case_data: CaseData
+var case_state: CaseState
 
 var _world_map: WorldMap
 var _player: Player
@@ -57,8 +58,9 @@ func _process(_delta: float) -> void:
 	_apply_camera_to_player(false)
 
 
-func configure(new_case: CaseData) -> void:
+func configure(new_case: CaseData, new_state: CaseState = null) -> void:
 	case_data = new_case
+	case_state = new_state
 	_rebuild_content()
 
 
@@ -159,11 +161,11 @@ func find_npc_at_player() -> NPC:
 func find_inspection_at_player() -> Dictionary:
 	var inspectable := find_inspectable_at_player()
 	if inspectable != null:
-		return {
+		return _resolve_inspection({
 			"object_id": inspectable.object_id,
 			"title": inspectable.title,
 			"description": inspectable.description,
-		}
+		})
 
 	if _player == null or _world_map == null:
 		return {}
@@ -171,9 +173,21 @@ func find_inspection_at_player() -> Dictionary:
 	for tile in _adjacent_tiles():
 		var inspection := _world_map.get_tile_inspection(tile)
 		if not inspection.is_empty():
-			return inspection
+			return _resolve_inspection(inspection)
 
 	return {}
+
+
+func _resolve_inspection(static_inspection: Dictionary) -> Dictionary:
+	if case_data == null:
+		return static_inspection
+	var object_id := StringName(str(static_inspection.get("object_id", "")))
+	if object_id == &"":
+		return static_inspection
+	var definition := case_data.get_interactable(object_id)
+	if definition == null:
+		return static_inspection
+	return definition.resolve(case_state, static_inspection)
 
 
 func _adjacent_tiles() -> Array[Vector2i]:

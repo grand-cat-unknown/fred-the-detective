@@ -53,10 +53,10 @@ func get_tile_inspection(tile_position: Vector2i) -> Dictionary:
 
 		var title := _get_custom_data(tile_layer.tile_set, tile_data, INSPECT_TITLE_DATA)
 		var description := _get_custom_data(tile_layer.tile_set, tile_data, INSPECT_DESCRIPTION_DATA)
-		if title.is_empty() and description.is_empty():
+		var object_id := _get_custom_data(tile_layer.tile_set, tile_data, INSPECT_OBJECT_ID_DATA)
+		if title.is_empty() and description.is_empty() and object_id.is_empty():
 			continue
 
-		var object_id := _get_custom_data(tile_layer.tile_set, tile_data, INSPECT_OBJECT_ID_DATA)
 		return {
 			"object_id": StringName(object_id),
 			"title": title if not title.is_empty() else "Object",

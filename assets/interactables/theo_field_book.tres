@@ -1,0 +1,48 @@
+[gd_resource type="Resource" script_class="InteractableDefinition" load_steps=12 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/interactable_definition.gd" id="1_definition"]
+[ext_resource type="Script" path="res://scripts/data/gate_condition.gd" id="2_condition"]
+[ext_resource type="Script" path="res://scripts/data/inspectable_variant.gd" id="3_variant"]
+[ext_resource type="Script" path="res://scripts/data/state_effect.gd" id="4_effect"]
+
+[sub_resource type="Resource" id="GateCondition_waiting"]
+script = ExtResource("2_condition")
+none_of = Array[StringName]([&"theo_granted_field_book_permission"])
+
+[sub_resource type="Resource" id="InspectableVariant_waiting"]
+script = ExtResource("3_variant")
+condition = SubResource("GateCondition_waiting")
+title = "Ghostbuster Field Book"
+description = "Theo's field book is open on the desk. Useful, probably. Also very much not yours."
+
+[sub_resource type="Resource" id="GateCondition_pickup"]
+script = ExtResource("2_condition")
+all_of = Array[StringName]([&"theo_granted_field_book_permission"])
+none_of = Array[StringName]([&"has_field_book"])
+
+[sub_resource type="Resource" id="StateEffect_take_book"]
+script = ExtResource("4_effect")
+fact_id = &"has_field_book"
+value = true
+
+[sub_resource type="Resource" id="InspectableVariant_pickup"]
+script = ExtResource("3_variant")
+condition = SubResource("GateCondition_pickup")
+title = "Ghostbuster Field Book"
+description = "Theo said Fred could borrow it. Fred takes the field book."
+effects = [SubResource("StateEffect_take_book")]
+
+[sub_resource type="Resource" id="GateCondition_taken"]
+script = ExtResource("2_condition")
+all_of = Array[StringName]([&"has_field_book"])
+
+[sub_resource type="Resource" id="InspectableVariant_taken"]
+script = ExtResource("3_variant")
+condition = SubResource("GateCondition_taken")
+title = "Empty Desk"
+description = "The space where Theo's field book sat is empty now. Fred has it in his notes."
+
+[resource]
+script = ExtResource("1_definition")
+object_id = &"theo_field_book"
+variants = [SubResource("InspectableVariant_waiting"), SubResource("InspectableVariant_pickup"), SubResource("InspectableVariant_taken")]
