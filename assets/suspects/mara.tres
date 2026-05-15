@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="SuspectData" format=3 uid="uid://cvsti4hwonhau"]
 
 [ext_resource type="Script" uid="uid://cxvank1ob4s06" path="res://scripts/data/suspect_data.gd" id="1_script"]
-[ext_resource type="Texture2D" uid="uid://7xcs3a6s2jbk" path="res://HS-Characters Retro/Char 01_B.png" id="2_tex"]
+[ext_resource type="Texture2D" uid="uid://7xcs3a6s2jbk" path="res://assets/art/characters/hs_retro/Char 01_B.png" id="2_tex"]
 
 [resource]
 script = ExtResource("1_script")
 id = &"mara"
 display_name = "Mara Bell"
-position = Vector2(80, 400)
+position = Vector2(720, 240)
 color = Color(0.329412, 0.501961, 0.615686, 1)
 hat_color = Color(0.168627, 0.294118, 0.396078, 1)
 texture = ExtResource("2_tex")

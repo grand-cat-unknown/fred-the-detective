@@ -18,10 +18,10 @@ const WALK_CYCLE_SECONDS := 0.65
 var _walk_animation_time := 0.0
 
 
-func reset_to_tile(start_tile: Vector2i) -> void:
+func reset_to_tile(start_tile: Vector2i, world_map: WorldMap = null) -> void:
 	tile = start_tile
 	target_tile = start_tile
-	position = TileMap2D.tile_to_world_center(start_tile)
+	position = world_map.tile_to_world(start_tile) if world_map != null else TileMap2D.tile_to_world_center(start_tile)
 	target_position = position
 	is_stepping = false
 	face_direction = Vector2i(1, 0)
@@ -54,7 +54,7 @@ func process_step(delta: float) -> float:
 	if frame_distance >= distance_remaining:
 		_walk_animation_time += distance_remaining / speed
 		position = target_position
-		tile = TileMap2D.world_to_tile(position)
+		tile = target_tile
 		is_stepping = false
 		queue_redraw()
 		moved.emit(tile)

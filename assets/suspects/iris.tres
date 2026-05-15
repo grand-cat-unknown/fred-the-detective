@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="SuspectData" format=3 uid="uid://d13proo3kytk6"]
 
 [ext_resource type="Script" uid="uid://cxvank1ob4s06" path="res://scripts/data/suspect_data.gd" id="1_script"]
-[ext_resource type="Texture2D" uid="uid://hn13xxrncxjp" path="res://HS-Characters Retro/Char 06_B.png" id="2_tex"]
+[ext_resource type="Texture2D" uid="uid://hn13xxrncxjp" path="res://assets/art/characters/hs_retro/Char 06_B.png" id="2_tex"]
 
 [resource]
 script = ExtResource("1_script")
 id = &"iris"
 display_name = "Dr. Iris Thorne"
-position = Vector2(432, 240)
+position = Vector2(1296, 272)
 color = Color(0.615686, 0.4, 0.27451, 1)
 hat_color = Color(0.396078, 0.25098, 0.176471, 1)
 texture = ExtResource("2_tex")

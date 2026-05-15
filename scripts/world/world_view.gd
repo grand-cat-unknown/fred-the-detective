@@ -32,7 +32,7 @@ extends Node2D
 	set(value):
 		player_hat_color = value
 		_apply_palette()
-@export var player_texture: Texture2D = preload("res://HS-Characters Retro/WhiteBunny_A.png"):
+@export var player_texture: Texture2D = preload("res://assets/art/characters/hs_retro/WhiteBunny_A.png"):
 	set(value):
 		player_texture = value
 		_apply_palette()
@@ -67,7 +67,7 @@ func configure(new_case: CaseData, new_state: CaseState = null) -> void:
 func reset_player(start_tile: Vector2i) -> void:
 	if _player == null:
 		return
-	_player.reset_to_tile(start_tile)
+	_player.reset_to_tile(start_tile, _world_map)
 	_apply_camera_to_player(true)
 
 
@@ -143,7 +143,7 @@ func find_inspectable_at_player() -> Inspectable:
 	]
 	for tile in candidates:
 		for inspectable in _inspectables:
-			if inspectable.get_tile() == tile:
+			if _world_map != null and _world_map.world_to_tile(inspectable.position) == tile:
 				return inspectable
 	return null
 
@@ -153,7 +153,7 @@ func find_npc_at_player() -> NPC:
 		return null
 	for tile in _adjacent_tiles():
 		for npc in _npc_nodes:
-			if npc.get_tile() == tile:
+			if _world_map != null and _world_map.world_to_tile(npc.position) == tile:
 				return npc
 	return null
 
@@ -247,8 +247,10 @@ func _rebuild_content() -> void:
 func _blocked_tiles() -> Array[Vector2i]:
 	var tiles: Array[Vector2i] = []
 	for npc in _npc_nodes:
-		tiles.append(TileMap2D.world_to_tile(npc.position))
+		if _world_map != null:
+			tiles.append(_world_map.world_to_tile(npc.position))
 	for inspectable in _inspectables:
 		if inspectable.blocks_movement:
-			tiles.append(inspectable.get_tile())
+			if _world_map != null:
+				tiles.append(_world_map.world_to_tile(inspectable.position))
 	return tiles

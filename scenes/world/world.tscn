@@ -2,16 +2,16 @@
 
 [ext_resource type="Script" uid="uid://xdd0ey5aqq13" path="res://scripts/world/world_view.gd" id="1_world"]
 [ext_resource type="PackedScene" uid="uid://55n455pd115y" path="res://scenes/world/world_map.tscn" id="2_map"]
-[ext_resource type="Texture2D" uid="uid://7xcs3a6s2jbk" path="res://HS-Characters Retro/Char 01_B.png" id="4_dlabj"]
-[ext_resource type="Texture2D" uid="uid://detfinf5avccy" path="res://HS-Characters Retro/Char 02_C.png" id="5_srmg5"]
-[ext_resource type="Texture2D" uid="uid://c73tsx1obq4hj" path="res://HS-Characters Retro/Char 12_B.png" id="6_umvgx"]
-[ext_resource type="Texture2D" uid="uid://hn13xxrncxjp" path="res://HS-Characters Retro/Char 06_B.png" id="7_mxkvs"]
+[ext_resource type="Texture2D" uid="uid://7xcs3a6s2jbk" path="res://assets/art/characters/hs_retro/Char 01_B.png" id="5_umvgx"]
+[ext_resource type="Texture2D" uid="uid://detfinf5avccy" path="res://assets/art/characters/hs_retro/Char 02_C.png" id="6_mxkvs"]
+[ext_resource type="Texture2D" uid="uid://c73tsx1obq4hj" path="res://assets/art/characters/hs_retro/Char 12_B.png" id="7_m114p"]
 [ext_resource type="PackedScene" uid="uid://cola5578jq7bk" path="res://scenes/world/npc.tscn" id="7_npc"]
-[ext_resource type="Texture2D" uid="uid://bqe1rohu2v06n" path="res://HS-Characters Retro/Char 13_A.png" id="8_m114p"]
+[ext_resource type="Texture2D" uid="uid://hn13xxrncxjp" path="res://assets/art/characters/hs_retro/Char 06_B.png" id="8_71ii3"]
 [ext_resource type="PackedScene" uid="uid://b1plyr00scn01" path="res://scenes/world/player.tscn" id="8_player"]
-[ext_resource type="Texture2D" uid="uid://dclp7r6tg3uso" path="res://HS-Characters Retro/Char 11_A.png" id="9_71ii3"]
+[ext_resource type="Texture2D" uid="uid://bqe1rohu2v06n" path="res://assets/art/characters/hs_retro/Char 13_A.png" id="9_bt7bg"]
 [ext_resource type="PackedScene" uid="uid://clhnu3j67t0j1" path="res://scenes/world/inspectable.tscn" id="9_insp"]
-[ext_resource type="Texture2D" uid="uid://dvwllyt0k77pj" path="res://HS-Characters Retro/Char 14_A.png" id="10_bt7bg"]
+[ext_resource type="Texture2D" uid="uid://dclp7r6tg3uso" path="res://assets/art/characters/hs_retro/Char 11_A.png" id="10_wbwoo"]
+[ext_resource type="Texture2D" uid="uid://dvwllyt0k77pj" path="res://assets/art/characters/hs_retro/Char 14_A.png" id="11_tytul"]
 
 [node name="World" type="Node2D" unique_id=1805681752]
 position = Vector2(466, 292)
@@ -21,49 +21,49 @@ script = ExtResource("1_world")
 position = Vector2(512, 288)
 
 [node name="WorldMap" parent="." unique_id=630295776 instance=ExtResource("2_map")]
-position = Vector2(-2, -4)
+position = Vector2(-55, -134)
 
 [node name="NPC_mara" parent="." unique_id=1794848584 instance=ExtResource("7_npc")]
-position = Vector2(80, 400)
+position = Vector2(720, 240)
 entity_id = &"mara"
-preview_name = "Mara"
-preview_texture = ExtResource("4_dlabj")
+preview_name = "Mara Bell"
+preview_texture = ExtResource("5_umvgx")
 
 [node name="NPC_theo" parent="." unique_id=1440069773 instance=ExtResource("7_npc")]
-position = Vector2(784, 144)
+position = Vector2(592, 80)
 entity_id = &"theo"
-preview_name = "Theo"
-preview_texture = ExtResource("5_srmg5")
+preview_name = "Theo Griggs"
+preview_texture = ExtResource("6_mxkvs")
 
 [node name="NPC_otis" parent="." unique_id=2073294398 instance=ExtResource("7_npc")]
-position = Vector2(528, 336)
+position = Vector2(-16, 272)
 entity_id = &"otis"
-preview_name = "Otis"
-preview_texture = ExtResource("6_umvgx")
+preview_name = "Dr. Otis Pemberton"
+preview_texture = ExtResource("7_m114p")
 
 [node name="NPC_iris" parent="." unique_id=602351030 instance=ExtResource("7_npc")]
-position = Vector2(432, 240)
+position = Vector2(1296, 272)
 entity_id = &"iris"
-preview_name = "Iris"
-preview_texture = ExtResource("7_mxkvs")
+preview_name = "Dr. Iris Thorne"
+preview_texture = ExtResource("8_71ii3")
 
 [node name="NPC_rival" parent="." unique_id=639808501 instance=ExtResource("7_npc")]
 position = Vector2(784, 464)
 entity_id = &"rival"
-preview_name = "Rival"
-preview_texture = ExtResource("8_m114p")
+preview_name = "Julian Vane"
+preview_texture = ExtResource("9_bt7bg")
 
 [node name="NPC_bellhop" parent="." unique_id=1106624191 instance=ExtResource("7_npc")]
-position = Vector2(176, 240)
+position = Vector2(944, 368)
 entity_id = &"bellhop"
-preview_name = "Bellhop"
-preview_texture = ExtResource("9_71ii3")
+preview_name = "Leo Rossi"
+preview_texture = ExtResource("10_wbwoo")
 
 [node name="NPC_maid" parent="." unique_id=1314534877 instance=ExtResource("7_npc")]
 position = Vector2(400, 432)
 entity_id = &"maid"
-preview_name = "Maid"
-preview_texture = ExtResource("10_bt7bg")
+preview_name = "Mags Higgins"
+preview_texture = ExtResource("11_tytul")
 
 [node name="Inspectable_desk" parent="." unique_id=1062109499 instance=ExtResource("9_insp")]
 position = Vector2(304, 272)
@@ -79,4 +79,4 @@ description = "A landscape hanging slightly askew. Recently disturbed?"
 body_color = Color(0.45, 0.25, 0.55, 1)
 
 [node name="Player" parent="." unique_id=1010292065 instance=ExtResource("8_player")]
-position = Vector2(-227, -36)
+position = Vector2(168, 302)

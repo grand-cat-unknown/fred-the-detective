@@ -1,13 +1,13 @@
 [gd_resource type="Resource" script_class="SuspectData" format=3 uid="uid://ct6tm67g22dsf"]
 
 [ext_resource type="Script" uid="uid://cxvank1ob4s06" path="res://scripts/data/suspect_data.gd" id="1_script"]
-[ext_resource type="Texture2D" uid="uid://c73tsx1obq4hj" path="res://HS-Characters Retro/Char 12_B.png" id="2_tex"]
+[ext_resource type="Texture2D" uid="uid://c73tsx1obq4hj" path="res://assets/art/characters/hs_retro/Char 12_B.png" id="2_tex"]
 
 [resource]
 script = ExtResource("1_script")
 id = &"otis"
 display_name = "Dr. Otis Pemberton"
-position = Vector2(528, 336)
+position = Vector2(-16, 272)
 color = Color(0.494118, 0.34902, 0.588235, 1)
 hat_color = Color(0.290196, 0.176471, 0.368627, 1)
 texture = ExtResource("2_tex")
