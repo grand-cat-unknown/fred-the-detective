@@ -76,8 +76,7 @@ func _start_job(job: Dictionary) -> void:
 		"You are a strict game-state transition judge for Fred the Detective.",
 		"Decide whether the latest in-game exchange clearly caused any of the allowed effects.",
 		"Only choose effects from allowed_effects. Do not invent facts.",
-		"Return only JSON with this shape: {\"effects\":[{\"fact_id\":\"id\",\"value\":true}]}",
-		"If no allowed effect clearly happened, return {\"effects\":[]}.",
+		"Use the structured output schema. If no allowed effect clearly happened, return an empty effects array.",
 	])
 	var messages := [
 		{
@@ -85,7 +84,7 @@ func _start_job(job: Dictionary) -> void:
 			"content": JSON.stringify(payload, "\t"),
 		}
 	]
-	var err := _llm.send(instructions, messages)
+	var err := _llm.send(instructions, messages, _build_effect_text_format(_pending_allowed_effects.keys()))
 	if err != OK:
 		_pending_allowed_effects.clear()
 		judge_failed.emit("Could not judge conversation effects (%s)." % err)
@@ -101,6 +100,42 @@ func _trim_recent_messages(recent_messages: Variant) -> Array:
 	return messages.slice(messages.size() - MAX_RECENT_MESSAGES)
 
 
+func _build_effect_text_format(allowed_fact_ids: Array) -> Dictionary:
+	var fact_id_enum: Array[String] = []
+	for fact_id in allowed_fact_ids:
+		fact_id_enum.append(str(fact_id))
+	return {
+		"type": "json_schema",
+		"name": "conversation_effects",
+		"description": "Conversation-triggered game-state effects to apply after the latest exchange.",
+		"strict": true,
+		"schema": {
+			"type": "object",
+			"additionalProperties": false,
+			"properties": {
+				"effects": {
+					"type": "array",
+					"items": {
+						"type": "object",
+						"additionalProperties": false,
+						"properties": {
+							"fact_id": {
+								"type": "string",
+								"enum": fact_id_enum,
+							},
+							"value": {
+								"type": "boolean",
+							},
+						},
+						"required": ["fact_id", "value"],
+					},
+				},
+			},
+			"required": ["effects"],
+		},
+	}
+
+
 func _on_llm_completed(text: String, error: String) -> void:
 	if error != "":
 		_pending_allowed_effects.clear()
@@ -108,10 +143,12 @@ func _on_llm_completed(text: String, error: String) -> void:
 		_start_next_queued_job()
 		return
 
-	var parsed := _parse_json_object(text)
+	var parsed: Variant = JSON.parse_string(text.strip_edges())
+	if typeof(parsed) != TYPE_DICTIONARY:
+		parsed = {}
 	if parsed.is_empty():
 		_pending_allowed_effects.clear()
-		judge_failed.emit("Conversation effect judge returned invalid JSON.")
+		judge_failed.emit("Conversation effect judge returned invalid structured output.")
 		_start_next_queued_job()
 		return
 
@@ -145,20 +182,3 @@ func _start_next_queued_job() -> void:
 		return
 	var next_job: Dictionary = _queued_jobs.pop_front()
 	_start_job(next_job)
-
-
-func _parse_json_object(text: String) -> Dictionary:
-	var trimmed := text.strip_edges()
-	var parsed: Variant = JSON.parse_string(trimmed)
-	if typeof(parsed) == TYPE_DICTIONARY:
-		return parsed
-
-	var start := trimmed.find("{")
-	var end := trimmed.rfind("}")
-	if start == -1 or end == -1 or end <= start:
-		return {}
-
-	parsed = JSON.parse_string(trimmed.substr(start, end - start + 1))
-	if typeof(parsed) == TYPE_DICTIONARY:
-		return parsed
-	return {}

@@ -5,7 +5,7 @@ signal delta_received(chunk: String)
 signal completed(text: String, error: String)
 
 const LOCAL_ENDPOINT := "http://127.0.0.1:3000/api/llm"
-const MAX_OUTPUT_TOKENS := 400
+const MAX_OUTPUT_TOKENS := 2000
 
 const _WEB_BRIDGE_JS := """
 window.fredLLMStream = async function(url, body, cb) {
@@ -74,14 +74,16 @@ func is_busy() -> bool:
 	return _in_flight
 
 
-func send(instructions: String, messages: Array) -> Error:
+func send(instructions: String, messages: Array, text_format: Dictionary = {}, max_output_tokens := MAX_OUTPUT_TOKENS) -> Error:
 	if _in_flight:
 		return ERR_BUSY
 	var payload := {
 		"instructions": instructions,
 		"messages": messages,
-		"max_output_tokens": MAX_OUTPUT_TOKENS,
+		"max_output_tokens": max_output_tokens,
 	}
+	if not text_format.is_empty():
+		payload["text_format"] = text_format
 	var body := JSON.stringify(payload)
 	_request_started_msec = Time.get_ticks_msec()
 	_delta_count = 0
