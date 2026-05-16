@@ -1,0 +1,177 @@
+[gd_scene format=3 uid="uid://by8siydu38qhe"]
+
+[ext_resource type="Script" path="res://scripts/ui/accuse_panel.gd" id="1_accuse"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_accuse_button"]
+bg_color = Color(0.47, 0.08, 0.07, 0.96)
+border_width_left = 2
+border_width_top = 2
+border_width_right = 2
+border_width_bottom = 2
+border_color = Color(0.95, 0.78, 0.45, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 0.45)
+shadow_size = 5
+shadow_offset = Vector2(0, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_panel"]
+bg_color = Color(0.12, 0.13, 0.16, 0.98)
+border_width_left = 3
+border_width_top = 3
+border_width_right = 3
+border_width_bottom = 3
+border_color = Color(0.85, 0.78, 0.55, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+shadow_color = Color(0, 0, 0, 0.6)
+shadow_size = 8
+shadow_offset = Vector2(0, 4)
+
+[node name="AccusePanel" type="CanvasLayer"]
+layer = 15
+script = ExtResource("1_accuse")
+
+[node name="Root" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="AccuseButton" type="Button" parent="Root"]
+layout_mode = 1
+anchors_preset = 0
+offset_left = 14.0
+offset_top = 14.0
+offset_right = 174.0
+offset_bottom = 62.0
+theme_override_colors/font_color = Color(1, 0.92, 0.72, 1)
+theme_override_font_sizes/font_size = 22
+theme_override_styles/normal = SubResource("StyleBoxFlat_accuse_button")
+theme_override_styles/hover = SubResource("StyleBoxFlat_accuse_button")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_accuse_button")
+text = "ACCUSE"
+
+[node name="Modal" type="Control" parent="Root"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Backdrop" type="ColorRect" parent="Root/Modal"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0, 0, 0, 0.62)
+
+[node name="Panel" type="PanelContainer" parent="Root/Modal"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -300.0
+offset_top = -190.0
+offset_right = 300.0
+offset_bottom = 190.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="Margin" type="MarginContainer" parent="Root/Modal/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 22
+theme_override_constants/margin_top = 18
+theme_override_constants/margin_right = 22
+theme_override_constants/margin_bottom = 18
+
+[node name="VBox" type="VBoxContainer" parent="Root/Modal/Panel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="Title" type="Label" parent="Root/Modal/Panel/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.88, 0.65, 1)
+theme_override_font_sizes/font_size = 26
+text = "Make Your Accusation"
+horizontal_alignment = 1
+
+[node name="Slots" type="VBoxContainer" parent="Root/Modal/Panel/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="KillerRow" type="HBoxContainer" parent="Root/Modal/Panel/Margin/VBox/Slots"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="KillerLabel" type="Label" parent="Root/Modal/Panel/Margin/VBox/Slots/KillerRow"]
+custom_minimum_size = Vector2(190, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.88, 0.78, 1)
+theme_override_font_sizes/font_size = 16
+text = "Who is the killer?"
+
+[node name="KillerOptions" type="OptionButton" parent="Root/Modal/Panel/Margin/VBox/Slots/KillerRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MethodRow" type="HBoxContainer" parent="Root/Modal/Panel/Margin/VBox/Slots"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="MethodLabel" type="Label" parent="Root/Modal/Panel/Margin/VBox/Slots/MethodRow"]
+custom_minimum_size = Vector2(190, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.88, 0.78, 1)
+theme_override_font_sizes/font_size = 16
+text = "How did they kill?"
+
+[node name="MethodOptions" type="OptionButton" parent="Root/Modal/Panel/Margin/VBox/Slots/MethodRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="EvidenceRow" type="HBoxContainer" parent="Root/Modal/Panel/Margin/VBox/Slots"]
+layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="EvidenceLabel" type="Label" parent="Root/Modal/Panel/Margin/VBox/Slots/EvidenceRow"]
+custom_minimum_size = Vector2(190, 0)
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.88, 0.78, 1)
+theme_override_font_sizes/font_size = 16
+text = "What is the evidence?"
+
+[node name="EvidenceOptions" type="OptionButton" parent="Root/Modal/Panel/Margin/VBox/Slots/EvidenceRow"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Result" type="RichTextLabel" parent="Root/Modal/Panel/Margin/VBox"]
+custom_minimum_size = Vector2(0, 72)
+layout_mode = 2
+theme_override_colors/default_color = Color(0.92, 0.88, 0.78, 1)
+theme_override_font_sizes/normal_font_size = 16
+bbcode_enabled = true
+fit_content = false
+scroll_active = false
+
+[node name="Actions" type="HBoxContainer" parent="Root/Modal/Panel/Margin/VBox"]
+layout_mode = 2
+theme_override_constants/separation = 10
+alignment = 2
+
+[node name="CloseButton" type="Button" parent="Root/Modal/Panel/Margin/VBox/Actions"]
+layout_mode = 2
+text = "Close"
+
+[node name="SubmitButton" type="Button" parent="Root/Modal/Panel/Margin/VBox/Actions"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+text = "Judge"

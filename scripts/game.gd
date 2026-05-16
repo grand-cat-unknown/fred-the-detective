@@ -6,6 +6,7 @@ extends Node2D
 @onready var _inventory_panel: InventoryPanel = %InventoryPanel
 @onready var _book_panel: BookPanel = %BookPanel
 @onready var _evidence_panel: EvidencePanel = %EvidencePanel
+@onready var _accuse_panel: AccusePanel = %AccusePanel
 @onready var _toast: Toast = %Toast
 
 var _pending_action_toast: String = ""
@@ -30,6 +31,7 @@ func _ready() -> void:
 
 	_world.configure(case, _case_state)
 	_inventory_panel.configure(case, _case_state)
+	_accuse_panel.configure(_case_state)
 
 	_llm = LLMClient.new()
 	_llm.name = "LLMClient"
@@ -58,6 +60,7 @@ func _ready() -> void:
 	_dialogue_panel.submitted.connect(_on_dialogue_submitted)
 	_dialogue_panel.closed.connect(_on_dialogue_closed)
 	_inspect_panel.action_confirmed.connect(_on_inspect_action_confirmed)
+	_accuse_panel.accusation_resolved.connect(_on_accusation_resolved)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -85,6 +88,11 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	if _evidence_panel.is_open():
 		if _evidence_panel.handle_input_event(event):
+			get_viewport().set_input_as_handled()
+		return
+
+	if _accuse_panel.is_open():
+		if _accuse_panel.handle_input_event(event):
 			get_viewport().set_input_as_handled()
 		return
 
@@ -127,7 +135,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _process(delta: float) -> void:
-	var panels_open: bool = _inspect_panel.is_open() or _dialogue_panel.is_open() or _book_panel.is_open() or _evidence_panel.is_open() or _toast.is_open()
+	var other_panel_open: bool = _inspect_panel.is_open() or _dialogue_panel.is_open() or _book_panel.is_open() or _evidence_panel.is_open() or _toast.is_open()
+	_accuse_panel.set_accuse_button_enabled(not other_panel_open)
+	var panels_open: bool = other_panel_open or _accuse_panel.is_open()
 	_world.set_interaction_prompt_enabled(not panels_open)
 	if panels_open:
 		return
@@ -219,6 +229,10 @@ func _on_conversation_effects_applied(changed_facts: Array) -> void:
 
 func _on_conversation_judge_failed(message: String) -> void:
 	print("[case] conversation effect judge failed: %s" % message)
+
+
+func _on_accusation_resolved(success: bool, message: String) -> void:
+	print("[case] accusation resolved success=%s: %s" % [success, message])
 
 
 func _get_pressed_tile_direction() -> Vector2i:

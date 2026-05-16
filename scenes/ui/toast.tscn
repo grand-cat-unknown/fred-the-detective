@@ -1,4 +1,4 @@
-[gd_scene format=3 uid="uid://b0fredtoastui1"]
+[gd_scene format=3 uid="uid://bgnciyvicsp5k"]
 
 [ext_resource type="Script" path="res://scripts/ui/toast.gd" id="1_toast"]
 

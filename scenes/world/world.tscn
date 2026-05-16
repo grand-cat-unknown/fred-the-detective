@@ -16,15 +16,15 @@
 [ext_resource type="Script" uid="uid://bwvuwswe6e3o0" path="res://scripts/world/stair_portal.gd" id="13_srmg5"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_interaction_prompt"]
+content_margin_left = 14.0
+content_margin_top = 8.0
+content_margin_right = 14.0
+content_margin_bottom = 8.0
 bg_color = Color(0, 0, 0, 0.82)
 corner_radius_top_left = 8
 corner_radius_top_right = 8
 corner_radius_bottom_right = 8
 corner_radius_bottom_left = 8
-content_margin_left = 14.0
-content_margin_top = 8.0
-content_margin_right = 14.0
-content_margin_bottom = 8.0
 
 [node name="World" type="Node2D" unique_id=1805681752]
 position = Vector2(460, 287)
@@ -34,20 +34,22 @@ metadata/_edit_lock_ = true
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1916203111]
 position = Vector2(512, 288)
 
-[node name="InteractionPromptLayer" type="CanvasLayer" parent="."]
+[node name="InteractionPromptLayer" type="CanvasLayer" parent="." unique_id=1591184835]
 layer = 9
 
-[node name="Root" type="Control" parent="InteractionPromptLayer"]
+[node name="Root" type="Control" parent="InteractionPromptLayer" unique_id=585828931]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
 anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 
-[node name="PromptContainer" type="PanelContainer" parent="InteractionPromptLayer/Root"]
+[node name="PromptContainer" type="PanelContainer" parent="InteractionPromptLayer/Root" unique_id=2044908685]
 visible = false
 layout_mode = 1
-anchors_preset = 10
+anchors_preset = 7
 anchor_left = 0.5
 anchor_top = 1.0
 anchor_right = 0.5
@@ -61,9 +63,8 @@ grow_vertical = 0
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_interaction_prompt")
 
-[node name="Prompt" type="Label" parent="InteractionPromptLayer/Root/PromptContainer"]
+[node name="Prompt" type="Label" parent="InteractionPromptLayer/Root/PromptContainer" unique_id=1633591112]
 layout_mode = 2
-mouse_filter = 2
 theme_override_colors/font_color = Color(1, 0.96, 0.82, 1)
 theme_override_colors/font_outline_color = Color(0.06, 0.06, 0.08, 0.95)
 theme_override_constants/outline_size = 4
@@ -73,6 +74,7 @@ horizontal_alignment = 1
 
 [node name="WorldMap" parent="." unique_id=630295776 instance=ExtResource("2_map")]
 position = Vector2(436, -255)
+metadata/_edit_lock_ = true
 
 [node name="NPC_mara" parent="." unique_id=1794848584 instance=ExtResource("7_npc")]
 z_index = 10
@@ -163,8 +165,17 @@ description = "A small brass key rests here."
 body_color = Color(0.86, 0.68, 0.28, 1)
 snap_to_map_grid = false
 
+[node name="Inspectable_laundry_pile" parent="." unique_id=1492037811 instance=ExtResource("9_insp")]
+visible = false
+position = Vector2(-412, 1102)
+object_id = &"laundry_pile"
+title = "Pile of Laundry"
+description = "Looks like a pile of laundry. It seems full."
+body_color = Color(0.78, 0.74, 0.68, 1)
+snap_to_map_grid = false
+
 [node name="Player" parent="." unique_id=1010292065 instance=ExtResource("8_player")]
-position = Vector2(537, 157)
+position = Vector2(-331, 1148)
 
 [node name="Stairs 1" type="Node2D" parent="." unique_id=388047221]
 visible = false
