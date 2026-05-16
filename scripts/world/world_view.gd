@@ -240,7 +240,9 @@ func _rebuild_content() -> void:
 
 	if _player != null:
 		_player.speed = player_speed
-		_player.visible = not Engine.is_editor_hint()
+		_player.visible = true
+		if not Engine.is_editor_hint():
+			_player.reset_to_current_position(_world_map)
 		_update_npc_facing()
 
 	_apply_palette()

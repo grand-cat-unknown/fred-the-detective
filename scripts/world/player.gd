@@ -1,3 +1,4 @@
+@tool
 class_name Player
 extends Node2D
 
@@ -20,12 +21,32 @@ var _walk_animation_time := 0.0
 
 func _ready() -> void:
 	ActorDraw.configure_canvas(self)
+	set_notify_transform(true)
+
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_TRANSFORM_CHANGED and Engine.is_editor_hint():
+		tile = TileMap2D.world_to_tile(position)
+		target_tile = tile
+		target_position = position
+		queue_redraw()
 
 
 func reset_to_tile(start_tile: Vector2i, world_map: WorldMap = null) -> void:
 	tile = start_tile
 	target_tile = start_tile
 	position = world_map.tile_to_world(start_tile) if world_map != null else TileMap2D.tile_to_world_center(start_tile)
+	target_position = position
+	is_stepping = false
+	face_direction = Vector2i(1, 0)
+	_walk_animation_time = 0.0
+	queue_redraw()
+	moved.emit(tile)
+
+
+func reset_to_current_position(world_map: WorldMap = null) -> void:
+	tile = world_map.world_to_tile(position) if world_map != null else TileMap2D.world_to_tile(position)
+	target_tile = tile
 	target_position = position
 	is_stepping = false
 	face_direction = Vector2i(1, 0)

@@ -22,7 +22,6 @@ func _ready() -> void:
 	_case_state.fact_changed.connect(_on_case_fact_changed)
 
 	_world.configure(case, _case_state)
-	_world.reset_player(case.player_start_tile)
 
 	_llm = LLMClient.new()
 	_llm.name = "LLMClient"
