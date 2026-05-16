@@ -97,7 +97,7 @@ body_color = Color(0.45, 0.25, 0.55, 1)
 snap_to_map_grid = false
 
 [node name="Player" parent="." unique_id=1010292065 instance=ExtResource("8_player")]
-position = Vector2(-105, 1621)
+position = Vector2(624, 146)
 
 [node name="Stairs 1" type="Node2D" parent="." unique_id=388047221]
 position = Vector2(-396, 192)
