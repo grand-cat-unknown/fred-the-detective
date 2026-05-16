@@ -14,31 +14,6 @@
 [ext_resource type="Texture2D" uid="uid://dvwllyt0k77pj" path="res://assets/art/characters/hs_retro/Char 14_A.png" id="11_tytul"]
 [ext_resource type="Texture2D" uid="uid://86ddjl53th36" path="res://assets/art/characters/hs_retro/Char 26_A.png" id="12_c7ath"]
 [ext_resource type="Script" uid="uid://bwvuwswe6e3o0" path="res://scripts/world/stair_portal.gd" id="13_srmg5"]
-[ext_resource type="Script" path="res://scripts/data/gate_condition.gd" id="14_condition"]
-[ext_resource type="Script" path="res://scripts/data/tile_visual_state.gd" id="15_tile_visual"]
-
-[sub_resource type="Resource" id="GateCondition_example_door_closed"]
-script = ExtResource("14_condition")
-none_of = Array[StringName]([&"example_door_open"])
-
-[sub_resource type="Resource" id="TileVisualState_example_door_closed"]
-script = ExtResource("15_tile_visual")
-condition = SubResource("GateCondition_example_door_closed")
-source_id = 2
-atlas_coords = Vector2i(22, 4)
-update_blocks_movement = true
-
-[sub_resource type="Resource" id="GateCondition_example_door_open"]
-script = ExtResource("14_condition")
-all_of = Array[StringName]([&"example_door_open"])
-
-[sub_resource type="Resource" id="TileVisualState_example_door_open"]
-script = ExtResource("15_tile_visual")
-condition = SubResource("GateCondition_example_door_open")
-source_id = 2
-atlas_coords = Vector2i(8, 11)
-update_blocks_movement = true
-blocks_movement = false
 
 [node name="World" type="Node2D" unique_id=1805681752]
 position = Vector2(460, 287)
@@ -136,7 +111,6 @@ object_id = &"example_locked_door"
 title = "Locked Door"
 description = "The door is locked."
 draw_marker = false
-tile_visuals = [SubResource("TileVisualState_example_door_closed"), SubResource("TileVisualState_example_door_open")]
 snap_to_map_grid = false
 
 [node name="Inspectable_example_door_key" parent="." instance=ExtResource("9_insp")]

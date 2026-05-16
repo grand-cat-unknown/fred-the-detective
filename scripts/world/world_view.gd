@@ -290,10 +290,10 @@ func _on_case_fact_changed(_fact_id: StringName, _value: bool) -> void:
 
 
 func _refresh_inspectable_tile_visuals() -> void:
-	if _world_map == null:
+	if _world_map == null or case_data == null:
 		return
 	for inspectable in _inspectables:
-		inspectable.refresh_tile_visual(_world_map, case_state)
+		inspectable.refresh_tile_visual(_world_map, case_state, case_data.get_interactable(inspectable.object_id, false))
 
 
 func _update_npc_facing() -> void:
