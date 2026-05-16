@@ -8,6 +8,7 @@ extends Node2D
 		player_speed = value
 		if _player != null:
 			_player.speed = player_speed
+@export_range(0.0, 2.0, 0.05, "or_greater") var stair_travel_pause_seconds := 0.35
 
 @export_group("Camera")
 @export_range(0.25, 4.0, 0.05, "or_greater") var camera_zoom := 2.0:
@@ -47,6 +48,7 @@ var _npc_nodes: Array[NPC] = []
 var _inspectables: Array[Inspectable] = []
 var _stair_portals: Array[Node] = []
 var _ignored_arrival_portal: Node
+var _stair_travel_pause_remaining := 0.0
 
 
 func _ready() -> void:
@@ -71,6 +73,7 @@ func reset_player(start_tile: Vector2i) -> void:
 	if _player == null:
 		return
 	_ignored_arrival_portal = null
+	_stair_travel_pause_remaining = 0.0
 	_player.reset_to_tile(start_tile, _world_map)
 	_apply_camera_to_player(true)
 	_update_npc_facing()
@@ -80,12 +83,17 @@ func update_player_movement(delta: float, held_direction: Vector2i) -> void:
 	if _player == null:
 		return
 	_player.speed = player_speed
+	if _stair_travel_pause_remaining > 0.0:
+		_stair_travel_pause_remaining = maxf(0.0, _stair_travel_pause_remaining - delta)
+		return
 	var remaining := delta
 	var safety := 8
 	while safety > 0:
 		safety -= 1
 		if _player.is_stepping:
 			remaining = _player.process_step(remaining)
+			if _stair_travel_pause_remaining > 0.0:
+				return
 			if _player.is_stepping or remaining <= 0.0:
 				return
 		if held_direction == Vector2i.ZERO:
@@ -220,6 +228,7 @@ func _rebuild_content() -> void:
 	_inspectables.clear()
 	_stair_portals.clear()
 	_ignored_arrival_portal = null
+	_stair_travel_pause_remaining = 0.0
 	_world_map = null
 	_player = null
 	_camera = null
@@ -308,6 +317,7 @@ func _try_use_stair_portal(tile: Vector2i) -> void:
 			return
 		_ignored_arrival_portal = target
 		_player.reset_to_tile(target.call("get_tile", _world_map), _world_map)
+		_stair_travel_pause_remaining = stair_travel_pause_seconds
 		_apply_camera_to_player(true)
 		_update_npc_facing()
 		return
