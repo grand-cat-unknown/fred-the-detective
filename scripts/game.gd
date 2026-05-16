@@ -103,7 +103,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _process(delta: float) -> void:
-	if _inspect_panel.is_open() or _dialogue_panel.is_open() or _book_panel.is_open():
+	var panels_open := _inspect_panel.is_open() or _dialogue_panel.is_open() or _book_panel.is_open()
+	_world.set_interaction_prompt_enabled(not panels_open)
+	if panels_open:
 		return
 	_world.update_player_movement(delta, _get_pressed_tile_direction())
 

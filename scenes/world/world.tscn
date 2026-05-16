@@ -23,6 +23,21 @@ metadata/_edit_lock_ = true
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1916203111]
 position = Vector2(512, 288)
 
+[node name="InteractionPrompt" type="Label" parent="."]
+visible = false
+z_index = 100
+offset_left = -72.0
+offset_top = -10.0
+offset_right = 72.0
+offset_bottom = 10.0
+mouse_filter = 2
+theme_override_colors/font_color = Color(1, 0.96, 0.82, 1)
+theme_override_colors/font_outline_color = Color(0.06, 0.06, 0.08, 0.95)
+theme_override_constants/outline_size = 4
+theme_override_font_sizes/font_size = 12
+text = "Press Space to interact"
+horizontal_alignment = 1
+
 [node name="WorldMap" parent="." unique_id=630295776 instance=ExtResource("2_map")]
 position = Vector2(436, -255)
 
