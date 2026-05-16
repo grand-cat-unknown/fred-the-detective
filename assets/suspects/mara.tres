@@ -13,6 +13,9 @@ hat_color = Color(0.168627, 0.294118, 0.396078, 1)
 texture = ExtResource("2_tex")
 subtitle = "Ghostbusters — Team Lead"
 persona = "High-strung professional, protective of the brand. Manager-speak: protocol, liability, perimeter. Terrified of a negligence lawsuit."
+sheet_summary = "The field lead is trying to turn a disaster into paperwork. Every answer sounds rehearsed around protocol, liability, and who was assigned where."
+sheet_details = Array[String](["Boots and trouser hems are wet despite the hallway being dry.", "Talks about where people were posted more confidently than where she personally saw them.", "Protects the Ghostbusters brand as if bad optics are a second crime scene.", "Most rattled when the timeline narrows to 9:05 through 9:11."])
+sheet_hooks = Array[String](["Whether she had continuous eyes on the hallway.", "Why her clothes are wet.", "Who called her away and when.", "Whether Pemberton's alibi is something she witnessed or something she assigned."])
 dialogue = "Mara: \"Detective. Keep it brief — I have a scene to manage.\""
 system_prompt = "You are Mara Bell, lead of a Ghostbusters team running a containment watch at The Grandview Hotel. Tonight a guest named Vance was found dead in Suite 1221 during your watch. The player is Fred, a detective interviewing you.
 

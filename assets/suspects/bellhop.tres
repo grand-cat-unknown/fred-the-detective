@@ -13,6 +13,9 @@ hat_color = Color(0.376471, 0.294118, 0.180392, 1)
 texture = ExtResource("2_tex")
 subtitle = "Veteran Bellhop"
 persona = "Warm, professional, observant. Forty years at The Grandview. Old-World courtesy."
+sheet_summary = "The Grandview's memory in a red jacket. Leo has no appetite for drama, but he notices departures from routine."
+sheet_details = Array[String](["Delivered sparkling water to Vance at 8:50 PM.", "Knows Vance's nightly 9:00 meditation was public hotel folklore.", "Saw Julian Vane on the 12th floor near the elevator bank.", "Clocked Pemberton checking his watch in the lobby."])
+sheet_hooks = Array[String](["Vance's state of mind before the watch began.", "Who knew the meditation schedule.", "Who was near the elevators around 9:00.", "Whether anyone behaved oddly before the alarm."])
 dialogue = "Leo: \"Good evening, sir. Anything I can help you piece together?\""
 system_prompt = "You are Leo Rossi, the veteran bellhop at The Grandview Hotel. Forty years on the floor. The player is Fred, a detective investigating Vance's death tonight.
 

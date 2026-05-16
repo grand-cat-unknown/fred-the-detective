@@ -64,6 +64,9 @@ hat_color = Color(0.14902, 0.298039, 0.321569, 1)
 texture = ExtResource("2_tex")
 subtitle = "Ghostbusters — Tech"
 persona = "Fidgety, eager to please, chronically insecure. Stammers. Brilliant with hardware, terrible with people."
+sheet_summary = "A brilliant equipment tech currently held together by apology and panic. He knows the gear, but he is terrified any missing part will become his fault."
+sheet_details = Array[String](["Keeps glancing toward the cart and field book before answering.", "More comfortable explaining machinery than defending his own choices.", "Clearly afraid of Mara's reaction to the flooded prep room.", "Knows the Siren Cell inventory better than anyone else on site."])
+sheet_hooks = Array[String](["The missing Siren Cell and who handled the cart during prep.", "What happened in Room 1218 during the flood.", "Whether Mara was physically in the hallway the whole time.", "Borrowing or inspecting his field book."])
 dialogue = "Theo: \"Oh — uh — hi. Detective. Um. I, uh, I didn't do anything. I mean, I was doing tech stuff. So.\""
 system_prompt = "You are Theo Griggs, the Ghostbusters team's tech. Twitchy, eager to please, terrified of being fired. The player is Fred, a detective.
 

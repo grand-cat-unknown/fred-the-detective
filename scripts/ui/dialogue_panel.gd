@@ -7,6 +7,7 @@ signal closed
 @onready var _root: Control = $Root
 @onready var _title_label: Label = $Root/Panel/Margin/VBox/Header/Title
 @onready var _subtitle_label: Label = $Root/Panel/Margin/VBox/Header/Subtitle
+@onready var _sheet_label: Label = $Root/Panel/Margin/VBox/Header/Sheet
 @onready var _scroll: ScrollContainer = $Root/Panel/Margin/VBox/Scroll
 @onready var _lines_box: VBoxContainer = $Root/Panel/Margin/VBox/Scroll/Lines
 @onready var _status_label: Label = $Root/Panel/Margin/VBox/Status
@@ -24,9 +25,11 @@ func _ready() -> void:
 	_send_button.pressed.connect(_on_send_pressed)
 
 
-func open(title: String, subtitle: String, lines: Array) -> void:
+func open(title: String, subtitle: String, lines: Array, character_sheet: String = "") -> void:
 	_title_label.text = title
 	_subtitle_label.text = subtitle
+	_sheet_label.text = character_sheet
+	_sheet_label.visible = character_sheet.strip_edges() != ""
 	_clear_lines()
 	for entry in lines:
 		_append_line_view(entry.get("speaker", ""), entry.get("text", ""))

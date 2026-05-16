@@ -184,7 +184,7 @@ func _try_trigger_inventory_action(event: InputEvent) -> bool:
 
 func _open_dialogue_with(suspect: SuspectData) -> void:
 	_dialogue.open(suspect)
-	_dialogue_panel.open(suspect.display_name, suspect.subtitle, _dialogue.get_lines(suspect.id))
+	_dialogue_panel.open(suspect.display_name, suspect.subtitle, _dialogue.get_lines(suspect.id), suspect.character_sheet_text())
 
 
 func _on_dialogue_submitted(message: String) -> void:
