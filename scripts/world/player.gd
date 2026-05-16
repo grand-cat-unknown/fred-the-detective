@@ -59,7 +59,7 @@ func reset_to_current_position(world_map: WorldMap = null) -> void:
 func try_step(direction: Vector2i, world_map: WorldMap, blocked_tiles: Array[Vector2i]) -> bool:
 	face_direction = direction
 	var next_tile := tile + direction
-	if world_map == null or not world_map.is_walkable(next_tile) or blocked_tiles.has(next_tile):
+	if world_map == null or not world_map.is_walkable(next_tile, direction) or blocked_tiles.has(next_tile):
 		queue_redraw()
 		return false
 

@@ -22,6 +22,8 @@ const COVER_OPAQUE_ALPHA := 1.0
 const COVER_REVEAL_ALPHA := 0.3
 const COVER_FADE_SECONDS := 0.15
 const ACTOR_BLOCKING_FOOT_OFFSET := Vector2(0.0, TileMap2D.TILE_SIZE * 0.5 - 1.0)
+const SUBTILE_APPROACH_OFFSET := 1.0
+const SUBTILE_SIDE_SAMPLE_OFFSET := 7.0
 
 var background_color := Palette.BACKGROUND:
 	set(value):
@@ -37,12 +39,12 @@ func _ready() -> void:
 	_verify_layer_alignment()
 
 
-func is_walkable(tile_position: Vector2i) -> bool:
+func is_walkable(tile_position: Vector2i, approach_direction := Vector2i.ZERO) -> bool:
 	for layer_name in _tile_layers:
 		if not BLOCKING_LAYERS.has(layer_name):
 			continue
 		var blocking_layer := _tile_layers[layer_name] as TileMapLayer
-		if _layer_has_cell_in_world_tile(blocking_layer, tile_position):
+		if _layer_has_cell_in_world_tile(blocking_layer, tile_position, approach_direction):
 			return false
 
 	return true
@@ -135,13 +137,24 @@ func _layer(layer_name: String) -> TileMapLayer:
 	return _tile_layers[layer_name]
 
 
-func _layer_has_cell_in_world_tile(layer: TileMapLayer, tile_position: Vector2i) -> bool:
+func _layer_has_cell_in_world_tile(layer: TileMapLayer, tile_position: Vector2i, approach_direction: Vector2i) -> bool:
 	if _uses_world_tile_sized_cells(layer):
 		return layer.get_cell_source_id(tile_position) != -1
 
 	var tile_center := TileMap2D.tile_to_world_center(tile_position)
-	var foot_cell := layer.local_to_map(tile_center + ACTOR_BLOCKING_FOOT_OFFSET)
-	return layer.get_cell_source_id(foot_cell) != -1
+	if approach_direction.x != 0:
+		var approach_offset := Vector2(-float(approach_direction.x) * SUBTILE_APPROACH_OFFSET, 0.0)
+		return _layer_has_cell_at_world_position(layer, tile_center + ACTOR_BLOCKING_FOOT_OFFSET + approach_offset)
+
+	return (
+		_layer_has_cell_at_world_position(layer, tile_center + ACTOR_BLOCKING_FOOT_OFFSET + Vector2(-SUBTILE_SIDE_SAMPLE_OFFSET, 0.0))
+		and _layer_has_cell_at_world_position(layer, tile_center + ACTOR_BLOCKING_FOOT_OFFSET + Vector2(SUBTILE_SIDE_SAMPLE_OFFSET, 0.0))
+	)
+
+
+func _layer_has_cell_at_world_position(layer: TileMapLayer, world_position: Vector2) -> bool:
+	var cell := layer.local_to_map(world_position)
+	return layer.get_cell_source_id(cell) != -1
 
 
 func _uses_world_tile_sized_cells(layer: TileMapLayer) -> bool:
