@@ -68,7 +68,7 @@ preview_texture = ExtResource("10_wbwoo")
 
 [node name="NPC_maid" parent="." unique_id=1314534877 instance=ExtResource("7_npc")]
 z_index = 10
-position = Vector2(1680, 304)
+position = Vector2(1584, 240)
 entity_id = &"maid"
 preview_name = "Mags Higgins"
 preview_texture = ExtResource("11_tytul")
