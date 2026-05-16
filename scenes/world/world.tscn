@@ -21,7 +21,7 @@ script = ExtResource("1_world")
 position = Vector2(512, 288)
 
 [node name="WorldMap" parent="." unique_id=630295776 instance=ExtResource("2_map")]
-position = Vector2(-55, -134)
+position = Vector2(436, -255)
 
 [node name="NPC_mara" parent="." unique_id=1794848584 instance=ExtResource("7_npc")]
 z_index = 10
