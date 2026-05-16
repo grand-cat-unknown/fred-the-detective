@@ -28,7 +28,7 @@ position = Vector2(436, -255)
 
 [node name="NPC_mara" parent="." unique_id=1794848584 instance=ExtResource("7_npc")]
 z_index = 10
-position = Vector2(644, 244)
+position = Vector2(1142, 271)
 entity_id = &"mara"
 preview_name = "Mara Bell"
 preview_texture = ExtResource("5_umvgx")
@@ -36,14 +36,14 @@ snap_to_map_grid = false
 
 [node name="NPC_theo" parent="." unique_id=1440069773 instance=ExtResource("7_npc")]
 z_index = 10
-position = Vector2(528, -16)
+position = Vector2(812, 383)
 entity_id = &"theo"
 preview_name = "Theo Griggs"
 preview_texture = ExtResource("6_mxkvs")
 snap_to_map_grid = false
 
 [node name="Inspectable_theo_field_book" parent="." unique_id=843935259 instance=ExtResource("9_insp")]
-position = Vector2(605, -19)
+position = Vector2(932, 327)
 object_id = &"theo_field_book"
 title = "Theo's Field Book"
 description = "A Ghostbusters field book rests on the nearby desk."
