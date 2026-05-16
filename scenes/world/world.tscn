@@ -14,7 +14,7 @@
 [ext_resource type="Texture2D" uid="uid://dvwllyt0k77pj" path="res://assets/art/characters/hs_retro/Char 14_A.png" id="11_tytul"]
 
 [node name="World" type="Node2D" unique_id=1805681752]
-position = Vector2(466, 292)
+position = Vector2(460, 287)
 script = ExtResource("1_world")
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1916203111]
@@ -32,7 +32,7 @@ preview_texture = ExtResource("5_umvgx")
 
 [node name="NPC_theo" parent="." unique_id=1440069773 instance=ExtResource("7_npc")]
 z_index = 10
-position = Vector2(592, 80)
+position = Vector2(528, -16)
 entity_id = &"theo"
 preview_name = "Theo Griggs"
 preview_texture = ExtResource("6_mxkvs")
@@ -46,21 +46,21 @@ preview_texture = ExtResource("7_m114p")
 
 [node name="NPC_iris" parent="." unique_id=602351030 instance=ExtResource("7_npc")]
 z_index = 10
-position = Vector2(1296, 272)
+position = Vector2(1232, 208)
 entity_id = &"iris"
 preview_name = "Dr. Iris Thorne"
 preview_texture = ExtResource("8_71ii3")
 
 [node name="NPC_rival" parent="." unique_id=639808501 instance=ExtResource("7_npc")]
 z_index = 10
-position = Vector2(784, 368)
+position = Vector2(880, 208)
 entity_id = &"rival"
 preview_name = "Julian Vane"
 preview_texture = ExtResource("9_bt7bg")
 
 [node name="NPC_bellhop" parent="." unique_id=1106624191 instance=ExtResource("7_npc")]
 z_index = 10
-position = Vector2(944, 368)
+position = Vector2(976, 240)
 entity_id = &"bellhop"
 preview_name = "Leo Rossi"
 preview_texture = ExtResource("10_wbwoo")

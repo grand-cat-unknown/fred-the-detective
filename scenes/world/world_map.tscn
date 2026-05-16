@@ -1094,6 +1094,7 @@ sources/43 = SubResource("TileSetAtlasSource_jvuuj")
 sources/44 = SubResource("TileSetAtlasSource_foewp")
 
 [node name="WorldMap" type="Node2D" unique_id=137116852]
+position = Vector2(896, 33)
 script = ExtResource("1_lhxl1")
 
 [node name="Floor" type="TileMapLayer" parent="." unique_id=1544721600]
