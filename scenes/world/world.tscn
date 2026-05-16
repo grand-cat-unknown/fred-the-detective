@@ -42,6 +42,15 @@ preview_name = "Theo Griggs"
 preview_texture = ExtResource("6_mxkvs")
 snap_to_map_grid = false
 
+[node name="Inspectable_theo_field_book" parent="." unique_id=843935259 instance=ExtResource("9_insp")]
+position = Vector2(605, -19)
+object_id = &"theo_field_book"
+title = "Theo's Field Book"
+description = "A Ghostbusters field book rests on the nearby desk."
+draw_marker = false
+blocks_movement = false
+snap_to_map_grid = false
+
 [node name="NPC_otis" parent="." unique_id=2073294398 instance=ExtResource("7_npc")]
 z_index = 10
 position = Vector2(1456, 176)
@@ -90,7 +99,7 @@ preview_name = "Vivian Marlowe"
 preview_texture = ExtResource("12_c7ath")
 snap_to_map_grid = false
 
-[node name="Inspectable_example_door" parent="." instance=ExtResource("9_insp")]
+[node name="Inspectable_example_door" parent="." unique_id=1025255816 instance=ExtResource("9_insp")]
 position = Vector2(164, 1233)
 object_id = &"example_locked_door"
 title = "Locked Door"
@@ -98,7 +107,7 @@ description = "The door is locked."
 draw_marker = false
 snap_to_map_grid = false
 
-[node name="Inspectable_example_door_key" parent="." instance=ExtResource("9_insp")]
+[node name="Inspectable_example_door_key" parent="." unique_id=2040692932 instance=ExtResource("9_insp")]
 position = Vector2(36, 1297)
 object_id = &"example_door_key"
 title = "Small Brass Key"

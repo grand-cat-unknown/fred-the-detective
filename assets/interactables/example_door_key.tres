@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="InteractableDefinition" format=3]
+[gd_resource type="Resource" script_class="InteractableDefinition" format=3 uid="uid://do02h31gtv8cr"]
 
-[ext_resource type="Script" path="res://scripts/data/interactable_definition.gd" id="1_definition"]
-[ext_resource type="Script" path="res://scripts/data/gate_condition.gd" id="2_condition"]
-[ext_resource type="Script" path="res://scripts/data/inspectable_variant.gd" id="3_variant"]
-[ext_resource type="Script" path="res://scripts/data/state_effect.gd" id="4_effect"]
+[ext_resource type="Script" uid="uid://crrwy2qm3y7s4" path="res://scripts/data/interactable_definition.gd" id="1_definition"]
+[ext_resource type="Script" uid="uid://dy1gfjjj466vx" path="res://scripts/data/gate_condition.gd" id="2_condition"]
+[ext_resource type="Script" uid="uid://qyboxj773p86" path="res://scripts/data/inspectable_variant.gd" id="3_variant"]
+[ext_resource type="Script" uid="uid://bv6wdcfc8aqee" path="res://scripts/data/state_effect.gd" id="4_effect"]
 
 [sub_resource type="Resource" id="GateCondition_key_available"]
 script = ExtResource("2_condition")
