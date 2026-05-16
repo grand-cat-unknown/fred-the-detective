@@ -304,12 +304,12 @@ func _try_use_stair_portal(tile: Vector2i) -> void:
 		return
 
 	if _ignored_arrival_portal != null:
-		if _ignored_arrival_portal.call("get_tile", _world_map) == tile:
+		if _portal_contains_tile(_ignored_arrival_portal, tile):
 			return
 		_ignored_arrival_portal = null
 
 	for portal in _stair_portals:
-		if not portal.get("enabled") or portal.call("get_tile", _world_map) != tile:
+		if not portal.get("enabled") or not _portal_contains_tile(portal, tile):
 			continue
 		var target := portal.call("get_target") as Node
 		if target == null:
@@ -321,3 +321,9 @@ func _try_use_stair_portal(tile: Vector2i) -> void:
 		_apply_camera_to_player(true)
 		_update_npc_facing()
 		return
+
+
+func _portal_contains_tile(portal: Node, tile: Vector2i) -> bool:
+	if portal.has_method("contains_tile"):
+		return portal.call("contains_tile", tile, _world_map)
+	return portal.call("get_tile", _world_map) == tile

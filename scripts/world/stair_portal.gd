@@ -4,6 +4,10 @@ extends Node2D
 
 @export var target_portal: NodePath
 @export var enabled := true
+@export var trigger_size := Vector2(64.0, 64.0):
+	set(value):
+		trigger_size = value
+		queue_redraw()
 @export var snap_to_map_grid := true:
 	set(value):
 		snap_to_map_grid = value
@@ -36,6 +40,11 @@ func get_tile(world_map: WorldMap) -> Vector2i:
 	return TileMap2D.world_to_tile(position)
 
 
+func contains_tile(tile: Vector2i, world_map: WorldMap) -> bool:
+	var tile_world_position := world_map.tile_to_world(tile) if world_map != null else TileMap2D.tile_to_world_center(tile)
+	return Rect2(position - trigger_size * 0.5, trigger_size).has_point(tile_world_position)
+
+
 func get_target() -> StairPortal:
 	if target_portal.is_empty():
 		return null
@@ -46,8 +55,7 @@ func get_target() -> StairPortal:
 func _draw() -> void:
 	if not draw_marker:
 		return
-	var half_size := TileMap2D.TILE_SIZE * 0.5
-	var rect := Rect2(Vector2(-half_size, -half_size), Vector2(TileMap2D.TILE_SIZE, TileMap2D.TILE_SIZE))
+	var rect := Rect2(-trigger_size * 0.5, trigger_size)
 	draw_rect(rect, marker_color, false, 2.0)
 	draw_line(Vector2(-6, 0), Vector2(6, 0), marker_color, 2.0)
 	draw_line(Vector2(0, -6), Vector2(0, 6), marker_color, 2.0)
