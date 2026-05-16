@@ -88,12 +88,14 @@ description = "A landscape hanging slightly askew. Recently disturbed?"
 body_color = Color(0.45, 0.25, 0.55, 1)
 
 [node name="Player" parent="." unique_id=1010292065 instance=ExtResource("8_player")]
-position = Vector2(1163, 413)
+position = Vector2(74, 435)
 
 [node name="Stairs 1" type="Node2D" parent="." unique_id=388047221]
+position = Vector2(-413, 466)
 script = ExtResource("13_srmg5")
 target_portal = NodePath("../Stairs 2")
 
 [node name="Stairs 2" type="Node2D" parent="." unique_id=340293470]
+position = Vector2(-411, 978)
 script = ExtResource("13_srmg5")
 target_portal = NodePath("../Stairs 1")

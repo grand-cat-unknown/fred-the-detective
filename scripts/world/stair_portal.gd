@@ -4,6 +4,11 @@ extends Node2D
 
 @export var target_portal: NodePath
 @export var enabled := true
+@export var snap_to_map_grid := false:
+	set(value):
+		snap_to_map_grid = value
+		if snap_to_map_grid and Engine.is_editor_hint():
+			snap_to_tile(_find_world_map())
 @export var draw_marker := true:
 	set(value):
 		draw_marker = value
@@ -12,17 +17,6 @@ extends Node2D
 	set(value):
 		marker_color = value
 		queue_redraw()
-
-
-func _ready() -> void:
-	if Engine.is_editor_hint():
-		_snap_to_tile()
-
-
-func _notification(what: int) -> void:
-	if what == NOTIFICATION_TRANSFORM_CHANGED and Engine.is_editor_hint():
-		_snap_to_tile()
-
 
 func get_tile(world_map: WorldMap) -> Vector2i:
 	if world_map != null:
@@ -47,7 +41,23 @@ func _draw() -> void:
 	draw_line(Vector2(0, -6), Vector2(0, 6), marker_color, 2.0)
 
 
-func _snap_to_tile() -> void:
-	var snapped_pos := TileMap2D.tile_to_world_center(TileMap2D.world_to_tile(position))
+func snap_to_tile(world_map: WorldMap = null) -> void:
+	var snapped_pos := _snapped_position(world_map)
 	if position != snapped_pos:
 		position = snapped_pos
+
+
+func _snapped_position(world_map: WorldMap = null) -> Vector2:
+	if world_map == null:
+		return TileMap2D.tile_to_world_center(TileMap2D.world_to_tile(position))
+	return world_map.tile_to_world(world_map.world_to_tile(position))
+
+
+func _find_world_map() -> WorldMap:
+	var node := get_parent()
+	if node == null:
+		return null
+	for child in node.get_children():
+		if child is WorldMap:
+			return child
+	return null
