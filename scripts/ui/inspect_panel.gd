@@ -31,7 +31,7 @@ func show_text(title: String, description: String) -> void:
 	_action_effects = []
 	_title_label.text = title
 	_description_label.text = description
-	_hint_label.text = "Press E or Space to close"
+	_hint_label.text = "Press Space to close"
 	_action_row.visible = false
 	_root.visible = true
 
@@ -43,7 +43,7 @@ func show_action(title: String, description: String, action_label: String, actio
 	_description_label.text = action_prompt if action_prompt.strip_edges() != "" else description
 	_yes_button.text = action_label if action_label.strip_edges() != "" else "Yes"
 	_no_button.text = "No"
-	_hint_label.text = "Press E or Space for yes, Esc for no"
+	_hint_label.text = "Press Space for yes, Esc for no"
 	_action_row.visible = true
 	_root.visible = true
 	_yes_button.grab_focus()
