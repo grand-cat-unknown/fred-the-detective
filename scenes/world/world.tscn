@@ -100,13 +100,13 @@ snap_to_map_grid = false
 position = Vector2(-105, 1621)
 
 [node name="Stairs 1" type="Node2D" parent="." unique_id=388047221]
-position = Vector2(-413, 466)
+position = Vector2(-400, 194)
 script = ExtResource("13_srmg5")
 target_portal = NodePath("../Stairs 2")
 snap_to_map_grid = false
 
 [node name="Stairs 2" type="Node2D" parent="." unique_id=340293470]
-position = Vector2(-411, 1360)
+position = Vector2(-402, 1348)
 script = ExtResource("13_srmg5")
 target_portal = NodePath("../Stairs 1")
 snap_to_map_grid = false
