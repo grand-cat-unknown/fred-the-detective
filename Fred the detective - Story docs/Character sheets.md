@@ -18,11 +18,11 @@ Here is the expanded character roster for the Ghostbusters team.
     - **9:00 PM:** Watch begins. Mara holds the front door of 1221. She sends Iris to monitor the west side and Pemberton to check the **east wing / east-side structural route**. This is his cover for being unseen during the murder window.
     - **9:06 PM:** Pemberton slips into 1221 via the **hidden Royal Suite emergency passage**. Vance doesn't know it exists; neither does the rest of the team. Mara is still watching the front door, so her "nobody entered" testimony is true. Vance is mid-meditation, eyes closed, unprepared.
     - **9:07 – 9:10 PM:** Kills Vance point-blank with a stolen Siren Containment Cell (Manual Purge). Takes the Anchor Idol. Stages the "haunting" — slams furniture, simulates a Class-5 manifestation — loud enough to be heard from the hall and through 1222's shared wall.
-    - **9:10 PM:** Stashes the Anchor Idol inside the spent Siren Cell's now-empty pressure chamber, then drops the cell down the laundry chute from the hidden/service route (it falls to the basement bin — idol concealed inside). Noises stop abruptly. Slips back out the same way he came in.
-    - **9:11 – 9:12 PM:** Returns through the hidden east-side route, bypassing the ordinary Housekeeping Room checkpoint (Mags is inside, door shut). Mara and Iris converge at 1221's front door — without him.
-    - **9:13 PM:** Emerges into the main hallway from the **east side**, breathing hard, claiming he heard the manifestation during his east-wing sweep and ran to flank it.
+    - **9:10 PM:** Stashes the Anchor Idol inside the spent Siren Cell's now-empty pressure chamber, carries it through the hidden/service route to the west-side laundry chute, then drops it (it falls to the basement bin — idol concealed inside). Noises stop abruptly.
+    - **9:11 – 9:12 PM:** Moves toward the west-side hall, bypassing the ordinary Housekeeping Room checkpoint (Mags is inside, door shut). Mara and Iris converge at 1221's front door without him and repeatedly shout for Otis because they cannot break the door.
+    - **9:13 PM:** Emerges into the main hallway from the **west side**, breathing hard, claiming he had to loop around through the service route to flank the entity.
     - **9:14 PM:** Team forces the locked front door of 1221. Pemberton steps in, performs a theatrical pulse check, declares: "Full-Body Spectral Seizure, Class-5 Shadow Stalker. The idol attracted exactly what we were here to contain."
-- **What He Said:** "I was on east-side structural sweep. The PKE spike hit hard — I tried to flank the entity through the east wing. By the time I got around to the front, Vance was already gone. Full-body spectral seizure. Textbook Class-5."
+- **What He Said:** "I was on east-side structural sweep. The PKE spike hit hard — I cut west through the service route to flank it. By the time I got around to the front, Vance was already gone. Full-body spectral seizure. Textbook Class-5."
 - **The Lie:** There was no entity. The "manifestation" was theater. He was inside 1221 via the hidden Royal Suite emergency passage, not "flanking" anything from the east wing.
 - **Motive for Concealing:** Obviously, the murder and theft of the Anchor Idol.
 - **The Stain Alibi:** If asked early about his stained hands, he keeps it vague — "I've been pitching in with gear and capture-tool prep all night, and Theo's setup has been a mess. Touch enough hardware in one evening, you end up looking like this." Deliberately unspecific about *when* or *where*, so no individual witness can flatly contradict him.
@@ -39,10 +39,11 @@ Here is the expanded character roster for the Ghostbusters team.
 - **Actual Timeline:**
     - **9:00 PM onward:** Holds the main hallway outside 1221. She sends Iris to the west side and Pemberton to the east side to monitor the perimeter.
     - **9:07 – 9:10 PM:** Hears the manifestation noises from inside 1221 while maintaining visual on the front door. Nobody enters from the hallway.
+    - **9:11 – 9:13 PM:** Tries to force the front door with Iris and repeatedly shouts for Otis. He finally arrives from the west side.
 - **What She Said:** "Standard watch protocol. I held the front of 1221. Nobody entered Felix Vance's room from the main hallway. I sent Thorne west and Pemberton east when the readings jumped."
 - **The Truth:** She had continuous visual on the hallway/front door and can honestly rule out a front-door entry.
 - **The Limitation:** She cannot rule out a hidden passage she does not know exists. Her certainty is a clue to look for another route.
-- **The Detective's Hook:** Her testimony creates the locked-room constraint: if nobody used the front door, the killer needed a concealed route into the Royal Suite.
+- **The Detective's Hook:** Her testimony creates the locked-room constraint: if nobody used the front door, the killer needed a concealed route into the Royal Suite. She also anchors the odd direction problem: Otis was assigned east but answered the door call from the west.
 
 ---
 
@@ -68,12 +69,12 @@ Here is the expanded character roster for the Ghostbusters team.
 - **Personality:** Calm, methodical, and by-the-book. The only team member who did exactly what they were supposed to do.
 - **Actual Timeline:**
     - **9:00 – 9:11 PM:** Manning the **west-side observation post** near Suite 1222. Listening for spillover activity from the Anchor Idol. Notes timestamps in her field book as a matter of habit.
-    - **9:11 PM onward:** Steps into the main hallway when the noises in 1221 stop. Converges on the front door with Mara; watches Pemberton arrive from the east side at 9:13.
-- **What She Said:** "Manifestation noises through the west wall started around 9:07 and stopped abruptly at 9:10. Right around when they stopped I heard a heavy metallic thud somewhere in the walls — could have been the chute. I stepped into the hallway at 9:11. Pemberton arrived from the east side at 9:13."
+    - **9:11 PM onward:** Steps into the main hallway when the noises in 1221 stop. Converges on the front door with Mara; both shout for Otis while they try to force the door. Watches Pemberton arrive from the west side at 9:13.
+- **What She Said:** "Manifestation noises through the west wall started around 9:07 and stopped abruptly at 9:10. Right around when they stopped I heard a heavy metallic thud somewhere in the walls — could have been the chute. I stepped into the hallway at 9:11. We called for Pemberton. He arrived from the west side at 9:13."
 - **The Truth:** She is the only one telling the full truth. She is the "control group" the player uses to corroborate the timeline.
 - **What She Gives the Player:**
     - The **thud in the walls** at ~9:10 PM — points the detective at the laundry chute.
-    - The **direction Pemberton arrived from** — east side at 9:13. (Consistent with Mara's assignment; useful for anchoring the rest of the timeline once the hidden route becomes relevant.)
+    - The **direction Pemberton arrived from** — west side at 9:13. This is odd because Mara assigned him east, and it becomes important once the hidden route and chute are in play.
 
 ---
 
@@ -126,7 +127,7 @@ Here is the expanded character roster for the Ghostbusters team.
 - **The Lie:** She claims she was in the basement. She was actually shut inside the **exact room Pemberton's alibi says he checked on his sweep**.
 - **Motive for Concealing:** **Doubly compromised.** Smoking on duty is an instant firing offense. Taking a bribe to hand a guest's master key to another guest is a *criminal* offense — accessory to whatever Vane was planning to do.
 - **What She Actually Saw (once broken):** "Nothing. That's the thing. I was inside the Housekeeping Room the whole time — from before 9 until past 9:15. Pemberton says he checked that room on his sweep. The door never opened. Nobody came in. I'd have heard them. I'd have *seen* them. He never came through."
-- **The Detective's Hook:** Mags is the **negative witness** — she was physically *inside* a room Pemberton's alibi says he checked. The door stayed shut. His "structural sweep / flanked the entity through the maintenance access" story is a fabrication.
+- **The Detective's Hook:** Mags is the **negative witness** — she was physically *inside* a room Pemberton's alibi says he checked. The door stayed shut. His "structural sweep / flanked the entity through the service access" story is a fabrication.
 
 ## Refined Interaction: The 12th-Floor Housekeeping Room
 

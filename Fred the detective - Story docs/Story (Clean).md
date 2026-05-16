@@ -10,7 +10,7 @@ The murder is not committed by a ghost — it's committed by the man who pronoun
 
 The Grandview is an inherited castle-hotel owned by Vivian Marlowe's family. Pemberton knows the building too well because he and Vivian grew up together there, playing in the shut-up corridors and old servant passages when Vivian's father still ran the place. Most staff know the hotel has sealed emergency routes in a vague historical sense. Pemberton knows which old panels still open.
 
-While Vance is mid-meditation behind a locked front door and Mara is watching that front door, Pemberton slips in through the hidden Royal Suite passage, kills Vance point-blank with a stolen **Siren Containment Cell**, takes the **Anchor Idol**, and then **stages a violent haunting** — slamming furniture, simulating a Class-5 manifestation — loud enough for the team to hear from their stations. He drops the spent cell down the laundry chute on his way out, slips back through the hidden route to the east side, and reappears claiming he was trying to cut off the entity from that wing. The front door is locked from the inside; Mara can truthfully swear nobody entered through it. The team forces it open. They find Vance dead. Pemberton — the team's medical and occult specialist, the obvious person to handle a body that "took a Class-5 hit" — performs the pulse check and declares a **"Full-Body Spectral Seizure"**.
+While Vance is mid-meditation behind a locked front door and Mara is watching that front door, Pemberton slips in through the hidden Royal Suite passage from the east-side service route, kills Vance point-blank with a stolen **Siren Containment Cell**, takes the **Anchor Idol**, and then **stages a violent haunting** — slamming furniture, simulating a Class-5 manifestation — loud enough for the team to hear from their stations. He moves through the service passage to the west-side laundry chute, drops the spent cell with the idol hidden inside, and then reappears from the west side while Mara and Iris are shouting for him to help force the front door. The front door is locked from the inside; Mara can truthfully swear nobody entered through it. The team forces it open. They find Vance dead. Pemberton — the team's medical and occult specialist, the obvious person to handle a body that "took a Class-5 hit" — performs the pulse check and declares a **"Full-Body Spectral Seizure"**.
 
 The team isn’t hiding a murder — they genuinely believe the idol attracted the very entity they were there to contain, because the only "expert" in the room is also the killer.
 
@@ -24,10 +24,10 @@ This is the canonical timeline. All character testimony and other docs should al
 | 9:00 PM | Watch begins. Mara holds the main hallway/front door of 1221. She sends Iris to monitor the **west side** and sends Pemberton to check the **east wing / east-side structural route**. Theo remains with the gear cart and prep station. Vance locks 1221 from the inside and begins meditation. Mags is already inside the 12th-floor Housekeeping Room with the door shut. | Same. |
 | 9:06 PM | Pemberton slips into 1221 via the hidden Royal Suite emergency passage. Vance is mid-meditation, eyes closed. Mara is still watching the front door; nobody enters from the hallway. | "Checking the east wing for structural readings." |
 | 9:07 – 9:10 PM | Kills Vance point-blank with the Siren Cell. Takes the Anchor Idol. Stages the "haunting" — slams furniture, simulates a Class-5 manifestation. Noises are audible from the hall and through 1222's shared wall. | "The entity has manifested in 1221 — I'm cutting it off from the perimeter." |
-| 9:10 PM | Stashes the **Anchor Idol inside the spent Siren Cell's now-empty pressure chamber**, then drops the cell down the laundry chute from the hidden/service route (it falls to the basement laundry bin — taking the idol with it). Noises in 1221 stop abruptly. Iris hears the thud from the west-side observation post. | Still on east-side perimeter. |
+| 9:10 PM | Stashes the **Anchor Idol inside the spent Siren Cell's now-empty pressure chamber**, then carries it through the hidden/service route to the **west-side laundry chute** and drops it (it falls to the basement laundry bin — taking the idol with it). Noises in 1221 stop abruptly. Iris hears the thud from the west-side observation post. | "Still trying to cut the entity off from the east side." |
 | 9:11 PM | Iris reports in from the west side and joins Mara at the front door. Mara has maintained visual on 1221's front door the whole time. Pemberton is **not** with them. | Same. |
-| 9:11 – 9:12 PM | Pemberton exits the hidden route back toward the east wing, bypassing the ordinary Housekeeping Room checkpoint where Mags is inside, door shut. | "Closing on the entity through the east-side access." |
-| 9:13 PM | Pemberton emerges from the **east side**, breathing hard, claiming he ran to flank the entity. | "It tried to phase out through the east structural seams — I cut it off but too late." |
+| 9:11 – 9:12 PM | Mara and Iris repeatedly shout for Otis because they cannot break the front door alone. Pemberton moves from the chute area toward the west-side hall, bypassing the ordinary Housekeeping Room checkpoint where Mags is inside, door shut. | "Closing on the entity through the east-side access." |
+| 9:13 PM | Pemberton emerges from the **west side**, breathing hard, answering the team's calls and claiming he had to loop around to flank the entity. | "It crossed through the service route — I cut west to stop it." |
 | 9:14 PM | Team forces the locked front door of 1221. Pemberton performs a theatrical pulse check. Declares "Full-Body Spectral Seizure." | Same. |
 
 ## **3. Character Profiles & Gating**
@@ -104,23 +104,23 @@ A manifested Class-5 entity radiates spectral discharge **omnidirectionally** fr
     - An ordinary **service corridor** runs behind the suites and connects three service spaces:
         - The **12th-floor Housekeeping Room** (a closed-door service room with linens, supplies, and a chair — a known staff hideout). Pemberton's "structural perimeter sweep" assignment explicitly includes a walk-through of this room as a checkpoint. **This is where Mags is hiding, with the door closed, for her entire smoke break.**
         - The visible service spaces near the Royal Suite, which are what staff assume people mean when they say "service corridor."
-        - The **laundry chute access** near the east-side service route.
-    - A concealed **east-side emergency passage** branches around the normal service corridor and into the Royal Suite. This is Pemberton's actual route.
-    - The east-side route lets out into the main hallway from the east end (where Pemberton emerges at 9:13).
-    - **Net effect:** Mara truthfully proves nobody used the Royal Suite's front door. Mags can also say Pemberton never used the ordinary Housekeeping Room checkpoint he claimed to check. The only remaining route is the old emergency passage.
+        - The **laundry chute access** on the west side of the service route.
+    - A concealed **east-side emergency passage** branches around the normal service corridor and into the Royal Suite, then connects through service spaces toward the west-side chute. This is Pemberton's actual route.
+    - The west-side route lets out into the main hallway from the west end (where Pemberton emerges at 9:13).
+    - **Net effect:** Mara truthfully proves nobody used the Royal Suite's front door. Mags can also say Pemberton never used the ordinary Housekeeping Room checkpoint he claimed to check. The suspicious detail is that Pemberton was assigned east but arrived from the west after the team had been shouting his name.
 
 ## The Murder & The "Haunting"
 
 - **9:06 PM:** Pemberton slips into 1221 via the hidden Royal Suite emergency passage. Vance is mid-meditation, eyes closed, unprepared. He doesn't fight back; he barely registers Pemberton's presence before the kill.
 - **9:07 – 9:10 PM:** Pemberton kills Vance with the stolen Siren Cell, takes the Anchor Idol, then stages the haunting — slamming furniture, simulating a Class-5 manifestation. The noise carries into the hallway and through the shared wall into 1222.
-- **9:10 PM:** Pemberton stashes the **Anchor Idol inside the spent Siren Cell's pressure chamber** (now empty, hollow, and conveniently lead-lined — masks the idol from any later PKE sweep), then drops the cell down the laundry chute from the hidden/service route (**The Thud** — Iris hears it from the west-side observation post; the cell falls to the basement laundry bin, idol concealed inside). Noises stop abruptly.
+- **9:10 PM:** Pemberton stashes the **Anchor Idol inside the spent Siren Cell's pressure chamber** (now empty, hollow, and conveniently lead-lined — masks the idol from any later PKE sweep), carries it through the hidden/service route to the west-side laundry chute, and drops it (**The Thud** — Iris hears it from the west-side observation post; the cell falls to the basement laundry bin, idol concealed inside). Noises stop abruptly.
 
 ## The Convergence (The "Wrong Direction" Arrival)
 
-- **9:11 – 9:12 PM:** Mara and Thorne are at the front door of 1221, working on forcing it. The noises have stopped — they assume the "manifestation passed." Mara is adamant that no one used the front door; she has been watching it the whole time. The door is a solid hotel suite door; two people can't breach it cleanly. They're shouldering and prying without success, calling for backup. Pemberton is **not with them** — he's still supposedly checking the east side.
-- **9:13 PM:** Pemberton emerges into the main hallway from the **east side**, breathing hard. **His Excuse:** "It tried to phase out through the east structural seams — I cut it off but it broke back through. Did anyone get a reading?"
+- **9:11 – 9:12 PM:** Mara and Thorne are at the front door of 1221, working on forcing it. The noises have stopped — they assume the "manifestation passed." Mara is adamant that no one used the front door; she has been watching it the whole time. The door is a solid hotel suite door; two people can't breach it cleanly. They shoulder and pry without success, repeatedly shouting for Otis to get over there. Pemberton is **not with them** — he's still supposedly checking the east side.
+- **9:13 PM:** Pemberton emerges into the main hallway from the **west side**, breathing hard, answering the calls. **His Excuse:** "It crossed through the service route — I cut west to stop it, but it broke back through. Did anyone get a reading?"
 - **9:14 PM:** With Pemberton's added weight on the door, the team finally forces it. Pemberton steps in first, performs a fake pulse check, pushes everyone back: *"Stay back — PKE residue is lethal."* Declares: *"Full-Body Spectral Seizure. He was dead before he hit the floor. Class-5 Shadow Stalker — textbook. The idol attracted exactly what we were here to contain."*
-- **The Visual:** The team is reeling from the noise they just heard. They don't question why Pemberton came from the east side because Mara assigned him there. They accept the diagnosis — Pemberton is the team's medical and occult expert, and the rest of the team are hunters, not pathologists.
+- **The Visual:** The team is reeling from the noise they just heard and desperate to get the door open. They register that Pemberton came from the west despite being assigned east, but his "flanking through service routes" explanation sounds plausible in the moment. They accept the diagnosis — Pemberton is the team's medical and occult expert, and the rest of the team are hunters, not pathologists.
 
 ---
 
@@ -140,7 +140,7 @@ A manifested Class-5 entity radiates spectral discharge **omnidirectionally** fr
 ### 3. Dr. Iris Thorne (The Anchor)
 
 - **The Critical Fact:** Thorne was posted to the west-side observation route, close enough to the Royal Suite's shared wall/service spaces to log spillover activity in her field book.
-- **What She Heard:** Manifestation noises through the wall starting ~9:07 PM. A heavy metallic **thud in the walls at ~9:10 PM** (the cell down the chute). She stepped into the hallway at 9:11 PM and watched Pemberton arrive from the **east side at 9:13 PM**.
+- **What She Heard:** Manifestation noises through the wall starting ~9:07 PM. A heavy metallic **thud in the walls at ~9:10 PM** (the cell down the west-side chute). She stepped into the hallway at 9:11 PM and watched Pemberton arrive from the **west side at 9:13 PM**, after Mara had been shouting for him.
 - **What She Gives the Player:** The chute thud (points the detective at the laundry chute) and a clean anchor for the rest of the timeline.
 
 ### 4. Julian Vane (The Rival / Red Herring)
@@ -153,12 +153,12 @@ A manifested Class-5 entity radiates spectral discharge **omnidirectionally** fr
 
 ## Summary of the "Gotcha"
 
-The Detective realizes the "Haunting" was theater, the "manifestation" was Pemberton, and the hidden east-side emergency passage was the whole route.
+The Detective realizes the "Haunting" was theater, the "manifestation" was Pemberton, and the hidden Royal Suite service route carried him from the east-side entry to the west-side chute.
 
-1. Pemberton's corridor-sweep assignment is a roaming cover.
+1. Pemberton's east-wing assignment is a roaming cover.
 2. He uses the Royal Suite's hidden east-side emergency passage, unknown to Vance and unknown to the rest of the team, to slip into 1221 during Vance's locked meditation.
 3. He kills Vance, takes the idol, then stages the "manifestation" noises loud enough for the team to converge on the front door.
-4. He drops the cell down the laundry chute, exits via the same hidden route, and rejoins the team from the east side.
+4. He drops the cell down the west-side laundry chute, exits through the west-side hall, and rejoins the team while they are calling for his help at the front door.
 5. He pronounces Vance dead — "the idol attracted exactly what we were here to contain" — and the team believes their own medical/occult expert.
 
 **The Evidence Stack:**

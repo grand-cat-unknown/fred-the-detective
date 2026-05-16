@@ -6,7 +6,7 @@
 
 Collector **Felix Vance** is found dead in Suite 1221 during a scheduled Ghostbusters **containment watch** over his newly-acquired Anchor Idol — the most spectrally-active piece from a recent occult auction, rated for its capacity to attract other entities. The idol is missing.
 
-**Dr. Otis Pemberton** (a Ghostbuster whose specialties are medical and occult-scholarly work) staged a fake haunting from inside the Royal Suite while the rest of the team waited at their stations. During the theatrics he killed Vance, took the idol, slipped out through a hidden east-side emergency passage he knew from childhood, and rejoined the team from the east side of the hall. When the team forced the locked front door, Pemberton — the obvious person to handle a body that "took a Class-5 hit" — performed the pulse check and pronounced Vance dead from a "spectral seizure."
+**Dr. Otis Pemberton** (a Ghostbuster whose specialties are medical and occult-scholarly work) staged a fake haunting from inside the Royal Suite while the rest of the team waited at their stations. During the theatrics he killed Vance, took the idol, moved through the hidden/service route to the west-side laundry chute, dropped the cell with the idol hidden inside, and rejoined the team from the west side while they were shouting for him to help force the front door. When the team forced the locked front door, Pemberton — the obvious person to handle a body that "took a Class-5 hit" — performed the pulse check and pronounced Vance dead from a "spectral seizure."
 
 ---
 
@@ -24,7 +24,7 @@ Collector **Felix Vance** is found dead in Suite 1221 during a scheduled Ghostbu
 
 - **Role:** Ghostbuster — team specialist in medical and occult scholarship
 - **Motive:** Believes the “Anchor Idol” is too valuable to remain in a private collection; wants it for personal research
-- **Plan:** Take the east-wing watch station as cover. Slip into 1221 through the Royal Suite's hidden east-side emergency passage — a castle-era panic route Vance and the rest of the team don't know about. Kill Vance during his locked 9 PM meditation. Stage a fake "manifestation" loud enough for the team to converge on the front door. Drop the cell down the chute. Slip back out the same hidden route, emerge into the main hall from the east side, rejoin the team at the front door of 1221 (locked from the inside; the team forces it open), and declare Vance the victim of a Class-5 spectral seizure.
+- **Plan:** Take the east-wing watch station as cover. Slip into 1221 through the Royal Suite's hidden east-side emergency passage — a castle-era panic route Vance and the rest of the team don't know about. Kill Vance during his locked 9 PM meditation. Stage a fake "manifestation" loud enough for the team to converge on the front door. Carry the spent cell with the idol hidden inside to the west-side laundry chute and drop it. Emerge into the main hall from the west side while the team is shouting for him, rejoin them at the front door of 1221 (locked from the inside; the team forces it open), and declare Vance the victim of a Class-5 spectral seizure.
 
 ---
 
@@ -32,7 +32,7 @@ Collector **Felix Vance** is found dead in Suite 1221 during a scheduled Ghostbu
 
 - Pemberton uses the stolen Siren Cell as the murder weapon, then uses theater as the cover story.
 - While alone in the suite, he slams furniture and simulates a violent Class-5 manifestation.
-- He does not openly identify himself from inside the room. His cover depends on being absent until he reappears from the east side at 9:13 PM.
+- He does not openly identify himself from inside the room. His cover depends on being absent until he reappears from the west side at 9:13 PM, answering the team's calls for help at the door.
 
 ---
 
@@ -45,10 +45,10 @@ Collector **Felix Vance** is found dead in Suite 1221 during a scheduled Ghostbu
 - **9:00 PM:** Watch begins. Stations: Mara (front of 1221), Theo (gear cart/prep station), Iris (west-side observation route), Pemberton (east-wing structural sweep). Vance locks 1221 from inside. Mags is already inside the Housekeeping Room with the door shut.
 - **9:06 PM:** Pemberton slips into 1221 via the hidden east-side emergency passage. Vance mid-meditation, eyes closed. Mara is still watching the front door, so nobody enters from the main hallway.
 - **9:07 – 9:10 PM:** Kills Vance with a stolen Siren Cell, takes the Anchor Idol, stages the haunting — slamming, simulating a Class-5 manifestation. Noises carry into the hallway and through 1222's shared wall.
-- **9:10 PM:** Stashes the Anchor Idol inside the spent Siren Cell's now-empty pressure chamber, then drops the cell down the laundry chute from the hidden/service route — it falls to the basement laundry bin (idol concealed inside). Noises stop abruptly. Iris hears the thud from the west-side observation route.
+- **9:10 PM:** Stashes the Anchor Idol inside the spent Siren Cell's now-empty pressure chamber, carries it to the west-side laundry chute, then drops it — it falls to the basement laundry bin (idol concealed inside). Noises stop abruptly. Iris hears the thud from the west-side observation route.
 - **9:11 PM:** Iris steps into the main hallway. She converges with Mara at 1221's front door without Pemberton.
-- **9:11 – 9:12 PM:** Pemberton returns through the hidden east-side route, bypassing the ordinary Housekeeping Room checkpoint.
-- **9:13 PM:** Emerges into the main hallway from the east side, breathing hard.
+- **9:11 – 9:12 PM:** Mara and Iris struggle with the locked front door and repeatedly shout for Otis. Pemberton moves from the chute toward the west-side hallway, bypassing the ordinary Housekeeping Room checkpoint.
+- **9:13 PM:** Emerges into the main hallway from the west side, breathing hard.
 - **9:14 PM:** Team forces the locked front door of 1221. Pemberton declares a Full-Body Spectral Seizure.
 
 ### Public Timeline (Pemberton's Alibi)
@@ -62,8 +62,8 @@ Collector **Felix Vance** is found dead in Suite 1221 during a scheduled Ghostbu
 ## Key Physical Evidence
 
 1. **Suite 1221 front door:** Locked by Vance from the inside at the start of his meditation and not opened until 9:14 PM, when the team forced it. Mara watched the front door the whole time. Nobody used it during the murder window — meaning the killer entered another way.
-2. **Hidden east-side emergency passage:** The Royal Suite has a castle-era panic route behind old paneling. Pemberton knows it from growing up around The Grandview with Vivian Marlowe. Vance didn't know it was a door; the rest of the team didn't either.
-3. **East-side passage scuffs:** Fresh scuff marks in the unlit service route match Pemberton's boots and run between the Royal Suite passage and the east-side hallway exit.
+2. **Hidden east-side emergency passage:** The Royal Suite has a castle-era panic route behind old paneling that connects into the service route toward the west-side chute. Pemberton knows it from growing up around The Grandview with Vivian Marlowe. Vance didn't know it was a door; the rest of the team didn't either.
+3. **West-side passage scuffs:** Fresh scuff marks in the unlit service route match Pemberton's boots and run between the Royal Suite passage, the west-side chute, and the west-side hallway exit.
 4. **Spent Siren Cell:** Found in the **basement laundry bin** after going down the chute. Back-pressure valve popped (point-blank discharge). Manual lever flipped. **The Anchor Idol is stashed inside the cell's empty pressure chamber** — Pemberton used the spent cell as both murder weapon and concealment for the stolen idol on the way out.
 5. **Pemberton's gloves:** Dark violet "purge residue" on the **inside** of the fingers, proving he manually emptied the cell at point-blank range. Discarded in a service-hall trash can.
 
@@ -77,15 +77,15 @@ Collector **Felix Vance** is found dead in Suite 1221 during a scheduled Ghostbu
 | Julian Vane | Witness / Rival (Red Herring) | Bribed a maid for a master key to swap the idol during meditation; aborted when the watch team set up. Won't admit any of it — being there with means and motive looks like premeditated murder. |
 | Theo Griggs | Witness / Tech | Noticed a charged Siren Cell was missing from the gear cart. No paperwork ties Pemberton to it, but Theo remembers Pemberton hovering around the cart during prep. |
 | Mara Bell | Witness / Lead | Truthfully held the main hallway/front door. Her testimony rules out front-door entry and makes the hidden route necessary. |
-| Dr. Iris Thorne | Witness / Anchor (Truth-teller) | Manning the west-side observation route. Her field book logs the manifestation noises (~9:07), a heavy thud in the walls (~9:10 — the cell down the chute), and Pemberton arriving from the east side at 9:13. |
+| Dr. Iris Thorne | Witness / Anchor (Truth-teller) | Manning the west-side observation route. Her field book logs the manifestation noises (~9:07), a heavy thud in the walls (~9:10 — the cell down the chute), and Pemberton arriving from the west side at 9:13 after the team shouted for him. |
 | Dottie "Mags" Higgins | Witness / Maid (Negative Witness) | Shut inside the **12th-floor Housekeeping Room** (a known checkpoint on Pemberton's sweep route) from before 9 until past 9:15. A long, forbidden smoke break. **The door never opened.** Pemberton never came through, contradicting his "structural sweep / flanking the entity" alibi. Won't admit she was there (smoking on duty + the earlier bribery she's separately covering up). |
 
 ---
 
 ## Core Contradictions for Accusation
 
-- **The unopened door:** Mags was shut inside the **12th-floor Housekeeping Room** — a named checkpoint on Pemberton's sweep route — from before 9:00 to past 9:15. The door never opened. His "structural PKE sweep" and "flanked the entity through the maintenance access" alibi puts him at a checkpoint a witness can confirm he never entered.
-- **The secret route:** The hidden east-side emergency passage of the Royal Suite — an old castle panic route Vance and the team didn't know about — is how Pemberton entered, killed, exited, and re-entered the main hallway from the east side.
+- **The unopened door:** Mags was shut inside the **12th-floor Housekeeping Room** — a named checkpoint on Pemberton's east-side sweep route — from before 9:00 to past 9:15. The door never opened. His "structural PKE sweep" and "flanked the entity through the service access" alibi puts him at a checkpoint a witness can confirm he never entered.
+- **The secret route:** The hidden east-side emergency passage of the Royal Suite — an old castle panic route Vance and the team didn't know about — is how Pemberton entered, killed, crossed to the west-side chute, and re-entered the main hallway from the west side.
 - **The weapon:** The popped back-pressure valve on the recovered Siren Cell, the circular wound on Vance, and the violet stain inside Pemberton's discarded gloves all indicate a human used a Ghostbusters weapon at point-blank range — not a ghost.
 
 Pemberton is the team's medical and occult specialist — the obvious person to step in over the body. The rest of the team defers to that expertise, which lets him "frame" the cause of death before anyone else even looks at it.
