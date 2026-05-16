@@ -404,5 +404,5 @@ tile_set = ExtResource("2_jabx1")
 
 [node name="props-16" type="TileMapLayer" parent="." unique_id=598569344]
 z_index = 4
-tile_map_data = PackedByteArray("AADh/2MAAQAeACwAAADh/2QAAQAeAC0AAADi/2MAAQAfACwAAADi/2QAAQAfAC0AAADY/2MAAQAqACgAAADY/2QAAQAqACkAAADZ/2MAAQArACgAAADZ/2QAAQArACkAAAA=")
+tile_map_data = PackedByteArray("AADh/2MAAQAeACwAAADh/2QAAQAeAC0AAADi/2MAAQAfACwAAADi/2QAAQAfAC0AAADY/2QAAQAqACgAAADZ/2QAAQArACgAAADY/2UAAQAqACkAAADZ/2UAAQArACkAAAA=")
 tile_set = ExtResource("2_80043")

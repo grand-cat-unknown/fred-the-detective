@@ -21,6 +21,7 @@ const COVER_LAYERS := {
 const COVER_OPAQUE_ALPHA := 1.0
 const COVER_REVEAL_ALPHA := 0.3
 const COVER_FADE_SECONDS := 0.15
+const ACTOR_BLOCKING_FOOT_OFFSET := Vector2(0.0, TileMap2D.TILE_SIZE * 0.5 - 1.0)
 
 var background_color := Palette.BACKGROUND:
 	set(value):
@@ -135,17 +136,19 @@ func _layer(layer_name: String) -> TileMapLayer:
 
 
 func _layer_has_cell_in_world_tile(layer: TileMapLayer, tile_position: Vector2i) -> bool:
-	var world_tile_rect := Rect2(
-		Vector2(tile_position) * TileMap2D.TILE_SIZE,
-		Vector2(TileMap2D.TILE_SIZE, TileMap2D.TILE_SIZE)
-	)
-	var start_cell := layer.local_to_map(world_tile_rect.position + Vector2(0.001, 0.001))
-	var end_cell := layer.local_to_map(world_tile_rect.end - Vector2(0.001, 0.001))
-	for y in range(mini(start_cell.y, end_cell.y), maxi(start_cell.y, end_cell.y) + 1):
-		for x in range(mini(start_cell.x, end_cell.x), maxi(start_cell.x, end_cell.x) + 1):
-			if layer.get_cell_source_id(Vector2i(x, y)) != -1:
-				return true
-	return false
+	if _uses_world_tile_sized_cells(layer):
+		return layer.get_cell_source_id(tile_position) != -1
+
+	var tile_center := TileMap2D.tile_to_world_center(tile_position)
+	var foot_cell := layer.local_to_map(tile_center + ACTOR_BLOCKING_FOOT_OFFSET)
+	return layer.get_cell_source_id(foot_cell) != -1
+
+
+func _uses_world_tile_sized_cells(layer: TileMapLayer) -> bool:
+	if layer.tile_set == null:
+		return true
+	var tile_size := Vector2(layer.tile_set.tile_size)
+	return tile_size.x >= TileMap2D.TILE_SIZE and tile_size.y >= TileMap2D.TILE_SIZE
 
 
 func _get_custom_data(tile_set: TileSet, tile_data: TileData, data_name: String) -> String:
