@@ -15,7 +15,7 @@ const INSPECT_OBJECT_ID_DATA := "inspect_object_id"
 
 const COVER_LAYER := "PanicHallwayCover"
 const COVER_OPAQUE_ALPHA := 1.0
-const COVER_REVEAL_ALPHA := 0.1
+const COVER_REVEAL_ALPHA := 0.3
 const COVER_FADE_SECONDS := 0.15
 
 var background_color := Palette.BACKGROUND:
