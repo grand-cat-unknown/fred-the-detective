@@ -4,11 +4,11 @@ extends Node2D
 
 @export var target_portal: NodePath
 @export var enabled := true
-@export var snap_to_map_grid := false:
+@export var snap_to_map_grid := true:
 	set(value):
 		snap_to_map_grid = value
 		if snap_to_map_grid and Engine.is_editor_hint():
-			snap_to_tile(_find_world_map())
+			_snap_in_editor()
 @export var draw_marker := true:
 	set(value):
 		draw_marker = value
@@ -17,6 +17,18 @@ extends Node2D
 	set(value):
 		marker_color = value
 		queue_redraw()
+
+var _is_snapping := false
+
+
+func _ready() -> void:
+	set_notify_transform(true)
+
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_TRANSFORM_CHANGED and Engine.is_editor_hint():
+		_snap_in_editor()
+
 
 func get_tile(world_map: WorldMap) -> Vector2i:
 	if world_map != null:
@@ -61,3 +73,14 @@ func _find_world_map() -> WorldMap:
 		if child is WorldMap:
 			return child
 	return null
+
+
+func _snap_in_editor() -> void:
+	if not snap_to_map_grid or _is_snapping or position == Vector2.ZERO:
+		return
+	var world_map := _find_world_map()
+	if world_map == null:
+		return
+	_is_snapping = true
+	snap_to_tile(world_map)
+	_is_snapping = false

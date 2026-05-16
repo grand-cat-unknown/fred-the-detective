@@ -10,9 +10,15 @@ extends Node2D
 @export_group("Editor Preview")
 @export var preview_name := ""
 @export var preview_texture: Texture2D
+@export var snap_to_map_grid := true:
+	set(value):
+		snap_to_map_grid = value
+		if snap_to_map_grid and Engine.is_editor_hint():
+			_snap_in_editor()
 
 var suspect: SuspectData
 var face_direction := Vector2i(1, 0)
+var _is_snapping := false
 
 
 func get_tile() -> Vector2i:
@@ -50,9 +56,7 @@ func _ready() -> void:
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_TRANSFORM_CHANGED and Engine.is_editor_hint():
-		var snapped_pos := TileMap2D.tile_to_world_center(TileMap2D.world_to_tile(position))
-		if position != snapped_pos:
-			position = snapped_pos
+		_snap_in_editor()
 
 
 func configure(new_suspect: SuspectData) -> void:
@@ -109,3 +113,36 @@ func _find_default_suspect(id: StringName) -> SuspectData:
 		if default_suspect.id == id:
 			return default_suspect
 	return null
+
+
+func snap_to_tile(world_map: WorldMap = null) -> void:
+	var snapped_pos := _snapped_position(world_map)
+	if position != snapped_pos:
+		position = snapped_pos
+
+
+func _snapped_position(world_map: WorldMap = null) -> Vector2:
+	if world_map == null:
+		return TileMap2D.tile_to_world_center(TileMap2D.world_to_tile(position))
+	return world_map.tile_to_world(world_map.world_to_tile(position))
+
+
+func _find_world_map() -> WorldMap:
+	var node := get_parent()
+	if node == null:
+		return null
+	for child in node.get_children():
+		if child is WorldMap:
+			return child
+	return null
+
+
+func _snap_in_editor() -> void:
+	if not snap_to_map_grid or _is_snapping or position == Vector2.ZERO:
+		return
+	var world_map := _find_world_map()
+	if world_map == null:
+		return
+	_is_snapping = true
+	snap_to_tile(world_map)
+	_is_snapping = false
