@@ -7,6 +7,7 @@ extends CanvasLayer
 
 var _case: CaseData
 var _state: CaseState
+var _active_items: Array[Dictionary] = []
 
 
 func _ready() -> void:
@@ -26,24 +27,29 @@ func configure(case: CaseData, state: CaseState) -> void:
 func refresh() -> void:
 	for child in _list.get_children():
 		child.queue_free()
+	_active_items.clear()
 
 	if _case == null or _state == null:
 		_panel.visible = false
 		_root.visible = false
 		return
 
-	var any_visible := false
 	for item in _case.inventory_items:
 		if item == null or not item.has_method("resolve"):
 			continue
 		var resolved: Dictionary = item.call("resolve", _state)
 		if resolved.is_empty():
 			continue
+		_active_items.append(resolved)
 		_list.add_child(_make_row(resolved))
-		any_visible = true
 
+	var any_visible := not _active_items.is_empty()
 	_panel.visible = any_visible
 	_root.visible = any_visible
+
+
+func get_active_items() -> Array[Dictionary]:
+	return _active_items
 
 
 func _make_row(resolved: Dictionary) -> Control:
@@ -63,11 +69,43 @@ func _make_row(resolved: Dictionary) -> Control:
 	label.text = str(resolved.get("label", ""))
 	label.add_theme_color_override("font_color", Color(0.95, 0.88, 0.65, 1))
 	label.add_theme_font_size_override("font_size", 14)
+	label.size_flags_horizontal = Control.SIZE_EXPAND_FILL
 	var tooltip := str(resolved.get("description", ""))
 	if tooltip != "":
 		label.tooltip_text = tooltip
 	row.add_child(label)
+
+	var key_hint := str(resolved.get("action_key_hint", "")).strip_edges()
+	if key_hint != "":
+		row.add_child(_make_key_chip(key_hint))
 	return row
+
+
+func _make_key_chip(text: String) -> Control:
+	var chip := PanelContainer.new()
+	var style := StyleBoxFlat.new()
+	style.bg_color = Color(0.18, 0.2, 0.23, 1.0)
+	style.border_color = Color(0.85, 0.78, 0.55, 1.0)
+	style.border_width_left = 1
+	style.border_width_top = 1
+	style.border_width_right = 1
+	style.border_width_bottom = 1
+	style.corner_radius_top_left = 4
+	style.corner_radius_top_right = 4
+	style.corner_radius_bottom_left = 4
+	style.corner_radius_bottom_right = 4
+	style.content_margin_left = 6
+	style.content_margin_right = 6
+	style.content_margin_top = 1
+	style.content_margin_bottom = 1
+	chip.add_theme_stylebox_override("panel", style)
+
+	var key_label := Label.new()
+	key_label.text = text
+	key_label.add_theme_color_override("font_color", Color(0.95, 0.88, 0.65, 1))
+	key_label.add_theme_font_size_override("font_size", 12)
+	chip.add_child(key_label)
+	return chip
 
 
 func _on_fact_changed(_fact_id: StringName, _value: bool) -> void:

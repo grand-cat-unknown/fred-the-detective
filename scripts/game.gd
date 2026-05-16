@@ -4,6 +4,7 @@ extends Node2D
 @onready var _inspect_panel: InspectPanel = %InspectPanel
 @onready var _dialogue_panel: DialoguePanel = %DialoguePanel
 @onready var _inventory_panel: InventoryPanel = %InventoryPanel
+@onready var _book_panel: BookPanel = %BookPanel
 
 var _llm: LLMClient
 var _effect_llm: LLMClient
@@ -65,6 +66,15 @@ func _unhandled_input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 		return
 
+	if _book_panel.is_open():
+		if _book_panel.handle_input_event(event):
+			get_viewport().set_input_as_handled()
+		return
+
+	if _try_trigger_inventory_action(event):
+		get_viewport().set_input_as_handled()
+		return
+
 	if not event.is_action_pressed("interact"):
 		return
 
@@ -93,9 +103,25 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _process(delta: float) -> void:
-	if _inspect_panel.is_open() or _dialogue_panel.is_open():
+	if _inspect_panel.is_open() or _dialogue_panel.is_open() or _book_panel.is_open():
 		return
 	_world.update_player_movement(delta, _get_pressed_tile_direction())
+
+
+func _try_trigger_inventory_action(event: InputEvent) -> bool:
+	for item in _inventory_panel.get_active_items():
+		var action_input := StringName(item.get("action_input", &""))
+		if action_input == &"" or not InputMap.has_action(action_input):
+			continue
+		if not event.is_action_pressed(action_input):
+			continue
+		var kind := StringName(item.get("action_kind", &""))
+		if kind == &"book":
+			var title := str(item.get("book_title", item.get("label", "")))
+			var pages: Array = item.get("book_pages", [])
+			_book_panel.open(title, pages)
+			return true
+	return false
 
 
 func _open_dialogue_with(suspect: SuspectData) -> void:

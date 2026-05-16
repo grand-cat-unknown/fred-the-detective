@@ -13,6 +13,18 @@ script = ExtResource("3_state")
 condition = SubResource("GateCondition_has_field_book")
 label = "Field Book"
 description = "Theo's Ghostbusters field book."
+action_input = &"open_field_book"
+action_key_hint = "Q"
+action_kind = &"book"
+book_title = "Theo's Field Book"
+book_pages = Array[String]([
+"[b]Theo's Ghostbusters Field Book[/b]\n\nProperty of Theo. If found, please return — there are notes in here I can't afford to lose.\n\nThe goal of this book is simple: catalogue every odd thing I see in this town and figure out which ones are actually ghosts.",
+"[b]Rule 1.[/b] If it makes the air cold, write it down.\n[b]Rule 2.[/b] If it makes the dog bark at nothing, write it down.\n[b]Rule 3.[/b] If it makes a grown-up suddenly change the subject, definitely write it down.",
+"[b]Suspects so far[/b]\n\n• The lighthouse keeper — always near the bluffs after dark.\n• The librarian — knows more about the old town hall fire than she lets on.\n• That guy at the diner — claims he hears footsteps upstairs every night.",
+"[b]Field notes[/b]\n\nThe attic at the boarding house felt twelve degrees colder than the hallway. My pocket watch stopped at 3:11 AM exactly.\n\nIf I see 3:11 one more time I'm going to lose it.",
+"[b]Equipment checklist[/b]\n\n— Flashlight (working)\n— Notebook (this one)\n— Salt packet from the diner\n— Half a chocolate bar (emergency rations)\n— Courage (intermittent)",
+"[b]Reminders[/b]\n\nAsk Fred about the symbol on the cellar door.\nCheck the church bell rope — someone's been ringing it at odd hours.\nDo NOT go back to the bluffs alone."
+])
 
 [resource]
 script = ExtResource("1_definition")
