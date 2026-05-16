@@ -106,21 +106,12 @@ func _collect_tile_layers() -> void:
 
 
 func _verify_layer_alignment() -> void:
-	var floor_layer := _layer(FLOOR_LAYER)
-	var floor_rect: Rect2i = floor_layer.get_used_rect() if floor_layer != null else Rect2i()
 	for layer_name in _tile_layers:
 		var layer := _tile_layers[layer_name] as TileMapLayer
 		if layer.position != Vector2.ZERO:
-			push_error("TileMapLayer '%s' has non-zero position %s — all layers must sit at (0, 0) so they share a tile grid." % [layer_name, layer.position])
+			push_error("TileMapLayer '%s' has non-zero position %s — keep layers at (0, 0) so world->tile math stays consistent." % [layer_name, layer.position])
 		if layer.transform != Transform2D.IDENTITY:
-			push_error("TileMapLayer '%s' has a non-identity transform — all layers must share an identical transform to stay grid-aligned." % layer_name)
-		if floor_layer == null or layer == floor_layer:
-			continue
-		var rect := layer.get_used_rect()
-		if rect.size == Vector2i.ZERO:
-			continue
-		if not floor_rect.intersects(rect):
-			push_error("TileMapLayer '%s' cells %s do not overlap Floor %s — painted in the wrong grid region." % [layer_name, rect, floor_rect])
+			push_error("TileMapLayer '%s' has a non-identity transform — keep layers untransformed so world->tile math stays consistent." % layer_name)
 
 
 func _layer(layer_name: String) -> TileMapLayer:

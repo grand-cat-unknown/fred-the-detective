@@ -16,6 +16,7 @@
 [node name="World" type="Node2D" unique_id=1805681752]
 position = Vector2(460, 287)
 script = ExtResource("1_world")
+metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1916203111]
 position = Vector2(512, 288)
