@@ -5,8 +5,8 @@ Super simple Godot 4 detective game for web export.
 ## Play loop
 
 - Move Fred with arrow keys or WASD.
-- Press E near clues to inspect evidence.
-- Press E near suspects to question them.
+- Press Space near clues to inspect evidence.
+- Press Space near suspects to question them.
 - Once you have inspected evidence and questioned at least one suspect, make an accusation, choose the key clue, and write the theory that ties it together.
 
 ## Run in Godot
