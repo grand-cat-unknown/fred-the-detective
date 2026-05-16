@@ -2,18 +2,31 @@
 class_name WorldMap
 extends Node2D
 
-const FLOOR_LAYER := "Floor"
+const WALKABLE_LAYERS := {
+	"Floor": true,
+	"Rooms": true,
+	"PanicHallwayEntrance": true,
+	"Carpets": true,
+	"RoomCover": true,
+	"PanicHallwayCover": true,
+	"Doors": true,
+	"WeirdSplatter": true,
+}
 const BLOCKING_LAYERS := {
 	"Walls": true,
 	"furniture": true,
-	"accessoriy-props": true,
+	"Ghostbusters": true,
+	"Props": true,
 	"Deadbody": true,
 }
 const INSPECT_TITLE_DATA := "inspect_title"
 const INSPECT_DESCRIPTION_DATA := "inspect_description"
 const INSPECT_OBJECT_ID_DATA := "inspect_object_id"
 
-const COVER_LAYER := "PanicHallwayCover"
+const COVER_LAYERS := {
+	"RoomCover": true,
+	"PanicHallwayCover": true,
+}
 const COVER_OPAQUE_ALPHA := 1.0
 const COVER_REVEAL_ALPHA := 0.3
 const COVER_FADE_SECONDS := 0.15
@@ -24,7 +37,7 @@ var background_color := Palette.BACKGROUND:
 		queue_redraw()
 
 var _tile_layers: Dictionary = {}
-var _cover_tween: Tween
+var _cover_tweens: Dictionary = {}
 
 
 func _ready() -> void:
@@ -33,32 +46,40 @@ func _ready() -> void:
 
 
 func is_walkable(tile_position: Vector2i) -> bool:
-	var floor_layer := _layer(FLOOR_LAYER)
-	if floor_layer == null or floor_layer.get_cell_source_id(tile_position) == -1:
-		return false
-
 	for layer_name in _tile_layers:
-		if layer_name == FLOOR_LAYER or not BLOCKING_LAYERS.has(layer_name):
+		if not BLOCKING_LAYERS.has(layer_name):
 			continue
 		var blocking_layer := _tile_layers[layer_name] as TileMapLayer
 		if blocking_layer.get_cell_source_id(tile_position) != -1:
 			return false
 
-	return true
+	for layer_name in WALKABLE_LAYERS:
+		var walkable_layer := _layer(layer_name)
+		if walkable_layer != null and walkable_layer.get_cell_source_id(tile_position) != -1:
+			return true
+
+	return false
 
 
 func update_cover_visibility(player_tile: Vector2i) -> void:
-	var cover := _layer(COVER_LAYER)
+	for layer_name in COVER_LAYERS:
+		_update_cover_layer_visibility(layer_name, player_tile)
+
+
+func _update_cover_layer_visibility(layer_name: String, player_tile: Vector2i) -> void:
+	var cover := _layer(layer_name)
 	if cover == null:
 		return
 	var on_cover := cover.get_cell_source_id(player_tile) != -1
 	var target_alpha := COVER_REVEAL_ALPHA if on_cover else COVER_OPAQUE_ALPHA
 	if is_equal_approx(cover.modulate.a, target_alpha):
 		return
-	if _cover_tween != null and _cover_tween.is_valid():
-		_cover_tween.kill()
-	_cover_tween = create_tween()
-	_cover_tween.tween_property(cover, "modulate:a", target_alpha, COVER_FADE_SECONDS)
+	var cover_tween := _cover_tweens.get(layer_name) as Tween
+	if cover_tween != null and cover_tween.is_valid():
+		cover_tween.kill()
+	cover_tween = create_tween()
+	_cover_tweens[layer_name] = cover_tween
+	cover_tween.tween_property(cover, "modulate:a", target_alpha, COVER_FADE_SECONDS)
 
 
 func tile_to_world(tile_position: Vector2i) -> Vector2:
@@ -100,9 +121,14 @@ func _draw() -> void:
 
 func _collect_tile_layers() -> void:
 	_tile_layers.clear()
-	for child in get_children():
+	_collect_tile_layers_from(self)
+
+
+func _collect_tile_layers_from(parent: Node) -> void:
+	for child in parent.get_children():
 		if child is TileMapLayer:
 			_tile_layers[child.name] = child
+		_collect_tile_layers_from(child)
 
 
 func _verify_layer_alignment() -> void:
