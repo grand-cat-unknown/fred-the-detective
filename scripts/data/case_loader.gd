@@ -9,12 +9,14 @@ const SUSPECT_DIR := "res://assets/suspects"
 const FACT_IDS := [
 	&"theo_granted_field_book_permission",
 	&"has_field_book",
+	&"has_evidence",
 ]
 const INTERACTABLE_IDS := [
 	&"theo_field_book",
 ]
 const INVENTORY_IDS := [
 	&"theo_field_book",
+	&"evidence",
 ]
 const SUSPECT_IDS := [
 	&"mara",

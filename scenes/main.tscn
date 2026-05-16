@@ -6,6 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://dnr7gsrmw6o3s" path="res://scenes/ui/dialogue_panel.tscn" id="10_dialogue"]
 [ext_resource type="PackedScene" uid="uid://b0fredinvuipanel" path="res://scenes/ui/inventory_panel.tscn" id="11_inventory"]
 [ext_resource type="PackedScene" uid="uid://b0fredbookui1" path="res://scenes/ui/book_panel.tscn" id="12_book"]
+[ext_resource type="PackedScene" uid="uid://b0fredevidenceui1" path="res://scenes/ui/evidence_panel.tscn" id="13_evidence"]
 
 [node name="Game" type="Node2D" unique_id=744785900]
 script = ExtResource("1_game")
@@ -23,4 +24,7 @@ unique_name_in_owner = true
 unique_name_in_owner = true
 
 [node name="BookPanel" parent="." unique_id=629103847 instance=ExtResource("12_book")]
+unique_name_in_owner = true
+
+[node name="EvidencePanel" parent="." unique_id=629103848 instance=ExtResource("13_evidence")]
 unique_name_in_owner = true

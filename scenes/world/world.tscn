@@ -15,6 +15,17 @@
 [ext_resource type="Texture2D" uid="uid://86ddjl53th36" path="res://assets/art/characters/hs_retro/Char 26_A.png" id="12_c7ath"]
 [ext_resource type="Script" uid="uid://bwvuwswe6e3o0" path="res://scripts/world/stair_portal.gd" id="13_srmg5"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_interaction_prompt"]
+bg_color = Color(0, 0, 0, 0.82)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+content_margin_left = 14.0
+content_margin_top = 8.0
+content_margin_right = 14.0
+content_margin_bottom = 8.0
+
 [node name="World" type="Node2D" unique_id=1805681752]
 position = Vector2(460, 287)
 script = ExtResource("1_world")
@@ -23,18 +34,40 @@ metadata/_edit_lock_ = true
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1916203111]
 position = Vector2(512, 288)
 
-[node name="InteractionPrompt" type="Label" parent="."]
+[node name="InteractionPromptLayer" type="CanvasLayer" parent="."]
+layer = 9
+
+[node name="Root" type="Control" parent="InteractionPromptLayer"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+
+[node name="PromptContainer" type="PanelContainer" parent="InteractionPromptLayer/Root"]
 visible = false
-z_index = 100
-offset_left = -72.0
-offset_top = -10.0
-offset_right = 72.0
-offset_bottom = 10.0
+layout_mode = 1
+anchors_preset = 10
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -140.0
+offset_top = -68.0
+offset_right = 140.0
+offset_bottom = -32.0
+grow_horizontal = 2
+grow_vertical = 0
+mouse_filter = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_interaction_prompt")
+
+[node name="Prompt" type="Label" parent="InteractionPromptLayer/Root/PromptContainer"]
+layout_mode = 2
 mouse_filter = 2
 theme_override_colors/font_color = Color(1, 0.96, 0.82, 1)
 theme_override_colors/font_outline_color = Color(0.06, 0.06, 0.08, 0.95)
 theme_override_constants/outline_size = 4
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 15
 text = "Press Space to interact"
 horizontal_alignment = 1
 

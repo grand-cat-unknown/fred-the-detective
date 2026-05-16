@@ -17,6 +17,11 @@ extends Resource
 @export var book_title: String = ""
 @export_multiline var book_pages: Array[String] = []
 
+@export_group("Evidence")
+@export var evidence_title: String = ""
+@export var evidence_image: Texture2D
+@export_multiline var evidence_description: String = ""
+
 
 func is_available(state: CaseState) -> bool:
 	return condition == null or condition.is_met(state)
@@ -32,4 +37,7 @@ func to_dictionary() -> Dictionary:
 		"action_kind": action_kind,
 		"book_title": book_title,
 		"book_pages": book_pages,
+		"evidence_title": evidence_title,
+		"evidence_image": evidence_image,
+		"evidence_description": evidence_description,
 	}

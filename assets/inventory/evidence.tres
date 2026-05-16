@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="InventoryItemDefinition" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/inventory_item_definition.gd" id="1_definition"]
+[ext_resource type="Script" uid="uid://dy1gfjjj466vx" path="res://scripts/data/gate_condition.gd" id="2_condition"]
+[ext_resource type="Script" path="res://scripts/data/inventory_item_state.gd" id="3_state"]
+[ext_resource type="Texture2D" uid="uid://dmrvg2yq0ki2b" path="res://assets/art/environments/evidence_original.png" id="4_image"]
+
+[sub_resource type="Resource" id="GateCondition_has_evidence"]
+script = ExtResource("2_condition")
+all_of = Array[StringName]([&"has_evidence"])
+
+[sub_resource type="Resource" id="InventoryItemState_evidence"]
+script = ExtResource("3_state")
+condition = SubResource("GateCondition_has_evidence")
+label = "Evidence"
+description = "A piece of evidence Fred has collected."
+action_input = &"open_evidence"
+action_key_hint = "E"
+action_kind = &"evidence"
+evidence_title = "Evidence"
+evidence_image = ExtResource("4_image")
+evidence_description = "[b]Evidence[/b]
+
+A grainy photograph pulled from a dusty drawer. The figure in the background is blurred, but the timestamp in the corner reads 3:11 AM — the same time Theo wrote down in his field book.
+
+Whoever was here that night didn't want to be seen."
+
+[resource]
+script = ExtResource("1_definition")
+item_id = &"evidence"
+states = [SubResource("InventoryItemState_evidence")]

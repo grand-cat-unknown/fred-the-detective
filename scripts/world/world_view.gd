@@ -3,7 +3,6 @@ class_name WorldView
 extends Node2D
 
 const INTERACTION_PROMPT_TEXT := "Press Space to interact"
-const INTERACTION_PROMPT_OFFSET := Vector2(0.0, -30.0)
 
 @export_group("Movement")
 @export_range(60.0, 600.0, 5.0, "or_greater") var player_speed := Gameplay.PLAYER_SPEED:
@@ -41,7 +40,8 @@ const INTERACTION_PROMPT_OFFSET := Vector2(0.0, -30.0)
 		player_texture = value
 		_apply_palette()
 
-@onready var _interaction_prompt: Label = $InteractionPrompt
+@onready var _interaction_prompt_container: PanelContainer = $InteractionPromptLayer/Root/PromptContainer
+@onready var _interaction_prompt: Label = $InteractionPromptLayer/Root/PromptContainer/Prompt
 
 var case_data: CaseData
 var case_state: CaseState
@@ -60,8 +60,8 @@ var _interaction_prompt_enabled := true
 func _ready() -> void:
 	if Engine.is_editor_hint() and case_data == null:
 		configure(CaseLoader.load_default())
-	if _interaction_prompt != null:
-		_interaction_prompt.visible = false
+	if _interaction_prompt_container != null:
+		_interaction_prompt_container.visible = false
 
 
 func _process(_delta: float) -> void:
@@ -252,16 +252,17 @@ func _update_interaction_prompt() -> void:
 	if _interaction_prompt == null:
 		return
 	if not _interaction_prompt_enabled:
-		_interaction_prompt.visible = false
+		if _interaction_prompt_container != null:
+			_interaction_prompt_container.visible = false
 		return
 	var target := find_interaction_target_at_player()
 	if target == null:
-		_interaction_prompt.visible = false
+		if _interaction_prompt_container != null:
+			_interaction_prompt_container.visible = false
 		return
 	_interaction_prompt.text = INTERACTION_PROMPT_TEXT
-	var prompt_size := _interaction_prompt.get_combined_minimum_size()
-	_interaction_prompt.position = target.position + INTERACTION_PROMPT_OFFSET + Vector2(-prompt_size.x * 0.5, 0.0)
-	_interaction_prompt.visible = true
+	if _interaction_prompt_container != null:
+		_interaction_prompt_container.visible = true
 
 
 func _rebuild_content() -> void:

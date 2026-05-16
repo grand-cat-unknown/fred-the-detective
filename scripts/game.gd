@@ -5,6 +5,7 @@ extends Node2D
 @onready var _dialogue_panel: DialoguePanel = %DialoguePanel
 @onready var _inventory_panel: InventoryPanel = %InventoryPanel
 @onready var _book_panel: BookPanel = %BookPanel
+@onready var _evidence_panel: EvidencePanel = %EvidencePanel
 
 var _llm: LLMClient
 var _effect_llm: LLMClient
@@ -71,39 +72,43 @@ func _unhandled_input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 		return
 
+	if _evidence_panel.is_open():
+		if _evidence_panel.handle_input_event(event):
+			get_viewport().set_input_as_handled()
+		return
+
+	if event.is_action_pressed("interact"):
+		var npc := _world.find_npc_at_player()
+		if npc != null and npc.suspect != null:
+			_open_dialogue_with(npc.suspect)
+			get_viewport().set_input_as_handled()
+			return
+
+		var inspection := _world.find_inspection_at_player()
+		if not inspection.is_empty():
+			var action_label := str(inspection.get("action_label", "")).strip_edges()
+			if action_label != "":
+				_inspect_panel.show_action(
+					str(inspection["title"]),
+					str(inspection["description"]),
+					action_label,
+					str(inspection.get("action_prompt", "")),
+					inspection.get("action_effects", [])
+				)
+			else:
+				_inspect_panel.show_text(str(inspection["title"]), str(inspection["description"]))
+			if _case_state != null:
+				_case_state.apply_effects(inspection.get("effects", []))
+			get_viewport().set_input_as_handled()
+			return
+
 	if _try_trigger_inventory_action(event):
 		get_viewport().set_input_as_handled()
 		return
 
-	if not event.is_action_pressed("interact"):
-		return
-
-	var npc := _world.find_npc_at_player()
-	if npc != null and npc.suspect != null:
-		_open_dialogue_with(npc.suspect)
-		get_viewport().set_input_as_handled()
-		return
-
-	var inspection := _world.find_inspection_at_player()
-	if not inspection.is_empty():
-		var action_label := str(inspection.get("action_label", "")).strip_edges()
-		if action_label != "":
-			_inspect_panel.show_action(
-				str(inspection["title"]),
-				str(inspection["description"]),
-				action_label,
-				str(inspection.get("action_prompt", "")),
-				inspection.get("action_effects", [])
-			)
-		else:
-			_inspect_panel.show_text(str(inspection["title"]), str(inspection["description"]))
-		if _case_state != null:
-			_case_state.apply_effects(inspection.get("effects", []))
-		get_viewport().set_input_as_handled()
-
 
 func _process(delta: float) -> void:
-	var panels_open := _inspect_panel.is_open() or _dialogue_panel.is_open() or _book_panel.is_open()
+	var panels_open: bool = _inspect_panel.is_open() or _dialogue_panel.is_open() or _book_panel.is_open() or _evidence_panel.is_open()
 	_world.set_interaction_prompt_enabled(not panels_open)
 	if panels_open:
 		return
@@ -122,6 +127,12 @@ func _try_trigger_inventory_action(event: InputEvent) -> bool:
 			var title := str(item.get("book_title", item.get("label", "")))
 			var pages: Array = item.get("book_pages", [])
 			_book_panel.open(title, pages)
+			return true
+		if kind == &"evidence":
+			var title := str(item.get("evidence_title", item.get("label", "")))
+			var image: Texture2D = item.get("evidence_image")
+			var description := str(item.get("evidence_description", item.get("description", "")))
+			_evidence_panel.open(title, image, description)
 			return true
 	return false
 
