@@ -41,7 +41,7 @@ func is_walkable(tile_position: Vector2i) -> bool:
 		if not BLOCKING_LAYERS.has(layer_name):
 			continue
 		var blocking_layer := _tile_layers[layer_name] as TileMapLayer
-		if blocking_layer.get_cell_source_id(tile_position) != -1:
+		if _layer_has_cell_in_world_tile(blocking_layer, tile_position):
 			return false
 
 	return true
@@ -107,7 +107,7 @@ func _draw() -> void:
 
 func _collect_tile_layers() -> void:
 	_tile_layers.clear()
-	_collect_tile_layers_from(self )
+	_collect_tile_layers_from(self)
 
 
 func _collect_tile_layers_from(parent: Node) -> void:
@@ -132,6 +132,20 @@ func _layer(layer_name: String) -> TileMapLayer:
 	if not _tile_layers.has(layer_name):
 		return null
 	return _tile_layers[layer_name]
+
+
+func _layer_has_cell_in_world_tile(layer: TileMapLayer, tile_position: Vector2i) -> bool:
+	var world_tile_rect := Rect2(
+		Vector2(tile_position) * TileMap2D.TILE_SIZE,
+		Vector2(TileMap2D.TILE_SIZE, TileMap2D.TILE_SIZE)
+	)
+	var start_cell := layer.local_to_map(world_tile_rect.position + Vector2(0.001, 0.001))
+	var end_cell := layer.local_to_map(world_tile_rect.end - Vector2(0.001, 0.001))
+	for y in range(mini(start_cell.y, end_cell.y), maxi(start_cell.y, end_cell.y) + 1):
+		for x in range(mini(start_cell.x, end_cell.x), maxi(start_cell.x, end_cell.x) + 1):
+			if layer.get_cell_source_id(Vector2i(x, y)) != -1:
+				return true
+	return false
 
 
 func _get_custom_data(tile_set: TileSet, tile_data: TileData, data_name: String) -> String:
