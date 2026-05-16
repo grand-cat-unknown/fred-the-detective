@@ -546,6 +546,7 @@ texture = ExtResource("48_80043")
 1:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_8yxgw"]
+tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_sloqf")
 sources/1 = SubResource("TileSetAtlasSource_t1rse")
 sources/2 = SubResource("TileSetAtlasSource_2lmj1")
@@ -1059,6 +1060,7 @@ texture = ExtResource("27_lbaiu")
 1:1/0 = 0
 
 [sub_resource type="TileSet" id="TileSet_rsffu"]
+tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_we3bw")
 sources/1 = SubResource("TileSetAtlasSource_kaib1")
 sources/2 = SubResource("TileSetAtlasSource_n6hmn")
