@@ -2,23 +2,17 @@ class_name AccusePanel
 extends CanvasLayer
 
 signal accusation_resolved(success: bool, message: String)
-
-const CORRECT_KILLER := &"otis"
-const CORRECT_METHOD := &"containment_cell"
-const CORRECT_EVIDENCE := &"recovered_cell"
-const REQUIRED_EVIDENCE_FACT := &"has_evidence"
+signal accusation_submitted(killer_id: StringName, killer_label: String, method_text: String, evidence_text: String)
 
 @onready var _root: Control = $Root
 @onready var _accuse_button: Button = $Root/AccuseButton
 @onready var _modal: Control = $Root/Modal
 @onready var _killer_options: OptionButton = $Root/Modal/Panel/Margin/VBox/Slots/KillerRow/KillerOptions
-@onready var _method_options: OptionButton = $Root/Modal/Panel/Margin/VBox/Slots/MethodRow/MethodOptions
-@onready var _evidence_options: OptionButton = $Root/Modal/Panel/Margin/VBox/Slots/EvidenceRow/EvidenceOptions
+@onready var _method_input: TextEdit = $Root/Modal/Panel/Margin/VBox/Slots/MethodRow/MethodInput
+@onready var _evidence_input: TextEdit = $Root/Modal/Panel/Margin/VBox/Slots/EvidenceRow/EvidenceInput
 @onready var _result_label: RichTextLabel = $Root/Modal/Panel/Margin/VBox/Result
 @onready var _submit_button: Button = $Root/Modal/Panel/Margin/VBox/Actions/SubmitButton
 @onready var _close_button: Button = $Root/Modal/Panel/Margin/VBox/Actions/CloseButton
-
-var _state: CaseState
 
 
 func _ready() -> void:
@@ -29,8 +23,8 @@ func _ready() -> void:
 	_close_button.pressed.connect(hide_panel)
 
 
-func configure(state: CaseState) -> void:
-	_state = state
+func configure(_state: CaseState) -> void:
+	pass
 
 
 func set_accuse_button_enabled(enabled: bool) -> void:
@@ -40,6 +34,7 @@ func set_accuse_button_enabled(enabled: bool) -> void:
 
 func open() -> void:
 	_result_label.text = ""
+	set_busy(false)
 	_modal.visible = true
 
 
@@ -60,6 +55,23 @@ func handle_input_event(event: InputEvent) -> bool:
 	return false
 
 
+func set_busy(is_busy: bool) -> void:
+	_submit_button.disabled = is_busy
+	_close_button.disabled = is_busy
+	_killer_options.disabled = is_busy
+	_method_input.editable = not is_busy
+	_evidence_input.editable = not is_busy
+	if is_busy:
+		_result_label.text = "[color=#f1dda0]Judging accusation...[/color]"
+
+
+func show_result(success: bool, message: String) -> void:
+	set_busy(false)
+	var color := "#f1dda0" if success else "#f0b0a0"
+	_result_label.text = "[color=%s]%s[/color]" % [color, message]
+	accusation_resolved.emit(success, message)
+
+
 func _populate_options() -> void:
 	_add_options(_killer_options, [
 		{"id": &"", "label": "Choose a suspect"},
@@ -68,19 +80,6 @@ func _populate_options() -> void:
 		{"id": &"otis", "label": "Otis"},
 		{"id": &"iris", "label": "Iris"},
 		{"id": &"rival", "label": "Julian Vane"},
-	])
-	_add_options(_method_options, [
-		{"id": &"", "label": "Choose the method"},
-		{"id": &"ghost_attack", "label": "A ghost attack"},
-		{"id": &"containment_cell", "label": "Siren containment cell"},
-		{"id": &"poison", "label": "Poison"},
-		{"id": &"blunt_force", "label": "Blunt force"},
-	])
-	_add_options(_evidence_options, [
-		{"id": &"", "label": "Choose the evidence"},
-		{"id": &"recovered_cell", "label": "Recovered containment cell"},
-		{"id": &"field_book", "label": "Theo's field book"},
-		{"id": &"wet_laundry", "label": "Wet laundry pile"},
 	])
 
 
@@ -94,43 +93,16 @@ func _add_options(button: OptionButton, options: Array) -> void:
 
 func _submit_accusation() -> void:
 	var killer := _selected_id(_killer_options)
-	var method := _selected_id(_method_options)
-	var evidence := _selected_id(_evidence_options)
-	var has_required_evidence := _state != null and _state.get_fact(REQUIRED_EVIDENCE_FACT, false)
-	var is_correct := killer == CORRECT_KILLER and method == CORRECT_METHOD and evidence == CORRECT_EVIDENCE and has_required_evidence
-
-	if is_correct:
-		var success_message := "Case closed. Otis killed Vance by using the Siren containment cell as a weapon, and Fred has the recovered cell to prove it."
-		_result_label.text = "[color=#f1dda0]%s[/color]" % success_message
-		accusation_resolved.emit(true, success_message)
+	var method := _method_input.text.strip_edges()
+	var evidence := _evidence_input.text.strip_edges()
+	if killer == &"" or method == "" or evidence == "":
+		show_result(false, "The accusation needs a suspect, a method, and evidence.")
 		return
-
-	var problems: Array[String] = []
-	if killer != CORRECT_KILLER:
-		problems.append("the suspect")
-	if method != CORRECT_METHOD:
-		problems.append("the method")
-	if evidence != CORRECT_EVIDENCE:
-		problems.append("the evidence")
-	elif not has_required_evidence:
-		problems.append("you have not found that evidence yet")
-
-	var message := "The accusation does not hold. Recheck %s." % _join_problem_list(problems)
-	_result_label.text = "[color=#f0b0a0]%s[/color]" % message
-	accusation_resolved.emit(false, message)
+	set_busy(true)
+	accusation_submitted.emit(killer, _killer_options.get_item_text(_killer_options.selected), method, evidence)
 
 
 func _selected_id(button: OptionButton) -> StringName:
 	if button.selected < 0:
 		return &""
 	return StringName(str(button.get_item_metadata(button.selected)))
-
-
-func _join_problem_list(problems: Array[String]) -> String:
-	if problems.is_empty():
-		return "the case"
-	if problems.size() == 1:
-		return problems[0]
-	if problems.size() == 2:
-		return "%s and %s" % [problems[0], problems[1]]
-	return "%s, %s, and %s" % [problems[0], problems[1], problems[2]]

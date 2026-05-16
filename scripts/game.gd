@@ -1,5 +1,7 @@
 extends Node2D
 
+const AccusationJudgeScript := preload("res://scripts/services/accusation_judge.gd")
+
 @onready var _world: WorldView = %WorldView
 @onready var _inspect_panel: InspectPanel = %InspectPanel
 @onready var _dialogue_panel: DialoguePanel = %DialoguePanel
@@ -14,8 +16,10 @@ var _pending_passive_toast: String = ""
 
 var _llm: LLMClient
 var _effect_llm: LLMClient
+var _accusation_llm: LLMClient
 var _case_state: CaseState
 var _effect_judge: ConversationEffectJudge
+var _accusation_judge: Node
 var _dialogue: DialogueService
 
 
@@ -41,12 +45,23 @@ func _ready() -> void:
 	_effect_llm.name = "ConversationEffectLLM"
 	add_child(_effect_llm)
 
+	_accusation_llm = LLMClient.new()
+	_accusation_llm.name = "AccusationLLM"
+	add_child(_accusation_llm)
+
 	_effect_judge = ConversationEffectJudge.new()
 	_effect_judge.name = "ConversationEffectJudge"
 	add_child(_effect_judge)
 	_effect_judge.configure(_effect_llm, _case_state)
 	_effect_judge.effects_applied.connect(_on_conversation_effects_applied)
 	_effect_judge.judge_failed.connect(_on_conversation_judge_failed)
+
+	_accusation_judge = AccusationJudgeScript.new()
+	_accusation_judge.name = "AccusationJudge"
+	add_child(_accusation_judge)
+	_accusation_judge.configure(_accusation_llm, _case_state)
+	_accusation_judge.completed.connect(_on_accusation_judge_completed)
+	_accusation_judge.failed.connect(_on_accusation_judge_failed)
 
 	_dialogue = DialogueService.new()
 	_dialogue.name = "DialogueService"
@@ -61,6 +76,7 @@ func _ready() -> void:
 	_dialogue_panel.closed.connect(_on_dialogue_closed)
 	_inspect_panel.action_confirmed.connect(_on_inspect_action_confirmed)
 	_accuse_panel.accusation_resolved.connect(_on_accusation_resolved)
+	_accuse_panel.accusation_submitted.connect(_on_accusation_submitted)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -233,6 +249,21 @@ func _on_conversation_judge_failed(message: String) -> void:
 
 func _on_accusation_resolved(success: bool, message: String) -> void:
 	print("[case] accusation resolved success=%s: %s" % [success, message])
+
+
+func _on_accusation_submitted(killer_id: StringName, killer_label: String, method_text: String, evidence_text: String) -> void:
+	if _accusation_judge == null:
+		_accuse_panel.show_result(false, "The accusation judge is not ready.")
+		return
+	_accusation_judge.judge(killer_id, killer_label, method_text, evidence_text)
+
+
+func _on_accusation_judge_completed(success: bool, message: String) -> void:
+	_accuse_panel.show_result(success, message)
+
+
+func _on_accusation_judge_failed(message: String) -> void:
+	_accuse_panel.show_result(false, message)
 
 
 func _get_pressed_tile_direction() -> Vector2i:
