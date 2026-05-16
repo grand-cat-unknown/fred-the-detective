@@ -97,7 +97,8 @@ func _apply_palette() -> void:
 	if _player != null:
 		_player.body_color = player_color
 		_player.hat_color = player_hat_color
-		_player.texture = player_texture
+		if not Engine.is_editor_hint():
+			_player.texture = player_texture
 		_player.queue_redraw()
 
 
@@ -105,7 +106,10 @@ func _apply_camera_to_player(instant: bool) -> void:
 	if _camera == null:
 		return
 
-	if Engine.is_editor_hint() or _player == null:
+	if Engine.is_editor_hint():
+		return
+
+	if _player == null:
 		_camera.position_smoothing_enabled = false
 		_camera.position = TileMap2D.VIEW_SIZE * 0.5
 		_camera.zoom = Vector2.ONE
@@ -245,8 +249,18 @@ func _rebuild_content() -> void:
 			_player.reset_to_current_position(_world_map)
 		_update_npc_facing()
 
+	if _player != null and _world_map != null:
+		if not _player.moved.is_connected(_on_player_moved):
+			_player.moved.connect(_on_player_moved)
+		_world_map.update_cover_visibility(_player.tile)
+
 	_apply_palette()
 	_apply_camera_to_player(false)
+
+
+func _on_player_moved(tile: Vector2i) -> void:
+	if _world_map != null:
+		_world_map.update_cover_visibility(tile)
 
 
 func _update_npc_facing() -> void:

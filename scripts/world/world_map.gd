@@ -13,16 +13,23 @@ const INSPECT_TITLE_DATA := "inspect_title"
 const INSPECT_DESCRIPTION_DATA := "inspect_description"
 const INSPECT_OBJECT_ID_DATA := "inspect_object_id"
 
+const COVER_LAYER := "PanicHallwayCover"
+const COVER_OPAQUE_ALPHA := 1.0
+const COVER_REVEAL_ALPHA := 0.1
+const COVER_FADE_SECONDS := 0.15
+
 var background_color := Palette.BACKGROUND:
 	set(value):
 		background_color = value
 		queue_redraw()
 
 var _tile_layers: Dictionary = {}
+var _cover_tween: Tween
 
 
 func _ready() -> void:
 	_collect_tile_layers()
+	_verify_layer_alignment()
 
 
 func is_walkable(tile_position: Vector2i) -> bool:
@@ -38,6 +45,20 @@ func is_walkable(tile_position: Vector2i) -> bool:
 			return false
 
 	return true
+
+
+func update_cover_visibility(player_tile: Vector2i) -> void:
+	var cover := _layer(COVER_LAYER)
+	if cover == null:
+		return
+	var on_cover := cover.get_cell_source_id(player_tile) != -1
+	var target_alpha := COVER_REVEAL_ALPHA if on_cover else COVER_OPAQUE_ALPHA
+	if is_equal_approx(cover.modulate.a, target_alpha):
+		return
+	if _cover_tween != null and _cover_tween.is_valid():
+		_cover_tween.kill()
+	_cover_tween = create_tween()
+	_cover_tween.tween_property(cover, "modulate:a", target_alpha, COVER_FADE_SECONDS)
 
 
 func tile_to_world(tile_position: Vector2i) -> Vector2:
@@ -82,6 +103,24 @@ func _collect_tile_layers() -> void:
 	for child in get_children():
 		if child is TileMapLayer:
 			_tile_layers[child.name] = child
+
+
+func _verify_layer_alignment() -> void:
+	var floor_layer := _layer(FLOOR_LAYER)
+	var floor_rect: Rect2i = floor_layer.get_used_rect() if floor_layer != null else Rect2i()
+	for layer_name in _tile_layers:
+		var layer := _tile_layers[layer_name] as TileMapLayer
+		if layer.position != Vector2.ZERO:
+			push_error("TileMapLayer '%s' has non-zero position %s — all layers must sit at (0, 0) so they share a tile grid." % [layer_name, layer.position])
+		if layer.transform != Transform2D.IDENTITY:
+			push_error("TileMapLayer '%s' has a non-identity transform — all layers must share an identical transform to stay grid-aligned." % layer_name)
+		if floor_layer == null or layer == floor_layer:
+			continue
+		var rect := layer.get_used_rect()
+		if rect.size == Vector2i.ZERO:
+			continue
+		if not floor_rect.intersects(rect):
+			push_error("TileMapLayer '%s' cells %s do not overlap Floor %s — painted in the wrong grid region." % [layer_name, rect, floor_rect])
 
 
 func _layer(layer_name: String) -> TileMapLayer:

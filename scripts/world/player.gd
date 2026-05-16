@@ -12,7 +12,7 @@ var face_direction := Vector2i(1, 0)
 var speed := Gameplay.PLAYER_SPEED
 var body_color := Palette.PLAYER_BODY
 var hat_color := Palette.PLAYER_HAT
-@export var texture: Texture2D
+@export var texture: Texture2D = preload("res://assets/art/characters/hs_retro/WhiteBunny_A.png")
 
 const WALK_CYCLE_SECONDS := 0.65
 
@@ -26,7 +26,8 @@ func _ready() -> void:
 
 func _notification(what: int) -> void:
 	if what == NOTIFICATION_TRANSFORM_CHANGED and Engine.is_editor_hint():
-		tile = TileMap2D.world_to_tile(position)
+		var world_map := _find_world_map()
+		tile = world_map.world_to_tile(position) if world_map != null else TileMap2D.world_to_tile(position)
 		target_tile = tile
 		target_position = position
 		queue_redraw()
@@ -99,3 +100,13 @@ func _walk_phase() -> float:
 	if not is_stepping:
 		return 0.0
 	return fmod(_walk_animation_time / WALK_CYCLE_SECONDS, 1.0)
+
+
+func _find_world_map() -> WorldMap:
+	var node := get_parent()
+	if node == null:
+		return null
+	for child in node.get_children():
+		if child is WorldMap:
+			return child
+	return null
