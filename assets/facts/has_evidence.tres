@@ -1,0 +1,10 @@
+[gd_resource type="Resource" script_class="FactDefinition" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/fact_definition.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"has_evidence"
+default_value = true
+label = "Fred has gathered evidence"
+description = "Fred has picked up the first piece of evidence."

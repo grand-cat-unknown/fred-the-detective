@@ -6,6 +6,7 @@ const INTERACTABLE_DIR := "res://assets/interactables"
 @export var player_start_tile: Vector2i = Vector2i.ZERO
 @export var fact_definitions: Array[FactDefinition] = []
 @export var interactables: Array = []
+@export var inventory_items: Array = []
 @export var suspects: Array[SuspectData] = []
 
 

@@ -2,6 +2,8 @@
 class_name WorldView
 extends Node2D
 
+const INTERACTION_PROMPT_TEXT := "Press Space to interact"
+
 @export_group("Movement")
 @export_range(60.0, 600.0, 5.0, "or_greater") var player_speed := Gameplay.PLAYER_SPEED:
 	set(value):
@@ -38,6 +40,9 @@ extends Node2D
 		player_texture = value
 		_apply_palette()
 
+@onready var _interaction_prompt_container: PanelContainer = $InteractionPromptLayer/Root/PromptContainer
+@onready var _interaction_prompt: Label = $InteractionPromptLayer/Root/PromptContainer/Prompt
+
 var case_data: CaseData
 var case_state: CaseState
 
@@ -49,11 +54,14 @@ var _inspectables: Array[Inspectable] = []
 var _stair_portals: Array[Node] = []
 var _ignored_arrival_portal: Node
 var _stair_travel_pause_remaining := 0.0
+var _interaction_prompt_enabled := true
 
 
 func _ready() -> void:
 	if Engine.is_editor_hint() and case_data == null:
 		configure(CaseLoader.load_default())
+	if _interaction_prompt_container != null:
+		_interaction_prompt_container.visible = false
 
 
 func _process(_delta: float) -> void:
@@ -61,6 +69,12 @@ func _process(_delta: float) -> void:
 		return
 	_apply_camera_to_player(false)
 	_update_npc_facing()
+	_update_interaction_prompt()
+
+
+func set_interaction_prompt_enabled(enabled: bool) -> void:
+	_interaction_prompt_enabled = enabled
+	_update_interaction_prompt()
 
 
 func configure(new_case: CaseData, new_state: CaseState = null) -> void:
@@ -179,6 +193,13 @@ func find_npc_at_player() -> NPC:
 	return null
 
 
+func find_interaction_target_at_player() -> Node2D:
+	var npc := find_npc_at_player()
+	if npc != null:
+		return npc
+	return find_inspectable_at_player()
+
+
 func find_inspection_at_player() -> Dictionary:
 	var inspectable := find_inspectable_at_player()
 	if inspectable != null:
@@ -225,6 +246,23 @@ func _adjacent_tiles() -> Array[Vector2i]:
 		player_tile + Vector2i(0, -1),
 	]
 	return tiles
+
+
+func _update_interaction_prompt() -> void:
+	if _interaction_prompt == null:
+		return
+	if not _interaction_prompt_enabled:
+		if _interaction_prompt_container != null:
+			_interaction_prompt_container.visible = false
+		return
+	var target := find_interaction_target_at_player()
+	if target == null:
+		if _interaction_prompt_container != null:
+			_interaction_prompt_container.visible = false
+		return
+	_interaction_prompt.text = INTERACTION_PROMPT_TEXT
+	if _interaction_prompt_container != null:
+		_interaction_prompt_container.visible = true
 
 
 func _rebuild_content() -> void:
