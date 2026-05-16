@@ -4,12 +4,16 @@ extends RefCounted
 const PLAYER_START_TILE := Vector2i(5, 13)
 const FACT_DIR := "res://assets/facts"
 const INTERACTABLE_DIR := "res://assets/interactables"
+const INVENTORY_DIR := "res://assets/inventory"
 const SUSPECT_DIR := "res://assets/suspects"
 const FACT_IDS := [
 	&"theo_granted_field_book_permission",
 	&"has_field_book",
 ]
 const INTERACTABLE_IDS := [
+	&"theo_field_book",
+]
+const INVENTORY_IDS := [
 	&"theo_field_book",
 ]
 const SUSPECT_IDS := [
@@ -29,6 +33,7 @@ static func load_default() -> CaseData:
 	case.player_start_tile = PLAYER_START_TILE
 	case.fact_definitions = _load_fact_definitions()
 	case.interactables = _load_interactables()
+	case.inventory_items = _load_inventory_items()
 	var suspects: Array[SuspectData] = []
 	for id in SUSPECT_IDS:
 		var suspect := _load_suspect(id)
@@ -68,6 +73,37 @@ static func _load_interactables() -> Array:
 		if (resource is InteractableDefinition or resource.has_method("resolve")) and not _has_interactable(resources, StringName(str(resource.get("object_id")))):
 			resources.append(resource)
 	return resources
+
+
+static func _load_inventory_items() -> Array:
+	var resources: Array = []
+	for id in INVENTORY_IDS:
+		var resource := _load_inventory_item(id)
+		if resource != null:
+			resources.append(resource)
+	for resource in _load_resources_from_dir(INVENTORY_DIR):
+		if resource is InventoryItemDefinition and not _has_inventory_item(resources, resource.item_id):
+			resources.append(resource)
+	return resources
+
+
+static func _load_inventory_item(id: StringName) -> Resource:
+	var path := "%s/%s.tres" % [INVENTORY_DIR, id]
+	if not ResourceLoader.exists(path):
+		push_warning("Missing inventory item resource: %s" % path)
+		return null
+	var resource := load(path) as Resource
+	if resource == null or not resource.has_method("resolve"):
+		push_warning("Inventory item resource cannot resolve: %s" % path)
+		return null
+	return resource
+
+
+static func _has_inventory_item(resources: Array, id: StringName) -> bool:
+	for resource in resources:
+		if resource != null and StringName(str(resource.get("item_id"))) == id:
+			return true
+	return false
 
 
 static func _load_fact_definition(id: StringName) -> FactDefinition:

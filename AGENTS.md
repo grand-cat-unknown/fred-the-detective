@@ -99,4 +99,32 @@ Tile visuals, blocking, inspect text, and actions should all derive from facts.
 Older resources may still use `variants` and `tile_visuals` separately. Do not use that pattern for new objects unless maintaining existing debug content. New content should use `states`.
 
 
+## Inventory Authoring
+
+The inventory mirrors the interactable workflow. The goal is:
+
+```text
+assets/inventory/<item_id>.tres defines what the item is called and when it shows.
+facts drive whether the item is visible in the HUD.
+```
+
+Each `InventoryItemDefinition` has a `states` array of `InventoryItemState` entries. The first state whose `condition` passes is rendered in the top-right inventory HUD. If no state matches, the item is hidden.
+
+Each `InventoryItemState` contains:
+
+- `condition`: a `GateCondition` (all_of / any_of / none_of fact ids).
+- `label`: short HUD text.
+- `description`: optional tooltip text.
+- `icon`: optional `Texture2D`.
+
+Register new item ids in `CaseLoader.INVENTORY_IDS` so they load alongside the case. Files in `assets/inventory/` are also auto-discovered.
+
+Example item shape:
+
+```text
+states = [
+  has_field_book: shows "Field Book" once `has_field_book` is true
+]
+```
+
 Godot executable app image -> [text](../../Apps/Godot_v4.6.2-stable_linux.x86_64)
