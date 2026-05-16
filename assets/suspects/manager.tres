@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="SuspectData" format=3]
+[gd_resource type="Resource" script_class="SuspectData" format=3 uid="uid://bifq6jl2cwefd"]
 
 [ext_resource type="Script" uid="uid://cxvank1ob4s06" path="res://scripts/data/suspect_data.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://86ddjl53th36" path="res://assets/art/characters/hs_retro/Char 26_A.png" id="2_tex"]
@@ -7,7 +7,7 @@
 script = ExtResource("1_script")
 id = &"manager"
 display_name = "Vivian Marlowe"
-position = Vector2(-208, 1472)
+position = Vector2(-175, 1468)
 color = Color(0.501961, 0.403922, 0.294118, 1)
 hat_color = Color(0.176471, 0.176471, 0.2, 1)
 texture = ExtResource("2_tex")

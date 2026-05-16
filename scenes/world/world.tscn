@@ -82,9 +82,9 @@ preview_name = "Mags Higgins"
 preview_texture = ExtResource("11_tytul")
 snap_to_map_grid = false
 
-[node name="NPC_manager" parent="." instance=ExtResource("7_npc")]
+[node name="NPC_manager" parent="." unique_id=674610404 instance=ExtResource("7_npc")]
 z_index = 10
-position = Vector2(-208, 1472)
+position = Vector2(-175, 1468)
 entity_id = &"manager"
 preview_name = "Vivian Marlowe"
 preview_texture = ExtResource("12_c7ath")
@@ -109,13 +109,15 @@ snap_to_map_grid = false
 position = Vector2(-169, 1539)
 
 [node name="Stairs 1" type="Node2D" parent="." unique_id=388047221]
-position = Vector2(-396, 192)
+visible = false
+position = Vector2(-396, 513)
 script = ExtResource("13_srmg5")
 target_portal = NodePath("../Stairs 2")
 snap_to_map_grid = false
 
 [node name="Stairs 2" type="Node2D" parent="." unique_id=340293470]
-position = Vector2(-397, 1345)
+visible = false
+position = Vector2(-391, 1660)
 script = ExtResource("13_srmg5")
 target_portal = NodePath("../Stairs 1")
 snap_to_map_grid = false
