@@ -1105,7 +1105,7 @@ tile_map_data = PackedByteArray("AAD7/wIAAAAkAAcAAAD7/wMAAAAkAAgAAAD7/wQAAAAkAAc
 tile_set = ExtResource("2_jabx1")
 
 [node name="PanicHallwayEntrance" type="TileMapLayer" parent="Floor" unique_id=1849782386]
-z_index = 6
+z_index = 11
 tile_map_data = PackedByteArray("AAAWABkAAAALAAkAAAA=")
 tile_set = ExtResource("2_jabx1")
 
