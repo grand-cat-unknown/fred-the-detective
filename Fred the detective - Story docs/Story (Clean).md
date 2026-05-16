@@ -6,9 +6,11 @@ This master blueprint incorporates the refined narrative logic, character profil
 
 ## **1. Narrative Premise: The "Theatrical Haunting"**
 
-The murder is not committed by a ghost — it's committed by the man who pronounces the victim dead. Dr. Otis Pemberton (a Ghostbuster whose specialties are medical and occult-scholarly work) is assigned to the **maintenance-corridor watch station** during the operation — running PKE sweeps along the building's structural perimeter. That assignment is his cover. The corridor also gives him access to a disguised **back service door** into Suite 1221 (the "pantry cabinet") — a feature Vance doesn't know exists, and that no other Ghostbuster on the team is aware of either.
+The murder is not committed by a ghost — it's committed by the man who pronounces the victim dead. Felix Vance is staying in The Grandview's **Royal Suite**, Room 1221: the old castle's ceremonial apartments, now sold as the hotel's most prestigious room. Dr. Otis Pemberton (a Ghostbuster whose specialties are medical and occult-scholarly work) is assigned to check the **east wing / east-side structural route** during the operation. That assignment is his cover. The east side gives him access to a hidden emergency passage into the Royal Suite — a panic-route remnant from the building's castle days.
 
-While Vance is mid-meditation behind a locked front door and the team is at their stations, Pemberton slips in through the back service door, kills Vance point-blank with a stolen **Siren Containment Cell**, takes the **Anchor Idol**, and then **stages a violent haunting** — slamming furniture, simulating a Class-5 manifestation — loud enough for the team to hear from their stations. He drops the spent cell down the laundry chute on his way out, slips back into the maintenance corridor, and circles to the far end. By the time the team converges on 1221's front door, he emerges from the far end of the main hallway claiming he heard the manifestation during his perimeter sweep and ran to flank it. The front door is locked from the inside; the team forces it open. They find Vance dead. Pemberton — the team's medical and occult specialist, the obvious person to handle a body that "took a Class-5 hit" — performs the pulse check and declares a **"Full-Body Spectral Seizure"**.
+The Grandview is an inherited castle-hotel owned by Vivian Marlowe's family. Pemberton knows the building too well because he and Vivian grew up together there, playing in the shut-up corridors and old servant passages when Vivian's father still ran the place. Most staff know the hotel has sealed emergency routes in a vague historical sense. Pemberton knows which old panels still open.
+
+While Vance is mid-meditation behind a locked front door and Mara is watching that front door, Pemberton slips in through the hidden Royal Suite passage, kills Vance point-blank with a stolen **Siren Containment Cell**, takes the **Anchor Idol**, and then **stages a violent haunting** — slamming furniture, simulating a Class-5 manifestation — loud enough for the team to hear from their stations. He drops the spent cell down the laundry chute on his way out, slips back through the hidden route to the east side, and reappears claiming he was trying to cut off the entity from that wing. The front door is locked from the inside; Mara can truthfully swear nobody entered through it. The team forces it open. They find Vance dead. Pemberton — the team's medical and occult specialist, the obvious person to handle a body that "took a Class-5 hit" — performs the pulse check and declares a **"Full-Body Spectral Seizure"**.
 
 The team isn’t hiding a murder — they genuinely believe the idol attracted the very entity they were there to contain, because the only "expert" in the room is also the killer.
 
@@ -18,16 +20,14 @@ This is the canonical timeline. All character testimony and other docs should al
 
 | Time | Actual Event | The Public Alibi |
 | --- | --- | --- |
-| 8:50 PM | Leo Rossi delivers a bottle of sparkling water to Vance in 1221. Vance is alone, agitated, but otherwise normal. | Same. |
-| 9:00 PM | Watch begins. Stations: Mara in main hall, Theo in 1218 tech-prep, Thorne in 1222 observation post, Pemberton on maintenance-corridor PKE sweep (with named checkpoints including the 12th-floor Housekeeping Room). Vance locks 1221 from the inside and begins meditation. Mags is already inside the Housekeeping Room with the door shut. | Same. |
-| 9:05 PM | Sabotaged pipe joint outside 1218 fails. Theo panics about flooded gear; Mara abandons the hall to help. | Same — appears to be an unfortunate accident. |
-| 9:06 PM | Pemberton slips into 1221 via the back service door. Vance is mid-meditation, eyes closed. | "Running structural sweep at the far end of the corridor." |
+| 8:50 PM | Leo Rossi delivers a bottle of sparkling water to Vance in the Royal Suite, Room 1221. Vance is alone, agitated, but otherwise normal. | Same. |
+| 9:00 PM | Watch begins. Mara holds the main hallway/front door of 1221. She sends Iris to monitor the **west side** and sends Pemberton to check the **east wing / east-side structural route**. Theo remains with the gear cart and prep station. Vance locks 1221 from the inside and begins meditation. Mags is already inside the 12th-floor Housekeeping Room with the door shut. | Same. |
+| 9:06 PM | Pemberton slips into 1221 via the hidden Royal Suite emergency passage. Vance is mid-meditation, eyes closed. Mara is still watching the front door; nobody enters from the hallway. | "Checking the east wing for structural readings." |
 | 9:07 – 9:10 PM | Kills Vance point-blank with the Siren Cell. Takes the Anchor Idol. Stages the "haunting" — slams furniture, simulates a Class-5 manifestation. Noises are audible from the hall and through 1222's shared wall. | "The entity has manifested in 1221 — I'm cutting it off from the perimeter." |
-| 9:10 PM | Stashes the **Anchor Idol inside the spent Siren Cell's now-empty pressure chamber**, then drops the cell down the laundry chute via the back service door (it falls to the basement laundry bin — taking the idol with it). Noises in 1221 stop abruptly. Iris hears the thud through the wall. | Still on perimeter. |
-| 9:11 PM | Iris steps into the main hallway from 1222. Mara, having heard the noises from 1218, returns to the main hall. | Same. |
-| 9:11 – 9:12 PM | Mara and Iris converge at 1221's front door. Pemberton is **not** with them. | Same. |
-| 9:11 – 9:12 PM | Pemberton exits the back service door and takes the maintenance corridor to the far end (bypassing the Housekeeping Room — Mags is inside, door shut). | "Closing on the entity through the maintenance access." |
-| 9:13 PM | Pemberton emerges into the main hallway from the **far end**, breathing hard, claiming he ran to flank the entity. | "It tried to phase out through the structural seams — I cut it off but too late." |
+| 9:10 PM | Stashes the **Anchor Idol inside the spent Siren Cell's now-empty pressure chamber**, then drops the cell down the laundry chute from the hidden/service route (it falls to the basement laundry bin — taking the idol with it). Noises in 1221 stop abruptly. Iris hears the thud from the west-side observation post. | Still on east-side perimeter. |
+| 9:11 PM | Iris reports in from the west side and joins Mara at the front door. Mara has maintained visual on 1221's front door the whole time. Pemberton is **not** with them. | Same. |
+| 9:11 – 9:12 PM | Pemberton exits the hidden route back toward the east wing, bypassing the ordinary Housekeeping Room checkpoint where Mags is inside, door shut. | "Closing on the entity through the east-side access." |
+| 9:13 PM | Pemberton emerges from the **east side**, breathing hard, claiming he ran to flank the entity. | "It tried to phase out through the east structural seams — I cut it off but too late." |
 | 9:14 PM | Team forces the locked front door of 1221. Pemberton performs a theatrical pulse check. Declares "Full-Body Spectral Seizure." | Same. |
 
 ## **3. Character Profiles & Gating**
@@ -95,30 +95,32 @@ A manifested Class-5 entity radiates spectral discharge **omnidirectionally** fr
 - **Why This Hour (The Daily Ritual):** Vance does a private meditation every evening from **9:00 to 9:45 PM**. He insists on being completely alone — no calls, no staff, no interruptions. The ritual is well-known in collector circles and to long-term Grandview staff (Leo Rossi confirms it). This makes Vance's location and vulnerability publicly predictable: at 9 PM he is alone, still, and not expecting visitors. Both adversaries built their plan around this window — and anyone with access could have done the same.
 - **Why the Ghostbusters are Here:** Not because of a "haunting call." The recent occult auction featured several spectrally-active pieces, and the Anchor Idol — Vance's prize — is rated the most dangerous of them: it has a documented capacity to **attract other entities**. As part of the auction-house contract, Ghostbusters Inc. provides a multi-night **containment watch** for the buyer of any high-rated artifact. The team is at The Grandview as part of that protective rotation, not in response to an emergency. Tonight is one of the scheduled watch nights. Pemberton, as the team's occult scholar, specifically requested this assignment — and used the cover of the contract to plan the murder.
 - **Why This Window:** The 9 PM watch slot is part of the standard schedule (and happens to coincide with Vance's meditation — lore-wise, the hour of "peak spectral pull"). It also gives Pemberton the official excuse to be in the suite during Vance's most vulnerable moment.
-- **The Watch Stations:** Mara holds the main hallway outside 1221 as Lead. Theo runs equipment in 1218 (the standard Grandview tech-prep room). Thorne mans the secondary observation post in 1222 next door, logging spillover spectral activity. **Pemberton is assigned the maintenance-corridor PKE sweep** — running structural readings on the building perimeter where entities are most likely to "phase" in or out. This roaming assignment is his cover: being unseen during the murder window is part of the job.
-- **The Secret Entrance:** Suite 1221 has a disguised back service door — a "pantry cabinet" that is actually a maintenance-corridor access panel. Vance doesn't know it exists. Neither does any other Ghostbuster. **Only Pemberton knows**, because he scouted the suite as part of pre-watch preparation under his occult-scholar role. This is his way in and out.
+- **The Building:** The Grandview is an inherited castle converted into a luxury hotel. Vivian Marlowe inherited it from her father, who kept old plans, sealed passages, and emergency routes half-documented in the hotel archives.
+- **Why Pemberton Knows the Route:** Pemberton and Vivian were childhood friends who played in the castle before it became a polished hotel. Vivian remembers that history as embarrassing family nostalgia; Pemberton remembers exact panels, stair pockets, and panic passages. He later masks that knowledge as professional curiosity about service access.
+- **The Watch Stations:** Mara holds the main hallway outside the Royal Suite, Room 1221, as Lead. Theo stays with the equipment and prep station. Mara sends Thorne to monitor the **west side** and sends **Pemberton to the east wing / east-side structural route** — the direction where a manifestation would supposedly try to phase into the old stonework. This assignment gives Pemberton a reason to be away from the front door without making Mara's front-door testimony false.
+- **The Secret Entrance:** The Royal Suite has a concealed emergency passage from the east-side service route — a panic route from the castle era, hidden behind old paneling. Vance doesn't know it exists. Neither does any other Ghostbuster. **Pemberton knows** because he explored the hotel with Vivian as a child and later asked just enough procedural questions to confirm the route still existed.
 - **The 12th-Floor Service Geometry (working sketch — will be nailed down later):**
     - The main guest hallway runs along the front of the suites (1218–1225). The Ghostbusters set their watch here.
-    - A **maintenance corridor** runs behind the suites and connects three service spaces:
+    - An ordinary **service corridor** runs behind the suites and connects three service spaces:
         - The **12th-floor Housekeeping Room** (a closed-door service room with linens, supplies, and a chair — a known staff hideout). Pemberton's "structural perimeter sweep" assignment explicitly includes a walk-through of this room as a checkpoint. **This is where Mags is hiding, with the door closed, for her entire smoke break.**
-        - The **back service door of 1221** (the disguised "pantry" panel — Pemberton's actual entry/exit).
-        - The **laundry chute access** in the corridor near 1221's back service door.
-    - The corridor lets out into the main hallway at the far end (where Pemberton emerges at 9:13).
-    - **Net effect:** Mags is physically inside a **room** that Pemberton's alibi says he checked on his sweep. The door stayed closed; no one opened it. She'd have noticed if anyone had. He was never there.
-- **The Distraction (Pre-Plant):** Earlier that evening, Pemberton sabotaged a pipe joint in the **maintenance corridor**, accessible from outside Room 1218. The joint fails under normal pressure during the operation window, flooding Theo's gear. Theo panics; Mara abandons her post to help save the equipment. **Critically: the sabotage is reachable by anyone with corridor access** — staff, long-term guests, master-keyholders. The detective initially suspects Julian Vane bribed his way to it.
+        - The visible service spaces near the Royal Suite, which are what staff assume people mean when they say "service corridor."
+        - The **laundry chute access** near the east-side service route.
+    - A concealed **east-side emergency passage** branches around the normal service corridor and into the Royal Suite. This is Pemberton's actual route.
+    - The east-side route lets out into the main hallway from the east end (where Pemberton emerges at 9:13).
+    - **Net effect:** Mara truthfully proves nobody used the Royal Suite's front door. Mags can also say Pemberton never used the ordinary Housekeeping Room checkpoint he claimed to check. The only remaining route is the old emergency passage.
 
 ## The Murder & The "Haunting"
 
-- **9:06 PM:** Pemberton slips into 1221 via the back service door. Vance is mid-meditation, eyes closed, unprepared. He doesn't fight back; he barely registers Pemberton's presence before the kill.
+- **9:06 PM:** Pemberton slips into 1221 via the hidden Royal Suite emergency passage. Vance is mid-meditation, eyes closed, unprepared. He doesn't fight back; he barely registers Pemberton's presence before the kill.
 - **9:07 – 9:10 PM:** Pemberton kills Vance with the stolen Siren Cell, takes the Anchor Idol, then stages the haunting — slamming furniture, simulating a Class-5 manifestation. The noise carries into the hallway and through the shared wall into 1222.
-- **9:10 PM:** Pemberton stashes the **Anchor Idol inside the spent Siren Cell's pressure chamber** (now empty, hollow, and conveniently lead-lined — masks the idol from any later PKE sweep), then drops the cell down the laundry chute via the back service door (**The Thud** — Iris hears it through the wall; the cell falls to the basement laundry bin, idol concealed inside). Noises stop abruptly.
+- **9:10 PM:** Pemberton stashes the **Anchor Idol inside the spent Siren Cell's pressure chamber** (now empty, hollow, and conveniently lead-lined — masks the idol from any later PKE sweep), then drops the cell down the laundry chute from the hidden/service route (**The Thud** — Iris hears it from the west-side observation post; the cell falls to the basement laundry bin, idol concealed inside). Noises stop abruptly.
 
 ## The Convergence (The "Wrong Direction" Arrival)
 
-- **9:11 – 9:12 PM:** Mara and Thorne are at the front door of 1221, working on forcing it. The noises have stopped — they assume the "manifestation passed." The door is a solid hotel suite door; two people can't breach it cleanly. They're shouldering and prying without success, calling for backup. Pemberton is **not with them** — he's still "on the corridor sweep."
-- **9:13 PM:** Pemberton emerges into the main hallway from the **far end** of the corridor system, breathing hard. **His Excuse:** "It tried to phase out through the structural seams at the far end — I cut it off but it broke back through. Did anyone get a reading?"
+- **9:11 – 9:12 PM:** Mara and Thorne are at the front door of 1221, working on forcing it. The noises have stopped — they assume the "manifestation passed." Mara is adamant that no one used the front door; she has been watching it the whole time. The door is a solid hotel suite door; two people can't breach it cleanly. They're shouldering and prying without success, calling for backup. Pemberton is **not with them** — he's still supposedly checking the east side.
+- **9:13 PM:** Pemberton emerges into the main hallway from the **east side**, breathing hard. **His Excuse:** "It tried to phase out through the east structural seams — I cut it off but it broke back through. Did anyone get a reading?"
 - **9:14 PM:** With Pemberton's added weight on the door, the team finally forces it. Pemberton steps in first, performs a fake pulse check, pushes everyone back: *"Stay back — PKE residue is lethal."* Declares: *"Full-Body Spectral Seizure. He was dead before he hit the floor. Class-5 Shadow Stalker — textbook. The idol attracted exactly what we were here to contain."*
-- **The Visual:** The team is reeling from the noise they just heard. They don't question why Pemberton came from the far end of the corridor (his roaming sweep made that explainable). They accept the diagnosis — Pemberton is the team's medical and occult expert, and the rest of the team are hunters, not pathologists.
+- **The Visual:** The team is reeling from the noise they just heard. They don't question why Pemberton came from the east side because Mara assigned him there. They accept the diagnosis — Pemberton is the team's medical and occult expert, and the rest of the team are hunters, not pathologists.
 
 ---
 
@@ -126,9 +128,9 @@ A manifested Class-5 entity radiates spectral discharge **omnidirectionally** fr
 
 ### 1. Mara Bell (The Lead)
 
-- **Her Statement:** "Standard watch protocol. I held the main hallway. Manifestation noises started around 9:07 — clear Class-5 signature. I'd posted Pemberton on the far-end maintenance sweep; he came back through from that direction when the spike hit."
-- **The Lie:** She claims she had continuous visual on the hallway and can vouch for the timing of what she heard from 1221. (She's only repeating the assignment *she* gave Pemberton — she doesn't actually know where he was during the murder window, only where he was supposed to be and where he eventually emerged.)
-- **The Break:** She wasn't in the hall from 9:05 to ~9:11 — she was in Room 1218 helping Theo with the sabotaged pipe flood. Her boots are soaking wet. There is no water in the hallway. Once she admits she abandoned her post, she can no longer vouch for *when* the noises in 1221 started or whether Pemberton was actually walking the corridor the whole time. (Note: the sabotage was done from the maintenance corridor outside 1218, so the player can't trivially trace it to Pemberton — it stays ambiguous between him and Vane until the rest of the case lands.)
+- **Her Statement:** "Standard watch protocol. I held the front of 1221. Nobody entered Felix Vance's room from the main hallway. I sent Thorne west and Pemberton east when the readings jumped."
+- **The Truth:** Mara is right about the front door. Her testimony is useful because it proves the visible route was impossible, not because she secretly left her post.
+- **The Limitation:** Mara can only vouch for the front door and main hallway. She does not know about the Royal Suite's concealed east-side emergency passage.
 
 ### 2. Theo Griggs (The Tech)
 
@@ -137,13 +139,13 @@ A manifested Class-5 entity radiates spectral discharge **omnidirectionally** fr
 
 ### 3. Dr. Iris Thorne (The Anchor)
 
-- **The Critical Fact:** Thorne was at the secondary observation post in Suite 1222 next door, listening at 1221's shared wall and noting timestamps in her field book.
-- **What She Heard:** Manifestation noises through the wall starting ~9:07 PM. A heavy metallic **thud in the walls at ~9:10 PM** (the cell down the chute). She stepped into the hallway at 9:11 PM and watched Pemberton arrive from the **far end of the corridor at 9:13 PM**.
+- **The Critical Fact:** Thorne was posted to the west-side observation route, close enough to the Royal Suite's shared wall/service spaces to log spillover activity in her field book.
+- **What She Heard:** Manifestation noises through the wall starting ~9:07 PM. A heavy metallic **thud in the walls at ~9:10 PM** (the cell down the chute). She stepped into the hallway at 9:11 PM and watched Pemberton arrive from the **east side at 9:13 PM**.
 - **What She Gives the Player:** The chute thud (points the detective at the laundry chute) and a clean anchor for the rest of the timeline.
 
 ### 4. Julian Vane (The Rival / Red Herring)
 
-- **What He Was Doing:** Bribed Mags (the maid) for a master key, planning to slip into 1221 during Vance's 9 PM meditation, chloroform him as insurance against surfacing mid-swap, switch the real idol for the wax replica, and slip out before he came around. He didn't know about the back service door — his planned route was the front, using the master key.
+- **What He Was Doing:** Bribed Mags (the maid) for a master key, planning to slip into 1221 during Vance's 9 PM meditation, chloroform him as insurance against surfacing mid-swap, switch the real idol for the wax replica, and slip out before he came around. He didn't know about the hidden emergency passage — his planned route was the front, using the master key.
 - **What Went Wrong:** When the Ghostbusters' watch team set up in the hallway at 9 PM, his plan was dead. He retreated to a nearby alcove to wait it out.
 - **Why He Won’t Talk:** Being placed outside Vance's door with a fake idol, a vial of sedative, and a bribed master key looks like premeditated murder. The detective has to give him a reason to talk.
 
@@ -151,12 +153,12 @@ A manifested Class-5 entity radiates spectral discharge **omnidirectionally** fr
 
 ## Summary of the "Gotcha"
 
-The Detective realizes the "Haunting" was theater, the "manifestation" was Pemberton, and the back service door was the whole route.
+The Detective realizes the "Haunting" was theater, the "manifestation" was Pemberton, and the hidden east-side emergency passage was the whole route.
 
 1. Pemberton's corridor-sweep assignment is a roaming cover.
-2. He uses a back service door — disguised as a pantry, unknown to Vance and unknown to the rest of the team — to slip into 1221 during Vance's locked meditation.
+2. He uses the Royal Suite's hidden east-side emergency passage, unknown to Vance and unknown to the rest of the team, to slip into 1221 during Vance's locked meditation.
 3. He kills Vance, takes the idol, then stages the "manifestation" noises loud enough for the team to converge on the front door.
-4. He drops the cell down the laundry chute, exits via the same back door, and rejoins the team from the far end of the corridor system.
+4. He drops the cell down the laundry chute, exits via the same hidden route, and rejoins the team from the east side.
 5. He pronounces Vance dead — "the idol attracted exactly what we were here to contain" — and the team believes their own medical/occult expert.
 
 **The Evidence Stack:**
