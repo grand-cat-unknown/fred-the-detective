@@ -53,6 +53,7 @@ Prefer the `states` array on `InteractableDefinition`. Each `InteractableState` 
 - `title` / `description`: inspection text.
 - `effects`: passive facts applied when inspected.
 - `action_label` / `action_prompt` / `action_effects`: optional yes/no action.
+- `toast`: optional short HUD message shown when this state's effects fire (after the yes/no action confirms, or on inspect for states with passive `effects`). Example: `"Door opened!"`.
 - `update_tile`, `layer_name`, `source_id`, `atlas_coords`, `alternative_tile`, `erase_tile`: optional tile swap.
 - `update_blocks_movement`, `blocks_movement`: optional collision state.
 

@@ -36,6 +36,7 @@ description = "The small brass key fits this lock."
 action_label = "Yes"
 action_prompt = "Do you want to open the door?"
 action_effects = [SubResource("StateEffect_open_door")]
+toast = "Door opened!"
 update_tile = true
 source_id = 2
 atlas_coords = Vector2i(22, 4)

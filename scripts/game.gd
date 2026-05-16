@@ -6,6 +6,9 @@ extends Node2D
 @onready var _inventory_panel: InventoryPanel = %InventoryPanel
 @onready var _book_panel: BookPanel = %BookPanel
 @onready var _evidence_panel: EvidencePanel = %EvidencePanel
+@onready var _toast: Toast = %Toast
+
+var _pending_action_toast: String = ""
 
 var _llm: LLMClient
 var _effect_llm: LLMClient
@@ -87,7 +90,10 @@ func _unhandled_input(event: InputEvent) -> void:
 		var inspection := _world.find_inspection_at_player()
 		if not inspection.is_empty():
 			var action_label := str(inspection.get("action_label", "")).strip_edges()
+			var toast_text := str(inspection.get("toast", "")).strip_edges()
+			var passive_effects: Array = inspection.get("effects", [])
 			if action_label != "":
+				_pending_action_toast = toast_text
 				_inspect_panel.show_action(
 					str(inspection["title"]),
 					str(inspection["description"]),
@@ -97,8 +103,10 @@ func _unhandled_input(event: InputEvent) -> void:
 				)
 			else:
 				_inspect_panel.show_text(str(inspection["title"]), str(inspection["description"]))
+				if toast_text != "" and not passive_effects.is_empty():
+					_toast.show_message(toast_text)
 			if _case_state != null:
-				_case_state.apply_effects(inspection.get("effects", []))
+				_case_state.apply_effects(passive_effects)
 			get_viewport().set_input_as_handled()
 			return
 
@@ -178,9 +186,12 @@ func _on_case_fact_changed(fact_id: StringName, value: bool) -> void:
 
 
 func _on_inspect_action_confirmed(effects: Array) -> void:
-	if _case_state == null:
-		return
-	_case_state.apply_effects(effects)
+	var toast_text := _pending_action_toast
+	_pending_action_toast = ""
+	if _case_state != null:
+		_case_state.apply_effects(effects)
+	if toast_text != "":
+		_toast.show_message(toast_text)
 
 
 func _on_conversation_effects_applied(changed_facts: Array) -> void:

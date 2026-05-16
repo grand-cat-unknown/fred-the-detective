@@ -19,6 +19,7 @@ condition = SubResource("GateCondition_key_available")
 title = "Small Brass Key"
 description = "Fred picks up the small brass key."
 effects = [SubResource("StateEffect_take_key")]
+toast = "Picked up Small Brass Key"
 
 [sub_resource type="Resource" id="GateCondition_key_taken"]
 script = ExtResource("2_condition")
