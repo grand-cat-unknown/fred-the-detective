@@ -6,6 +6,12 @@ signal failed(message: String)
 
 const CORRECT_KILLER := &"otis"
 const REQUIRED_EVIDENCE_FACT := &"has_evidence"
+const REASON_CORRECT := "correct"
+const REASON_MISSING_EVIDENCE := "missing_evidence"
+const REASON_WRONG_PERSON := "wrong_person"
+const REASON_WRONG_METHOD := "wrong_method"
+const REASON_WRONG_EVIDENCE := "wrong_evidence"
+const REASON_MULTIPLE_WRONG := "multiple_wrong"
 
 var _llm: LLMClient
 var _state: CaseState
@@ -60,13 +66,17 @@ func judge(killer_id: StringName, killer_label: String, method_text: String, evi
 	var instructions := "\n\n".join([
 		"You are the final accusation judge for Fred the Detective.",
 		"Return strict structured JSON only.",
+		"Do not reveal, name, hint at, or explain the correct solution in the output.",
+		"Do not mention correct case details unless they were already present in the player's accusation text.",
 		"The accusation is correct only if all of these are true:",
 		"1. The selected killer is Dr. Otis Pemberton.",
 		"2. The method text means Otis used the Siren containment cell as the murder weapon, effectively as a gun or point-blank discharge device.",
 		"3. The evidence text identifies the recovered/missing Siren containment cell or equivalent direct physical proof.",
 		"4. has_required_evidence is true. If it is false, the player is accusing without having found the needed evidence.",
 		"Accept natural wording and small spelling mistakes. Reject vague answers such as only 'ghost', 'weapon', or 'evidence'.",
-		"Set is_correct to true only for a complete, supported accusation. The message should briefly explain the result to the player without revealing hidden answers unless they already selected or typed them.",
+		"Set is_correct to true only for a complete, supported accusation.",
+		"Set reason_code to exactly one enum value. Prefer missing_evidence when has_required_evidence is false and the player tries to use the required physical evidence.",
+		"Use multiple_wrong when more than one category is wrong or unclear.",
 	])
 	var messages := [
 		{
@@ -94,11 +104,19 @@ func _build_text_format() -> Dictionary:
 				"is_correct": {
 					"type": "boolean",
 				},
-				"message": {
+				"reason_code": {
 					"type": "string",
+					"enum": [
+						REASON_CORRECT,
+						REASON_MISSING_EVIDENCE,
+						REASON_WRONG_PERSON,
+						REASON_WRONG_METHOD,
+						REASON_WRONG_EVIDENCE,
+						REASON_MULTIPLE_WRONG,
+					],
 				},
 			},
-			"required": ["is_correct", "message"],
+			"required": ["is_correct", "reason_code"],
 		},
 	}
 
@@ -116,7 +134,22 @@ func _on_llm_completed(text: String, error: String) -> void:
 		failed.emit("The accusation judge returned invalid structured output.")
 		return
 
-	var message := str(parsed.get("message", "")).strip_edges()
-	if message == "":
-		message = "The accusation has been judged."
-	completed.emit(bool(parsed.get("is_correct", false)), message)
+	var is_correct := bool(parsed.get("is_correct", false))
+	var reason_code := str(parsed.get("reason_code", REASON_MULTIPLE_WRONG))
+	completed.emit(is_correct, _message_for_reason(is_correct, reason_code))
+
+
+func _message_for_reason(is_correct: bool, reason_code: String) -> String:
+	if is_correct:
+		return "Yes. The accusation holds."
+	match reason_code:
+		REASON_MISSING_EVIDENCE:
+			return "No. You are making an accusation without the evidence to back it up."
+		REASON_WRONG_PERSON:
+			return "No. The person does not add up."
+		REASON_WRONG_METHOD:
+			return "No. The method does not add up."
+		REASON_WRONG_EVIDENCE:
+			return "No. The evidence does not add up."
+		_:
+			return "No. The accusation does not add up."
