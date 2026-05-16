@@ -27,6 +27,7 @@ const SUSPECT_IDS := [
 	&"rival",
 	&"bellhop",
 	&"maid",
+	&"manager",
 ]
 
 

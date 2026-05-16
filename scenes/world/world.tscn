@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://clhnu3j67t0j1" path="res://scenes/world/inspectable.tscn" id="9_insp"]
 [ext_resource type="Texture2D" uid="uid://dclp7r6tg3uso" path="res://assets/art/characters/hs_retro/Char 11_A.png" id="10_wbwoo"]
 [ext_resource type="Texture2D" uid="uid://dvwllyt0k77pj" path="res://assets/art/characters/hs_retro/Char 14_A.png" id="11_tytul"]
+[ext_resource type="Texture2D" uid="uid://86ddjl53th36" path="res://assets/art/characters/hs_retro/Char 26_A.png" id="12_c7ath"]
 [ext_resource type="Script" uid="uid://bwvuwswe6e3o0" path="res://scripts/world/stair_portal.gd" id="13_srmg5"]
 
 [node name="World" type="Node2D" unique_id=1805681752]
@@ -79,6 +80,14 @@ position = Vector2(1584, 240)
 entity_id = &"maid"
 preview_name = "Mags Higgins"
 preview_texture = ExtResource("11_tytul")
+snap_to_map_grid = false
+
+[node name="NPC_manager" parent="." instance=ExtResource("7_npc")]
+z_index = 10
+position = Vector2(-208, 1472)
+entity_id = &"manager"
+preview_name = "Vivian Marlowe"
+preview_texture = ExtResource("12_c7ath")
 snap_to_map_grid = false
 
 [node name="Inspectable_desk" parent="." unique_id=1062109499 instance=ExtResource("9_insp")]
