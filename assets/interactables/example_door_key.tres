@@ -1,0 +1,36 @@
+[gd_resource type="Resource" script_class="InteractableDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/interactable_definition.gd" id="1_definition"]
+[ext_resource type="Script" path="res://scripts/data/gate_condition.gd" id="2_condition"]
+[ext_resource type="Script" path="res://scripts/data/inspectable_variant.gd" id="3_variant"]
+[ext_resource type="Script" path="res://scripts/data/state_effect.gd" id="4_effect"]
+
+[sub_resource type="Resource" id="GateCondition_key_available"]
+script = ExtResource("2_condition")
+none_of = Array[StringName]([&"example_has_door_key"])
+
+[sub_resource type="Resource" id="StateEffect_take_key"]
+script = ExtResource("4_effect")
+fact_id = &"example_has_door_key"
+
+[sub_resource type="Resource" id="InspectableVariant_take_key"]
+script = ExtResource("3_variant")
+condition = SubResource("GateCondition_key_available")
+title = "Small Brass Key"
+description = "Fred picks up the small brass key."
+effects = [SubResource("StateEffect_take_key")]
+
+[sub_resource type="Resource" id="GateCondition_key_taken"]
+script = ExtResource("2_condition")
+all_of = Array[StringName]([&"example_has_door_key"])
+
+[sub_resource type="Resource" id="InspectableVariant_key_taken"]
+script = ExtResource("3_variant")
+condition = SubResource("GateCondition_key_taken")
+title = "Empty Spot"
+description = "The key is already in Fred's pocket."
+
+[resource]
+script = ExtResource("1_definition")
+object_id = &"example_door_key"
+variants = [SubResource("InspectableVariant_take_key"), SubResource("InspectableVariant_key_taken")]

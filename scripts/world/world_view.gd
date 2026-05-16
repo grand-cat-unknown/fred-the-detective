@@ -64,8 +64,12 @@ func _process(_delta: float) -> void:
 
 
 func configure(new_case: CaseData, new_state: CaseState = null) -> void:
+	if case_state != null and case_state.fact_changed.is_connected(_on_case_fact_changed):
+		case_state.fact_changed.disconnect(_on_case_fact_changed)
 	case_data = new_case
 	case_state = new_state
+	if case_state != null and not case_state.fact_changed.is_connected(_on_case_fact_changed):
+		case_state.fact_changed.connect(_on_case_fact_changed)
 	_rebuild_content()
 
 
@@ -269,6 +273,7 @@ func _rebuild_content() -> void:
 		if not _player.moved.is_connected(_on_player_moved):
 			_player.moved.connect(_on_player_moved)
 		_world_map.update_cover_visibility(_player.tile)
+	_refresh_inspectable_tile_visuals()
 
 	_apply_palette()
 	_apply_camera_to_player(false)
@@ -278,6 +283,17 @@ func _on_player_moved(tile: Vector2i) -> void:
 	if _world_map != null:
 		_world_map.update_cover_visibility(tile)
 	_try_use_stair_portal(tile)
+
+
+func _on_case_fact_changed(_fact_id: StringName, _value: bool) -> void:
+	_refresh_inspectable_tile_visuals()
+
+
+func _refresh_inspectable_tile_visuals() -> void:
+	if _world_map == null:
+		return
+	for inspectable in _inspectables:
+		inspectable.refresh_tile_visual(_world_map, case_state)
 
 
 func _update_npc_facing() -> void:

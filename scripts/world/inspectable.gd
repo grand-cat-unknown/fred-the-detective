@@ -15,6 +15,8 @@ extends Node2D
 		draw_marker = value
 		queue_redraw()
 @export var blocks_movement: bool = true
+@export var controlled_tile_offset := Vector2i.ZERO
+@export var tile_visuals: Array = []
 @export var snap_to_map_grid := true:
 	set(value):
 		snap_to_map_grid = value
@@ -36,8 +38,23 @@ func _notification(what: int) -> void:
 		_snap_in_editor()
 
 
-func get_tile() -> Vector2i:
-	return TileMap2D.world_to_tile(position)
+func get_tile(world_map: WorldMap = null) -> Vector2i:
+	return world_map.world_to_tile(position) if world_map != null else TileMap2D.world_to_tile(position)
+
+
+func refresh_tile_visual(world_map: WorldMap, state: CaseState) -> void:
+	if world_map == null:
+		return
+	for visual in tile_visuals:
+		if not visual is Resource or not visual.has_method("is_available"):
+			continue
+		var tile_visual := visual as Resource
+		if not tile_visual.is_available(state):
+			continue
+		world_map.apply_tile_visual(get_tile(world_map) + controlled_tile_offset, tile_visual)
+		if tile_visual.update_blocks_movement:
+			blocks_movement = tile_visual.blocks_movement
+		return
 
 
 func _draw() -> void:

@@ -104,6 +104,24 @@ func get_tile_inspection(tile_position: Vector2i) -> Dictionary:
 	return {}
 
 
+func apply_tile_visual(tile_position: Vector2i, visual: Resource) -> void:
+	if visual == null:
+		return
+	var tile_layer := _layer(visual.layer_name)
+	if tile_layer == null:
+		push_warning("Tile visual state references missing TileMapLayer '%s'." % visual.layer_name)
+		return
+	if visual.erase_tile:
+		tile_layer.set_cell(tile_position)
+		return
+	tile_layer.set_cell(
+		tile_position,
+		visual.source_id,
+		visual.atlas_coords,
+		visual.alternative_tile
+	)
+
+
 func _draw() -> void:
 	draw_rect(Rect2(Vector2.ZERO, TileMap2D.VIEW_SIZE), background_color, true)
 

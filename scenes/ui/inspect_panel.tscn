@@ -70,3 +70,17 @@ theme_override_colors/font_color = Color(0.7, 0.7, 0.65, 1)
 theme_override_font_sizes/font_size = 12
 text = "Press E or Space to close"
 horizontal_alignment = 2
+
+[node name="ActionRow" type="HBoxContainer" parent="Root/Panel/Margin/VBox"]
+visible = false
+layout_mode = 2
+alignment = 2
+theme_override_constants/separation = 8
+
+[node name="YesButton" type="Button" parent="Root/Panel/Margin/VBox/ActionRow"]
+layout_mode = 2
+text = "Yes"
+
+[node name="NoButton" type="Button" parent="Root/Panel/Margin/VBox/ActionRow"]
+layout_mode = 2
+text = "No"
