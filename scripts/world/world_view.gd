@@ -45,6 +45,8 @@ var _player: Player
 var _camera: Camera2D
 var _npc_nodes: Array[NPC] = []
 var _inspectables: Array[Inspectable] = []
+var _stair_portals: Array[Node] = []
+var _ignored_arrival_portal: Node
 
 
 func _ready() -> void:
@@ -68,6 +70,7 @@ func configure(new_case: CaseData, new_state: CaseState = null) -> void:
 func reset_player(start_tile: Vector2i) -> void:
 	if _player == null:
 		return
+	_ignored_arrival_portal = null
 	_player.reset_to_tile(start_tile, _world_map)
 	_apply_camera_to_player(true)
 	_update_npc_facing()
@@ -215,6 +218,8 @@ func _adjacent_tiles() -> Array[Vector2i]:
 func _rebuild_content() -> void:
 	_npc_nodes.clear()
 	_inspectables.clear()
+	_stair_portals.clear()
+	_ignored_arrival_portal = null
 	_world_map = null
 	_player = null
 	_camera = null
@@ -230,6 +235,8 @@ func _rebuild_content() -> void:
 			_npc_nodes.append(child)
 		elif child is Inspectable:
 			_inspectables.append(child)
+		elif child.has_method("get_target") and child.has_method("get_tile"):
+			_stair_portals.append(child)
 
 	if _camera != null and not Engine.is_editor_hint():
 		_camera.make_current()
@@ -261,6 +268,7 @@ func _rebuild_content() -> void:
 func _on_player_moved(tile: Vector2i) -> void:
 	if _world_map != null:
 		_world_map.update_cover_visibility(tile)
+	_try_use_stair_portal(tile)
 
 
 func _update_npc_facing() -> void:
@@ -280,3 +288,26 @@ func _blocked_tiles() -> Array[Vector2i]:
 			if _world_map != null:
 				tiles.append(_world_map.world_to_tile(inspectable.position))
 	return tiles
+
+
+func _try_use_stair_portal(tile: Vector2i) -> void:
+	if _player == null or _world_map == null:
+		return
+
+	if _ignored_arrival_portal != null:
+		if _ignored_arrival_portal.call("get_tile", _world_map) == tile:
+			return
+		_ignored_arrival_portal = null
+
+	for portal in _stair_portals:
+		if not portal.get("enabled") or portal.call("get_tile", _world_map) != tile:
+			continue
+		var target := portal.call("get_target") as Node
+		if target == null:
+			push_warning("StairPortal '%s' has no target_portal." % portal.name)
+			return
+		_ignored_arrival_portal = target
+		_player.reset_to_tile(target.call("get_tile", _world_map), _world_map)
+		_apply_camera_to_player(true)
+		_update_npc_facing()
+		return

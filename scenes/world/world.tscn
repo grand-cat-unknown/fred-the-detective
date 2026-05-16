@@ -12,6 +12,7 @@
 [ext_resource type="PackedScene" uid="uid://clhnu3j67t0j1" path="res://scenes/world/inspectable.tscn" id="9_insp"]
 [ext_resource type="Texture2D" uid="uid://dclp7r6tg3uso" path="res://assets/art/characters/hs_retro/Char 11_A.png" id="10_wbwoo"]
 [ext_resource type="Texture2D" uid="uid://dvwllyt0k77pj" path="res://assets/art/characters/hs_retro/Char 14_A.png" id="11_tytul"]
+[ext_resource type="Script" uid="uid://bwvuwswe6e3o0" path="res://scripts/world/stair_portal.gd" id="13_srmg5"]
 
 [node name="World" type="Node2D" unique_id=1805681752]
 position = Vector2(460, 287)
@@ -40,7 +41,7 @@ preview_texture = ExtResource("6_mxkvs")
 
 [node name="NPC_otis" parent="." unique_id=2073294398 instance=ExtResource("7_npc")]
 z_index = 10
-position = Vector2(-16, 272)
+position = Vector2(1456, 176)
 entity_id = &"otis"
 preview_name = "Dr. Otis Pemberton"
 preview_texture = ExtResource("7_m114p")
@@ -88,3 +89,11 @@ body_color = Color(0.45, 0.25, 0.55, 1)
 
 [node name="Player" parent="." unique_id=1010292065 instance=ExtResource("8_player")]
 position = Vector2(1163, 413)
+
+[node name="Stairs 1" type="Node2D" parent="." unique_id=388047221]
+script = ExtResource("13_srmg5")
+target_portal = NodePath("../Stairs 2")
+
+[node name="Stairs 2" type="Node2D" parent="." unique_id=340293470]
+script = ExtResource("13_srmg5")
+target_portal = NodePath("../Stairs 1")
