@@ -1,0 +1,6 @@
+[gd_scene load_steps=2 format=3 uid="uid://b5xqz3mkrr9pf"]
+
+[ext_resource type="Script" path="res://scripts/tools/screenshot_map.gd" id="1_screenshot"]
+
+[node name="ScreenshotMap" type="Node"]
+script = ExtResource("1_screenshot")

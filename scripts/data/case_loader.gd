@@ -8,16 +8,9 @@ const SUSPECT_DIR := "res://assets/suspects"
 const FACT_IDS := [
 	&"theo_granted_field_book_permission",
 	&"has_field_book",
-	&"debug_has_key",
-	&"debug_opened_lockbox",
-	&"debug_found_note",
-	&"debug_theo_admitted_debug_code",
 ]
 const INTERACTABLE_IDS := [
 	&"theo_field_book",
-	&"debug_key",
-	&"debug_lockbox",
-	&"debug_note",
 ]
 const SUSPECT_IDS := [
 	&"mara",
@@ -27,6 +20,7 @@ const SUSPECT_IDS := [
 	&"rival",
 	&"bellhop",
 	&"maid",
+	&"manager",
 ]
 
 

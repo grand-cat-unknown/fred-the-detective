@@ -1,3 +1,4 @@
+@tool
 class_name Player
 extends Node2D
 
@@ -11,11 +12,25 @@ var face_direction := Vector2i(1, 0)
 var speed := Gameplay.PLAYER_SPEED
 var body_color := Palette.PLAYER_BODY
 var hat_color := Palette.PLAYER_HAT
-@export var texture: Texture2D
+@export var texture: Texture2D = preload("res://assets/art/characters/hs_retro/WhiteBunny_A.png")
 
 const WALK_CYCLE_SECONDS := 0.65
 
 var _walk_animation_time := 0.0
+
+
+func _ready() -> void:
+	ActorDraw.configure_canvas(self)
+	set_notify_transform(true)
+
+
+func _notification(what: int) -> void:
+	if what == NOTIFICATION_TRANSFORM_CHANGED and Engine.is_editor_hint():
+		var world_map := _find_world_map()
+		tile = world_map.world_to_tile(position) if world_map != null else TileMap2D.world_to_tile(position)
+		target_tile = tile
+		target_position = position
+		queue_redraw()
 
 
 func reset_to_tile(start_tile: Vector2i, world_map: WorldMap = null) -> void:
@@ -30,10 +45,21 @@ func reset_to_tile(start_tile: Vector2i, world_map: WorldMap = null) -> void:
 	moved.emit(tile)
 
 
+func reset_to_current_position(world_map: WorldMap = null) -> void:
+	tile = world_map.world_to_tile(position) if world_map != null else TileMap2D.world_to_tile(position)
+	target_tile = tile
+	target_position = position
+	is_stepping = false
+	face_direction = Vector2i(1, 0)
+	_walk_animation_time = 0.0
+	queue_redraw()
+	moved.emit(tile)
+
+
 func try_step(direction: Vector2i, world_map: WorldMap, blocked_tiles: Array[Vector2i]) -> bool:
 	face_direction = direction
 	var next_tile := tile + direction
-	if world_map == null or not world_map.is_walkable(next_tile) or blocked_tiles.has(next_tile):
+	if world_map == null or not world_map.is_walkable(next_tile, direction) or blocked_tiles.has(next_tile):
 		queue_redraw()
 		return false
 
@@ -74,3 +100,13 @@ func _walk_phase() -> float:
 	if not is_stepping:
 		return 0.0
 	return fmod(_walk_animation_time / WALK_CYCLE_SECONDS, 1.0)
+
+
+func _find_world_map() -> WorldMap:
+	var node := get_parent()
+	if node == null:
+		return null
+	for child in node.get_children():
+		if child is WorldMap:
+			return child
+	return null

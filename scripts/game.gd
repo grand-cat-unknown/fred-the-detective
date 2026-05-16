@@ -22,7 +22,6 @@ func _ready() -> void:
 	_case_state.fact_changed.connect(_on_case_fact_changed)
 
 	_world.configure(case, _case_state)
-	_world.reset_player(case.player_start_tile)
 
 	_llm = LLMClient.new()
 	_llm.name = "LLMClient"
@@ -50,6 +49,7 @@ func _ready() -> void:
 	_dialogue.error_received.connect(_on_dialogue_error)
 	_dialogue_panel.submitted.connect(_on_dialogue_submitted)
 	_dialogue_panel.closed.connect(_on_dialogue_closed)
+	_inspect_panel.action_confirmed.connect(_on_inspect_action_confirmed)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -58,12 +58,12 @@ func _unhandled_input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 		return
 
-	if not event.is_action_pressed("interact"):
+	if _inspect_panel.is_open():
+		if _inspect_panel.handle_input_event(event):
+			get_viewport().set_input_as_handled()
 		return
 
-	if _inspect_panel.is_open():
-		_inspect_panel.hide_panel()
-		get_viewport().set_input_as_handled()
+	if not event.is_action_pressed("interact"):
 		return
 
 	var npc := _world.find_npc_at_player()
@@ -74,7 +74,17 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	var inspection := _world.find_inspection_at_player()
 	if not inspection.is_empty():
-		_inspect_panel.show_text(str(inspection["title"]), str(inspection["description"]))
+		var action_label := str(inspection.get("action_label", "")).strip_edges()
+		if action_label != "":
+			_inspect_panel.show_action(
+				str(inspection["title"]),
+				str(inspection["description"]),
+				action_label,
+				str(inspection.get("action_prompt", "")),
+				inspection.get("action_effects", [])
+			)
+		else:
+			_inspect_panel.show_text(str(inspection["title"]), str(inspection["description"]))
 		if _case_state != null:
 			_case_state.apply_effects(inspection.get("effects", []))
 		get_viewport().set_input_as_handled()
@@ -124,6 +134,12 @@ func _on_dialogue_closed() -> void:
 
 func _on_case_fact_changed(fact_id: StringName, value: bool) -> void:
 	print("[case] %s = %s" % [fact_id, value])
+
+
+func _on_inspect_action_confirmed(effects: Array) -> void:
+	if _case_state == null:
+		return
+	_case_state.apply_effects(effects)
 
 
 func _on_conversation_effects_applied(changed_facts: Array) -> void:

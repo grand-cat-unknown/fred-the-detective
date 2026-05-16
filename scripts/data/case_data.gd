@@ -9,7 +9,7 @@ const INTERACTABLE_DIR := "res://assets/interactables"
 @export var suspects: Array[SuspectData] = []
 
 
-func get_interactable(object_id: StringName) -> Resource:
+func get_interactable(object_id: StringName, warn_missing := true) -> Resource:
 	if object_id == &"":
 		return null
 	var normalized_id := StringName(str(object_id).strip_edges())
@@ -19,7 +19,8 @@ func get_interactable(object_id: StringName) -> Resource:
 
 	var path := "%s/%s.tres" % [INTERACTABLE_DIR, normalized_id]
 	if not ResourceLoader.exists(path):
-		push_warning("No interactable definition found for object_id '%s' at %s." % [normalized_id, path])
+		if warn_missing:
+			push_warning("No interactable definition found for object_id '%s' at %s." % [normalized_id, path])
 		return null
 
 	var loaded := load(path) as Resource

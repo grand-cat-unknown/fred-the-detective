@@ -12,71 +12,122 @@
 [ext_resource type="PackedScene" uid="uid://clhnu3j67t0j1" path="res://scenes/world/inspectable.tscn" id="9_insp"]
 [ext_resource type="Texture2D" uid="uid://dclp7r6tg3uso" path="res://assets/art/characters/hs_retro/Char 11_A.png" id="10_wbwoo"]
 [ext_resource type="Texture2D" uid="uid://dvwllyt0k77pj" path="res://assets/art/characters/hs_retro/Char 14_A.png" id="11_tytul"]
+[ext_resource type="Texture2D" uid="uid://86ddjl53th36" path="res://assets/art/characters/hs_retro/Char 26_A.png" id="12_c7ath"]
+[ext_resource type="Script" uid="uid://bwvuwswe6e3o0" path="res://scripts/world/stair_portal.gd" id="13_srmg5"]
 
 [node name="World" type="Node2D" unique_id=1805681752]
-position = Vector2(466, 292)
+position = Vector2(460, 287)
 script = ExtResource("1_world")
+metadata/_edit_lock_ = true
 
 [node name="Camera2D" type="Camera2D" parent="." unique_id=1916203111]
 position = Vector2(512, 288)
 
 [node name="WorldMap" parent="." unique_id=630295776 instance=ExtResource("2_map")]
-position = Vector2(-55, -134)
+position = Vector2(436, -255)
 
 [node name="NPC_mara" parent="." unique_id=1794848584 instance=ExtResource("7_npc")]
-position = Vector2(720, 240)
+z_index = 10
+position = Vector2(644, 244)
 entity_id = &"mara"
 preview_name = "Mara Bell"
 preview_texture = ExtResource("5_umvgx")
+snap_to_map_grid = false
 
 [node name="NPC_theo" parent="." unique_id=1440069773 instance=ExtResource("7_npc")]
-position = Vector2(592, 80)
+z_index = 10
+position = Vector2(528, -16)
 entity_id = &"theo"
 preview_name = "Theo Griggs"
 preview_texture = ExtResource("6_mxkvs")
+snap_to_map_grid = false
+
+[node name="Inspectable_theo_field_book" parent="." unique_id=843935259 instance=ExtResource("9_insp")]
+position = Vector2(605, -19)
+object_id = &"theo_field_book"
+title = "Theo's Field Book"
+description = "A Ghostbusters field book rests on the nearby desk."
+draw_marker = false
+blocks_movement = false
+snap_to_map_grid = false
 
 [node name="NPC_otis" parent="." unique_id=2073294398 instance=ExtResource("7_npc")]
-position = Vector2(-16, 272)
+z_index = 10
+position = Vector2(1456, 176)
 entity_id = &"otis"
 preview_name = "Dr. Otis Pemberton"
 preview_texture = ExtResource("7_m114p")
+snap_to_map_grid = false
 
 [node name="NPC_iris" parent="." unique_id=602351030 instance=ExtResource("7_npc")]
-position = Vector2(1296, 272)
+z_index = 10
+position = Vector2(1232, 208)
 entity_id = &"iris"
 preview_name = "Dr. Iris Thorne"
 preview_texture = ExtResource("8_71ii3")
+snap_to_map_grid = false
 
 [node name="NPC_rival" parent="." unique_id=639808501 instance=ExtResource("7_npc")]
-position = Vector2(784, 464)
+z_index = 10
+position = Vector2(880, 208)
 entity_id = &"rival"
 preview_name = "Julian Vane"
 preview_texture = ExtResource("9_bt7bg")
+snap_to_map_grid = false
 
 [node name="NPC_bellhop" parent="." unique_id=1106624191 instance=ExtResource("7_npc")]
-position = Vector2(944, 368)
+z_index = 10
+position = Vector2(976, 240)
 entity_id = &"bellhop"
 preview_name = "Leo Rossi"
 preview_texture = ExtResource("10_wbwoo")
+snap_to_map_grid = false
 
 [node name="NPC_maid" parent="." unique_id=1314534877 instance=ExtResource("7_npc")]
-position = Vector2(400, 432)
+z_index = 10
+position = Vector2(1584, 240)
 entity_id = &"maid"
 preview_name = "Mags Higgins"
 preview_texture = ExtResource("11_tytul")
+snap_to_map_grid = false
 
-[node name="Inspectable_desk" parent="." unique_id=1062109499 instance=ExtResource("9_insp")]
-position = Vector2(304, 272)
-object_id = &"theo_field_book"
-title = "Ghostbuster Field Book"
-description = "Theo's field book is open on the desk. Useful, probably. Also very much not yours."
+[node name="NPC_manager" parent="." unique_id=674610404 instance=ExtResource("7_npc")]
+z_index = 10
+position = Vector2(-175, 1468)
+entity_id = &"manager"
+preview_name = "Vivian Marlowe"
+preview_texture = ExtResource("12_c7ath")
+snap_to_map_grid = false
 
-[node name="Inspectable_painting" parent="." unique_id=934983568 instance=ExtResource("9_insp")]
-position = Vector2(560, 144)
-object_id = &"painting"
-title = "Crooked Painting"
-description = "A landscape hanging slightly askew. Recently disturbed?"
-body_color = Color(0.45, 0.25, 0.55, 1)
+[node name="Inspectable_example_door" parent="." unique_id=1025255816 instance=ExtResource("9_insp")]
+position = Vector2(164, 1233)
+object_id = &"example_locked_door"
+title = "Locked Door"
+description = "The door is locked."
+draw_marker = false
+snap_to_map_grid = false
+
+[node name="Inspectable_example_door_key" parent="." unique_id=2040692932 instance=ExtResource("9_insp")]
+position = Vector2(36, 1297)
+object_id = &"example_door_key"
+title = "Small Brass Key"
+description = "A small brass key rests here."
+body_color = Color(0.86, 0.68, 0.28, 1)
+snap_to_map_grid = false
 
 [node name="Player" parent="." unique_id=1010292065 instance=ExtResource("8_player")]
-position = Vector2(168, 302)
+position = Vector2(537, 157)
+
+[node name="Stairs 1" type="Node2D" parent="." unique_id=388047221]
+visible = false
+position = Vector2(-396, 513)
+script = ExtResource("13_srmg5")
+target_portal = NodePath("../Stairs 2")
+snap_to_map_grid = false
+
+[node name="Stairs 2" type="Node2D" parent="." unique_id=340293470]
+visible = false
+position = Vector2(-391, 1660)
+script = ExtResource("13_srmg5")
+target_portal = NodePath("../Stairs 1")
+snap_to_map_grid = false

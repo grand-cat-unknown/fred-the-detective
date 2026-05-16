@@ -5,6 +5,9 @@ extends Resource
 @export var title := "Object"
 @export_multiline var description := "An ordinary thing. Nothing of note."
 @export var effects: Array = []
+@export var action_label := ""
+@export_multiline var action_prompt := ""
+@export var action_effects: Array = []
 
 
 func is_available(state: CaseState) -> bool:
@@ -16,4 +19,7 @@ func to_inspection_dictionary() -> Dictionary:
 		"title": title,
 		"description": description,
 		"effects": effects,
+		"action_label": action_label,
+		"action_prompt": action_prompt,
+		"action_effects": action_effects,
 	}
