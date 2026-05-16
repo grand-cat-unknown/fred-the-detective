@@ -7,6 +7,7 @@ signal accusation_submitted(killer_id: StringName, killer_label: String, method_
 @onready var _root: Control = $Root
 @onready var _accuse_button: Button = $Root/AccuseButton
 @onready var _modal: Control = $Root/Modal
+@onready var _win_screen: Control = $Root/WinScreen
 @onready var _killer_options: OptionButton = $Root/Modal/Panel/Margin/VBox/Slots/KillerRow/KillerOptions
 @onready var _method_input: TextEdit = $Root/Modal/Panel/Margin/VBox/Slots/MethodRow/MethodInput
 @onready var _evidence_input: TextEdit = $Root/Modal/Panel/Margin/VBox/Slots/EvidenceRow/EvidenceInput
@@ -17,6 +18,7 @@ signal accusation_submitted(killer_id: StringName, killer_label: String, method_
 
 func _ready() -> void:
 	_modal.visible = false
+	_win_screen.visible = false
 	_populate_options()
 	_accuse_button.pressed.connect(open)
 	_submit_button.pressed.connect(_submit_accusation)
@@ -28,27 +30,34 @@ func configure(_state: CaseState) -> void:
 
 
 func set_accuse_button_enabled(enabled: bool) -> void:
-	_accuse_button.visible = enabled
-	_accuse_button.disabled = not enabled
+	var can_accuse := enabled and not _win_screen.visible
+	_accuse_button.visible = can_accuse
+	_accuse_button.disabled = not can_accuse
 
 
 func open() -> void:
+	if _win_screen.visible:
+		return
 	_result_label.text = ""
 	set_busy(false)
 	_modal.visible = true
 
 
 func hide_panel() -> void:
+	if _win_screen.visible:
+		return
 	_modal.visible = false
 
 
 func is_open() -> bool:
-	return _modal.visible
+	return _modal.visible or _win_screen.visible
 
 
 func handle_input_event(event: InputEvent) -> bool:
 	if not is_open():
 		return false
+	if _win_screen.visible:
+		return true
 	if event.is_action_pressed("ui_cancel"):
 		hide_panel()
 		return true
@@ -67,9 +76,20 @@ func set_busy(is_busy: bool) -> void:
 
 func show_result(success: bool, message: String) -> void:
 	set_busy(false)
+	if success:
+		_show_win_screen()
+		accusation_resolved.emit(success, message)
+		return
 	var color := "#f1dda0" if success else "#f0b0a0"
 	_result_label.text = "[color=%s]%s[/color]" % [color, message]
 	accusation_resolved.emit(success, message)
+
+
+func _show_win_screen() -> void:
+	_modal.visible = false
+	_accuse_button.visible = false
+	_accuse_button.disabled = true
+	_win_screen.visible = true
 
 
 func _populate_options() -> void:
