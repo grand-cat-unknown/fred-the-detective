@@ -9,7 +9,6 @@ const BLOCKING_LAYERS := {
 	"furniture-16": true,
 	"Props": true,
 	"props-16": true,
-	"Deadbody": true,
 }
 const INSPECT_TITLE_DATA := "inspect_title"
 const INSPECT_DESCRIPTION_DATA := "inspect_description"
