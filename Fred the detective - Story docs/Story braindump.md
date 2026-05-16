@@ -4,7 +4,7 @@
 
 ## Pitch
 
-Collector **Reginald Vance** is found dead in Suite 1221 during a scheduled Ghostbusters **containment watch** over his newly-acquired Anchor Idol — the most spectrally-active piece from a recent occult auction, rated for its capacity to attract other entities. The idol is missing.
+Collector **Felix Vance** is found dead in Suite 1221 during a scheduled Ghostbusters **containment watch** over his newly-acquired Anchor Idol — the most spectrally-active piece from a recent occult auction, rated for its capacity to attract other entities. The idol is missing.
 
 **Dr. Otis Pemberton** (a Ghostbuster whose specialties are medical and occult-scholarly work) staged a fake haunting from inside the suite while the rest of the team waited at their stations. During the theatrics he killed Vance, took the idol, slipped out a back service door, circled through the maintenance corridor, and rejoined the team from the wrong end of the hall. When the team forced the locked front door, Pemberton — the obvious person to handle a body that "took a Class-5 hit" — performed the pulse check and pronounced Vance dead from a "spectral seizure."
 
@@ -12,11 +12,11 @@ Collector **Reginald Vance** is found dead in Suite 1221 during a scheduled Ghos
 
 ## Authored Truths
 
-### Victim: Reginald Vance
+### Victim: Felix Vance
 
 - **Age:** Mid-sixties
 - **Location:** Suite 1221
-- **Cause:** Close-range discharge from a charged Ghost Cell
+- **Cause:** Close-range discharge from a charged Siren Containment Cell
 - **Wound:** Small, precise “cold-burn” under the ribs
 - **Residue:** Directional “fan” of violet ectoplasm on the wall behind the body (concentrated exit pattern, not a 360° spread) + a “dust silhouette” on the pedestal where the idol sat
 
@@ -30,9 +30,9 @@ Collector **Reginald Vance** is found dead in Suite 1221 during a scheduled Ghos
 
 ## The “Fake” Haunting (Method)
 
-- Pemberton doesn’t use a device — he uses theater.
-- While alone in the suite, he slams furniture and shouts warnings to the team in the hallway.
-- He claims the “spectral energy” is too high to enter, forcing the team to wait outside while he “stabilizes” the situation.
+- Pemberton uses the stolen Siren Cell as the murder weapon, then uses theater as the cover story.
+- While alone in the suite, he slams furniture and simulates a violent Class-5 manifestation.
+- He does not openly identify himself from inside the room. His cover depends on being absent until he reappears from the far end of the corridor at 9:13 PM.
 
 ---
 
@@ -76,7 +76,7 @@ Collector **Reginald Vance** is found dead in Suite 1221 during a scheduled Ghos
 | --- | --- | --- |
 | Dr. Otis Pemberton | Killer | Claims he was running structural PKE sweeps and tried to flank an entity through the corridor's far-end access. |
 | Julian Vane | Witness / Rival (Red Herring) | Bribed a maid for a master key to swap the idol during meditation; aborted when the watch team set up. Won't admit any of it — being there with means and motive looks like premeditated murder. |
-| Theo Griggs | Witness / Tech | Noticed a charged Siren Cell was missing from the gear cart — and the gear log shows Pemberton signed it out during prep. |
+| Theo Griggs | Witness / Tech | Noticed a charged Siren Cell was missing from the gear cart. No paperwork ties Pemberton to it, but Theo remembers Pemberton hovering around the cart during prep. |
 | Mara Bell | Witness / Lead | Claims she held the main hallway and timestamps the manifestation noises starting at 9:07 — but was actually in 1218 dealing with the flood from 9:05 to ~9:11. |
 | Dr. Iris Thorne | Witness / Anchor (Truth-teller) | Manning the secondary observation post in 1222, listening at 1221's shared wall. Her field book logs the manifestation noises (~9:07), a heavy thud in the walls (~9:10 — the cell down the chute), and Pemberton arriving from the far end of the corridor at 9:13. |
 | Dottie "Mags" Higgins | Witness / Maid (Negative Witness) | Shut inside the **12th-floor Housekeeping Room** (a known checkpoint on Pemberton's sweep route) from before 9 until past 9:15. A long, forbidden smoke break. **The door never opened.** Pemberton never came through, contradicting his "structural sweep / flanking the entity" alibi. Won't admit she was there (smoking on duty + the earlier bribery she's separately covering up). |
@@ -140,7 +140,7 @@ The detective eventually finds the **Siren Cell** in the **basement laundry bin*
 1. **The Weight:** A full Siren Cell weighs 15 lbs because of the "Neutralizing Sludge."
 2. **The State:** This one is **empty and hissed out**. Back-pressure valve popped, manual lever flipped — the signature of a point-blank Manual Purge.
 
-**The Conclusion:** Pemberton didn't use a ghost. He used the "fire extinguisher" (the Siren Cell) to "extinguish" Vance. He pressed it against his chest and pulled the manual override, dumping 2 liters of sub-zero sludge directly into the victim's heart.
+**The Conclusion:** Pemberton didn't use a ghost. He pressed the Siren Cell against Vance's chest and pulled the Manual Purge override, driving Violet-Grade sludge through the victim at point-blank range.
 
 ---
 
@@ -161,7 +161,7 @@ Why does a respected doctor steal an idol?
 The player has to confront Pemberton not with "I think you did it," but with **The Logistical Impossibility**:
 
 1. "You said your sweep checkpoint covered the 12th-floor Housekeeping Room. The maid was shut inside that room the entire window. The door never opened. You never set foot in it."
-2. "You said it was a Shadow Stalker, but the wound matches the Siren Cell nozzle exactly — and a real Class-5 sprays ectoplasm omnidirectionally, not in a fan on a single wall. A charged cell went missing from the gear cart tonight; the gear log shows *you* signed it out during prep. Dr. Thorne logged the thud of it going down the chute at 9:10 PM. We pulled it out of the basement bin."
+2. "You said it was a Shadow Stalker, but the wound matches the Siren Cell nozzle exactly — and a real Class-5 sprays ectoplasm omnidirectionally, not in a fan on a single wall. A charged cell went missing from Theo's gear cart tonight. Theo remembers you hovering around the cart during prep. Dr. Thorne logged the thud of it going down the chute at 9:10 PM. We pulled it out of the basement bin."
 3. "And most importantly… the field manual says a point-blank Manual Purge stains the user's hands violet for 48–72 hours. Show me your hands, Doctor."
 
 ---

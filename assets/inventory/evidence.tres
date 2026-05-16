@@ -21,9 +21,11 @@ evidence_title = "Recovered Containment Cell"
 evidence_image = ExtResource("4_image")
 evidence_description = "[b]Recovered Containment Cell[/b]
 
-Fred found the missing Siren-grade containment cell hidden in the laundry. Its discharge end is exactly the right size for the wound.
+Fred found the missing Siren-grade containment cell hidden in the laundry. The Anchor Idol was tucked inside the cell's empty lead-lined pressure chamber.
 
-This proves the murder weapon was not a ghost. Someone used the cell like a point-blank gun."
+The discharge end is exactly the right size for the wound. The back-pressure valve is popped, and the Manual Override lever is flipped.
+
+This proves the murder weapon was not a ghost. Someone deliberately used the cell as a point-blank discharge weapon."
 
 [resource]
 script = ExtResource("1_definition")

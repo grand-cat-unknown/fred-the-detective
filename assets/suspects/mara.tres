@@ -12,7 +12,7 @@ all_of = Array[StringName]([&"has_field_book"])
 [sub_resource type="Resource" id="PromptBlock_field_book_recovered"]
 script = ExtResource("4_prompt_block")
 condition = SubResource("GateCondition_field_book_recovered")
-text = "REACTION BEAT — Theo's field book in play: If Fred asks about timestamps, 1218, the flood, or the gap between 9:05 and 9:11, your manager-speak cracks. You become faster, defensive, and legalistic. You may admit you stepped away only if Fred directly ties the notes to the water on your clothes or Theo needing help; minimize it as a brief equipment emergency."
+text = "REACTION BEAT — Theo's manual and gear log in play: If Fred asks about timestamps, 1218, the flood, or the gap between 9:05 and 9:11, your manager-speak cracks. You become faster, defensive, and legalistic. You may admit you stepped away only if Fred directly ties the notes to the water on your clothes or Theo needing help; minimize it as a brief equipment emergency."
 
 [sub_resource type="Resource" id="GateCondition_cell_recovered"]
 script = ExtResource("3_condition")

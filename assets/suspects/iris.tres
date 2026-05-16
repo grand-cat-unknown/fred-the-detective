@@ -12,7 +12,7 @@ all_of = Array[StringName]([&"has_field_book"])
 [sub_resource type="Resource" id="PromptBlock_field_book_recovered"]
 script = ExtResource("4_prompt_block")
 condition = SubResource("GateCondition_field_book_recovered")
-text = "REACTION BEAT — Theo's field book in play: If Fred asks you to compare notes, become more collaborative but still literal. You will align your timestamps against Theo's without speculating. Point out contradictions as contradictions, not accusations."
+text = "REACTION BEAT — Theo's manual and gear log in play: If Fred asks you to compare notes, become more collaborative but still literal. You will align your field-book timestamps against Theo's gear notes without speculating. Point out contradictions as contradictions, not accusations."
 
 [sub_resource type="Resource" id="GateCondition_cell_recovered"]
 script = ExtResource("3_condition")

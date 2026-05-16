@@ -11,37 +11,39 @@ all_of = Array[StringName]([&"has_field_book"])
 [sub_resource type="Resource" id="InventoryItemState_field_book"]
 script = ExtResource("3_state")
 condition = SubResource("GateCondition_has_field_book")
-label = "Field Book"
-description = "Theo's Ghostbusters field book."
+label = "Manual"
+description = "Theo's Ghostbusters field manual and gear log."
 action_input = &"open_field_book"
 action_key_hint = "Q"
 action_kind = &"book"
-book_title = "Theo's Field Book"
-book_pages = Array[String](["[b]Theo's Ghostbusters Field Book[/b]
+book_title = "Theo's Field Manual"
+book_pages = Array[String](["[b]Ghostbusters SOP & Equipment Safety Guide[/b]
 
-Property of Theo. If found, please return — there are notes in here I can't afford to lose.
+Property of Theo Griggs. If found, please return to the tech cart.
 
-The goal of this book is simple: catalogue every odd thing I see in this town and figure out which ones are actually ghosts.", "[b]Rule 1.[/b] If it makes the air cold, write it down.
-[b]Rule 2.[/b] If it makes the dog bark at nothing, write it down.
-[b]Rule 3.[/b] If it makes a grown-up suddenly change the subject, definitely write it down.", "[b]Suspects so far[/b]
+This field copy combines the safety manual with Theo's working gear log for tonight's containment watch.", "[b]Section 4.2 - Siren-Class Containment Cells[/b]
 
-• The lighthouse keeper — always near the bluffs after dark.
-• The librarian — knows more about the old town hall fire than she lets on.
-• That guy at the diner — claims he hears footsteps upstairs every night.", "[b]Field notes[/b]
+Charged cells contain pressurized Violet-Grade ionized sludge. Standard discharge is at range, against a manifested entity.
 
-The attic at the boarding house felt twelve degrees colder than the hallway. My pocket watch stopped at 3:11 AM exactly.
+A Manual Purge is an emergency override for point-blank discharge. A charged cell weighs about 15 lbs.", "[b]Sections 5.3, 5.4, 7.2[/b]
 
-If I see 3:11 one more time I'm going to lose it.", "[b]Equipment checklist[/b]
+Purge Pigment can be driven through standard gloves during a point-blank Manual Purge, staining palms and cuticles for 48-72 hours.
 
-— Flashlight (working)
-— Notebook (this one)
-— Salt packet from the diner
-— Half a chocolate bar (emergency rations)
-— Courage (intermittent)", "[b]Reminders[/b]
+The back-pressure valve only pops when the nozzle is obstructed by a solid object during discharge.
 
-Ask Fred about the symbol on the cellar door.
-Check the church bell rope — someone's been ringing it at odd hours.
-Do NOT go back to the bluffs alone."])
+The Manual Override lever requires a deliberate two-stage pinch-and-twist. It should not flip from impact, vibration, or spectral interference.", "[b]Sections 8.1, 8.2[/b]
+
+Class-5 ghost-touch leaves jagged, branching frost patterns. A precise circular wound is not a documented ghost-touch pattern.
+
+A manifested Class-5 radiates ectoplasm in a roughly 360 degree spread. A directional fan on one wall indicates a focused channel, not a normal manifestation.", "[b]Theo's Gear Log - 12th Floor Watch[/b]
+
+8:42 PM - Cart loaded for 1221 containment watch.
+8:55 PM - Siren Cell A checked: charged, sealed, valve intact.
+9:00 PM - Watch begins. I am in 1218 tech-prep.
+9:05 PM - Pipe joint burst near 1218. Gear got soaked. Mara came to help.
+9:06 PM - Siren Cell A missing from cart. I thought I miscounted. I did not report it.
+
+Note to self: Dr. Pemberton was around the cart during prep, 'helping' with capture-tool maintenance."])
 
 [resource]
 script = ExtResource("1_definition")

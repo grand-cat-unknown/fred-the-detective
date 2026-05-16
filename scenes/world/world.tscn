@@ -95,8 +95,8 @@ snap_to_map_grid = false
 [node name="Inspectable_theo_field_book" parent="." unique_id=843935259 instance=ExtResource("9_insp")]
 position = Vector2(932, 327)
 object_id = &"theo_field_book"
-title = "Theo's Field Book"
-description = "A Ghostbusters field book rests on the nearby desk."
+title = "Theo's Field Manual"
+description = "A Ghostbusters field manual and gear log rests on the nearby desk."
 draw_marker = false
 blocks_movement = false
 snap_to_map_grid = false

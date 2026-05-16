@@ -21,7 +21,7 @@ all_of = Array[StringName]([&"has_field_book"])
 [sub_resource type="Resource" id="PromptBlock_field_book_recovered"]
 script = ExtResource("4_prompt_block")
 condition = SubResource("GateCondition_field_book_recovered")
-text = "REACTION BEAT — Theo's field book in play: If Fred mentions gear logs, timestamps, or sign-outs, become colder and more procedural. Treat Theo's notes as amateur clerical clutter unless Fred quotes a specific entry. Do not volunteer that you handled the cart."
+text = "REACTION BEAT — Theo's manual and gear log in play: If Fred mentions gear logs, timestamps, or sign-outs, become colder and more procedural. Treat Theo's notes as amateur clerical clutter unless Fred quotes a specific entry. Do not volunteer that you handled the cart."
 
 [resource]
 script = ExtResource("1_script")

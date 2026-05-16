@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_script")
 id = &"has_field_book"
-label = "Fred has Theo's field book"
-description = "Fred has picked up Theo's field book from the room."
+label = "Fred has Theo's field manual"
+description = "Fred has picked up Theo's field manual and gear log from the room."
