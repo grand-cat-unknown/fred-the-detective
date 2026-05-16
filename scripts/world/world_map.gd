@@ -122,6 +122,28 @@ func apply_tile_visual(tile_position: Vector2i, visual: Resource) -> void:
 	)
 
 
+func get_tile_icon_texture(layer_name: String, source_id: int, atlas_coords: Vector2i) -> Texture2D:
+	var tile_layer := _layer(layer_name)
+	if tile_layer == null:
+		push_warning("Inventory icon references missing TileMapLayer '%s'." % layer_name)
+		return null
+	if tile_layer.tile_set == null:
+		push_warning("Inventory icon references TileMapLayer '%s' without a TileSet." % layer_name)
+		return null
+	var source := tile_layer.tile_set.get_source(source_id)
+	if source == null or not source is TileSetAtlasSource:
+		push_warning("Inventory icon references missing atlas source %d on TileMapLayer '%s'." % [source_id, layer_name])
+		return null
+	var atlas_source := source as TileSetAtlasSource
+	var atlas := atlas_source.texture
+	if atlas == null:
+		return null
+	var texture := AtlasTexture.new()
+	texture.atlas = atlas
+	texture.region = atlas_source.get_tile_texture_region(atlas_coords)
+	return texture
+
+
 func _draw() -> void:
 	draw_rect(Rect2(Vector2.ZERO, TileMap2D.VIEW_SIZE), background_color, true)
 

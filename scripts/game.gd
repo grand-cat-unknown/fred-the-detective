@@ -3,6 +3,7 @@ extends Node2D
 @onready var _world: WorldView = %WorldView
 @onready var _inspect_panel: InspectPanel = %InspectPanel
 @onready var _dialogue_panel: DialoguePanel = %DialoguePanel
+@onready var _inventory_panel := %InventoryPanel
 
 var _llm: LLMClient
 var _effect_llm: LLMClient
@@ -13,15 +14,15 @@ var _dialogue: DialogueService
 
 func _ready() -> void:
 	var case := CaseLoader.load_default()
-	print("[case] loaded %d facts and %d interactables" % [case.fact_definitions.size(), case.interactables.size()])
+	print("[case] loaded %d facts, %d interactables, and %d inventory items" % [case.fact_definitions.size(), case.interactables.size(), case.inventory_items.size()])
 
 	_case_state = CaseState.new()
 	_case_state.name = "CaseState"
 	add_child(_case_state)
 	_case_state.configure(case.fact_definitions)
 	_case_state.fact_changed.connect(_on_case_fact_changed)
-
 	_world.configure(case, _case_state)
+	_inventory_panel.configure(_case_state, _world, case.inventory_items)
 
 	_llm = LLMClient.new()
 	_llm.name = "LLMClient"

@@ -199,6 +199,12 @@ func find_inspection_at_player() -> Dictionary:
 	return {}
 
 
+func get_tile_icon_texture(layer_name: String, source_id: int, atlas_coords: Vector2i) -> Texture2D:
+	if _world_map == null:
+		return null
+	return _world_map.get_tile_icon_texture(layer_name, source_id, atlas_coords)
+
+
 func _resolve_inspection(static_inspection: Dictionary) -> Dictionary:
 	if case_data == null:
 		return static_inspection

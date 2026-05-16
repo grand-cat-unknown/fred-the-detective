@@ -3,6 +3,7 @@ extends RefCounted
 
 const PLAYER_START_TILE := Vector2i(5, 13)
 const FACT_DIR := "res://assets/facts"
+const INVENTORY_DIR := "res://assets/inventory"
 const INTERACTABLE_DIR := "res://assets/interactables"
 const SUSPECT_DIR := "res://assets/suspects"
 const FACT_IDS := [
@@ -29,6 +30,7 @@ static func load_default() -> CaseData:
 	case.player_start_tile = PLAYER_START_TILE
 	case.fact_definitions = _load_fact_definitions()
 	case.interactables = _load_interactables()
+	case.inventory_items = _load_inventory_items()
 	var suspects: Array[SuspectData] = []
 	for id in SUSPECT_IDS:
 		var suspect := _load_suspect(id)
@@ -70,6 +72,14 @@ static func _load_interactables() -> Array:
 	return resources
 
 
+static func _load_inventory_items() -> Array[Resource]:
+	var resources: Array[Resource] = []
+	for resource in _load_resources_from_dir(INVENTORY_DIR):
+		if _is_inventory_item(resource):
+			resources.append(resource)
+	return resources
+
+
 static func _load_fact_definition(id: StringName) -> FactDefinition:
 	var path := "%s/%s.tres" % [FACT_DIR, id]
 	if not ResourceLoader.exists(path):
@@ -102,6 +112,18 @@ static func _has_interactable(resources: Array, id: StringName) -> bool:
 		if resource != null and StringName(str(resource.get("object_id"))) == id:
 			return true
 	return false
+
+
+static func _is_inventory_item(resource: Resource) -> bool:
+	if resource == null:
+		return false
+	if resource.has_method("resolve"):
+		return true
+	if StringName(str(resource.get("item_id"))) != &"":
+		return true
+	if StringName(str(resource.get("fact_id"))) != &"":
+		return true
+	return typeof(resource.get("states")) == TYPE_ARRAY
 
 
 static func _load_resources_from_dir(path: String) -> Array[Resource]:
