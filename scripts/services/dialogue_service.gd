@@ -114,6 +114,11 @@ func _build_instructions(suspect: SuspectData) -> String:
 		parts.append(suspect.system_prompt)
 	for block in suspect.available_prompt_blocks(_state):
 		parts.append(block.text)
+	var reaction_blocks := suspect.available_reaction_blocks(_state)
+	if not reaction_blocks.is_empty():
+		parts.append("Current reactive interview beats. Apply these only when Fred's latest question or evidence makes them relevant; use them to change tone, evasiveness, or what the character will now admit.")
+		for block in reaction_blocks:
+			parts.append(block.text)
 	parts.append("Reply as the character only. Do not narrate actions in brackets. Do not include your name as a prefix. Keep replies under 80 words.")
 	return "\n\n".join(parts)
 

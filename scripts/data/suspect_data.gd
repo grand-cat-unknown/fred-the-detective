@@ -19,6 +19,7 @@ extends Resource
 @export_multiline var dialogue: String = "They glance up but say nothing of note."
 @export_multiline var system_prompt: String = ""
 @export var prompt_blocks: Array = []
+@export var reaction_blocks: Array = []
 @export var allowed_effects: Array = []
 
 
@@ -41,6 +42,14 @@ func _init(
 func available_prompt_blocks(state: CaseState) -> Array[PromptBlock]:
 	var blocks: Array[PromptBlock] = []
 	for block in prompt_blocks:
+		if block is PromptBlock and block.is_available(state):
+			blocks.append(block as PromptBlock)
+	return blocks
+
+
+func available_reaction_blocks(state: CaseState) -> Array[PromptBlock]:
+	var blocks: Array[PromptBlock] = []
+	for block in reaction_blocks:
 		if block is PromptBlock and block.is_available(state):
 			blocks.append(block as PromptBlock)
 	return blocks
