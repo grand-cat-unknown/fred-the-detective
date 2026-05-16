@@ -2,21 +2,13 @@
 class_name WorldMap
 extends Node2D
 
-const WALKABLE_LAYERS := {
-	"Floor": true,
-	"Rooms": true,
-	"PanicHallwayEntrance": true,
-	"Carpets": true,
-	"RoomCover": true,
-	"PanicHallwayCover": true,
-	"Doors": true,
-	"WeirdSplatter": true,
-}
+
 const BLOCKING_LAYERS := {
 	"Walls": true,
 	"furniture": true,
-	"Ghostbusters": true,
+	"furniture-16": true,
 	"Props": true,
+	"props-16": true,
 	"Deadbody": true,
 }
 const INSPECT_TITLE_DATA := "inspect_title"
@@ -53,12 +45,7 @@ func is_walkable(tile_position: Vector2i) -> bool:
 		if blocking_layer.get_cell_source_id(tile_position) != -1:
 			return false
 
-	for layer_name in WALKABLE_LAYERS:
-		var walkable_layer := _layer(layer_name)
-		if walkable_layer != null and walkable_layer.get_cell_source_id(tile_position) != -1:
-			return true
-
-	return false
+	return true
 
 
 func update_cover_visibility(player_tile: Vector2i) -> void:
@@ -121,7 +108,7 @@ func _draw() -> void:
 
 func _collect_tile_layers() -> void:
 	_tile_layers.clear()
-	_collect_tile_layers_from(self)
+	_collect_tile_layers_from(self )
 
 
 func _collect_tile_layers_from(parent: Node) -> void:
