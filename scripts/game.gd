@@ -9,6 +9,7 @@ extends Node2D
 @onready var _toast: Toast = %Toast
 
 var _pending_action_toast: String = ""
+var _pending_passive_toast: String = ""
 
 var _llm: LLMClient
 var _effect_llm: LLMClient
@@ -68,6 +69,13 @@ func _unhandled_input(event: InputEvent) -> void:
 	if _inspect_panel.is_open():
 		if _inspect_panel.handle_input_event(event):
 			get_viewport().set_input_as_handled()
+			if not _inspect_panel.is_open():
+				_flush_pending_passive_toast()
+		return
+
+	if _toast.is_open():
+		if _toast.handle_input_event(event):
+			get_viewport().set_input_as_handled()
 		return
 
 	if _book_panel.is_open():
@@ -94,6 +102,7 @@ func _unhandled_input(event: InputEvent) -> void:
 			var passive_effects: Array = inspection.get("effects", [])
 			if action_label != "":
 				_pending_action_toast = toast_text
+				_pending_passive_toast = ""
 				_inspect_panel.show_action(
 					str(inspection["title"]),
 					str(inspection["description"]),
@@ -104,7 +113,9 @@ func _unhandled_input(event: InputEvent) -> void:
 			else:
 				_inspect_panel.show_text(str(inspection["title"]), str(inspection["description"]))
 				if toast_text != "" and not passive_effects.is_empty():
-					_toast.show_message(toast_text)
+					_pending_passive_toast = toast_text
+				else:
+					_pending_passive_toast = ""
 			if _case_state != null:
 				_case_state.apply_effects(passive_effects)
 			get_viewport().set_input_as_handled()
@@ -116,7 +127,7 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _process(delta: float) -> void:
-	var panels_open: bool = _inspect_panel.is_open() or _dialogue_panel.is_open() or _book_panel.is_open() or _evidence_panel.is_open()
+	var panels_open: bool = _inspect_panel.is_open() or _dialogue_panel.is_open() or _book_panel.is_open() or _evidence_panel.is_open() or _toast.is_open()
 	_world.set_interaction_prompt_enabled(not panels_open)
 	if panels_open:
 		return
@@ -192,6 +203,14 @@ func _on_inspect_action_confirmed(effects: Array) -> void:
 		_case_state.apply_effects(effects)
 	if toast_text != "":
 		_toast.show_message(toast_text)
+
+
+func _flush_pending_passive_toast() -> void:
+	if _pending_passive_toast == "":
+		return
+	var toast_text := _pending_passive_toast
+	_pending_passive_toast = ""
+	_toast.show_message(toast_text)
 
 
 func _on_conversation_effects_applied(changed_facts: Array) -> void:

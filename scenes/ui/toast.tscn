@@ -32,28 +32,41 @@ mouse_filter = 2
 layout_mode = 1
 anchors_preset = 8
 anchor_left = 0.5
-anchor_top = 0.0
+anchor_top = 0.5
 anchor_right = 0.5
-anchor_bottom = 0.0
-offset_left = -160.0
-offset_top = 32.0
-offset_right = 160.0
-offset_bottom = 72.0
+anchor_bottom = 0.5
+offset_left = -180.0
+offset_top = -36.0
+offset_right = 180.0
+offset_bottom = 36.0
 grow_horizontal = 2
+grow_vertical = 2
 mouse_filter = 2
 theme_override_styles/panel = SubResource("StyleBoxFlat_toast")
 
 [node name="Margin" type="MarginContainer" parent="Root/Container"]
 layout_mode = 2
 theme_override_constants/margin_left = 18
-theme_override_constants/margin_top = 8
+theme_override_constants/margin_top = 12
 theme_override_constants/margin_right = 18
-theme_override_constants/margin_bottom = 8
+theme_override_constants/margin_bottom = 12
 
-[node name="Label" type="Label" parent="Root/Container/Margin"]
+[node name="VBox" type="VBoxContainer" parent="Root/Container/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="Label" type="Label" parent="Root/Container/Margin/VBox"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.95, 0.88, 0.65, 1)
-theme_override_font_sizes/font_size = 18
+theme_override_font_sizes/font_size = 20
 text = "Toast"
 horizontal_alignment = 1
 vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="Hint" type="Label" parent="Root/Container/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.7, 0.7, 0.65, 1)
+theme_override_font_sizes/font_size = 12
+text = "Press E or Space to close"
+horizontal_alignment = 1

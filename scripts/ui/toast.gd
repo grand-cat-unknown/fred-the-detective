@@ -2,13 +2,11 @@ class_name Toast
 extends CanvasLayer
 
 const FADE_IN_SECONDS := 0.18
-const HOLD_SECONDS := 1.6
-const FADE_OUT_SECONDS := 0.45
-const RISE_DISTANCE := 18.0
+const RISE_DISTANCE := 12.0
 
 @onready var _root: Control = $Root
 @onready var _container: PanelContainer = $Root/Container
-@onready var _label: Label = $Root/Container/Margin/Label
+@onready var _label: Label = $Root/Container/Margin/VBox/Label
 
 var _tween: Tween
 var _base_offset_top: float
@@ -39,10 +37,22 @@ func show_message(message: String) -> void:
 	_tween.tween_property(_container, "modulate:a", 1.0, FADE_IN_SECONDS)
 	_tween.tween_property(_container, "offset_top", _base_offset_top, FADE_IN_SECONDS).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
 	_tween.tween_property(_container, "offset_bottom", _base_offset_bottom, FADE_IN_SECONDS).set_trans(Tween.TRANS_CUBIC).set_ease(Tween.EASE_OUT)
-	_tween.chain().tween_interval(HOLD_SECONDS)
-	_tween.chain().tween_property(_container, "modulate:a", 0.0, FADE_OUT_SECONDS)
-	_tween.chain().tween_callback(_on_finished)
 
 
-func _on_finished() -> void:
+func hide_panel() -> void:
+	if _tween != null and _tween.is_valid():
+		_tween.kill()
 	_root.visible = false
+
+
+func is_open() -> bool:
+	return _root.visible
+
+
+func handle_input_event(event: InputEvent) -> bool:
+	if not is_open():
+		return false
+	if event.is_action_pressed("interact") or event.is_action_pressed("ui_cancel"):
+		hide_panel()
+		return true
+	return false
