@@ -3,7 +3,7 @@
 [ext_resource type="Script" uid="uid://crrwy2qm3y7s4" path="res://scripts/data/interactable_definition.gd" id="1_definition"]
 [ext_resource type="Script" uid="uid://dy1gfjjj466vx" path="res://scripts/data/gate_condition.gd" id="2_condition"]
 [ext_resource type="Script" uid="uid://bv6wdcfc8aqee" path="res://scripts/data/state_effect.gd" id="4_effect"]
-[ext_resource type="Script" path="res://scripts/data/interactable_state.gd" id="5_state"]
+[ext_resource type="Script" uid="uid://ddrn77i41iqq5" path="res://scripts/data/interactable_state.gd" id="5_state"]
 
 [sub_resource type="Resource" id="GateCondition_locked"]
 script = ExtResource("2_condition")
@@ -36,6 +36,7 @@ description = "The small brass key fits this lock."
 action_label = "Yes"
 action_prompt = "Do you want to open the door?"
 action_effects = [SubResource("StateEffect_open_door")]
+toast = "Door opened!"
 update_tile = true
 source_id = 2
 atlas_coords = Vector2i(22, 4)

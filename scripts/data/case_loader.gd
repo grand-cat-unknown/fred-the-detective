@@ -13,6 +13,7 @@ const FACT_IDS := [
 ]
 const INTERACTABLE_IDS := [
 	&"theo_field_book",
+	&"laundry_pile",
 ]
 const INVENTORY_IDS := [
 	&"theo_field_book",

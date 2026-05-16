@@ -8,6 +8,7 @@ extends Resource
 @export var action_label := ""
 @export_multiline var action_prompt := ""
 @export var action_effects: Array = []
+@export var toast := ""
 
 
 func is_available(state: CaseState) -> bool:
@@ -22,4 +23,5 @@ func to_inspection_dictionary() -> Dictionary:
 		"action_label": action_label,
 		"action_prompt": action_prompt,
 		"action_effects": action_effects,
+		"toast": toast,
 	}

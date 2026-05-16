@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_script")
 id = &"has_evidence"
-default_value = true
+default_value = false
 label = "Fred has gathered evidence"
 description = "Fred has picked up the first piece of evidence."

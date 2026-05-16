@@ -1,16 +1,25 @@
 extends Node2D
 
+const AccusationJudgeScript := preload("res://scripts/services/accusation_judge.gd")
+
 @onready var _world: WorldView = %WorldView
 @onready var _inspect_panel: InspectPanel = %InspectPanel
 @onready var _dialogue_panel: DialoguePanel = %DialoguePanel
 @onready var _inventory_panel: InventoryPanel = %InventoryPanel
 @onready var _book_panel: BookPanel = %BookPanel
 @onready var _evidence_panel: EvidencePanel = %EvidencePanel
+@onready var _accuse_panel: AccusePanel = %AccusePanel
+@onready var _toast: Toast = %Toast
+
+var _pending_action_toast: String = ""
+var _pending_passive_toast: String = ""
 
 var _llm: LLMClient
 var _effect_llm: LLMClient
+var _accusation_llm: LLMClient
 var _case_state: CaseState
 var _effect_judge: ConversationEffectJudge
+var _accusation_judge: Node
 var _dialogue: DialogueService
 
 
@@ -26,6 +35,7 @@ func _ready() -> void:
 
 	_world.configure(case, _case_state)
 	_inventory_panel.configure(case, _case_state)
+	_accuse_panel.configure(_case_state)
 
 	_llm = LLMClient.new()
 	_llm.name = "LLMClient"
@@ -35,12 +45,23 @@ func _ready() -> void:
 	_effect_llm.name = "ConversationEffectLLM"
 	add_child(_effect_llm)
 
+	_accusation_llm = LLMClient.new()
+	_accusation_llm.name = "AccusationLLM"
+	add_child(_accusation_llm)
+
 	_effect_judge = ConversationEffectJudge.new()
 	_effect_judge.name = "ConversationEffectJudge"
 	add_child(_effect_judge)
 	_effect_judge.configure(_effect_llm, _case_state)
 	_effect_judge.effects_applied.connect(_on_conversation_effects_applied)
 	_effect_judge.judge_failed.connect(_on_conversation_judge_failed)
+
+	_accusation_judge = AccusationJudgeScript.new()
+	_accusation_judge.name = "AccusationJudge"
+	add_child(_accusation_judge)
+	_accusation_judge.configure(_accusation_llm, _case_state)
+	_accusation_judge.completed.connect(_on_accusation_judge_completed)
+	_accusation_judge.failed.connect(_on_accusation_judge_failed)
 
 	_dialogue = DialogueService.new()
 	_dialogue.name = "DialogueService"
@@ -54,6 +75,8 @@ func _ready() -> void:
 	_dialogue_panel.submitted.connect(_on_dialogue_submitted)
 	_dialogue_panel.closed.connect(_on_dialogue_closed)
 	_inspect_panel.action_confirmed.connect(_on_inspect_action_confirmed)
+	_accuse_panel.accusation_resolved.connect(_on_accusation_resolved)
+	_accuse_panel.accusation_submitted.connect(_on_accusation_submitted)
 
 
 func _unhandled_input(event: InputEvent) -> void:
@@ -64,6 +87,13 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	if _inspect_panel.is_open():
 		if _inspect_panel.handle_input_event(event):
+			get_viewport().set_input_as_handled()
+			if not _inspect_panel.is_open():
+				_flush_pending_passive_toast()
+		return
+
+	if _toast.is_open():
+		if _toast.handle_input_event(event):
 			get_viewport().set_input_as_handled()
 		return
 
@@ -77,6 +107,11 @@ func _unhandled_input(event: InputEvent) -> void:
 			get_viewport().set_input_as_handled()
 		return
 
+	if _accuse_panel.is_open():
+		if _accuse_panel.handle_input_event(event):
+			get_viewport().set_input_as_handled()
+		return
+
 	if event.is_action_pressed("interact"):
 		var npc := _world.find_npc_at_player()
 		if npc != null and npc.suspect != null:
@@ -87,7 +122,11 @@ func _unhandled_input(event: InputEvent) -> void:
 		var inspection := _world.find_inspection_at_player()
 		if not inspection.is_empty():
 			var action_label := str(inspection.get("action_label", "")).strip_edges()
+			var toast_text := str(inspection.get("toast", "")).strip_edges()
+			var passive_effects: Array = inspection.get("effects", [])
 			if action_label != "":
+				_pending_action_toast = toast_text
+				_pending_passive_toast = ""
 				_inspect_panel.show_action(
 					str(inspection["title"]),
 					str(inspection["description"]),
@@ -97,8 +136,12 @@ func _unhandled_input(event: InputEvent) -> void:
 				)
 			else:
 				_inspect_panel.show_text(str(inspection["title"]), str(inspection["description"]))
+				if toast_text != "" and not passive_effects.is_empty():
+					_pending_passive_toast = toast_text
+				else:
+					_pending_passive_toast = ""
 			if _case_state != null:
-				_case_state.apply_effects(inspection.get("effects", []))
+				_case_state.apply_effects(passive_effects)
 			get_viewport().set_input_as_handled()
 			return
 
@@ -108,7 +151,9 @@ func _unhandled_input(event: InputEvent) -> void:
 
 
 func _process(delta: float) -> void:
-	var panels_open: bool = _inspect_panel.is_open() or _dialogue_panel.is_open() or _book_panel.is_open() or _evidence_panel.is_open()
+	var other_panel_open: bool = _inspect_panel.is_open() or _dialogue_panel.is_open() or _book_panel.is_open() or _evidence_panel.is_open() or _toast.is_open()
+	_accuse_panel.set_accuse_button_enabled(not other_panel_open)
+	var panels_open: bool = other_panel_open or _accuse_panel.is_open()
 	_world.set_interaction_prompt_enabled(not panels_open)
 	if panels_open:
 		return
@@ -178,9 +223,20 @@ func _on_case_fact_changed(fact_id: StringName, value: bool) -> void:
 
 
 func _on_inspect_action_confirmed(effects: Array) -> void:
-	if _case_state == null:
+	var toast_text := _pending_action_toast
+	_pending_action_toast = ""
+	if _case_state != null:
+		_case_state.apply_effects(effects)
+	if toast_text != "":
+		_toast.show_message(toast_text)
+
+
+func _flush_pending_passive_toast() -> void:
+	if _pending_passive_toast == "":
 		return
-	_case_state.apply_effects(effects)
+	var toast_text := _pending_passive_toast
+	_pending_passive_toast = ""
+	_toast.show_message(toast_text)
 
 
 func _on_conversation_effects_applied(changed_facts: Array) -> void:
@@ -189,6 +245,25 @@ func _on_conversation_effects_applied(changed_facts: Array) -> void:
 
 func _on_conversation_judge_failed(message: String) -> void:
 	print("[case] conversation effect judge failed: %s" % message)
+
+
+func _on_accusation_resolved(success: bool, message: String) -> void:
+	print("[case] accusation resolved success=%s: %s" % [success, message])
+
+
+func _on_accusation_submitted(killer_id: StringName, killer_label: String, method_text: String, evidence_text: String) -> void:
+	if _accusation_judge == null:
+		_accuse_panel.show_result(false, "The accusation judge is not ready.")
+		return
+	_accusation_judge.judge(killer_id, killer_label, method_text, evidence_text)
+
+
+func _on_accusation_judge_completed(success: bool, message: String) -> void:
+	_accuse_panel.show_result(success, message)
+
+
+func _on_accusation_judge_failed(message: String) -> void:
+	_accuse_panel.show_result(false, message)
 
 
 func _get_pressed_tile_direction() -> Vector2i:

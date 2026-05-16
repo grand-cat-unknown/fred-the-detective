@@ -13,6 +13,9 @@ extends Resource
 @export_multiline var action_prompt := ""
 @export var action_effects: Array = []
 
+@export_group("Toast")
+@export var toast := ""
+
 @export_group("Tile Visual")
 @export var update_tile := false
 @export var layer_name := "Doors"
@@ -38,4 +41,5 @@ func to_inspection_dictionary() -> Dictionary:
 		"action_label": action_label,
 		"action_prompt": action_prompt,
 		"action_effects": action_effects,
+		"toast": toast,
 	}
