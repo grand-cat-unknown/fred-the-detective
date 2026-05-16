@@ -13,63 +13,22 @@
 [ext_resource type="Texture2D" uid="uid://4v8bsut1gvl7" path="res://assets/art/environments/splatter/splatter_purple_05.png" id="7_ef1lp"]
 [ext_resource type="Texture2D" uid="uid://btwnpdmjtpkfi" path="res://assets/art/environments/splatter/splatter_water_08.png" id="7_r1w5a"]
 [ext_resource type="Texture2D" uid="uid://djtgyke1m8tq6" path="res://assets/art/environments/splatter/splatter_water_09.png" id="8_13r83"]
-[ext_resource type="Texture2D" uid="uid://rqluvh3urtn5" path="res://assets/art/environments/radioactive_items/Icon10_01.png" id="8_sloqf"]
 [ext_resource type="Texture2D" uid="uid://c8y41tif7tujv" path="res://assets/art/environments/splatter/splatter_water_10.png" id="9_q1yks"]
-[ext_resource type="Texture2D" uid="uid://d0yiktjflggr4" path="res://assets/art/environments/radioactive_items/Icon10_02.png" id="9_t1rse"]
-[ext_resource type="Texture2D" uid="uid://bs1ncn8gyf7y2" path="res://assets/art/environments/radioactive_items/Icon10_11.png" id="10_1pnen"]
 [ext_resource type="Texture2D" uid="uid://bxhuxj56gvgo8" path="res://assets/art/environments/splatter/splatter_water_11.png" id="10_h1t5q"]
-[ext_resource type="Texture2D" uid="uid://co13fmjq6867y" path="res://assets/art/environments/radioactive_items/Icon10_12.png" id="11_7kcv0"]
 [ext_resource type="Texture2D" uid="uid://bnjjbetm1jjje" path="res://assets/art/environments/splatter/splatter_water_12.png" id="11_r7nso"]
-[ext_resource type="Texture2D" uid="uid://bwum5ooxtcncm" path="res://assets/art/environments/radioactive_items/Icon10_13.png" id="12_h2iuf"]
 [ext_resource type="Texture2D" uid="uid://dbg1eeac36dg6" path="res://assets/art/environments/splatter/splatter_water_13.png" id="12_wv7si"]
-[ext_resource type="Texture2D" uid="uid://080sl3b886qx" path="res://assets/art/environments/radioactive_items/Icon10_14.png" id="13_8fuv1"]
 [ext_resource type="Texture2D" uid="uid://b2tgeypjdsy36" path="res://assets/art/environments/splatter/splatter_water_14.png" id="13_vxeuq"]
-[ext_resource type="Texture2D" uid="uid://c2pv7dipb277y" path="res://assets/art/environments/radioactive_items/Icon10_15.png" id="14_2xpb7"]
 [ext_resource type="Texture2D" uid="uid://bkb41jgwgrgld" path="res://assets/art/environments/splatter/splatter_water_15.png" id="14_tdsec"]
-[ext_resource type="Texture2D" uid="uid://bby6gpm0jo673" path="res://assets/art/environments/radioactive_items/Icon10_16.png" id="15_u1jm8"]
-[ext_resource type="Texture2D" uid="uid://cqhj2325erlg6" path="res://assets/art/environments/radioactive_items/Icon10_17.png" id="16_j1unl"]
 [ext_resource type="Texture2D" uid="uid://c7es172y52gkg" path="res://assets/art/environments/splatter/splatter_water_16.png" id="16_xqhu6"]
-[ext_resource type="Texture2D" uid="uid://bn5075g2edqoj" path="res://assets/art/environments/radioactive_items/Icon10_18.png" id="17_2aoi7"]
 [ext_resource type="Texture2D" uid="uid://dlyx0f4f3hux7" path="res://assets/art/environments/splatter/splatter_water_17.png" id="17_ywhfu"]
-[ext_resource type="Texture2D" uid="uid://bkaenlmm0hkb4" path="res://assets/art/environments/radioactive_items/Icon10_19.png" id="18_2eufk"]
 [ext_resource type="Texture2D" uid="uid://drxdyffbklcy8" path="res://assets/art/environments/splatter/splatter_water_18.png" id="18_c8qor"]
 [ext_resource type="Texture2D" uid="uid://bgdf6ivjd5jgl" path="res://assets/art/environments/splatter/splatter_water_19.png" id="19_2pk2m"]
-[ext_resource type="Texture2D" uid="uid://6jhavokqsodf" path="res://assets/art/environments/radioactive_items/Icon10_20.png" id="19_86d8r"]
 [ext_resource type="Texture2D" uid="uid://bypqwykb2ljtf" path="res://assets/art/environments/splatter/splatter_water_20.png" id="20_0j1q4"]
-[ext_resource type="Texture2D" uid="uid://dlsdddpih0vnf" path="res://assets/art/environments/radioactive_items/Icon10_03.png" id="20_2lmj1"]
-[ext_resource type="Texture2D" uid="uid://yvei4dam5uso" path="res://assets/art/environments/radioactive_items/Icon10_21.png" id="21_3xhoj"]
-[ext_resource type="Texture2D" uid="uid://bnhliv57prbnj" path="res://assets/art/environments/radioactive_items/Icon10_22.png" id="22_st8kn"]
-[ext_resource type="Texture2D" uid="uid://dxxfiahj0032p" path="res://assets/art/environments/radioactive_items/Icon10_23.png" id="23_u7fs4"]
 [ext_resource type="Texture2D" uid="uid://cmggcfb1u2285" path="res://assets/art/environments/splatter/splatter_water_01.png" id="23_umhnj"]
-[ext_resource type="Texture2D" uid="uid://k5wgav0dh4kc" path="res://assets/art/environments/radioactive_items/Icon10_24.png" id="24_12evo"]
 [ext_resource type="Texture2D" uid="uid://dt3vvjnrg5shy" path="res://assets/art/environments/splatter/splatter_water_02.png" id="24_83lhf"]
-[ext_resource type="Texture2D" uid="uid://bywfr2b6qc182" path="res://assets/art/environments/radioactive_items/Icon10_25.png" id="25_jpwvu"]
 [ext_resource type="Texture2D" uid="uid://cjkd2k6ng6bng" path="res://assets/art/environments/splatter/splatter_water_03.png" id="25_rc0i4"]
-[ext_resource type="Texture2D" uid="uid://duk251hms8k0w" path="res://assets/art/environments/radioactive_items/Icon10_26.png" id="26_5u2n8"]
 [ext_resource type="Texture2D" uid="uid://ddl153uivvphw" path="res://assets/art/environments/splatter/splatter_water_04.png" id="26_6ysv6"]
 [ext_resource type="Texture2D" uid="uid://don4f2v7tvuky" path="res://assets/art/environments/splatter/splatter_water_05.png" id="27_lbaiu"]
-[ext_resource type="Texture2D" uid="uid://bh6cxxiwso2qh" path="res://assets/art/environments/radioactive_items/Icon10_27.png" id="27_wfxop"]
-[ext_resource type="Texture2D" uid="uid://ds8nutc42akta" path="res://assets/art/environments/radioactive_items/Icon10_28.png" id="28_75cur"]
-[ext_resource type="Texture2D" uid="uid://dtfok5hhfs35y" path="res://assets/art/environments/radioactive_items/Icon10_29.png" id="29_c4aei"]
-[ext_resource type="Texture2D" uid="uid://bvi7um21pfyxd" path="res://assets/art/environments/radioactive_items/Icon10_30.png" id="30_r1w5a"]
-[ext_resource type="Texture2D" uid="uid://tyna5kwkcq0u" path="res://assets/art/environments/radioactive_items/Icon10_04.png" id="31_13r83"]
-[ext_resource type="Texture2D" uid="uid://1nus7k1yd8t7" path="res://assets/art/environments/radioactive_items/Icon10_31.png" id="32_q1yks"]
-[ext_resource type="Texture2D" uid="uid://b5eb1b76vr87w" path="res://assets/art/environments/radioactive_items/Icon10_32.png" id="33_h1t5q"]
-[ext_resource type="Texture2D" uid="uid://cuxtvg84rh2ad" path="res://assets/art/environments/radioactive_items/Icon10_33.png" id="34_r7nso"]
-[ext_resource type="Texture2D" uid="uid://bhkgvgxxgpsx" path="res://assets/art/environments/radioactive_items/Icon10_34.png" id="35_wv7si"]
-[ext_resource type="Texture2D" uid="uid://ddgmbr4e105ys" path="res://assets/art/environments/radioactive_items/Icon10_35.png" id="36_vxeuq"]
-[ext_resource type="Texture2D" uid="uid://ctp2wd3bqhdch" path="res://assets/art/environments/radioactive_items/Icon10_36.png" id="37_tdsec"]
-[ext_resource type="Texture2D" uid="uid://eqdmuk7quy5a" path="res://assets/art/environments/radioactive_items/Icon10_37.png" id="38_xqhu6"]
-[ext_resource type="Texture2D" uid="uid://by6ffb12oi7kp" path="res://assets/art/environments/radioactive_items/Icon10_38.png" id="39_ywhfu"]
-[ext_resource type="Texture2D" uid="uid://bcv4tcxvdwwpv" path="res://assets/art/environments/radioactive_items/Icon10_39.png" id="40_c8qor"]
-[ext_resource type="Texture2D" uid="uid://bktdnlmqx4r0h" path="res://assets/art/environments/radioactive_items/Icon10_40.png" id="41_2pk2m"]
-[ext_resource type="Texture2D" uid="uid://bcrerqpyn0nym" path="res://assets/art/environments/radioactive_items/Icon10_05.png" id="42_0j1q4"]
-[ext_resource type="Texture2D" uid="uid://bdilx22cecdr6" path="res://assets/art/environments/radioactive_items/Iconset10.png" id="43_umhnj"]
-[ext_resource type="Texture2D" uid="uid://paenhtlw4oc0" path="res://assets/art/environments/radioactive_items/Icon10_06.png" id="44_83lhf"]
-[ext_resource type="Texture2D" uid="uid://wdor07rowlgk" path="res://assets/art/environments/radioactive_items/Icon10_07.png" id="45_rc0i4"]
-[ext_resource type="Texture2D" uid="uid://dseim50pnf7qg" path="res://assets/art/environments/radioactive_items/Icon10_08.png" id="46_6ysv6"]
-[ext_resource type="Texture2D" uid="uid://c5eorl2dauucm" path="res://assets/art/environments/radioactive_items/Icon10_09.png" id="47_lbaiu"]
-[ext_resource type="Texture2D" uid="uid://d0m05o65kmp8r" path="res://assets/art/environments/radioactive_items/Icon10_10.png" id="48_80043"]
 [ext_resource type="Texture2D" uid="uid://ri6rbma2a3tv" path="res://assets/art/environments/splatter/splatter_water_big_01.png" id="63_80043"]
 [ext_resource type="Texture2D" uid="uid://cplhclf01bfys" path="res://assets/art/environments/splatter/splatter_water_big_02.png" id="64_8yxgw"]
 [ext_resource type="Texture2D" uid="uid://bwcjis2k3wtnx" path="res://assets/art/environments/splatter/splatter_water_big_03.png" id="65_vvi5i"]
@@ -99,253 +58,6 @@ texture_region_size = Vector2i(32, 32)
 [sub_resource type="TileSet" id="TileSet_vvi5i"]
 tile_size = Vector2i(32, 32)
 sources/0 = SubResource("TileSetAtlasSource_8yxgw")
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_sloqf"]
-texture = ExtResource("8_sloqf")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_t1rse"]
-texture = ExtResource("9_t1rse")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_1pnen"]
-texture = ExtResource("10_1pnen")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_7kcv0"]
-texture = ExtResource("11_7kcv0")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h2iuf"]
-texture = ExtResource("12_h2iuf")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8fuv1"]
-texture = ExtResource("13_8fuv1")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2xpb7"]
-texture = ExtResource("14_2xpb7")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u1jm8"]
-texture = ExtResource("15_u1jm8")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_j1unl"]
-texture = ExtResource("16_j1unl")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2aoi7"]
-texture = ExtResource("17_2aoi7")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2eufk"]
-texture = ExtResource("18_2eufk")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_86d8r"]
-texture = ExtResource("19_86d8r")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2lmj1"]
-texture = ExtResource("20_2lmj1")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_3xhoj"]
-texture = ExtResource("21_3xhoj")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_st8kn"]
-texture = ExtResource("22_st8kn")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_u7fs4"]
-texture = ExtResource("23_u7fs4")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_12evo"]
-texture = ExtResource("24_12evo")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_jpwvu"]
-texture = ExtResource("25_jpwvu")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_5u2n8"]
-texture = ExtResource("26_5u2n8")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wfxop"]
-texture = ExtResource("27_wfxop")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_75cur"]
-texture = ExtResource("28_75cur")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c4aei"]
-texture = ExtResource("29_c4aei")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r1w5a"]
-texture = ExtResource("30_r1w5a")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_13r83"]
-texture = ExtResource("31_13r83")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_q1yks"]
-texture = ExtResource("32_q1yks")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_h1t5q"]
-texture = ExtResource("33_h1t5q")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_r7nso"]
-texture = ExtResource("34_r7nso")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_wv7si"]
-texture = ExtResource("35_wv7si")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_vxeuq"]
-texture = ExtResource("36_vxeuq")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_tdsec"]
-texture = ExtResource("37_tdsec")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_xqhu6"]
-texture = ExtResource("38_xqhu6")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ywhfu"]
-texture = ExtResource("39_ywhfu")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_c8qor"]
-texture = ExtResource("40_c8qor")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2pk2m"]
-texture = ExtResource("41_2pk2m")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0j1q4"]
-texture = ExtResource("42_0j1q4")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_umhnj"]
-texture = ExtResource("43_umhnj")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-4:0/0 = 0
-5:0/0 = 0
-6:0/0 = 0
-7:0/0 = 0
-8:0/0 = 0
-9:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
-2:1/0 = 0
-3:1/0 = 0
-4:1/0 = 0
-5:1/0 = 0
-6:1/0 = 0
-7:1/0 = 0
-8:1/0 = 0
-9:1/0 = 0
-0:2/0 = 0
-1:2/0 = 0
-2:2/0 = 0
-3:2/0 = 0
-4:2/0 = 0
-5:2/0 = 0
-6:2/0 = 0
-7:2/0 = 0
-8:2/0 = 0
-9:2/0 = 0
-0:3/0 = 0
-1:3/0 = 0
-2:3/0 = 0
-3:3/0 = 0
-4:3/0 = 0
-5:3/0 = 0
-6:3/0 = 0
-7:3/0 = 0
-8:3/0 = 0
-9:3/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_83lhf"]
-texture = ExtResource("44_83lhf")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_rc0i4"]
-texture = ExtResource("45_rc0i4")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_6ysv6"]
-texture = ExtResource("46_6ysv6")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_lbaiu"]
-texture = ExtResource("47_lbaiu")
-0:0/0 = 0
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_80043"]
-texture = ExtResource("48_80043")
-0:0/0 = 0
-
-[sub_resource type="TileSet" id="TileSet_8yxgw"]
-tile_size = Vector2i(32, 32)
-sources/0 = SubResource("TileSetAtlasSource_sloqf")
-sources/1 = SubResource("TileSetAtlasSource_t1rse")
-sources/2 = SubResource("TileSetAtlasSource_2lmj1")
-sources/3 = SubResource("TileSetAtlasSource_13r83")
-sources/4 = SubResource("TileSetAtlasSource_0j1q4")
-sources/5 = SubResource("TileSetAtlasSource_83lhf")
-sources/6 = SubResource("TileSetAtlasSource_rc0i4")
-sources/7 = SubResource("TileSetAtlasSource_6ysv6")
-sources/8 = SubResource("TileSetAtlasSource_lbaiu")
-sources/9 = SubResource("TileSetAtlasSource_80043")
-sources/10 = SubResource("TileSetAtlasSource_1pnen")
-sources/11 = SubResource("TileSetAtlasSource_7kcv0")
-sources/12 = SubResource("TileSetAtlasSource_h2iuf")
-sources/13 = SubResource("TileSetAtlasSource_8fuv1")
-sources/14 = SubResource("TileSetAtlasSource_2xpb7")
-sources/15 = SubResource("TileSetAtlasSource_u1jm8")
-sources/16 = SubResource("TileSetAtlasSource_j1unl")
-sources/17 = SubResource("TileSetAtlasSource_2aoi7")
-sources/18 = SubResource("TileSetAtlasSource_2eufk")
-sources/19 = SubResource("TileSetAtlasSource_86d8r")
-sources/20 = SubResource("TileSetAtlasSource_3xhoj")
-sources/21 = SubResource("TileSetAtlasSource_st8kn")
-sources/22 = SubResource("TileSetAtlasSource_u7fs4")
-sources/23 = SubResource("TileSetAtlasSource_12evo")
-sources/24 = SubResource("TileSetAtlasSource_jpwvu")
-sources/25 = SubResource("TileSetAtlasSource_5u2n8")
-sources/26 = SubResource("TileSetAtlasSource_wfxop")
-sources/27 = SubResource("TileSetAtlasSource_75cur")
-sources/28 = SubResource("TileSetAtlasSource_c4aei")
-sources/29 = SubResource("TileSetAtlasSource_r1w5a")
-sources/30 = SubResource("TileSetAtlasSource_q1yks")
-sources/31 = SubResource("TileSetAtlasSource_h1t5q")
-sources/32 = SubResource("TileSetAtlasSource_r7nso")
-sources/33 = SubResource("TileSetAtlasSource_wv7si")
-sources/34 = SubResource("TileSetAtlasSource_vxeuq")
-sources/35 = SubResource("TileSetAtlasSource_tdsec")
-sources/36 = SubResource("TileSetAtlasSource_xqhu6")
-sources/37 = SubResource("TileSetAtlasSource_ywhfu")
-sources/38 = SubResource("TileSetAtlasSource_c8qor")
-sources/39 = SubResource("TileSetAtlasSource_2pk2m")
-sources/40 = SubResource("TileSetAtlasSource_umhnj")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_we3bw"]
 texture = ExtResource("3_vv8dq")
@@ -629,7 +341,7 @@ tile_set = ExtResource("2_jabx1")
 metadata/_edit_lock_ = true
 
 [node name="Stairs" type="TileMapLayer" parent="Floor" unique_id=603538557]
-z_index = 1
+z_index = 4
 tile_map_data = PackedByteArray("AADl/xcABQACAAkAAADl/xgABQACAAoAAADm/xcABQADAAkAAADm/xgABQADAAoAAADn/xcABQAEAAkAAADn/xgABQAEAAoAAADl/zoABQAGAAwAAADl/zsABQAGAA0AAADl/zwABQAGAA4AAADm/zoABQAHAAwAAADm/zsABQAHAA0AAADm/zwABQAHAA4AAADn/zoABQAIAAwAAADn/zsABQAIAA0AAADn/zwABQAIAA4AAAA=")
 tile_set = ExtResource("2_jabx1")
 
@@ -638,7 +350,7 @@ tile_map_data = PackedByteArray("AAD7/wIAAAAkAAcAAAD7/wMAAAAkAAgAAAD7/wQAAAAkAAc
 tile_set = ExtResource("2_jabx1")
 
 [node name="Carpets" type="TileMapLayer" parent="Floor" unique_id=444707677]
-tile_map_data = PackedByteArray("AADo/wwAAAA0ACgAAADp/wwAAAA0ACgAAADq/wwAAAA0ACgAAADr/wwAAAA0ACgAAADr/w0AAAA0ACgAAADq/w0AAAA0ACgAAADp/w0AAAA0ACgAAADo/w0AAAA0ACgAAADo/w4AAAA0ACgAAADp/w4AAAA0ACgAAADq/w4AAAA0ACgAAADr/w4AAAA0ACgAAADr/w8AAAA0ACgAAADq/w8AAAA0ACgAAADp/w8AAAA0ACgAAADo/w8AAAA0ACgAAADo/xAAAAA0ACgAAADp/xAAAAA0ACgAAADq/xAAAAA0ACgAAADr/xAAAAA0ACgAAADr/xEAAAA0ACgAAADq/xEAAAA0ACgAAADp/xEAAAA0ACgAAADo/xEAAAA0ACgAAADo/xIAAAA0ACgAAADp/xIAAAA0ACgAAADq/xIAAAA0ACgAAADr/xIAAAA0ACgAAADr/xMAAAA0ACgAAADr/xQAAAA0ACgAAADq/xQAAAA0ACgAAADp/xQAAAA0ACgAAADp/xMAAAA0ACgAAADo/xMAAAA0ACgAAADo/xQAAAA0ACgAAADq/xMAAAA0ACgAAADq/xUAAAA0ACgAAADo/xUAAAA0ACgAAADp/xUAAAA0ACgAAADr/xUAAAA0ACgAAADo/wsAAAAjACwAAADp/wsAAAAjACwAAADq/wsAAAAjACwAAADr/wsAAAAjACwAAADo/xYAAAAjAC4AAADp/xYAAAAjAC4AAADq/xYAAAAjAC4AAADr/xYAAAAjAC4AAAD8/w0AAAAaACsAAAD8/w4AAAAaACsAAAD9/w0AAAAaACsAAAD9/w4AAAAaACsAAAD+/w0AAAAaACsAAAD+/w4AAAAaACsAAAD//w0AAAAaACsAAAD//w4AAAAaACsAAAAAAA0AAAAaACsAAAAAAA4AAAAaACsAAAABAA0AAAAaACsAAAABAA4AAAAaACsAAAACAA0AAAAaACsAAAACAA4AAAAaACsAAAADAA0AAAAaACsAAAADAA4AAAAaACsAAAAEAA0AAAAaACsAAAAEAA4AAAAaACsAAAAFAA0AAAAaACsAAAAFAA4AAAAaACsAAAAGAA0AAAAaACsAAAAGAA4AAAAaACsAAAAHAA0AAAAaACsAAAAHAA4AAAAaACsAAAAIAA0AAAAaACsAAAAIAA4AAAAaACsAAAAJAA0AAAAaACsAAAAJAA4AAAAaACsAAAAKAA0AAAAaACsAAAAKAA4AAAAaACsAAAALAA0AAAAaACsAAAALAA4AAAAaACsAAAAMAA0AAAAaACsAAAAMAA4AAAAaACsAAAANAA0AAAAaACsAAAANAA4AAAAaACsAAAAOAA0AAAAaACsAAAAOAA4AAAAaACsAAAAPAA0AAAAaACsAAAAPAA4AAAAaACsAAAAQAA0AAAAaACsAAAAQAA4AAAAaACsAAAARAA0AAAAaACsAAAARAA4AAAAaACsAAAASAA0AAAAaACsAAAASAA4AAAAaACsAAAATAA0AAAAaACsAAAATAA4AAAAaACsAAAAUAA0AAAAaACsAAAAUAA4AAAAaACsAAAAVAA0AAAAaACsAAAAVAA4AAAAaACsAAAAWAA0AAAAaACsAAAAWAA4AAAAaACsAAAAXAA0AAAAaACsAAAAXAA4AAAAaACsAAAAYAA0AAAAaACsAAAAYAA4AAAAaACsAAAAZAA0AAAAaACsAAAAZAA4AAAAaACsAAAAaAA0AAAAaACsAAAAaAA4AAAAaACsAAAAbAA0AAAAaACsAAAAbAA4AAAAaACsAAAAcAA0AAAAaACsAAAAcAA4AAAAaACsAAAAdAA0AAAAaACsAAAAdAA4AAAAaACsAAAAeAA0AAAAaACsAAAAeAA4AAAAaACsAAAAfAA0AAAAaACsAAAAfAA4AAAAaACsAAAAgAA0AAAAaACsAAAAgAA4AAAAaACsAAAAhAA0AAAAaACsAAAAhAA4AAAAaACsAAAAiAA0AAAAaACsAAAAiAA4AAAAaACsAAAAjAA0AAAAaACsAAAAjAA4AAAAaACsAAAAkAA0AAAAaACsAAAAkAA4AAAAaACsAAAAlAA0AAAAaACsAAAAlAA4AAAAaACsAAAAmAA0AAAAaACsAAAAmAA4AAAAaACsAAAAnAA0AAAAaACsAAAAnAA4AAAAaACsAAAAoAA0AAAAaACsAAAAoAA4AAAAaACsAAAApAA0AAAAaACsAAAApAA4AAAAaACsAAAAqAA0AAAAaACsAAAAqAA4AAAAaACsAAAArAA0AAAAaACsAAAArAA4AAAAaACsAAAAsAA0AAAAaACsAAAAsAA4AAAAaACsAAAAtAA0AAAAaACsAAAAtAA4AAAAaACsAAAAuAA0AAAAaACsAAAAuAA4AAAAaACsAAAAvAA0AAAAaACsAAAAvAA4AAAAaACsAAAAwAA0AAAAaACsAAAAwAA4AAAAaACsAAAAxAA0AAAAaACsAAAAxAA4AAAAaACsAAAAyAA0AAAAaACsAAAAyAA4AAAAaACsAAAAzAA0AAAAaACsAAAAzAA4AAAAaACsAAAA0AA0AAAAaACsAAAA0AA4AAAAaACsAAAA1AA0AAAAaACsAAAA1AA4AAAAaACsAAAA2AA0AAAAaACsAAAA2AA4AAAAaACsAAAA3AA0AAAAaACsAAAA3AA4AAAAaACsAAAA4AA0AAAAaACsAAAA4AA4AAAAaACsAAAA5AA0AAAAaACsAAAA5AA4AAAAaACsAAAA6AA0AAAAaACsAAAA6AA4AAAAaACsAAAA7AA0AAAAaACsAAAA7AA4AAAAaACsAAAA8AA0AAAAaACsAAAA8AA4AAAAaACsAAAA9AA0AAAAaACsAAAA9AA4AAAAaACsAAAA+AA0AAAAbACsAAAA+AA4AAAAbACsAAAD7/w0AAAAZAC4AAAD7/w4AAAAZAC4AAAA=")
+tile_map_data = PackedByteArray("AADo/wwAAAA0ACgAAADp/wwAAAA0ACgAAADq/wwAAAA0ACgAAADr/wwAAAA0ACgAAADr/w0AAAA0ACgAAADq/w0AAAA0ACgAAADp/w0AAAA0ACgAAADo/w0AAAA0ACgAAADo/w4AAAA0ACgAAADp/w4AAAA0ACgAAADq/w4AAAA0ACgAAADr/w4AAAA0ACgAAADr/w8AAAA0ACgAAADq/w8AAAA0ACgAAADp/w8AAAA0ACgAAADo/w8AAAA0ACgAAADo/xAAAAA0ACgAAADp/xAAAAA0ACgAAADq/xAAAAA0ACgAAADr/xAAAAA0ACgAAADr/xEAAAA0ACgAAADq/xEAAAA0ACgAAADp/xEAAAA0ACgAAADo/xEAAAA0ACgAAADo/xIAAAA0ACgAAADp/xIAAAA0ACgAAADq/xIAAAA0ACgAAADr/xIAAAA0ACgAAADr/xMAAAA0ACgAAADr/xQAAAA0ACgAAADq/xQAAAA0ACgAAADp/xQAAAA0ACgAAADp/xMAAAA0ACgAAADo/xMAAAA0ACgAAADo/xQAAAA0ACgAAADq/xMAAAA0ACgAAADq/xUAAAA0ACgAAADo/xUAAAA0ACgAAADp/xUAAAA0ACgAAADr/xUAAAA0ACgAAADo/wsAAAAjACwAAADp/wsAAAAjACwAAADq/wsAAAAjACwAAADr/wsAAAAjACwAAADo/xYAAAAjAC4AAADp/xYAAAAjAC4AAADq/xYAAAAjAC4AAADr/xYAAAAjAC4AAAD8/w0AAAAaACsAAAD8/w4AAAAaACsAAAD9/w0AAAAaACsAAAD9/w4AAAAaACsAAAD+/w0AAAAaACsAAAD+/w4AAAAaACsAAAD//w0AAAAaACsAAAD//w4AAAAaACsAAAAAAA0AAAAaACsAAAAAAA4AAAAaACsAAAABAA0AAAAaACsAAAABAA4AAAAaACsAAAACAA0AAAAaACsAAAACAA4AAAAaACsAAAADAA0AAAAaACsAAAADAA4AAAAaACsAAAAEAA0AAAAaACsAAAAEAA4AAAAaACsAAAAFAA0AAAAaACsAAAAFAA4AAAAaACsAAAAGAA0AAAAaACsAAAAGAA4AAAAaACsAAAAHAA0AAAAaACsAAAAHAA4AAAAaACsAAAAIAA0AAAAaACsAAAAIAA4AAAAaACsAAAAJAA0AAAAaACsAAAAJAA4AAAAaACsAAAAKAA0AAAAaACsAAAAKAA4AAAAaACsAAAALAA0AAAAaACsAAAALAA4AAAAaACsAAAAMAA0AAAAaACsAAAAMAA4AAAAaACsAAAANAA0AAAAaACsAAAANAA4AAAAaACsAAAAOAA0AAAAaACsAAAAOAA4AAAAaACsAAAAPAA0AAAAaACsAAAAPAA4AAAAaACsAAAAQAA0AAAAaACsAAAAQAA4AAAAaACsAAAARAA0AAAAaACsAAAARAA4AAAAaACsAAAASAA0AAAAaACsAAAASAA4AAAAaACsAAAATAA0AAAAaACsAAAATAA4AAAAaACsAAAAUAA0AAAAaACsAAAAUAA4AAAAaACsAAAAVAA0AAAAaACsAAAAVAA4AAAAaACsAAAAWAA0AAAAaACsAAAAWAA4AAAAaACsAAAAXAA0AAAAaACsAAAAXAA4AAAAaACsAAAAYAA0AAAAaACsAAAAYAA4AAAAaACsAAAAZAA0AAAAaACsAAAAZAA4AAAAaACsAAAAaAA0AAAAaACsAAAAaAA4AAAAaACsAAAAbAA0AAAAaACsAAAAbAA4AAAAaACsAAAAcAA0AAAAaACsAAAAcAA4AAAAaACsAAAAdAA0AAAAaACsAAAAdAA4AAAAaACsAAAAeAA0AAAAaACsAAAAeAA4AAAAaACsAAAAfAA0AAAAaACsAAAAfAA4AAAAaACsAAAAgAA0AAAAaACsAAAAgAA4AAAAaACsAAAAhAA0AAAAaACsAAAAhAA4AAAAaACsAAAAiAA0AAAAaACsAAAAiAA4AAAAaACsAAAAjAA0AAAAaACsAAAAjAA4AAAAaACsAAAAkAA0AAAAaACsAAAAkAA4AAAAaACsAAAAlAA0AAAAaACsAAAAlAA4AAAAaACsAAAAmAA0AAAAaACsAAAAmAA4AAAAaACsAAAAnAA0AAAAaACsAAAAnAA4AAAAaACsAAAAoAA0AAAAaACsAAAAoAA4AAAAaACsAAAApAA0AAAAaACsAAAApAA4AAAAaACsAAAAqAA0AAAAaACsAAAAqAA4AAAAaACsAAAArAA0AAAAaACsAAAArAA4AAAAaACsAAAAsAA0AAAAaACsAAAAsAA4AAAAaACsAAAAtAA0AAAAaACsAAAAtAA4AAAAaACsAAAAuAA0AAAAaACsAAAAuAA4AAAAaACsAAAAvAA0AAAAaACsAAAAvAA4AAAAaACsAAAAwAA0AAAAaACsAAAAwAA4AAAAaACsAAAAxAA0AAAAaACsAAAAxAA4AAAAaACsAAAAyAA0AAAAaACsAAAAyAA4AAAAaACsAAAAzAA0AAAAaACsAAAAzAA4AAAAaACsAAAA0AA0AAAAaACsAAAA0AA4AAAAaACsAAAA1AA0AAAAaACsAAAA1AA4AAAAaACsAAAA2AA0AAAAaACsAAAA2AA4AAAAaACsAAAA3AA0AAAAaACsAAAA3AA4AAAAaACsAAAA4AA0AAAAaACsAAAA4AA4AAAAaACsAAAA5AA0AAAAaACsAAAA5AA4AAAAaACsAAAA6AA0AAAAaACsAAAA6AA4AAAAaACsAAAA7AA0AAAAaACsAAAA7AA4AAAAaACsAAAA8AA0AAAAaACsAAAA8AA4AAAAaACsAAAA9AA0AAAAaACsAAAA9AA4AAAAaACsAAAA+AA0AAAAbACsAAAA+AA4AAAAbACsAAAD7/w0AAAAZAC4AAAD7/w4AAAAZAC4AAADr/zsAAAAqACcAAADr/zwAAAAqACgAAADs/zsAAAAqACcAAADs/zwAAAAqACgAAADq/zsAAAApACcAAADq/zwAAAApACgAAADt/zsAAAArACcAAADt/zwAAAArACgAAAA=")
 tile_set = ExtResource("2_jabx1")
 
 [node name="RoomCover" type="TileMapLayer" parent="Floor" unique_id=150838822]
@@ -673,16 +385,24 @@ tile_set = ExtResource("2_jabx1")
 
 [node name="furniture" type="TileMapLayer" parent="." unique_id=149142619]
 z_index = 3
-tile_map_data = PackedByteArray("AAD8/wMAAQAEAAsAAAD9/wUAAQAGACMAAAD9/wYAAQAGACQAAAD9/wcAAQAGACUAAAD+/wUAAQAHACMAAAD+/wYAAQAHACQAAAD+/wcAAQAHACUAAAAAAAMAAQALABgAAAAAAAQAAQALABkAAAABAAMAAQAMABgAAAABAAQAAQAMABkAAAAEAAUAAQAKAAUAAAAEAAYAAQAKAAYAAAAEAAcAAQAKAAcAAAAHAAMAAQAYACEAAAAHAAQAAQAYACIAAAAHAAUAAQAYACMAAAAHAAYAAQAYACEAAAAHAAcAAQAYACIAAAAHAAgAAQAYACMAAAAHAAkAAQAYACQAAAAyAAMAAQAEAAsAAAAzAAUAAQAGACMAAAAzAAYAAQAGACQAAAAzAAcAAQAGACUAAAA0AAUAAQAHACMAAAA0AAYAAQAHACQAAAA0AAcAAQAHACUAAAA2AAMAAQALABgAAAA2AAQAAQALABkAAAA3AAMAAQAMABgAAAA3AAQAAQAMABkAAAA6AAUAAQAKAAUAAAA6AAYAAQAKAAYAAAA6AAcAAQAKAAcAAAA9AAMAAQAYACEAAAA9AAQAAQAYACIAAAA9AAUAAQAYACMAAAA9AAYAAQAYACEAAAA9AAcAAQAYACIAAAA9AAgAAQAYACMAAAA9AAkAAQAYACQAAAD8/xIAAQAEAAsAAAD9/xQAAQAGACMAAAD9/xUAAQAGACQAAAD9/xYAAQAGACUAAAD+/xQAAQAHACMAAAD+/xUAAQAHACQAAAD+/xYAAQAHACUAAAAEABQAAQAPAAgAAAAEABUAAQAPAAkAAAAEABYAAQAPAAoAAAAHABIAAQAYACEAAAAHABMAAQAYACIAAAAHABQAAQAYACMAAAAHABUAAQAYACEAAAAHABYAAQAYACIAAAAHABcAAQAYACMAAAAHABgAAQAYACQAAAAyABIAAQAEAAsAAAAzABQAAQAGACMAAAAzABUAAQAGACQAAAAzABYAAQAGACUAAAA0ABQAAQAHACMAAAA0ABUAAQAHACQAAAA0ABYAAQAHACUAAAA6ABQAAQAKAAUAAAA6ABUAAQAKAAYAAAA6ABYAAQAKAAcAAAA9ABIAAQAYACEAAAA9ABMAAQAYACIAAAA9ABQAAQAYACMAAAA9ABUAAQAYACEAAAA9ABYAAQAYACIAAAA9ABcAAQAYACMAAAA9ABgAAQAYACQAAAAAABIAAQALABkAAAABABIAAQAMABkAAAAAABEAAQALABgAAAABABEAAQAMABgAAAA2ABIAAQALABkAAAA3ABIAAQAMABkAAAA2ABEAAQALABgAAAA3ABEAAQAMABgAAADo/ykAAQAnAB8AAADq/ykAAQAnAB8AAADr/ykAAQAkAB8AAADt/ykAAQAmAB8AAADu/ykAAQAoABsAAADl/yoAAQApACMAAADl/ysAAQApACMAAADl/ywAAQApACMAAADl/y0AAQApACMAAADl/ykAAQApACMAAADl/wMAAQApACMAAADl/wQAAQApACMAAADl/wUAAQApACMAAADl/wYAAQApACMAAADl/wcAAQApACMAAADo/yoAAQAnACAAAADq/yoAAQAnACAAAADr/yoAAQAkACAAAADs/ykAAQAlAB8AAADs/yoAAQAlACAAAADt/yoAAQAmACAAAADu/yoAAQAoABwAAADw/ykAAQAqABsAAADw/yoAAQAqABwAAADx/ykAAQAkAB8AAADx/yoAAQAkACAAAADy/ykAAQAlAB8AAADy/yoAAQAlACAAAADz/ykAAQAmAB8AAADz/yoAAQAmACAAAAD0/ykAAQAnAB8AAAD0/yoAAQAnACAAAAD2/ykAAQAnAB8AAAD2/yoAAQAnACAAAAD3/ykAAQAkAB8AAAD3/yoAAQAkACAAAAD4/ykAAQAlAB8AAAD4/yoAAQAlACAAAAD5/ykAAQAmAB8AAAD5/yoAAQAmACAAAADv/ykAAQApABsAAADv/yoAAQApABwAAAASAAMAAAAgAAUAAAAQAAMAAAAgAAUAAAAUAAMAAAAgAAUAAAAVAAMAAAAgAAUAAAAWAAMAAAAgAAUAAAAbAAMAAAAhAAUAAAAcAAMAAAAhAAUAAAAdAAMAAAAhAAUAAAAeAAMAAAAhAAUAAAAnAAMAAAAgAAUAAAAhAAIAAQALABoAAAAhAAMAAQALABsAAAAhAAQAAQALABwAAAAiAAIAAQAMABoAAAAiAAMAAQAMABsAAAAiAAQAAQAMABwAAAAjAAIAAQANABoAAAAjAAMAAQANABsAAAAjAAQAAQANABwAAAApAAMAAQABABoAAAAoAAMAAQAAABoAAAATAAMAAAAgAAUAAAAXAAMAAAAgAAUAAAAaAAMAAAAhAAUAAAAgAAMAAAAhAAUAAAAfAAMAAAAhAAUAAAAZAAMAAAAhAAUAAAAYAAMAAAAhAAUAAADl/wwAAQATAAUAAADm/wwAAQAUAAUAAADn/wwAAQAVAAUAAADo/wwAAQAWAAUAAADr/wwAAQATAAUAAADs/wwAAQAUAAUAAADt/wwAAQAVAAUAAADu/wwAAQAWAAUAAADr/w0AAQATAAUAAADs/w0AAQAUAAUAAADt/w0AAQAVAAUAAADu/w0AAQAWAAUAAADr/w4AAQATAAUAAADs/w4AAQAUAAUAAADt/w4AAQAVAAUAAADu/w4AAQAWAAUAAADr/w8AAQATAAUAAADs/w8AAQAUAAUAAADt/w8AAQAVAAUAAADu/w8AAQAWAAUAAADr/xAAAQATAAUAAADs/xAAAQAUAAUAAADt/xAAAQAVAAUAAADu/xAAAQAWAAUAAADr/xEAAQATAAUAAADs/xEAAQAUAAUAAADt/xEAAQAVAAUAAADu/xEAAQAWAAUAAADr/xIAAQATAAUAAADs/xIAAQAUAAUAAADt/xIAAQAVAAUAAADu/xIAAQAWAAUAAADr/xMAAQATAAUAAADs/xMAAQAUAAUAAADt/xMAAQAVAAUAAADu/xMAAQAWAAUAAADl/w0AAQATAAUAAADm/w0AAQAUAAUAAADn/w0AAQAVAAUAAADo/w0AAQAWAAUAAADl/w4AAQATAAUAAADm/w4AAQAUAAUAAADn/w4AAQAVAAUAAADo/w4AAQAWAAUAAADl/w8AAQATAAUAAADm/w8AAQAUAAUAAADn/w8AAQAVAAUAAADo/w8AAQAWAAUAAADl/xAAAQATAAUAAADm/xAAAQAUAAUAAADn/xAAAQAVAAUAAADo/xAAAQAWAAUAAADl/xEAAQATAAUAAADm/xEAAQAUAAUAAADn/xEAAQAVAAUAAADo/xEAAQAWAAUAAADl/xIAAQATAAUAAADm/xIAAQAUAAUAAADn/xIAAQAVAAUAAADo/xIAAQAWAAUAAADl/xMAAQATAAUAAADm/xMAAQAUAAUAAADn/xMAAQAVAAUAAADo/xMAAQAWAAUAAADm/wkAAQAOAA8AAADm/woAAQAOABAAAADn/wkAAQAPAA8AAADn/woAAQAPABAAAADo/wkAAQAQAA8AAADo/woAAQAQABAAAADp/wkAAQAPAA8AAADp/woAAQAPABAAAADq/wkAAQAQAA8AAADq/woAAQAQABAAAADr/wkAAQAPAA8AAADr/woAAQAPABAAAADs/wkAAQAPAA8AAADs/woAAQAPABAAAADt/wkAAQARAA8AAADt/woAAQARABAAAADx/wIAAQAWAB4AAADx/wMAAQAWAB8AAADx/wQAAQAWACAAAADy/wIAAQAXAB4AAADy/wMAAQAXAB8AAADy/wQAAQAXACAAAADz/wIAAQAVACEAAADz/wMAAQAVACIAAADz/wQAAQAVACMAAAD0/wIAAQAWACEAAAD0/wMAAQAWACIAAAD0/wQAAQAWACMAAAD1/wIAAQAXACEAAAD1/wMAAQAXACIAAAD1/wQAAQAXACMAAAD2/wIAAQAYAB4AAAD2/wMAAQAYAB8AAAD2/wQAAQAYACAAAAD3/wIAAQAZAB4AAAD3/wMAAQAZAB8AAAD3/wQAAQAZACAAAAD6/wMAAQAUACEAAAD6/wQAAQAUACIAAAD6/wUAAQAUACEAAAD6/wYAAQAUACEAAAD6/wcAAQAUACIAAAD6/wgAAQAUACEAAAD6/wkAAQAUACIAAAD4/wIAAQAZABoAAAD4/wMAAQAZABsAAAD4/wQAAQAZABwAAAD5/wIAAQAaABoAAAD5/wMAAQAaABsAAAD5/wQAAQAaABwAAAALAAMAAQAGABcAAAALAAQAAQADABgAAAAKAAQAAQACABgAAAAMAAQAAQAEABgAAAANAAQAAQAKABkAAAAJAAMAAQADABUAAAAJAAQAAQADABYAAAAsAAMAAQAZABAAAAAsAAQAAQAZABEAAAAtAAMAAQAaABAAAAAtAAQAAQAaABEAAAA=")
+tile_map_data = PackedByteArray("AAD8/wMAAQAEAAsAAAD9/wUAAQAGACMAAAD9/wYAAQAGACQAAAD9/wcAAQAGACUAAAD+/wUAAQAHACMAAAD+/wYAAQAHACQAAAD+/wcAAQAHACUAAAAAAAMAAQALABgAAAAAAAQAAQALABkAAAABAAMAAQAMABgAAAABAAQAAQAMABkAAAAEAAUAAQAKAAUAAAAEAAYAAQAKAAYAAAAEAAcAAQAKAAcAAAAHAAMAAQAYACEAAAAHAAQAAQAYACIAAAAHAAUAAQAYACMAAAAHAAYAAQAYACEAAAAHAAcAAQAYACIAAAAHAAgAAQAYACMAAAAHAAkAAQAYACQAAAAyAAMAAQAEAAsAAAAzAAUAAQAGACMAAAAzAAYAAQAGACQAAAAzAAcAAQAGACUAAAA0AAUAAQAHACMAAAA0AAYAAQAHACQAAAA0AAcAAQAHACUAAAA2AAMAAQALABgAAAA2AAQAAQALABkAAAA3AAMAAQAMABgAAAA3AAQAAQAMABkAAAA6AAUAAQAKAAUAAAA6AAYAAQAKAAYAAAA6AAcAAQAKAAcAAAA9AAMAAQAYACEAAAA9AAQAAQAYACIAAAA9AAUAAQAYACMAAAA9AAYAAQAYACEAAAA9AAcAAQAYACIAAAA9AAgAAQAYACMAAAA9AAkAAQAYACQAAAD8/xIAAQAEAAsAAAD9/xQAAQAGACMAAAD9/xUAAQAGACQAAAD9/xYAAQAGACUAAAD+/xQAAQAHACMAAAD+/xUAAQAHACQAAAD+/xYAAQAHACUAAAAEABQAAQAPAAgAAAAEABUAAQAPAAkAAAAEABYAAQAPAAoAAAAHABIAAQAYACEAAAAHABMAAQAYACIAAAAHABQAAQAYACMAAAAHABUAAQAYACEAAAAHABYAAQAYACIAAAAHABcAAQAYACMAAAAHABgAAQAYACQAAAAyABIAAQAEAAsAAAAzABQAAQAGACMAAAAzABUAAQAGACQAAAAzABYAAQAGACUAAAA0ABQAAQAHACMAAAA0ABUAAQAHACQAAAA0ABYAAQAHACUAAAA6ABQAAQAKAAUAAAA6ABUAAQAKAAYAAAA6ABYAAQAKAAcAAAA9ABIAAQAYACEAAAA9ABMAAQAYACIAAAA9ABQAAQAYACMAAAA9ABUAAQAYACEAAAA9ABYAAQAYACIAAAA9ABcAAQAYACMAAAA9ABgAAQAYACQAAAAAABIAAQALABkAAAABABIAAQAMABkAAAAAABEAAQALABgAAAABABEAAQAMABgAAAA2ABIAAQALABkAAAA3ABIAAQAMABkAAAA2ABEAAQALABgAAAA3ABEAAQAMABgAAADo/ykAAQAnAB8AAADq/ykAAQAnAB8AAADr/ykAAQAkAB8AAADt/ykAAQAmAB8AAADu/ykAAQAoABsAAADl/yoAAQApACMAAADl/ysAAQApACMAAADl/ywAAQApACMAAADl/y0AAQApACMAAADl/ykAAQApACMAAADl/wMAAQApACMAAADl/wQAAQApACMAAADl/wUAAQApACMAAADl/wYAAQApACMAAADl/wcAAQApACMAAADo/yoAAQAnACAAAADq/yoAAQAnACAAAADr/yoAAQAkACAAAADs/ykAAQAlAB8AAADs/yoAAQAlACAAAADt/yoAAQAmACAAAADu/yoAAQAoABwAAADw/ykAAQAqABsAAADw/yoAAQAqABwAAADx/ykAAQAkAB8AAADx/yoAAQAkACAAAADy/ykAAQAlAB8AAADy/yoAAQAlACAAAADz/ykAAQAmAB8AAADz/yoAAQAmACAAAAD0/ykAAQAnAB8AAAD0/yoAAQAnACAAAAD2/ykAAQAnAB8AAAD2/yoAAQAnACAAAAD3/ykAAQAkAB8AAAD3/yoAAQAkACAAAAD4/ykAAQAlAB8AAAD4/yoAAQAlACAAAAD5/ykAAQAmAB8AAAD5/yoAAQAmACAAAADv/ykAAQApABsAAADv/yoAAQApABwAAAASAAMAAAAgAAUAAAAQAAMAAAAgAAUAAAAUAAMAAAAgAAUAAAAVAAMAAAAgAAUAAAAWAAMAAAAgAAUAAAAbAAMAAAAhAAUAAAAcAAMAAAAhAAUAAAAdAAMAAAAhAAUAAAAeAAMAAAAhAAUAAAAnAAMAAAAgAAUAAAAhAAIAAQALABoAAAAhAAMAAQALABsAAAAhAAQAAQALABwAAAAiAAIAAQAMABoAAAAiAAMAAQAMABsAAAAiAAQAAQAMABwAAAAjAAIAAQANABoAAAAjAAMAAQANABsAAAAjAAQAAQANABwAAAApAAMAAQABABoAAAAoAAMAAQAAABoAAAATAAMAAAAgAAUAAAAXAAMAAAAgAAUAAAAaAAMAAAAhAAUAAAAgAAMAAAAhAAUAAAAfAAMAAAAhAAUAAAAZAAMAAAAhAAUAAAAYAAMAAAAhAAUAAADl/wwAAQATAAUAAADm/wwAAQAUAAUAAADn/wwAAQAVAAUAAADo/wwAAQAWAAUAAADr/wwAAQATAAUAAADs/wwAAQAUAAUAAADt/wwAAQAVAAUAAADu/wwAAQAWAAUAAADr/w0AAQATAAUAAADs/w0AAQAUAAUAAADt/w0AAQAVAAUAAADu/w0AAQAWAAUAAADr/w4AAQATAAUAAADs/w4AAQAUAAUAAADt/w4AAQAVAAUAAADu/w4AAQAWAAUAAADr/w8AAQATAAUAAADs/w8AAQAUAAUAAADt/w8AAQAVAAUAAADu/w8AAQAWAAUAAADr/xAAAQATAAUAAADs/xAAAQAUAAUAAADt/xAAAQAVAAUAAADu/xAAAQAWAAUAAADr/xEAAQATAAUAAADs/xEAAQAUAAUAAADt/xEAAQAVAAUAAADu/xEAAQAWAAUAAADr/xIAAQATAAUAAADs/xIAAQAUAAUAAADt/xIAAQAVAAUAAADu/xIAAQAWAAUAAADr/xMAAQATAAUAAADs/xMAAQAUAAUAAADt/xMAAQAVAAUAAADu/xMAAQAWAAUAAADl/w0AAQATAAUAAADm/w0AAQAUAAUAAADn/w0AAQAVAAUAAADo/w0AAQAWAAUAAADl/w4AAQATAAUAAADm/w4AAQAUAAUAAADn/w4AAQAVAAUAAADo/w4AAQAWAAUAAADl/w8AAQATAAUAAADm/w8AAQAUAAUAAADn/w8AAQAVAAUAAADo/w8AAQAWAAUAAADl/xAAAQATAAUAAADm/xAAAQAUAAUAAADn/xAAAQAVAAUAAADo/xAAAQAWAAUAAADl/xEAAQATAAUAAADm/xEAAQAUAAUAAADn/xEAAQAVAAUAAADo/xEAAQAWAAUAAADl/xIAAQATAAUAAADm/xIAAQAUAAUAAADn/xIAAQAVAAUAAADo/xIAAQAWAAUAAADl/xMAAQATAAUAAADm/xMAAQAUAAUAAADn/xMAAQAVAAUAAADo/xMAAQAWAAUAAADm/wkAAQAOAA8AAADm/woAAQAOABAAAADn/wkAAQAPAA8AAADn/woAAQAPABAAAADo/wkAAQAQAA8AAADo/woAAQAQABAAAADp/wkAAQAPAA8AAADp/woAAQAPABAAAADq/wkAAQAQAA8AAADq/woAAQAQABAAAADr/wkAAQAPAA8AAADr/woAAQAPABAAAADs/wkAAQAPAA8AAADs/woAAQAPABAAAADt/wkAAQARAA8AAADt/woAAQARABAAAADx/wIAAQAWAB4AAADx/wMAAQAWAB8AAADx/wQAAQAWACAAAADy/wIAAQAXAB4AAADy/wMAAQAXAB8AAADy/wQAAQAXACAAAADz/wIAAQAVACEAAADz/wMAAQAVACIAAADz/wQAAQAVACMAAAD0/wIAAQAWACEAAAD0/wMAAQAWACIAAAD0/wQAAQAWACMAAAD1/wIAAQAXACEAAAD1/wMAAQAXACIAAAD1/wQAAQAXACMAAAD2/wIAAQAYAB4AAAD2/wMAAQAYAB8AAAD2/wQAAQAYACAAAAD3/wIAAQAZAB4AAAD3/wMAAQAZAB8AAAD3/wQAAQAZACAAAAD6/wMAAQAUACEAAAD6/wQAAQAUACIAAAD6/wUAAQAUACEAAAD6/wYAAQAUACEAAAD6/wcAAQAUACIAAAD6/wgAAQAUACEAAAD6/wkAAQAUACIAAAD4/wIAAQAZABoAAAD4/wMAAQAZABsAAAD4/wQAAQAZABwAAAD5/wIAAQAaABoAAAD5/wMAAQAaABsAAAD5/wQAAQAaABwAAAALAAMAAQAGABcAAAALAAQAAQADABgAAAAKAAQAAQACABgAAAAMAAQAAQAEABgAAAANAAQAAQAKABkAAAAJAAMAAQADABUAAAAJAAQAAQADABYAAAAsAAMAAQAZABAAAAAsAAQAAQAZABEAAAAtAAMAAQAaABAAAAAtAAQAAQAaABEAAADl/zcAAQAaAB0AAADl/zgAAQAaAB4AAADl/zkAAQAdAB0AAADl/zoAAQAdAB4AAAA=")
 tile_set = ExtResource("2_jabx1")
 
-[node name="Ghostbusters" type="TileMapLayer" parent="furniture" unique_id=1134427091]
-tile_set = SubResource("TileSet_8yxgw")
+[node name="furniute-16" type="TileMapLayer" parent="." unique_id=839719551]
+z_index = 3
+tile_map_data = PackedByteArray("AADQ/2IAAQAkAAEAAADQ/2MAAQAkAAEAAADQ/2QAAQAkAAIAAADQ/2UAAQAkAAMAAADR/2IAAQAlAAEAAADR/2MAAQAlAAEAAADR/2QAAQAlAAIAAADR/2UAAQAlAAMAAADS/2QAAQAmAAIAAADS/2UAAQAmAAMAAADS/2YAAQAmAAQAAADT/2QAAQAnAAIAAADT/2UAAQAnAAMAAADT/2YAAQAnAAQAAADU/2QAAQAoAAIAAADU/2UAAQAoAAMAAADU/2YAAQAoAAQAAADV/2QAAQApAAIAAADV/2UAAQApAAMAAADV/2YAAQApAAQAAADW/2QAAQAmAAIAAADW/2UAAQAmAAMAAADW/2YAAQAmAAQAAADX/2QAAQAnAAIAAADX/2UAAQAnAAMAAADX/2YAAQAnAAQAAADY/2QAAQAoAAIAAADY/2UAAQAoAAMAAADY/2YAAQAoAAQAAADZ/2QAAQApAAIAAADZ/2UAAQApAAMAAADZ/2YAAQApAAQAAADa/2QAAQAmAAIAAADa/2UAAQAmAAMAAADa/2YAAQAmAAQAAADb/2QAAQAnAAIAAADb/2UAAQAnAAMAAADb/2YAAQAnAAQAAADc/2QAAQAmAAIAAADc/2UAAQAmAAMAAADc/2YAAQAmAAQAAADd/2QAAQAnAAIAAADd/2UAAQAnAAMAAADd/2YAAQAnAAQAAADe/2QAAQAoAAIAAADe/2UAAQAoAAMAAADe/2YAAQAoAAQAAADf/2QAAQApAAIAAADf/2UAAQApAAMAAADf/2YAAQApAAQAAADg/2QAAQAqAAIAAADg/2UAAQAqAAMAAADg/2YAAQAqAAQAAADQ/2YAAQAkAAQAAADR/2YAAQAlAAQAAADh/2IAAQAkAAcAAADh/2MAAQAkAAcAAADh/2QAAQAkAAgAAADh/2UAAQAkAAkAAADi/2IAAQAlAAcAAADi/2MAAQAlAAcAAADi/2QAAQAlAAgAAADi/2UAAQAlAAkAAADh/2YAAQAkAAoAAADi/2YAAQAlAAoAAADj/2gAAQAdABAAAADj/2kAAQAdABEAAADj/2oAAQAdABIAAADj/2sAAQAdABMAAADj/2wAAQAdABQAAADj/20AAQAdABUAAADj/24AAQAdABAAAADj/28AAQAdABEAAADj/3AAAQAdABIAAADj/3EAAQAdABMAAADj/3IAAQAdABQAAADj/3MAAQAdABUAAADj/3QAAQAdABAAAADj/3UAAQAdABEAAADj/3YAAQAdABIAAADj/3cAAQAdABMAAADj/3gAAQAdABQAAADj/3kAAQAdABUAAADk/2gAAQAeABAAAADk/2kAAQAeABEAAADk/2oAAQAeABIAAADk/2sAAQAeABMAAADk/2wAAQAeABQAAADk/20AAQAeABUAAADk/24AAQAeABAAAADk/28AAQAeABEAAADk/3AAAQAeABIAAADk/3EAAQAeABMAAADk/3IAAQAeABQAAADk/3MAAQAeABUAAADk/3QAAQAeABAAAADk/3UAAQAeABEAAADk/3YAAQAeABIAAADk/3cAAQAeABMAAADk/3gAAQAeABQAAADk/3kAAQAeABUAAADl/2gAAQAfABAAAADl/2kAAQAfABEAAADl/2oAAQAfABIAAADl/2sAAQAfABMAAADl/2wAAQAfABQAAADl/20AAQAfABUAAADl/24AAQAfABAAAADl/28AAQAfABEAAADl/3AAAQAfABIAAADl/3EAAQAfABMAAADl/3IAAQAfABQAAADl/3MAAQAfABUAAADl/3QAAQAfABAAAADl/3UAAQAfABEAAADl/3YAAQAfABIAAADl/3cAAQAfABMAAADl/3gAAQAfABQAAADl/3kAAQAfABUAAADs/2gAAQAdABAAAADs/2kAAQAdABEAAADs/2oAAQAdABIAAADs/2sAAQAdABMAAADs/2wAAQAdABQAAADs/20AAQAdABUAAADs/24AAQAdABAAAADs/28AAQAdABEAAADs/3AAAQAdABIAAADs/3EAAQAdABMAAADs/3IAAQAdABQAAADs/3MAAQAdABUAAADs/3QAAQAdABAAAADs/3UAAQAdABEAAADs/3YAAQAdABIAAADs/3cAAQAdABMAAADs/3gAAQAdABQAAADs/3kAAQAdABUAAADt/2gAAQAeABAAAADt/2kAAQAeABEAAADt/2oAAQAeABIAAADt/2sAAQAeABMAAADt/2wAAQAeABQAAADt/20AAQAeABUAAADt/24AAQAeABAAAADt/28AAQAeABEAAADt/3AAAQAeABIAAADt/3EAAQAeABMAAADt/3IAAQAeABQAAADt/3MAAQAeABUAAADt/3QAAQAeABAAAADt/3UAAQAeABEAAADt/3YAAQAeABIAAADt/3cAAQAeABMAAADt/3gAAQAeABQAAADt/3kAAQAeABUAAADu/2gAAQAfABAAAADu/2kAAQAfABEAAADu/2oAAQAfABIAAADu/2sAAQAfABMAAADu/2wAAQAfABQAAADu/20AAQAfABUAAADu/24AAQAfABAAAADu/28AAQAfABEAAADu/3AAAQAfABIAAADu/3EAAQAfABMAAADu/3IAAQAfABQAAADu/3MAAQAfABUAAADu/3QAAQAfABAAAADu/3UAAQAfABEAAADu/3YAAQAfABIAAADu/3cAAQAfABMAAADu/3gAAQAfABQAAADu/3kAAQAfABUAAADm/2gAAQAgABAAAADm/2kAAQAgABEAAADm/2oAAQAgABIAAADm/2sAAQAgABMAAADm/2wAAQAgABQAAADm/20AAQAgABUAAADm/24AAQAgABAAAADm/28AAQAgABEAAADm/3AAAQAgABIAAADm/3EAAQAgABMAAADm/3IAAQAgABQAAADm/3MAAQAgABUAAADm/3QAAQAgABAAAADm/3UAAQAgABEAAADm/3YAAQAgABIAAADm/3cAAQAgABMAAADm/3gAAQAgABQAAADm/3kAAQAgABUAAADv/2gAAQAgABAAAADv/2kAAQAgABEAAADv/2oAAQAgABIAAADv/2sAAQAgABMAAADv/2wAAQAgABQAAADv/20AAQAgABUAAADv/24AAQAgABAAAADv/28AAQAgABEAAADv/3AAAQAgABIAAADv/3EAAQAgABMAAADv/3IAAQAgABQAAADv/3MAAQAgABUAAADv/3QAAQAgABAAAADv/3UAAQAgABEAAADv/3YAAQAgABIAAADv/3cAAQAgABMAAADv/3gAAQAgABQAAADv/3kAAQAgABUAAADh/2EAAQAkAAcAAADi/2EAAQAlAAcAAADh/2AAAQAkAAcAAADi/2AAAQAlAAcAAADh/18AAQAkAAcAAADi/18AAQAlAAcAAADh/14AAQAkAAcAAADi/14AAQAlAAcAAADQ/2EAAQAkAAEAAADR/2EAAQAlAAEAAADQ/2AAAQAkAAEAAADR/2AAAQAlAAEAAADl/14AAQBEAAAAAADm/14AAQBFAAAAAADn/14AAQBGAAAAAADo/14AAQBHAAAAAADp/14AAQBIAAAAAADq/14AAQBJAAAAAADl/18AAQBEAAEAAADl/2AAAQBEAAIAAADq/18AAQBJAAEAAADw/14AAQBQAAAAAADw/18AAQBQAAEAAADw/2AAAQBQAAIAAADx/14AAQBRAAAAAADx/18AAQBRAAEAAADy/14AAQBSAAAAAADy/18AAQBSAAEAAADy/2AAAQBSAAIAAADz/14AAQBTAAAAAADz/18AAQBTAAEAAADz/2AAAQBTAAIAAAD0/14AAQBUAAAAAAD0/18AAQBUAAEAAAD1/14AAQBVAAAAAAD1/18AAQBVAAEAAAD1/2AAAQBVAAIAAADK/14AAQAkAD0AAADK/18AAQAkAD4AAADK/2AAAQAkAD8AAADK/2EAAQAkAEAAAADK/2IAAQAkAEEAAADK/2MAAQAkAEIAAADK/2QAAQAkAEMAAADL/2IAAQAlAEEAAADL/2MAAQAlAEIAAADL/2QAAQAlAEMAAADM/2IAAQAmAEEAAADM/2MAAQAmAEIAAADM/2QAAQAmAEMAAADN/2IAAQAnAEEAAADN/2MAAQAnAEIAAADN/2QAAQAnAEMAAADK/2YAAQAcADsAAADK/2cAAQAcADwAAADK/2gAAQAcAD0AAADK/2kAAQAcAD4AAADL/2YAAQAdADsAAADL/2cAAQAdADwAAADL/2gAAQAdAD0AAADL/2kAAQAdAD4AAADK/2oAAQAcADUAAADK/2sAAQAcADYAAADK/2wAAQAcADcAAADK/20AAQAcADgAAADL/2oAAQAdADUAAADL/2sAAQAdADYAAADL/2wAAQAdADcAAADL/20AAQAdADgAAAA=")
+tile_set = ExtResource("2_80043")
 
 [node name="WeirdSplatter" type="TileMapLayer" parent="." unique_id=1905757985]
 z_index = 3
 tile_set = SubResource("TileSet_rsffu")
 
 [node name="Props" type="TileMapLayer" parent="." unique_id=1647053891]
+z_index = 4
 tile_map_data = PackedByteArray("AAAEAAMAAQALABAAAAAFAAMAAQAMABAAAAAGAAMAAQANABAAAAAEAAUAAQAJAAwAAAAEAAYAAQAeAAEAAAAGAAQAAQAfAAEAAAD//wMAAQACAAwAAAA=")
 tile_set = ExtResource("2_jabx1")
+
+[node name="props-16" type="TileMapLayer" parent="." unique_id=598569344]
+z_index = 4
+tile_map_data = PackedByteArray("AADh/2MAAQAeACwAAADh/2QAAQAeAC0AAADi/2MAAQAfACwAAADi/2QAAQAfAC0AAADY/2MAAQAqACgAAADY/2QAAQAqACkAAADZ/2MAAQArACgAAADZ/2QAAQArACkAAAA=")
+tile_set = ExtResource("2_80043")
