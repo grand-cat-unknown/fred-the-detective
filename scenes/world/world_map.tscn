@@ -64,7 +64,6 @@
 [ext_resource type="Texture2D" uid="uid://bcrerqpyn0nym" path="res://assets/art/environments/radioactive_items/Icon10_05.png" id="42_0j1q4"]
 [ext_resource type="Texture2D" uid="uid://bdilx22cecdr6" path="res://assets/art/environments/radioactive_items/Iconset10.png" id="43_umhnj"]
 [ext_resource type="Texture2D" uid="uid://paenhtlw4oc0" path="res://assets/art/environments/radioactive_items/Icon10_06.png" id="44_83lhf"]
-[ext_resource type="Texture2D" path="res://assets/art/environments/cells.png" id="44_sloqf"]
 [ext_resource type="Texture2D" uid="uid://wdor07rowlgk" path="res://assets/art/environments/radioactive_items/Icon10_07.png" id="45_rc0i4"]
 [ext_resource type="Texture2D" uid="uid://dseim50pnf7qg" path="res://assets/art/environments/radioactive_items/Icon10_08.png" id="46_6ysv6"]
 [ext_resource type="Texture2D" uid="uid://c5eorl2dauucm" path="res://assets/art/environments/radioactive_items/Icon10_09.png" id="47_lbaiu"]
@@ -498,13 +497,6 @@ texture = ExtResource("43_umhnj")
 18:7/0 = 0
 19:7/0 = 0
 
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_8yxgw"]
-texture = ExtResource("44_sloqf")
-0:0/0 = 0
-1:0/0 = 0
-2:0/0 = 0
-3:0/0 = 0
-
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_83lhf"]
 texture = ExtResource("44_83lhf")
 0:0/0 = 0
@@ -582,7 +574,6 @@ sources/37 = SubResource("TileSetAtlasSource_ywhfu")
 sources/38 = SubResource("TileSetAtlasSource_c8qor")
 sources/39 = SubResource("TileSetAtlasSource_2pk2m")
 sources/40 = SubResource("TileSetAtlasSource_umhnj")
-sources/41 = SubResource("TileSetAtlasSource_8yxgw")
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_we3bw"]
 texture = ExtResource("3_vv8dq")
