@@ -5,6 +5,5 @@
 [resource]
 script = ExtResource("1_script")
 id = &"vivian_gave_chute_room_key"
-default_value = true
 label = "Vivian handed over the chute-room key"
 description = "Vivian Marlowe has given Fred the staff key to the ground-floor laundry-chute room."

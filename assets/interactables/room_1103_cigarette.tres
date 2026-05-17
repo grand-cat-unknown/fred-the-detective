@@ -12,12 +12,12 @@ all_of = Array[StringName]([&"lit_cigarette_found_1103"])
 [sub_resource type="Resource" id="InteractableState_cig_burned"]
 script = ExtResource("4_state")
 condition = SubResource("GateCondition_cig_burned")
-title = "Cigarette"
-description = "The cigarette has burned down. Same brand."
+title = "Lit Cigarette"
+description = "A still-lit Lady Finger. Smoke curling. Someone was here moments ago."
 update_tile = true
-source_id = 8
+source_id = 9
 update_blocks_movement = true
-blocks_movement = false
+blocks_movement = true
 
 [sub_resource type="Resource" id="GateCondition_cig_lit"]
 script = ExtResource("2_condition")
@@ -33,9 +33,9 @@ title = "Lit Cigarette"
 description = "A still-lit Lady Finger. Smoke curling. Someone was here moments ago."
 effects = [SubResource("StateEffect_see_cig")]
 update_tile = true
-source_id = 8
+source_id = 9
 update_blocks_movement = true
-blocks_movement = false
+blocks_movement = true
 
 [resource]
 script = ExtResource("1_definition")

@@ -40,7 +40,7 @@ toast = "Fake idol taken."
 update_tile = true
 source_id = 7
 update_blocks_movement = true
-blocks_movement = false
+blocks_movement = true
 
 [sub_resource type="Resource" id="GateCondition_idol_default"]
 script = ExtResource("2_condition")
@@ -63,7 +63,7 @@ toast = "Fake idol taken."
 update_tile = true
 source_id = 7
 update_blocks_movement = true
-blocks_movement = false
+blocks_movement = true
 
 [resource]
 script = ExtResource("1_definition")

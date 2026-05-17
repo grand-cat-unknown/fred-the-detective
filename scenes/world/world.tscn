@@ -93,6 +93,7 @@ preview_texture = ExtResource("6_mxkvs")
 snap_to_map_grid = false
 
 [node name="Inspectable_theo_field_book" parent="." unique_id=843935259 instance=ExtResource("9_insp")]
+visible = false
 position = Vector2(932, 327)
 object_id = &"theo_field_book"
 title = "Theo's Field Manual"
@@ -150,89 +151,87 @@ preview_texture = ExtResource("12_c7ath")
 snap_to_map_grid = false
 
 [node name="Inspectable_room_1103_cigarette" parent="." unique_id=100001 instance=ExtResource("9_insp")]
-visible = false
 position = Vector2(2377, -86)
 object_id = &"room_1103_cigarette"
 title = "Lit Cigarette"
 description = "Placeholder — move to Room 1103 in editor."
 body_color = Color(0.9, 0.6, 0.4, 1)
+draw_marker = false
 snap_to_map_grid = false
 
 [node name="Inspectable_mags_cigarette_pouch" parent="." unique_id=100002 instance=ExtResource("9_insp")]
-visible = false
 position = Vector2(2285, -86)
 object_id = &"mags_cigarette_pouch"
 title = "Cigarette Pouch"
 description = "Placeholder — move to Room 1103 in editor."
 body_color = Color(0.7, 0.3, 0.4, 1)
+draw_marker = false
 snap_to_map_grid = false
 
 [node name="Inspectable_julian_wax_idol" parent="." unique_id=100003 instance=ExtResource("9_insp")]
-visible = false
 position = Vector2(2065, 504)
 object_id = &"julian_wax_idol"
 title = "Wax Idol"
 description = "Placeholder — move to Julian's room (1204) in editor."
 body_color = Color(0.6, 0.5, 0.7, 1)
+draw_marker = false
 snap_to_map_grid = false
 
 [node name="Inspectable_ghostbusters_gear_cart_inventory" parent="." unique_id=100004 instance=ExtResource("9_insp")]
-visible = false
 position = Vector2(948, 462)
 object_id = &"ghostbusters_gear_cart_inventory"
 title = "Gear-Cart Clipboard"
 description = "Placeholder — move to the Ghostbusters room in editor."
 body_color = Color(0.5, 0.7, 0.5, 1)
+draw_marker = false
 snap_to_map_grid = false
 
 [node name="Inspectable_iris_listening_device" parent="." unique_id=100005 instance=ExtResource("9_insp")]
-visible = false
 position = Vector2(-161, -131)
 object_id = &"iris_listening_device"
 title = "Listening Device"
 description = "Placeholder — move to Iris's west post in editor."
 body_color = Color(0.4, 0.6, 0.8, 1)
+draw_marker = false
 snap_to_map_grid = false
 
 [node name="Inspectable_chute_room_door" parent="." unique_id=100006 instance=ExtResource("9_insp")]
-visible = false
 position = Vector2(162, 1234)
 object_id = &"chute_room_door"
 title = "Chute-Room Door"
 description = "Placeholder — move to the ground-floor chute-room door in editor."
 body_color = Color(0.5, 0.4, 0.3, 1)
+draw_marker = false
 snap_to_map_grid = false
 
 [node name="Inspectable_chute_output_cell" parent="." unique_id=100007 instance=ExtResource("9_insp")]
-visible = false
 position = Vector2(-412, 1102)
 object_id = &"chute_output_cell"
 title = "Spent Siren Cell"
 description = "Placeholder — move inside the chute room in editor."
 body_color = Color(0.4, 0.3, 0.6, 1)
+draw_marker = false
 snap_to_map_grid = false
 
 [node name="Inspectable_stained_gloves_bin" parent="." unique_id=100008 instance=ExtResource("9_insp")]
-visible = false
 position = Vector2(197, -204)
 object_id = &"stained_gloves_bin"
 title = "Trash Bin"
 description = "Placeholder — move to the service-corridor west end in editor."
 body_color = Color(0.3, 0.3, 0.3, 1)
+draw_marker = false
 snap_to_map_grid = false
 
 [node name="Player" parent="." unique_id=1010292065 instance=ExtResource("8_player")]
-position = Vector2(-206, 1667)
+position = Vector2(2184, -7)
 
 [node name="Stairs 1" type="Node2D" parent="." unique_id=388047221]
-visible = false
 position = Vector2(-396, 513)
 script = ExtResource("13_srmg5")
 target_portal = NodePath("../Stairs 2")
 snap_to_map_grid = false
 
 [node name="Stairs 2" type="Node2D" parent="." unique_id=340293470]
-visible = false
 position = Vector2(-391, 1660)
 script = ExtResource("13_srmg5")
 target_portal = NodePath("../Stairs 1")

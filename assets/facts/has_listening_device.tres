@@ -5,6 +5,5 @@
 [resource]
 script = ExtResource("1_script")
 id = &"has_listening_device"
-default_value = true
 label = "Fred has Iris's listening device"
 description = "Fred picked up the compact reel-to-reel recorder Iris left at her west observation post."

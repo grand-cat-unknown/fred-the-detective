@@ -5,6 +5,5 @@
 [resource]
 script = ExtResource("1_script")
 id = &"has_stained_gloves"
-default_value = true
 label = "Fred has the violet-stained gloves"
 description = "Fred has recovered a discarded pair of work gloves from the trash bin in the service corridor. Violet staining soaked through the palms and fingers, consistent with a manual purge."

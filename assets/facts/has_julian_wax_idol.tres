@@ -1,10 +1,9 @@
-[gd_resource type="Resource" script_class="FactDefinition" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="FactDefinition" format=3 uid="uid://brqgwkmelhrdg"]
 
-[ext_resource type="Script" path="res://scripts/data/fact_definition.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://cnsnule7chvxt" path="res://scripts/data/fact_definition.gd" id="1_script"]
 
 [resource]
 script = ExtResource("1_script")
 id = &"has_julian_wax_idol"
-default_value = true
 label = "Fred has Julian's fake idol"
 description = "Fred picked up the wax replica from Julian Vane's writing desk in Suite 1204."
