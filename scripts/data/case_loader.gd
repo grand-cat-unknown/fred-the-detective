@@ -41,13 +41,13 @@ const INTERACTABLE_IDS := [
 ]
 const INVENTORY_IDS := [
 	&"theo_field_book",
-	&"evidence",
-	&"mags_cigarette_pouch",
-	&"julian_wax_idol",
 	&"listening_device",
 	&"transcribed_log",
-	&"chute_room_key",
+	&"mags_cigarette_pouch",
+	&"julian_wax_idol",
 	&"stained_gloves",
+	&"evidence",
+	&"chute_room_key",
 ]
 const SUSPECT_IDS := [
 	&"mara",

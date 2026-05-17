@@ -11,13 +11,13 @@ all_of = Array[StringName]([&"has_field_book"])
 [sub_resource type="Resource" id="InventoryItemState_field_book"]
 script = ExtResource("3_state")
 condition = SubResource("GateCondition_has_field_book")
-label = "Manual"
+label = "Ghostbusters Manual"
 description = "Theo's Ghostbusters field manual and gear log."
 action_input = &"open_field_book"
 action_key_hint = "Q"
 action_kind = &"book"
-book_title = "Theo's Field Manual"
-book_pages = Array[String](["[b]Theo's Field Manual[/b]
+book_title = "Ghostbusters Manual"
+book_pages = Array[String](["[b]Ghostbusters Manual[/b]
 
 To be added."])
 
