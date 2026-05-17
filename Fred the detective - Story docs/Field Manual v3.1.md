@@ -282,9 +282,9 @@ All cell classes produce some quantity of aerosolized capture medium on discharg
 
 At a standard at-distance discharge (8–14 ft, see §7.4), the aerosol disperses outward from the nozzle in a wide cone and settles as a fine film on nearby surfaces — see §7.2.
 
-Under the elevated pressure of any **manual override** (§8), aerosol behavior changes. The capture medium is forced through the cell nozzle at pressures sufficient to drive sub-micron droplets through woven materials, including the standard-issue ghost-capture glove. The operator's hands — particularly the palms and the cuticle beds — absorb the worst of this exposure.
+Manual overrides (§8) elevate the discharge pressure to varying degrees. Across the firm's twenty grades, every documented override — Pulse-Lock, Soft-Vent, Reverse-Flow, Snap-Charge, Tide-Damp, Kinetic Damp, Dye Reset, Resonance Tap, Twin-Tap Sync, Cinder Quench, Solar Flash, Spore Vent, Lockdown Pin — operates within the pressure envelope that the standard-issue ghost-capture glove is rated to block. Aerosol settles on the outside of the glove and washes off with the glove.
 
-The forensic consequence of this exposure depends on the **tracer chemistry** of the cell in question. See §7.3.
+**One exception.** The Siren's Manual Purge (§8.2) is the only override across all twenty grades that generates pressures sufficient to drive sub-micron droplets of capture medium **through the weave of a standard-issue glove and into the operator's skin**. No other override in firm service breaches the glove. The forensic consequence of this exposure depends on the tracer chemistry of the Siren cell. See §7.3.
 
 ---
 
@@ -337,13 +337,13 @@ Color identifies what was discharged. Pattern identifies how. Persistence identi
 
 **Eidolon / Wight / Lemure tracer.** *(Black band.)* Carbon-grey ash. Removable from skin with soap and water; removable from hard surfaces with a damp cloth. Settles heavily and is easy to spot at a glance, which is a deliberate design feature given the irreversible nature of the Lemure's lockdown override (§8.2).
 
-**Siren tracer.** *(Violet band, Class 4 / Class 5.)* Violet pigment, sub-dermal. At standard at-distance discharge the tracer behaves like the other heavy-grade tracers and settles as a film on nearby surfaces, removable with soap and water within 24 hours.
+**Siren tracer.** *(Violet band, Class 4 / Class 5.)* Violet pigment. At standard at-distance discharge the tracer behaves like the other heavy-grade tracers and settles as a film on nearby surfaces, removable with soap and water within 24 hours.
 
-Under the elevated pressure of the Siren's **Manual Purge** override (§8.2), the Aerosol Effect (§7.1) drives this tracer differently. The pigment is forced sub-dermally into the operator's skin — palms, finger pads, cuticles — through standard ghost-capture gloves. **Cannot be removed by soap, alcohol, solvent, industrial cleaner, or mechanical scrub.** Metabolized over 48–72 hours regardless of any washing attempt.
+Under the elevated pressure of the Siren's **Manual Purge** override (§8.2), the Aerosol Effect (§7.1) drives this tracer through the weave of the standard ghost-capture glove and forces it **sub-dermally into the operator's skin** — palms, finger pads, cuticles. The Siren is the only grade in the firm's twenty-cell roster whose override generates pressures sufficient to breach the glove (§7.1); every other override stays on the outside of the glove and washes off with it.
 
-The pigment is not a health hazard. It is, in regulatory terms, a forensic signature.
+Once driven sub-dermally, the Siren pigment **cannot be removed by soap, alcohol, solvent, industrial cleaner, or mechanical scrub.** Metabolized over 48–72 hours regardless of any washing attempt.
 
-The Siren is the only grade in any band whose tracer survives a wash. Operators occasionally complain about it. The firm's legal counsel does not.
+The pigment is not a health hazard. It is, in regulatory terms, a forensic signature. Operators occasionally complain about it. The firm's legal counsel does not.
 
 ---
 
