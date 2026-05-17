@@ -171,10 +171,10 @@ Accuse Otis Pemberton.
 | `has_evidence` *(existing)* | Fred has the spent Siren Cell with the genuine Crooked Idol stashed inside it. Treated as a single piece of physical evidence. | `InteractableState.action_effects` on the chute-output interactable, gated `all_of: [chute_room_door_open]`. | Inventory HUD shows the evidence; combined with `has_field_book` it unlocks the palm-check beat; the Ghostbusters' reaction prompt blocks fire when Fred raises it. |
 | `theo_granted_field_book_permission` *(existing)* | Theo has given Fred permission to take the field book. | *(existing)* `ConversationEffect` on Theo. | The field-book pickup becomes available. |
 | `has_field_book` *(existing)* | Fred has the field book, which contains the manual-purge passage and its violet-palm signature. | *(existing)* `InteractableState.action_effects` on the field-book pickup. | Inventory HUD shows the field book; combined with `has_evidence`, unlocks the "show me your palms" beat. |
-| `mara_palms_shown` | Mara was asked to show her palms and complied. UI presents a photo of clean, unstained hands. | `ConversationEffect` on Mara, gated `all_of: [has_evidence]`, `none_of: [mara_palms_shown]`. | Supporting context: the judge can cite that Mara has been ruled out. |
-| `theo_palms_shown` | Theo was asked to show his palms and complied. UI presents a photo of clean, unstained hands. | `ConversationEffect` on Theo, same gate shape. | Supporting context: the judge can cite that Theo has been ruled out. |
-| `iris_palms_shown` | Iris was asked to show her palms and complied. UI presents a photo of clean, unstained hands. | `ConversationEffect` on Iris, same gate shape. | Supporting context: the judge can cite that Iris has been ruled out. |
-| `pemberton_palms_shown` | Otis Pemberton was asked to show his palms and complied. UI presents a photo of palms stained sub-dermal violet. | `ConversationEffect` on Otis, gated `all_of: [has_evidence]`, `none_of: [pemberton_palms_shown]`. | **The smoking gun.** One of the three minimum facts the judge requires for a correct verdict (alongside `has_evidence` and `has_field_book`). |
+| `mara_palms_shown` | Mara was asked to show her palms and complied. UI presents a photo of clean, unstained hands. | `ConversationEffect` on Mara, gated `all_of: [has_evidence, has_field_book]`, `none_of: [mara_palms_shown]`. | Supporting context: the judge can cite that Mara has been ruled out. |
+| `theo_palms_shown` | Theo was asked to show his palms and complied. UI presents a photo of clean, unstained hands. | `ConversationEffect` on Theo, gated `all_of: [has_evidence, has_field_book]`, `none_of: [theo_palms_shown]`. | Supporting context: the judge can cite that Theo has been ruled out. |
+| `iris_palms_shown` | Iris was asked to show her palms and complied. UI presents a photo of clean, unstained hands. | `ConversationEffect` on Iris, gated `all_of: [has_evidence, has_field_book]`, `none_of: [iris_palms_shown]`. | Supporting context: the judge can cite that Iris has been ruled out. |
+| `pemberton_palms_shown` | Otis Pemberton was asked to show his palms and complied. UI presents a photo of palms stained sub-dermal violet. | `ConversationEffect` on Otis, gated `all_of: [has_evidence, has_field_book]`, `none_of: [pemberton_palms_shown]`. | **The smoking gun.** One of the three minimum facts the judge requires for a correct verdict (alongside `has_evidence` and `has_field_book`). |
 
 ### Interactables
 
@@ -228,7 +228,7 @@ New entries also needed in `CaseLoader.INTERACTABLE_IDS` (gear cart, listening d
 
 `allowed_effects` to add:
 
-- `ConversationEffect_theo_palms_shown` — `all_of: [has_evidence]`, `none_of: [theo_palms_shown]`, `fact_id = theo_palms_shown`. Description:
+- `ConversationEffect_theo_palms_shown` — `all_of: [has_evidence, has_field_book]`, `none_of: [theo_palms_shown]`, `fact_id = theo_palms_shown`. Description:
 
   > Set this only if Fred asks Theo to show his palms AND Theo agrees to show them (the UI then presents the photo of clean hands).
 
@@ -260,7 +260,7 @@ New entries also needed in `CaseLoader.INTERACTABLE_IDS` (gear cart, listening d
 
   > Set this only if Iris clearly hands the transcribed log to Fred AND reads aloud (or summarises) the entries: a thud at 9:11 followed by footsteps moving west toward the chute.
 
-- `ConversationEffect_iris_palms_shown` — `all_of: [has_evidence]`, `none_of: [iris_palms_shown]`, `fact_id = iris_palms_shown`. Description:
+- `ConversationEffect_iris_palms_shown` — `all_of: [has_evidence, has_field_book]`, `none_of: [iris_palms_shown]`, `fact_id = iris_palms_shown`. Description:
 
   > Set this only if Fred asks Iris to show her palms AND Iris agrees to show them (the UI then presents the photo of clean hands).
 
@@ -274,7 +274,7 @@ New entries also needed in `CaseLoader.INTERACTABLE_IDS` (gear cart, listening d
 
 `allowed_effects` to add:
 
-- `ConversationEffect_mara_palms_shown` — `all_of: [has_evidence]`, `none_of: [mara_palms_shown]`, `fact_id = mara_palms_shown`. Description:
+- `ConversationEffect_mara_palms_shown` — `all_of: [has_evidence, has_field_book]`, `none_of: [mara_palms_shown]`, `fact_id = mara_palms_shown`. Description:
 
   > Set this only if Fred asks Mara to show her palms AND Mara agrees to show them (the UI then presents the photo of clean hands).
 

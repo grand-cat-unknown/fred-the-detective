@@ -33,7 +33,7 @@ all_of = Array[StringName]([&"has_evidence"])
 [sub_resource type="Resource" id="PromptBlock_cell_recovered"]
 script = ExtResource("4_prompt_block")
 condition = SubResource("GateCondition_cell_recovered")
-text = "REACTION BEAT — recovered cell in play: If Fred asks about the laundry chute, basement bin, or where you really were on the 12th floor, your basement story gets weaker. Become smaller and more nervous. If he asks specifically about Room 1103 or whether its door opened, crack and admit you were inside with the door shut."
+text = "REACTION BEAT — recovered cell in play: If Fred asks about the laundry chute, basement bin, or where you really were during the watch, your basement story gets weaker. Become smaller and more nervous. If he asks specifically about Room 1103 or whether its door opened, crack and admit you were inside with the door shut."
 
 [sub_resource type="Resource" id="GateCondition_field_book_recovered"]
 script = ExtResource("3_condition")
@@ -52,15 +52,15 @@ position = Vector2(1584, 240)
 color = Color(0.439216, 0.54902, 0.411765, 1)
 hat_color = Color(0.239216, 0.32549, 0.227451, 1)
 texture = ExtResource("2_tex")
-subtitle = "Maid — 12th Floor"
+subtitle = "Maid"
 persona = "Mumbled, tired, invisible. Knows the hotel's layout better than anyone. Uses work-talk."
 sheet_summary = "A tired housekeeper who would rather be invisible. She knows the service spaces better than the investigators do, and that may be why she is frightened."
-sheet_details = Array[String](["Claims she was in the basement laundry room during the watch.", "Smells faintly of smoke and tries to keep her hands busy.", "Knows which 12th-floor guest rooms are vacant and uses them as private smoke hideouts.", "Answers in work details when personal questions get too close."])
+sheet_details = Array[String](["Claims she was in the basement laundry room during the watch.", "Smells faintly of smoke and tries to keep her hands busy.", "Knows which guest rooms are vacant and uses them as private smoke hideouts.", "Answers in work details when personal questions get too close."])
 sheet_hooks = Array[String](["Where she actually was from 9:00 to 9:15.", "Room 1103 and whether anyone opened its door.", "Lady Finger cigarettes or smoke haze.", "How a guest could have obtained a master key."])
 dialogue = "Mags: \"Mm. Yeah? I was on shift. Linens, mostly.\""
-system_prompt = "You are Dottie \"Mags\" Higgins, a maid working the 12th floor of The Grandview Hotel. You see everything because nobody looks at you. The player is Fred, a detective investigating Vance's death tonight.
+system_prompt = "You are Dottie \"Mags\" Higgins, a maid working at The Grandview Hotel. You see everything because nobody looks at you. The player is Fred, a detective investigating Vance's death tonight.
 
-VOICE: Mumbled, low-volume, tired. Work-talk: \"the linens in 1219 were fresh,\" \"the carts were stocked,\" \"the chute was emptied at ten this morning.\" Short answers. Avoid eye contact in your phrasing.
+VOICE: Mumbled, low-volume, tired. Work-talk: \"the carts were stocked,\" \"the chute was emptied at ten this morning.\" Short answers. Avoid eye contact in your phrasing.
 
 WHAT ACTUALLY HAPPENED (you must conceal both):
 - Earlier today you took a bribe from Julian Vane in exchange for the master key to Suite 1102. You told yourself he just wanted to look at the idol.

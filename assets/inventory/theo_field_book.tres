@@ -17,33 +17,9 @@ action_input = &"open_field_book"
 action_key_hint = "Q"
 action_kind = &"book"
 book_title = "Theo's Field Manual"
-book_pages = Array[String](["[b]Ghostbusters SOP & Equipment Safety Guide[/b]
+book_pages = Array[String](["[b]Theo's Field Manual[/b]
 
-Property of Theo Griggs. If found, please return to the tech cart.
-
-This field copy combines the safety manual with Theo's working gear log for tonight's containment watch.", "[b]Section 4.2 - Siren-Class Containment Cells[/b]
-
-Charged cells contain pressurized Violet-Grade ionized sludge. Standard discharge is at range, against a manifested entity.
-
-A Manual Purge is an emergency override for point-blank discharge. A charged cell weighs about 15 lbs.", "[b]Sections 5.3, 5.4, 7.2[/b]
-
-Purge Pigment can be driven through standard gloves during a point-blank Manual Purge, staining palms and cuticles for 48-72 hours.
-
-The back-pressure valve only pops when the nozzle is obstructed by a solid object during discharge.
-
-The Manual Override lever requires a deliberate two-stage pinch-and-twist. It should not flip from impact, vibration, or spectral interference.", "[b]Sections 8.1, 8.2[/b]
-
-Class-5 ghost-touch leaves jagged, branching frost patterns. A precise circular wound is not a documented ghost-touch pattern.
-
-A manifested Class-5 radiates ectoplasm in a roughly 360 degree spread. A directional fan on one wall indicates a focused channel, not a normal manifestation.", "[b]Theo's Gear Log - 12th Floor Watch[/b]
-
-8:42 PM - Cart loaded for 1102 containment watch.
-8:55 PM - Siren Cell A checked: charged, sealed, valve intact.
-9:00 PM - Watch begins. Mara at 1102 front. Iris west side near 1101. Pemberton east-side structural route. I am with the cart.
-9:04 PM - Siren Cell A not where I expected it on the cart.
-9:06 PM - Confirmed Siren Cell A missing. I thought I miscounted. I did not report it.
-
-Note to self: Dr. Pemberton was around the cart during prep, 'helping' with capture-tool maintenance."])
+To be added."])
 
 [resource]
 script = ExtResource("1_definition")

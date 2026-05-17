@@ -134,7 +134,7 @@ Here is the expanded character roster.
 - **The Truth:** He is 100% honest. He has no reason to lie.
 - **The Helpful Intel:**
     - **Vance’s State of Mind:** He notes that Vance was "extremely agitated" all day, and was checking out tomorrow morning with the idol.
-    - **The Daily Ritual:** Leo confirms Vance's well-known meditation habit — 9:00 to 9:45 PM every evening, alone, no interruptions. "Set your watch by him, sir. The whole staff knows. Cocktail collectors talk about it like a tour stop." This makes Vance's 9 PM location and vulnerability public knowledge, not insider information.
+    - **The Daily Ritual:** Leo confirms Vance's well-known meditation habit — 9:00 to 9:45 PM every evening, alone, no interruptions. "Set your watch by him, sir. The whole staff knows." This makes Vance's 9 PM location and vulnerability public knowledge, not insider information.
     - **The Observation:** When the team came up the stairs at ~8:55, he noticed Dr. Pemberton was checking his watch repeatedly — "more like a man catching a train than a man hunting a spirit."
     - **The Vivian Alibi:** He can vouch that Vivian was at the front desk on the bottom floor from 9:00 onward — and Vivian vouches for him. Two clean alibis, mutually reinforcing.
     - **The Hotel Hint:** If asked about The Grandview's layout or old construction, Leo can say the place began as a family castle with wartime/panic passages. Staff know rumors; **only the Marlowe family would know which routes are still usable — point the detective at Vivian** if he wants to actually walk one.
