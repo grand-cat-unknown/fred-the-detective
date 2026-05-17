@@ -1,0 +1,6 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/world/tile_inspection_marker.gd" id="1_marker"]
+
+[node name="TileInspectionMarker" type="Node2D"]
+script = ExtResource("1_marker")
