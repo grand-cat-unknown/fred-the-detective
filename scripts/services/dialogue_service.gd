@@ -151,6 +151,7 @@ func _start_reply(suspect: SuspectData, latest_player_message: String, topic_ids
 func _build_instructions(suspect: SuspectData, topic_ids: Array[StringName] = []) -> String:
 	var parts: Array[String] = []
 	parts.append("You are roleplaying a character in the detective game 'Fred the Detective'. The player is Detective Fred, who is interviewing you about the murder of Felix Vance at The Sedgewick Hotel.")
+	parts.append("PUBLIC CASE BRIEFING — what every character in the hotel already knows tonight, and may freely reference:\n- The Sedgewick Hotel is an old castle converted into a luxury hotel, owned and run by Vivian Marlowe (inherited from her father). Its grandest room is the Royal Suite, Room 1102.\n- Last night the hotel hosted a private occult auction in its auction hall. The headline lot was the Anchor Idol — rated the most spectrally dangerous artifact of the night, with a documented capacity to attract other entities.\n- The collector Felix Vance won the Anchor Idol by a single bid over rival collector Julian Vane (Suite 1204). Vance was staying in the Royal Suite and intended to check out tomorrow morning with the idol.\n- Per the auction contract, Ghostbusters Inc. was hired for a one-night containment watch on Suite 1102: team lead Mara Bell at the front door, Dr. Iris Thorne at the west observation post, Dr. Otis Pemberton on the east-side route, and Theo Griggs on tech and gear setup.\n- Vance was known in collector circles for a strict private meditation ritual every evening from 9:00 to 9:45 PM — completely alone, no calls, no staff. Long-term Sedgewick staff knew this too.\n- Tonight at roughly 9 PM, during the watch, Felix Vance was found dead in the Royal Suite. Detective Fred has been called in to investigate. The hotel is trying to contain scandal; the press is already sniffing.")
 	if suspect.subtitle != "":
 		parts.append("Role: %s" % suspect.subtitle)
 	if suspect.persona != "":
@@ -171,6 +172,7 @@ func _build_instructions(suspect: SuspectData, topic_ids: Array[StringName] = []
 		parts.append("Current topic-specific response state. Fred's latest question matches these topic gates; follow the matching state exactly and do not jump to later facts.")
 		for instruction in topic_instructions:
 			parts.append(instruction)
+	parts.append("HANDLING VAGUE QUESTIONS: If Fred's question is too vague or open-ended to answer usefully (\"what happened?\", \"tell me everything\", \"anything suspicious?\", \"who did it?\"), do NOT dump the public briefing or recite your backstory. Stay in character and ask him to be more specific — e.g. which person, which moment, which part of the night, which room. One short clarifying line in your own voice. Only give a substantive answer once his question is concrete enough to point at a specific fact you'd actually know.")
 	parts.append("Reply as the character only. Do not narrate actions in brackets. Do not include your name as a prefix. Keep replies under 80 words.")
 	return "\n\n".join(parts)
 
