@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://dqx0ob7wf7eix" path="res://scripts/data/conversation_effect.gd" id="5_effect"]
 [ext_resource type="Script" path="res://scripts/data/suspect_topic_response.gd" id="6_topic"]
 [ext_resource type="Script" path="res://scripts/data/suspect_topic_response_state.gd" id="7_topic_state"]
-[ext_resource type="Resource" path="res://assets/suspects/teams/ghostbusters.tres" id="8_team"]
+[ext_resource type="Resource" uid="uid://2fuwir1x8gco" path="res://assets/suspects/teams/ghostbusters.tres" id="8_team"]
 
 [sub_resource type="Resource" id="GateCondition_offer_device_handoff"]
 script = ExtResource("3_condition")

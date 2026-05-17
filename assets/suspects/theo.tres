@@ -7,7 +7,7 @@
 [ext_resource type="Script" uid="uid://dabftyaocc5ft" path="res://scripts/data/prompt_block.gd" id="5_prompt_block"]
 [ext_resource type="Script" path="res://scripts/data/suspect_topic_response.gd" id="6_topic"]
 [ext_resource type="Script" path="res://scripts/data/suspect_topic_response_state.gd" id="7_topic_state"]
-[ext_resource type="Resource" path="res://assets/suspects/teams/ghostbusters.tres" id="8_team"]
+[ext_resource type="Resource" uid="uid://2fuwir1x8gco" path="res://assets/suspects/teams/ghostbusters.tres" id="8_team"]
 
 [sub_resource type="Resource" id="GateCondition_no_field_book_permission"]
 script = ExtResource("4_condition")
