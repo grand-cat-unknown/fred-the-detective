@@ -34,36 +34,40 @@ Internal training reference.
 Do not lend to civilians, clients,
 or members of the press.
 
-The contents of this manual are
-the property of Ghostbusters, Inc.
-and may not be reproduced in whole
-or in part without written consent
-of the firm's senior partners.", "[b]Contents[/b]
+The contents of this manual are the property of Ghostbusters, Inc. and may not be reproduced in whole or in part without written consent of the firm's senior partners.", "[font_size=18][b]Contents[/b][/font_size]
 
 §1  General Field Conduct
 §2  Communications & Hand Signals
 §3  PKE Meter Operation
-§4  Containment Cells
-   §4.1 Cell Class Overview
-   §4.2 Siren-Class Cells
-   §4.3 Charge & Storage
-§5  Discharge Phenomena
-   §5.1 Aerosol Effects
-   §5.2 Cleanup Procedures
-   §5.3 Surface Residue & Pigment
-   §5.4 Back-Pressure Valve
-§6  Trap Maintenance
-§7  Overrides & Failsafes
-   §7.1 Lockout Procedures
-   §7.2 Manual Override Lever
-§8  Spectral Trauma Reference
-   §8.1 Ghost-Touch Marks
-   §8.2 Ectoplasm Spread
-§9  Class Ratings (Tobin Scale)
-§10 Reporting & Paperwork
+§4  Insurance, Liability & Client Relations
+§5  Transport & Off-Site Engagements
+§6  Containment Cells
+   §6.1 Grade System Overview
+   §6.2 Identifying A Cell In The Field
+   §6.3 Weight, Carry, Harness
+   §6.4 Cell Grade Roster
+   §6.5 Charge, Storage, Lockout
+§7  Discharge Phenomena
+   §7.1 Aerosol Effects
+   §7.2 Residue Color Quick Reference
+   §7.3 Pigment Tracers Across Grades
+   §7.4 Back-Pressure Valve
+§8  Override Mechanics
+   §8.1 Lever Mechanism
+   §8.2 Override Roster by Grade
+   §8.3 Authorization & Reporting
+§9  Trap Maintenance
+§10 Spectral Trauma & Discharge
+   §10.1 Ghost-Touch Marks
+   §10.2 Class Attribute Cards
+   §10.3 Ectoplasm Spread Geometry
+§11 Tobin Scale at a Glance
+§12 Operator Health & First Aid
+§13 Reporting & Paperwork
 
-Appendix A — Historical Notes
-Appendix B — Glossary", "[b]§1 General Field Conduct[/b]
+App. A — Historical Notes
+App. B — Glossary
+App. C — Cart Manifest Templates", "[font_size=18][b]§1 General Field Conduct[/b][/font_size]
 
 A Ghostbuster on assignment represents the firm at all times. Conduct yourself with professionalism, calm, and respect for the property of the client. The temptation to \"perform\" — to ham up an investigation for a paying client — is to be resisted. Theatricality undermines our reputation among insurers and skeptics, who remain our most lucrative recurring accounts.
 
@@ -71,7 +75,7 @@ Maintain regulation uniform at all times during a contracted watch: jumpsuit, we
 
 Do not consume alcohol or sedatives within twelve hours of a scheduled engagement. Caffeine is permitted but discouraged before extended watch shifts, as elevated heart rate skews baseline PKE readings collected by operator-worn meters.
 
-Smoking is prohibited on all client premises without exception.", "[b]§2 Communications & Hand Signals[/b]
+Smoking is prohibited on all client premises without exception.", "[font_size=18][b]§2 Communications & Hand Signals[/b][/font_size]
 
 Radio chatter must be minimal during a containment watch. Use the team's standard hand signals when within sight of another operator:
 
@@ -82,10 +86,12 @@ Radio chatter must be minimal during a containment watch. Use the team's standar
   • Fingers wiggled — possible Class-2 trace
   • Hand swept down — entity escalating
   • Crossed wrists — equipment fault
+  • Thumb-and-pinkie — request relief
+  • Forearm tap — rotate stations
 
 Verbal callouts during a manifestation should be brief and structured: identifier, location, class estimate. (\"Operator Three, north corridor, Class-3.\")
 
-If communications fail, the team lead defaults to the standing watch plan as filed in the pre-engagement briefing. Operators do not improvise their stations.", "[b]§3 PKE Meter Operation[/b]
+If communications fail, the team lead defaults to the standing watch plan as filed in the pre-engagement briefing. Operators do not improvise their stations.", "[font_size=18][b]§3 PKE Meter Operation[/b][/font_size]
 
 The PKE meter measures background psychokinetic energy in microteslas-equivalent (μT-eq). A calm room reads 0.2–0.6 μT-eq. Anything above 2.0 warrants escalation; above 5.0 is treated as active manifestation.
 
@@ -93,79 +99,216 @@ Note that the meter is sensitive to electrical mains, fluorescent ballasts, and 
 
 A discharged Containment Cell reads as inert (≤0.1 μT-eq) until refilled at the proton works. A spent cell is, on a sweep, indistinguishable from an empty one. Do not assume an absence of reading is an absence of incident.
 
-Calibration tags are inside the battery cover. Recalibrate monthly.", "[b]§4 Containment Cells[/b]
+Calibration tags are inside the battery cover. Recalibrate monthly.", "[font_size=18][b]§4 Insurance, Liability & Client Relations[/b][/font_size]
 
-[b]§4.1 Cell Class Overview[/b]
+The firm carries a standard commercial liability policy through Hartwell-Mott, renewed annually each March. The policy covers structural damage to client premises up to $250,000 per incident. It does not cover damage to client artifacts of declared value above $5,000 unless a Rider-7 endorsement has been filed in advance.
 
-The firm fields four standard containment cell classes, distinguished by capture grade and discharge profile:
+Operators are reminded that the Rider-7 endorsement requires a 72-hour advance filing. A Rider-7 cannot be obtained mid-engagement. If a client artifact of declared value is present and no rider is on file, the team lead is to refuse engagement contact with that artifact and document the refusal in the watch log.
 
-  • [b]Wisp-Grade (Blue)[/b] — Class-1 and Class-2 entities. Low pressure, low yield. Standard kit.
+Client claims for emotional distress arising from a manifestation are routed through firm counsel and are not to be acknowledged in the field. The phrase to use, if pressed, is: \"I can't speak to that, ma'am, but the office will be in touch.\"
 
-  • [b]Spectre-Grade (Green)[/b] — Class-2 and Class-3. Fluorescent marker dye; water-soluble, wipes off with a damp cloth.
+Tipping is permitted. Acceptance of meals is permitted. Acceptance of cash gifts in excess of fifty dollars is to be declared on the post-engagement report.", "[font_size=18][b]§4 (cont.)[/b][/font_size]
 
-  • [b]Phantom-Grade (Amber)[/b] — Class-3 and Class-4. Higher pressure. Brief amber residue fades within an hour.
+Clients with insurance carriers other than Hartwell-Mott may request that operators sign a third-party indemnity waiver before engagement. Operators are not authorized to sign third-party waivers without a manager's written approval. Refer the carrier's representative to the firm office.
 
-  • [b]Siren-Grade (Violet)[/b] — Class-4 and Class-5. Highest pressure, highest yield. See §4.2.
+Client press inquiries — including those of journalists embedded by referral — are handled exclusively by the firm's partner of the week. The on-site lead's role is to direct the inquiry to that partner and to provide no comment beyond the firm's published press boilerplate.
 
-Weights (charged): Wisp ~4 lbs, Spectre ~7 lbs, Phantom ~11 lbs, Siren ~15 lbs.
+Photography by clients of equipment, cells, or the interior of the firm vehicle is not permitted. Photography of operators in uniform during active engagement is at the operator's discretion and may be refused without explanation.
 
-Cells are not interchangeable across grades. Loading a Wisp cell into a Siren harness will fault the harness. Loading a Siren cell into a Wisp harness will rupture it.", "[b]§4.2 Siren-Class Containment Cells[/b]
+Disputes over client damages are handled post-engagement. Do not negotiate, concede, or estimate cost on the floor.", "[font_size=18][b]§5 Transport & Off-Site Engagements[/b][/font_size]
 
-Pressurized ionized sludge, Violet-Grade. Charged cells weigh approximately 15 lbs and should be carried in the dedicated lower-back slot of the harness, not the side caddy.
+Cells are transported in the firm's regulation vehicle, secured in the harness cart, with all locking collars engaged (§6.5). Cells are not to be carried in personal vehicles, on public transit, or by foot across public ways exceeding one city block.
 
-Standard discharge is [b]at-distance[/b] against a manifested entity. Effective range is 8 to 14 feet; closer than 8 feet is not recommended due to backwash and operator exposure.
+For off-site engagements requiring overnight stay, the cells remain in the vehicle, the vehicle remains in a locked enclosure, and the team lead retains the vehicle key on their person at all times. Hotel storage of the harness cart is not permitted.
 
-[i]Manual Purge.[/i] The Siren grade includes an emergency override that dumps the cell's full charge at point-blank range. This override exists for one scenario only: an operator pinned by a Class-5 with no maneuver room and no second cell. It is a discharge of last resort.
+A vehicle inventory check is conducted by the tech operator at the start of each travel day and at each refueling stop. Discrepancies are reported by radio to base before resuming travel.
 
-A Manual Purge at contact range is, in practical terms, lethal to anything organic seated against the nozzle — a fact rehearsed in the basement training reels and routinely glossed over in field briefings. The override exists. Nobody is meant to use it.
+In the event of vehicle breakdown with active cells aboard, the team is to remain with the vehicle until firm dispatch arrives. Cells are not to be transferred to a passing motorist under any circumstance, including offers from local law enforcement.", "[font_size=18][b]§6.1 Cell Grade Overview[/b][/font_size]
 
-A discharged cell reads as inert on a PKE sweep until refilled.", "[b]§4.3 Charge & Storage[/b]
+The firm fields containment cells across approximately two dozen distinct grades. Cells are classified by:
+
+  • [b]Capture medium color[/b] — the visible color of the goo inside the cell, seen through the gauge window or in a discharge residue (§6.2).
+  • [b]Class range[/b] — the Tobin Scale range the cell is rated for (§11).
+  • [b]Charged weight[/b] — relevant to harness compatibility (§6.3).
+  • [b]Manual override[/b] — the cell's optional second-stage operating mode, if any (§8).
+  • [b]Pigment tracer[/b] — the marker chemistry suspended in the capture medium (§7.3).
+
+The grade roster is in §6.4. Newer operators are reminded that not every grade is in regular rotation at every site office; the New York firehouse stocks roughly half of the full roster in any given quarter.
+
+Cells are not interchangeable across grades. Loading a low-pressure cell into a high-pressure harness will fault the harness. Loading a high-pressure cell into a low-pressure harness will rupture it.", "[font_size=18][b]§6.2 Identifying A Cell In The Field[/b][/font_size]
+
+The cell housing is [b]externally unmarked[/b] apart from the serial stamp on the base ring (§6.5) and the charge-date sticker on the collar. There is no color band, no class designator, and no grade label printed anywhere on the exterior. This is a deliberate firm policy dating to the 1991 cart-theft incident.
+
+The only field-identifiable distinction between grades is the [b]capture medium itself — the goo inside the cell[/b], visible through the small gauge window on the upper neck. Capture medium colors fall into one of six bands:
+
+[b]Violet · Red · Blue · Yellow · Green · Black.[/b]
+
+Operators are reminded that [b]multiple grades share the same color[/b]. Knowing the color narrows the grade to a short list; it does not identify the grade by itself. The grade is finally identified by cross-referencing color with weight, with override behavior, and with tracer chemistry (§§6.3, 7.3, 8.2). In low-light conditions, refer to the serial stamp.", "[font_size=18][b]§6.3 Weight, Carry & Harness[/b][/font_size]
+
+Charged cell weights range from approximately 3 lb (Class-1 training grade) to approximately 15 lb (top-of-band Class-4 / Class-5).
+
+Cells are carried in the proton harness in one of three positions:
+
+  • [b]Side caddy[/b] — light cells only (under 6 lb).
+  • [b]Hip cradle[/b] — mid-weight (6–10 lb).
+  • [b]Lower-back slot[/b] — heavy cells (10 lb and above).
+
+A cell in the wrong harness slot is a citable safety violation. The lower-back slot is the only position structurally rated for the heaviest grades; carrying a 15 lb cell in the hip cradle for the duration of an engagement is a recognized cause of operator back injury.
+
+The side caddy is also used for the spare PKE meter. Do not store cells of any grade in the side caddy if it is occupied by a meter. Decide before the engagement begins.", "[font_size=18][b]§6.4 Cell Grade Roster — Class 1 (Training Grades)[/b][/font_size]
+
+[b]Pixie.[/b] Violet capture medium, Class 1. Charged weight ~3 lb, side caddy. Manual override: Pulse-Lock (§8.2). The medium is the most thinly pigmented of the violet grades and the most dilute on inspection; a common training-grade cell.
+
+[b]Wisp.[/b] Blue capture medium, Class 1. Charged weight ~4 lb, side caddy. Manual override: none — training grade. The firm's baseline training cell; almost every operator in service has fired one in their first week. The medium is essentially inert outside an engagement.
+
+[b]Mote.[/b] Yellow capture medium, Class 1. Charged weight ~3 lb, side caddy. Manual override: Soft-Vent (§8.2). Designed for very small entities (insect-class trace manifestations); the gauge window is narrower than other Class-1 grades and reads with a finer needle.
+
+[b]Glimmer.[/b] Green capture medium, Class 1 / Class 2. Charged weight ~4 lb, side caddy. Manual override: Pulse-Lock (§8.2). Common Class-1 grade in client-facing demonstrations; the medium settles to a faint sparkle on dark surfaces that photographs well for marketing.", "[font_size=18][b]§6.4 — Class 2[/b][/font_size]
+
+[b]Sylph.[/b] Violet capture medium, Class 2. Charged weight ~6 lb, hip cradle. Manual override: Soft-Vent (§8.2). The medium is humidity-sensitive in storage and should be kept below 35% RH; older cells occasionally weep a faint violet film around the gauge window in summer.
+
+[b]Cinder.[/b] Red capture medium, Class 2. Charged weight ~5 lb, side caddy. Manual override: Cinder Quench (§8.2). The medium runs warm in storage and the cell is uncomfortable to carry for extended periods against bare skin.
+
+[b]Shade.[/b] Blue capture medium, Class 2. Charged weight ~6 lb, hip cradle. Manual override: Reverse-Flow (§8.2). The medium is unusually thin for its grade and is sometimes used as a trap-evacuation reservoir rather than for direct discharge; off-label use is not recommended.
+
+[b]Spook.[/b] Red capture medium, Class 2 / Class 3. Charged weight ~7 lb, hip cradle. Manual override: Snap-Charge (§8.2). Single-shot reservoir design; once discharged at-distance the cell cannot be re-fired in the field and must be refilled at the proton works.
+
+[b]Cantrip.[/b] Yellow capture medium, Class 2 / Class 3. Charged weight ~8 lb, hip cradle. Manual override: Reverse-Flow (§8.2). The medium contains a marker variant of the Spectre-grade tracer (§7.3); useful in low-light surveys but requires a UV lamp for residue inspection.
+
+[b]Spectre.[/b] Green capture medium, Class 2 / Class 3. Charged weight ~7 lb, hip cradle. Manual override: Dye Reset (§8.2). The medium contains a marker dye (§7.3), water-soluble, that wipes off with a damp cloth; widely used for training engagements where residue control matters.", "[font_size=18][b]§6.4 — Class 3[/b][/font_size]
+
+[b]Wraith.[/b] Violet capture medium, Class 3. Charged weight ~10 lb, hip cradle / lower-back. Manual override: Spore Vent (§8.2). Discharged at slightly elevated pressure relative to other Class-3 grades; the medium settles to a fine violet dust on horizontal surfaces.
+
+[b]Poltergeist.[/b] Red capture medium, Class 3. Charged weight ~9 lb, hip cradle. Manual override: Kinetic Damp (§8.2). The internal capacitor includes a kinetic load buffer rated for object-throw events of up to 40 lb at 8 ft/s; deployment guidelines warn against entering a kinetic field without the buffer primed.
+
+[b]Mariner.[/b] Blue capture medium, Class 3. Charged weight ~10 lb, hip cradle / lower-back. Manual override: Tide-Damp (§8.2). The medium is formulated for high-humidity coastal work; the cell carries an additional internal desiccant chamber that requires inspection every six months.
+
+[b]Boggart.[/b] Green capture medium, Class 3. Charged weight ~10 lb, hip cradle / lower-back. Manual override: Spore Vent (§8.2). Designed for mischief-class containment; the cell contains a secondary aerosol cartridge that vents during discharge to flush a manifestation from concealment.
+
+[b]Eidolon.[/b] Black capture medium, Class 3. Charged weight ~11 lb, lower-back slot. Manual override: Twin-Tap Sync (§8.2). Designed for paired deployment with a Wight cell; firing an Eidolon without its paired Wight is permitted but produces only a fractional capture yield.", "[font_size=18][b]§6.4 — Class 3 (cont.)[/b][/font_size]
+
+[b]Revenant.[/b] Red capture medium, Class 3 / Class 4. Charged weight ~11 lb, lower-back slot. Manual override: Resonance Tap (§8.2). Sensitive to harmonic interference from nearby high-voltage mains; the cell will read a false-positive PKE elevation when stored within ten feet of a transformer.
+
+[b]Apparition.[/b] Yellow capture medium, Class 3 / Class 4. Charged weight ~12 lb, lower-back slot. Manual override: Solar Flash (§8.2). The medium tolerates direct sunlight better than other Class-4 grades; the cell is the firm's preferred kit for daytime outdoor engagements.
+
+[b]Wight.[/b] Black capture medium, Class 3 / Class 4. Charged weight ~12 lb, lower-back slot. Manual override: Twin-Tap Sync (§8.2). The Eidolon's pair; an unpaired Wight discharge is also reduced-yield. Firm policy is to draw the two cells from the cart together or not at all.", "[font_size=18][b]§6.4 — Class 4 and Above[/b][/font_size]
+
+[b]Phantom.[/b] Red capture medium, Class 4 / Class 5. Charged weight ~14 lb, lower-back slot. Manual override: Resonance Tap (§8.2). The medium is harmonic-coupled and shares the Revenant grade's transformer sensitivity at scale; firm policy requires a 30 ft clearance from any high-voltage line during storage.
+
+[b]Banshee.[/b] Violet capture medium, Class 4 / Class 5. Charged weight ~15 lb, lower-back slot. Manual override: Resonance Tap (§8.2). The medium responds to a narrow harmonic window; engagement requires the resonance tap to be primed within thirty seconds of arrival.
+
+[b]Reaper.[/b] Green capture medium, Class 4. Charged weight ~13 lb, lower-back slot. Manual override: Spore Vent (§8.2). The cell's aerosol cartridge is the heaviest in service and is the leading cause of cell-rotation rejects at quarterly inspection.
+
+[b]Siren.[/b] Violet capture medium, Class 4 / Class 5. Charged weight ~15 lb, lower-back slot. Manual override: Manual Purge (§8.2). The medium is among the firm's highest-pressure formulations; the proton works requires a 36-hour cooldown between charge cycles for these cells specifically.
+
+[b]Tempest.[/b] Blue capture medium, Class 4. Charged weight ~14 lb, lower-back slot. Manual override: Tide-Damp (§8.2). The firm's preferred grade for storm-watch engagements; the cell's pressure vessel includes a secondary damper bonded to the housing's lower ring.
+
+[b]Lemure.[/b] Black capture medium, Class 4 / Class 5. Charged weight ~14 lb, lower-back slot. Manual override: Lockdown Pin (§8.2). Used in engagements where the containment must be guaranteed irreversible; once fired with the lockdown pin engaged, the cell cannot be discharged again and is retired from rotation.", "[font_size=18][b]§6.5 Charge, Storage & Lockout[/b][/font_size]
 
 Cells are charged at the proton works on a 36-hour cycle. A fully charged cell holds its charge for approximately 90 days under proper storage (humidity below 40%, temperature 50–70 °F). Cells left in vehicle trunks during summer have been known to vent overnight.
 
-Every cell is stamped with a serial number on the base ring and a charge date on the collar. The serial number is also etched into the manual override lever housing (§7.2), so a recovered cell can be matched to its dispatch manifest even if the base ring is scorched.
+Every cell is stamped with a serial number on the base ring and a charge date on the collar. The serial number is also etched into the manual override lever housing (§8.1), so a recovered cell can be matched to its dispatch manifest even if the base ring is scorched.
 
-Cells are signed out from the gear cart by the team's tech operator and signed back in within twenty-four hours of return to base. Discrepancies in the cart manifest are reported immediately, not \"reconciled later.\" A missing cell is a regulatory event, not a clerical inconvenience.", "[b]§5 Discharge Phenomena[/b]
+[b]Lockout.[/b] A locked-out cell will not discharge by any means until the lockout is cleared. To engage: rotate the collar ring 90° counter-clockwise until the red dot aligns with the keyway. To clear: rotate clockwise back to the green dot. Lockouts are recorded in the daily cart manifest with the time of engagement and the engaging operator's initials.
 
-[b]§5.1 Aerosol Effects[/b]
+Cells are signed out by the team's tech operator and signed back in within twenty-four hours of return. Discrepancies in the cart manifest are not \"reconciled later.\" A missing cell is a regulatory event, not a clerical inconvenience.", "[font_size=18][b]§7.1 Aerosol Effects[/b][/font_size]
 
 All cell classes produce some quantity of aerosolized capture medium on discharge. The volume and behavior of this aerosol is the single most useful diagnostic available to a field operator and the leading subject of follow-up training.
 
-At a standard at-distance discharge, the aerosol disperses outward from the nozzle in a wide cone and settles as a fine film on nearby surfaces — see §5.3.
+At a standard at-distance discharge (8–14 ft, see §7.4), the aerosol disperses outward from the nozzle in a wide cone and settles as a fine film on nearby surfaces — see §7.2.
 
-Under the elevated pressure of a [b]Manual Purge[/b] (§4.2), aerosol behavior changes dramatically. The capture medium is forced through the cell nozzle at pressures sufficient to drive sub-micron droplets [b]through woven materials[/b], including the standard-issue ghost-capture glove. The operator's hands — particularly the palms and the cuticle beds — absorb the worst of this exposure.
+Manual overrides (§8) operate at elevated discharge pressures relative to standard at-distance firing. The standard-issue ghost-capture glove is rated to block aerosol exposure under normal at-distance and authorized override firing.
 
-This is referred to as the Aerosol Effect and is the principal occupational hazard of the Manual Purge.", "[b]§5.2 Cleanup Procedures[/b]
+Behavior under non-standard firing — contact-range discharge, obstructed nozzle, off-axis pressure spikes — is grade-specific. The persistence, removability, and skin-exposure characteristics of each grade's capture medium are tabulated in the per-grade tracer entries (§7.3).", "[font_size=18][b]§7.2 Residue Color Quick Reference[/b][/font_size]
 
-After a routine at-distance discharge, the affected room is ventilated for thirty minutes before cleanup. Use the firm's standard neutralizer on all soft surfaces; hard surfaces accept warm soapy water. Carpets may require two passes. Do not bill the client for cleanup time in excess of two hours without manager approval.
+The color of a discharge residue is the color of the cell's capture medium. The firm fields cells in six color bands:
 
-Discarded cleanup rags are non-hazardous and may be laundered with the regulation jumpsuits.
+  • [b]Violet[/b] — Pixie, Sylph, Siren, Wraith, Banshee.
+  • [b]Red[/b] — Cinder, Spook, Phantom, Revenant, Poltergeist.
+  • [b]Blue[/b] — Wisp, Shade, Tempest, Mariner.
+  • [b]Yellow[/b] — Mote, Cantrip, Apparition.
+  • [b]Green[/b] — Glimmer, Spectre, Reaper, Boggart.
+  • [b]Black[/b] — Eidolon, Wight, Lemure.
 
-[b]§5.3 Surface Residue & Purge Pigment[/b]
+Operators are reminded that [b]color narrows the grade to a band, not to a cell.[/b] Five grades share the violet band; five share the red band. A violet splatter at a scene tells the operator only that one of five grades was discharged there. The grade is identified by cross-referencing color with: residue [b]volume[/b] (heavier cells leave more), tracer [b]persistence[/b] (§7.3), and any recovered cell's [b]override state[/b] (§8.1) and [b]valve state[/b] (§7.4).
 
-[i]Surface Residue.[/i] The film deposited by a discharge — on walls, floors, ceilings — is water-soluble, removable with standard soap or alcohol wipes, and is [b]not diagnostic of source[/b]. A real ghost discharge and a Manual Purge leave roughly similar surface films. Residue tells you a discharge occurred. It does not tell you which kind.
+Color identifies what was discharged. Pattern identifies how. Persistence identifies who.", "[font_size=18][b]§7.3 Pigment Tracers Across Grades[/b][/font_size]
 
-For the diagnostic distinction, see §5.4 and §8.2.", "[b]§5.3 Purge Pigment (cont.)[/b]
+[b]Wisp / Shade / Mariner / Tempest tracer.[/b] [i](Blue band.)[/i] Blue marker dye suspended in the medium. Settles as a thin film on cool surfaces and as a faint mist on skin and gloves. Removable from skin in seconds with cold water; removable from soft surfaces with a damp cloth. Fades from porous surfaces over 12–24 hours without intervention.
 
-Distinct from Surface Residue, every Siren cell suspends a chemical tracer in its capture medium. The tracer is inert and harmless in storage and during a standard at-distance discharge.
+[b]Cinder / Spook tracer.[/b] [i](Red band, low-grade.)[/i] Red pigment in a light oil base. Settles as a film on cool surfaces. Removable from skin with soap and water; may stain porous fabrics permanently if not addressed within an hour. Two passes recommended on carpet.
 
-Under the high pressure of a Manual Purge (§4.2), the Aerosol Effect (§5.1) drives this tracer [b]sub-dermally[/b] into the operator's skin, [b]through[/b] standard-issue ghost-capture gloves. It presents as a violet discoloration of the palms, finger pads, and cuticle beds.
+[b]Pixie tracer.[/b] [i](Violet band, Class 1.)[/i] Violet wash, very dilute. Removable from skin in seconds with cold water; the tracer is thin enough that prolonged handling without gloves is permitted in training settings.
 
-The tracer is [b]resistant to soap, solvent, and ordinary skin scrubs[/b]. It remains visible for approximately [b]48 to 72 hours[/b] before fading.
+[b]Mote / Cantrip / Apparition tracer.[/b] [i](Yellow band.)[/i] Yellow particulate. Fades from skin within an hour even without washing; ventilation alone removes the airborne fraction from a room within thirty minutes. Considered the most forgiving of the field tracers.", "[font_size=18][b]§7.3 (cont.)[/b][/font_size]
 
-In other words: an operator who has performed a Manual Purge will be visibly stained on the palms for two to three days, regardless of whether gloves were worn. The pigment is not a health hazard. It is, in regulatory terms, a forensic signature.
+[b]Sylph tracer.[/b] [i](Violet band, Class 2.)[/i] Violet film. Removable from skin with soap and warm water within the engagement; settles on surfaces as a removable haze that wipes off with a damp cloth. No long-term persistence on skin documented.
 
-This is the reason §4.2 emphasizes that nobody is meant to use the Manual Purge.", "[b]§5.4 The Back-Pressure Valve[/b]
+[b]Siren tracer.[/b] [i](Violet band, Class 4 / Class 5.)[/i] Violet pigment. Removable from skin and surfaces with soap and water within 24 hours under standard at-distance discharge. Under contact-range firing the pigment passes the glove weave and settles sub-dermally; persists 48–72 hours through full metabolic clearance regardless of washing.
 
-All Siren-grade cells include a back-pressure safety valve seated above the nozzle. The valve vents excess pressure during normal discharge and during off-axis \"air-firing\" (e.g. an operator startled into a stray pull). In these cases the valve remains intact and seated.
+[b]Wraith tracer.[/b] [i](Violet band, Class 3.)[/i] Violet dust, almost entirely particulate, no liquid carrier. Brushed off cleanly from clothing and hard surfaces with a soft cloth; rinses from skin with cold water in under a minute.
+
+[b]Spectre / Glimmer / Boggart / Reaper tracer.[/b] [i](Green band.)[/i] Green marker dye. Settles brightly under UV; nearly invisible in daylight. Removable from skin with soap and warm water; removable from soft surfaces with the firm's standard neutralizer. Used in training because of its forgiving cleanup profile.", "[font_size=18][b]§7.3 (cont.)[/b][/font_size]
+
+[b]Banshee tracer.[/b] [i](Violet band, Class 4.)[/i] Violet powder. Slightly abrasive. Removed from skin with soap and a stiff brush, or with the firm's standard neutralizer. May require a second pass on porous surfaces.
+
+[b]Revenant / Poltergeist / Phantom tracer.[/b] [i](Red band, high-grade.)[/i] Red alcohol-soluble pigment. Removable from skin and hard surfaces with isopropyl alcohol; soap and water alone are insufficient. Operators are issued a small alcohol wipe pack with these grades.
+
+[b]Eidolon / Wight / Lemure tracer.[/b] [i](Black band.)[/i] Black ash. Removable from skin with soap and water; removable from hard surfaces with a damp cloth. Settles heavily and is easy to spot at a glance, which is a deliberate design feature given the irreversible nature of the Lemure's lockdown override (§8.2).", "[font_size=18][b]§7.4 Back-Pressure Valve[/b][/font_size]
+
+All cells across all grades include a back-pressure safety valve seated above the nozzle. The valve vents excess pressure during normal discharge and during off-axis \"air-firing\" (e.g. an operator startled into a stray pull). In these cases the valve remains intact and seated.
 
 The valve [b]only[/b] pops — visibly displaced from its seat, often retained only by its keeper wire — if the nozzle is obstructed by a solid object during discharge. The pressure has nowhere to go but back through the valve.
 
-In practice: a popped back-pressure valve on a recovered Siren cell is proof that the cell was discharged with its nozzle pressed against something solid. A human chest is, regrettably, sufficient.
+In practice: a popped back-pressure valve on any recovered cell is proof that the cell was discharged with its nozzle pressed against something solid. A human chest is, regrettably, sufficient. So is a heavy oak floor. So is the inside of a closed steamer trunk. The valve does not distinguish between innocent and incriminating obstructions; it only registers that there was one.
 
 A popped valve cannot be reseated in the field. The cell must be returned to the proton works.
 
-(A small minority of pre-2019 cells have a documented false-positive history — see Service Bulletin SB-19-04. Most cells in current service are post-bulletin.)", "[b]§6 Trap Maintenance[/b]
+(A small minority of pre-2019 cells have a documented false-positive history — see Service Bulletin SB-19-04. Most cells in current service are post-bulletin.)", "[font_size=18][b]§8.1 Lever Mechanism[/b][/font_size]
+
+Every cell with a documented manual override (the great majority of the firm's roster) carries the same lever mechanism, irrespective of grade. The lever is a small metal flag seated against the cell's side housing, hidden under a hinged dust guard.
+
+The lever is intentionally awkward to flip. It requires a deliberate two-stage [b]pinch-and-twist[/b]: pinch the dust guard open with thumb and forefinger, then twist the flag 90° outward against a sprung detent. The mechanism is engineered to resist impact, vibration, falls from height, and spectral interference of any documented class.
+
+In thirty years of recorded field incidents — across every grade in service — no flipped lever has ever been the result of an accidental drop, a poltergeist event, or a high-Gauss spectral field. The firm has tested. It does not happen.
+
+A flipped lever on a recovered cell is, without exception, evidence of a [b]deliberate human action[/b]. This is true of every grade. The override mechanism is grade-agnostic; only the consequence of the flip is grade-specific. See §8.2.", "[font_size=18][b]§8.2 Override Roster — Benign[/b][/font_size]
+
+[b]Soft-Vent.[/b] [i]Sylph, Mote.[/i] Bleeds excess internal pressure through a secondary port when storage humidity exceeds spec. Authorized: any operator with cart access. Operator hazard: trace tracer aerosol within 18 inches of the port. Aftermath: cell returns to standard discharge readiness once humidity normalizes.
+
+[b]Dye Reset.[/b] [i]Spectre.[/i] Flushes spent marker dye and replaces it from an internal reservoir. Authorized: tech operator. Operator hazard: brief visible green plume during reset; goggles recommended. Aftermath: cell discharges normally on next firing; reservoir requires refill at the proton works after three resets.
+
+[b]Reverse-Flow.[/b] [i]Shade, Cantrip.[/i] Reverses capture-flow direction to drain an over-charged trap back into the cell. Authorized: tech operator. Operator hazard: trace medium exposure if reverse-flow seal is misseated. Aftermath: trap returns to nominal charge; cell registers a slight increase on the gauge window.
+
+[b]Snap-Charge.[/b] [i]Spook.[/i] Instantly tops up a partially depleted cell from a paired charging cell. Authorized: team lead. Operator hazard: spark discharge at the contact ring. Aftermath: both cells must be inspected before next deployment.", "[font_size=18][b]§8.2 — Benign (cont.)[/b][/font_size]
+
+[b]Pulse-Lock.[/b] [i]Pixie, Glimmer.[/i] Engages a short-duration mechanical lock to prevent accidental discharge during training demonstrations. Authorized: any operator. Operator hazard: none documented. Aftermath: cell returns to discharge readiness after the pulse window expires (30 seconds).
+
+[b]Tide-Damp.[/b] [i]Mariner.[/i] Damps internal pressure oscillation during high-humidity coastal work. Authorized: any operator. Operator hazard: none documented; the override is intended to [i]reduce[/i] operator exposure to medium aerosol. Aftermath: cell discharges normally on next firing with smoother pressure curve.
+
+[b]Kinetic Damp.[/b] [i]Poltergeist.[/i] Buffers sudden kinetic load on the cell housing during object-throw events. Authorized: any operator. Operator hazard: none documented. Aftermath: capacitor must be discharged at the works if the buffer accumulates more than 80 lb-ft of cumulative load.", "[font_size=18][b]§8.2 — Inconvenient[/b][/font_size]
+
+[b]Resonance Tap.[/b] [i]Revenant, Banshee.[/i] Externally injects a harmonic signal during discharge to extend the cell's class envelope by half a class. Authorized: team lead. Operator hazard: subharmonic exposure can cause transient nausea in operators within 6 ft. Aftermath: cell capacity reduced by approximately 15% on next firing.
+
+[b]Twin-Tap Sync.[/b] [i]Eidolon, Wight.[/i] Synchronizes paired-cell discharge for matched capture across the Eidolon / Wight pair. Authorized: team lead with two operators present. Operator hazard: minor flash burn from the sync coupling. Aftermath: both cells must be returned to the works together; the pair cannot be split for the next rotation.
+
+[b]Cinder Quench.[/b] [i]Cinder.[/i] Emergency thermal quench for an overheating Cinder cell. Authorized: any operator in a thermal emergency. Operator hazard: steam release at the cell collar; second-degree thermal burn possible without gloves. Aftermath: cell is retired from rotation pending pressure-vessel inspection.", "[font_size=18][b]§8.2 — Dangerous[/b][/font_size]
+
+[b]Solar Flash.[/b] [i]Apparition.[/i] High-luminance pulse used to disorient a daylit manifestation. Authorized: team lead. Operator hazard: retinal injury possible without issue eyewear; permanent flash blindness has been documented in two recorded incidents. Aftermath: cell is removed from rotation and the operator is referred for an eye examination.
+
+[b]Manual Purge.[/b] [i]Siren.[/i] Dumps the cell's full charge at point-blank range through an opened back-pressure valve. Authorized: emergency only, against a confirmed Class-5 with no second cell available. Operator hazard: at contact range the discharge is lethal to anything organic against the nozzle; sub-dermal tracer transfer is documented (§7.3). Aftermath: back-pressure valve is popped (§7.4); cell is returned to the works; the discharging operator is referred for medical evaluation.
+
+[b]Spore Vent.[/b] [i]Boggart, Wraith.[/i] Vents the cell's secondary aerosol cartridge under controlled pressure to flush a manifestation from concealment. Authorized: team lead. Operator hazard: respiratory irritation; respirator required during and for fifteen minutes after vent. Aftermath: cartridge requires refill at the works; cell discharges normally on next firing.
+
+[b]Lockdown Pin.[/b] [i]Lemure.[/i] Drives a permanent mechanical pin into the cell housing to render the cell irreversibly inert after a single discharge. Authorized: team lead with second operator witness. Operator hazard: percussive recoil; bracing required. Aftermath: cell is retired from service permanently; the housing is returned to the works for ceremonial decommissioning.", "[font_size=18][b]§8.3 Authorization & Reporting[/b][/font_size]
+
+Every override flip is logged. The cell's serial number, the override type, the flipping operator, and the time of flip are recorded in the watch log within fifteen minutes of the engagement's conclusion.
+
+Where the override is rated [b]Inconvenient[/b] or higher (§8.2), the team lead co-signs the entry. Where the override is rated [b]Dangerous[/b], the team lead also files a Form 11 with the office within twenty-four hours.
+
+A recovered cell with a flipped lever and no corresponding log entry is treated as a Form 14 event (§13) regardless of the cell's grade. The firm's audit policy does not distinguish, in this regard, between an unlogged Pulse-Lock and an unlogged Manual Purge. Either is a regulatory event.
+
+Operators are reminded that the audit office reviews override logs quarterly, not annually. Discrepancies surface fast.", "[font_size=18][b]§9 Trap Maintenance[/b][/font_size]
 
 The standard mobile trap requires inspection at the start of every shift. The hinge mechanism is the most common point of failure; field operators are reminded that a trap which closes slowly is a trap that has missed an entity.
 
@@ -175,52 +318,96 @@ The pedal cable should be replaced every 200 deployments or annually, whichever 
 
 The trap's internal capacitor must be discharged before any servicing. Discharge tools are kept in the proton works.
 
-Civilians are not permitted to handle a trap, charged or empty, including for photographs. This includes minor children of clients. Do not relent.", "[b]§7 Overrides & Failsafes[/b]
-
-[b]§7.1 Lockout Procedures[/b]
-
-A locked-out cell will not discharge by any means until the lockout is cleared. Lockouts are engaged by the tech operator before any storage, transport, or off-site movement.
-
-[i]To engage:[/i] rotate the collar ring 90° counter-clockwise until the red dot aligns with the keyway.
-[i]To clear:[/i] rotate clockwise back to the green dot.
-
-A locked-out cell with a flipped manual override lever (§7.2) is mechanically possible but indicates either tampering or a serious failure of pre-engagement protocol. Report immediately.
-
-Lockouts are recorded in the daily cart manifest with the time of engagement and the engaging operator's initials. Do not leave unlocked cells unattended on the cart at any point during prep.", "[b]§7.2 Manual Override Lever[/b]
-
-The Manual Override lever is a small metal flag seated against the cell's side housing, hidden under a hinged dust guard. Flipping the lever arms the Manual Purge (§4.2).
-
-The lever is intentionally awkward to flip. It requires a deliberate two-stage [b]pinch-and-twist[/b]: pinch the dust guard open with thumb and forefinger, then twist the flag 90° outward against a sprung detent. The mechanism is engineered to resist impact, vibration, falls from height, and spectral interference of any documented class.
-
-In thirty years of recorded field incidents, no flipped lever has ever been the result of an accidental drop, a poltergeist event, or a high-Gauss spectral field. The firm has tested. It does not happen.
-
-A flipped lever on a recovered cell is, without exception, evidence of a [b]deliberate human action[/b].", "[b]§8 Spectral Trauma Reference[/b]
-
-[i]Specialist appendix.[/i] Field hunters are trained to contain entities. Identifying contact trauma on a body is the responsibility of the team's medical and occult specialist. The following is included for completeness; it is not a substitute for specialist judgment in the field.
-
-[b]§8.1 Ghost-Touch Marks[/b]
+Civilians are not permitted to handle a trap, charged or empty, including for photographs. This includes minor children of clients. Do not relent.", "[font_size=18][b]§10.1 Ghost-Touch Marks[/b][/font_size]
 
 Direct contact between a Class-3 or higher entity and unprotected human surface produces what the literature calls a \"spectral burn.\" The defining visual signature is a [b]jagged, branching frost pattern[/b] — fractal, irregular, never symmetrical. The branching is a function of how the entity's field couples to the body's bioelectric grid; it cannot help looking like lightning.
 
-A precise, circular wound is [b]not[/b] consistent with any documented ghost-touch in the firm's records. Specialists in the field rarely have the lab time to make this distinction publicly; the call is usually taken at face value.", "[b]§8.2 Spectral Discharge & Ectoplasm Spread[/b]
+A precise, circular wound is [b]not[/b] consistent with any documented ghost-touch in the firm's records. Nor is a clean-edged round burn, a punctate impact, or a rim-bounded surface trauma. The branching is the signature. The literature is unanimous on this; the question is closed.
 
-A fully manifested Class-5 entity radiates spectral discharge [b]omnidirectionally[/b] from its manifestation point. Ectoplasm coats walls, ceiling, and floor in a roughly uniform 360° spread — the room reads as \"drenched from inside\" rather than \"sprayed from a corner.\"
+Specialists in the field rarely have the lab time to make this distinction publicly; the call is usually taken at face value. Operators in the field are not expected to make a forensic determination. They are expected to note what they saw and let the specialist's report do the work.", "[font_size=18][b]§10.2 Class Attribute Cards[/b][/font_size]
 
-Directional patterns — a \"fan\" or a \"spray\" concentrated on a single surface — are [b]not[/b] consistent with a Class-5 manifestation. They indicate a focused channel: pressurized sludge driven through a single point of contact (commonly a victim's body) and emerging in a concentrated pattern on whatever lies beyond.
+[b]CLASS 1 — Trace.[/b]
+1. Discharge color: barely visible, often colorless.
+2. Manifestation noise: faint clicks, whispers.
+3. Audio reach: 1–2 m.
+4. Physical effects: cold spots, micro-vibration.
+5. Activity window: intermittent.
+6. Behavior on contact: avoids, retreats.
+7. Ghost-touch marks: none documented.
+8. Ectoplasm spread: trace only, single-room localized.
 
-In short: if a room contains an ectoplasmic event but only one wall is coated and the rest is clean, you are not looking at the work of a ghost. You are looking at a focused discharge with something — or someone — between the nozzle and the wall.
+[b]CLASS 2 — Localized.[/b]
+1. Discharge color: faint, dispersing within seconds.
+2. Manifestation noise: footsteps, drawer noises.
+3. Audio reach: room-sized, occasionally beyond.
+4. Physical effects: small object movement, light flicker.
+5. Activity window: bound to specific locations.
+6. Behavior on contact: flees or ignores.
+7. Ghost-touch marks: faint, transient, rarely diagnostic.
+8. Ectoplasm spread: thin film on nearby surfaces.", "[font_size=18][b]§10.2 (cont.)[/b][/font_size]
 
-A real Class-5 spreads. A purge sprays.", "[b]§9 Class Ratings (Tobin Scale)[/b]
+[b]CLASS 3 — Partial Manifestation.[/b]
+1. Discharge color: visible green or red depending on subtype.
+2. Manifestation noise: groans, articulate sounds.
+3. Audio reach: room-spanning, through walls.
+4. Physical effects: object levitation, sustained chill.
+5. Activity window: hours per appearance.
+6. Behavior on contact: probes, occasionally swipes.
+7. Ghost-touch marks: jagged branching frost pattern; brief.
+8. Ectoplasm spread: arcing fan from manifestation point.
 
-  [b]Class 1[/b] — Trace presence. Cold spots, faint EVP, no visible mass. Often imagined.
-  [b]Class 2[/b] — Localized phenomena. Object movement, audible footsteps, minor cold. Wisp / Spectre containment.
-  [b]Class 3[/b] — Partial manifestation. Visible mass, brief physical contact. Phantom-grade.
-  [b]Class 4[/b] — Full manifestation. Aware, mobile, sustained physical interaction. Phantom or Siren.
-  [b]Class 5[/b] — Hostile full manifestation. Aware, malevolent, omnidirectional spectral discharge (§8.2). Mass effects on surrounding matter. Siren-grade containment, multi-operator deployment.
+[b]CLASS 4 — Full Manifestation.[/b]
+1. Discharge color: deep, lingering, varies by subtype.
+2. Manifestation noise: clear vocalizations, words.
+3. Audio reach: building-wide.
+4. Physical effects: large-object movement, structural stress.
+5. Activity window: sustained, hours to overnight.
+6. Behavior on contact: deliberate, sometimes intentional.
+7. Ghost-touch marks: jagged fractal branching; pronounced.
+8. Ectoplasm spread: outward in arcing fans; partial coverage.", "[font_size=18][b]§10.2 (cont.)[/b][/font_size]
 
-Class-5 events are exceedingly rare — fewer than two confirmed manifestations per year across the firm's recorded engagements. An operator reporting a \"Class-5\" should expect the report to be reviewed by the team's medical / occult specialist before it is filed.
+[b]CLASS 5 — Hostile Full Manifestation.[/b]
+1. Discharge color: violet, dense, persistent.
+2. Manifestation noise: roaring, multi-pitched, subharmonic.
+3. Audio reach: full building and beyond; audible to neighbors.
+4. Physical effects: structural deformation, heat anomalies.
+5. Activity window: sustained until contained.
+6. Behavior on contact: hostile, pursues, intent on harm.
+7. Ghost-touch marks: jagged fractal branching; [b]never circular, never round-edged, never neat.[/b]
+8. Ectoplasm spread: [b]omnidirectional, 360°.[/b] Drenches all surfaces of the room uniformly from the manifestation point — ceiling, opposite wall, floor under furniture. A Class-5 room reads \"drenched from inside,\" not \"sprayed from a corner.\"
 
-[b]Class 6 and above[/b] are theoretical and not addressed in this manual.", "[b]§10 Reporting & Paperwork[/b]
+Class-5 events are exceedingly rare — fewer than two confirmed manifestations per year across the firm's recorded engagements. An operator reporting a Class-5 should expect the report to be reviewed by the team's medical and occult specialist before it is filed.", "[font_size=18][b]§10.3 Ectoplasm Spread Geometry[/b][/font_size]
+
+A useful diagnostic, summarized:
+
+  • [b]Class 1–2.[/b] Local film, near the entity's path. The rest of the room is clean.
+  • [b]Class 3.[/b] A fan or arc from the manifestation point. Walls in the line of the fan are coated; walls behind the entity are typically clean.
+  • [b]Class 4.[/b] Multiple arcs or partial coverage. Coverage favors the direction of the entity's last sustained motion.
+  • [b]Class 5.[/b] Omnidirectional. Uniform coverage of all surfaces — ceiling, all four walls, floor — radiating from a single manifestation point. A Class-5 leaves no clean wall.
+
+[b]Directional patterns that match a Class-5 in color but a Class-3 in geometry[/b] — a violet spray concentrated on a single surface, with the rest of the room clean — are not consistent with a Class-5 manifestation. They indicate a focused channel: pressurized medium driven through a single point of contact (commonly a victim's body) and emerging in a concentrated pattern on whatever lies beyond.
+
+A real Class-5 spreads. A purge sprays.", "[font_size=18][b]§11 Tobin Scale at a Glance[/b][/font_size]
+
+[b]Class 1[/b] — Trace presence. Cold spots, faint EVP, no visible mass. Often imagined.
+  [b]Class 2[/b] — Localized phenomena. Object movement, audible footsteps, minor cold. Most common engagement.
+  [b]Class 3[/b] — Partial manifestation. Visible mass, brief physical contact.
+  [b]Class 4[/b] — Full manifestation. Aware, mobile, sustained physical interaction.
+  [b]Class 5[/b] — Hostile full manifestation. Aware, malevolent, omnidirectional spectral discharge. Mass effects on surrounding matter. Multi-operator deployment required.
+
+The class assigned to an engagement determines the cell grade(s) drawn from the cart, the harness configuration, the watch-plan template, and the insurance rider applied to the engagement. A misclassification — particularly an over-classification — is grounds for a documented review.
+
+Class 6 and above are theoretical and not addressed in this manual.", "[font_size=18][b]§12 Operator Health & First Aid[/b][/font_size]
+
+Operators experiencing dizziness, nausea, or disorientation during a watch should stand down to the vehicle and request relief. Continuing a watch through symptoms is not bravery; it is a documented cause of misclassification and friendly-fire incidents.
+
+[b]Cold-spot exposure[/b] — extended contact with a Class-2 or higher cold field — is treated as a frostbite risk to exposed fingers and ears after fifteen minutes. Standard issue thermal liner is rated for thirty minutes; rotate stations accordingly.
+
+[b]Spectral-field nausea[/b] — the inner-ear effect of close exposure to a high-Gauss field — usually resolves within an hour after the operator leaves the field. Persistent nausea (over six hours) is referred to the firm's medical specialist.
+
+[b]Aerosol exposure[/b] at standard at-distance discharge is non-hazardous; the firm's industrial hygiene office classifies it as a nuisance exposure only. Operators are reminded to wash their hands and faces with soap and water at the conclusion of every engagement regardless of how routine the discharge appeared.
+
+The firm does not maintain an on-call medical line. For non-spectral emergencies, dial 911.", "[font_size=18][b]§13 Reporting & Paperwork[/b][/font_size]
 
 Every engagement produces, at minimum:
 
@@ -229,43 +416,48 @@ Every engagement produces, at minimum:
   • Watch log (stations and rotations, by lead).
   • Post-incident report (lead and specialist co-sign).
   • Discharge log for any cell fired (operator, time, class, range).
+  • Override log for any lever flipped (§8.3).
   • Residue / cleanup log if applicable.
 
 Reports are filed within twenty-four hours of return to base. Late reports are flagged at monthly review. Three late reports in a calendar year is a written warning; five is grounds for desk duty.
 
 A missing cell from a cart manifest is filed as a [b]Form 14[/b] within twelve hours. A Form 14 is not optional. It does not matter how certain the tech operator is that the cell will turn up tomorrow.
 
-If a Form 14 is filed and the cell is later recovered, an addendum closes the form. The original filing remains in the record.", "[b]Appendix A — Historical Notes[/b]
+If a Form 14 is filed and the cell is later recovered, an addendum closes the form. The original filing remains in the record.", "[font_size=18][b]Appendix A — Historical Notes[/b][/font_size]
 
 The firm was incorporated in 1984 by Drs. Spengler, Stantz, Venkman, and Zeddemore as a private spectral containment service operating out of the disused Hook & Ladder 8 firehouse in lower Manhattan.
 
-The Siren cell line was developed in 1989 in response to a series of high-class manifestations in the Tri-State region. The original cell weighed 22 lbs; the present-day version, at 15 lbs, reflects three generations of pressure-vessel revision.
+The first containment cells fielded by the firm were the Wisp and Spectre grades; the heavy-grade roster (Class 3 and above) was developed in stages between 1986 and 2003 in response to a series of high-class manifestations across the Tri-State region. The Eidolon / Wight pair was the firm's first paired-deployment design and remains in service largely unmodified.
 
-The Manual Purge override was added to the Siren design in 1993, over the objection of the firm's first chief engineer, who reportedly walked out of the design review and remained on sick leave for a week.
+Manual overrides were introduced incrementally over the same period, often at the request of working operators and routinely over the objections of the firm's first chief engineer, who is on record as having walked out of at least four design reviews. The lever mechanism (§8.1) is unchanged in its essentials since 1995.
 
-The Purge Pigment tracer was introduced in 1996 as a federal regulatory requirement following an unrelated incident in Albany. Operators occasionally complain about it. The firm's legal counsel does not.
+Pigment tracers were introduced across the roster in 1996 as a federal regulatory requirement following an unrelated incident in Albany. Each grade's tracer chemistry was selected by the regulator in consultation with the firm and is not modifiable by the operator or the proton works.
 
-This is the seventh edition of the manual since 2010. Errata are posted on the proton works bulletin board.", "[b]Appendix B — Glossary[/b]
+This is the seventh edition of the manual since 2010. Errata are posted on the proton works bulletin board.", "[font_size=18][b]Appendix B — Glossary[/b][/font_size]
 
-  [b]Aerosol Effect[/b] — Sub-dermal transfer of capture medium through standard gloves under Manual Purge pressure. §5.1.
-
-  [b]At-Distance Discharge[/b] — Standard cell firing at 8–14 ft from a manifested entity.
-
-  [b]Back-Pressure Valve[/b] — Safety valve above the cell nozzle. Pops only on obstructed discharge. §5.4.
-
-  [b]Form 14[/b] — Filing for a missing cell. §10.
-
-  [b]Manual Purge[/b] — Point-blank emergency override on Siren cells. §4.2.
-
+[b]At-Distance Discharge[/b] — Standard cell firing at 8–14 ft from a manifested entity.
+  [b]Back-Pressure Valve[/b] — Safety valve above the cell nozzle. Pops only on obstructed discharge. §7.4.
+  [b]Capture Medium[/b] — The pigmented goo inside a containment cell. Its color is the cell's primary field identifier (§6.2).
+  [b]Form 11[/b] — Override report for Dangerous grade overrides. §8.3.
+  [b]Form 14[/b] — Filing for a missing cell. §13.
+  [b]Lockdown Pin[/b] — Irreversible override on Lemure cells. §8.2.
+  [b]Manual Purge[/b] — Emergency override on Siren cells. §8.2.
   [b]PKE[/b] — Psychokinetic Energy, in μT-eq. §3.
+  [b]Pulse-Lock[/b] — Training-grade override on Pixie and Glimmer. §8.2.
+  [b]Tobin Scale[/b] — Entity class rating, 1–5. §11.
+  [b]Watch[/b] — Contracted containment vigil for a client artifact.", "[font_size=18][b]Appendix C — Cart Manifest Templates[/b][/font_size]
 
-  [b]Purge Pigment[/b] — Violet chemical tracer in Siren cells. Stains operator skin 48–72 hours on Manual Purge. §5.3.
+The standard cart manifest is a single sheet listing each cell present at the start of the engagement by serial number, grade, charge date, lockout state, and signing operator. Templates are pre-printed on the back of the cart clipboard.
 
-  [b]Tobin Scale[/b] — Entity class rating, 1–5. §9.
+A cart manifest is initialed by the tech operator at sign-out, by the team lead at the vehicle door, and by the tech operator again at sign-in. Three initials per cell per engagement. The triple-initial is a deliberate redundancy; one missing initial is a clerical correction, two missing initials is a Form 14 trigger.
 
-  [b]Watch[/b] — Contracted containment vigil for a client artifact.", "[b]Personal Notes — T. Griggs[/b]
+Discrepancies are not retroactively initialed. A missing initial on a returned manifest is recorded as missing.
 
-[i](scrawled in pencil on the inside back cover)[/i]
+For multi-day engagements, a fresh manifest is opened at the start of each watch day. The previous day's manifest is signed off and retained.
+
+For off-site engagements, the manifest accompanies the cart and not the office; a duplicate is filed with dispatch before departure.", "[font_size=18][b]Inside back cover[/b][/font_size]
+
+[i](scrawled in pencil)[/i]
 
 — double-check cart against manifest BEFORE the lead checks, not after
 — Iris owes me a coffee
@@ -275,6 +467,7 @@ This is the seventh edition of the manual since 2010. Errata are posted on the p
 — remember to refill the graphite lube before the next charge cycle
 — Mara likes the orange-almond cake place on 9th
 — the side caddy is for the spare PKE meter, NOT for cells, stop putting cells in the side caddy
+— the violet stain on the work-bench is from the spilled Sylph last winter, it is NOT a forensic emergency, do not log it again
 — breathe. you are doing fine. nobody died. (yet.)"])
 
 [resource]
