@@ -1,6 +1,6 @@
-[gd_resource type="Resource" script_class="TeamContext" load_steps=2 format=3]
+[gd_resource type="Resource" script_class="TeamContext" format=3 uid="uid://2fuwir1x8gco"]
 
-[ext_resource type="Script" path="res://scripts/data/team_context.gd" id="1_script"]
+[ext_resource type="Script" uid="uid://cpev53hh7prlk" path="res://scripts/data/team_context.gd" id="1_script"]
 
 [resource]
 script = ExtResource("1_script")
