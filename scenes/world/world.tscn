@@ -186,7 +186,7 @@ blocks_movement = false
 snap_to_map_grid = false
 
 [node name="Inspectable_julian_wax_idol" parent="." unique_id=100003 instance=ExtResource("9_insp")]
-position = Vector2(2065, 504)
+position = Vector2(2082, 502)
 object_id = &"julian_wax_idol"
 title = "Wax Idol"
 description = "Placeholder — move to Julian's room (1204) in editor."
