@@ -5,5 +5,6 @@
 [resource]
 script = ExtResource("1_script")
 id = &"has_julian_wax_idol"
+default_value = true
 label = "Fred has Julian's fake idol"
 description = "Fred picked up the wax replica from Julian Vane's writing desk in Suite 1204."

@@ -5,6 +5,6 @@
 [resource]
 script = ExtResource("1_script")
 id = &"has_evidence"
-default_value = false
+default_value = true
 label = "Fred has the recovered Siren Cell"
 description = "Fred has found the missing Siren containment cell in the laundry pile."

@@ -5,5 +5,6 @@
 [resource]
 script = ExtResource("1_script")
 id = &"iris_returned_transcribed_log"
+default_value = true
 label = "Iris gave Fred the transcribed log"
 description = "Iris has handed Fred the transcribed device log from the west post."
