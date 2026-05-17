@@ -146,7 +146,7 @@ In the event of vehicle breakdown with active cells aboard, the team is to remai
 
 ## Page 9 — §6.1 Cell Grade Overview
 
-The firm fields containment cells across approximately twenty distinct grades. Cells are classified by:
+The firm fields containment cells across approximately two dozen distinct grades. Cells are classified by:
 
   • **Capture medium color** — the visible color of the goo inside the cell, seen through the gauge window or in a discharge residue (§6.2).
   • **Class range** — the Tobin Scale range the cell is rated for (§11).
@@ -188,69 +188,71 @@ The side caddy is also used for the spare PKE meter. Do not store cells of any g
 
 ---
 
-## Page 12 — §6.4 Cell Grade Roster — Violet Goo
+## Page 12 — §6.4 Cell Grade Roster — Class 1 (Training Grades)
 
 **Pixie.** Violet capture medium, Class 1. Charged weight ~3 lb, side caddy. Manual override: Pulse-Lock (§8.2). The medium is the most thinly pigmented of the violet grades and the most dilute on inspection; a common training-grade cell.
 
-**Sylph.** Violet capture medium, Class 2. Charged weight ~6 lb, hip cradle. Manual override: Soft-Vent (§8.2). The medium is humidity-sensitive in storage and should be kept below 35% RH; older cells occasionally weep a faint violet film around the gauge window in summer.
-
-**Siren.** Violet capture medium, Class 4 / Class 5. Charged weight ~15 lb, lower-back slot only. Manual override: Manual Purge (§8.2). The medium is the firm's highest-pressure formulation and the only grade rated for sustained discharge against a fully manifested Class-5 entity; the proton works requires a 36-hour cooldown between charge cycles for these cells specifically.
-
-**Wraith.** Violet capture medium, Class 3. Charged weight ~10 lb, hip cradle / lower-back. Manual override: Spore Vent (§8.2). Discharged at slightly elevated pressure relative to other Class-3 grades; the medium settles to a fine violet dust on horizontal surfaces.
-
-**Banshee.** Violet capture medium, Class 4. Charged weight ~14 lb, lower-back slot. Manual override: Resonance Tap (§8.2). The medium responds to a narrow harmonic window; engagement requires the resonance tap to be primed within thirty seconds of arrival.
-
----
-
-## Page 13 — §6.4 — Red Goo
-
-**Cinder.** Red capture medium, Class 2. Charged weight ~5 lb, side caddy. Manual override: Cinder Quench (§8.2). The medium runs warm in storage and the cell is uncomfortable to carry for extended periods against bare skin.
-
-**Spook.** Red capture medium, Class 2 / Class 3. Charged weight ~7 lb, hip cradle. Manual override: Snap-Charge (§8.2). Single-shot reservoir design; once discharged at-distance the cell cannot be re-fired in the field and must be refilled at the proton works.
-
-**Revenant.** Red capture medium, Class 3 / Class 4. Charged weight ~11 lb, lower-back slot. Manual override: Resonance Tap (§8.2). Sensitive to harmonic interference from nearby high-voltage mains; the cell will read a false-positive PKE elevation when stored within ten feet of a transformer.
-
-**Poltergeist.** Red capture medium, Class 3. Charged weight ~9 lb, hip cradle. Manual override: Kinetic Damp (§8.2). The internal capacitor includes a kinetic load buffer rated for object-throw events of up to 40 lb at 8 ft/s; deployment guidelines warn against entering a kinetic field without the buffer primed.
-
----
-
-## Page 14 — §6.4 — Blue Goo
-
 **Wisp.** Blue capture medium, Class 1. Charged weight ~4 lb, side caddy. Manual override: none — training grade. The firm's baseline training cell; almost every operator in service has fired one in their first week. The medium is essentially inert outside an engagement.
-
-**Shade.** Blue capture medium, Class 2. Charged weight ~6 lb, hip cradle. Manual override: Reverse-Flow (§8.2). The medium is unusually thin for its grade and is sometimes used as a trap-evacuation reservoir rather than for direct discharge; off-label use is not recommended.
-
-**Mariner.** Blue capture medium, Class 3. Charged weight ~10 lb, hip cradle / lower-back. Manual override: Tide-Damp (§8.2). The medium is formulated for high-humidity coastal work; the cell carries an additional internal desiccant chamber that requires inspection every six months.
-
----
-
-## Page 15 — §6.4 — Yellow Goo
 
 **Mote.** Yellow capture medium, Class 1. Charged weight ~3 lb, side caddy. Manual override: Soft-Vent (§8.2). Designed for very small entities (insect-class trace manifestations); the gauge window is narrower than other Class-1 grades and reads with a finer needle.
 
-**Cantrip.** Yellow capture medium, Class 2 / Class 3. Charged weight ~8 lb, hip cradle. Manual override: Reverse-Flow (§8.2). The medium contains a marker variant of the Spectre-grade tracer (§7.3); useful in low-light surveys but requires a UV lamp for residue inspection.
-
-**Apparition.** Yellow capture medium, Class 3 / Class 4. Charged weight ~12 lb, lower-back slot. Manual override: Solar Flash (§8.2). The medium tolerates direct sunlight better than other Class-4 grades; the cell is the firm's preferred kit for daytime outdoor engagements.
+**Glimmer.** Green capture medium, Class 1 / Class 2. Charged weight ~4 lb, side caddy. Manual override: Pulse-Lock (§8.2). Common Class-1 grade in client-facing demonstrations; the medium settles to a faint sparkle on dark surfaces that photographs well for marketing.
 
 ---
 
-## Page 16 — §6.4 — Green Goo
+## Page 13 — §6.4 — Class 2
 
-**Glimmer.** Green capture medium, Class 1 / Class 2. Charged weight ~4 lb, side caddy. Manual override: Pulse-Lock (§8.2). Common Class-1 grade in client-facing demonstrations; the medium settles to a faint sparkle on dark surfaces that photographs well for marketing.
+**Sylph.** Violet capture medium, Class 2. Charged weight ~6 lb, hip cradle. Manual override: Soft-Vent (§8.2). The medium is humidity-sensitive in storage and should be kept below 35% RH; older cells occasionally weep a faint violet film around the gauge window in summer.
+
+**Cinder.** Red capture medium, Class 2. Charged weight ~5 lb, side caddy. Manual override: Cinder Quench (§8.2). The medium runs warm in storage and the cell is uncomfortable to carry for extended periods against bare skin.
+
+**Shade.** Blue capture medium, Class 2. Charged weight ~6 lb, hip cradle. Manual override: Reverse-Flow (§8.2). The medium is unusually thin for its grade and is sometimes used as a trap-evacuation reservoir rather than for direct discharge; off-label use is not recommended.
+
+**Spook.** Red capture medium, Class 2 / Class 3. Charged weight ~7 lb, hip cradle. Manual override: Snap-Charge (§8.2). Single-shot reservoir design; once discharged at-distance the cell cannot be re-fired in the field and must be refilled at the proton works.
+
+**Cantrip.** Yellow capture medium, Class 2 / Class 3. Charged weight ~8 lb, hip cradle. Manual override: Reverse-Flow (§8.2). The medium contains a marker variant of the Spectre-grade tracer (§7.3); useful in low-light surveys but requires a UV lamp for residue inspection.
 
 **Spectre.** Green capture medium, Class 2 / Class 3. Charged weight ~7 lb, hip cradle. Manual override: Dye Reset (§8.2). The medium contains a marker dye (§7.3), water-soluble, that wipes off with a damp cloth; widely used for training engagements where residue control matters.
 
-**Boggart.** Green capture medium, Class 3. Charged weight ~10 lb, hip cradle / lower-back. Manual override: Spore Vent (§8.2). Designed for mischief-class containment; the cell contains a secondary aerosol cartridge that vents during discharge to flush a manifestation from concealment.
-
 ---
 
-## Page 17 — §6.4 — Black Goo
+## Page 14 — §6.4 — Class 3
+
+**Wraith.** Violet capture medium, Class 3. Charged weight ~10 lb, hip cradle / lower-back. Manual override: Spore Vent (§8.2). Discharged at slightly elevated pressure relative to other Class-3 grades; the medium settles to a fine violet dust on horizontal surfaces.
+
+**Poltergeist.** Red capture medium, Class 3. Charged weight ~9 lb, hip cradle. Manual override: Kinetic Damp (§8.2). The internal capacitor includes a kinetic load buffer rated for object-throw events of up to 40 lb at 8 ft/s; deployment guidelines warn against entering a kinetic field without the buffer primed.
+
+**Mariner.** Blue capture medium, Class 3. Charged weight ~10 lb, hip cradle / lower-back. Manual override: Tide-Damp (§8.2). The medium is formulated for high-humidity coastal work; the cell carries an additional internal desiccant chamber that requires inspection every six months.
+
+**Boggart.** Green capture medium, Class 3. Charged weight ~10 lb, hip cradle / lower-back. Manual override: Spore Vent (§8.2). Designed for mischief-class containment; the cell contains a secondary aerosol cartridge that vents during discharge to flush a manifestation from concealment.
 
 **Eidolon.** Black capture medium, Class 3. Charged weight ~11 lb, lower-back slot. Manual override: Twin-Tap Sync (§8.2). Designed for paired deployment with a Wight cell; firing an Eidolon without its paired Wight is permitted but produces only a fractional capture yield.
 
+---
+
+## Page 15 — §6.4 — Class 3 (cont.)
+
+**Revenant.** Red capture medium, Class 3 / Class 4. Charged weight ~11 lb, lower-back slot. Manual override: Resonance Tap (§8.2). Sensitive to harmonic interference from nearby high-voltage mains; the cell will read a false-positive PKE elevation when stored within ten feet of a transformer.
+
+**Apparition.** Yellow capture medium, Class 3 / Class 4. Charged weight ~12 lb, lower-back slot. Manual override: Solar Flash (§8.2). The medium tolerates direct sunlight better than other Class-4 grades; the cell is the firm's preferred kit for daytime outdoor engagements.
+
 **Wight.** Black capture medium, Class 3 / Class 4. Charged weight ~12 lb, lower-back slot. Manual override: Twin-Tap Sync (§8.2). The Eidolon's pair; an unpaired Wight discharge is also reduced-yield. Firm policy is to draw the two cells from the cart together or not at all.
 
-**Lemure.** Black capture medium, Class 4. Charged weight ~13 lb, lower-back slot. Manual override: Lockdown Pin (§8.2). Used in engagements where the containment must be guaranteed irreversible; once fired with the lockdown pin engaged, the cell cannot be discharged again and is retired from rotation.
+---
+
+## Page 16 — §6.4 — Class 4 and Above
+
+**Phantom.** Red capture medium, Class 4 / Class 5. Charged weight ~14 lb, lower-back slot. Manual override: Resonance Tap (§8.2). The medium is harmonic-coupled and shares the Revenant grade's transformer sensitivity at scale; firm policy requires a 30 ft clearance from any high-voltage line during storage.
+
+**Banshee.** Violet capture medium, Class 4 / Class 5. Charged weight ~15 lb, lower-back slot. Manual override: Resonance Tap (§8.2). The medium responds to a narrow harmonic window; engagement requires the resonance tap to be primed within thirty seconds of arrival.
+
+**Reaper.** Green capture medium, Class 4. Charged weight ~13 lb, lower-back slot. Manual override: Spore Vent (§8.2). The cell's aerosol cartridge is the heaviest in service and is the leading cause of cell-rotation rejects at quarterly inspection.
+
+**Siren.** Violet capture medium, Class 4 / Class 5. Charged weight ~15 lb, lower-back slot. Manual override: Manual Purge (§8.2). The medium is among the firm's highest-pressure formulations; the proton works requires a 36-hour cooldown between charge cycles for these cells specifically.
+
+**Tempest.** Blue capture medium, Class 4. Charged weight ~14 lb, lower-back slot. Manual override: Tide-Damp (§8.2). The firm's preferred grade for storm-watch engagements; the cell's pressure vessel includes a secondary damper bonded to the housing's lower ring.
+
+**Lemure.** Black capture medium, Class 4 / Class 5. Charged weight ~14 lb, lower-back slot. Manual override: Lockdown Pin (§8.2). Used in engagements where the containment must be guaranteed irreversible; once fired with the lockdown pin engaged, the cell cannot be discharged again and is retired from rotation.
 
 ---
 
@@ -283,13 +285,13 @@ Manual overrides (§8) elevate the discharge pressure to varying degrees. Across
 The color of a discharge residue is the color of the cell's capture medium. The firm fields cells in six color bands:
 
   • **Violet** — Pixie, Sylph, Siren, Wraith, Banshee.
-  • **Red** — Cinder, Spook, Revenant, Poltergeist.
-  • **Blue** — Wisp, Shade, Mariner.
+  • **Red** — Cinder, Spook, Phantom, Revenant, Poltergeist.
+  • **Blue** — Wisp, Shade, Tempest, Mariner.
   • **Yellow** — Mote, Cantrip, Apparition.
-  • **Green** — Glimmer, Spectre, Boggart.
+  • **Green** — Glimmer, Spectre, Reaper, Boggart.
   • **Black** — Eidolon, Wight, Lemure.
 
-Operators are reminded that **color narrows the grade to a band, not to a cell.** Five grades share the violet band; four share the red band. A violet splatter at a scene tells the operator only that one of five grades was discharged there. The grade is identified by cross-referencing color with: residue **volume** (heavier cells leave more), tracer **persistence** (§7.3), and any recovered cell's **override state** (§8.1) and **valve state** (§7.4).
+Operators are reminded that **color narrows the grade to a band, not to a cell.** Five grades share the violet band; five share the red band. A violet splatter at a scene tells the operator only that one of five grades was discharged there. The grade is identified by cross-referencing color with: residue **volume** (heavier cells leave more), tracer **persistence** (§7.3), and any recovered cell's **override state** (§8.1) and **valve state** (§7.4).
 
 Color identifies what was discharged. Pattern identifies how. Persistence identifies who.
 
@@ -297,7 +299,7 @@ Color identifies what was discharged. Pattern identifies how. Persistence identi
 
 ## Page 21 — §7.3 Pigment Tracers Across Grades
 
-**Wisp / Shade / Mariner tracer.** *(Blue band.)* Blue marker dye suspended in the medium. Settles as a thin film on cool surfaces and as a faint mist on skin and gloves. Removable from skin in seconds with cold water; removable from soft surfaces with a damp cloth. Fades from porous surfaces over 12–24 hours without intervention.
+**Wisp / Shade / Mariner / Tempest tracer.** *(Blue band.)* Blue marker dye suspended in the medium. Settles as a thin film on cool surfaces and as a faint mist on skin and gloves. Removable from skin in seconds with cold water; removable from soft surfaces with a damp cloth. Fades from porous surfaces over 12–24 hours without intervention.
 
 **Cinder / Spook tracer.** *(Red band, low-grade.)* Red pigment in a light oil base. Settles as a film on cool surfaces. Removable from skin with soap and water; may stain porous fabrics permanently if not addressed within an hour. Two passes recommended on carpet.
 
@@ -315,7 +317,7 @@ Color identifies what was discharged. Pattern identifies how. Persistence identi
 
 **Wraith tracer.** *(Violet band, Class 3.)* Violet dust, almost entirely particulate, no liquid carrier. Brushed off cleanly from clothing and hard surfaces with a soft cloth; rinses from skin with cold water in under a minute.
 
-**Spectre / Glimmer / Boggart tracer.** *(Green band.)* Green marker dye. Settles brightly under UV; nearly invisible in daylight. Removable from skin with soap and warm water; removable from soft surfaces with the firm's standard neutralizer. Used in training because of its forgiving cleanup profile.
+**Spectre / Glimmer / Boggart / Reaper tracer.** *(Green band.)* Green marker dye. Settles brightly under UV; nearly invisible in daylight. Removable from skin with soap and warm water; removable from soft surfaces with the firm's standard neutralizer. Used in training because of its forgiving cleanup profile.
 
 ---
 
@@ -323,7 +325,7 @@ Color identifies what was discharged. Pattern identifies how. Persistence identi
 
 **Banshee tracer.** *(Violet band, Class 4.)* Violet powder. Slightly abrasive. Removed from skin with soap and a stiff brush, or with the firm's standard neutralizer. May require a second pass on porous surfaces.
 
-**Revenant / Poltergeist tracer.** *(Red band, high-grade.)* Red alcohol-soluble pigment. Removable from skin and hard surfaces with isopropyl alcohol; soap and water alone are insufficient. Operators are issued a small alcohol wipe pack with these grades.
+**Revenant / Poltergeist / Phantom tracer.** *(Red band, high-grade.)* Red alcohol-soluble pigment. Removable from skin and hard surfaces with isopropyl alcohol; soap and water alone are insufficient. Operators are issued a small alcohol wipe pack with these grades.
 
 **Eidolon / Wight / Lemure tracer.** *(Black band.)* Black ash. Removable from skin with soap and water; removable from hard surfaces with a damp cloth. Settles heavily and is easy to spot at a glance, which is a deliberate design feature given the irreversible nature of the Lemure's lockdown override (§8.2).
 

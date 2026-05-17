@@ -5,16 +5,6 @@
 [ext_resource type="Script" uid="uid://bv6wdcfc8aqee" path="res://scripts/data/state_effect.gd" id="3_effect"]
 [ext_resource type="Script" uid="uid://ddrn77i41iqq5" path="res://scripts/data/interactable_state.gd" id="4_state"]
 
-[sub_resource type="Resource" id="GateCondition_cart_noticed"]
-script = ExtResource("2_condition")
-all_of = Array[StringName]([&"theo_cart_cell_missing_noticed"])
-
-[sub_resource type="Resource" id="InteractableState_cart_noticed"]
-script = ExtResource("4_state")
-condition = SubResource("GateCondition_cart_noticed")
-title = "Gear-Cart Clipboard"
-description = "The clipboard. The Ghostbusters' cell count still doesn't add up: the inventory says one more charged cell was loaded than the cart actually has."
-
 [sub_resource type="Resource" id="GateCondition_cart_default"]
 script = ExtResource("2_condition")
 
@@ -26,10 +16,10 @@ fact_id = &"theo_cart_cell_missing_noticed"
 script = ExtResource("4_state")
 condition = SubResource("GateCondition_cart_default")
 title = "Gear-Cart Clipboard"
-description = "A clipboard hangs from the gear cart with the night's inventory. Two columns: 'Loaded' and 'Used.' The cart holds several charged Ghostbusters cells, but the count is off: one loaded cell is listed as unused, and there isn't a matching cell on the cart."
+description = "The gear-cart clipboard lists tonight's containment cells. Loaded: six. Used: zero. The cart only has five."
 effects = [SubResource("StateEffect_notice_cart")]
 
 [resource]
 script = ExtResource("1_definition")
 object_id = &"ghostbusters_gear_cart_inventory"
-states = [SubResource("InteractableState_cart_noticed"), SubResource("InteractableState_cart_default")]
+states = [SubResource("InteractableState_cart_default")]
