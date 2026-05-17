@@ -239,6 +239,69 @@ body_color = Color(0.3, 0.3, 0.3, 1)
 draw_marker = false
 snap_to_map_grid = false
 
+[node name="Inspectable_room_1101_sign" parent="." unique_id=1372197984 instance=ExtResource("9_insp")]
+position = Vector2(612, 81)
+object_id = &"room_1101_sign"
+title = "Room 1101 (Staff Housing: Vivian)"
+description = "A staff-housing placard for Vivian Marlowe's apartment."
+draw_marker = false
+blocks_movement = false
+snap_to_map_grid = false
+
+[node name="Inspectable_room_1102_sign" parent="." unique_id=625032432 instance=ExtResource("9_insp")]
+position = Vector2(1316, 81)
+object_id = &"room_1102_sign"
+title = "Room 1102 (Royal Suite)"
+description = "The Royal Suite."
+draw_marker = false
+blocks_movement = false
+snap_to_map_grid = false
+
+[node name="Inspectable_room_1103_sign" parent="." unique_id=1477533429 instance=ExtResource("9_insp")]
+position = Vector2(2340, 81)
+object_id = &"room_1103_sign"
+title = "Room 1103"
+description = "A guest-room placard reads 1103."
+draw_marker = false
+blocks_movement = false
+snap_to_map_grid = false
+
+[node name="Inspectable_room_1201_sign" parent="." unique_id=1598232717 instance=ExtResource("9_insp")]
+position = Vector2(612, 305)
+object_id = &"room_1201_sign"
+title = "Room 1201"
+description = "A guest-room placard reads 1201."
+draw_marker = false
+blocks_movement = false
+snap_to_map_grid = false
+
+[node name="Inspectable_room_1202_sign" parent="." unique_id=111742659 instance=ExtResource("9_insp")]
+position = Vector2(1188, 305)
+object_id = &"room_1202_sign"
+title = "Room 1202"
+description = "A guest-room placard reads 1202."
+draw_marker = false
+blocks_movement = false
+snap_to_map_grid = false
+
+[node name="Inspectable_room_1203_sign" parent="." unique_id=108196549 instance=ExtResource("9_insp")]
+position = Vector2(1764, 305)
+object_id = &"room_1203_sign"
+title = "Room 1203"
+description = "A guest-room placard reads 1203."
+draw_marker = false
+blocks_movement = false
+snap_to_map_grid = false
+
+[node name="Inspectable_room_1204_sign" parent="." unique_id=754421516 instance=ExtResource("9_insp")]
+position = Vector2(2340, 305)
+object_id = &"room_1204_sign"
+title = "Room 1204"
+description = "A guest-room placard reads 1204."
+draw_marker = false
+blocks_movement = false
+snap_to_map_grid = false
+
 [node name="Player" parent="." unique_id=1010292065 instance=ExtResource("8_player")]
 position = Vector2(2184, -7)
 
