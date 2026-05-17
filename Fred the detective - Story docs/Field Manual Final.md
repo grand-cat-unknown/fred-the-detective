@@ -1,12 +1,10 @@
-# Ghostbusters Field Manual — v3.1 Draft
+# Ghostbusters Field Manual
 
-This is the prose the player will see in the in-game book. Each `---` is a page break (one entry in `book_pages`). Target ~34 pages. Parity targets noted at the top of each load-bearing section.
-
-**Design note (for the writer, not the player):** Cells are externally identical apart from the serial stamp on the base ring. The only field-identifiable distinction between cells is the visible color and behavior of the **capture medium ("goo")** inside, seen through the cell's small gauge window or in the residue of a discharge. The manual uses **six base colors only — violet, red, blue, yellow, green, black** — and the player narrows to a specific cell by cross-referencing color *with* weight, override, and tracer behavior. No shaded names ("lilac," "indigo," "ochre," etc.).
+Each `---` is a page break — one page in the in-game book.
 
 ---
 
-## Page 1 — Cover
+## Page 1
 
 **GHOSTBUSTERS, INC.**
 
@@ -25,17 +23,11 @@ Internal training reference.
 Do not lend to civilians, clients,
 or members of the press.
 
-The contents of this manual are
-the property of Ghostbusters, Inc.
-and may not be reproduced in whole
-or in part without written consent
-of the firm's senior partners.
+The contents of this manual are the property of Ghostbusters, Inc. and may not be reproduced in whole or in part without written consent of the firm's senior partners.
 
 ---
 
 ## Page 2 — Contents
-
-**Contents**
 
 §1  General Field Conduct
 §2  Communications & Hand Signals
@@ -172,15 +164,15 @@ Cells are not interchangeable across grades. Loading a low-pressure cell into a 
 
 The cell housing is **externally unmarked** apart from the serial stamp on the base ring (§6.5) and the charge-date sticker on the collar. There is no color band, no class designator, and no grade label printed anywhere on the exterior. This is a deliberate firm policy dating to the 1991 cart-theft incident.
 
-The only field-identifiable distinction between grades is the **capture medium itself — the goo inside the cell**, visible through the small gauge window on the upper neck. Capture medium colors fall into one of six base bands:
+The only field-identifiable distinction between grades is the **capture medium itself — the goo inside the cell**, visible through the small gauge window on the upper neck. Capture medium colors fall into one of six bands:
 
 **Violet · Red · Blue · Yellow · Green · Black.**
 
-Operators are reminded that **multiple grades share the same color**. Knowing the color narrows the grade to a short list; it does not identify the grade by itself. The grade is finally identified by cross-referencing **color with weight, with override behavior, and with tracer chemistry** (§§6.3, 7.3, 8.2). In low-light conditions, refer to the serial stamp.
+Operators are reminded that **multiple grades share the same color**. Knowing the color narrows the grade to a short list; it does not identify the grade by itself. The grade is finally identified by cross-referencing color with weight, with override behavior, and with tracer chemistry (§§6.3, 7.3, 8.2). In low-light conditions, refer to the serial stamp.
 
 ---
 
-## Page 11 — §6.3 Weight, Carry, & Harness
+## Page 11 — §6.3 Weight, Carry & Harness
 
 Charged cell weights range from approximately 3 lb (Class-1 training grade) to approximately 15 lb (top-of-band Class-4 / Class-5).
 
@@ -197,8 +189,6 @@ The side caddy is also used for the spare PKE meter. Do not store cells of any g
 ---
 
 ## Page 12 — §6.4 Cell Grade Roster — Violet Goo
-
-[4-line template, one paragraph per grade: medium color & class / weight & carry / override / distinctive note. Five entries.]
 
 **Pixie.** Violet capture medium, Class 1. Charged weight ~3 lb, side caddy. Manual override: Pulse-Lock (§8.2). The medium is the most thinly pigmented of the violet grades and the most dilute on inspection; a common training-grade cell.
 
@@ -264,7 +254,7 @@ The side caddy is also used for the spare PKE meter. Do not store cells of any g
 
 ---
 
-## Page 18 — §6.5 Charge, Storage, & Lockout
+## Page 18 — §6.5 Charge, Storage & Lockout
 
 Cells are charged at the proton works on a 36-hour cycle. A fully charged cell holds its charge for approximately 90 days under proper storage (humidity below 40%, temperature 50–70 °F). Cells left in vehicle trunks during summer have been known to vent overnight.
 
@@ -306,8 +296,6 @@ Color identifies what was discharged. Pattern identifies how. Persistence identi
 ---
 
 ## Page 21 — §7.3 Pigment Tracers Across Grades
-
-[Uniform-depth tracer paragraphs. Nine entries. Each: which grade(s), color, removability and persistence on skin.]
 
 **Wisp / Shade / Mariner tracer.** *(Blue band.)* Blue marker dye suspended in the medium. Settles as a thin film on cool surfaces and as a faint mist on skin and gloves. Removable from skin in seconds with cold water; removable from soft surfaces with a damp cloth. Fades from porous surfaces over 12–24 hours without intervention.
 
@@ -374,8 +362,6 @@ A flipped lever on a recovered cell is, without exception, evidence of a **delib
 ---
 
 ## Page 26 — §8.2 Override Roster — Benign
-
-[Five-line template per override: name & host grade(s) / mechanism / authorization / hazard / aftermath.]
 
 **Soft-Vent.** *Sylph, Mote.* Bleeds excess internal pressure through a secondary port when storage humidity exceeds spec. Authorized: any operator with cart access. Operator hazard: trace tracer aerosol within 18 inches of the port. Aftermath: cell returns to standard discharge readiness once humidity normalizes.
 
@@ -462,8 +448,6 @@ Specialists in the field rarely have the lab time to make this distinction publi
 ---
 
 ## Page 34 — §10.2 Class Attribute Cards
-
-[Five attribute cards, uniform 8-line format. The Class-5 card mismatches lines 7 and 8 against a "violet directional spray with a circular wound" scene.]
 
 **CLASS 1 — Trace.**
 1. Discharge color: barely visible, often colorless.
