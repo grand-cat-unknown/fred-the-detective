@@ -171,10 +171,10 @@ Accuse Otis Pemberton.
 | `has_evidence` *(existing)* | Fred has the spent Siren Cell with the genuine Crooked Idol stashed inside it. Treated as a single piece of physical evidence. | `InteractableState.action_effects` on the chute-output interactable, gated `all_of: [chute_room_door_open]`. | Inventory HUD shows the evidence; combined with `has_field_book` it unlocks the palm-check beat; the Ghostbusters' reaction prompt blocks fire when Fred raises it. |
 | `theo_granted_field_book_permission` *(existing)* | Theo has given Fred permission to take the field book. | *(existing)* `ConversationEffect` on Theo. | The field-book pickup becomes available. |
 | `has_field_book` *(existing)* | Fred has the field book, which contains the manual-purge passage and its violet-palm signature. | *(existing)* `InteractableState.action_effects` on the field-book pickup. | Inventory HUD shows the field book; combined with `has_evidence`, unlocks the "show me your palms" beat. |
-| `mara_palms_shown` | Mara was asked to show her palms and complied. UI presents a photo of clean, unstained hands. | `ConversationEffect` on Mara, gated `all_of: [has_field_book, has_evidence]`, `none_of: [mara_palms_shown]`. | Supporting context: the judge can cite that Mara has been ruled out. |
+| `mara_palms_shown` | Mara was asked to show her palms and complied. UI presents a photo of clean, unstained hands. | `ConversationEffect` on Mara, gated `all_of: [has_evidence]`, `none_of: [mara_palms_shown]`. | Supporting context: the judge can cite that Mara has been ruled out. |
 | `theo_palms_shown` | Theo was asked to show his palms and complied. UI presents a photo of clean, unstained hands. | `ConversationEffect` on Theo, same gate shape. | Supporting context: the judge can cite that Theo has been ruled out. |
 | `iris_palms_shown` | Iris was asked to show her palms and complied. UI presents a photo of clean, unstained hands. | `ConversationEffect` on Iris, same gate shape. | Supporting context: the judge can cite that Iris has been ruled out. |
-| `pemberton_palms_shown` | Otis Pemberton was asked to show his palms and complied. UI presents a photo of palms stained sub-dermal violet. | `ConversationEffect` on Otis, gated `all_of: [has_field_book, has_evidence]`, `none_of: [pemberton_palms_shown]`. | **The smoking gun.** One of the two minimum facts the judge requires for a correct verdict (the other being `has_evidence`). |
+| `pemberton_palms_shown` | Otis Pemberton was asked to show his palms and complied. UI presents a photo of palms stained sub-dermal violet. | `ConversationEffect` on Otis, gated `all_of: [has_evidence]`, `none_of: [pemberton_palms_shown]`. | **The smoking gun.** One of the three minimum facts the judge requires for a correct verdict (alongside `has_evidence` and `has_field_book`). |
 
 ### Interactables
 
@@ -228,7 +228,7 @@ New entries also needed in `CaseLoader.INTERACTABLE_IDS` (gear cart, listening d
 
 `allowed_effects` to add:
 
-- `ConversationEffect_theo_palms_shown` — `all_of: [has_field_book, has_evidence]`, `none_of: [theo_palms_shown]`, `fact_id = theo_palms_shown`. Description:
+- `ConversationEffect_theo_palms_shown` — `all_of: [has_evidence]`, `none_of: [theo_palms_shown]`, `fact_id = theo_palms_shown`. Description:
 
   > Set this only if Fred asks Theo to show his palms AND Theo agrees to show them (the UI then presents the photo of clean hands).
 
@@ -260,7 +260,7 @@ New entries also needed in `CaseLoader.INTERACTABLE_IDS` (gear cart, listening d
 
   > Set this only if Iris clearly hands the transcribed log to Fred AND reads aloud (or summarises) the entries: a thud at 9:11 followed by footsteps moving west toward the chute.
 
-- `ConversationEffect_iris_palms_shown` — `all_of: [has_field_book, has_evidence]`, `none_of: [iris_palms_shown]`, `fact_id = iris_palms_shown`. Description:
+- `ConversationEffect_iris_palms_shown` — `all_of: [has_evidence]`, `none_of: [iris_palms_shown]`, `fact_id = iris_palms_shown`. Description:
 
   > Set this only if Fred asks Iris to show her palms AND Iris agrees to show them (the UI then presents the photo of clean hands).
 
@@ -274,7 +274,7 @@ New entries also needed in `CaseLoader.INTERACTABLE_IDS` (gear cart, listening d
 
 `allowed_effects` to add:
 
-- `ConversationEffect_mara_palms_shown` — `all_of: [has_field_book, has_evidence]`, `none_of: [mara_palms_shown]`, `fact_id = mara_palms_shown`. Description:
+- `ConversationEffect_mara_palms_shown` — `all_of: [has_evidence]`, `none_of: [mara_palms_shown]`, `fact_id = mara_palms_shown`. Description:
 
   > Set this only if Fred asks Mara to show her palms AND Mara agrees to show them (the UI then presents the photo of clean hands).
 
@@ -300,20 +300,20 @@ New entries also needed in `CaseLoader.INTERACTABLE_IDS` (gear cart, listening d
 
   > REACTION BEAT — Fred has recovered the Crooked Idol from inside a spent Siren Cell with a manually popped valve. The other three Ghostbusters will openly admit one of your team did this — you cannot publicly disagree without lighting yourself up. Play it cool: agree externally that it must have been someone with equipment-side access, look just as shocked as Mara, throw the blame radius wide ("could have been any of us, including someone outside the team if they had help"), float Theo's clumsiness as a possible angle without committing to it. Never volunteer the manual-purge method by name. Never volunteer that you handled the cart during prep. If Fred asks to see your hands here, jump to your palm-request reaction beat.
 
-- `PromptBlock_palm_request` — `all_of: [has_field_book, has_evidence]`, `none_of: [pemberton_palms_shown]`. Text:
+- `PromptBlock_palm_request` — `all_of: [has_evidence]`, `none_of: [pemberton_palms_shown]`. Text:
 
-  > REACTION BEAT — Fred has both the field book (which describes manual purge and the violet sub-dermal stain it leaves on the palms) and the recovered cell from the chute (back-pressure valve popped — unambiguous manual-purge signature). If he asks to see your hands, you cannot refuse without lighting yourself up — but your palms are stained violet. You may stall, joke, try to redirect, claim it's wine spill or chemical splash from work — but ultimately, if Fred insists, you show your hands and the staining is visible. Do not pretend the stain isn't there. Do not invent a colour.
+  > REACTION BEAT — Fred has the recovered cell from the chute (back-pressure valve manually popped — unambiguous manual-purge signature). If he asks to see your hands, you cannot refuse without lighting yourself up — but your palms are stained violet. You may stall, joke, try to redirect, claim it's wine spill or chemical splash from work — but ultimately, if Fred insists, you show your hands and the staining is visible. Do not pretend the stain isn't there. Do not invent a colour.
 
 `allowed_effects` to add:
 
-- `ConversationEffect_pemberton_palms_shown` — `all_of: [has_field_book, has_evidence]`, `none_of: [pemberton_palms_shown]`, `fact_id = pemberton_palms_shown`. Description:
+- `ConversationEffect_pemberton_palms_shown` — `all_of: [has_evidence]`, `none_of: [pemberton_palms_shown]`, `fact_id = pemberton_palms_shown`. Description:
 
   > Set this only if Fred asks Otis to show his palms AND Otis agrees to show them (the UI then presents the photo of violet-stained hands).
 
 ### Accusation implications
 
 - **The accuse panel is open to every suspect at all times.** Fred can attempt an accusation against anyone, including the obviously innocent. The LLM judge is the gate.
-- **Minimum required facts for a *correct* verdict (Otis Pemberton):** `all_of: [has_evidence, pemberton_palms_shown]`. Without both of these, no Pemberton verdict will be accepted — the judge rejects with a "you have suspicion but no proof of method" message.
+- **Minimum required facts for a *correct* verdict (Otis Pemberton):** `all_of: [has_evidence, has_field_book, pemberton_palms_shown]`. Without all three, no Pemberton verdict will be accepted — the judge rejects with a "you have suspicion but no proof of method" message. (`has_field_book` is required because that is how Fred actually knows what the violet palms *mean*; without it, the photo is just a stain.)
 - **The judge does the sense-check.** Given the full fact snapshot, the judge evaluates whether the accusation against *this specific suspect* is justified. It can cite supporting facts (`iris_returned_transcribed_log` for placement at the chute, `has_stained_gloves` for the corridor route, `mags_confessed_bribe_master_key` ruling out Julian, etc.) and ruling-out facts (`mara_palms_shown` / `theo_palms_shown` / `iris_palms_shown` showing those photos were clean) when accepting or rejecting.
 - An accusation against Mara, Theo, Iris, Julian, Mags, or anyone else will be rejected by the judge whenever the case state contradicts it (palm photos clean, alibi confirmed elsewhere, confession placing them outside the kill window, etc.). A wrong accusation made too early is a soft failure — the judge says why and the case continues; no permanent strike unless we add that rule later.
 
