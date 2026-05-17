@@ -22,9 +22,9 @@ Here is the expanded character roster.
 
 ## 1. Dr. Otis Pemberton - Ghostbuster 1 (The Killer)
 
-**The Intellectual.** Uses his assigned east-side sweep and his childhood knowledge of The Grandview's hidden passages to mask a surgical execution. Thinks he's the only one who truly understands the "science" of the beyond.
+**The Intellectual.** Uses his assigned east-side sweep and his childhood knowledge of The Sedgewick's hidden passages to mask a surgical execution. Thinks he's the only one who truly understands the "science" of the beyond.
 
-- **Credentials:** A "double doctor" — MD plus a doctorate in occult studies, with a research focus on cult relics and spectrally-active artifacts. That's how he ended up the team's medical *and* occult-scholarly specialist; the rest of the team are field hunters by training. He also grew up around The Grandview when it was still Vivian Marlowe's family castle-hotel, so he knows the old servant routes and panic passages better than any outsider should.
+- **Credentials:** A "double doctor" — MD plus a doctorate in occult studies, with a research focus on cult relics and spectrally-active artifacts. That's how he ended up the team's medical *and* occult-scholarly specialist; the rest of the team are field hunters by training. He also grew up around The Sedgewick when it was still Vivian Marlowe's family castle-hotel, so he knows the old servant routes and panic passages better than any outsider should.
 - **Personality:** Cold, precise, and condescending. He treats the other team members like blue-collar technicians and you like a nuisance. Views the murder not as a crime, but as a necessary "acquisition" of the Anchor Idol for serious research it would never get inside Vance's private vault.
 - **Manner of Speech:** Clinical and formal. Uses medical Latin and complex jargon to confuse non-experts. Refers to the victim as "the biological variable." Never says "dead"; says "biological cessation."
 - **Actual Timeline:**
@@ -123,7 +123,7 @@ Here is the expanded character roster.
 
 ## 6. Leo Rossi (The Veteran Bellhop)
 
-**The Institutional Memory.** Leo has worked at The Grandview for forty years. He doesn’t care about ghosts or idols; he cares about service. He is the player's best source for "The Before"—what happened before the chaos started.
+**The Institutional Memory.** Leo has worked at The Sedgewick for forty years. He doesn’t care about ghosts or idols; he cares about service. He is the player's best source for "The Before"—what happened before the chaos started.
 
 - **Personality:** Warm, professional, and observant. He treats the investigation with the same calm he uses to handle over-packed luggage.
 - **Manner of Speech:** Polite and "Old World." He addresses everyone as "Sir" or "Ma'am." He has a "mental rolodex" of guest habits.
@@ -137,7 +137,7 @@ Here is the expanded character roster.
     - **The Daily Ritual:** Leo confirms Vance's well-known meditation habit — 9:00 to 9:45 PM every evening, alone, no interruptions. "Set your watch by him, sir. The whole staff knows." This makes Vance's 9 PM location and vulnerability public knowledge, not insider information.
     - **The Observation:** When the team came up the stairs at ~8:55, he noticed Dr. Pemberton was checking his watch repeatedly — "more like a man catching a train than a man hunting a spirit."
     - **The Vivian Alibi:** He can vouch that Vivian was at the front desk on the bottom floor from 9:00 onward — and Vivian vouches for him. Two clean alibis, mutually reinforcing.
-    - **The Hotel Hint:** If asked about The Grandview's layout or old construction, Leo can say the place began as a family castle with wartime/panic passages. Staff know rumors; **only the Marlowe family would know which routes are still usable — point the detective at Vivian** if he wants to actually walk one.
+    - **The Hotel Hint:** If asked about The Sedgewick's layout or old construction, Leo can say the place began as a family castle with wartime/panic passages. Staff know rumors; **only the Marlowe family would know which routes are still usable — point the detective at Vivian** if he wants to actually walk one.
 
 ---
 
@@ -163,7 +163,7 @@ This is the most critical location for the player to investigate to break Pember
 
 - **What It Is:** A vacant guest room on the north row, east end. Currently between guests — no occupant on the books. Mags has worked out it's empty and uses it as her smoke hideout (door shut, window cracked).
 - **Where Mags Was:** Sitting inside with the door shut, smoking a "Lady Finger" (a very slim, distinct cigarette). The room is dim, the air is hazy with smoke. She leaves in a rush at ~9:15 and forgets a still-lit cigarette in the ashtray (or on the rim).
-- **The Posted Notice (in the service corridor outside, above the chute access):** *"HOUSEKEEPING — LINEN CHUTE EMPTIED AT 10:00 AM DAILY. PLEASE DEPOSIT ALL LAUNDRY THE NIGHT BEFORE. — Grandview Management."* This is Pemberton's bet: anything dropped in the chute tonight sits in the basement bin until morning, by which point he expects the "spectral seizure" diagnosis to have closed the case. (Fred only reaches this corridor after Vivian unlocks the service routes for him.)
+- **The Posted Notice (in the service corridor outside, above the chute access):** *"HOUSEKEEPING — LINEN CHUTE EMPTIED AT 10:00 AM DAILY. PLEASE DEPOSIT ALL LAUNDRY THE NIGHT BEFORE. — Sedgewick Management."* This is Pemberton's bet: anything dropped in the chute tonight sits in the basement bin until morning, by which point he expects the "spectral seizure" diagnosis to have closed the case. (Fred only reaches this corridor after Vivian unlocks the service routes for him.)
 - **The Discovery:** The player enters 1103, finds smoke haze and a still-warm/lit Lady Finger cigarette — proof someone was inside the entire window. Pemberton's sweep route says he "opened the door, found it empty, moved on." He never opened the door.
 - **The Trap for Pemberton:**
 
@@ -179,7 +179,7 @@ This is the most critical location for the player to investigate to break Pember
 
 ## 8. Vivian Marlowe (The Owner / The Route Gatekeeper)
 
-*Live-in owner of The Grandview — an inherited castle-hotel. Her apartment is **Room 1101** (north row, west end), one wall over from the Royal Suite. She runs the place from the front desk on the bottom floor.*
+*Live-in owner of The Sedgewick — an inherited castle-hotel. Her apartment is **Room 1101** (north row, west end), one wall over from the Royal Suite. She runs the place from the front desk on the bottom floor.*
 
 - **Personality:** Warm, professional, a little weary. The hotel is her family inheritance and her livelihood; she treats it like both. Knows the building's bones better than anyone alive who isn't Pemberton — but for her it's family memory, not a tactical map.
 - **Manner of Speech:** Direct, calm, hospitality-trained. Drops into family-history nostalgia when asked about the building.
