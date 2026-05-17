@@ -1,6 +1,18 @@
 extends Node2D
 
 const AccusationJudgeScript := preload("res://scripts/services/accusation_judge.gd")
+const CLEAN_HANDS_IMAGE := preload("res://assets/art/environments/clean_hands.png")
+const STAINED_HANDS_IMAGE := preload("res://assets/art/environments/stained_hands.png")
+const CLEAN_PALMS_FACTS := {
+	&"mara_palms_shown": "Mara's hands",
+	&"theo_palms_shown": "Theo's hands",
+	&"iris_palms_shown": "Iris's hands",
+	&"vivian_palms_shown": "Vivian's hands",
+	&"mags_palms_shown": "Mags's hands",
+	&"julian_palms_shown": "Julian's hands",
+	&"leo_palms_shown": "Leo's hands",
+}
+const STAINED_PALMS_FACT := &"pemberton_palms_shown"
 
 @onready var _world: WorldView = %WorldView
 @onready var _inspect_panel: InspectPanel = %InspectPanel
@@ -90,7 +102,17 @@ func _ready() -> void:
 	_accuse_panel.accusation_submitted.connect(_on_accusation_submitted)
 
 
+func _input(event: InputEvent) -> void:
+	if _evidence_panel.is_open() and _evidence_panel.handle_input_event(event):
+		get_viewport().set_input_as_handled()
+
+
 func _unhandled_input(event: InputEvent) -> void:
+	if _evidence_panel.is_open():
+		if _evidence_panel.handle_input_event(event):
+			get_viewport().set_input_as_handled()
+		return
+
 	if _dialogue_panel.is_open():
 		if _dialogue_panel.handle_input_event(event):
 			get_viewport().set_input_as_handled()
@@ -110,11 +132,6 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	if _book_panel.is_open():
 		if _book_panel.handle_input_event(event):
-			get_viewport().set_input_as_handled()
-		return
-
-	if _evidence_panel.is_open():
-		if _evidence_panel.handle_input_event(event):
 			get_viewport().set_input_as_handled()
 		return
 
@@ -231,6 +248,8 @@ func _on_dialogue_closed() -> void:
 
 func _on_case_fact_changed(fact_id: StringName, value: bool) -> void:
 	print("[case] %s = %s" % [fact_id, value])
+	if value:
+		_show_hand_photo_for_fact(fact_id)
 
 
 func _on_inspect_action_confirmed(effects: Array) -> void:
@@ -252,6 +271,27 @@ func _flush_pending_passive_toast() -> void:
 
 func _on_conversation_effects_applied(changed_facts: Array) -> void:
 	print("[case] conversation effects applied: %s" % [changed_facts])
+
+
+func _show_hand_photo_for_fact(fact_id: StringName) -> void:
+	if fact_id == STAINED_PALMS_FACT:
+		_evidence_panel.open(
+			"Pemberton's hands",
+			STAINED_HANDS_IMAGE,
+			"Stained hands.",
+			true,
+			"Press Space to close"
+		)
+		return
+	if not CLEAN_PALMS_FACTS.has(fact_id):
+		return
+	_evidence_panel.open(
+		str(CLEAN_PALMS_FACTS[fact_id]),
+		CLEAN_HANDS_IMAGE,
+		"Clean hands.",
+		true,
+		"Press Space to close"
+	)
 
 
 func _on_conversation_judge_failed(message: String) -> void:
