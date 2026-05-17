@@ -29,7 +29,7 @@ Gear prep, arrivals, and the silent theft of the Siren Cell.
 
 | Time | Actual Event | Public / Witness |
 | --- | --- | --- |
-| ~7:00 – 8:30 | Ghostbusters' gear load-in and prep. **Theo** is scrambling — chronically disorganized, terrified of being blamed for anything. **Pemberton "pitches in"** with prep and capture-tool maintenance — and palms a charged **Siren Cell** off Theo's cart during the chaos. No sign-out, no paperwork. | Theo: "Just helping where I can." Later he'll assume he miscounted or left it in the van. |
+| ~7:00 – 8:30 | Ghostbusters' gear load-in and prep. **Theo** is scrambling — chronically disorganized, terrified of being blamed for anything. **Pemberton "pitches in"** with prep and capture-tool maintenance — and palms two items off Theo's cart during the chaos: a charged **Siren Cell** (the murder weapon) and a **fresh, sealed pair of standard-issue Ghostbusters gloves** (the swap). Both stashed in his coat. No sign-out, no paperwork. | Theo: "Just helping where I can." Later he'll assume he miscounted or left things in the van. Gloves are consumables — nobody's going to notice one fewer pair. |
 | ~8:30 – 8:50 | Team finishes prep. **Mags** is on shift but already eyeing her smoke break. **Vivian** is at the front desk, dealing with normal hotel business. | — |
 | 8:50 | **Leo Rossi** delivers a bottle of sparkling water to Vance in Royal Suite 1221. Vance is alone, "extremely agitated" all day, but otherwise normal. | Leo's pre-incident testimony anchor. |
 | ~8:55 | Leo at the top of the **12th-floor stairs** (the only access to the floor — there is no elevator) as the Ghostbusters come up. Notes Pemberton "checking his watch repeatedly — more like a man catching a train than a man hunting a spirit." | Color, not proof. |
@@ -114,7 +114,7 @@ The minute-by-minute. Every character is tracked, even if their state is "unchan
 | Character | Actual | Public / Witness |
 | --- | --- | --- |
 | Mara, Iris, Theo | Still trying to force the door. Shouting for Otis. | "Pemberton, get over here!" |
-| Pemberton | Crossing the west-side service hall, controlling his breath, smearing some sweat for effect. | — |
+| Pemberton | Crossing the west-side service hall. **Strips off his violet-stained Ghostbusters gloves and drops them in a service-hall trash can** — stain is on the *inside* of the fingers (Purge Pigment driven through the fabric by the Manual Purge). **Pulls the fresh pair from his coat and snugs them on** before he turns the corner into the main hallway. Hands now look gloved and normal. Controls his breath, smears some sweat for effect. | The team sees a gloved, slightly disheveled colleague — no visible stain, no exposed skin. |
 | Others | Unchanged. | — |
 
 ### 9:13 — The Wrong-Direction Arrival
@@ -140,7 +140,8 @@ The cover, the witnesses scattering, and Vivian's decision to call Fred.
 
 | Time | Actual | Public / Witness |
 | --- | --- | --- |
-| 9:14 – 9:20 | Pemberton "secures" the scene. During the chaos, **ditches his stained Ghostbusters gloves in a service-hall trash can** (stain on the inside of the fingers — Purge Pigment). | — |
+| 9:14 – 9:20 | Pemberton "secures" the scene — controls who touches the body, who steps where, and how PKE readings are interpreted. He is still wearing the **fresh gloves** he swapped into at 9:12; the stained pair is already in a service-hall trash can. | The team sees clean gloves doing clean work. |
+| ~9:20 – 9:45 | Operation is "over." Pemberton peels off the fresh gloves like everyone else (continuing to wear them once the body is found would itself look strange). **The Purge Pigment stains on his palms and cuticles are now visible** — sub-dermal, can't be wiped off, lasts 48–72 hours. He pre-arms the vague "gear-prep contamination" alibi for when anyone asks. | This is the state his hands are in when Fred arrives. |
 | ~9:15 | Mags waits until the hallway clears, slips out of the Housekeeping Room, and tries to return to normal duties. Her smoke break never officially happened. | — |
 | ~9:15 – 9:20 | Julian stays inside **Suite 1225** with the fake idol and chloroform hidden. Will later claim he was "in the bar with a dry martini" — a lie chosen specifically to put himself off the 12th floor. | The fake idol is in the room when Fred eventually searches it. |
 | ~9:20 | Mara calls hotel management. | — |
