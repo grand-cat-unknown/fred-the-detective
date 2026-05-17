@@ -126,11 +126,40 @@ func _append_line_view(speaker: String, text: String) -> void:
 
 
 func _format_line(speaker: String, text: String) -> String:
+	if text == "":
+		return "..."
 	if speaker == "":
 		return text
-	if text == "":
-		return "%s: …" % speaker
-	return "%s: %s" % [speaker, text]
+	return _strip_outer_quotes(_strip_speaker_prefix(speaker, text))
+
+
+func _strip_speaker_prefix(speaker: String, text: String) -> String:
+	var trimmed := text.strip_edges()
+	var colon_index := trimmed.find(":")
+	if colon_index <= 0 or colon_index > 32:
+		return trimmed
+	var prefix := trimmed.substr(0, colon_index).strip_edges()
+	for alias in _speaker_aliases(speaker):
+		if prefix == alias:
+			return trimmed.substr(colon_index + 1).strip_edges()
+	return trimmed
+
+
+func _speaker_aliases(speaker: String) -> Array[String]:
+	var aliases: Array[String] = [speaker]
+	var normalized := speaker.replace("\"", " ").replace("Dr.", " ").replace(".", " ")
+	for token in normalized.split(" ", false):
+		var alias := token.strip_edges()
+		if alias != "" and not aliases.has(alias):
+			aliases.append(alias)
+	return aliases
+
+
+func _strip_outer_quotes(text: String) -> String:
+	var trimmed := text.strip_edges()
+	if trimmed.length() >= 2 and trimmed.begins_with("\"") and trimmed.ends_with("\""):
+		return trimmed.substr(1, trimmed.length() - 2).strip_edges()
+	return trimmed
 
 
 func _last_line_label() -> Label:

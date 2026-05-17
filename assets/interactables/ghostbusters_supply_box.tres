@@ -6,7 +6,7 @@
 [sub_resource type="Resource" id="InteractableState_default"]
 script = ExtResource("2_state")
 title = "Supply Box"
-description = "A closed supply box marked with a faded equipment code."
+description = "An open supply box marked with a faded equipment code."
 
 [resource]
 script = ExtResource("1_definition")
