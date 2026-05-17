@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://dbgrk5yooixm7" path="res://assets/art/environments/epic_rpg_village_interiors/assets/furniture_and_props.png" id="2_x5m63"]
 [ext_resource type="Texture2D" uid="uid://1nus7k1yd8t7" path="res://assets/art/environments/radioactive_items/Icon10_31.png" id="3_vu0q4"]
 [ext_resource type="Texture2D" uid="uid://bevobalpq17nd" path="res://assets/art/environments/epic_rpg_village_interiors/assets/windows_and_doors.png" id="3_yuyor"]
+[ext_resource type="Texture2D" uid="uid://dyoqjxak8cxa0" path="res://assets/art/environments/splatter/splatter_purple_04.png" id="4_2wqse"]
 [ext_resource type="Texture2D" uid="uid://b1okfx3sqc6lg" path="res://assets/art/environments/ghost_buster_cells.png" id="4_ov7ph"]
 [ext_resource type="Texture2D" uid="uid://gs6bvi0htpae" path="res://assets/art/characters/dead_body/dead_body_13_c_rotated_32.png" id="5_ov7ph"]
 [ext_resource type="Texture2D" uid="uid://sjgip86hwnp2" path="res://assets/art/environments/stairs.png" id="5_yuyor"]
@@ -3153,6 +3154,11 @@ texture = ExtResource("3_vu0q4")
 texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_y5n6x"]
+texture = ExtResource("4_2wqse")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0e08y"]
 texture = ExtResource("3_yuyor")
 margins = Vector2i(0, 9)
@@ -3949,6 +3955,7 @@ sources/7 = SubResource("TileSetAtlasSource_k5rj8")
 sources/8 = SubResource("TileSetAtlasSource_nx2yo")
 sources/9 = SubResource("TileSetAtlasSource_ny7up")
 sources/10 = SubResource("TileSetAtlasSource_17dx0")
+sources/11 = SubResource("TileSetAtlasSource_y5n6x")
 pattern_0 = SubResource("TileMapPattern_q48nj")
 pattern_1 = SubResource("TileMapPattern_x5m63")
 pattern_2 = SubResource("TileMapPattern_yuyor")

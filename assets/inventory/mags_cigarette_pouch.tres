@@ -3,7 +3,7 @@
 [ext_resource type="Script" path="res://scripts/data/inventory_item_definition.gd" id="1_definition"]
 [ext_resource type="Script" uid="uid://dy1gfjjj466vx" path="res://scripts/data/gate_condition.gd" id="2_condition"]
 [ext_resource type="Script" uid="uid://bj1sj4y8aeenm" path="res://scripts/data/inventory_item_state.gd" id="3_state"]
-[ext_resource type="Texture2D" uid="uid://b6eei0jonpq74" path="res://assets/art/environments/mags_cigarette_pouch.png" id="4_image"]
+[ext_resource type="Texture2D" uid="uid://bcdpmw2s4dl7t" path="res://assets/art/environments/mags_cigarette_pouch.png" id="4_image"]
 
 [sub_resource type="Resource" id="GateCondition_has_pouch"]
 script = ExtResource("2_condition")

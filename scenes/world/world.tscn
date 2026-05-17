@@ -168,6 +168,23 @@ body_color = Color(0.7, 0.3, 0.4, 1)
 draw_marker = false
 snap_to_map_grid = false
 
+[node name="Inspectable_dead_body" parent="." unique_id=100009 instance=ExtResource("9_insp")]
+position = Vector2(1511, -72)
+object_id = &"dead_body"
+title = "Dead Body"
+description = "The body of Felix Vance lies on the floor. There is a large hole in the middle of his body, surrounded by purple goo."
+draw_marker = false
+snap_to_map_grid = false
+
+[node name="Inspectable_splatter" parent="." unique_id=100010 instance=ExtResource("9_insp")]
+position = Vector2(1509, -147)
+object_id = &"splatter"
+title = "Splatter"
+description = "A concentrated mark of purple goo stains the wall."
+draw_marker = false
+blocks_movement = false
+snap_to_map_grid = false
+
 [node name="Inspectable_julian_wax_idol" parent="." unique_id=100003 instance=ExtResource("9_insp")]
 position = Vector2(2065, 504)
 object_id = &"julian_wax_idol"

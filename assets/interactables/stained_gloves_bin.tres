@@ -39,7 +39,6 @@ toast = "Stained gloves taken."
 update_tile = true
 source_id = 10
 update_blocks_movement = true
-blocks_movement = true
 
 [resource]
 script = ExtResource("1_definition")
