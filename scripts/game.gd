@@ -274,7 +274,7 @@ func _on_accusation_judge_completed(success: bool, message: String) -> void:
 
 
 func _on_accusation_judge_failed(message: String) -> void:
-	_accuse_panel.show_result(false, message)
+	_accuse_panel.show_result(false, message, false)
 
 
 func _get_pressed_tile_direction() -> Vector2i:

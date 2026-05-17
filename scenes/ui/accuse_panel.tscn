@@ -104,6 +104,14 @@ theme_override_font_sizes/font_size = 26
 text = "Make Your Accusation"
 horizontal_alignment = 1
 
+[node name="Subtitle" type="Label" parent="Root/Modal/Panel/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.78, 0.72, 0.58, 1)
+theme_override_font_sizes/font_size = 14
+text = "Be as descriptive as you can — every detail strengthens your case. You have 3 attempts."
+horizontal_alignment = 1
+autowrap_mode = 3
+
 [node name="Slots" type="VBoxContainer" parent="Root/Modal/Panel/Margin/VBox"]
 layout_mode = 2
 theme_override_constants/separation = 10
@@ -138,7 +146,7 @@ text = "How did they kill?"
 custom_minimum_size = Vector2(0, 72)
 layout_mode = 2
 size_flags_horizontal = 3
-placeholder_text = "Type the murder method"
+placeholder_text = "Describe in detail how the murder was committed — every step you can name"
 wrap_mode = 1
 scroll_fit_content_height = false
 
@@ -157,7 +165,7 @@ text = "What is the evidence?"
 custom_minimum_size = Vector2(0, 72)
 layout_mode = 2
 size_flags_horizontal = 3
-placeholder_text = "Type the evidence that proves it"
+placeholder_text = "Describe in detail every piece of evidence that proves it"
 wrap_mode = 1
 scroll_fit_content_height = false
 
@@ -243,5 +251,68 @@ layout_mode = 2
 theme_override_colors/font_color = Color(0.72, 0.68, 0.58, 1)
 theme_override_font_sizes/font_size = 16
 text = "Amazing work, detective. Case closed. Game over."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="LoseScreen" type="Control" parent="Root"]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+
+[node name="Backdrop" type="ColorRect" parent="Root/LoseScreen"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+color = Color(0.02, 0.025, 0.03, 0.9)
+
+[node name="Panel" type="PanelContainer" parent="Root/LoseScreen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -270.0
+offset_top = -125.0
+offset_right = 270.0
+offset_bottom = 125.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_styles/panel = SubResource("StyleBoxFlat_panel")
+
+[node name="Margin" type="MarginContainer" parent="Root/LoseScreen/Panel"]
+layout_mode = 2
+theme_override_constants/margin_left = 28
+theme_override_constants/margin_top = 24
+theme_override_constants/margin_right = 28
+theme_override_constants/margin_bottom = 24
+
+[node name="VBox" type="VBoxContainer" parent="Root/LoseScreen/Panel/Margin"]
+layout_mode = 2
+theme_override_constants/separation = 14
+
+[node name="Title" type="Label" parent="Root/LoseScreen/Panel/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.95, 0.65, 0.55, 1)
+theme_override_font_sizes/font_size = 34
+text = "Case Unsolved"
+horizontal_alignment = 1
+
+[node name="Message" type="Label" parent="Root/LoseScreen/Panel/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.92, 0.88, 0.78, 1)
+theme_override_font_sizes/font_size = 20
+text = "You ran out of accusations."
+horizontal_alignment = 1
+autowrap_mode = 3
+
+[node name="Submessage" type="Label" parent="Root/LoseScreen/Panel/Margin/VBox"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.72, 0.68, 0.58, 1)
+theme_override_font_sizes/font_size = 16
+text = "The trail goes cold. The case is closed without resolution. Game over."
 horizontal_alignment = 1
 autowrap_mode = 3

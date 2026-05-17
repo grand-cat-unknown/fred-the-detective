@@ -78,7 +78,7 @@ metadata/_edit_lock_ = true
 
 [node name="NPC_mara" parent="." unique_id=1794848584 instance=ExtResource("7_npc")]
 z_index = 10
-position = Vector2(1142, 271)
+position = Vector2(1071, 268)
 entity_id = &"mara"
 preview_name = "Mara Bell"
 preview_texture = ExtResource("5_umvgx")
@@ -86,7 +86,7 @@ snap_to_map_grid = false
 
 [node name="NPC_theo" parent="." unique_id=1440069773 instance=ExtResource("7_npc")]
 z_index = 10
-position = Vector2(812, 383)
+position = Vector2(1127, 488)
 entity_id = &"theo"
 preview_name = "Theo Griggs"
 preview_texture = ExtResource("6_mxkvs")
@@ -103,7 +103,7 @@ snap_to_map_grid = false
 
 [node name="NPC_otis" parent="." unique_id=2073294398 instance=ExtResource("7_npc")]
 z_index = 10
-position = Vector2(1456, 176)
+position = Vector2(583, 252)
 entity_id = &"otis"
 preview_name = "Dr. Otis Pemberton"
 preview_texture = ExtResource("7_m114p")
@@ -111,7 +111,7 @@ snap_to_map_grid = false
 
 [node name="NPC_iris" parent="." unique_id=602351030 instance=ExtResource("7_npc")]
 z_index = 10
-position = Vector2(1232, 208)
+position = Vector2(434, 419)
 entity_id = &"iris"
 preview_name = "Dr. Iris Thorne"
 preview_texture = ExtResource("8_71ii3")
@@ -119,7 +119,7 @@ snap_to_map_grid = false
 
 [node name="NPC_rival" parent="." unique_id=639808501 instance=ExtResource("7_npc")]
 z_index = 10
-position = Vector2(880, 208)
+position = Vector2(2314, 264)
 entity_id = &"rival"
 preview_name = "Julian Vane"
 preview_texture = ExtResource("9_bt7bg")
@@ -127,7 +127,7 @@ snap_to_map_grid = false
 
 [node name="NPC_bellhop" parent="." unique_id=1106624191 instance=ExtResource("7_npc")]
 z_index = 10
-position = Vector2(976, 240)
+position = Vector2(46, 324)
 entity_id = &"bellhop"
 preview_name = "Leo Rossi"
 preview_texture = ExtResource("10_wbwoo")
@@ -135,7 +135,7 @@ snap_to_map_grid = false
 
 [node name="NPC_maid" parent="." unique_id=1314534877 instance=ExtResource("7_npc")]
 z_index = 10
-position = Vector2(1584, 240)
+position = Vector2(1865, 64)
 entity_id = &"maid"
 preview_name = "Dottie \"Mags\" Higgins"
 preview_texture = ExtResource("11_tytul")
@@ -322,6 +322,15 @@ position = Vector2(129, 1239)
 object_id = &"employee_rules_notice"
 title = "Employee Rules"
 description = "A neatly framed notice lists the hotel employee rules."
+draw_marker = false
+blocks_movement = false
+snap_to_map_grid = false
+
+[node name="Inspectable_current_guest_records" parent="." unique_id=317432339 instance=ExtResource("9_insp")]
+position = Vector2(-208, 1357)
+object_id = &"current_guest_records"
+title = "Current Guest Records"
+description = "A framed front-desk record sheet lists the current room assignments."
 draw_marker = false
 blocks_movement = false
 snap_to_map_grid = false

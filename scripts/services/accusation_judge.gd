@@ -13,6 +13,7 @@ const REASON_MISSING_EVIDENCE := "missing_evidence"
 const REASON_WRONG_PERSON := "wrong_person"
 const REASON_WRONG_METHOD := "wrong_method"
 const REASON_WRONG_EVIDENCE := "wrong_evidence"
+const REASON_PARTIAL := "partial"
 const REASON_MULTIPLE_WRONG := "multiple_wrong"
 
 var _llm: LLMClient
@@ -63,7 +64,7 @@ func judge(killer_id: StringName, killer_label: String, method_text: String, evi
 		"case_truth": {
 			"killer_id": str(CORRECT_KILLER),
 			"killer_name": "Dr. Otis Pemberton",
-			"method": "Otis killed Felix Vance by using a Siren-grade containment cell as a point-blank weapon, like a gun.",
+			"method": "Otis used the hidden service passage to enter Suite 1102 and killed Felix Vance with a Siren-grade containment cell as a point-blank weapon, like a gun.",
 			"required_evidence": "Fred must have found the recovered Siren containment cell, have Theo's field book/manual explaining the manual-purge signature, and have made Otis show his violet-stained palms.",
 			"required_evidence_facts": [
 				str(REQUIRED_EVIDENCE_FACT),
@@ -84,7 +85,7 @@ func judge(killer_id: StringName, killer_label: String, method_text: String, evi
 		"Do not mention correct case details unless they were already present in the player's accusation text.",
 		"The accusation is correct only if all of these are true:",
 		"1. The selected killer is Dr. Otis Pemberton.",
-		"2. The method text means Otis used the Siren containment cell as the murder weapon, effectively as a gun or point-blank discharge device.",
+		"2. The method text covers BOTH (a) Otis entered Suite 1102 via a hidden service passage / secret corridor / hidden route, AND (b) killed Vance with the Siren containment cell used as the murder weapon, effectively as a gun or point-blank discharge device. Both ideas must be present for the method to be accepted.",
 		"3. The evidence text identifies the recovered/missing Siren containment cell or equivalent direct physical proof.",
 		"4. The evidence text also connects the manual-purge mechanism to Otis's violet-stained palms, using the field book/manual logic.",
 		"5. has_required_evidence, has_required_field_book, and has_required_palms are all true. If any are false, the player is accusing without the facts needed for the final proof.",
@@ -92,6 +93,7 @@ func judge(killer_id: StringName, killer_label: String, method_text: String, evi
 		"Set is_correct to true only for a complete, supported accusation.",
 		"Set reason_code to exactly one enum value. Prefer missing_evidence when any required fact is false and the player tries to use the final proof.",
 		"Use multiple_wrong when more than one category is wrong or unclear.",
+		"Use partial when the player has picked Otis, has_required_evidence + has_required_field_book + has_required_palms are all true, and at least one of the four content ideas (hidden-passage entry, Siren-cell-as-weapon, recovered cell as physical proof, manual-purge / field-book reasoning tying to palm stains) is clearly present in the method or evidence text, but the accusation is still incomplete because one or more of those four ideas is missing or vague. Use partial in preference to wrong_method or wrong_evidence when the player is on the right track and the killer pick is Otis.",
 	])
 	var messages := [
 		{
@@ -127,6 +129,7 @@ func _build_text_format() -> Dictionary:
 						REASON_WRONG_PERSON,
 						REASON_WRONG_METHOD,
 						REASON_WRONG_EVIDENCE,
+						REASON_PARTIAL,
 						REASON_MULTIPLE_WRONG,
 					],
 				},
@@ -174,5 +177,7 @@ func _message_for_reason(is_correct: bool, reason_code: String) -> String:
 			return "No. The method does not add up."
 		REASON_WRONG_EVIDENCE:
 			return "No. The evidence does not add up."
+		REASON_PARTIAL:
+			return "Not quite. You're pointing in the right direction, but pieces of the story are still missing — keep gathering."
 		_:
 			return "No. The accusation does not add up."
