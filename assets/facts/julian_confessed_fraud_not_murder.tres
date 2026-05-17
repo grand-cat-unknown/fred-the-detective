@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="FactDefinition" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/fact_definition.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"julian_confessed_fraud_not_murder"
+label = "Julian admitted the idol-swap scheme"
+description = "Julian Vane has admitted he intended to swap a wax forgery for the real Anchor Idol, abandoned the plan when he saw the Ghostbusters at 1102, and denies the murder."

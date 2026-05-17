@@ -1,0 +1,61 @@
+[gd_resource type="Resource" script_class="InventoryItemDefinition" format=3 uid="uid://1lwrclsl636t"]
+
+[ext_resource type="Script" path="res://scripts/data/inventory_item_definition.gd" id="1_definition"]
+[ext_resource type="Script" uid="uid://dy1gfjjj466vx" path="res://scripts/data/gate_condition.gd" id="2_condition"]
+[ext_resource type="Script" uid="uid://bj1sj4y8aeenm" path="res://scripts/data/inventory_item_state.gd" id="3_state"]
+
+[sub_resource type="Resource" id="GateCondition_has_log"]
+script = ExtResource("2_condition")
+all_of = Array[StringName]([&"iris_returned_transcribed_log"])
+
+[sub_resource type="Resource" id="InventoryItemState_log"]
+script = ExtResource("3_state")
+condition = SubResource("GateCondition_has_log")
+label = "Transcribed Log"
+description = "Iris's transcription of the device recording. A heavy 9:11 thud nearby, followed by footsteps."
+action_input = &"open_transcribed_log"
+action_key_hint = "E"
+action_kind = &"book"
+book_title = "Transcribed Log"
+book_pages = Array[String](["[b]Transcribed Log[/b]
+
+[i]Iris's transcription of the device recording.[/i]
+
+9:00 PM
+West side south scan. Clear.
+
+9:03 PM
+West side middle scan. Clear.
+
+9:06 PM
+West side north scan. Clear.
+
+9:07-9:09 PM
+Loud disturbance detected from the direction of 1102. Repeated heavy impacts, scraping, and movement.
+
+9:10 PM
+Radio call from Mara: assistance needed at 1102.
+
+9:10 PM
+Rapid footsteps moving away from the west post toward 1102.
+
+9:11 PM
+Footsteps detected nearby, growing louder.
+
+9:11:30 PM
+Heavy thud nearby.
+
+9:12 PM
+Footsteps moving away from the west post.
+
+9:13 PM
+Distant voices near 1102.
+
+9:14 PM
+Door to 1102 forced open.
+"])
+
+[resource]
+script = ExtResource("1_definition")
+item_id = &"transcribed_log"
+states = [SubResource("InventoryItemState_log")]

@@ -1,0 +1,45 @@
+[gd_resource type="Resource" script_class="InteractableDefinition" format=3 uid="uid://7ugekpujbmyy"]
+
+[ext_resource type="Script" uid="uid://crrwy2qm3y7s4" path="res://scripts/data/interactable_definition.gd" id="1_definition"]
+[ext_resource type="Script" uid="uid://dy1gfjjj466vx" path="res://scripts/data/gate_condition.gd" id="2_condition"]
+[ext_resource type="Script" uid="uid://bv6wdcfc8aqee" path="res://scripts/data/state_effect.gd" id="3_effect"]
+[ext_resource type="Script" uid="uid://ddrn77i41iqq5" path="res://scripts/data/interactable_state.gd" id="4_state"]
+
+[sub_resource type="Resource" id="GateCondition_device_taken"]
+script = ExtResource("2_condition")
+all_of = Array[StringName]([&"has_listening_device"])
+
+[sub_resource type="Resource" id="InteractableState_device_taken"]
+script = ExtResource("4_state")
+condition = SubResource("GateCondition_device_taken")
+title = "Empty Stool"
+description = "Fred already has the device."
+update_tile = true
+erase_tile = true
+update_blocks_movement = true
+blocks_movement = false
+
+[sub_resource type="Resource" id="StateEffect_take_device"]
+script = ExtResource("3_effect")
+fact_id = &"has_listening_device"
+
+[sub_resource type="Resource" id="GateCondition_device_default"]
+script = ExtResource("2_condition")
+
+[sub_resource type="Resource" id="InteractableState_device_default"]
+script = ExtResource("4_state")
+condition = SubResource("GateCondition_device_default")
+title = "Listening Device"
+description = "A compact reel-to-reel listening device sits on a folding stool, slow-spinning. Iris left in a hurry."
+action_label = "Yes"
+action_prompt = "Take the device?"
+action_effects = [SubResource("StateEffect_take_device")]
+toast = "Device taken."
+update_tile = true
+source_id = 6
+update_blocks_movement = true
+
+[resource]
+script = ExtResource("1_definition")
+object_id = &"iris_listening_device"
+states = [SubResource("InteractableState_device_taken"), SubResource("InteractableState_device_default")]

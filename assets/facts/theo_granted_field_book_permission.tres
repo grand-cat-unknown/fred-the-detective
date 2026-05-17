@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_script")
 id = &"theo_granted_field_book_permission"
-label = "Theo granted field book permission"
-description = "Theo clearly allowed Fred to borrow or inspect his field book."
+label = "Theo granted manual permission"
+description = "Theo clearly allowed Fred to borrow or inspect his field manual and gear log."

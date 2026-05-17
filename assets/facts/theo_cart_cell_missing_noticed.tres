@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="FactDefinition" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/fact_definition.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"theo_cart_cell_missing_noticed"
+label = "Fred saw a Ghostbusters cell is missing from the cart"
+description = "Fred has inspected the Ghostbusters' gear-cart inventory clipboard. One charged cell is logged as loaded but not used, and there is no cell on the cart to match it."

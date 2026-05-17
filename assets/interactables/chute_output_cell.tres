@@ -1,0 +1,41 @@
+[gd_resource type="Resource" script_class="InteractableDefinition" format=3 uid="uid://r2siu6j86av2"]
+
+[ext_resource type="Script" uid="uid://crrwy2qm3y7s4" path="res://scripts/data/interactable_definition.gd" id="1_definition"]
+[ext_resource type="Script" uid="uid://dy1gfjjj466vx" path="res://scripts/data/gate_condition.gd" id="2_condition"]
+[ext_resource type="Script" uid="uid://bv6wdcfc8aqee" path="res://scripts/data/state_effect.gd" id="3_effect"]
+[ext_resource type="Script" uid="uid://ddrn77i41iqq5" path="res://scripts/data/interactable_state.gd" id="4_state"]
+
+[sub_resource type="Resource" id="GateCondition_cell_taken"]
+script = ExtResource("2_condition")
+all_of = Array[StringName]([&"has_evidence"])
+
+[sub_resource type="Resource" id="InteractableState_cell_taken"]
+script = ExtResource("4_state")
+condition = SubResource("GateCondition_cell_taken")
+title = "Laundry Basin"
+description = "Fred has already taken the cell from the basin."
+
+[sub_resource type="Resource" id="StateEffect_take_cell"]
+script = ExtResource("3_effect")
+fact_id = &"has_evidence"
+
+[sub_resource type="Resource" id="GateCondition_cell_default"]
+script = ExtResource("2_condition")
+none_of = Array[StringName]([&"has_evidence"])
+
+[sub_resource type="Resource" id="InteractableState_cell_default"]
+script = ExtResource("4_state")
+condition = SubResource("GateCondition_cell_default")
+title = "Spent Containment Cell"
+description = "A spent containment cell lies in the laundry basin under the chute mouth. The back-pressure valve has been manually popped. Something solid is wedged inside the housing — a carved figurine. Heavy. Real stone. The Anchor Idol.
+
+It might be interesting to compare the cell against Theo's records, then figure out more using a Ghostbuster manual."
+action_label = "Yes"
+action_prompt = "Take the cell?"
+action_effects = [SubResource("StateEffect_take_cell")]
+toast = "Cell and idol recovered."
+
+[resource]
+script = ExtResource("1_definition")
+object_id = &"chute_output_cell"
+states = [SubResource("InteractableState_cell_taken"), SubResource("InteractableState_cell_default")]

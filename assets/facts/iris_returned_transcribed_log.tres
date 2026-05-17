@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="FactDefinition" format=3 uid="uid://bndhnwl8wpflw"]
+
+[ext_resource type="Script" uid="uid://cnsnule7chvxt" path="res://scripts/data/fact_definition.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"iris_returned_transcribed_log"
+label = "Iris gave Fred the transcribed log"
+description = "Iris has handed Fred the transcribed device log from the west post."

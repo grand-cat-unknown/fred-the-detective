@@ -1,0 +1,30 @@
+[gd_resource type="Resource" script_class="InventoryItemDefinition" format=3 uid="uid://nr6v88ndamgj"]
+
+[ext_resource type="Script" path="res://scripts/data/inventory_item_definition.gd" id="1_definition"]
+[ext_resource type="Script" uid="uid://dy1gfjjj466vx" path="res://scripts/data/gate_condition.gd" id="2_condition"]
+[ext_resource type="Script" uid="uid://bj1sj4y8aeenm" path="res://scripts/data/inventory_item_state.gd" id="3_state"]
+[ext_resource type="Texture2D" uid="uid://bcgu86v65lx8f" path="res://assets/art/environments/listening_device.png" id="4_image"]
+
+[sub_resource type="Resource" id="GateCondition_has_device"]
+script = ExtResource("2_condition")
+all_of = Array[StringName]([&"has_listening_device"])
+none_of = Array[StringName]([&"iris_received_listening_device"])
+
+[sub_resource type="Resource" id="InventoryItemState_device"]
+script = ExtResource("3_state")
+condition = SubResource("GateCondition_has_device")
+label = "Electronic Device"
+description = "A technical-looking electronic device, possibly Ghostbuster equipment."
+action_input = &"open_listening_device"
+action_key_hint = "W"
+action_kind = &"evidence"
+evidence_title = "Electronic Device"
+evidence_image = ExtResource("4_image")
+evidence_description = "[b]Electronic Device[/b]
+
+[i]Some kind of electronic device. It looks technical enough that it might belong to one of the Ghostbusters.[/i]"
+
+[resource]
+script = ExtResource("1_definition")
+item_id = &"listening_device"
+states = [SubResource("InventoryItemState_device")]

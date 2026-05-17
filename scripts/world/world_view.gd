@@ -51,6 +51,7 @@ var _player: Player
 var _camera: Camera2D
 var _npc_nodes: Array[NPC] = []
 var _inspectables: Array[Inspectable] = []
+var _tile_inspection_markers: Array[TileInspectionMarker] = []
 var _stair_portals: Array[Node] = []
 var _ignored_arrival_portal: Node
 var _stair_travel_pause_remaining := 0.0
@@ -178,8 +179,22 @@ func find_inspectable_at_player() -> Inspectable:
 	]
 	for tile in candidates:
 		for inspectable in _inspectables:
+			if not inspectable.visible:
+				continue
 			if _world_map != null and _world_map.world_to_tile(inspectable.position) == tile:
 				return inspectable
+	return null
+
+
+func find_tile_inspection_marker_at_player() -> TileInspectionMarker:
+	if _player == null:
+		return null
+	for tile in _adjacent_tiles():
+		for marker in _tile_inspection_markers:
+			if marker.object_id == &"":
+				continue
+			if _world_map != null and _world_map.world_to_tile(marker.position) == tile:
+				return marker
 	return null
 
 
@@ -197,7 +212,19 @@ func find_interaction_target_at_player() -> Node2D:
 	var npc := find_npc_at_player()
 	if npc != null:
 		return npc
-	return find_inspectable_at_player()
+	var inspectable := find_inspectable_at_player()
+	if inspectable != null:
+		return inspectable
+	return find_tile_inspection_marker_at_player()
+
+
+func has_tile_inspection_at_player() -> bool:
+	if _player == null or _world_map == null:
+		return false
+	for tile in _adjacent_tiles():
+		if not _world_map.get_tile_inspection(tile).is_empty():
+			return true
+	return false
 
 
 func find_inspection_at_player() -> Dictionary:
@@ -208,6 +235,10 @@ func find_inspection_at_player() -> Dictionary:
 			"title": inspectable.title,
 			"description": inspectable.description,
 		})
+
+	var marker := find_tile_inspection_marker_at_player()
+	if marker != null:
+		return _resolve_inspection(marker.to_inspection_dictionary())
 
 	if _player == null or _world_map == null:
 		return {}
@@ -256,7 +287,7 @@ func _update_interaction_prompt() -> void:
 			_interaction_prompt_container.visible = false
 		return
 	var target := find_interaction_target_at_player()
-	if target == null:
+	if target == null and not has_tile_inspection_at_player():
 		if _interaction_prompt_container != null:
 			_interaction_prompt_container.visible = false
 		return
@@ -268,6 +299,7 @@ func _update_interaction_prompt() -> void:
 func _rebuild_content() -> void:
 	_npc_nodes.clear()
 	_inspectables.clear()
+	_tile_inspection_markers.clear()
 	_stair_portals.clear()
 	_ignored_arrival_portal = null
 	_stair_travel_pause_remaining = 0.0
@@ -288,6 +320,7 @@ func _rebuild_content() -> void:
 			_inspectables.append(child)
 		elif child.has_method("get_target") and child.has_method("get_tile"):
 			_stair_portals.append(child)
+	_collect_tile_inspection_markers_from(self)
 
 	if _camera != null and not Engine.is_editor_hint():
 		_camera.make_current()
@@ -315,6 +348,13 @@ func _rebuild_content() -> void:
 
 	_apply_palette()
 	_apply_camera_to_player(false)
+
+
+func _collect_tile_inspection_markers_from(parent: Node) -> void:
+	for child in parent.get_children():
+		if child is TileInspectionMarker:
+			_tile_inspection_markers.append(child)
+		_collect_tile_inspection_markers_from(child)
 
 
 func _on_player_moved(tile: Vector2i) -> void:
@@ -347,6 +387,8 @@ func _blocked_tiles() -> Array[Vector2i]:
 		if _world_map != null:
 			tiles.append(_world_map.world_to_tile(npc.position))
 	for inspectable in _inspectables:
+		if not inspectable.visible:
+			continue
 		if inspectable.blocks_movement:
 			if _world_map != null:
 				tiles.append(_world_map.world_to_tile(inspectable.position))

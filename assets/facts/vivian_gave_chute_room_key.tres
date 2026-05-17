@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="FactDefinition" format=3 uid="uid://nfs43c5iouxx"]
+
+[ext_resource type="Script" uid="uid://cnsnule7chvxt" path="res://scripts/data/fact_definition.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"vivian_gave_chute_room_key"
+label = "Vivian handed over the chute-room key"
+description = "Vivian Marlowe has given Fred the staff key to the ground-floor laundry-chute room."

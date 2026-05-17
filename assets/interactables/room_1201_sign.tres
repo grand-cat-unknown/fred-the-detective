@@ -1,0 +1,19 @@
+[gd_resource type="Resource" script_class="InteractableDefinition" format=3 uid="uid://p1ffa75ylsk6"]
+
+[ext_resource type="Script" uid="uid://crrwy2qm3y7s4" path="res://scripts/data/interactable_definition.gd" id="1_definition"]
+[ext_resource type="Script" uid="uid://ddrn77i41iqq5" path="res://scripts/data/interactable_state.gd" id="2_state"]
+
+[sub_resource type="Resource" id="InteractableState_room_1201_sign_default"]
+script = ExtResource("2_state")
+title = "Room 1201"
+description = "A guest-room placard reads 1201."
+update_tile = true
+source_id = 1
+atlas_coords = Vector2i(17, 23)
+update_blocks_movement = true
+blocks_movement = false
+
+[resource]
+script = ExtResource("1_definition")
+object_id = &"room_1201_sign"
+states = [SubResource("InteractableState_room_1201_sign_default")]

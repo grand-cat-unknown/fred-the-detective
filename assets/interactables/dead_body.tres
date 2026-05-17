@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="InteractableDefinition" format=3 uid="uid://dft0g6pva0k2q"]
+
+[ext_resource type="Script" uid="uid://crrwy2qm3y7s4" path="res://scripts/data/interactable_definition.gd" id="1_definition"]
+[ext_resource type="Script" uid="uid://ddrn77i41iqq5" path="res://scripts/data/interactable_state.gd" id="2_state"]
+
+[sub_resource type="Resource" id="InteractableState_dead_body_default"]
+script = ExtResource("2_state")
+title = "Dead Body"
+description = "The body of Felix Vance lies on the floor. There is a large hole in the middle of his body, surrounded by purple goo."
+update_tile = true
+source_id = 4
+update_blocks_movement = true
+
+[resource]
+script = ExtResource("1_definition")
+object_id = &"dead_body"
+states = [SubResource("InteractableState_dead_body_default")]

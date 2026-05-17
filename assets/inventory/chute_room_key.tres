@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="InventoryItemDefinition" format=3 uid="uid://bcjpxysnvybno"]
+
+[ext_resource type="Script" path="res://scripts/data/inventory_item_definition.gd" id="1_definition"]
+[ext_resource type="Script" uid="uid://dy1gfjjj466vx" path="res://scripts/data/gate_condition.gd" id="2_condition"]
+[ext_resource type="Script" uid="uid://bj1sj4y8aeenm" path="res://scripts/data/inventory_item_state.gd" id="3_state"]
+
+[sub_resource type="Resource" id="GateCondition_has_key"]
+script = ExtResource("2_condition")
+all_of = Array[StringName]([&"vivian_gave_chute_room_key"])
+
+[sub_resource type="Resource" id="InventoryItemState_key"]
+script = ExtResource("3_state")
+condition = SubResource("GateCondition_has_key")
+label = "Chute-Room Key"
+description = "Vivian's staff key to the ground-floor laundry chute room."
+
+[resource]
+script = ExtResource("1_definition")
+item_id = &"chute_room_key"
+states = [SubResource("InventoryItemState_key")]

@@ -1,63 +1,83 @@
 # Character sheets
 
-This is where the game moves from a logic puzzle to a living, breathing investigation. By giving every character a **motive to lie** (even the innocent ones), you create "noise" that the player has to filter through to find the signal.
+This is where the game moves from a logic puzzle to a living, breathing investigation. Not everyone is lying. The cast is built so a handful of characters have something to hide — for very different reasons — while others are honest anchors the player can lean on. The noise comes from the liars; the signal comes from triangulating what the honest witnesses literally saw with what the liars don't want to say.
 
-Here is the expanded character roster for the Ghostbusters team.
+**Who lies, and why:**
+
+- **Pemberton** — concealing a murder.
+- **Theo** — concealing the missing cell, out of fear of being fired.
+- **Julian** — concealing the bribed master key and the fake idol, out of legal fear.
+- **Mags** — concealing the bribe and the smoke break, out of fear of firing and worse.
+
+**Who is honest (the anchors):**
+
+- **Mara** — tells the truth about the front door. Her certainty is what makes the locked-room puzzle airtight.
+- **Iris** — tells the literal truth about where she was, what she did, and what her equipment can prove.
+- **Leo** — no skin in the game, full institutional memory.
+- **Vivian** — no skin in the game; she's the one who called Fred.
+
+Here is the expanded character roster.
 
 ---
 
 ## 1. Dr. Otis Pemberton - Ghostbuster 1 (The Killer)
 
-**The Intellectual.** Uses the chaos of the "emergency" to mask a surgical execution. Thinks he's the only one who truly understands the "science" of the beyond.
+**The Intellectual.** Uses his assigned east-side sweep and his childhood knowledge of The Grandview's hidden passages to mask a surgical execution. Thinks he's the only one who truly understands the "science" of the beyond.
 
-- **Credentials:** A "double doctor" — MD plus a doctorate in occult studies, with a research focus on cult relics and spectrally-active artifacts. That's how he ended up the team's medical *and* occult-scholarly specialist; the rest of the team are field hunters by training. It's also how he knew the Anchor Idol's provenance — and the Grandview's suite layout — before anyone else did.
+- **Credentials:** A "double doctor" — MD plus a doctorate in occult studies, with a research focus on cult relics and spectrally-active artifacts. That's how he ended up the team's medical *and* occult-scholarly specialist; the rest of the team are field hunters by training. He also grew up around The Grandview when it was still Vivian Marlowe's family castle-hotel, so he knows the old servant routes and panic passages better than any outsider should.
 - **Personality:** Cold, precise, and condescending. He treats the other team members like blue-collar technicians and you like a nuisance. Views the murder not as a crime, but as a necessary "acquisition" of the Anchor Idol for serious research it would never get inside Vance's private vault.
 - **Manner of Speech:** Clinical and formal. Uses medical Latin and complex jargon to confuse non-experts. Refers to the victim as "the biological variable." Never says "dead"; says "biological cessation."
 - **Actual Timeline:**
-    - **Earlier that evening:** Sabotages a pipe joint in the **maintenance corridor outside Room 1218** (the Grandview's standard Ghostbusters prep room). The joint is loosened to fail under normal pressure during the operation window. Done from the corridor, not from inside 1218 — so access isn't restricted to anyone with team-room privileges. Anyone with corridor access could have done it.
-    - **9:00 PM:** Watch begins. Pemberton's assigned station: **maintenance-corridor PKE sweep** (a roaming "structural perimeter" assignment). This is his cover for being unseen during the murder window.
-    - **9:05 PM:** The sabotaged pipe joint fails. Mara abandons the main hallway to help Theo in 1218.
-    - **9:06 PM:** Pemberton slips into 1221 via the **back service door** — a disguised maintenance-corridor access panel ("the pantry"). Vance doesn't know it exists; neither does the rest of the team. Only Pemberton knows, because he scouted the suite under his occult-scholar cover. Vance is mid-meditation, eyes closed, unprepared.
-    - **9:07 – 9:10 PM:** Kills Vance point-blank with a stolen Siren Containment Cell (Manual Purge). Takes the Anchor Idol. Stages the "haunting" — slams furniture, simulates a Class-5 manifestation — loud enough to be heard from the hall and through 1222's shared wall.
-    - **9:10 PM:** Stashes the Anchor Idol inside the spent Siren Cell's now-empty pressure chamber, then drops the cell down the laundry chute via the back service door (it falls to the basement bin — idol concealed inside). Noises stop abruptly. Slips back out the same way he came in.
-    - **9:11 – 9:12 PM:** Walks the maintenance corridor toward the far-end exit, bypassing the Housekeeping Room (Mags is inside, door shut). Mara (returning from 1218) and Iris (stepping out of 1222) converge at 1221's front door — without him.
-    - **9:13 PM:** Emerges into the main hallway from the **far end**, breathing hard, claiming he heard the manifestation during his corridor sweep and ran to flank it.
-    - **9:14 PM:** Team forces the locked front door of 1221. Pemberton steps in, performs a theatrical pulse check, declares: "Full-Body Spectral Seizure, Class-5 Shadow Stalker. The idol attracted exactly what we were here to contain."
-- **What He Said:** "I was on structural sweep at the far end of the corridor. The PKE spike hit hard — I tried to flank the entity through the maintenance access. By the time I got around to the front, Vance was already gone. Full-body spectral seizure. Textbook Class-5."
-- **The Lie:** There was no entity. The "manifestation" was theater. He was inside 1221 via the back service door, not "flanking" anything from the corridor.
+    - **Last night, post-auction:** Asks Vivian, in passing, to put the Anchor Idol's buyer in the Royal Suite (1102) — "spectrally insulated room, fits the occasion." Vivian agrees. The exchange is casual — she only remembers it if asked.
+    - **7:00 – 8:30 PM (tonight):** Helps Theo with gear prep and palms two items off the cart: a charged Siren Cell **and** a fresh, sealed pair of standard-issue Ghostbusters gloves. Both stashed in his coat.
+    - **9:00 PM:** Watch begins. Mara holds the front door of 1102. She posts Iris at the **west end of the main hallway** (just outside 1101's door, where 1102's spillover is strongest) and sends Pemberton on the **east-side structural sweep**. The east assignment is his cover for being unseen during the murder window.
+    - **9:06 PM:** Pemberton slips into 1102 via the **hidden Royal Suite emergency passage**, accessed from the north-side service corridor. Vance doesn't know it exists; neither does the rest of the team. Mara is still watching the front door, so her "nobody entered" testimony is true. Vance is mid-meditation, eyes closed, unprepared.
+    - **9:07 – 9:09 PM:** Kills Vance point-blank with a stolen Siren Containment Cell (Manual Purge). Takes the Anchor Idol. Stages the "haunting" — slams furniture, simulates a Class-5 manifestation — loud enough to be heard from the hall and through 1101's shared wall. Stashes the Anchor Idol inside the spent Siren Cell.
+    - **~9:09 – 9:10 PM:** Slips out of 1102 via the concealed passage with the cell in hand, stained gloves on. Manifestation noises stop abruptly. **Already moving west in the service corridor by the time the team realizes the silence.**
+    - **9:11 PM (Glove Swap, *Then* Chute):** Reaches the west-side service hall. **Strips off his violet-stained gloves and discards them in the service hall** (Purge Pigment on the inside of the fingers). **Pulls the fresh sealed pair from his coat and snugs them on.** *Then* picks up the cell with clean gloves and drops it down the **north-west laundry chute**. Cell falls to the basement bin, idol concealed inside. The chute hatch and the cell only ever bear fresh-glove prints. He never goes anywhere near Room 1103 (east end, Mags inside smoking) or Room 1203 (south row, vacant) — but his cover story will name both as checkpoints on his "east-side sweep."
+    - **9:13 PM:** Emerges into the main hallway from the **west side**, breathing hard. **Volunteers no explanation for the direction.** If pressed, mutters something vague — "I followed it," "I lost the reading." Never names the service route, never plants the hidden-passage idea.
+    - **9:14 PM:** Mara forces the door and steps in first. Pemberton crowds in behind her, takes over the medical/occult reading, performs a theatrical pulse check, declares: "Full-Body Spectral Seizure, Class-5 Shadow Stalker. The idol attracted exactly what we were here to contain."
+- **What He Said:** "I was on east-side structural sweep when the spike hit — opened 1203, opened 1103, both clear. By the time I got back to the front, Vance was already gone. Full-body spectral seizure. Textbook Class-5."
+- **The Lie:** There was no entity. The "manifestation" was theater. He was inside 1102 via the hidden Royal Suite passage. He never set foot in Room 1103 or Room 1203, despite claiming both as checkpoints. And he can't explain why he arrived from the west when he was supposedly sweeping east.
 - **Motive for Concealing:** Obviously, the murder and theft of the Anchor Idol.
-- **The Stain Alibi:** If asked early about his stained hands, he keeps it vague — "I've been pitching in with gear and capture-tool prep all night, and Theo's setup has been a mess. Touch enough hardware in one evening, you end up looking like this." Deliberately unspecific about *when* or *where*, so no individual witness can flatly contradict him.
-- **The Detective's Hook:** Pemberton's hands are stained deep violet — **Purge Pigment**. The Ghostbusters' field manual documents that a point-blank Manual Purge of a Siren Cell drives violet sludge *through* standard gloves and into the skin, staining the cuticles and palms for **48–72 hours**. He ditched the gloves in a service-hall trash can right after the kill; the player can recover them, stain on the inside of the fingers. No ghost causes that. Only a human pulling the manual lever of a Siren Cell at point-blank range does. That's the case.
+- **The Stain Alibi:** The entire team keeps gloves on through the post-incident aftermath (standard contamination protocol), so the stains stay hidden when Fred first arrives. **The reveal is player-driven:** when Fred eventually asks the team to show their palms, everyone else's hands are clean — Pemberton's palms and cuticles are stained deep violet. His pre-armed alibi: *"I've been pitching in with Theo's gear all night — capture-tool prep, the usual. Touch enough hardware in one evening, you end up looking like this."* Deliberately vague about *when* and *where*, so no single witness can flatly contradict him.
+- **The Detective's Hook:** Pemberton's stained hands are **Purge Pigment**. The Ghostbusters' field manual documents that a point-blank Manual Purge of a Siren Cell drives violet sludge *through* standard gloves and into the skin, staining the cuticles and palms for **48–72 hours**. He discarded the original stained gloves in the service hall and swapped into a fresh sealed pair at 9:11 — *before* he handled the chute, so the chute itself is forensically clean. The discarded gloves are recoverable if Fred finds the service corridor; they support the route, but they are not a progression gate. Stain on the *inside* of the fingers. No ghost causes that. Only a human pulling the manual lever of a Siren Cell at point-blank range does. That's the case.
 
 ---
 
 ## 2. Mara Bell - Ghostbuster 2 (The Lead)
 
-**The Professional.** Her entire identity is tied to the Ghostbusters' brand and her leadership. Her fear of a "Negligence" lawsuit makes her the killer's best accidental ally.
+**The Professional.** Her entire identity is tied to the Ghostbusters' brand and her leadership. Her certainty about the front door makes the locked-room puzzle feel airtight until the hidden route is found.
 
-- **Personality:** High-strung and protective of the "Ghostbusters" brand. Terrified of a lawsuit or the team looking incompetent.
+- **Personality:** High-strung and protective of the "Ghostbusters" brand. Terrified of the team looking incompetent, but not lying about the front door.
 - **Manner of Speech:** Fast, authoritative "Manager-speak." Constant focus on "protocol," "liability," and "perimeter."
 - **Actual Timeline:**
-    - **9:05 – ~9:11 PM:** She was NOT in the hall outside 1221. She was in Room 1218 helping Theo move equipment away from the sabotaged pipe (a pre-meditated distraction orchestrated by Otis that can't be traced back to him directly).
-- **What She Said:** "Standard watch protocol. I held the main hallway. Manifestation noises started around 9:07 — clear Class-5 signature. I'd posted Pemberton on the far-end maintenance sweep; he came back through from that direction when the spike hit."
-- **The Lie:** She claims she had continuous visual on the hallway and can vouch for the timing of the manifestation noises. She wasn't there from 9:05 to 9:11. She doesn't actually know when the noises started — only when she rejoined the hall and heard them. (Her line about Pemberton is just her repeating the assignment she gave him; she's quietly conflating "where I posted him" with "where I saw him.")
-- **Motive for Concealing:** If she admits she left the hall to save equipment, she's legally liable for Vance's death. She's lying to prove she was "on duty" — and accidentally giving Otis the timing alibi he needs.
-- **The Detective's Hook:** **Physical Evidence.** Her boots and the hem of her trousers are soaking wet. There is no water in the hallway — only in Room 1218. Once you prove she abandoned her post, she can no longer corroborate Pemberton's window — and her "I had the hall the whole time" testimony, which was the cleanest cover his alibi had, is gone. (Iris's field book is the actual record of when the noises started; Mara was just confirming it.)
+    - **9:00 PM:** Watch begins. Mara posts herself outside 1102 on the front door. Assigns Iris to the west end of the hallway and Pemberton to the east-side structural sweep.
+    - **9:07 – 9:09 PM:** Hears the manifestation noises from inside 1102 while maintaining visual on the front door. Nobody enters from the hallway.
+    - **9:10 PM:** Noises cut out. Calls everyone in. Iris drops her device and converges from the west end; Theo runs over from the gear cart. Pemberton does not respond on the radio.
+    - **9:10 – 9:13 PM:** Tries to force the front door with Iris and Theo. Repeatedly shouts for Otis. He finally arrives from the west side at 9:13.
+- **What She Said:** "Standard watch protocol. I held the front of 1102. Nobody entered Felix Vance's room from the main hallway. At 9:00 I posted Thorne to the west end and Pemberton on the east sweep."
+- **The Truth:** She had continuous visual on the hallway/front door and can honestly rule out a front-door entry.
+- **The Limitation:** She cannot rule out a hidden passage she does not know exists. Her certainty is a clue to look for another route.
+- **The Detective's Hook:** Her testimony creates the locked-room constraint: if nobody used the front door, the killer needed a concealed route into the Royal Suite. She also anchors the **wrong-direction problem**: she assigned Otis east, and he answered the door call from the west — and she has **no theory for how**. She does not know the building's service routes exist. When asked, she'll say simply: *"I expected him from the east. He came from the west. I don't know how he got there."*
 
 ---
 
 ## 3. Theo Griggs - Ghostbuster 3 (The Tech)
 
-**The Nervous Wreck.** Brilliant with a soldering iron, terrible with people. The only witness to Mara's absence, but too scared to speak up.
+**The Nervous Wreck.** Brilliant with a soldering iron, terrible with people. The only person who knows the missing Siren Cell was missing before the "ghost" became the official story.
 
 - **Personality:** Fidgety, eager to please, and chronically insecure. Talks to his equipment more than people.
 - **Manner of Speech:** Stammers, speaks in run-on sentences. Uses a lot of "um" and "uh."
 - **Actual Timeline:**
-    - **9:05 – 9:12 PM:** Trapped in Room 1218 dealing with the flood caused by the burst pipe. He called Mara for help.
-- **What He Said:** "I was... uh... doing tech stuff. Mara was totally in the hall. I mean, I think so? It was loud!"
-- **The Lie:** He is backing up Mara's lie because he's terrified she'll fire him for the "pipe burst" (which he thinks was his fault).
-- **Motive for Concealing:** **Fear of Firing.** He thinks if Mara finds out he lost a $10,000 piece of equipment or caused the flood, he'll be kicked off the team.
-- **The Detective's Hook:** He's the easiest to "break." If you act like a friend, he'll admit the gear was missing *before* the ghost appeared — a charged Siren Cell, signed out to the team that night. Once the player recovers the cell from the chute, Theo can match it to the gear log: it was Pemberton who signed for it during prep.
+    - **7:00 – 8:30 PM:** Frantically prepping gear. Pemberton "pitches in" — and palms a charged Siren Cell **and** a fresh sealed pair of standard-issue gloves off the cart. Theo doesn't notice; the prep is chaos.
+    - **9:00 – 9:10 PM:** At the gear cart / prep station, trying to keep the equipment inventory straight during the watch.
+    - **9:10 PM:** Hears Mara's converge call when the noises cut out. Leaves the cart and runs to the front door of 1102, joining Mara and Iris in trying to force it. Three pairs of hands, still not enough on a solid suite door.
+- **What He Said (early):** "I was... uh... doing tech stuff. Mara had the door. I mean, I think so? I was with the cart."
+- **What He Said When Confronted About the Missing Cell:** *"That's the weird thing — yesterday I really remembered all the cells being present. Maybe I just miscounted. I'm sorry, I'm clumsy."* The yesterday-confidence-vs-evening-shortfall is the tell — Theo's uncertainty is fear and self-blame, not proof that Fred can place the cell at any later checkpoint.
+- **The Lie (by omission):** He has not voluntarily admitted that a charged Siren Cell was missing from the cart before the noises started.
+- **Motive for Concealing:** **Fear of Firing.** He thinks if Mara finds out he lost a $10,000 piece of equipment, he'll be kicked off the team.
+- **The Detective's Hook:** He's the easiest to "break." If you act like a friend, he'll admit the gear was missing *before* the ghost appeared — a charged Siren Cell on the team manifest. Once the player recovers the cell from the chute, Theo can match it to the gear log and remember Pemberton hovering around the cart during prep. There is no sign-out paperwork. Theo's "I really remembered all the cells being present yesterday" tell is the moment that points back to the prep period — not the murder-window chaos.
 
 ---
 
@@ -67,34 +87,39 @@ Here is the expanded character roster for the Ghostbusters team.
 
 - **Personality:** Calm, methodical, and by-the-book. The only team member who did exactly what they were supposed to do.
 - **Actual Timeline:**
-    - **9:00 – 9:11 PM:** Manning the **secondary observation post** in Suite 1222, next door to 1221. Listening at the shared wall, monitoring for spillover activity from the Anchor Idol. Notes timestamps in her field book as a matter of habit.
-    - **9:11 PM onward:** Steps into the main hallway when the noises in 1221 stop. Converges on the front door with Mara; watches Pemberton arrive from the far end of the corridor at 9:13.
-- **What She Said:** "Manifestation noises through the shared wall started around 9:07 and stopped abruptly at 9:10. Right around when they stopped I heard a heavy metallic thud somewhere in the walls — could have been the chute. I stepped into the hallway at 9:11. Pemberton arrived from the far end of the corridor at 9:13."
-- **The Truth:** She is the only one telling the full truth. She is the "control group" the player uses to corroborate the timeline.
+    - **9:00 – 9:09 PM:** Posted at the **west end of the main hallway**, just outside 1101's door, with her listening/scanning equipment.
+    - **~9:10 PM:** She **leaves her listening device at the west-side post, and runs east along the main hallway to join Mara at the 1102 front door.** She is at the door before the chute thud happens.
+    - **9:10 – 9:11 PM:** With Mara (and Theo moments later), shoulders and pries the 1102 door. Three pairs of hands aren't enough on a solid suite door. They shout for Otis.
+    - **9:13 PM:** Watches Pemberton come up behind her from the west end of the hallway.
+- **What She Said:** *"I was at the west post with my equipment. I left the device there when I went to the front door of 1102. We called for Pemberton. He arrived behind me — from my side, the west — at 9:13."*
+- **What Her Device Logged:** She did **not** personally witness the chute event. She was already at the 1102 door when it happened. Her listening device, abandoned at the west-side post, **logged it**. Fred has to **recover the device and bring it back to her**.
+- **The Truth:** She is the only team member telling the full truth — but she only reports what she literally saw and what her equipment can prove. She does **not** voluntarily layer "but Otis was assigned east" on top of "Otis arrived from the west." That contradiction is Fred's to surface, by combining her account with Mara's assignment record.
 - **What She Gives the Player:**
-    - The **thud in the walls** at ~9:10 PM — points the detective at the laundry chute.
-    - The **direction Pemberton arrived from** — far end of the corridor at 9:13. (Consistent with his cover *story*; useful for anchoring the rest of the timeline once other pieces contradict him.)
+    - **The device log (after Fred recovers it)** — the recorded 9:11 chute-side event points the detective at the west-side laundry chute. Time-coded footsteps moving west corroborate Pemberton's route.
+    - **The direction Pemberton arrived from** — west side, behind her, at 9:13.
 
 ---
 
 ## 5. Julian Vane (The "Old Money" Rival)
 
-*A prestigious collector who lost the Anchor Idol to Vance by a single bid. Staying in Suite 1225.*
+*A prestigious collector who lost the Anchor Idol to Vance by a single bid at last night's auction. Staying in **Suite 1204** — same floor, south row, east end.*
 
 - **Personality:** Refined, arrogant, and deeply bitter. Views Vance as a "nouveau riche" thug who doesn't appreciate history.
 - **Manner of Speech:** Mid-Atlantic accent, flowery vocabulary, dripping with sarcasm.
 - **Actual Timeline:**
-    - **Earlier in the day:** Bribed Mags (the maid) for a master key to 1221, planning to slip in during Vance's 9 PM meditation, chloroform him as insurance against him surfacing mid-swap, switch the real idol for the wax replica, and slip out before he came around. His planned route was the front door, using the master key — he didn't know about the back service panel.
-    - **9:00 PM:** Arrived on the 12th floor for the swap. Saw the Ghostbusters' watch team setting up in the hallway. Plan dead. Retreated to a nearby alcove to wait it out.
-- **What He Said:** "I was in the hotel bar, mourning the loss of the idol over a dry martini."
-- **The Lie:** He claims he was never on the 12th floor.
-- **Motive for Concealing:** **Legal Fear.** Being caught outside a murder victim's door with a fake idol, a vial of sedative, and a bribed master key looks like premeditated murder.
+    - **Earlier today:** Bribed Mags (the maid) for a master key to 1102, planning to slip in during Vance's 9 PM meditation, switch the real idol for the wax replica, and slip back to his own room. His planned route was the front door, using the master key — he didn't know about the hidden emergency passage. (No chloroform — the plan was strictly a quick swap during meditation.)
+    - **Before 9:00 PM:** Stepped out of 1204 with master key and fake idol in pocket, ready to walk west to 1102. Saw the Ghostbusters setting up in the main hallway. Plan dead. Retreated back into 1204 and locked the door. Fake idol back on the desk / in a drawer.
+    - **9:00 PM onward:** Inside 1204, lights low, door locked. Hears the manifestation noises and the team shouting. Stays frozen.
+- **What He Said:** *TBD — he should not claim he was in the bar.* The likely posture: *"I was in my suite. I heard the commotion, locked my door, stayed put. I'm a guest, not a detective."* Mostly true. Only damning because of what's in the room.
+- **The Lie:** Whatever he says, he omits the bribed master key, the fake idol, and the fact that he stepped out of his door with both in his pocket.
+- **Motive for Concealing:** **Legal Fear.** Being one room over from a murder victim, with a fake idol in his suite and a bribed master key in his pocket, looks like premeditated murder.
 - **Why He Looks Like the Killer:**
+    - Has a room (1204) on the same floor as the victim, a short walk from the Royal Suite.
+    - Lost the Anchor Idol to Vance by a single bid the night before. Public, fresh, motive-shaped.
     - Found in his suite with a **perfect wax replica** of the Anchor Idol.
-    - Has a **vial of sedative** (chloroform) in his pocket.
-    - Seen on the 12th floor by Leo Rossi (the bellhop) just minutes before the "haunting."
-- **His Actual Plan:** He wasn't there to kill Vance. He was planning a "swap" — slip in during Vance's well-known nightly 9 PM meditation, dose him with chloroform as insurance against him surfacing mid-swap, switch the real idol for the wax replica, and be out before he came around. **Why tonight?** Vance is checking out of The Grandview tomorrow morning with the idol — this is Vane's last chance before it disappears into Vance's private vault. **Why this exact hour?** The meditation ritual is publicly known — 9:00 to 9:45 PM, alone, undisturbed. The same shared deadline and the same public ritual drove Pemberton's plan too, by pure coincidence, which is why both adversaries converged on the same night and hour without knowing about each other.
-- **The Player's Path:** The player finds the replica idol and thinks, "He killed Vance to swap them!" But the sedative doesn't match the "Cold Burn" on the body.
+    - Has a **bribed master key** to 1102.
+- **His Actual Plan:** He wasn't there to kill Vance. He was planning a **swap** — slip in during Vance's well-known nightly 9 PM meditation, switch the real idol for the wax replica, be back in his own room before Vance opened his eyes. **Why tonight?** Vance is checking out tomorrow morning with the idol — this is Vane's last chance before it disappears into Vance's private vault. **Why this exact hour?** The meditation ritual is publicly known — 9:00 to 9:45 PM, alone, undisturbed. The same shared deadline and the same public ritual drove Pemberton's plan too, by pure coincidence, which is why both adversaries converged on the same night and hour without knowing about each other.
+- **The Player's Path:** The player finds the replica idol in 1204 and thinks, *"He killed Vance to swap them!"* But the wound, the ectoplasm spray pattern, and the Manual Purge mechanics don't match a quiet swap-and-leave. Julian is a real suspect, with real shame to hide — but not the killer.
 
 ## 6. Leo Rossi (The Veteran Bellhop)
 
@@ -102,13 +127,17 @@ Here is the expanded character roster for the Ghostbusters team.
 
 - **Personality:** Warm, professional, and observant. He treats the investigation with the same calm he uses to handle over-packed luggage.
 - **Manner of Speech:** Polite and "Old World." He addresses everyone as "Sir" or "Ma'am." He has a "mental rolodex" of guest habits.
-- **Actual Timeline:** * **8:50 PM:** Delivered a bottle of sparkling water to Vance in Room 1221.
-    - **9:00 PM:** Was at the elevator bank when the Ghostbusters arrived.
+- **Actual Timeline:**
+    - **8:50 PM:** Delivered a bottle of sparkling water to Vance in Room 1102.
+    - **~8:55 PM:** Top of the stairs (south-west corner — the only access to the floor; there is no elevator) when the Ghostbusters came up. Notes Pemberton "checking his watch repeatedly — more like a man catching a train than a man hunting a spirit."
+    - **9:00 PM onward:** Back on the bottom floor, **at the front desk with Vivian**, helping her with the evening's hotel business. He and Vivian are each other's alibi for the entire watch window. Neither of them is on the murder floor between 9:00 and 9:14.
 - **The Truth:** He is 100% honest. He has no reason to lie.
 - **The Helpful Intel:**
     - **Vance’s State of Mind:** He notes that Vance was "extremely agitated" all day, and was checking out tomorrow morning with the idol.
-    - **The Daily Ritual:** Leo confirms Vance's well-known meditation habit — 9:00 to 9:45 PM every evening, alone, no interruptions. "Set your watch by him, sir. The whole staff knows. Cocktail collectors talk about it like a tour stop." This makes Vance's 9 PM location and vulnerability public knowledge, not insider information.
-    - **The Observation:** He noticed Dr. Pemberton was checking his watch repeatedly in the lobby, looking "more like a man catching a train than a man hunting a spirit."
+    - **The Daily Ritual:** Leo confirms Vance's well-known meditation habit — 9:00 to 9:45 PM every evening, alone, no interruptions. "Set your watch by him, sir. The whole staff knows." This makes Vance's 9 PM location and vulnerability public knowledge, not insider information.
+    - **The Observation:** When the team came up the stairs at ~8:55, he noticed Dr. Pemberton was checking his watch repeatedly — "more like a man catching a train than a man hunting a spirit."
+    - **The Vivian Alibi:** He can vouch that Vivian was at the front desk on the bottom floor from 9:00 onward — and Vivian vouches for him. Two clean alibis, mutually reinforcing.
+    - **The Hotel Hint:** If asked about The Grandview's layout or old construction, Leo can say the place began as a family castle with wartime/panic passages. Staff know rumors; **only the Marlowe family would know which routes are still usable — point the detective at Vivian** if he wants to actually walk one.
 
 ---
 
@@ -117,30 +146,50 @@ Here is the expanded character roster for the Ghostbusters team.
 *The woman who sees everything because nobody looks at her.*
 
 - **Personality:** Mumbled, tired, and invisible. Knows the physical layout of the hotel better than anyone.
-- **Manner of Speech:** Mumbled, low-volume, uses "work-talk" (e.g., "The linens in 1219 were fresh").
+- **Manner of Speech:** Mumbled, low-volume, uses "work-talk" (e.g., "The linens in 1201 were fresh").
 - **Actual Timeline:**
-    - **Earlier in the day:** Took a bribe from Julian Vane in exchange for a master key to Suite 1221. She rationalized it as harmless — "the gentleman just wants to look at the idol."
-    - **9:00 – 9:15 PM:** Inside the **12th-floor Housekeeping Room** with the door shut, taking a long forbidden smoke break. The Housekeeping Room is the standard staff hideout on this floor — and it's a named checkpoint on Pemberton's "structural perimeter sweep."
-- **What She Said:** "I was in the basement laundry room, minding my own business."
-- **The Lie:** She claims she was in the basement. She was actually shut inside the **exact room Pemberton's alibi says he checked on his sweep**.
-- **Motive for Concealing:** **Doubly compromised.** Smoking on duty is an instant firing offense. Taking a bribe to hand a guest's master key to another guest is a *criminal* offense — accessory to whatever Vane was planning to do.
-- **What She Actually Saw (once broken):** "Nothing. That's the thing. I was inside the Housekeeping Room the whole time — from before 9 until past 9:15. Pemberton says he checked that room on his sweep. The door never opened. Nobody came in. I'd have heard them. I'd have *seen* them. He never came through."
-- **The Detective's Hook:** Mags is the **negative witness** — she was physically *inside* a room Pemberton's alibi says he checked. The door stayed shut. His "structural sweep / flanked the entity through the maintenance access" story is a fabrication.
+    - **Earlier today:** Took a bribe from Julian Vane in exchange for a master key to Suite 1102. She rationalized it as harmless — "the gentleman just wants to look at the idol."
+    - **Before 9:00 – ~9:15 PM:** Slips into the vacant **Room 1103** (north row, east end) with her Lady Finger cigarettes and shuts the door. The room is currently between guests, dim, and a known quiet spot. She knows it's unoccupied because *she* would know — it's her hallway. **Pemberton's east-side sweep claim lists Room 1103 as a checkpoint** he opened and cleared. He never actually went in. Mags is sitting in there the entire window.
+    - **~9:15 PM:** Slips out of 1103 after the hallway clears. Leaves a still-lit Lady Finger cigarette behind in her rush.
+- **What She Said:** *"I was downstairs in the basement laundry, minding my own business."* A clean lie that puts her off the floor entirely.
+- **The Lie:** She wasn't in the basement. She was shut inside **Room 1103 — a vacant guest room she knows is between guests, the same room Pemberton claims he cleared on his sweep**.
+- **Motive for Concealing:** **Doubly compromised.** Smoking on duty (and inside a vacant guest room she has no business being in) is an instant firing offense. Taking a bribe to hand a guest's master key to another guest is a *criminal* offense — accessory to whatever Vane was planning.
+- **What She Actually Saw (once broken):** *"Nothing. That's the thing. I was shut inside 1103 the whole time — from before nine until past 9:15. Door closed. I'd have heard it open. I'd have *seen* anyone come through. Pemberton says he checked 1103 on his sweep. He didn't. The door never opened."*
+- **The Detective's Hook:** Mags is the **negative witness** — she was physically *inside* a room Pemberton's alibi says he checked. The door stayed shut. The lit Lady Finger cigarette she left behind is the **physical evidence** that proves the room was occupied during his claimed sweep window. His "I cleared 1103" story is a fabrication.
 
-## Refined Interaction: The 12th-Floor Housekeeping Room
+## Refined Interaction: Room 1103 (Vacant Guest Room)
 
 This is the most critical location for the player to investigate to break Pemberton.
 
-- **What It Is:** A small service room off the maintenance corridor — linens, supplies, a chair, a single closed door. The known staff hideout on this floor. Pemberton's "structural perimeter sweep" assignment lists it as a checkpoint.
-- **Where Mags Was:** Sitting inside with the door shut, smoking a "Lady Finger" (a very slim, distinct cigarette). The room is dim, the air is hazy with smoke, and there's a warm butt in the ashtray.
-- **The Posted Notice (above the laundry chute, in the corridor outside):** *"HOUSEKEEPING — LINEN CHUTE EMPTIED AT 10:00 AM DAILY. PLEASE DEPOSIT ALL LAUNDRY THE NIGHT BEFORE. — Grandview Management."* This is Pemberton's bet: anything dropped in the chute tonight sits in the basement bin until morning, by which point he expects the "spectral seizure" diagnosis to have closed the case.
-- **The Discovery:** The player traces Mags to the Housekeeping Room and finds the smoke haze and warm cigarette butt — proof someone was inside the entire window. Pemberton's sweep route says he checked this room. The door didn't open.
+- **What It Is:** A vacant guest room on the north row, east end. Currently between guests — no occupant on the books. Mags has worked out it's empty and uses it as her smoke hideout (door shut, window cracked).
+- **Where Mags Was:** Sitting inside with the door shut, smoking a "Lady Finger" (a very slim, distinct cigarette). The room is dim, the air is hazy with smoke. She leaves in a rush at ~9:15 and forgets a still-lit cigarette in the ashtray (or on the rim).
+- **The Posted Notice (in the service corridor outside, above the chute access):** *"HOUSEKEEPING — LINEN CHUTE EMPTIED AT 10:00 AM DAILY. PLEASE DEPOSIT ALL LAUNDRY THE NIGHT BEFORE. — Grandview Management."* This is Pemberton's bet: anything dropped in the chute tonight sits in the basement bin until morning, by which point he expects the "spectral seizure" diagnosis to have closed the case. (Fred only reaches this corridor after Vivian unlocks the service routes for him.)
+- **The Discovery:** The player enters 1103, finds smoke haze and a still-warm/lit Lady Finger cigarette — proof someone was inside the entire window. Pemberton's sweep route says he "opened the door, found it empty, moved on." He never opened the door.
 - **The Trap for Pemberton:**
 
-    > **Detective:** "Doctor, you said your sweep covered the 12th-floor service area, including the Housekeeping Room. Yes?"
+    > **Detective:** "Doctor, you said your east-side sweep included a check on Room 1103. Yes?"
     >
-    > **Pemberton:** "Standard checkpoint. Opened the door, cleared it, moved on."
+    > **Pemberton:** "Standard checkpoint. Opened the door, empty, moved on."
     >
-    > **Detective:** "There was a maid inside that room from before nine until after the team forced 1221. Door shut, smoking. She'd have heard the door open. She'd have seen you. She didn't. The room you say you cleared on your sweep was never entered."
+    > **Detective:** "There was a maid inside that room from before nine until after the team forced 1102. Door shut, smoking. She'd have heard the door open. She'd have seen you. She didn't. There's a still-warm cigarette on the rim of the ashtray. The room you say you cleared on your sweep was never entered — and it wasn't empty either."
     >
     > **Pemberton:** (Pauses) "Eyewitness testimony from staff in a state of statutory infraction is hardly... reliable."
+
+---
+
+## 8. Vivian Marlowe (The Owner / The Route Gatekeeper)
+
+*Live-in owner of The Grandview — an inherited castle-hotel. Her apartment is **Room 1101** (north row, west end), one wall over from the Royal Suite. She runs the place from the front desk on the bottom floor.*
+
+- **Personality:** Warm, professional, a little weary. The hotel is her family inheritance and her livelihood; she treats it like both. Knows the building's bones better than anyone alive who isn't Pemberton — but for her it's family memory, not a tactical map.
+- **Manner of Speech:** Direct, calm, hospitality-trained. Drops into family-history nostalgia when asked about the building.
+- **Actual Timeline:**
+    - **Last night, post-auction:** Pemberton mentioned, in passing, that the Anchor Idol's buyer should be put up in the Royal Suite (1102). She agreed — it sounded like a small upgrade for an important guest. The exchange was casual; she only remembers it if asked.
+    - **9:00 – ~9:20 PM:** At the front desk on the bottom floor with Leo. Hotel business. She and Leo are each other's alibi for the whole watch window.
+    - **~9:25 PM:** Mara calls down. Vivian comes up to the floor. Hears Pemberton's "spectral seizure" version. Recognizes that a death — even a "haunted" one — needs an outside detective. **Calls Fred.**
+- **What She Says (early):** "Otis is a friend, but I'd rather a detective tell me what happened than the team that was already onsite."
+- **The Casual Clue (if asked who picked the Royal Suite):** *"Otis suggested it, I think? Or maybe it was my idea. He mentioned it after the auction — said the room suited the occasion. Either way."* The casualness is the point. It's a clue Fred has to notice is meaningful, not one Vivian flags for him.
+- **The Childhood-Friendship Detail:** Pemberton grew up in the castle with her. She remembers it as embarrassing family nostalgia — kids in shut-up corridors. She does **not** assume he kept a tactical map of the building in his head.
+- **The Route Explainer Role:** Vivian is the character who can explain the service routes for Fred, but she does not mechanically unlock them. The service-corridor entrances look like ordinary curtain or wall dressing and are always passable, so a curious player can stumble into them. If Fred asks Vivian about the hotel's old layout / castle bones, or shows her the recovered cell, she describes the access and points him toward the service hall.
+
+---

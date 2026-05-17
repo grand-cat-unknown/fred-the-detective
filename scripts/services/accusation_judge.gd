@@ -6,12 +6,12 @@ signal failed(message: String)
 
 const CORRECT_KILLER := &"otis"
 const REQUIRED_EVIDENCE_FACT := &"has_evidence"
-const REASON_CORRECT := "correct"
-const REASON_MISSING_EVIDENCE := "missing_evidence"
-const REASON_WRONG_PERSON := "wrong_person"
-const REASON_WRONG_METHOD := "wrong_method"
-const REASON_WRONG_EVIDENCE := "wrong_evidence"
-const REASON_MULTIPLE_WRONG := "multiple_wrong"
+const REQUIRED_FIELD_BOOK_FACT := &"has_field_book"
+const REQUIRED_PALMS_FACT := &"pemberton_palms_shown"
+
+const MESSAGE_CORRECT := "Yes. The accusation holds."
+const MESSAGE_WRONG := "Wrong accusation."
+const MESSAGE_PARTIAL := "You're pointing in the right direction. Keep trying."
 
 var _llm: LLMClient
 var _state: CaseState
@@ -44,39 +44,35 @@ func judge(killer_id: StringName, killer_label: String, method_text: String, evi
 	if killer_id == &"" or method == "" or evidence == "":
 		completed.emit(false, "The accusation needs a suspect, a method, and evidence.")
 		return
+	if killer_id != CORRECT_KILLER or not _has_all_required_final_facts():
+		completed.emit(false, MESSAGE_WRONG)
+		return
 
 	var payload := {
 		"accusation": {
-			"killer_id": str(killer_id),
 			"killer_label": killer_label,
 			"method_text": method,
 			"evidence_text": evidence,
 		},
 		"case_truth": {
-			"killer_id": str(CORRECT_KILLER),
 			"killer_name": "Dr. Otis Pemberton",
-			"method": "Otis killed Felix Vance by using a Siren-grade containment cell as a point-blank weapon, like a gun.",
-			"required_evidence": "Fred must have found the recovered Siren containment cell.",
-			"required_evidence_fact": str(REQUIRED_EVIDENCE_FACT),
+			"method": "Otis used the hidden service passage to enter Suite 1102 and killed Felix Vance with a Siren-grade containment cell as a point-blank weapon, like a gun.",
+			"required_evidence": "Fred has the recovered Siren containment cell, Theo's field book/manual explaining the manual-purge signature, and Otis's exposed violet-stained palms.",
 		},
-		"current_true_facts": _state.true_fact_ids(),
-		"has_required_evidence": _state.get_fact(REQUIRED_EVIDENCE_FACT, false),
 	}
 
 	var instructions := "\n\n".join([
 		"You are the final accusation judge for Fred the Detective.",
-		"Return strict structured JSON only.",
-		"Do not reveal, name, hint at, or explain the correct solution in the output.",
-		"Do not mention correct case details unless they were already present in the player's accusation text.",
-		"The accusation is correct only if all of these are true:",
-		"1. The selected killer is Dr. Otis Pemberton.",
-		"2. The method text means Otis used the Siren containment cell as the murder weapon, effectively as a gun or point-blank discharge device.",
-		"3. The evidence text identifies the recovered/missing Siren containment cell or equivalent direct physical proof.",
-		"4. has_required_evidence is true. If it is false, the player is accusing without having found the needed evidence.",
-		"Accept natural wording and small spelling mistakes. Reject vague answers such as only 'ghost', 'weapon', or 'evidence'.",
-		"Set is_correct to true only for a complete, supported accusation.",
-		"Set reason_code to exactly one enum value. Prefer missing_evidence when has_required_evidence is false and the player tries to use the required physical evidence.",
-		"Use multiple_wrong when more than one category is wrong or unclear.",
+		"The hard conditions have already passed: the player picked Otis and has gathered all the required evidence facts. Your only job is to decide whether the player's free-text method and evidence describe the case correctly.",
+		"Return strict structured JSON only. Do not reveal, name, hint at, or explain the correct solution in the output.",
+		"Set is_correct to true only when all four ideas below are clearly present across the method and evidence text:",
+		"1. Otis entered Suite 1102 via a hidden service passage / secret corridor / hidden route.",
+		"2. He killed Vance with the Siren containment cell used as the murder weapon, effectively as a gun or point-blank discharge.",
+		"3. The recovered/missing Siren containment cell is identified as the physical proof.",
+		"4. The manual-purge mechanism is connected to Otis's violet-stained palms via the field book / manual logic.",
+		"Accept natural wording and small spelling mistakes. Wording does not have to match the case truth verbatim — only the ideas must be present.",
+		"Reject vague answers such as only 'ghost', 'weapon', or 'evidence'.",
+		"If any of the four ideas is missing or too vague, set is_correct to false. The player is still pointing in the right direction; the hard conditions already confirmed that.",
 	])
 	var messages := [
 		{
@@ -104,21 +100,18 @@ func _build_text_format() -> Dictionary:
 				"is_correct": {
 					"type": "boolean",
 				},
-				"reason_code": {
-					"type": "string",
-					"enum": [
-						REASON_CORRECT,
-						REASON_MISSING_EVIDENCE,
-						REASON_WRONG_PERSON,
-						REASON_WRONG_METHOD,
-						REASON_WRONG_EVIDENCE,
-						REASON_MULTIPLE_WRONG,
-					],
-				},
 			},
-			"required": ["is_correct", "reason_code"],
+			"required": ["is_correct"],
 		},
 	}
+
+
+func _has_all_required_final_facts() -> bool:
+	return (
+		_state.get_fact(REQUIRED_EVIDENCE_FACT, false)
+		and _state.get_fact(REQUIRED_FIELD_BOOK_FACT, false)
+		and _state.get_fact(REQUIRED_PALMS_FACT, false)
+	)
 
 
 func _on_llm_completed(text: String, error: String) -> void:
@@ -135,21 +128,5 @@ func _on_llm_completed(text: String, error: String) -> void:
 		return
 
 	var is_correct := bool(parsed.get("is_correct", false))
-	var reason_code := str(parsed.get("reason_code", REASON_MULTIPLE_WRONG))
-	completed.emit(is_correct, _message_for_reason(is_correct, reason_code))
-
-
-func _message_for_reason(is_correct: bool, reason_code: String) -> String:
-	if is_correct:
-		return "Yes. The accusation holds."
-	match reason_code:
-		REASON_MISSING_EVIDENCE:
-			return "No. You are making an accusation without the evidence to back it up."
-		REASON_WRONG_PERSON:
-			return "No. The person does not add up."
-		REASON_WRONG_METHOD:
-			return "No. The method does not add up."
-		REASON_WRONG_EVIDENCE:
-			return "No. The evidence does not add up."
-		_:
-			return "No. The accusation does not add up."
+	var message := MESSAGE_CORRECT if is_correct else MESSAGE_PARTIAL
+	completed.emit(is_correct, message)

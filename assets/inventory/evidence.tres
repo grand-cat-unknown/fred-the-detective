@@ -12,18 +12,20 @@ all_of = Array[StringName]([&"has_evidence"])
 [sub_resource type="Resource" id="InventoryItemState_evidence"]
 script = ExtResource("3_state")
 condition = SubResource("GateCondition_has_evidence")
-label = "Cell"
-description = "The recovered Siren containment cell."
+label = "Siren Cell"
+description = "A spent Siren containment cell with the Anchor Idol stashed inside."
 action_input = &"open_evidence"
-action_key_hint = "E"
+action_key_hint = "U"
 action_kind = &"evidence"
-evidence_title = "Recovered Containment Cell"
+evidence_title = "Siren Cell"
 evidence_image = ExtResource("4_image")
-evidence_description = "[b]Recovered Containment Cell[/b]
+evidence_description = "[b]Siren Cell[/b]
 
-Fred found the missing Siren-grade containment cell hidden in the laundry. Its discharge end is exactly the right size for the wound.
+Fred recovered a spent Siren Containment Cell from the laundry basin under the chute mouth. The genuine Anchor Idol was wedged inside the cell housing.
 
-This proves the murder weapon was not a ghost. Someone used the cell like a point-blank gun."
+Purple residue surrounds the housing. The back-pressure panel is popped, and the back-panel lever is flipped.
+
+The cell looks spent, heavy, and deliberately altered. It needs to be compared against Theo's field book before Fred can say exactly what that means."
 
 [resource]
 script = ExtResource("1_definition")

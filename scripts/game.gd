@@ -1,6 +1,18 @@
 extends Node2D
 
 const AccusationJudgeScript := preload("res://scripts/services/accusation_judge.gd")
+const CLEAN_HANDS_IMAGE := preload("res://assets/art/environments/clean_hands.png")
+const STAINED_HANDS_IMAGE := preload("res://assets/art/environments/stained_hands.png")
+const CLEAN_PALMS_FACTS := {
+	&"mara_palms_shown": "Mara's hands",
+	&"theo_palms_shown": "Theo's hands",
+	&"iris_palms_shown": "Iris's hands",
+	&"vivian_palms_shown": "Vivian's hands",
+	&"mags_palms_shown": "Mags's hands",
+	&"julian_palms_shown": "Julian's hands",
+	&"leo_palms_shown": "Leo's hands",
+}
+const STAINED_PALMS_FACT := &"pemberton_palms_shown"
 
 @onready var _world: WorldView = %WorldView
 @onready var _inspect_panel: InspectPanel = %InspectPanel
@@ -15,9 +27,11 @@ var _pending_action_toast: String = ""
 var _pending_passive_toast: String = ""
 
 var _llm: LLMClient
+var _topic_llm: LLMClient
 var _effect_llm: LLMClient
 var _accusation_llm: LLMClient
 var _case_state: CaseState
+var _topic_classifier: ConversationTopicClassifier
 var _effect_judge: ConversationEffectJudge
 var _accusation_judge: Node
 var _dialogue: DialogueService
@@ -41,6 +55,10 @@ func _ready() -> void:
 	_llm.name = "LLMClient"
 	add_child(_llm)
 
+	_topic_llm = LLMClient.new()
+	_topic_llm.name = "ConversationTopicLLM"
+	add_child(_topic_llm)
+
 	_effect_llm = LLMClient.new()
 	_effect_llm.name = "ConversationEffectLLM"
 	add_child(_effect_llm)
@@ -48,6 +66,11 @@ func _ready() -> void:
 	_accusation_llm = LLMClient.new()
 	_accusation_llm.name = "AccusationLLM"
 	add_child(_accusation_llm)
+
+	_topic_classifier = ConversationTopicClassifier.new()
+	_topic_classifier.name = "ConversationTopicClassifier"
+	add_child(_topic_classifier)
+	_topic_classifier.configure(_topic_llm)
 
 	_effect_judge = ConversationEffectJudge.new()
 	_effect_judge.name = "ConversationEffectJudge"
@@ -66,7 +89,7 @@ func _ready() -> void:
 	_dialogue = DialogueService.new()
 	_dialogue.name = "DialogueService"
 	add_child(_dialogue)
-	_dialogue.configure(_llm, _case_state, _effect_judge)
+	_dialogue.configure(_llm, _case_state, _effect_judge, _topic_classifier)
 
 	_dialogue.line_appended.connect(_on_dialogue_line_appended)
 	_dialogue.line_updated.connect(_on_dialogue_line_updated)
@@ -79,7 +102,17 @@ func _ready() -> void:
 	_accuse_panel.accusation_submitted.connect(_on_accusation_submitted)
 
 
+func _input(event: InputEvent) -> void:
+	if _evidence_panel.is_open() and _evidence_panel.handle_input_event(event):
+		get_viewport().set_input_as_handled()
+
+
 func _unhandled_input(event: InputEvent) -> void:
+	if _evidence_panel.is_open():
+		if _evidence_panel.handle_input_event(event):
+			get_viewport().set_input_as_handled()
+		return
+
 	if _dialogue_panel.is_open():
 		if _dialogue_panel.handle_input_event(event):
 			get_viewport().set_input_as_handled()
@@ -99,11 +132,6 @@ func _unhandled_input(event: InputEvent) -> void:
 
 	if _book_panel.is_open():
 		if _book_panel.handle_input_event(event):
-			get_viewport().set_input_as_handled()
-		return
-
-	if _evidence_panel.is_open():
-		if _evidence_panel.handle_input_event(event):
 			get_viewport().set_input_as_handled()
 		return
 
@@ -220,6 +248,8 @@ func _on_dialogue_closed() -> void:
 
 func _on_case_fact_changed(fact_id: StringName, value: bool) -> void:
 	print("[case] %s = %s" % [fact_id, value])
+	if value:
+		_show_hand_photo_for_fact(fact_id)
 
 
 func _on_inspect_action_confirmed(effects: Array) -> void:
@@ -243,6 +273,27 @@ func _on_conversation_effects_applied(changed_facts: Array) -> void:
 	print("[case] conversation effects applied: %s" % [changed_facts])
 
 
+func _show_hand_photo_for_fact(fact_id: StringName) -> void:
+	if fact_id == STAINED_PALMS_FACT:
+		_evidence_panel.open(
+			"Pemberton's hands",
+			STAINED_HANDS_IMAGE,
+			"Stained hands.",
+			true,
+			"Press Space to close"
+		)
+		return
+	if not CLEAN_PALMS_FACTS.has(fact_id):
+		return
+	_evidence_panel.open(
+		str(CLEAN_PALMS_FACTS[fact_id]),
+		CLEAN_HANDS_IMAGE,
+		"Clean hands.",
+		true,
+		"Press Space to close"
+	)
+
+
 func _on_conversation_judge_failed(message: String) -> void:
 	print("[case] conversation effect judge failed: %s" % message)
 
@@ -263,7 +314,7 @@ func _on_accusation_judge_completed(success: bool, message: String) -> void:
 
 
 func _on_accusation_judge_failed(message: String) -> void:
-	_accuse_panel.show_result(false, message)
+	_accuse_panel.show_result(false, message, false)
 
 
 func _get_pressed_tile_direction() -> Vector2i:

@@ -46,8 +46,10 @@ func refresh_tile_visual(world_map: WorldMap, state: CaseState, definition: Reso
 		return
 	var tile_visual := definition.call("resolve_tile_visual", state) as Resource
 	if tile_visual == null:
+		visible = true
 		return
 	world_map.apply_tile_visual(get_tile(world_map) + controlled_tile_offset, tile_visual)
+	visible = not bool(tile_visual.get("erase_tile"))
 	if bool(tile_visual.get("update_blocks_movement")):
 		blocks_movement = bool(tile_visual.get("blocks_movement"))
 
