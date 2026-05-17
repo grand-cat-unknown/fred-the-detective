@@ -202,6 +202,15 @@ func find_interaction_target_at_player() -> Node2D:
 	return find_inspectable_at_player()
 
 
+func has_tile_inspection_at_player() -> bool:
+	if _player == null or _world_map == null:
+		return false
+	for tile in _adjacent_tiles():
+		if not _world_map.get_tile_inspection(tile).is_empty():
+			return true
+	return false
+
+
 func find_inspection_at_player() -> Dictionary:
 	var inspectable := find_inspectable_at_player()
 	if inspectable != null:
@@ -258,7 +267,7 @@ func _update_interaction_prompt() -> void:
 			_interaction_prompt_container.visible = false
 		return
 	var target := find_interaction_target_at_player()
-	if target == null:
+	if target == null and not has_tile_inspection_at_player():
 		if _interaction_prompt_container != null:
 			_interaction_prompt_container.visible = false
 		return
