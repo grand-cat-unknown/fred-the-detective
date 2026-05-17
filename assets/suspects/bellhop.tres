@@ -7,10 +7,6 @@
 [ext_resource type="Script" path="res://scripts/data/suspect_topic_response_state.gd" id="5_topic_state"]
 [ext_resource type="Script" uid="uid://dqx0ob7wf7eix" path="res://scripts/data/conversation_effect.gd" id="6_effect"]
 
-[sub_resource type="Resource" id="GateCondition_leo_has_evidence"]
-script = ExtResource("3_condition")
-all_of = Array[StringName]([&"has_evidence"])
-
 [sub_resource type="Resource" id="GateCondition_leo_palms_shown"]
 script = ExtResource("3_condition")
 none_of = Array[StringName]([&"leo_palms_shown"])
@@ -20,6 +16,10 @@ script = ExtResource("6_effect")
 condition = SubResource("GateCondition_leo_palms_shown")
 fact_id = &"leo_palms_shown"
 description = "Set this only if Fred asks Leo to show his palms AND Leo agrees to show them (the UI then presents the photo of clean hands)."
+
+[sub_resource type="Resource" id="GateCondition_leo_has_evidence"]
+script = ExtResource("3_condition")
+all_of = Array[StringName]([&"has_evidence"])
 
 [sub_resource type="Resource" id="TopicState_leo_water_delivery_evidence"]
 script = ExtResource("5_topic_state")
@@ -138,7 +138,7 @@ states = [SubResource("TopicState_leo_palms_done"), SubResource("TopicState_leo_
 script = ExtResource("1_script")
 id = &"bellhop"
 display_name = "Leo Rossi"
-position = Vector2(976, 240)
+position = Vector2(46, 324)
 color = Color(0.65098, 0.521569, 0.298039, 1)
 hat_color = Color(0.376471, 0.294118, 0.180392, 1)
 texture = ExtResource("2_tex")

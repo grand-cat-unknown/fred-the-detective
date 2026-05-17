@@ -150,7 +150,7 @@ preview_texture = ExtResource("12_c7ath")
 snap_to_map_grid = false
 
 [node name="Inspectable_room_1103_cigarette" parent="." unique_id=100001 instance=ExtResource("9_insp")]
-position = Vector2(2370, -117)
+position = Vector2(2406, -108)
 object_id = &"room_1103_cigarette"
 title = "Lit Cigarette"
 description = "Placeholder — move to Room 1103 in editor."
@@ -159,7 +159,7 @@ draw_marker = false
 snap_to_map_grid = false
 
 [node name="Inspectable_mags_cigarette_pouch" parent="." unique_id=100002 instance=ExtResource("9_insp")]
-position = Vector2(2271, -106)
+position = Vector2(2244, -106)
 object_id = &"mags_cigarette_pouch"
 title = "Cigarette Pouch"
 description = "Placeholder — move to Room 1103 in editor."
@@ -336,7 +336,7 @@ blocks_movement = false
 snap_to_map_grid = false
 
 [node name="Player" parent="." unique_id=1010292065 instance=ExtResource("8_player")]
-position = Vector2(-209, 1675)
+position = Vector2(2218, -19)
 
 [node name="Stairs 1" type="Node2D" parent="." unique_id=388047221]
 position = Vector2(-396, 513)

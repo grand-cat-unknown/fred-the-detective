@@ -15,6 +15,7 @@ condition = SubResource("GateCondition_gloves_taken")
 title = "Discarded Gloves"
 description = "Fred already has the gloves."
 update_tile = true
+layer_name = "Props"
 erase_tile = true
 update_blocks_movement = true
 blocks_movement = false
@@ -37,6 +38,7 @@ action_prompt = "Take the gloves?"
 action_effects = [SubResource("StateEffect_take_gloves")]
 toast = "Stained gloves taken."
 update_tile = true
+layer_name = "Props"
 source_id = 10
 update_blocks_movement = true
 
