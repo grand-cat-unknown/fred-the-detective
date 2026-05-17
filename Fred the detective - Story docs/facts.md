@@ -131,7 +131,7 @@ This thread has no dependencies on the Julian red herring. Julian's post-fold co
 Inspect gear cart inventory list ──► cell missing noticed
         │
         ▼
-Talk to Theo about it ──► Theo confirms cell WAS there at watch start
+Talk to Theo about it ──► Theo says he remembers all cells being present yesterday, but maybe he miscounted
         │
         ▼
 Pick up Iris's abandoned listening device at her west post
@@ -162,7 +162,7 @@ Accuse Otis Pemberton.
 
 | Fact id | Meaning | How it flips | What it unlocks |
 | --- | --- | --- | --- |
-| `theo_cart_cell_missing_noticed` | Fred has inspected the gear cart's inventory list and seen that a Siren Cell is missing. | `InteractableState.effects` (passive) on the gear-cart inventory-list interactable in the Ghostbusters' room. | Theo's "confirm it was there this morning" conversation path. |
+| `theo_cart_cell_missing_noticed` | Fred has inspected the gear cart's inventory list and seen that a Siren Cell is missing. | `InteractableState.effects` (passive) on the gear-cart inventory-list interactable in the Ghostbusters' room. | Theo's "I remember all cells being present yesterday, but maybe I miscounted" conversation path. |
 | `has_listening_device` | Fred picked up Iris's abandoned listening device at her west post. | `InteractableState.action_effects` on the device pickup. | Inventory HUD shows the device; Iris dialogue branch "give it to her" becomes meaningful. |
 | `iris_received_listening_device` | Fred has handed the device over to Iris in conversation. | `ConversationEffect` on Iris, gated `all_of: [has_listening_device]`, `none_of: [iris_received_listening_device]`. | Inventory HUD hides the device (visibility uses `all_of: [has_listening_device], none_of: [iris_received_listening_device]`); Iris promises a transcribed log on the next visit; unlocks her log-handoff conversation path. |
 | `iris_returned_transcribed_log` | Iris has given Fred the transcribed log AND read it aloud (thud + westbound footsteps). | `ConversationEffect` on Iris, gated `all_of: [iris_received_listening_device]`, `none_of: [iris_returned_transcribed_log]`. | Inventory HUD shows the transcribed log; the chute lead is now actionable; Vivian's chute-key handoff becomes available. |
@@ -208,7 +208,7 @@ Add the following `InventoryItemDefinition`s (and register in `CaseLoader.INVENT
 - **`listening_device`** — single state visible when `all_of: [has_listening_device]`, `none_of: [iris_received_listening_device]`. Label: *"Iris's Listening Device"*. Tooltip: *"A slow-spinning reel-to-reel recorder Iris left at her post."*
 - **`transcribed_log`** — single state visible when `all_of: [iris_returned_transcribed_log]`. Label: *"Transcribed Log"*. Tooltip: *"Iris's transcription of the device's recording. A thud at 9:11, then footsteps west — toward the chute."*
 - **`chute_room_key`** — single state visible when `all_of: [vivian_gave_chute_room_key]`. Label: *"Chute-Room Key"*. Tooltip: *"Vivian's staff key to the ground-floor laundry chute room."*
-- **`evidence`** *(existing)* — repurpose the existing `evidence` inventory entry to read as the spent cell with the genuine Anchor Idol inside. Single state visible when `all_of: [has_evidence]`. Label suggestion: *"Recovered Cell & Idol"*. Tooltip: *"A spent Siren Containment Cell with the genuine Anchor Idol stashed inside. Back-pressure valve popped — manual-purge signature."*
+- **`evidence`** *(existing)* — repurpose the existing `evidence` inventory entry to read as the spent cell with the genuine Anchor Idol inside. Single state visible when `all_of: [has_evidence]`. Label suggestion: *"Siren Cell"*. Tooltip: *"A spent Siren Containment Cell with the genuine Anchor Idol stashed inside. Purple residue surrounds the housing, and the back-pressure panel is popped."*
 
 New entries also needed in `CaseLoader.INTERACTABLE_IDS` (gear cart, listening device, chute-room door, chute output cell) and `FACT_IDS` (all of the new facts above, plus the existing `theo_granted_field_book_permission` / `has_field_book` / `has_evidence` already listed).
 
@@ -220,7 +220,7 @@ New entries also needed in `CaseLoader.INTERACTABLE_IDS` (gear cart, listening d
 
 - `PromptBlock_cell_missing_noticed` — `all_of: [theo_cart_cell_missing_noticed]`. Text:
 
-  > REACTION BEAT — Fred has spotted that the gear-cart inventory list shows a charged Siren Cell logged as loaded but not used, and there's no cell to match. If Fred raises this, react with genuine surprise — you didn't notice. Say something like: *"Oh — is it missing? That's weird, because I checked everything this morning and it was all full. I'm sure of it. Well, mostly sure. I'm clumsy, so I don't know."* Be willing to be pinned down: yes, the cell was on the cart at the start of watch.
+  > REACTION BEAT — Fred has spotted that the gear-cart inventory list shows a charged Siren Cell logged as loaded but not used, and there's no cell to match. If Fred raises this, react with genuine surprise — you didn't notice. Say something like: *"Oh — is it missing? That's weird, because yesterday I really remembered all the cells being present. Maybe I just miscounted. I'm clumsy, so I don't know."* Keep it uncertain; your memory is only about yesterday.
 
 - `PromptBlock_idol_recovered` (Theo's copy) — `all_of: [has_evidence]`. Text:
 

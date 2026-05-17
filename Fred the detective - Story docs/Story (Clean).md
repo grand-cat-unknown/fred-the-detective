@@ -42,7 +42,7 @@ This is the canonical timeline (see `Timeline.md` for the minute-by-minute sourc
 - **The Role:** Unwitting smokescreen for Pemberton.
 - **The Personality:** Highly disorganized and anxious. He assumes any missing gear is his own fault — until the morning-vs-evening contradiction snags him.
 - **The Testimony (early):** "I'm a total klutz today. I think I left that cell in the van or packed it wrong. My bags are a mess."
-- **The Testimony (when confronted):** *"That's the weird thing, though. When I packed this morning I was sure I had everything. I'm sorry. I'm clumsy. I must have miscounted."* The morning-confidence-vs-evening-shortfall tells Fred the cell wasn't *lost* by Theo — it was *taken* during the prep window.
+- **The Testimony (when confronted):** *"That's the weird thing, though. Yesterday I really remembered all the cells being present. Maybe I just miscounted. I'm sorry. I'm clumsy."* The yesterday-confidence-vs-evening-shortfall tells Fred the cell wasn't simply *lost* by Theo — it may have been taken during prep.
 
 ### **Dr. Otis Pemberton (The Killer/The Expert)**
 
@@ -110,7 +110,7 @@ A manifested Class-5 entity radiates spectral discharge **omnidirectionally** fr
 - **Floor Geometry (single floor, two wings — see `Room allocation.md` for the canonical map):**
     - One floor. Two parallel rows of guest rooms with an east-west main hallway between them. **11xx row (north side, west → east):** 1101 (Vivian's apartment) — 1102 (Royal Suite) — 1103 (vacant). **12xx row (south side, west → east):** 1201 (Ghostbusters) — 1202 (Ghostbusters) — 1203 (vacant) — 1204 (Julian).
     - **West of the rooms** is the **auction hall** — the floor's central public space. **Stairs** are at the **south-west corner** (the only access to the floor — no elevator). **Laundry chute** is at the **north-west corner**.
-    - A **service corridor** runs along the **north side**, behind the 11xx row, connecting: an access point near **1103** at the east end (Pemberton's plausible entry — 1103 is on his sweep checklist), a concealed door into **1102** (the Royal Suite) in the middle, and the **laundry chute** and auction-hall side at the west end. **The service-corridor entrances are completely hidden — a player can't stumble into them without a clue from Vivian about the building's old bones.**
+    - A **service corridor** runs along the **north side**, behind the 11xx row, connecting: an access point near **1103** at the east end (Pemberton's plausible entry — 1103 is on his sweep checklist), a concealed door into **1102** (the Royal Suite) in the middle, and the **laundry chute** and auction-hall side at the west end. **The service-corridor entrances look like ordinary curtain or wall dressing, but they are always passable.** A curious player can stumble into the corridor without Vivian's clue; Vivian's role is to explain the geography, not unlock it.
     - **Pemberton's sweep claim:** he claims he opened Room **1103** (vacant) and Room **1203** (vacant) on his east-side sweep, found both empty, moved on. He never went into either. **Mags is shut inside 1103 for her entire smoke break** — the door never opened. The lit Lady Finger cigarette she leaves behind is the physical evidence that contradicts him.
     - **Net effect:** Mara truthfully proves nobody used the Royal Suite's front door. Mags's continuous occupancy of 1103 (and the cigarette) proves Pemberton never made the checkpoint he claims. The wrong-direction arrival is the third leg of the case: Pemberton was assigned east but came from the west.
 

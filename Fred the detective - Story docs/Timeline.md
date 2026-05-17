@@ -160,7 +160,7 @@ The cover, the witnesses scattering, and Vivian's decision to call Fred.
 
 Things this timeline doesn't yet pin down. Resolve before code changes.
 
-1. **Cell theft timing — resolved.** Pemberton palms the Siren Cell off Theo's cart during the chaotic 7:00 – 8:30 prep window. **Theo's "tell" when later confronted:** he says something like *"That's the weird thing — when I packed this morning I was sure I had everything. I'm sorry. I'm clumsy. I must have left it in the van."* The morning-confidence-vs-evening-shortfall is the clue.
+1. **Cell theft timing — resolved.** Pemberton palms the Siren Cell off Theo's cart during the chaotic 7:00 – 8:30 prep window. **Theo's "tell" when later confronted:** he says something like *"That's the weird thing — yesterday I really remembered all the cells being present. Maybe I just miscounted. I'm sorry. I'm clumsy."* The yesterday-confidence-vs-evening-shortfall is the clue.
 2. **The Royal Suite suggestion — resolved.** Vivian does remember, but **casually** — not as an obvious clue. If Fred asks who picked the Royal Suite for Vance, she'll say something like *"Otis suggested it, I think? Or maybe it was my idea. He mentioned it after the auction — said the room suited the occasion. Either way."* The casualness is the point: it's a clue Fred has to notice is meaningful, not one Vivian flags for him.
 3. **Vivian's location during 9:00 – 9:14 — resolved.** Front desk on the bottom floor the entire watch window. Leo is there with her. They alibi each other.
 4. **Leo's location after 8:50 — resolved.** Bottom floor, helping Vivian at the front desk. He and Vivian are each other's alibi.
