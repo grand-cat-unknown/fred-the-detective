@@ -17,8 +17,7 @@ action_input = &"open_field_book"
 action_key_hint = "Q"
 action_kind = &"book"
 book_title = "Ghostbusters Field Manual"
-book_pages = Array[String]([
-"[b]GHOSTBUSTERS, INC.[/b]
+book_pages = Array[String](["[b]GHOSTBUSTERS, INC.[/b]
 
 [b]Standard Operating Procedure
 & Equipment Safety Guide[/b]
@@ -39,9 +38,7 @@ The contents of this manual are
 the property of Ghostbusters, Inc.
 and may not be reproduced in whole
 or in part without written consent
-of the firm's senior partners.",
-
-"[b]Contents[/b]
+of the firm's senior partners.", "[b]Contents[/b]
 
 §1  General Field Conduct
 §2  Communications & Hand Signals
@@ -66,9 +63,7 @@ of the firm's senior partners.",
 §10 Reporting & Paperwork
 
 Appendix A — Historical Notes
-Appendix B — Glossary",
-
-"[b]§1 General Field Conduct[/b]
+Appendix B — Glossary", "[b]§1 General Field Conduct[/b]
 
 A Ghostbuster on assignment represents the firm at all times. Conduct yourself with professionalism, calm, and respect for the property of the client. The temptation to \"perform\" — to ham up an investigation for a paying client — is to be resisted. Theatricality undermines our reputation among insurers and skeptics, who remain our most lucrative recurring accounts.
 
@@ -76,9 +71,7 @@ Maintain regulation uniform at all times during a contracted watch: jumpsuit, we
 
 Do not consume alcohol or sedatives within twelve hours of a scheduled engagement. Caffeine is permitted but discouraged before extended watch shifts, as elevated heart rate skews baseline PKE readings collected by operator-worn meters.
 
-Smoking is prohibited on all client premises without exception.",
-
-"[b]§2 Communications & Hand Signals[/b]
+Smoking is prohibited on all client premises without exception.", "[b]§2 Communications & Hand Signals[/b]
 
 Radio chatter must be minimal during a containment watch. Use the team's standard hand signals when within sight of another operator:
 
@@ -92,9 +85,7 @@ Radio chatter must be minimal during a containment watch. Use the team's standar
 
 Verbal callouts during a manifestation should be brief and structured: identifier, location, class estimate. (\"Operator Three, north corridor, Class-3.\")
 
-If communications fail, the team lead defaults to the standing watch plan as filed in the pre-engagement briefing. Operators do not improvise their stations.",
-
-"[b]§3 PKE Meter Operation[/b]
+If communications fail, the team lead defaults to the standing watch plan as filed in the pre-engagement briefing. Operators do not improvise their stations.", "[b]§3 PKE Meter Operation[/b]
 
 The PKE meter measures background psychokinetic energy in microteslas-equivalent (μT-eq). A calm room reads 0.2–0.6 μT-eq. Anything above 2.0 warrants escalation; above 5.0 is treated as active manifestation.
 
@@ -102,9 +93,7 @@ Note that the meter is sensitive to electrical mains, fluorescent ballasts, and 
 
 A discharged Containment Cell reads as inert (≤0.1 μT-eq) until refilled at the proton works. A spent cell is, on a sweep, indistinguishable from an empty one. Do not assume an absence of reading is an absence of incident.
 
-Calibration tags are inside the battery cover. Recalibrate monthly.",
-
-"[b]§4 Containment Cells[/b]
+Calibration tags are inside the battery cover. Recalibrate monthly.", "[b]§4 Containment Cells[/b]
 
 [b]§4.1 Cell Class Overview[/b]
 
@@ -120,9 +109,7 @@ The firm fields four standard containment cell classes, distinguished by capture
 
 Weights (charged): Wisp ~4 lbs, Spectre ~7 lbs, Phantom ~11 lbs, Siren ~15 lbs.
 
-Cells are not interchangeable across grades. Loading a Wisp cell into a Siren harness will fault the harness. Loading a Siren cell into a Wisp harness will rupture it.",
-
-"[b]§4.2 Siren-Class Containment Cells[/b]
+Cells are not interchangeable across grades. Loading a Wisp cell into a Siren harness will fault the harness. Loading a Siren cell into a Wisp harness will rupture it.", "[b]§4.2 Siren-Class Containment Cells[/b]
 
 Pressurized ionized sludge, Violet-Grade. Charged cells weigh approximately 15 lbs and should be carried in the dedicated lower-back slot of the harness, not the side caddy.
 
@@ -132,17 +119,13 @@ Standard discharge is [b]at-distance[/b] against a manifested entity. Effective 
 
 A Manual Purge at contact range is, in practical terms, lethal to anything organic seated against the nozzle — a fact rehearsed in the basement training reels and routinely glossed over in field briefings. The override exists. Nobody is meant to use it.
 
-A discharged cell reads as inert on a PKE sweep until refilled.",
-
-"[b]§4.3 Charge & Storage[/b]
+A discharged cell reads as inert on a PKE sweep until refilled.", "[b]§4.3 Charge & Storage[/b]
 
 Cells are charged at the proton works on a 36-hour cycle. A fully charged cell holds its charge for approximately 90 days under proper storage (humidity below 40%, temperature 50–70 °F). Cells left in vehicle trunks during summer have been known to vent overnight.
 
 Every cell is stamped with a serial number on the base ring and a charge date on the collar. The serial number is also etched into the manual override lever housing (§7.2), so a recovered cell can be matched to its dispatch manifest even if the base ring is scorched.
 
-Cells are signed out from the gear cart by the team's tech operator and signed back in within twenty-four hours of return to base. Discrepancies in the cart manifest are reported immediately, not \"reconciled later.\" A missing cell is a regulatory event, not a clerical inconvenience.",
-
-"[b]§5 Discharge Phenomena[/b]
+Cells are signed out from the gear cart by the team's tech operator and signed back in within twenty-four hours of return to base. Discrepancies in the cart manifest are reported immediately, not \"reconciled later.\" A missing cell is a regulatory event, not a clerical inconvenience.", "[b]§5 Discharge Phenomena[/b]
 
 [b]§5.1 Aerosol Effects[/b]
 
@@ -152,9 +135,7 @@ At a standard at-distance discharge, the aerosol disperses outward from the nozz
 
 Under the elevated pressure of a [b]Manual Purge[/b] (§4.2), aerosol behavior changes dramatically. The capture medium is forced through the cell nozzle at pressures sufficient to drive sub-micron droplets [b]through woven materials[/b], including the standard-issue ghost-capture glove. The operator's hands — particularly the palms and the cuticle beds — absorb the worst of this exposure.
 
-This is referred to as the Aerosol Effect and is the principal occupational hazard of the Manual Purge.",
-
-"[b]§5.2 Cleanup Procedures[/b]
+This is referred to as the Aerosol Effect and is the principal occupational hazard of the Manual Purge.", "[b]§5.2 Cleanup Procedures[/b]
 
 After a routine at-distance discharge, the affected room is ventilated for thirty minutes before cleanup. Use the firm's standard neutralizer on all soft surfaces; hard surfaces accept warm soapy water. Carpets may require two passes. Do not bill the client for cleanup time in excess of two hours without manager approval.
 
@@ -164,9 +145,7 @@ Discarded cleanup rags are non-hazardous and may be laundered with the regulatio
 
 [i]Surface Residue.[/i] The film deposited by a discharge — on walls, floors, ceilings — is water-soluble, removable with standard soap or alcohol wipes, and is [b]not diagnostic of source[/b]. A real ghost discharge and a Manual Purge leave roughly similar surface films. Residue tells you a discharge occurred. It does not tell you which kind.
 
-For the diagnostic distinction, see §5.4 and §8.2.",
-
-"[b]§5.3 Purge Pigment (cont.)[/b]
+For the diagnostic distinction, see §5.4 and §8.2.", "[b]§5.3 Purge Pigment (cont.)[/b]
 
 Distinct from Surface Residue, every Siren cell suspends a chemical tracer in its capture medium. The tracer is inert and harmless in storage and during a standard at-distance discharge.
 
@@ -176,9 +155,7 @@ The tracer is [b]resistant to soap, solvent, and ordinary skin scrubs[/b]. It re
 
 In other words: an operator who has performed a Manual Purge will be visibly stained on the palms for two to three days, regardless of whether gloves were worn. The pigment is not a health hazard. It is, in regulatory terms, a forensic signature.
 
-This is the reason §4.2 emphasizes that nobody is meant to use the Manual Purge.",
-
-"[b]§5.4 The Back-Pressure Valve[/b]
+This is the reason §4.2 emphasizes that nobody is meant to use the Manual Purge.", "[b]§5.4 The Back-Pressure Valve[/b]
 
 All Siren-grade cells include a back-pressure safety valve seated above the nozzle. The valve vents excess pressure during normal discharge and during off-axis \"air-firing\" (e.g. an operator startled into a stray pull). In these cases the valve remains intact and seated.
 
@@ -188,9 +165,7 @@ In practice: a popped back-pressure valve on a recovered Siren cell is proof tha
 
 A popped valve cannot be reseated in the field. The cell must be returned to the proton works.
 
-(A small minority of pre-2019 cells have a documented false-positive history — see Service Bulletin SB-19-04. Most cells in current service are post-bulletin.)",
-
-"[b]§6 Trap Maintenance[/b]
+(A small minority of pre-2019 cells have a documented false-positive history — see Service Bulletin SB-19-04. Most cells in current service are post-bulletin.)", "[b]§6 Trap Maintenance[/b]
 
 The standard mobile trap requires inspection at the start of every shift. The hinge mechanism is the most common point of failure; field operators are reminded that a trap which closes slowly is a trap that has missed an entity.
 
@@ -200,9 +175,7 @@ The pedal cable should be replaced every 200 deployments or annually, whichever 
 
 The trap's internal capacitor must be discharged before any servicing. Discharge tools are kept in the proton works.
 
-Civilians are not permitted to handle a trap, charged or empty, including for photographs. This includes minor children of clients. Do not relent.",
-
-"[b]§7 Overrides & Failsafes[/b]
+Civilians are not permitted to handle a trap, charged or empty, including for photographs. This includes minor children of clients. Do not relent.", "[b]§7 Overrides & Failsafes[/b]
 
 [b]§7.1 Lockout Procedures[/b]
 
@@ -213,9 +186,7 @@ A locked-out cell will not discharge by any means until the lockout is cleared. 
 
 A locked-out cell with a flipped manual override lever (§7.2) is mechanically possible but indicates either tampering or a serious failure of pre-engagement protocol. Report immediately.
 
-Lockouts are recorded in the daily cart manifest with the time of engagement and the engaging operator's initials. Do not leave unlocked cells unattended on the cart at any point during prep.",
-
-"[b]§7.2 Manual Override Lever[/b]
+Lockouts are recorded in the daily cart manifest with the time of engagement and the engaging operator's initials. Do not leave unlocked cells unattended on the cart at any point during prep.", "[b]§7.2 Manual Override Lever[/b]
 
 The Manual Override lever is a small metal flag seated against the cell's side housing, hidden under a hinged dust guard. Flipping the lever arms the Manual Purge (§4.2).
 
@@ -223,9 +194,7 @@ The lever is intentionally awkward to flip. It requires a deliberate two-stage [
 
 In thirty years of recorded field incidents, no flipped lever has ever been the result of an accidental drop, a poltergeist event, or a high-Gauss spectral field. The firm has tested. It does not happen.
 
-A flipped lever on a recovered cell is, without exception, evidence of a [b]deliberate human action[/b].",
-
-"[b]§8 Spectral Trauma Reference[/b]
+A flipped lever on a recovered cell is, without exception, evidence of a [b]deliberate human action[/b].", "[b]§8 Spectral Trauma Reference[/b]
 
 [i]Specialist appendix.[/i] Field hunters are trained to contain entities. Identifying contact trauma on a body is the responsibility of the team's medical and occult specialist. The following is included for completeness; it is not a substitute for specialist judgment in the field.
 
@@ -233,9 +202,7 @@ A flipped lever on a recovered cell is, without exception, evidence of a [b]deli
 
 Direct contact between a Class-3 or higher entity and unprotected human surface produces what the literature calls a \"spectral burn.\" The defining visual signature is a [b]jagged, branching frost pattern[/b] — fractal, irregular, never symmetrical. The branching is a function of how the entity's field couples to the body's bioelectric grid; it cannot help looking like lightning.
 
-A precise, circular wound is [b]not[/b] consistent with any documented ghost-touch in the firm's records. Specialists in the field rarely have the lab time to make this distinction publicly; the call is usually taken at face value.",
-
-"[b]§8.2 Spectral Discharge & Ectoplasm Spread[/b]
+A precise, circular wound is [b]not[/b] consistent with any documented ghost-touch in the firm's records. Specialists in the field rarely have the lab time to make this distinction publicly; the call is usually taken at face value.", "[b]§8.2 Spectral Discharge & Ectoplasm Spread[/b]
 
 A fully manifested Class-5 entity radiates spectral discharge [b]omnidirectionally[/b] from its manifestation point. Ectoplasm coats walls, ceiling, and floor in a roughly uniform 360° spread — the room reads as \"drenched from inside\" rather than \"sprayed from a corner.\"
 
@@ -243,9 +210,7 @@ Directional patterns — a \"fan\" or a \"spray\" concentrated on a single surfa
 
 In short: if a room contains an ectoplasmic event but only one wall is coated and the rest is clean, you are not looking at the work of a ghost. You are looking at a focused discharge with something — or someone — between the nozzle and the wall.
 
-A real Class-5 spreads. A purge sprays.",
-
-"[b]§9 Class Ratings (Tobin Scale)[/b]
+A real Class-5 spreads. A purge sprays.", "[b]§9 Class Ratings (Tobin Scale)[/b]
 
   [b]Class 1[/b] — Trace presence. Cold spots, faint EVP, no visible mass. Often imagined.
   [b]Class 2[/b] — Localized phenomena. Object movement, audible footsteps, minor cold. Wisp / Spectre containment.
@@ -255,9 +220,7 @@ A real Class-5 spreads. A purge sprays.",
 
 Class-5 events are exceedingly rare — fewer than two confirmed manifestations per year across the firm's recorded engagements. An operator reporting a \"Class-5\" should expect the report to be reviewed by the team's medical / occult specialist before it is filed.
 
-[b]Class 6 and above[/b] are theoretical and not addressed in this manual.",
-
-"[b]§10 Reporting & Paperwork[/b]
+[b]Class 6 and above[/b] are theoretical and not addressed in this manual.", "[b]§10 Reporting & Paperwork[/b]
 
 Every engagement produces, at minimum:
 
@@ -272,9 +235,7 @@ Reports are filed within twenty-four hours of return to base. Late reports are f
 
 A missing cell from a cart manifest is filed as a [b]Form 14[/b] within twelve hours. A Form 14 is not optional. It does not matter how certain the tech operator is that the cell will turn up tomorrow.
 
-If a Form 14 is filed and the cell is later recovered, an addendum closes the form. The original filing remains in the record.",
-
-"[b]Appendix A — Historical Notes[/b]
+If a Form 14 is filed and the cell is later recovered, an addendum closes the form. The original filing remains in the record.", "[b]Appendix A — Historical Notes[/b]
 
 The firm was incorporated in 1984 by Drs. Spengler, Stantz, Venkman, and Zeddemore as a private spectral containment service operating out of the disused Hook & Ladder 8 firehouse in lower Manhattan.
 
@@ -284,9 +245,7 @@ The Manual Purge override was added to the Siren design in 1993, over the object
 
 The Purge Pigment tracer was introduced in 1996 as a federal regulatory requirement following an unrelated incident in Albany. Operators occasionally complain about it. The firm's legal counsel does not.
 
-This is the seventh edition of the manual since 2010. Errata are posted on the proton works bulletin board.",
-
-"[b]Appendix B — Glossary[/b]
+This is the seventh edition of the manual since 2010. Errata are posted on the proton works bulletin board.", "[b]Appendix B — Glossary[/b]
 
   [b]Aerosol Effect[/b] — Sub-dermal transfer of capture medium through standard gloves under Manual Purge pressure. §5.1.
 
@@ -304,9 +263,7 @@ This is the seventh edition of the manual since 2010. Errata are posted on the p
 
   [b]Tobin Scale[/b] — Entity class rating, 1–5. §9.
 
-  [b]Watch[/b] — Contracted containment vigil for a client artifact.",
-
-"[b]Personal Notes — T. Griggs[/b]
+  [b]Watch[/b] — Contracted containment vigil for a client artifact.", "[b]Personal Notes — T. Griggs[/b]
 
 [i](scrawled in pencil on the inside back cover)[/i]
 
@@ -318,8 +275,7 @@ This is the seventh edition of the manual since 2010. Errata are posted on the p
 — remember to refill the graphite lube before the next charge cycle
 — Mara likes the orange-almond cake place on 9th
 — the side caddy is for the spare PKE meter, NOT for cells, stop putting cells in the side caddy
-— breathe. you are doing fine. nobody died. (yet.)"
-])
+— breathe. you are doing fine. nobody died. (yet.)"])
 
 [resource]
 script = ExtResource("1_definition")
