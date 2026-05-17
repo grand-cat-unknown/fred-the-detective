@@ -150,7 +150,7 @@ func _start_reply(suspect: SuspectData, latest_player_message: String, topic_ids
 
 func _build_instructions(suspect: SuspectData, topic_ids: Array[StringName] = []) -> String:
 	var parts: Array[String] = []
-	parts.append("You are roleplaying a character in the detective game 'Fred the Detective'. The player is Detective Fred, who is interviewing you about the murder of Felix Vance at The Grandview Hotel.")
+	parts.append("You are roleplaying a character in the detective game 'Fred the Detective'. The player is Detective Fred, who is interviewing you about the murder of Felix Vance at The Sedgewick Hotel.")
 	if suspect.subtitle != "":
 		parts.append("Role: %s" % suspect.subtitle)
 	if suspect.persona != "":
