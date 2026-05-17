@@ -42,6 +42,7 @@ layer = 10
 script = ExtResource("1_book")
 
 [node name="Root" type="Control" parent="."]
+visible = false
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -58,17 +59,10 @@ mouse_filter = 2
 
 [node name="Book" type="PanelContainer" parent="Root"]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
-anchor_top = 0.5
-anchor_right = 0.5
-anchor_bottom = 0.5
-offset_left = -460.0
-offset_top = -258.0
-offset_right = 460.0
-offset_bottom = 258.0
-grow_horizontal = 2
-grow_vertical = 2
+anchor_left = 0.05
+anchor_top = 0.05
+anchor_right = 0.95
+anchor_bottom = 0.95
 theme_override_styles/panel = SubResource("StyleBoxFlat_book_panel")
 
 [node name="Margin" type="MarginContainer" parent="Root/Book"]
@@ -85,7 +79,7 @@ theme_override_constants/separation = 6
 [node name="Title" type="Label" parent="Root/Book/Margin/VBox"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.28, 0.16, 0.06, 1.0)
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 14
 text = "Field Book"
 horizontal_alignment = 1
 
@@ -103,42 +97,71 @@ layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(0.22, 0.14, 0.06, 1.0)
-theme_override_font_sizes/normal_font_size = 13
-theme_override_font_sizes/bold_font_size = 13
+theme_override_font_sizes/normal_font_size = 11
+theme_override_font_sizes/bold_font_size = 11
 theme_override_constants/line_separation = 2
 theme_override_constants/paragraph_separation = 4
 theme_override_styles/normal = SubResource("StyleBoxFlat_book_page")
 bbcode_enabled = true
 fit_content = false
-scroll_active = true
+scroll_active = false
+clip_contents = true
 
 [node name="RightPage" type="RichTextLabel" parent="Root/Book/Margin/VBox/Pages"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme_override_colors/default_color = Color(0.22, 0.14, 0.06, 1.0)
-theme_override_font_sizes/normal_font_size = 13
-theme_override_font_sizes/bold_font_size = 13
+theme_override_font_sizes/normal_font_size = 11
+theme_override_font_sizes/bold_font_size = 11
 theme_override_constants/line_separation = 2
 theme_override_constants/paragraph_separation = 4
 theme_override_styles/normal = SubResource("StyleBoxFlat_book_page")
 bbcode_enabled = true
 fit_content = false
-scroll_active = true
+scroll_active = false
+clip_contents = true
 
 [node name="Footer" type="HBoxContainer" parent="Root/Book/Margin/VBox"]
 layout_mode = 2
+theme_override_constants/separation = 12
+
+[node name="PrevButton" type="Button" parent="Root/Book/Margin/VBox/Footer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.28, 0.16, 0.06, 1.0)
+theme_override_font_sizes/font_size = 11
+text = "  Prev  "
 
 [node name="PageInfo" type="Label" parent="Root/Book/Margin/VBox/Footer"]
 layout_mode = 2
 size_flags_horizontal = 3
 theme_override_colors/font_color = Color(0.36, 0.22, 0.1, 1.0)
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 10
 text = ""
+horizontal_alignment = 1
 
-[node name="Hint" type="Label" parent="Root/Book/Margin/VBox/Footer"]
+[node name="NextButton" type="Button" parent="Root/Book/Margin/VBox/Footer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0.28, 0.16, 0.06, 1.0)
+theme_override_font_sizes/font_size = 11
+text = "  Next  "
+
+[node name="Hint" type="Label" parent="Root/Book/Margin/VBox"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0.36, 0.22, 0.1, 1.0)
-theme_override_font_sizes/font_size = 12
+theme_override_font_sizes/font_size = 11
 text = "Esc to close"
-horizontal_alignment = 2
+horizontal_alignment = 1
+
+[node name="Measurer" type="RichTextLabel" parent="Root"]
+visible = false
+layout_mode = 0
+offset_right = 100.0
+offset_bottom = 100.0
+theme_override_font_sizes/normal_font_size = 11
+theme_override_font_sizes/bold_font_size = 11
+theme_override_constants/line_separation = 2
+theme_override_constants/paragraph_separation = 4
+bbcode_enabled = true
+fit_content = true
+scroll_active = false

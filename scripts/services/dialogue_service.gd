@@ -64,7 +64,7 @@ func submit(message: String) -> bool:
 	if trimmed.is_empty() or _llm.is_busy():
 		return false
 	_append(_active_suspect.id, DETECTIVE_LABEL, trimmed)
-	var err := _llm.send(_build_instructions(_active_suspect), _build_messages(_active_suspect))
+	var err := _llm.send(_build_instructions(_active_suspect, trimmed), _build_messages(_active_suspect))
 	if err != OK:
 		error_received.emit("Could not reach the LLM (%s)." % err)
 		return false
@@ -103,7 +103,7 @@ func _update_last_line(suspect_id: StringName, text: String) -> void:
 	_history[suspect_id] = lines
 
 
-func _build_instructions(suspect: SuspectData) -> String:
+func _build_instructions(suspect: SuspectData, latest_player_message: String = "") -> String:
 	var parts: Array[String] = []
 	parts.append("You are roleplaying a character in the detective game 'Fred the Detective'. The player is Detective Fred, who is interviewing you about the murder of Felix Vance at The Grandview Hotel.")
 	if suspect.subtitle != "":
@@ -119,6 +119,11 @@ func _build_instructions(suspect: SuspectData) -> String:
 		parts.append("Current reactive interview beats. Apply these only when Fred's latest question or evidence makes them relevant; use them to change tone, evasiveness, or what the character will now admit.")
 		for block in reaction_blocks:
 			parts.append(block.text)
+	var topic_instructions := suspect.active_topic_response_instructions(_state, latest_player_message)
+	if not topic_instructions.is_empty():
+		parts.append("Current topic-specific response state. Fred's latest question matches these topic gates; follow the matching state exactly and do not jump to later facts.")
+		for instruction in topic_instructions:
+			parts.append(instruction)
 	parts.append("Reply as the character only. Do not narrate actions in brackets. Do not include your name as a prefix. Keep replies under 80 words.")
 	return "\n\n".join(parts)
 

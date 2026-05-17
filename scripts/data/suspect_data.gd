@@ -20,6 +20,7 @@ extends Resource
 @export_multiline var system_prompt: String = ""
 @export var prompt_blocks: Array = []
 @export var reaction_blocks: Array = []
+@export var topic_responses: Array = []
 @export var allowed_effects: Array = []
 
 
@@ -55,12 +56,56 @@ func available_reaction_blocks(state: CaseState) -> Array[PromptBlock]:
 	return blocks
 
 
+func active_topic_response_states(state: CaseState, latest_player_message: String) -> Array[SuspectTopicResponseState]:
+	var responses: Array[SuspectTopicResponseState] = []
+	for response in topic_responses:
+		if not response is SuspectTopicResponse:
+			continue
+		var topic_response := response as SuspectTopicResponse
+		if not topic_response.matches_message(latest_player_message):
+			continue
+		var active_state := topic_response.active_state(state)
+		if active_state != null:
+			responses.append(active_state)
+	return responses
+
+
+func active_topic_response_instructions(state: CaseState, latest_player_message: String) -> Array[String]:
+	var instructions: Array[String] = []
+	for response in topic_responses:
+		if not response is SuspectTopicResponse:
+			continue
+		var topic_response := response as SuspectTopicResponse
+		if not topic_response.matches_message(latest_player_message):
+			continue
+		var instruction := topic_response.active_instruction(state).strip_edges()
+		if instruction != "":
+			instructions.append(instruction)
+	return instructions
+
+
 func available_conversation_effects(state: CaseState) -> Array[ConversationEffect]:
 	var effects: Array[ConversationEffect] = []
 	for effect in allowed_effects:
 		if effect is ConversationEffect and effect.is_available(state):
 			effects.append(effect as ConversationEffect)
 	return effects
+
+
+func available_conversation_effects_for_message(state: CaseState, latest_player_message: String) -> Array[ConversationEffect]:
+	var available_effects := available_conversation_effects(state)
+	var allowed_by_topic: Array[StringName] = []
+	for topic_state in active_topic_response_states(state, latest_player_message):
+		if topic_state.effect_allowed != &"" and not allowed_by_topic.has(topic_state.effect_allowed):
+			allowed_by_topic.append(topic_state.effect_allowed)
+	if allowed_by_topic.is_empty():
+		return available_effects
+
+	var filtered: Array[ConversationEffect] = []
+	for effect in available_effects:
+		if allowed_by_topic.has(effect.fact_id):
+			filtered.append(effect)
+	return filtered
 
 
 func character_sheet_text() -> String:

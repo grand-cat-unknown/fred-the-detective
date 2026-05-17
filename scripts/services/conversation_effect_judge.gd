@@ -49,7 +49,10 @@ func _start_job(job: Dictionary) -> void:
 		_start_next_queued_job()
 		return
 
-	var available_effects := suspect.available_conversation_effects(_state)
+	var available_effects := suspect.available_conversation_effects_for_message(
+		_state,
+		str(job.get("latest_player_message", ""))
+	)
 	if available_effects.is_empty():
 		_start_next_queued_job()
 		return
