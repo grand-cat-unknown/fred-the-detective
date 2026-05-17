@@ -13,7 +13,7 @@ all_of = Array[StringName]([&"has_stained_gloves"])
 script = ExtResource("3_state")
 condition = SubResource("GateCondition_has_gloves")
 label = "Stained Gloves"
-description = "Discarded work gloves from the service-corridor trash bin. Violet stain soaked through the palms and fingers."
+description = "Discarded work gloves from the service corridor. Violet stain soaked through the palms and fingers."
 action_input = &"open_stained_gloves"
 action_key_hint = "Y"
 action_kind = &"evidence"
@@ -21,7 +21,7 @@ evidence_title = "Stained Gloves"
 evidence_image = ExtResource("4_image")
 evidence_description = "[b]Stained Gloves[/b]
 
-[i]Template description — replace with details about the violet-stained gloves.[/i]"
+[i]A discarded pair of work gloves with violet staining soaked through the palms and fingers.[/i]"
 
 [resource]
 script = ExtResource("1_definition")

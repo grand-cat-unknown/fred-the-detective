@@ -171,7 +171,7 @@ none_of = Array[StringName]([&"pemberton_palms_shown"])
 [sub_resource type="Resource" id="TopicState_otis_gloves_found"]
 script = ExtResource("6_topic_state")
 condition = SubResource("GateCondition_otis_stained_gloves_no_palms")
-response_instruction = "Fred has found stained gloves but has not exposed your palms. Become elusive and avoidant. Ask whose gloves he thinks they are. If he suggests yours, allow that maybe they could have been yours from cleaning Theo's mess, but you do not know. If he presses that they were found in the service trash/cart area, say you do not know how they got there and maybe they were planted."
+response_instruction = "Fred has found stained gloves but has not exposed your palms. Become elusive and avoidant. Ask whose gloves he thinks they are. If he suggests yours, allow that maybe they could have been yours from cleaning Theo's mess, but you do not know. If he presses that they were found in the service corridor, say you do not know how they got there and maybe they were planted."
 
 [sub_resource type="Resource" id="TopicState_otis_gloves_default"]
 script = ExtResource("6_topic_state")
@@ -181,7 +181,7 @@ response_instruction = "Fred asks about gloves or contamination before the stain
 script = ExtResource("5_topic")
 topic_id = &"otis_stained_gloves"
 topic_label = "Stained Gloves"
-topic_description = "Fred is pressing Otis about gloves, stained gloves, discarded gloves, contamination, chemical residue, Ghostbuster protective gear, or gloves found near staff/service areas."
+topic_description = "Fred is pressing Otis about gloves, stained gloves, discarded gloves, contamination, chemical residue, Ghostbuster protective gear, or gloves found near service areas."
 states = [SubResource("TopicState_otis_gloves_palms_done"), SubResource("TopicState_otis_gloves_found"), SubResource("TopicState_otis_gloves_default")]
 
 [sub_resource type="Resource" id="TopicState_otis_maid_1103_palms_done"]

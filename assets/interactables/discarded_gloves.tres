@@ -12,7 +12,7 @@ all_of = Array[StringName]([&"has_stained_gloves"])
 [sub_resource type="Resource" id="InteractableState_gloves_taken"]
 script = ExtResource("4_state")
 condition = SubResource("GateCondition_gloves_taken")
-title = "Empty Bin"
+title = "Discarded Gloves"
 description = "Fred already has the gloves."
 update_tile = true
 erase_tile = true
@@ -30,8 +30,8 @@ none_of = Array[StringName]([&"has_stained_gloves"])
 [sub_resource type="Resource" id="InteractableState_gloves_default"]
 script = ExtResource("4_state")
 condition = SubResource("GateCondition_gloves_default")
-title = "Trash Bin"
-description = "A staff trash bin. Inside: a discarded pair of work gloves, violet staining soaked through the palms and fingers — the same colour the field book describes. Tucked under fresher rubbish."
+title = "Discarded Gloves"
+description = "A discarded pair of work gloves lies near the service corridor. Violet staining has soaked through the palms and fingers, the same colour the field book describes."
 action_label = "Yes"
 action_prompt = "Take the gloves?"
 action_effects = [SubResource("StateEffect_take_gloves")]
@@ -42,5 +42,5 @@ update_blocks_movement = true
 
 [resource]
 script = ExtResource("1_definition")
-object_id = &"stained_gloves_bin"
+object_id = &"discarded_gloves"
 states = [SubResource("InteractableState_gloves_taken"), SubResource("InteractableState_gloves_default")]

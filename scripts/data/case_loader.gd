@@ -37,7 +37,7 @@ const INTERACTABLE_IDS := [
 	&"iris_listening_device",
 	&"chute_room_door",
 	&"chute_output_cell",
-	&"stained_gloves_bin",
+	&"discarded_gloves",
 ]
 const INVENTORY_IDS := [
 	&"theo_field_book",

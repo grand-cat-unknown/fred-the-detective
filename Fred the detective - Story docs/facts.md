@@ -345,7 +345,7 @@ Path B: Player returns to Vivian with has_evidence ──► Vivian says aloud:
          check the service hallway."
                      │
                      ▼
-        Player explores the corridor, finds the trash bin in the west end,
+        Player explores the corridor, finds the discarded gloves in the west end,
         picks up the violet-stained gloves
                      │
                      ▼              ──► has_stained_gloves
@@ -357,24 +357,24 @@ Path B: Player returns to Vivian with has_evidence ──► Vivian says aloud:
 
 | Fact id | Meaning | How it flips | What it unlocks |
 | --- | --- | --- | --- |
-| `has_stained_gloves` | Fred has picked up the discarded pair of violet-stained work gloves from the trash bin in the west end of the service corridor. | `InteractableState.action_effects` on the trash-bin pickup. | Inventory HUD shows the gloves; gives the judge and dialogue an extra corridor-route support fact. |
+| `has_stained_gloves` | Fred has picked up the discarded pair of violet-stained work gloves from the west end of the service corridor. | `InteractableState.action_effects` on the discarded-gloves pickup. | Inventory HUD shows the gloves; gives the judge and dialogue an extra corridor-route support fact. |
 
 ### Interactables
 
 **Curtains and the concealed 1102 access** — pure environmental tiles, **not interactables**. Placed in the TileMap as decorative geometry: the curtains look impassable but never block movement; the concealed door into 1102 from the corridor is a tile feature the player notices by walking past it (or by walking through it from the 1102 side). No inspectable, no fact, no resource.
 
-**`stained_gloves_bin`** — placed at the west end of the corridor, near the chute access. Pickup.
+**`discarded_gloves`** — placed at the west end of the corridor, near the chute access. Pickup.
 
-- State A (default, `none_of: [has_stained_gloves]`): *"A staff trash bin. Inside: a discarded pair of work gloves, violet staining soaked through the palms and fingers — the same colour the field book describes. Tucked under fresher rubbish."* → `action_label: "Take the gloves"`, `action_effects: [has_stained_gloves = true]`, `erase_tile = true`.
+- State A (default, `none_of: [has_stained_gloves]`): *"A discarded pair of work gloves lies near the service corridor. Violet staining has soaked through the palms and fingers, the same colour the field book describes."* → `action_label: "Take the gloves"`, `action_effects: [has_stained_gloves = true]`, `erase_tile = true`.
 - State B (`all_of: [has_stained_gloves]`): tile suppressed.
 
 ### Inventory
 
 Add the following `InventoryItemDefinition`s (and register in `CaseLoader.INVENTORY_IDS`):
 
-- **`stained_gloves`** — single state visible when `all_of: [has_stained_gloves]`. Label: *"Stained Work Gloves"*. Tooltip: *"A discarded pair of work gloves from the service-corridor trash bin. Violet stain soaked through the palms and fingers — consistent with a manual purge."*
+- **`stained_gloves`** — single state visible when `all_of: [has_stained_gloves]`. Label: *"Stained Work Gloves"*. Tooltip: *"A discarded pair of work gloves from the service corridor. Violet stain soaked through the palms and fingers — consistent with a manual purge."*
 
-New entry also needed in `CaseLoader.INTERACTABLE_IDS` (stained-gloves bin) and `FACT_IDS` (`has_stained_gloves`). Curtains and the concealed 1102 access are not interactables, so no registration needed.
+New entry also needed in `CaseLoader.INTERACTABLE_IDS` (`discarded_gloves`) and `FACT_IDS` (`has_stained_gloves`). Curtains and the concealed 1102 access are not interactables, so no registration needed.
 
 ### Suspect wiring
 
@@ -403,4 +403,4 @@ No `allowed_effects` are needed for this beat — Vivian saying the line out lou
 
 ### Open / TBD
 
-- None on this thread. Tile placement for the curtains, concealed door, and stained-gloves trash can will get pinned when we lay out `world.tscn`.
+- None on this thread. Tile placement for the curtains, concealed door, and discarded gloves will get pinned when we lay out `world.tscn`.
