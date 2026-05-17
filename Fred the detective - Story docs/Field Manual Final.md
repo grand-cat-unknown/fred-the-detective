@@ -51,9 +51,8 @@ The contents of this manual are the property of Ghostbusters, Inc. and may not b
    §8.3 Authorization & Reporting
 §9  Trap Maintenance
 §10 Spectral Trauma & Discharge
-   §10.1 Ghost-Touch Marks
-   §10.2 Class Attribute Cards
-   §10.3 Ectoplasm Spread Geometry
+   §10.1 Class Attribute Cards
+   §10.2 Ectoplasm Spread Geometry
 §11 Tobin Scale at a Glance
 §12 Operator Health & First Aid
 §13 Reporting & Paperwork
@@ -427,17 +426,7 @@ Civilians are not permitted to handle a trap, charged or empty, including for ph
 
 ---
 
-## Page 33 — §10.1 Ghost-Touch Marks
-
-Direct contact between a Class-3 or higher entity and unprotected human surface produces what the literature calls a "spectral burn." The defining visual signature is a **jagged, branching frost pattern** — fractal, irregular, never symmetrical. The branching is a function of how the entity's field couples to the body's bioelectric grid; it cannot help looking like lightning.
-
-The branching is the signature. Field reports across thirty years of engagement records describe the same pattern at every contact event the firm has logged, irrespective of class or subtype.
-
-Specialists in the field rarely have the lab time to render a full forensic finding publicly; the call is usually taken at face value. Operators in the field are not expected to make that determination themselves. They are expected to note what they saw and let the specialist's report do the work.
-
----
-
-## Page 34 — §10.2 Class Attribute Cards
+## Page 33 — §10.1 Class Attribute Cards
 
 **CLASS 1 — Trace.**
 1. Discharge color: barely visible, often colorless.
@@ -461,7 +450,7 @@ Specialists in the field rarely have the lab time to render a full forensic find
 
 ---
 
-## Page 35 — §10.2 (cont.)
+## Page 34 — §10.1 (cont.)
 
 **CLASS 3 — Partial Manifestation.**
 1. Discharge color: visible green or red depending on subtype.
@@ -485,7 +474,7 @@ Specialists in the field rarely have the lab time to render a full forensic find
 
 ---
 
-## Page 36 — §10.2 (cont.)
+## Page 35 — §10.1 (cont.)
 
 **CLASS 5 — Hostile Full Manifestation.**
 1. Discharge color: violet, dense, persistent.
@@ -501,7 +490,7 @@ Class-5 events are exceedingly rare — fewer than two confirmed manifestations 
 
 ---
 
-## Page 37 — §10.3 Ectoplasm Spread Geometry
+## Page 36 — §10.2 Ectoplasm Spread Geometry
 
 A useful diagnostic, summarized:
 
