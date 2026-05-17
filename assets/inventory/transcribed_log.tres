@@ -13,6 +13,17 @@ script = ExtResource("3_state")
 condition = SubResource("GateCondition_has_log")
 label = "Transcribed Log"
 description = "Iris's transcription of the device recording. A 9:11 chute-side event, then footsteps west — toward the chute."
+action_input = &"open_transcribed_log"
+action_key_hint = "U"
+action_kind = &"book"
+book_title = "Transcribed Log"
+book_pages = Array[String](["[b]Transcribed Log[/b]
+
+[i]Iris's transcription of the device recording.[/i]
+
+  • 9:11 PM — [b]loud thud[/b], chute-side.
+  • 9:13 PM — footsteps, heading west toward the chute.
+"])
 
 [resource]
 script = ExtResource("1_definition")
