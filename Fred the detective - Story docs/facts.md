@@ -1,6 +1,9 @@
+<!-- markdownlint-disable MD024 -->
 # Facts Spec
 
 Living spec for the fact-driven gating that ties story beats to game elements. See `AGENTS.md` → "Gating Model" for the underlying primitives (`GateCondition`, `InteractableState`, `ConversationEffect`, `PromptBlock`, inventory `states`).
+
+> Note: each thread reuses the same H3 subheadings (Chain / Fact set / Interactables / Inventory / Suspect wiring / Accusation implications / Open / TBD), so `MD024/no-duplicate-heading` is disabled at the file level above.
 
 Each thread below lists:
 
@@ -144,12 +147,12 @@ Ask Vivian for the ground-floor chute-room key ──► Vivian hands over the k
         │
         ▼
 Open the chute-room door ──► enter, find the spent Siren Cell with the real Crooked Idol stashed inside
+        │   (single pickup → `has_evidence`)
+        ▼
+Show the evidence to a Ghostbuster (Mara / Theo / Iris) ──► they authenticate it; one of the team did this
         │
         ▼
-Show the idol to a Ghostbuster (Mara / Theo / Iris) ──► they authenticate it; one of the team did this
-        │
-        ▼
-(Pre-req earlier: get Theo's field book) ──► read the field book ──► manual-purge method → palms stained violet
+(Pre-req earlier: ask Theo, then take his field book) ──► field book in inventory contains the manual-purge / violet-palm passage
         │
         ▼
 Ask each Ghostbuster to show their palms ──► Mara / Theo / Iris show clean; Otis Pemberton shows violet stain
@@ -169,16 +172,14 @@ Accuse Otis Pemberton.
 | `iris_returned_transcribed_log` | Iris has given Fred the transcribed log AND read it aloud (thud + westbound footsteps). | `ConversationEffect` on Iris, gated `all_of: [iris_received_listening_device]`, `none_of: [iris_returned_transcribed_log]`. | Inventory HUD shows the transcribed log; the chute lead is now actionable; Vivian's chute-key handoff becomes available. |
 | `vivian_gave_chute_room_key` | Vivian has agreed to give Fred the key to the ground-floor chute / laundry staff room. | `ConversationEffect` on Vivian, gated `all_of: [iris_returned_transcribed_log]`. | Inventory HUD shows the key; the chute-room door interactable accepts the "open" action. |
 | `chute_room_door_open` | Fred has unlocked and opened the chute-room door on the ground floor. | `InteractableState.action_effects` on the chute-room door, gated `all_of: [vivian_gave_chute_room_key]`. | Door becomes non-blocking; chute-output interactable inside becomes inspectable. |
-| `has_siren_cell` | Fred picked up the spent Siren Cell from the chute output. | `InteractableState.action_effects` on the cell-in-chute interactable, gated `all_of: [chute_room_door_open]`. | Inventory HUD shows the Siren Cell; ghostbuster-authentication conversation becomes available. |
-| `has_crooked_idol` | Fred extracted the real Crooked Idol from inside the spent cell. | Same pickup action as `has_siren_cell` — Fred immediately spots the idol stashed inside. (Single interaction sets both facts.) | Inventory HUD shows the Crooked Idol; one of the load-bearing inputs to the idol-authentication beat. |
-| `idol_authenticated_by_ghostbusters` | At least one Ghostbuster (Mara / Theo / Iris) has confirmed the idol is genuine. | `ConversationEffect` declared on each of Mara / Theo / Iris, gated `all_of: [has_crooked_idol]`. Any one of them can flip the fact. (Otis cannot set it — he plays dumb.) | "One of you did this" deduction; opens the field-book / manual-purge investigation track if it isn't already known. |
-| `theo_granted_field_book_permission` | *(existing)* Theo has given Fred permission to take the field book. | *(existing)* `ConversationEffect` on Theo. | The field-book pickup becomes available. |
-| `has_field_book` | *(existing)* Fred has the field book. | *(existing)* `InteractableState.action_effects` on the field-book pickup. | Inventory HUD shows the field book; opening the book panel reveals the manual-purge passage. |
-| `field_book_revealed_manual_purge` | Fred has read the field-book passage describing manual-purge of a Siren Cell and the resulting violet sub-dermal palm stain. | Set when Fred opens the field-book panel from inventory. (Implementation: hook the book panel's open event to flip this fact, OR — simpler — set it together with `has_field_book` on pickup so reading is implicit.) | Unlocks the "show me your palms" conversation effect on every Ghostbuster. |
-| `mara_palms_clean_seen` | Mara has shown her palms; they are unstained. | `ConversationEffect` on Mara, gated `all_of: [field_book_revealed_manual_purge]`, `none_of: [mara_palms_clean_seen]`. | Mechanically clears Mara on the accuse panel for the "manual-purge palms" check. |
+| `has_evidence` *(existing)* | Fred has the spent Siren Cell with the genuine Crooked Idol stashed inside it. Treated as a single piece of physical evidence. | `InteractableState.action_effects` on the chute-output interactable, gated `all_of: [chute_room_door_open]`. | Inventory HUD shows the evidence; ghostbuster-authentication conversation becomes available; combined with `has_field_book` it unlocks the palm-check beat. |
+| `idol_authenticated_by_ghostbusters` | At least one Ghostbuster (Mara / Theo / Iris) has confirmed the idol inside the recovered cell is genuine. | `ConversationEffect` declared on each of Mara / Theo / Iris, gated `all_of: [has_evidence]`. Any one of them can flip the fact. (Otis cannot set it — he plays dumb.) | "One of you did this" deduction. |
+| `theo_granted_field_book_permission` *(existing)* | Theo has given Fred permission to take the field book. | *(existing)* `ConversationEffect` on Theo. | The field-book pickup becomes available. |
+| `has_field_book` *(existing)* | Fred has the field book, which contains the manual-purge passage and its violet-palm signature. | *(existing)* `InteractableState.action_effects` on the field-book pickup. | Inventory HUD shows the field book; combined with `has_evidence`, unlocks the "show me your palms" beat. |
+| `mara_palms_clean_seen` | Mara has shown her palms; they are unstained. | `ConversationEffect` on Mara, gated `all_of: [has_field_book, has_evidence]`, `none_of: [mara_palms_clean_seen]`. | Mechanically clears Mara on the accuse panel for the "manual-purge palms" check. |
 | `theo_palms_clean_seen` | Theo has shown his palms; they are unstained. | `ConversationEffect` on Theo, same gate shape. | Clears Theo on the same check. |
 | `iris_palms_clean_seen` | Iris has shown her palms; they are unstained. | `ConversationEffect` on Iris, same gate shape. | Clears Iris on the same check. |
-| `pemberton_palms_purple_seen` | Otis Pemberton has shown his palms; they are stained sub-dermal violet. | `ConversationEffect` on Otis, gated `all_of: [field_book_revealed_manual_purge]`, `none_of: [pemberton_palms_purple_seen]`. | **The smoking gun.** Required for a Pemberton verdict to land cleanly on the accuse panel. |
+| `pemberton_palms_purple_seen` | Otis Pemberton has shown his palms; they are stained sub-dermal violet. | `ConversationEffect` on Otis, gated `all_of: [has_field_book, has_evidence]`, `none_of: [pemberton_palms_purple_seen]`. | **The smoking gun.** Required for a Pemberton verdict to land cleanly on the accuse panel. |
 
 ### Interactables
 
@@ -200,10 +201,10 @@ Accuse Otis Pemberton.
 
 **`chute_output_cell`** — inside the chute room, at the foot of the chute. Pickup.
 
-- State A (default, `none_of: [has_siren_cell]`): *"A spent Siren Containment Cell lies in the laundry basin under the chute mouth. The back-pressure valve has been manually popped. Something solid is wedged inside the housing — a carved figurine. Heavy. Real stone. The Crooked Idol."* → `action_label: "Take both"`, `action_effects: [has_siren_cell = true, has_crooked_idol = true]`, `erase_tile = true`.
+- State A (default, `none_of: [has_evidence]`): *"A spent Siren Containment Cell lies in the laundry basin under the chute mouth. The back-pressure valve has been manually popped. Something solid is wedged inside the housing — a carved figurine. Heavy. Real stone. The Crooked Idol."* → `action_label: "Take it"`, `action_effects: [has_evidence = true]`, `erase_tile = true`.
 - State B (already taken): tile suppressed.
 
-**`theo_field_book`** — *(existing)*. One small change: when Fred picks up the book, also set `field_book_revealed_manual_purge = true` in `action_effects` (Fred reads the relevant passage as he leaves the desk). Alternatively, keep pickup as-is and hook the book-panel-open event; either works.
+**`theo_field_book`** — *(existing, unchanged)*. Pickup sets `has_field_book` as today. The manual-purge / violet-palm passage is treated as part of the book — having the book in inventory is the gameplay representation of having read it.
 
 ### Inventory
 
@@ -212,10 +213,9 @@ Add the following `InventoryItemDefinition`s (and register in `CaseLoader.INVENT
 - **`listening_device`** — single state visible when `all_of: [has_listening_device]`, `none_of: [iris_received_listening_device]`. Label: *"Iris's Listening Device"*. Tooltip: *"A slow-spinning reel-to-reel recorder Iris left at her post."*
 - **`transcribed_log`** — single state visible when `all_of: [iris_returned_transcribed_log]`. Label: *"Transcribed Log"*. Tooltip: *"Iris's transcription of the device's recording. A thud at 9:11, then footsteps west — toward the chute."*
 - **`chute_room_key`** — single state visible when `all_of: [vivian_gave_chute_room_key]`. Label: *"Chute-Room Key"*. Tooltip: *"Vivian's staff key to the ground-floor laundry chute room."*
-- **`siren_cell`** — single state visible when `all_of: [has_siren_cell]`. Label: *"Spent Siren Cell"*. Tooltip: *"Charged Siren Containment Cell — back-pressure valve popped. The kind of damage a manual purge leaves behind."*
-- **`crooked_idol`** — single state visible when `all_of: [has_crooked_idol]`. Label: *"The Crooked Idol"*. Tooltip: *"The genuine artifact. Auction-block prize. Stashed inside the spent cell."*
+- **`evidence`** *(existing)* — repurpose the existing `evidence` inventory entry to read as the spent cell with the genuine Crooked Idol inside. Single state visible when `all_of: [has_evidence]`. Label suggestion: *"Recovered Cell & Idol"*. Tooltip: *"A spent Siren Containment Cell with the genuine Crooked Idol stashed inside. Back-pressure valve popped — manual-purge signature."*
 
-New entries also needed in `CaseLoader.INTERACTABLE_IDS` (gear cart, listening device, chute-room door, chute output cell) and `FACT_IDS` (all of the new facts above, plus the existing `theo_granted_field_book_permission` / `has_field_book` already listed).
+New entries also needed in `CaseLoader.INTERACTABLE_IDS` (gear cart, listening device, chute-room door, chute output cell) and `FACT_IDS` (all of the new facts above, plus the existing `theo_granted_field_book_permission` / `has_field_book` / `has_evidence` already listed).
 
 ### Suspect wiring
 
@@ -233,7 +233,7 @@ New entries also needed in `CaseLoader.INTERACTABLE_IDS` (gear cart, listening d
 
   > Set this only if Theo clearly confirms a charged Siren Cell was present on the gear cart at the start of the watch (i.e. before the manifestation noises began).
 
-- `ConversationEffect_theo_palms_clean` — `all_of: [field_book_revealed_manual_purge]`, `none_of: [theo_palms_clean_seen]`, `fact_id = theo_palms_clean_seen`. Description:
+- `ConversationEffect_theo_palms_clean` — `all_of: [has_field_book, has_evidence]`, `none_of: [theo_palms_clean_seen]`, `fact_id = theo_palms_clean_seen`. Description:
 
   > Set this only if Theo clearly shows his palms when Fred asks AND the conversation establishes that his palms are clean / unstained.
 
@@ -261,11 +261,11 @@ New entries also needed in `CaseLoader.INTERACTABLE_IDS` (gear cart, listening d
 
   > Set this only if Iris clearly hands the transcribed log to Fred AND reads aloud (or summarises) the entries: a thud at 9:11 followed by footsteps moving west toward the chute.
 
-- `ConversationEffect_idol_authenticated` (Iris's copy) — `all_of: [has_crooked_idol]`, `none_of: [idol_authenticated_by_ghostbusters]`, `fact_id = idol_authenticated_by_ghostbusters`. Description:
+- `ConversationEffect_idol_authenticated` (Iris's copy) — `all_of: [has_evidence]`, `none_of: [idol_authenticated_by_ghostbusters]`, `fact_id = idol_authenticated_by_ghostbusters`. Description:
 
   > Set this only if Iris clearly confirms that the idol Fred is holding is the genuine Crooked Idol.
 
-- `ConversationEffect_iris_palms_clean` — `all_of: [field_book_revealed_manual_purge]`, `none_of: [iris_palms_clean_seen]`, `fact_id = iris_palms_clean_seen`. Description:
+- `ConversationEffect_iris_palms_clean` — `all_of: [has_field_book, has_evidence]`, `none_of: [iris_palms_clean_seen]`, `fact_id = iris_palms_clean_seen`. Description:
 
   > Set this only if Iris clearly shows her palms when Fred asks AND the conversation establishes that her palms are clean / unstained.
 
@@ -273,7 +273,7 @@ New entries also needed in `CaseLoader.INTERACTABLE_IDS` (gear cart, listening d
 
 `prompt_blocks` to add:
 
-- `PromptBlock_idol_recovered` — `all_of: [has_crooked_idol]`, `none_of: [idol_authenticated_by_ghostbusters]`. Text:
+- `PromptBlock_idol_recovered` — `all_of: [has_evidence]`, `none_of: [idol_authenticated_by_ghostbusters]`. Text:
 
   > REACTION BEAT — Fred is holding the genuine Crooked Idol, recovered from the laundry chute. If he shows it to you, authenticate it immediately and on the record. State the obvious: this is what the manifestation watch was about, and only your own team had the equipment-side access to plant it in a spent Siren Cell. One of your people did this. You don't yet know who, and you say so plainly.
 
@@ -283,7 +283,7 @@ New entries also needed in `CaseLoader.INTERACTABLE_IDS` (gear cart, listening d
 
   > Set this only if Mara clearly confirms that the idol Fred is holding is the genuine Crooked Idol.
 
-- `ConversationEffect_mara_palms_clean` — `all_of: [field_book_revealed_manual_purge]`, `none_of: [mara_palms_clean_seen]`, `fact_id = mara_palms_clean_seen`. Description:
+- `ConversationEffect_mara_palms_clean` — `all_of: [has_field_book, has_evidence]`, `none_of: [mara_palms_clean_seen]`, `fact_id = mara_palms_clean_seen`. Description:
 
   > Set this only if Mara clearly shows her palms when Fred asks AND the conversation establishes that her palms are clean / unstained.
 
@@ -305,13 +305,13 @@ New entries also needed in `CaseLoader.INTERACTABLE_IDS` (gear cart, listening d
 
 `prompt_blocks` to add:
 
-- `PromptBlock_palm_request` — `all_of: [field_book_revealed_manual_purge]`, `none_of: [pemberton_palms_purple_seen]`. Text:
+- `PromptBlock_palm_request` — `all_of: [has_field_book, has_evidence]`, `none_of: [pemberton_palms_purple_seen]`. Text:
 
-  > REACTION BEAT — Fred now knows about manual purge and the violet sub-dermal stain it leaves on the palms. If he asks to see your hands, you cannot refuse without lighting yourself up — but your palms are stained violet. You may stall, joke, try to redirect, claim it's wine spill or chemical splash from work — but ultimately, if Fred insists, you show your hands and the staining is visible. Do not pretend the stain isn't there. Do not invent a colour.
+  > REACTION BEAT — Fred has both the field book (which describes manual purge and the violet sub-dermal stain it leaves on the palms) and the recovered cell from the chute (back-pressure valve popped — unambiguous manual-purge signature). If he asks to see your hands, you cannot refuse without lighting yourself up — but your palms are stained violet. You may stall, joke, try to redirect, claim it's wine spill or chemical splash from work — but ultimately, if Fred insists, you show your hands and the staining is visible. Do not pretend the stain isn't there. Do not invent a colour.
 
 `allowed_effects` to add:
 
-- `ConversationEffect_pemberton_palms_seen` — `all_of: [field_book_revealed_manual_purge]`, `none_of: [pemberton_palms_purple_seen]`, `fact_id = pemberton_palms_purple_seen`. Description:
+- `ConversationEffect_pemberton_palms_seen` — `all_of: [has_field_book, has_evidence]`, `none_of: [pemberton_palms_purple_seen]`, `fact_id = pemberton_palms_purple_seen`. Description:
 
   > Set this only if Otis Pemberton clearly shows his palms when Fred asks AND the conversation establishes that the palms are visibly stained violet / purple.
 
@@ -320,12 +320,103 @@ Note: Otis is **not** in `allowed_effects` for `idol_authenticated_by_ghostbuste
 ### Accusation implications
 
 - An Otis Pemberton verdict on the accuse panel needs `all_of: [pemberton_palms_purple_seen]` at minimum to land cleanly. Without it, the judge should reject with a "you have suspicion but no method-evidence" message.
-- A clean Pemberton verdict will additionally weigh the supporting facts: `idol_authenticated_by_ghostbusters` (motive / method-context), `iris_returned_transcribed_log` (placement at chute), `has_siren_cell` (physical evidence of manual-purge method). The judge should be able to acknowledge the whole stack when accepting the accusation.
+- A clean Pemberton verdict will additionally weigh the supporting facts: `idol_authenticated_by_ghostbusters` (motive / method-context), `iris_returned_transcribed_log` (placement at chute), `has_evidence` (physical evidence of manual-purge method). The judge should be able to acknowledge the whole stack when accepting the accusation.
 - Mara / Theo / Iris verdicts should be cleanly rejected once each respective `*_palms_clean_seen` is true.
 
 ### Open / TBD
 
-- The user has flagged that one piece of this thread is still missing — placeholder for the additional link to be added in a follow-up pass.
-- Implementation question: does `field_book_revealed_manual_purge` fire on book pickup, or on the first time the book panel is opened from inventory? The latter is more elegant ("Fred reads the book"); the former is one less click. Defaulting to **pickup** for simplicity unless we want a separate "read" beat.
-- Should there be a "manual override note" or annotated diagram interactable as an additional confirmation surface for the manual-purge mechanism (e.g. a margin scribble in the book that Fred has to inspect explicitly)? Currently folded into the field-book passage.
-- Ground-floor level layout TBD — chute room door tile coordinates need a placement pass when we build the ground floor in `world.tscn`.
+- Ground-floor level layout TBD — chute-room door tile coordinates need a placement pass when we build the ground floor in `world.tscn`.
+
+---
+
+## Thread: Service corridor (the missing link)
+
+The staff-only service corridor runs along the north side of the floor, behind the 11xx row. Its entrances are concealed behind curtains — one near the auction hall (west), one near the royal-suite end of the main hallway (east, near 1103). Inside the corridor is the concealed access door into 1102 — Pemberton's actual entry route.
+
+**Design rules (per user):**
+
+- The corridor tiles are **always passable**. The curtains are pure visual misdirection — they *look* impassable but never block movement. An observant / curious player who walks through them mid-investigation discovers the corridor on their own and that is fine, even encouraged.
+- "Knowing about the service corridor" is **not a fact**. Vivian just says it out loud when Fred shows her the recovered evidence; it's a conversational hint, not a state flip. The corridor's existence is honest world geography — once you walk in, you've found it.
+- The stained gloves *are* a fact-flipping pickup. They become inventory, and they're the gate on Pemberton's geometry-pressure beat.
+
+### Chain
+
+```text
+(Either path takes the player to the same forensic node.)
+
+Path A: Player walks through / inspects a curtain ──► finds the corridor on their own
+Path B: Player returns to Vivian with has_evidence ──► Vivian says aloud:
+        "There's an access from the Royal Suite behind the curtains —
+         check the service hallway."
+                     │
+                     ▼
+        Player explores the corridor, finds the trash bin in the west end,
+        picks up the violet-stained gloves
+                     │
+                     ▼              ──► has_stained_gloves
+                     ▼
+        Pemberton's geometry alibi is now falsifiable in conversation.
+```
+
+### Fact set
+
+| Fact id | Meaning | How it flips | What it unlocks |
+| --- | --- | --- | --- |
+| `has_stained_gloves` | Fred has picked up the discarded pair of violet-stained work gloves from the trash bin in the west end of the service corridor. | `InteractableState.action_effects` on the trash-bin pickup. | Inventory HUD shows the gloves; gates Pemberton's geometry-pressure prompt block; weights the accuse-panel verdict. |
+
+### Interactables
+
+**`west_curtain`** — placed at the west-end curtain tile near the auction hall. Inspect-only, **never blocks movement**. Pure flavour.
+
+- State A: *"A heavy velvet curtain. Looks like hotel décor — but the dust pattern at the hem is wrong. Something passes through here."* → no effects.
+
+**`east_curtain`** — placed at the east-end curtain tile near 1103. Inspect-only, **never blocks movement**. Pure flavour.
+
+- State A: *"A heavy velvet curtain. Same as the one near the auction hall. Same dust pattern at the hem."* → no effects.
+
+**`concealed_door_1102`** — placed mid-corridor on the south wall (the wall shared with 1102). Inspect-only. The in-world explanation for how Pemberton got into the Royal Suite without using the main door.
+
+- State A: *"A flush service panel set into the corridor wall. Latch on this side only. Opens directly into the Royal Suite — 1102."* → no effects. (Purely flavour / world-honest geography.)
+
+**`stained_gloves_bin`** — placed at the west end of the corridor, near the chute access. Pickup.
+
+- State A (default, `none_of: [has_stained_gloves]`): *"A staff trash bin. Inside: a discarded pair of work gloves, palms stained sub-dermal violet — same colour the field book describes. Tucked under fresher rubbish."* → `action_label: "Take the gloves"`, `action_effects: [has_stained_gloves = true]`, `erase_tile = true`.
+- State B (`all_of: [has_stained_gloves]`): tile suppressed.
+
+### Inventory
+
+Add the following `InventoryItemDefinition`s (and register in `CaseLoader.INVENTORY_IDS`):
+
+- **`stained_gloves`** — single state visible when `all_of: [has_stained_gloves]`. Label: *"Stained Work Gloves"*. Tooltip: *"A discarded pair of work gloves from the service-corridor trash bin. Palms sub-dermal violet — manual-purge signature."*
+
+New entry also needed in `CaseLoader.INTERACTABLE_IDS` (stained-gloves bin) and `FACT_IDS` (`has_stained_gloves`). The curtain and concealed-door interactables don't need fact entries — they're flavour only.
+
+### Suspect wiring
+
+**Vivian** — `assets/suspects/manager.tres` (id: `&"manager"`).
+
+`prompt_blocks` to add:
+
+- `PromptBlock_corridor_hint` — `all_of: [has_evidence]`. Text:
+
+  > REACTION BEAT — Fred is showing you the recovered cell and the Crooked Idol from the chute. React with genuine shock — you didn't realise there was *this much* foul play under your roof. Then think about the geography out loud: the only way that cell crossed the floor without anyone seeing it is the staff service corridor behind the curtains. Tell Fred plainly that there's an access from the Royal Suite behind the curtains, the service hallway runs the whole north side, and he should check it — there may be more clues there. This is a verbal hint, not a hand-off. No object changes hands. You may bring it up again on later visits if it feels natural.
+
+No `allowed_effects` are needed for this beat — Vivian saying the line out loud is the whole point; no fact flip.
+
+**Otis Pemberton** — `assets/suspects/otis.tres` (id: `&"otis"`).
+
+`prompt_blocks` to add:
+
+- `PromptBlock_geometry_pressed` — `all_of: [has_stained_gloves]`. Text:
+
+  > REACTION BEAT — Fred has recovered a pair of violet-stained work gloves from the trash bin inside the staff service corridor (west end, near the chute access). The stain matches the manual-purge signature in the field book. Those gloves place someone with stained palms in the corridor — and your east-side-sweep alibi (1103 then 1203 then converging west) doesn't put you in that corridor at all. If Fred raises the corridor, the gloves, the curtains, or the geometry of your sweep, you cannot keep the lawyer act and the alibi at the same time. Buckle on geometry first — try to claim you took the corridor as a legitimate shortcut between sweep checkpoints, or that those gloves aren't yours — but do NOT pre-confess the murder. The palm-show is what breaks you, not the geometry. Stay in stage one until Fred forces stage two.
+
+### Accusation implications
+
+- A Pemberton verdict on the accuse panel still requires `pemberton_palms_purple_seen` (the smoking gun stays the smoking gun).
+- Supporting facts the judge can weigh on a clean verdict: `has_stained_gloves` (corroborates the glove-swap step in the canonical timeline and ties Pemberton to the corridor route), in addition to the existing supporting facts (`idol_authenticated_by_ghostbusters`, `iris_returned_transcribed_log`, `has_evidence`).
+- `has_stained_gloves` is *not* required for the accusation — it makes the verdict feel more complete and lets the judge cite the corridor route, but a player who skips the corridor entirely can still close the case on palms alone.
+
+### Open / TBD
+
+- None on this thread. Tile placement for the curtains, concealed door, and stained-gloves trash can will get pinned when we lay out `world.tscn`.
