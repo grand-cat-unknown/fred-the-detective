@@ -178,6 +178,8 @@ func find_inspectable_at_player() -> Inspectable:
 	]
 	for tile in candidates:
 		for inspectable in _inspectables:
+			if not inspectable.visible:
+				continue
 			if _world_map != null and _world_map.world_to_tile(inspectable.position) == tile:
 				return inspectable
 	return null
@@ -347,6 +349,8 @@ func _blocked_tiles() -> Array[Vector2i]:
 		if _world_map != null:
 			tiles.append(_world_map.world_to_tile(npc.position))
 	for inspectable in _inspectables:
+		if not inspectable.visible:
+			continue
 		if inspectable.blocks_movement:
 			if _world_map != null:
 				tiles.append(_world_map.world_to_tile(inspectable.position))

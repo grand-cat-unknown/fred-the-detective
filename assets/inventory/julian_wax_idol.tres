@@ -1,0 +1,20 @@
+[gd_resource type="Resource" script_class="InventoryItemDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/inventory_item_definition.gd" id="1_definition"]
+[ext_resource type="Script" uid="uid://dy1gfjjj466vx" path="res://scripts/data/gate_condition.gd" id="2_condition"]
+[ext_resource type="Script" uid="uid://bj1sj4y8aeenm" path="res://scripts/data/inventory_item_state.gd" id="3_state"]
+
+[sub_resource type="Resource" id="GateCondition_has_idol"]
+script = ExtResource("2_condition")
+all_of = Array[StringName]([&"has_julian_wax_idol"])
+
+[sub_resource type="Resource" id="InventoryItemState_idol"]
+script = ExtResource("3_state")
+condition = SubResource("GateCondition_has_idol")
+label = "Fake Idol"
+description = "Julian's painted wax replica of the Anchor Idol."
+
+[resource]
+script = ExtResource("1_definition")
+item_id = &"julian_wax_idol"
+states = [SubResource("InventoryItemState_idol")]
