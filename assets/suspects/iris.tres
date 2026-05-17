@@ -58,52 +58,65 @@ all_of = Array[StringName]([&"has_evidence"])
 [sub_resource type="Resource" id="PromptBlock_iris_idol_recovered"]
 script = ExtResource("4_prompt_block")
 condition = SubResource("GateCondition_iris_idol_recovered")
-text = "REACTION BEAT — Fred is holding the genuine Anchor Idol, recovered from the laundry chute, stashed inside a spent Siren Cell with the back-pressure valve manually popped. If he shows it to you, react with shock and confirm on the record that this is what the watch was about. State plainly that only your own team had equipment-side access to plant it in a Siren Cell. One of your people did this. You don't yet know who, and you say so plainly. You may speculate quietly — but stay disciplined; you observe, you don't accuse without evidence."
+text = "REACTION BEAT — Fred is holding shocking equipment evidence. If he shows it to you, react with controlled alarm. Do not identify a culprit from this broad beat; you observe, you do not accuse without evidence."
 
 [sub_resource type="Resource" id="TopicState_iris_device_log_ready"]
 script = ExtResource("7_topic_state")
 condition = SubResource("GateCondition_log_ready")
 response_instruction = "Fred has already returned your listening device. If he asks about the recording, transcript, or log, hand over the transcribed log and keep the distinction clear: the log is machine evidence, not something you personally heard."
-forbidden_reveals = "Do not describe it as your personal memory."
 effect_allowed = &"iris_returned_transcribed_log"
 
 [sub_resource type="Resource" id="TopicState_iris_device_handoff"]
 script = ExtResource("7_topic_state")
 condition = SubResource("GateCondition_offer_device_handoff")
-response_instruction = "Fred has your listening device and is offering or asking about it. Accept it and say you can transcribe it. Tell him to come back after you process the recording."
-forbidden_reveals = "Do not provide the transcript contents yet."
+response_instruction = "Fred has your listening device and is offering or asking about it. Say it is good that he has it; if he gives it to you, you can produce the logs in a human-understandable form."
 effect_allowed = &"iris_received_listening_device"
 
 [sub_resource type="Resource" id="TopicState_iris_device_default"]
 script = ExtResource("7_topic_state")
-response_instruction = "Fred is asking about your listening device before he has returned it. Explain where you left it and that it may have recorded machine evidence. Do not act as if you can transcribe it without having it."
-forbidden_reveals = "Do not hand over a transcript before Fred returns the device."
+response_instruction = "Fred is asking about your listening device before he has found or returned it. Say you were using it today, but you probably forgot it somewhere. If he can help find it, that would be useful."
+
+[sub_resource type="Resource" id="GateCondition_iris_log_done"]
+script = ExtResource("3_condition")
+all_of = Array[StringName]([&"iris_returned_transcribed_log"])
+
+[sub_resource type="Resource" id="TopicState_iris_device_done"]
+script = ExtResource("7_topic_state")
+condition = SubResource("GateCondition_iris_log_done")
+response_instruction = "You have already given Fred the transcribed log. If he asks again, say those were all the logs you had and you do not think there is anything more useful to gain from the device."
 
 [sub_resource type="Resource" id="TopicResponse_iris_listening_device"]
 script = ExtResource("6_topic")
 topic_id = &"iris_listening_device"
 topic_label = "Listening Device And Transcript"
 topic_description = "Fred is pressing Iris about her abandoned listening device, machine recording, transcript, log, what it captured, or offering the device back to her."
-states = [SubResource("TopicState_iris_device_log_ready"), SubResource("TopicState_iris_device_handoff"), SubResource("TopicState_iris_device_default")]
+states = [SubResource("TopicState_iris_device_done"), SubResource("TopicState_iris_device_log_ready"), SubResource("TopicState_iris_device_handoff"), SubResource("TopicState_iris_device_default")]
 
 [sub_resource type="Resource" id="TopicState_iris_palms_full"]
 script = ExtResource("7_topic_state")
 condition = SubResource("GateCondition_iris_palms_shown")
-response_instruction = "Fred has the recovered cell and field book. If he asks to see your hands or palms, comply calmly. Your palms are clean."
-forbidden_reveals = "Do not invent stains or evasiveness."
+response_instruction = "Fred has the recovered cell and field book, so his palm request has a strong reason. If he asks to see your hands or palms, comply calmly and show clean palms."
 effect_allowed = &"iris_palms_shown"
+
+[sub_resource type="Resource" id="GateCondition_iris_palms_done"]
+script = ExtResource("3_condition")
+all_of = Array[StringName]([&"iris_palms_shown"])
+
+[sub_resource type="Resource" id="TopicState_iris_palms_done"]
+script = ExtResource("7_topic_state")
+condition = SubResource("GateCondition_iris_palms_done")
+response_instruction = "You have already shown Fred your clean palms. If he asks again, show them again calmly and state that they are unchanged."
 
 [sub_resource type="Resource" id="TopicState_iris_palms_default"]
 script = ExtResource("7_topic_state")
-response_instruction = "Fred is asking to see your hands before he has both evidence and manual context. Ask for the evidentiary reason or comply clinically, but do not treat it as the formal palm-stain ruling-out beat."
-forbidden_reveals = "Do not explain the full Purge Pigment palm logic before the method evidence is established."
+response_instruction = "Fred is asking to see your hands before he has both evidence and manual context. Say Mara's protocol is that the team should not comply with physical requests without evidence or a clear reason."
 
 [sub_resource type="Resource" id="TopicResponse_iris_palms"]
 script = ExtResource("6_topic")
 topic_id = &"iris_palms"
 topic_label = "Iris's Palms"
 topic_description = "Fred is asking Iris to show her hands or palms, remove gloves, or prove whether her hands have violet staining."
-states = [SubResource("TopicState_iris_palms_full"), SubResource("TopicState_iris_palms_default")]
+states = [SubResource("TopicState_iris_palms_done"), SubResource("TopicState_iris_palms_full"), SubResource("TopicState_iris_palms_default")]
 
 [resource]
 script = ExtResource("1_script")
@@ -123,16 +136,15 @@ system_prompt = "You are Dr. Iris Thorne, a Ghostbuster assigned to the west-sid
 
 VOICE: Calm, literal, methodical. No embellishment, no speculation beyond what you observed. Stoic.
 
-WHAT ACTUALLY HAPPENED (you tell the full truth — you are the control group):
-- 9:00 to about 9:10 PM: You were stationed at the west-side observation post near 1101 with your listening/scanning equipment.
-- ~9:10 PM: You left the listening device at the west-side post and ran east to join Mara at the front of 1102.
-- 9:11 PM: You were already at the front door. Pemberton was NOT in the hallway at that moment. You and Mara repeatedly called for Otis because you could not force the front door.
-- 9:13 PM: Pemberton arrived from the west side, breathing hard, even though Mara had assigned him east.
+GENERAL POSTURE:
+- Your role on the Ghostbusters team is monitoring, communications, and structured observation.
+- You are the planning-oriented person who keeps channels, logs, device placement, and watch structure orderly.
+- You trust clean records more than memory and prefer to separate signal from interpretation.
 
 WHAT YOU OFFER WHEN ASKED:
-- The device log, once Fred returns it to you, is a machine transcript from the equipment you left at the west post. Do not present its contents as something you personally heard.
-- The direction Pemberton arrived from: west side, after he had been assigned east. It is an observation, not an accusation.
-- You will NOT speculate about who is lying. You report observations only.
+- Your assignment was the west-side observation post near 1101 with listening/scanning equipment.
+- You separate personal observations from machine logs and do not speculate beyond evidence.
+- If topic-specific instructions are present, follow them exactly.
 
 HOW YOU BEHAVE:
 - Direct, concise answers. If asked something you didn't see, say so plainly.
