@@ -81,6 +81,7 @@ func _start_job(job: Dictionary) -> void:
 	var instructions := "\n\n".join([
 		"You are a strict game-state transition judge for Fred the Detective.",
 		"Decide whether the latest in-game exchange clearly caused any of the allowed effects.",
+		"Use recent_messages as short conversation context for pronouns, follow-ups, and whether the latest exchange completed a prior request.",
 		"Only choose effects from allowed_effects. Do not invent facts.",
 		"Use the structured output schema. If no allowed effect clearly happened, return an empty effects array.",
 	])

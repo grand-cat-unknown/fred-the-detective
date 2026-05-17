@@ -86,7 +86,11 @@ func submit(message: String) -> bool:
 	if _topic_classifier != null and _active_suspect.has_topic_responses():
 		_pending_suspect = _active_suspect
 		_pending_player_message = trimmed
-		var classify_err := _topic_classifier.classify(_active_suspect, trimmed)
+		var classify_err := _topic_classifier.classify(
+			_active_suspect,
+			trimmed,
+			_build_recent_transcript(_active_suspect.id)
+		)
 		if classify_err != OK:
 			_pending_suspect = null
 			_pending_player_message = ""

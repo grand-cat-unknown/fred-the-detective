@@ -5,6 +5,7 @@ signal completed(topic_id: StringName)
 signal failed(message: String)
 
 const NONE_TOPIC_ID := &"none"
+const MAX_RECENT_MESSAGES := 8
 
 var _llm: LLMClient
 var _pending_topic_ids: Array[String] = []
@@ -22,7 +23,7 @@ func is_busy() -> bool:
 	return _llm != null and _llm.is_busy()
 
 
-func classify(suspect: SuspectData, latest_player_message: String) -> Error:
+func classify(suspect: SuspectData, latest_player_message: String, recent_messages: Array = []) -> Error:
 	if _llm == null:
 		return ERR_UNCONFIGURED
 	if _llm.is_busy():
@@ -44,12 +45,14 @@ func classify(suspect: SuspectData, latest_player_message: String) -> Error:
 	var payload := {
 		"active_suspect": str(suspect.id),
 		"latest_player_message": latest_player_message,
+		"recent_messages": _trim_recent_messages(recent_messages),
 		"topic_options": topic_options,
 		"none_topic_id": str(NONE_TOPIC_ID),
 	}
 	var instructions := "\n\n".join([
 		"You are a strict topic classifier for the detective game Fred the Detective.",
 		"Classify what specific subject Detective Fred is pressing in his latest message.",
+		"Use recent_messages only as context for pronouns, follow-ups, and short references. Classify the latest player message, not an older turn.",
 		"Choose exactly one topic_id from topic_options only when Fred is clearly pressing that topic.",
 		"If the message is small talk, unclear, about another subject, or only loosely related, choose none.",
 		"Use the structured output schema. Do not invent topic ids.",
@@ -64,6 +67,15 @@ func classify(suspect: SuspectData, latest_player_message: String) -> Error:
 	if err != OK:
 		_pending_topic_ids.clear()
 	return err
+
+
+func _trim_recent_messages(recent_messages: Variant) -> Array:
+	if typeof(recent_messages) != TYPE_ARRAY:
+		return []
+	var messages: Array = recent_messages
+	if messages.size() <= MAX_RECENT_MESSAGES:
+		return messages
+	return messages.slice(messages.size() - MAX_RECENT_MESSAGES)
 
 
 func _build_text_format() -> Dictionary:
