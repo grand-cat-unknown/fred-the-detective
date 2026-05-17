@@ -431,9 +431,9 @@ Civilians are not permitted to handle a trap, charged or empty, including for ph
 
 Direct contact between a Class-3 or higher entity and unprotected human surface produces what the literature calls a "spectral burn." The defining visual signature is a **jagged, branching frost pattern** — fractal, irregular, never symmetrical. The branching is a function of how the entity's field couples to the body's bioelectric grid; it cannot help looking like lightning.
 
-A precise, circular wound is **not** consistent with any documented ghost-touch in the firm's records. Nor is a clean-edged round burn, a punctate impact, or a rim-bounded surface trauma. The branching is the signature. The literature is unanimous on this; the question is closed.
+The branching is the signature. Field reports across thirty years of engagement records describe the same pattern at every contact event the firm has logged, irrespective of class or subtype.
 
-Specialists in the field rarely have the lab time to make this distinction publicly; the call is usually taken at face value. Operators in the field are not expected to make a forensic determination. They are expected to note what they saw and let the specialist's report do the work.
+Specialists in the field rarely have the lab time to render a full forensic finding publicly; the call is usually taken at face value. Operators in the field are not expected to make that determination themselves. They are expected to note what they saw and let the specialist's report do the work.
 
 ---
 
@@ -494,10 +494,10 @@ Specialists in the field rarely have the lab time to make this distinction publi
 4. Physical effects: structural deformation, heat anomalies.
 5. Activity window: sustained until contained.
 6. Behavior on contact: hostile, pursues, intent on harm.
-7. Ghost-touch marks: jagged fractal branching; **never circular, never round-edged, never neat.**
-8. Ectoplasm spread: **omnidirectional, 360°.** Drenches all surfaces of the room uniformly from the manifestation point — ceiling, opposite wall, floor under furniture. A Class-5 room reads "drenched from inside," not "sprayed from a corner."
+7. Ghost-touch marks: jagged fractal branching; vivid, persistent.
+8. Ectoplasm spread: omnidirectional from the manifestation point; full 360° coverage of surrounding surfaces.
 
-Class-5 events are exceedingly rare — fewer than two confirmed manifestations per year across the firm's recorded engagements. An operator reporting a Class-5 should expect the report to be reviewed by the team's medical and occult specialist before it is filed.
+Class-5 events are exceedingly rare — fewer than two confirmed manifestations per year across the firm's recorded engagements. A Class-5 callout draws the firm's heaviest grades from the cart and is treated as a multi-operator deployment under standing policy (§11).
 
 ---
 
