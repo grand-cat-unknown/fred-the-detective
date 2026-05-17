@@ -224,7 +224,7 @@ snap_to_map_grid = false
 [node name="Inspectable_chute_output_cell" parent="." unique_id=100007 instance=ExtResource("9_insp")]
 position = Vector2(-412, 1102)
 object_id = &"chute_output_cell"
-title = "Spent Siren Cell"
+title = "Spent Cell"
 description = "Placeholder — move inside the chute room in editor."
 body_color = Color(0.4, 0.3, 0.6, 1)
 draw_marker = false
