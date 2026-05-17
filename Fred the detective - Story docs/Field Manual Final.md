@@ -194,9 +194,9 @@ The side caddy is also used for the spare PKE meter. Do not store cells of any g
 
 **Sylph.** Violet capture medium, Class 2. Charged weight ~6 lb, hip cradle. Manual override: Soft-Vent (§8.2). The medium is humidity-sensitive in storage and should be kept below 35% RH; older cells occasionally weep a faint violet film around the gauge window in summer.
 
-**Wraith.** Violet capture medium, Class 3. Charged weight ~10 lb, hip cradle / lower-back. Manual override: Spore Vent (§8.2). Discharged at slightly elevated pressure relative to other Class-3 grades; the medium settles to a fine violet dust on horizontal surfaces.
-
 **Siren.** Violet capture medium, Class 4 / Class 5. Charged weight ~15 lb, lower-back slot only. Manual override: Manual Purge (§8.2). The medium is the firm's highest-pressure formulation and the only grade rated for sustained discharge against a fully manifested Class-5 entity; the proton works requires a 36-hour cooldown between charge cycles for these cells specifically.
+
+**Wraith.** Violet capture medium, Class 3. Charged weight ~10 lb, hip cradle / lower-back. Manual override: Spore Vent (§8.2). Discharged at slightly elevated pressure relative to other Class-3 grades; the medium settles to a fine violet dust on horizontal surfaces.
 
 **Banshee.** Violet capture medium, Class 4. Charged weight ~14 lb, lower-back slot. Manual override: Resonance Tap (§8.2). The medium responds to a narrow harmonic window; engagement requires the resonance tap to be primed within thirty seconds of arrival.
 
@@ -282,7 +282,7 @@ Manual overrides (§8) elevate the discharge pressure to varying degrees. Across
 
 The color of a discharge residue is the color of the cell's capture medium. The firm fields cells in six color bands:
 
-  • **Violet** — Pixie, Sylph, Wraith, Siren, Banshee.
+  • **Violet** — Pixie, Sylph, Siren, Wraith, Banshee.
   • **Red** — Cinder, Spook, Revenant, Poltergeist.
   • **Blue** — Wisp, Shade, Mariner.
   • **Yellow** — Mote, Cantrip, Apparition.
