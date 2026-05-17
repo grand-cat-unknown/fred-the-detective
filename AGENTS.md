@@ -129,3 +129,51 @@ states = [
 ```
 
 Godot executable app image -> [text](../../Apps/Godot_v4.6.2-stable_linux.x86_64)
+
+
+## Gating Model (How Facts Drive The World)
+
+Every behavior change in the game — what an object shows on inspect, whether a door blocks movement, what a suspect is willing to say, whether an inventory item is visible — bottoms out in a single primitive: **facts**.
+
+### One global truth store: facts
+
+`CaseState` holds a flat `StringName -> bool` dictionary. Each fact has a `FactDefinition` (`assets/facts/<id>.tres`) declaring its id, default value, label, and description. Facts start at their defaults at case load and flip via effects. Fact ids are lowercase snake_case `StringName`s, e.g. `&"fred_recovered_siren_cell"`.
+
+### One gate primitive: GateCondition
+
+A `GateCondition` is just three lists of fact ids:
+
+- `all_of` — every fact in this list must be true.
+- `any_of` — at least one must be true (skipped if list is empty).
+- `none_of` — none may be true.
+
+A null condition is "always met." That is the only knob anywhere in the game — conversation gating, room gating, prop visuals, inventory visibility, action availability all bottom out in this single rule.
+
+### Two ways facts get flipped
+
+**1. Environmental — via `InteractableState`.** Each interactable carries an ordered `states` array. The first state whose `condition.is_met(case_state)` wins, and it dictates everything about the object *right now*: title/description on inspect, optional yes/no action, tile swap, blocks-movement flag, toast. Effects fire in two flavors:
+
+- `effects` — passive, applied the moment the player inspects the object (e.g. "looking at the chute reveals the popped valve").
+- `action_effects` — applied only when the player confirms the yes/no action prompt (e.g. "Pick up the book?").
+
+State order matters: most-specific / end-state first, fallback last.
+
+**2. Conversational — via `ConversationEffect` on suspects.** A suspect's `allowed_effects` declare which facts an LLM-driven conversation is permitted to set, and under which gate. The judge model only considers an effect if `is_available(state)` is true (its own gate is met). The `description` is the criterion the judge applies ("Set this only if Theo clearly permits Fred to borrow the manual"). This is how dialogue progresses the world without letting the LLM hallucinate arbitrary state flips.
+
+### How suspects change behavior based on facts: PromptBlock
+
+A suspect has two stacks of prompt blocks — `prompt_blocks` (added to the system prompt before the LLM speaks) and `reaction_blocks` (same idea, framed as "react to this happening"). Each block has a `GateCondition`; only available ones get injected. Suspects don't have hard-coded dialogue trees — they have a base persona plus a stack of conditional instructions to the LLM.
+
+### Inventory mirrors interactables
+
+An `InventoryItemDefinition` has its own `states` array — first state whose condition passes is rendered in the HUD; if none match, the item is hidden. Items appear/disappear by fact rather than by explicit add() calls.
+
+### Designing A Story Beat As Game Elements
+
+Each clue / conversation beat decomposes into:
+
+1. **A fact id** — the boolean that captures "this thing is now known / done." (e.g. `fred_recovered_siren_cell`, `pemberton_palm_shown`, `mags_admitted_smoke_break`).
+2. **A flip surface** — either an `InteractableState.action_effects` (the player physically did the thing) or a `ConversationEffect` (the suspect admitted it, judged against a written criterion).
+3. **Downstream gates** — every dialogue reaction, every room/prop state, every inventory item that depends on this beat lists this fact in its `GateCondition`.
+
+Example: "Vivian tells Fred the service corridor exists" becomes a `ConversationEffect` on Vivian that fires when she's told about it -> sets `vivian_revealed_service_corridor` -> that fact unlocks the service-corridor interactables (trash with stained gloves, concealed passage marker) and shows up as an `all_of` requirement on Pemberton's "pressed on route" prompt block, so he only starts squirming about geometry once Fred *could* know.
