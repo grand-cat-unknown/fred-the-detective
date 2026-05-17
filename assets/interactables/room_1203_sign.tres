@@ -8,7 +8,6 @@ script = ExtResource("2_state")
 title = "Room 1203"
 description = "A guest-room placard reads 1203."
 update_tile = true
-layer_name = "Doors"
 source_id = 1
 atlas_coords = Vector2i(17, 23)
 update_blocks_movement = true
