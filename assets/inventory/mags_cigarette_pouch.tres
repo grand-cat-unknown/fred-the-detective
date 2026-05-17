@@ -12,16 +12,16 @@ all_of = Array[StringName]([&"has_mags_cigarette_pouch"])
 [sub_resource type="Resource" id="InventoryItemState_pouch"]
 script = ExtResource("3_state")
 condition = SubResource("GateCondition_has_pouch")
-label = "Mags's Pouch"
-description = "Lady Fingers. MM monogrammed in red thread."
+label = "Cigarette Pouch"
+description = "Lady Fingers. DH monogrammed in red thread."
 action_input = &"open_mags_pouch"
 action_key_hint = "R"
 action_kind = &"evidence"
-evidence_title = "Mags's Cigarette Pouch"
+evidence_title = "Cigarette Pouch"
 evidence_image = ExtResource("4_image")
-evidence_description = "[b]Mags's Cigarette Pouch[/b]
+evidence_description = "[b]Cigarette Pouch[/b]
 
-[i]Template description — replace with details about the monogrammed pouch.[/i]"
+[i]Template description — small embroidered pouch with the initials [b]DH[/b] stitched in red thread; half-full of Lady Fingers.[/i]"
 
 [resource]
 script = ExtResource("1_definition")
