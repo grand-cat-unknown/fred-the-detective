@@ -12,7 +12,7 @@ all_of = Array[StringName]([&"iris_returned_transcribed_log"])
 script = ExtResource("3_state")
 condition = SubResource("GateCondition_has_log")
 label = "Transcribed Log"
-description = "Iris's transcription of the device recording. A 9:11 chute-side event, then footsteps west — toward the chute."
+description = "Iris's transcription of the device recording. A heavy 9:11 thud nearby, followed by footsteps."
 action_input = &"open_transcribed_log"
 action_key_hint = "E"
 action_kind = &"book"
@@ -21,8 +21,38 @@ book_pages = Array[String](["[b]Transcribed Log[/b]
 
 [i]Iris's transcription of the device recording.[/i]
 
-  • 9:11 PM — [b]loud thud[/b], chute-side.
-  • 9:13 PM — footsteps, heading west toward the chute.
+9:00 PM
+West side south scan. Clear.
+
+9:03 PM
+West side middle scan. Clear.
+
+9:06 PM
+West side north scan. Clear.
+
+9:07-9:09 PM
+Loud disturbance detected from the direction of 1102. Repeated heavy impacts, scraping, and movement.
+
+9:10 PM
+Radio call from Mara: assistance needed at 1102.
+
+9:10 PM
+Rapid footsteps moving away from the west post toward 1102.
+
+9:11 PM
+Footsteps detected nearby, growing louder.
+
+9:11:30 PM
+Heavy thud nearby.
+
+9:12 PM
+Footsteps moving away from the west post.
+
+9:13 PM
+Distant voices near 1102.
+
+9:14 PM
+Door to 1102 forced open.
 "])
 
 [resource]
