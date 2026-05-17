@@ -26,8 +26,10 @@ none_of = Array[StringName]([&"has_evidence"])
 [sub_resource type="Resource" id="InteractableState_cell_default"]
 script = ExtResource("4_state")
 condition = SubResource("GateCondition_cell_default")
-title = "Spent Siren Cell"
-description = "A spent Siren Containment Cell lies in the laundry basin under the chute mouth. The back-pressure valve has been manually popped. Something solid is wedged inside the housing — a carved figurine. Heavy. Real stone. The Anchor Idol."
+title = "Spent Containment Cell"
+description = "A spent containment cell lies in the laundry basin under the chute mouth. The back-pressure valve has been manually popped. Something solid is wedged inside the housing — a carved figurine. Heavy. Real stone. The Anchor Idol.
+
+It might be interesting to compare the cell against Theo's records, then figure out more using a Ghostbuster manual."
 action_label = "Yes"
 action_prompt = "Take the cell?"
 action_effects = [SubResource("StateEffect_take_cell")]
