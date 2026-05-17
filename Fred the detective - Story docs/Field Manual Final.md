@@ -166,7 +166,7 @@ The cell housing is **externally unmarked** apart from the serial stamp on the b
 
 The only field-identifiable distinction between grades is the **capture medium itself — the goo inside the cell**, visible through the small gauge window on the upper neck. Capture medium colors fall into one of six bands:
 
-**Violet · Red · Blue · Yellow · Green · Black.**
+**Blue · Red · Green · Violet · Yellow · Black.**
 
 Operators are reminded that **multiple grades share the same color**. Knowing the color narrows the grade to a short list; it does not identify the grade by itself. The grade is finally identified by cross-referencing color with weight, with override behavior, and with tracer chemistry (§§6.3, 7.3, 8.2). In low-light conditions, refer to the serial stamp.
 
@@ -190,41 +190,41 @@ The side caddy is also used for the spare PKE meter. Do not store cells of any g
 
 ## Page 12 — §6.4 Cell Grade Roster — Class 1 (Training Grades)
 
-**Pixie.** Violet capture medium, Class 1. Charged weight ~3 lb, side caddy. Manual override: Pulse-Lock (§8.2). The medium is the most thinly pigmented of the violet grades and the most dilute on inspection; a common training-grade cell.
-
-**Wisp.** Blue capture medium, Class 1. Charged weight ~4 lb, side caddy. Manual override: none — training grade. The firm's baseline training cell; almost every operator in service has fired one in their first week. The medium is essentially inert outside an engagement.
+**Glimmer.** Green capture medium, Class 1 / Class 2. Charged weight ~4 lb, side caddy. Manual override: Pulse-Lock (§8.2). Common Class-1 grade in client-facing demonstrations; the medium settles to a faint sparkle on dark surfaces that photographs well for marketing.
 
 **Mote.** Yellow capture medium, Class 1. Charged weight ~3 lb, side caddy. Manual override: Soft-Vent (§8.2). Designed for very small entities (insect-class trace manifestations); the gauge window is narrower than other Class-1 grades and reads with a finer needle.
 
-**Glimmer.** Green capture medium, Class 1 / Class 2. Charged weight ~4 lb, side caddy. Manual override: Pulse-Lock (§8.2). Common Class-1 grade in client-facing demonstrations; the medium settles to a faint sparkle on dark surfaces that photographs well for marketing.
+**Pixie.** Violet capture medium, Class 1. Charged weight ~3 lb, side caddy. Manual override: Pulse-Lock (§8.2). The medium is the most thinly pigmented of the violet grades and the most dilute on inspection; a common training-grade cell.
+
+**Wisp.** Blue capture medium, Class 1. Charged weight ~4 lb, side caddy. Manual override: none — training grade. The firm's baseline training cell; almost every operator in service has fired one in their first week. The medium is essentially inert outside an engagement.
 
 ---
 
 ## Page 13 — §6.4 — Class 2
 
+**Cinder.** Red capture medium, Class 2. Charged weight ~5 lb, side caddy. Manual override: Cinder Quench (§8.2). The medium runs warm in storage and the cell is uncomfortable to carry for extended periods against bare skin.
+
+**Spectre.** Green capture medium, Class 2 / Class 3. Charged weight ~7 lb, hip cradle. Manual override: Dye Reset (§8.2). The medium contains a marker dye (§7.3), water-soluble, that wipes off with a damp cloth; widely used for training engagements where residue control matters.
+
 **Sylph.** Violet capture medium, Class 2. Charged weight ~6 lb, hip cradle. Manual override: Soft-Vent (§8.2). The medium is humidity-sensitive in storage and should be kept below 35% RH; older cells occasionally weep a faint violet film around the gauge window in summer.
 
-**Cinder.** Red capture medium, Class 2. Charged weight ~5 lb, side caddy. Manual override: Cinder Quench (§8.2). The medium runs warm in storage and the cell is uncomfortable to carry for extended periods against bare skin.
+**Cantrip.** Yellow capture medium, Class 2 / Class 3. Charged weight ~8 lb, hip cradle. Manual override: Reverse-Flow (§8.2). The medium contains a marker variant of the Spectre-grade tracer (§7.3); useful in low-light surveys but requires a UV lamp for residue inspection.
 
 **Shade.** Blue capture medium, Class 2. Charged weight ~6 lb, hip cradle. Manual override: Reverse-Flow (§8.2). The medium is unusually thin for its grade and is sometimes used as a trap-evacuation reservoir rather than for direct discharge; off-label use is not recommended.
 
 **Spook.** Red capture medium, Class 2 / Class 3. Charged weight ~7 lb, hip cradle. Manual override: Snap-Charge (§8.2). Single-shot reservoir design; once discharged at-distance the cell cannot be re-fired in the field and must be refilled at the proton works.
 
-**Cantrip.** Yellow capture medium, Class 2 / Class 3. Charged weight ~8 lb, hip cradle. Manual override: Reverse-Flow (§8.2). The medium contains a marker variant of the Spectre-grade tracer (§7.3); useful in low-light surveys but requires a UV lamp for residue inspection.
-
-**Spectre.** Green capture medium, Class 2 / Class 3. Charged weight ~7 lb, hip cradle. Manual override: Dye Reset (§8.2). The medium contains a marker dye (§7.3), water-soluble, that wipes off with a damp cloth; widely used for training engagements where residue control matters.
-
 ---
 
 ## Page 14 — §6.4 — Class 3
 
-**Wraith.** Violet capture medium, Class 3. Charged weight ~10 lb, hip cradle / lower-back. Manual override: Spore Vent (§8.2). Discharged at slightly elevated pressure relative to other Class-3 grades; the medium settles to a fine violet dust on horizontal surfaces.
+**Boggart.** Green capture medium, Class 3. Charged weight ~10 lb, hip cradle / lower-back. Manual override: Spore Vent (§8.2). Designed for mischief-class containment; the cell contains a secondary aerosol cartridge that vents during discharge to flush a manifestation from concealment.
 
 **Poltergeist.** Red capture medium, Class 3. Charged weight ~9 lb, hip cradle. Manual override: Kinetic Damp (§8.2). The internal capacitor includes a kinetic load buffer rated for object-throw events of up to 40 lb at 8 ft/s; deployment guidelines warn against entering a kinetic field without the buffer primed.
 
-**Mariner.** Blue capture medium, Class 3. Charged weight ~10 lb, hip cradle / lower-back. Manual override: Tide-Damp (§8.2). The medium is formulated for high-humidity coastal work; the cell carries an additional internal desiccant chamber that requires inspection every six months.
+**Wraith.** Violet capture medium, Class 3. Charged weight ~10 lb, hip cradle / lower-back. Manual override: Spore Vent (§8.2). Discharged at slightly elevated pressure relative to other Class-3 grades; the medium settles to a fine violet dust on horizontal surfaces.
 
-**Boggart.** Green capture medium, Class 3. Charged weight ~10 lb, hip cradle / lower-back. Manual override: Spore Vent (§8.2). Designed for mischief-class containment; the cell contains a secondary aerosol cartridge that vents during discharge to flush a manifestation from concealment.
+**Mariner.** Blue capture medium, Class 3. Charged weight ~10 lb, hip cradle / lower-back. Manual override: Tide-Damp (§8.2). The medium is formulated for high-humidity coastal work; the cell carries an additional internal desiccant chamber that requires inspection every six months.
 
 **Eidolon.** Black capture medium, Class 3. Charged weight ~11 lb, lower-back slot. Manual override: Twin-Tap Sync (§8.2). Designed for paired deployment with a Wight cell; firing an Eidolon without its paired Wight is permitted but produces only a fractional capture yield.
 
@@ -284,11 +284,11 @@ Behavior under non-standard firing — contact-range discharge, obstructed nozzl
 
 The color of a discharge residue is the color of the cell's capture medium. The firm fields cells in six color bands:
 
-  • **Violet** — Pixie, Sylph, Siren, Wraith, Banshee.
-  • **Red** — Cinder, Spook, Phantom, Revenant, Poltergeist.
   • **Blue** — Wisp, Shade, Tempest, Mariner.
-  • **Yellow** — Mote, Cantrip, Apparition.
+  • **Red** — Cinder, Spook, Phantom, Revenant, Poltergeist.
   • **Green** — Glimmer, Spectre, Reaper, Boggart.
+  • **Violet** — Pixie, Sylph, Wraith, Siren, Banshee.
+  • **Yellow** — Mote, Cantrip, Apparition.
   • **Black** — Eidolon, Wight, Lemure.
 
 Operators are reminded that **color narrows the grade to a band, not to a cell.** Five grades share the violet band; five share the red band. A violet splatter at a scene tells the operator only that one of five grades was discharged there. The grade is identified by cross-referencing color with: residue **volume** (heavier cells leave more), tracer **persistence** (§7.3), and any recovered cell's **override state** (§8.1) and **valve state** (§7.4).
@@ -311,21 +311,21 @@ Color identifies what was discharged. Pattern identifies how. Persistence identi
 
 ## Page 22 — §7.3 (cont.)
 
+**Spectre / Glimmer / Boggart / Reaper tracer.** *(Green band.)* Green marker dye. Settles brightly under UV; nearly invisible in daylight. Removable from skin with soap and warm water; removable from soft surfaces with the firm's standard neutralizer. Used in training because of its forgiving cleanup profile.
+
 **Sylph tracer.** *(Violet band, Class 2.)* Violet film. Removable from skin with soap and warm water within the engagement; settles on surfaces as a removable haze that wipes off with a damp cloth. No long-term persistence on skin documented.
 
 **Siren tracer.** *(Violet band, Class 4 / Class 5.)* Violet pigment. Removable from skin and surfaces with soap and water within 24 hours under standard at-distance discharge. Under contact-range firing the pigment passes the glove weave and settles sub-dermally; persists 48–72 hours through full metabolic clearance regardless of washing.
 
 **Wraith tracer.** *(Violet band, Class 3.)* Violet dust, almost entirely particulate, no liquid carrier. Brushed off cleanly from clothing and hard surfaces with a soft cloth; rinses from skin with cold water in under a minute.
 
-**Spectre / Glimmer / Boggart / Reaper tracer.** *(Green band.)* Green marker dye. Settles brightly under UV; nearly invisible in daylight. Removable from skin with soap and warm water; removable from soft surfaces with the firm's standard neutralizer. Used in training because of its forgiving cleanup profile.
-
 ---
 
 ## Page 23 — §7.3 (cont.)
 
-**Banshee tracer.** *(Violet band, Class 4.)* Violet powder. Slightly abrasive. Removed from skin with soap and a stiff brush, or with the firm's standard neutralizer. May require a second pass on porous surfaces.
-
 **Revenant / Poltergeist / Phantom tracer.** *(Red band, high-grade.)* Red alcohol-soluble pigment. Removable from skin and hard surfaces with isopropyl alcohol; soap and water alone are insufficient. Operators are issued a small alcohol wipe pack with these grades.
+
+**Banshee tracer.** *(Violet band, Class 4.)* Violet powder. Slightly abrasive. Removed from skin with soap and a stiff brush, or with the firm's standard neutralizer. May require a second pass on porous surfaces.
 
 **Eidolon / Wight / Lemure tracer.** *(Black band.)* Black ash. Removable from skin with soap and water; removable from hard surfaces with a damp cloth. Settles heavily and is easy to spot at a glance, which is a deliberate design feature given the irreversible nature of the Lemure's lockdown override (§8.2).
 
