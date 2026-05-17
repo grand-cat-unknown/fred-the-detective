@@ -195,7 +195,7 @@ draw_marker = false
 snap_to_map_grid = false
 
 [node name="Inspectable_ghostbusters_gear_cart_inventory" parent="." unique_id=100004 instance=ExtResource("9_insp")]
-position = Vector2(948, 462)
+position = Vector2(1237, 500)
 object_id = &"ghostbusters_gear_cart_inventory"
 title = "Gear-Cart Clipboard"
 description = "Placeholder — move to the Ghostbusters room in editor."
