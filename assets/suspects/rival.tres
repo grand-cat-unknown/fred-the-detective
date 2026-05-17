@@ -13,7 +13,7 @@ all_of = Array[StringName]([&"mags_confessed_bribe_master_key", &"julian_fake_id
 [sub_resource type="Resource" id="PromptBlock_julian_fold"]
 script = ExtResource("4_prompt_block")
 condition = SubResource("GateCondition_julian_fold")
-text = "REACTION BEAT — Fred knows two things: Mags admitted she gave you a master key, and Fred has identified the wax idol in your room as a forgery. The lawyer act will not hold. Fold. Admit you intended to swap the fake for the real Crooked Idol that night. State plainly that you were approaching 1102 to make the swap when you heard a loud thud somewhere west and seconds later the watch team was already at the door. You never entered. You did not kill Vance. You are a thief and a fraud, not a murderer. Offer details if pressed — the timing you heard, where you were standing — because corroborating yourself is now your only protection."
+text = "REACTION BEAT — Fred knows two things: Mags admitted she gave you a master key, and Fred has identified the wax idol in your room as a forgery. The lawyer act will not hold. Fold. Admit you intended to swap the fake for the real Crooked Idol that night. State plainly that you stepped out with the master key and replica, saw the Ghostbusters setting up at 1102, abandoned the plan, retreated to Suite 1204, and locked yourself in before the watch began. You never entered 1102. You did not kill Vance. You are a thief and a fraud, not a murderer."
 
 [sub_resource type="Resource" id="GateCondition_julian_confesses_fraud"]
 script = ExtResource("3_condition")
@@ -24,7 +24,7 @@ none_of = Array[StringName]([&"julian_confessed_fraud_not_murder"])
 script = ExtResource("5_effect")
 condition = SubResource("GateCondition_julian_confesses_fraud")
 fact_id = &"julian_confessed_fraud_not_murder"
-description = "Set this only if Julian clearly admits he intended to swap a fake idol for the real one AND places himself near 1102 hearing a thud, AND denies committing the murder."
+description = "Set this only if Julian clearly admits he intended to swap a fake idol for the real one, abandoned the plan when he saw the Ghostbusters at 1102, and denies committing the murder."
 
 [sub_resource type="Resource" id="GateCondition_cell_recovered"]
 script = ExtResource("3_condition")
@@ -56,7 +56,7 @@ subtitle = "Collector — Suite 1204"
 persona = "Refined, arrogant, deeply bitter. Mid-Atlantic accent. Flowery vocabulary, dripping with sarcasm."
 sheet_summary = "An old-money collector with a wounded ego and a suite full of reasons to look guilty. He resents Vance, but his contempt is theatrical rather than hot-blooded."
 sheet_details = Array[String](["Lost the Anchor Idol to Vance by a single bid.", "Claims he never left Suite 1204 during the watch window.", "Possesses the money, taste, and bitterness for an elaborate theft.", "Treats direct questions as social vulgarity."])
-sheet_hooks = Array[String](["Why he was seen near the elevators around 9:00.", "The wax idol replica on his writing desk.", "How he got access to a master key.", "Whether his plan required Vance alive or dead."])
+sheet_hooks = Array[String](["Why he was seen in the hallway before the watch.", "The wax idol replica on his writing desk.", "How he got access to a master key.", "Whether his plan required Vance alive or dead."])
 dialogue = "Vane: \"Detective. Do sit. Although I'm afraid you've come to the wrong suite for a confession.\""
 system_prompt = "You are Julian Vane, a prestigious occult-art collector staying in Suite 1204 at The Grandview. You lost the Anchor Idol to Felix Vance at auction by a single bid and resent him for it. Vance was killed tonight. The player is Fred, a detective.
 

@@ -12,7 +12,7 @@ Working room list for the hotel layout. **All seven rooms are on a single floor.
 | 1201 | **Ghostbusters team room** | Part of the Ghostbusters' multi-night watch setup. Likely the bunk/rest room. |
 | 1202 | **Ghostbusters team room** | Part of the Ghostbusters' watch setup. Likely the gear/cart staging room. |
 | 1203 | **Vacant guest room** | Currently between guests. Also on Pemberton's sweep checklist (same "I opened the door, empty, moved on" line). No occupant inside — no story weight beyond being a second checkpoint Otis claims to have cleared. |
-| 1204 | **Julian Vane's room** | The rival collector's room. He retreats here when the watch team appears. The fake wax idol and chloroform vial are found here. |
+| 1204 | **Julian Vane's room** | The rival collector's room. He retreats here when the watch team appears. The fake wax idol is found here. |
 
 ## Layout
 

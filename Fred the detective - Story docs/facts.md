@@ -47,7 +47,7 @@ Julian confesses: idol-swap fraud, exonerates himself on murder
 | `has_mags_cigarette_pouch` | Fred picked up the monogrammed pouch with Mags's initials. | `InteractableState.action_effects` on the pouch pickup in 1103 ("Take it"). | Inventory HUD shows the pouch; other half of Mags-pressure gate. |
 | `mags_confessed_bribe_master_key` | Mags has admitted she took a bribe and handed Julian a master key. | `ConversationEffect` on Mags, gated `all_of: [lit_cigarette_found_1103, has_mags_cigarette_pouch]`. | Julian-fold gate; opens the Julian fraud confession path. |
 | `julian_fake_idol_seen` | Fred has inspected the wax idol in Julian's room (1204) and clocked it as a forgery. | `InteractableState.effects` (passive) on the idol prop in 1204. | Deduction note; second half of Julian-fold gate. |
-| `julian_confessed_fraud_not_murder` | Julian has admitted the idol-swap scheme and placed himself near 1102 at the thud. | `ConversationEffect` on Julian, gated `all_of: [mags_confessed_bribe_master_key, julian_fake_idol_seen]`. | Clears Julian on the accuse panel; surfaces independent corroboration of the 9:11 thud (feeds into the real chute-and-Pemberton chain). |
+| `julian_confessed_fraud_not_murder` | Julian has admitted the idol-swap scheme, abandoned it when he saw the Ghostbusters at 1102, and denies the murder. | `ConversationEffect` on Julian, gated `all_of: [mags_confessed_bribe_master_key, julian_fake_idol_seen]`. | Clears Julian on the accuse panel; confirms his scheme required Vance alive and never reached 1102. |
 
 ### Interactables
 
@@ -97,25 +97,25 @@ Register in `CaseLoader.INVENTORY_IDS` (and the cigarette pouch interactable in 
 
 - `PromptBlock_fold` — `all_of: [mags_confessed_bribe_master_key, julian_fake_idol_seen]`. Text:
 
-  > REACTION BEAT — Fred knows two things: Mags admitted she gave you a master key, and Fred has identified the wax idol in your room as a forgery. The lawyer act will not hold. Fold. Admit you intended to swap the fake for the real Crooked Idol that night. State plainly that you were approaching 1102 to make the swap when you heard a loud thud somewhere west and seconds later the watch team was already at the door. You never entered. You did not kill Vance. You are a thief and a fraud, not a murderer. Offer details if pressed — the timing you heard, where you were standing — because corroborating yourself is now your only protection.
+  > REACTION BEAT — Fred knows two things: Mags admitted she gave you a master key, and Fred has identified the wax idol in your room as a forgery. The lawyer act will not hold. Fold. Admit you intended to swap the fake for the real Crooked Idol that night. State plainly that you stepped out with the master key and replica, saw the Ghostbusters setting up at 1102, abandoned the plan, retreated to Suite 1204, and locked yourself in before the watch began. You never entered 1102. You did not kill Vance. You are a thief and a fraud, not a murderer.
 
 `allowed_effects` to add:
 
 - `ConversationEffect_julian_confesses_fraud` — `all_of: [mags_confessed_bribe_master_key, julian_fake_idol_seen]`, `fact_id = julian_confessed_fraud_not_murder`. Description:
 
-  > Set this only if Julian clearly admits he intended to swap a fake idol for the real one AND places himself near 1102 hearing a thud, AND denies committing the murder.
+  > Set this only if Julian clearly admits he intended to swap a fake idol for the real one, abandoned the plan when he saw the Ghostbusters at 1102, and denies committing the murder.
 
 ### Accusation implications
 
 - A Julian verdict on the accuse panel is **available** when any of `julian_fake_idol_seen`, `mags_confessed_bribe_master_key`, or his rivalry with Vance is on the board — i.e. Fred has *something* circumstantial to go on.
 - Before `julian_confessed_fraud_not_murder`: judge rejects with a "no kill-window placement" message. (Trap difficulty TBD — soft / medium / hard.)
 - After `julian_confessed_fraud_not_murder`: judge rejects Julian cleanly and the deduction view re-labels him as a *forgery* lead, not a *murder* lead.
-- Side benefit: Julian's confession is the first independent witness corroboration of the 9:11 thud, which becomes a load-bearing brick in the *real* Pemberton chain (chute → west service hall → late arrival from the wrong direction).
+- Side benefit: Julian's confession explains the fake idol and master key without making him a sound witness or route witness.
 
 ### Open / TBD
 
 - Accusation trap severity (soft warning vs. one-strike vs. case-ends-wrong).
-- Whether Julian, post-confession, surrenders any *additional* directional detail about the thud (e.g. "it was coming from the north-west") that could fast-forward the chute discovery. Probably yes, but keep it phrased as Julian's *impression*, not certainty.
+- Whether Julian, post-confession, gives any additional detail about the pre-watch hallway setup. He should not corroborate the chute thud.
 
 ---
 
@@ -123,7 +123,7 @@ Register in `CaseLoader.INVENTORY_IDS` (and the cigarette pouch interactable in 
 
 The spine of the case. Each step opens the next. By the end, Fred has the genuine Crooked Idol in hand, knows the murder method (manual purge of a Siren Cell) and its forensic signature (sub-dermal violet staining of the palms), and can ask every Ghostbuster to show their hands. Otis Pemberton is the one whose palms are stained.
 
-This thread has no dependencies on the Julian red herring — but Julian's post-fold confession (`julian_confessed_fraud_not_murder`) corroborates the thud direction, so a player who has run that thread first will reach the chute step faster.
+This thread has no dependencies on the Julian red herring. Julian's post-fold confession clears his theft scheme, but it does not corroborate the thud direction.
 
 ### Chain
 
@@ -300,13 +300,13 @@ New entries also needed in `CaseLoader.INTERACTABLE_IDS` (gear cart, listening d
 
   > REACTION BEAT — Fred has recovered the Crooked Idol from inside a spent Siren Cell with a manually popped valve. The other three Ghostbusters will openly admit one of your team did this — you cannot publicly disagree without lighting yourself up. Play it cool: agree externally that it must have been someone with equipment-side access, look just as shocked as Mara, throw the blame radius wide ("could have been any of us, including someone outside the team if they had help"), float Theo's clumsiness as a possible angle without committing to it. Never volunteer the manual-purge method by name. Never volunteer that you handled the cart during prep. If Fred asks to see your hands here, jump to your palm-request reaction beat.
 
-- `PromptBlock_palm_request` — `all_of: [has_evidence]`, `none_of: [pemberton_palms_shown]`. Text:
+- `PromptBlock_palm_request` — `all_of: [has_evidence, has_field_book]`, `none_of: [pemberton_palms_shown]`. Text:
 
   > REACTION BEAT — Fred has the recovered cell from the chute (back-pressure valve manually popped — unambiguous manual-purge signature). If he asks to see your hands, you cannot refuse without lighting yourself up — but your palms are stained violet. You may stall, joke, try to redirect, claim it's wine spill or chemical splash from work — but ultimately, if Fred insists, you show your hands and the staining is visible. Do not pretend the stain isn't there. Do not invent a colour.
 
 `allowed_effects` to add:
 
-- `ConversationEffect_pemberton_palms_shown` — `all_of: [has_evidence]`, `none_of: [pemberton_palms_shown]`, `fact_id = pemberton_palms_shown`. Description:
+- `ConversationEffect_pemberton_palms_shown` — `all_of: [has_evidence, has_field_book]`, `none_of: [pemberton_palms_shown]`, `fact_id = pemberton_palms_shown`. Description:
 
   > Set this only if Fred asks Otis to show his palms AND Otis agrees to show them (the UI then presents the photo of violet-stained hands).
 
@@ -331,7 +331,7 @@ The staff-only service corridor runs along the north side of the floor, behind t
 
 - The corridor tiles are **always passable**. The curtains are pure visual misdirection — they *look* impassable but never block movement. An observant / curious player who walks through them mid-investigation discovers the corridor on their own and that is fine, even encouraged.
 - "Knowing about the service corridor" is **not a fact**. Vivian just says it out loud when Fred shows her the recovered evidence; it's a conversational hint, not a state flip. The corridor's existence is honest world geography — once you walk in, you've found it.
-- The stained gloves *are* a fact-flipping pickup. They become inventory, and they're the gate on Pemberton's geometry-pressure beat.
+- The stained gloves *are* a fact-flipping pickup and inventory item. They are supporting evidence, not a progression gate.
 
 ### Chain
 
@@ -349,14 +349,14 @@ Path B: Player returns to Vivian with has_evidence ──► Vivian says aloud:
                      │
                      ▼              ──► has_stained_gloves
                      ▼
-        Pemberton's geometry alibi is now falsifiable in conversation.
+        Pemberton's geometry alibi gains an extra piece of supporting evidence.
 ```
 
 ### Fact set
 
 | Fact id | Meaning | How it flips | What it unlocks |
 | --- | --- | --- | --- |
-| `has_stained_gloves` | Fred has picked up the discarded pair of violet-stained work gloves from the trash bin in the west end of the service corridor. | `InteractableState.action_effects` on the trash-bin pickup. | Inventory HUD shows the gloves; gates Pemberton's geometry-pressure prompt block; weights the accuse-panel verdict. |
+| `has_stained_gloves` | Fred has picked up the discarded pair of violet-stained work gloves from the trash bin in the west end of the service corridor. | `InteractableState.action_effects` on the trash-bin pickup. | Inventory HUD shows the gloves; gives the judge and dialogue an extra corridor-route support fact. |
 
 ### Interactables
 
@@ -391,13 +391,13 @@ No `allowed_effects` are needed for this beat — Vivian saying the line out lou
 
 `prompt_blocks` to add:
 
-- `PromptBlock_geometry_pressed` — `all_of: [has_stained_gloves]`. Text:
+- `PromptBlock_geometry_pressed` — `all_of: [has_evidence]`. Text:
 
-  > REACTION BEAT — Fred has recovered a pair of violet-stained work gloves from the trash bin inside the staff service corridor (west end, near the chute access). The stain matches the manual-purge signature in the field book. Those gloves place someone with stained palms in the corridor — and your east-side-sweep alibi (1103 then 1203 then converging west) doesn't put you in that corridor at all. If Fred raises the corridor, the gloves, the curtains, or the geometry of your sweep, you cannot keep the lawyer act and the alibi at the same time. Buckle on geometry first — try to claim you took the corridor as a legitimate shortcut between sweep checkpoints, or that those gloves aren't yours — but do NOT pre-confess the murder. The palm-show is what breaks you, not the geometry. Stay in stage one until Fred forces stage two.
+  > REACTION BEAT — Fred has recovered the cell from the chute, so the corridor geometry is now dangerous for you. If Fred raises the service corridor, the curtains, the chute route, the gloves, or the geometry of your sweep, you cannot keep the lawyer act and the alibi at the same time. Buckle on geometry first — try to claim you lost the reading, doubled back, or that any gloves Fred found are not yours — but do NOT pre-confess the murder. The palm-show is what breaks you, not the geometry. Stay in stage one until Fred forces stage two.
 
 ### Accusation implications
 
-- A Pemberton verdict still requires the Truth Path's two-fact minimum (`has_evidence` + `pemberton_palms_shown`). This thread does not change that bar.
+- A Pemberton verdict still requires the Truth Path's minimum (`has_evidence` + `has_field_book` + `pemberton_palms_shown`). This thread does not change that bar.
 - `has_stained_gloves` is *not* required for the accusation — it makes the verdict feel more complete and lets the judge cite the corridor route, but a player who skips the corridor entirely can still close the case on palms alone.
 
 ### Open / TBD

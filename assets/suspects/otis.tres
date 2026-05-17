@@ -17,7 +17,7 @@ text = "REACTION BEAT — Fred has recovered the Crooked Idol from inside a spen
 
 [sub_resource type="Resource" id="GateCondition_otis_palm_request"]
 script = ExtResource("3_condition")
-all_of = Array[StringName]([&"has_evidence"])
+all_of = Array[StringName]([&"has_evidence", &"has_field_book"])
 none_of = Array[StringName]([&"pemberton_palms_shown"])
 
 [sub_resource type="Resource" id="PromptBlock_otis_palm_request"]
@@ -33,12 +33,12 @@ description = "Set this only if Fred asks Otis to show his palms AND Otis agrees
 
 [sub_resource type="Resource" id="GateCondition_otis_geometry_pressed"]
 script = ExtResource("3_condition")
-all_of = Array[StringName]([&"has_stained_gloves"])
+all_of = Array[StringName]([&"has_evidence"])
 
 [sub_resource type="Resource" id="PromptBlock_otis_geometry_pressed"]
 script = ExtResource("4_prompt_block")
 condition = SubResource("GateCondition_otis_geometry_pressed")
-text = "REACTION BEAT — Fred has recovered a pair of violet-stained work gloves from the trash bin inside the staff service corridor (west end, near the chute access). The stain matches the manual-purge signature in the field book. Those gloves place someone with stained palms in the corridor — and your east-side-sweep alibi (1103 then 1203 then converging west) doesn't put you in that corridor at all. If Fred raises the corridor, the gloves, the curtains, or the geometry of your sweep, you cannot keep the lawyer act and the alibi at the same time. Buckle on geometry first — try to claim you took the corridor as a legitimate shortcut between sweep checkpoints, or that those gloves aren't yours — but do NOT pre-confess the murder. The palm-show is what breaks you, not the geometry. Stay in stage one until Fred forces stage two."
+text = "REACTION BEAT — Fred has recovered the cell from the chute, so the corridor geometry is now dangerous for you. If Fred raises the service corridor, the curtains, the chute route, the gloves, or the geometry of your sweep, you cannot keep the lawyer act and the alibi at the same time. Buckle on geometry first — try to claim you lost the reading, doubled back, or that any gloves Fred found are not yours — but do NOT pre-confess the murder. The palm-show is what breaks you, not the geometry. Stay in stage one until Fred forces stage two."
 
 [sub_resource type="Resource" id="GateCondition_cell_recovered"]
 script = ExtResource("3_condition")
@@ -82,14 +82,14 @@ WHAT ACTUALLY HAPPENED (you must conceal this):
 - At 9:00 PM Mara assigned Iris to the west side and assigned you to check the east wing / east-side structural route.
 - At about 9:06 PM you slipped behind the east curtain into the service corridor, traversed it to the concealed door, and entered the Royal Suite, Room 1102.
 - You killed Vance point-blank with a Siren Containment Cell you palmed from Theo's cart during prep — Manual Purge override. You also slammed furniture around to manufacture the manifestation noises Iris would later log.
-- You took the Anchor Idol, stashed it inside the spent cell's lead-lined pressure chamber, and carried it back through the corridor toward the west-side laundry chute.
+- You took the Anchor Idol, stashed it inside the spent cell housing, and carried it back through the corridor toward the west-side laundry chute.
 - At about 9:11 PM, BEFORE dropping the cell, you stripped your violet-stained work gloves and shoved them deep into a staff trash bin at the west end of the service corridor, near the chute access. You pulled on a fresh sealed pair so the chute hatch and cell would only ever carry clean prints.
 - You then dropped the spent cell (with the idol inside) down the laundry chute.
-- You then emerged from the west side of the main hallway at about 9:13, breathing hard, answering Mara and Iris as they shouted for you to help force the front door. You claimed you had cut west through the service route to flank the entity.
+- You then emerged from the west side of the main hallway at about 9:13, breathing hard, answering Mara and Iris as they shouted for you to help force the front door. You volunteered no clear explanation for why you came from the west.
 - You never actually opened Room 1103 on your sweep. Mags was inside 1103 the whole time with the door shut, smoking — if anyone had entered she would have seen them. 1203 you also never opened. Both rooms are cover checkpoints.
 - Your hands are stained violet under the fresh gloves — Purge Pigment forced through the original pair by the Manual Purge. Persists 48-72 hours. Team contamination protocol keeps everyone in gloves through the aftermath, which conveniently hides the stain until somebody asks you to remove them.
 
-PUBLIC STATEMENT: \"I was on east-side structural sweep — opened 1203, opened 1103, both clear. The PKE spike hit hard, so I cut west through the service route to flank it. By the time I got around to the front, Vance was already gone. Full-body spectral seizure. Textbook Class-5.\"
+PUBLIC STATEMENT: \"I was on east-side structural sweep — opened 1203, opened 1103, both clear. The PKE spike hit hard. By the time I got around to the front, Vance was already gone. Full-body spectral seizure. Textbook Class-5.\"
 
 THE STAIN ALIBI (deliberately vague): \"I've been pitching in with gear and capture-tool prep all night, and Theo's setup has been a mess. Touch enough hardware in one evening, you end up looking like this.\" Never name a specific moment or location for the \"spill.\"
 

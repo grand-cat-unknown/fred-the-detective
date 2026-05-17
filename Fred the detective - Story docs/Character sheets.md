@@ -15,7 +15,6 @@ This is where the game moves from a logic puzzle to a living, breathing investig
 - **Iris** — tells the literal truth about what she saw and heard, and nothing more.
 - **Leo** — no skin in the game, full institutional memory.
 - **Vivian** — no skin in the game; she's the one who called Fred.
-- **Cyril** — no skin in the game, just a witness who happened to look up at the right moment.
 
 Here is the expanded character roster.
 
@@ -42,7 +41,7 @@ Here is the expanded character roster.
 - **The Lie:** There was no entity. The "manifestation" was theater. He was inside 1102 via the hidden Royal Suite passage. He never set foot in Room 1103 or Room 1203, despite claiming both as checkpoints. And he can't explain why he arrived from the west when he was supposedly sweeping east.
 - **Motive for Concealing:** Obviously, the murder and theft of the Anchor Idol.
 - **The Stain Alibi:** The entire team keeps gloves on through the post-incident aftermath (standard contamination protocol), so the stains stay hidden when Fred first arrives. **The reveal is player-driven:** when Fred eventually asks the team to show their palms, everyone else's hands are clean — Pemberton's palms and cuticles are stained deep violet. His pre-armed alibi: *"I've been pitching in with Theo's gear all night — capture-tool prep, the usual. Touch enough hardware in one evening, you end up looking like this."* Deliberately vague about *when* and *where*, so no single witness can flatly contradict him.
-- **The Detective's Hook:** Pemberton's stained hands are **Purge Pigment**. The Ghostbusters' field manual documents that a point-blank Manual Purge of a Siren Cell drives violet sludge *through* standard gloves and into the skin, staining the cuticles and palms for **48–72 hours**. He ditched the original stained gloves in a service-hall trash can and swapped into a fresh sealed pair at 9:11 — *before* he handled the chute, so the chute itself is forensically clean. **The discarded gloves are recoverable only after Vivian unlocks the player's knowledge of the service routes.** Stain on the *inside* of the fingers. No ghost causes that. Only a human pulling the manual lever of a Siren Cell at point-blank range does. That's the case.
+- **The Detective's Hook:** Pemberton's stained hands are **Purge Pigment**. The Ghostbusters' field manual documents that a point-blank Manual Purge of a Siren Cell drives violet sludge *through* standard gloves and into the skin, staining the cuticles and palms for **48–72 hours**. He ditched the original stained gloves in a service-hall trash can and swapped into a fresh sealed pair at 9:11 — *before* he handled the chute, so the chute itself is forensically clean. The discarded gloves are recoverable if Fred finds the service corridor; they support the route, but they are not a progression gate. Stain on the *inside* of the fingers. No ghost causes that. Only a human pulling the manual lever of a Siren Cell at point-blank range does. That's the case.
 
 ---
 
@@ -194,16 +193,3 @@ This is the most critical location for the player to investigate to break Pember
 - **The Route Gatekeeper Role:** **Vivian is the only character who can unlock the service routes for Fred.** The service-corridor entrances are completely hidden — a player can't stumble into them. Fred has to ask Vivian about the hotel's old layout / castle bones, and she walks him to (or describes) the access. Until that conversation fires, the service hall, the discarded gloves, and the concealed Royal Suite passage are all unreachable.
 
 ---
-
-## 9. Cyril (The Bellhop on the Floor)
-
-*A second bellhop, working the upper floors tonight. Younger than Leo, less seasoned, but observant in the way someone is when they're trying to do a job well.*
-
-- **Personality:** Friendly, low-stakes, eager to be helpful. Doesn't theorize; just reports what he saw. The kind of witness Fred doesn't have to coax.
-- **Manner of Speech:** Plain, polite, a little formal — he's still learning the "Old World" register Leo has mastered.
-- **Actual Timeline:**
-    - **~9:13 PM:** On the floor on a routine errand (delivering, fetching, or just passing through from the stairs). Sees Pemberton **come up from the west end of the main hallway** — same direction Iris is already standing. He doesn't realize the significance.
-- **What He Says (when asked about Pemberton's arrival):** *"The doctor? He came up from the west end of the hall — same side as Dr. Thorne. Out of the auction-hall side. Why?"*
-- **The Truth:** 100% honest, has no skin in the game.
-- **The Detective's Hook:** Cyril is the **second-source corroboration** for Iris's account. Two independent witnesses, one of whom isn't on the watch team, both confirm Otis came from the west. Combined with Mara's assignment record (Otis was sent east), that's the locked contradiction.
-- **Where to Find Him:** TBD — somewhere on the floor or near the stairs/auction hall during Fred's investigation. He should be easy to bump into.

@@ -6,4 +6,4 @@
 script = ExtResource("1_script")
 id = &"julian_confessed_fraud_not_murder"
 label = "Julian admitted the idol-swap scheme"
-description = "Julian Vane has admitted he intended to swap a wax forgery for the real Crooked Idol, places himself near 1102 at the thud, and denies the murder."
+description = "Julian Vane has admitted he intended to swap a wax forgery for the real Crooked Idol, abandoned the plan when he saw the Ghostbusters at 1102, and denies the murder."

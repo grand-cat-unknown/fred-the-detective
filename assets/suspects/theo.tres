@@ -59,7 +59,7 @@ text = "REACTION BEAT — Fred is holding the genuine Crooked Idol, recovered fr
 
 [sub_resource type="Resource" id="GateCondition_theo_palms_shown"]
 script = ExtResource("4_condition")
-all_of = Array[StringName]([&"has_evidence"])
+all_of = Array[StringName]([&"has_evidence", &"has_field_book"])
 none_of = Array[StringName]([&"theo_palms_shown"])
 
 [sub_resource type="Resource" id="ConversationEffect_theo_palms_shown"]

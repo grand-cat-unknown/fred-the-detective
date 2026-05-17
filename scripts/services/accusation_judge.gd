@@ -6,6 +6,8 @@ signal failed(message: String)
 
 const CORRECT_KILLER := &"otis"
 const REQUIRED_EVIDENCE_FACT := &"has_evidence"
+const REQUIRED_FIELD_BOOK_FACT := &"has_field_book"
+const REQUIRED_PALMS_FACT := &"pemberton_palms_shown"
 const REASON_CORRECT := "correct"
 const REASON_MISSING_EVIDENCE := "missing_evidence"
 const REASON_WRONG_PERSON := "wrong_person"
@@ -44,6 +46,9 @@ func judge(killer_id: StringName, killer_label: String, method_text: String, evi
 	if killer_id == &"" or method == "" or evidence == "":
 		completed.emit(false, "The accusation needs a suspect, a method, and evidence.")
 		return
+	if not _has_all_required_final_facts():
+		completed.emit(false, _message_for_reason(false, REASON_MISSING_EVIDENCE))
+		return
 
 	var payload := {
 		"accusation": {
@@ -56,11 +61,17 @@ func judge(killer_id: StringName, killer_label: String, method_text: String, evi
 			"killer_id": str(CORRECT_KILLER),
 			"killer_name": "Dr. Otis Pemberton",
 			"method": "Otis killed Felix Vance by using a Siren-grade containment cell as a point-blank weapon, like a gun.",
-			"required_evidence": "Fred must have found the recovered Siren containment cell.",
-			"required_evidence_fact": str(REQUIRED_EVIDENCE_FACT),
+			"required_evidence": "Fred must have found the recovered Siren containment cell, have Theo's field book/manual explaining the manual-purge signature, and have made Otis show his violet-stained palms.",
+			"required_evidence_facts": [
+				str(REQUIRED_EVIDENCE_FACT),
+				str(REQUIRED_FIELD_BOOK_FACT),
+				str(REQUIRED_PALMS_FACT),
+			],
 		},
 		"current_true_facts": _state.true_fact_ids(),
 		"has_required_evidence": _state.get_fact(REQUIRED_EVIDENCE_FACT, false),
+		"has_required_field_book": _state.get_fact(REQUIRED_FIELD_BOOK_FACT, false),
+		"has_required_palms": _state.get_fact(REQUIRED_PALMS_FACT, false),
 	}
 
 	var instructions := "\n\n".join([
@@ -72,10 +83,11 @@ func judge(killer_id: StringName, killer_label: String, method_text: String, evi
 		"1. The selected killer is Dr. Otis Pemberton.",
 		"2. The method text means Otis used the Siren containment cell as the murder weapon, effectively as a gun or point-blank discharge device.",
 		"3. The evidence text identifies the recovered/missing Siren containment cell or equivalent direct physical proof.",
-		"4. has_required_evidence is true. If it is false, the player is accusing without having found the needed evidence.",
+		"4. The evidence text also connects the manual-purge mechanism to Otis's violet-stained palms, using the field book/manual logic.",
+		"5. has_required_evidence, has_required_field_book, and has_required_palms are all true. If any are false, the player is accusing without the facts needed for the final proof.",
 		"Accept natural wording and small spelling mistakes. Reject vague answers such as only 'ghost', 'weapon', or 'evidence'.",
 		"Set is_correct to true only for a complete, supported accusation.",
-		"Set reason_code to exactly one enum value. Prefer missing_evidence when has_required_evidence is false and the player tries to use the required physical evidence.",
+		"Set reason_code to exactly one enum value. Prefer missing_evidence when any required fact is false and the player tries to use the final proof.",
 		"Use multiple_wrong when more than one category is wrong or unclear.",
 	])
 	var messages := [
@@ -119,6 +131,14 @@ func _build_text_format() -> Dictionary:
 			"required": ["is_correct", "reason_code"],
 		},
 	}
+
+
+func _has_all_required_final_facts() -> bool:
+	return (
+		_state.get_fact(REQUIRED_EVIDENCE_FACT, false)
+		and _state.get_fact(REQUIRED_FIELD_BOOK_FACT, false)
+		and _state.get_fact(REQUIRED_PALMS_FACT, false)
+	)
 
 
 func _on_llm_completed(text: String, error: String) -> void:

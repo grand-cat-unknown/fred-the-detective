@@ -149,22 +149,6 @@ preview_name = "Vivian Marlowe"
 preview_texture = ExtResource("12_c7ath")
 snap_to_map_grid = false
 
-[node name="Inspectable_example_door" parent="." unique_id=1025255816 instance=ExtResource("9_insp")]
-position = Vector2(164, 1233)
-object_id = &"example_locked_door"
-title = "Locked Door"
-description = "The door is locked."
-draw_marker = false
-snap_to_map_grid = false
-
-[node name="Inspectable_example_door_key" parent="." unique_id=2040692932 instance=ExtResource("9_insp")]
-position = Vector2(36, 1297)
-object_id = &"example_door_key"
-title = "Small Brass Key"
-description = "A small brass key rests here."
-body_color = Color(0.86, 0.68, 0.28, 1)
-snap_to_map_grid = false
-
 [node name="Inspectable_room_1103_cigarette" parent="." unique_id=100001 instance=ExtResource("9_insp")]
 position = Vector2(-400, 1800)
 object_id = &"room_1103_cigarette"
