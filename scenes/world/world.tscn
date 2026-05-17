@@ -93,7 +93,6 @@ preview_texture = ExtResource("6_mxkvs")
 snap_to_map_grid = false
 
 [node name="Inspectable_theo_field_book" parent="." unique_id=843935259 instance=ExtResource("9_insp")]
-visible = false
 position = Vector2(932, 327)
 object_id = &"theo_field_book"
 title = "Theo's Field Manual"
@@ -240,6 +239,7 @@ draw_marker = false
 snap_to_map_grid = false
 
 [node name="Inspectable_room_1101_sign" parent="." unique_id=1372197984 instance=ExtResource("9_insp")]
+z_index = 22
 position = Vector2(612, 81)
 object_id = &"room_1101_sign"
 title = "Room 1101 (Staff Housing: Vivian)"
@@ -249,6 +249,7 @@ blocks_movement = false
 snap_to_map_grid = false
 
 [node name="Inspectable_room_1102_sign" parent="." unique_id=625032432 instance=ExtResource("9_insp")]
+z_index = 22
 position = Vector2(1316, 81)
 object_id = &"room_1102_sign"
 title = "Room 1102 (Royal Suite)"
@@ -258,6 +259,7 @@ blocks_movement = false
 snap_to_map_grid = false
 
 [node name="Inspectable_room_1103_sign" parent="." unique_id=1477533429 instance=ExtResource("9_insp")]
+z_index = 22
 position = Vector2(2340, 81)
 object_id = &"room_1103_sign"
 title = "Room 1103"
@@ -267,6 +269,7 @@ blocks_movement = false
 snap_to_map_grid = false
 
 [node name="Inspectable_room_1201_sign" parent="." unique_id=1598232717 instance=ExtResource("9_insp")]
+z_index = 22
 position = Vector2(612, 305)
 object_id = &"room_1201_sign"
 title = "Room 1201"
@@ -276,6 +279,7 @@ blocks_movement = false
 snap_to_map_grid = false
 
 [node name="Inspectable_room_1202_sign" parent="." unique_id=111742659 instance=ExtResource("9_insp")]
+z_index = 22
 position = Vector2(1188, 305)
 object_id = &"room_1202_sign"
 title = "Room 1202"
@@ -285,6 +289,7 @@ blocks_movement = false
 snap_to_map_grid = false
 
 [node name="Inspectable_room_1203_sign" parent="." unique_id=108196549 instance=ExtResource("9_insp")]
+z_index = 22
 position = Vector2(1764, 305)
 object_id = &"room_1203_sign"
 title = "Room 1203"
@@ -294,6 +299,7 @@ blocks_movement = false
 snap_to_map_grid = false
 
 [node name="Inspectable_room_1204_sign" parent="." unique_id=754421516 instance=ExtResource("9_insp")]
+z_index = 22
 position = Vector2(2340, 305)
 object_id = &"room_1204_sign"
 title = "Room 1204"
@@ -328,9 +334,11 @@ position = Vector2(-396, 513)
 script = ExtResource("13_srmg5")
 target_portal = NodePath("../Stairs 2")
 snap_to_map_grid = false
+draw_marker = false
 
 [node name="Stairs 2" type="Node2D" parent="." unique_id=340293470]
 position = Vector2(-391, 1660)
 script = ExtResource("13_srmg5")
 target_portal = NodePath("../Stairs 1")
 snap_to_map_grid = false
+draw_marker = false

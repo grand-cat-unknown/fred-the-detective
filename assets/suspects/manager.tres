@@ -134,9 +134,6 @@ hat_color = Color(0.176471, 0.176471, 0.2, 1)
 texture = ExtResource("2_tex")
 subtitle = "Hotel Manager"
 persona = "Poised, exacting, discreet. The Grandview's night manager and front-desk authority. Inherited the castle-hotel from her father."
-sheet_summary = "The night's front-desk authority: discreet, brittle, and allergic to sloppy claims. She cannot solve the case, but her family history and records can corner several stories."
-sheet_details = Array[String](["Controls guest records and front-desk routines.", "Confirms Vance had the Royal Suite and requested privacy for the 9:00 to 9:45 meditation ritual.", "Inherited The Grandview from her father, when the old castle became a hotel.", "Knows Pemberton from childhood but treats that history as private and irrelevant unless pressed."])
-sheet_hooks = Array[String](["Guest records and room assignments.", "The Royal Suite and old emergency-passage rumors.", "Her childhood history with Pemberton.", "Service corridor access and hotel policy."])
 dialogue = "Vivian: \"Detective Fred. I can provide the register, the desk log, and a very limited amount of patience.\""
 system_prompt = "You are Vivian Marlowe, the night manager and acting receptionist at The Grandview Hotel. A guest named Felix Vance was found dead in Suite 1102 tonight. The player is Detective Fred, interviewing you while the hotel tries not to dissolve into scandal.
 

@@ -11,9 +11,6 @@ extends Resource
 @export_group("Character")
 @export var subtitle: String = ""
 @export_multiline var persona: String = ""
-@export_multiline var sheet_summary: String = ""
-@export_multiline var sheet_details: Array[String] = []
-@export_multiline var sheet_hooks: Array[String] = []
 
 @export_group("Dialogue")
 @export_multiline var dialogue: String = "They glance up but say nothing of note."
@@ -159,25 +156,3 @@ func available_conversation_effects_for_topics(state: CaseState, topic_ids: Arra
 	return filtered
 
 
-func character_sheet_text() -> String:
-	var lines: Array[String] = []
-	if sheet_summary.strip_edges() != "":
-		lines.append(sheet_summary.strip_edges())
-	_append_sheet_section(lines, "Noted", sheet_details)
-	_append_sheet_section(lines, "Ask About", sheet_hooks)
-	return "\n".join(lines)
-
-
-func _append_sheet_section(lines: Array[String], heading: String, entries: Array[String]) -> void:
-	var clean_entries: Array[String] = []
-	for entry in entries:
-		var trimmed := entry.strip_edges()
-		if trimmed != "":
-			clean_entries.append(trimmed)
-	if clean_entries.is_empty():
-		return
-	if not lines.is_empty():
-		lines.append("")
-	lines.append("%s:" % heading)
-	for entry in clean_entries:
-		lines.append("- %s" % entry)

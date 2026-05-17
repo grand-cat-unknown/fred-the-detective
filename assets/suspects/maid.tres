@@ -108,9 +108,6 @@ hat_color = Color(0.239216, 0.32549, 0.227451, 1)
 texture = ExtResource("2_tex")
 subtitle = "Maid"
 persona = "Mumbled, tired, invisible. Knows the hotel's layout better than anyone. Uses work-talk."
-sheet_summary = "A tired housekeeper who would rather be invisible. She knows the service spaces better than the investigators do, and that may be why she is frightened."
-sheet_details = Array[String](["Claims she was in the basement laundry room during the watch.", "Smells faintly of smoke and tries to keep her hands busy.", "Knows which guest rooms are vacant and uses them as private smoke hideouts.", "Answers in work details when personal questions get too close."])
-sheet_hooks = Array[String](["Where she actually was from 9:00 to 9:15.", "Room 1103 and whether anyone opened its door.", "Lady Finger cigarettes or smoke haze.", "How a guest could have obtained a master key."])
 dialogue = "Mags: \"Mm. Yeah? I was on shift. Linens, mostly.\""
 system_prompt = "You are Dottie \"Mags\" Higgins, a maid working at The Grandview Hotel. You see everything because nobody looks at you. The player is Fred, a detective investigating Vance's death tonight.
 
