@@ -14,6 +14,11 @@ script = ExtResource("4_state")
 condition = SubResource("GateCondition_gloves_taken")
 title = "Empty Bin"
 description = "Fred already has the gloves."
+update_tile = true
+layer_name = "Doors"
+erase_tile = true
+update_blocks_movement = true
+blocks_movement = false
 
 [sub_resource type="Resource" id="StateEffect_take_gloves"]
 script = ExtResource("3_effect")
@@ -32,6 +37,13 @@ action_label = "Yes"
 action_prompt = "Take the gloves?"
 action_effects = [SubResource("StateEffect_take_gloves")]
 toast = "Stained gloves taken."
+update_tile = true
+layer_name = "Doors"
+source_id = 10
+atlas_coords = Vector2i(0, 0)
+alternative_tile = 0
+update_blocks_movement = true
+blocks_movement = false
 
 [resource]
 script = ExtResource("1_definition")

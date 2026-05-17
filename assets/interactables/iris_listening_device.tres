@@ -15,7 +15,6 @@ condition = SubResource("GateCondition_device_taken")
 title = "Empty Stool"
 description = "Fred already has the device."
 update_tile = true
-layer_name = "Doors"
 erase_tile = true
 update_blocks_movement = true
 blocks_movement = false
@@ -37,12 +36,8 @@ action_prompt = "Take the device?"
 action_effects = [SubResource("StateEffect_take_device")]
 toast = "Device taken."
 update_tile = true
-layer_name = "Doors"
 source_id = 6
-atlas_coords = Vector2i(0, 0)
-alternative_tile = 0
 update_blocks_movement = true
-blocks_movement = true
 
 [resource]
 script = ExtResource("1_definition")

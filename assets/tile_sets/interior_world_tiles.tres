@@ -2,10 +2,15 @@
 
 [ext_resource type="Texture2D" uid="uid://c71usgaa8fojp" path="res://assets/art/environments/epic_rpg_village_interiors/assets/Interiors_tilesets.png" id="1_q48nj"]
 [ext_resource type="Texture2D" uid="uid://dbgrk5yooixm7" path="res://assets/art/environments/epic_rpg_village_interiors/assets/furniture_and_props.png" id="2_x5m63"]
+[ext_resource type="Texture2D" uid="uid://1nus7k1yd8t7" path="res://assets/art/environments/radioactive_items/Icon10_31.png" id="3_vu0q4"]
 [ext_resource type="Texture2D" uid="uid://bevobalpq17nd" path="res://assets/art/environments/epic_rpg_village_interiors/assets/windows_and_doors.png" id="3_yuyor"]
 [ext_resource type="Texture2D" uid="uid://b1okfx3sqc6lg" path="res://assets/art/environments/ghost_buster_cells.png" id="4_ov7ph"]
 [ext_resource type="Texture2D" uid="uid://gs6bvi0htpae" path="res://assets/art/characters/dead_body/dead_body_13_c_rotated_32.png" id="5_ov7ph"]
 [ext_resource type="Texture2D" uid="uid://sjgip86hwnp2" path="res://assets/art/environments/stairs.png" id="5_yuyor"]
+[ext_resource type="Texture2D" uid="uid://bh6cxxiwso2qh" path="res://assets/art/environments/radioactive_items/Icon10_27.png" id="8_2wqse"]
+[ext_resource type="Texture2D" uid="uid://dlx5iukl7qali" path="res://assets/art/environments/julian_wax_idol_tile_original32.png" id="9_y5n6x"]
+[ext_resource type="Texture2D" uid="uid://3b4uymhd205r" path="res://assets/art/environments/mags_cigarette_pouch32.png" id="10_eaxxk"]
+[ext_resource type="Texture2D" uid="uid://c1ypctg8kf8ju" path="res://assets/art/environments/room_1103_cigarette32.png" id="11_kuont"]
 
 [sub_resource type="TileMapPattern" id="TileMapPattern_q48nj"]
 tile_data = PackedInt32Array(0, 524288, 2, 65536, 524288, 3, 131072, 524288, 3, 196608, 524288, 3, 262144, 524288, 4, 327680, 524288, 3, 393216, 524288, 3, 458752, 524288, 4, 524288, 524288, 9, 1, 589824, 2, 524289, 589824, 9, 2, 655360, 2, 524290, 589824, 9, 3, 720896, 2, 524291, 589824, 9, 4, 786432, 2, 524292, 589824, 9, 5, 851968, 2, 524293, 589824, 9, 6, 589824, 2, 524294, 589824, 9, 7, 655360, 2, 524295, 589824, 9, 8, 720896, 2, 524296, 589824, 9, 9, 786432, 2, 524297, 589824, 9, 10, 851968, 2, 524298, 589824, 9, 11, 917504, 2, 12, 589824, 2, 524300, 589824, 9, 13, 983040, 2, 65549, 983040, 3, 131085, 983040, 4, 196621, 983040, 3, 262157, 983040, 3, 327693, 983040, 3, 393229, 983040, 3, 458765, 983040, 4, 524301, 983040, 9)
@@ -3143,6 +3148,11 @@ texture_region_size = Vector2i(32, 32)
 21:38/0 = 0
 22:38/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_17dx0"]
+texture = ExtResource("3_vu0q4")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_0e08y"]
 texture = ExtResource("3_yuyor")
 margins = Vector2i(0, 9)
@@ -3904,6 +3914,26 @@ texture_region_size = Vector2i(32, 32)
 7:14/0 = 0
 8:14/0 = 0
 
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_as7d4"]
+texture = ExtResource("8_2wqse")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_k5rj8"]
+texture = ExtResource("9_y5n6x")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_nx2yo"]
+texture = ExtResource("10_eaxxk")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ny7up"]
+texture = ExtResource("11_kuont")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
 [resource]
 tile_size = Vector2i(32, 32)
 custom_data_layer_0/name = "inspect_object_id"
@@ -3914,6 +3944,11 @@ sources/2 = SubResource("TileSetAtlasSource_0e08y")
 sources/4 = SubResource("TileSetAtlasSource_05ihp")
 sources/5 = SubResource("TileSetAtlasSource_bg04g")
 sources/3 = SubResource("TileSetAtlasSource_vu0q4")
+sources/6 = SubResource("TileSetAtlasSource_as7d4")
+sources/7 = SubResource("TileSetAtlasSource_k5rj8")
+sources/8 = SubResource("TileSetAtlasSource_nx2yo")
+sources/9 = SubResource("TileSetAtlasSource_ny7up")
+sources/10 = SubResource("TileSetAtlasSource_17dx0")
 pattern_0 = SubResource("TileMapPattern_q48nj")
 pattern_1 = SubResource("TileMapPattern_x5m63")
 pattern_2 = SubResource("TileMapPattern_yuyor")

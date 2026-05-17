@@ -14,6 +14,11 @@ script = ExtResource("4_state")
 condition = SubResource("GateCondition_pouch_taken")
 title = "Empty Spot"
 description = "Fred already has the pouch."
+update_tile = true
+layer_name = "Doors"
+erase_tile = true
+update_blocks_movement = true
+blocks_movement = false
 
 [sub_resource type="Resource" id="StateEffect_take_pouch"]
 script = ExtResource("3_effect")
@@ -31,6 +36,13 @@ action_label = "Yes"
 action_prompt = "Take the pouch?"
 action_effects = [SubResource("StateEffect_take_pouch")]
 toast = "Pouch taken."
+update_tile = true
+layer_name = "Doors"
+source_id = 8
+atlas_coords = Vector2i(0, 0)
+alternative_tile = 0
+update_blocks_movement = true
+blocks_movement = false
 
 [resource]
 script = ExtResource("1_definition")

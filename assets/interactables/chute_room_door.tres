@@ -15,10 +15,8 @@ condition = SubResource("GateCondition_door_open")
 title = "Chute-Room Door"
 description = "The service door stands open."
 update_tile = true
-layer_name = "Doors"
 source_id = 2
 atlas_coords = Vector2i(8, 11)
-alternative_tile = 0
 update_blocks_movement = true
 blocks_movement = false
 
@@ -41,12 +39,9 @@ action_prompt = "Open the door?"
 action_effects = [SubResource("StateEffect_open_door")]
 toast = "Door opened."
 update_tile = true
-layer_name = "Doors"
 source_id = 2
 atlas_coords = Vector2i(22, 4)
-alternative_tile = 0
 update_blocks_movement = true
-blocks_movement = true
 
 [sub_resource type="Resource" id="GateCondition_door_locked"]
 script = ExtResource("2_condition")
@@ -58,12 +53,9 @@ condition = SubResource("GateCondition_door_locked")
 title = "Chute-Room Door"
 description = "A heavy service door. Locked. No staff key on Fred's ring."
 update_tile = true
-layer_name = "Doors"
 source_id = 2
 atlas_coords = Vector2i(22, 4)
-alternative_tile = 0
 update_blocks_movement = true
-blocks_movement = true
 
 [resource]
 script = ExtResource("1_definition")
