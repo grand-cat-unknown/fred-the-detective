@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="FactDefinition" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/fact_definition.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"has_mags_cigarette_pouch"
+label = "Fred has Mags's cigarette pouch"
+description = "Fred picked up the monogrammed pouch in 1103. Initials MM stitched in red thread, half-full of Lady Fingers."

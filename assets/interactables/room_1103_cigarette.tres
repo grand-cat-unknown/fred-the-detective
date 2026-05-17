@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="InteractableDefinition" format=3]
+
+[ext_resource type="Script" uid="uid://crrwy2qm3y7s4" path="res://scripts/data/interactable_definition.gd" id="1_definition"]
+[ext_resource type="Script" uid="uid://dy1gfjjj466vx" path="res://scripts/data/gate_condition.gd" id="2_condition"]
+[ext_resource type="Script" uid="uid://bv6wdcfc8aqee" path="res://scripts/data/state_effect.gd" id="3_effect"]
+[ext_resource type="Script" uid="uid://ddrn77i41iqq5" path="res://scripts/data/interactable_state.gd" id="4_state"]
+
+[sub_resource type="Resource" id="GateCondition_cig_burned"]
+script = ExtResource("2_condition")
+all_of = Array[StringName]([&"lit_cigarette_found_1103"])
+
+[sub_resource type="Resource" id="InteractableState_cig_burned"]
+script = ExtResource("4_state")
+condition = SubResource("GateCondition_cig_burned")
+title = "Cigarette"
+description = "The cigarette has burned down. Same brand."
+
+[sub_resource type="Resource" id="StateEffect_see_cig"]
+script = ExtResource("3_effect")
+fact_id = &"lit_cigarette_found_1103"
+
+[sub_resource type="Resource" id="GateCondition_cig_lit"]
+script = ExtResource("2_condition")
+
+[sub_resource type="Resource" id="InteractableState_cig_lit"]
+script = ExtResource("4_state")
+condition = SubResource("GateCondition_cig_lit")
+title = "Lit Cigarette"
+description = "A still-lit Lady Finger. Smoke curling. Someone was here moments ago."
+effects = [SubResource("StateEffect_see_cig")]
+
+[resource]
+script = ExtResource("1_definition")
+object_id = &"room_1103_cigarette"
+states = [SubResource("InteractableState_cig_burned"), SubResource("InteractableState_cig_lit")]

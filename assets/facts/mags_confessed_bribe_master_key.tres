@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="FactDefinition" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/fact_definition.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"mags_confessed_bribe_master_key"
+label = "Mags admitted bribing for Julian"
+description = "Mags has admitted she took a bribe from Julian Vane and handed him a master key. She swears she did not know what he wanted it for."

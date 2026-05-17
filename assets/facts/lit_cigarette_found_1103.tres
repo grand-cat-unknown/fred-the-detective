@@ -1,0 +1,9 @@
+[gd_resource type="Resource" script_class="FactDefinition" load_steps=2 format=3]
+
+[ext_resource type="Script" path="res://scripts/data/fact_definition.gd" id="1_script"]
+
+[resource]
+script = ExtResource("1_script")
+id = &"lit_cigarette_found_1103"
+label = "Fred saw the lit cigarette in 1103"
+description = "Fred has inspected the still-lit Lady Finger cigarette in Room 1103. Someone smoked there moments before."

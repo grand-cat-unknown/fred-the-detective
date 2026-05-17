@@ -1,0 +1,21 @@
+[gd_resource type="Resource" script_class="InventoryItemDefinition" format=3]
+
+[ext_resource type="Script" path="res://scripts/data/inventory_item_definition.gd" id="1_definition"]
+[ext_resource type="Script" uid="uid://dy1gfjjj466vx" path="res://scripts/data/gate_condition.gd" id="2_condition"]
+[ext_resource type="Script" uid="uid://bj1sj4y8aeenm" path="res://scripts/data/inventory_item_state.gd" id="3_state"]
+
+[sub_resource type="Resource" id="GateCondition_has_device"]
+script = ExtResource("2_condition")
+all_of = Array[StringName]([&"has_listening_device"])
+none_of = Array[StringName]([&"iris_received_listening_device"])
+
+[sub_resource type="Resource" id="InventoryItemState_device"]
+script = ExtResource("3_state")
+condition = SubResource("GateCondition_has_device")
+label = "Listening Device"
+description = "A slow-spinning reel-to-reel recorder Iris left at her post."
+
+[resource]
+script = ExtResource("1_definition")
+item_id = &"listening_device"
+states = [SubResource("InventoryItemState_device")]

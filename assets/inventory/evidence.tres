@@ -12,20 +12,20 @@ all_of = Array[StringName]([&"has_evidence"])
 [sub_resource type="Resource" id="InventoryItemState_evidence"]
 script = ExtResource("3_state")
 condition = SubResource("GateCondition_has_evidence")
-label = "Cell"
-description = "The recovered Siren containment cell."
+label = "Cell & Idol"
+description = "A spent Siren containment cell with the Crooked Idol stashed inside."
 action_input = &"open_evidence"
 action_key_hint = "E"
 action_kind = &"evidence"
-evidence_title = "Recovered Containment Cell"
+evidence_title = "Recovered Cell & Idol"
 evidence_image = ExtResource("4_image")
-evidence_description = "[b]Recovered Containment Cell[/b]
+evidence_description = "[b]Recovered Cell & Idol[/b]
 
-Fred found the missing Siren-grade containment cell hidden in the laundry. The Anchor Idol was tucked inside the cell's empty lead-lined pressure chamber.
+Fred recovered a spent Siren Containment Cell from the laundry basin under the chute mouth. The genuine Crooked Idol was wedged inside the cell's lead-lined pressure chamber.
 
-The discharge end is exactly the right size for the wound. The back-pressure valve is popped, and the Manual Override lever is flipped.
+The discharge end is exactly the right size for the wound. The back-pressure valve is popped — only happens when the nozzle is obstructed by a solid object during discharge. The Manual Override lever is flipped.
 
-This proves the murder weapon was not a ghost. Someone deliberately used the cell as a point-blank discharge weapon."
+This is the manual-purge signature from Theo's field book. The murder weapon was not a ghost. Someone on the equipment side used the cell as a point-blank discharge weapon."
 
 [resource]
 script = ExtResource("1_definition")

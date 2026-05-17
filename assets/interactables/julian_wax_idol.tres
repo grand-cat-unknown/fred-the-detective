@@ -1,0 +1,35 @@
+[gd_resource type="Resource" script_class="InteractableDefinition" format=3]
+
+[ext_resource type="Script" uid="uid://crrwy2qm3y7s4" path="res://scripts/data/interactable_definition.gd" id="1_definition"]
+[ext_resource type="Script" uid="uid://dy1gfjjj466vx" path="res://scripts/data/gate_condition.gd" id="2_condition"]
+[ext_resource type="Script" uid="uid://bv6wdcfc8aqee" path="res://scripts/data/state_effect.gd" id="3_effect"]
+[ext_resource type="Script" uid="uid://ddrn77i41iqq5" path="res://scripts/data/interactable_state.gd" id="4_state"]
+
+[sub_resource type="Resource" id="GateCondition_idol_seen"]
+script = ExtResource("2_condition")
+all_of = Array[StringName]([&"julian_fake_idol_seen"])
+
+[sub_resource type="Resource" id="InteractableState_idol_seen"]
+script = ExtResource("4_state")
+condition = SubResource("GateCondition_idol_seen")
+title = "Wax Idol"
+description = "The carved figurine on Julian's desk. Wax beneath the paint. Definitely a forgery."
+
+[sub_resource type="Resource" id="StateEffect_see_idol"]
+script = ExtResource("3_effect")
+fact_id = &"julian_fake_idol_seen"
+
+[sub_resource type="Resource" id="GateCondition_idol_default"]
+script = ExtResource("2_condition")
+
+[sub_resource type="Resource" id="InteractableState_idol_default"]
+script = ExtResource("4_state")
+condition = SubResource("GateCondition_idol_default")
+title = "Carved Figurine"
+description = "A carved figurine on the writing desk. Heavier than it should be — wax beneath the paint. Not the real Crooked Idol."
+effects = [SubResource("StateEffect_see_idol")]
+
+[resource]
+script = ExtResource("1_definition")
+object_id = &"julian_wax_idol"
+states = [SubResource("InteractableState_idol_seen"), SubResource("InteractableState_idol_default")]
