@@ -303,7 +303,7 @@ blocks_movement = false
 snap_to_map_grid = false
 
 [node name="Player" parent="." unique_id=1010292065 instance=ExtResource("8_player")]
-position = Vector2(2184, -7)
+position = Vector2(1034, 421)
 
 [node name="Stairs 1" type="Node2D" parent="." unique_id=388047221]
 position = Vector2(-396, 513)
