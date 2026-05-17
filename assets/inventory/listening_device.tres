@@ -13,16 +13,16 @@ none_of = Array[StringName]([&"iris_received_listening_device"])
 [sub_resource type="Resource" id="InventoryItemState_device"]
 script = ExtResource("3_state")
 condition = SubResource("GateCondition_has_device")
-label = "Listening Device"
-description = "A slow-spinning reel-to-reel recorder Iris left at her post."
+label = "Electronic Device"
+description = "A technical-looking electronic device, possibly Ghostbuster equipment."
 action_input = &"open_listening_device"
 action_key_hint = "W"
 action_kind = &"evidence"
-evidence_title = "Listening Device"
+evidence_title = "Electronic Device"
 evidence_image = ExtResource("4_image")
-evidence_description = "[b]Listening Device[/b]
+evidence_description = "[b]Electronic Device[/b]
 
-[i]Template description — replace with details about the recorder Iris left behind.[/i]"
+[i]Some kind of electronic device. It looks technical enough that it might belong to one of the Ghostbusters.[/i]"
 
 [resource]
 script = ExtResource("1_definition")

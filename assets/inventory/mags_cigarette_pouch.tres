@@ -13,7 +13,7 @@ all_of = Array[StringName]([&"has_mags_cigarette_pouch"])
 script = ExtResource("3_state")
 condition = SubResource("GateCondition_has_pouch")
 label = "Cigarette Pouch"
-description = "Lady Fingers. DH monogrammed in red thread."
+description = "A cigarette pouch with Lady Fingers inside and D.H. embroidered on it."
 action_input = &"open_mags_pouch"
 action_key_hint = "R"
 action_kind = &"evidence"
@@ -21,7 +21,7 @@ evidence_title = "Cigarette Pouch"
 evidence_image = ExtResource("4_image")
 evidence_description = "[b]Cigarette Pouch[/b]
 
-[i]Template description — small embroidered pouch with the initials [b]DH[/b] stitched in red thread; half-full of Lady Fingers.[/i]"
+[i]A cigarette pouch with Lady Fingers cigarettes inside. The initials [b]D.H.[/b] are embroidered on it.[/i]"
 
 [resource]
 script = ExtResource("1_definition")

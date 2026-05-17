@@ -13,7 +13,7 @@ all_of = Array[StringName]([&"has_julian_wax_idol"])
 script = ExtResource("3_state")
 condition = SubResource("GateCondition_has_idol")
 label = "Fake Idol"
-description = "Julian's painted wax replica of the Anchor Idol."
+description = "It resembles the Anchor Idol, but close inspection shows it is wax."
 action_input = &"open_julian_idol"
 action_key_hint = "T"
 action_kind = &"evidence"
@@ -21,7 +21,7 @@ evidence_title = "Julian's Wax Idol"
 evidence_image = ExtResource("4_image")
 evidence_description = "[b]Julian's Wax Idol[/b]
 
-[i]Template description — replace with details about the wax replica.[/i]"
+[i]It looks like the Anchor Idol at first glance, but on close inspection it does not look like the real one. It seems to be a wax replica.[/i]"
 
 [resource]
 script = ExtResource("1_definition")
