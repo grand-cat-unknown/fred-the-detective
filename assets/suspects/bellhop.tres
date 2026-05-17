@@ -117,14 +117,12 @@ all_of = Array[StringName]([&"leo_palms_shown"])
 [sub_resource type="Resource" id="TopicState_leo_palms_done"]
 script = ExtResource("5_topic_state")
 condition = SubResource("GateCondition_leo_palms_done")
-response_instruction = "You have already shown Fred your clean palms. If he asks again, show them again politely and state that there is no violet staining."
-forbidden_reveals = "Do not invent violet staining on Leo."
+response_instruction = "You have already shown Fred your clean palms. If he asks again, show them again politely."
 
 [sub_resource type="Resource" id="TopicState_leo_palms_default"]
 script = ExtResource("5_topic_state")
 condition = SubResource("GateCondition_leo_palms_shown")
-response_instruction = "Fred is asking to see your hands or palms. Comply politely and show clean, unstained palms."
-forbidden_reveals = "Do not invent violet staining on Leo."
+response_instruction = "Fred is asking to see your hands or palms. Comply politely and show clean palms."
 effect_allowed = &"leo_palms_shown"
 
 [sub_resource type="Resource" id="TopicResponse_leo_palms"]

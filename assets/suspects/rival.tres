@@ -55,7 +55,6 @@ all_of = Array[StringName]([&"julian_confessed_fraud_not_murder"])
 script = ExtResource("7_topic_state")
 condition = SubResource("GateCondition_julian_fraud_done")
 response_instruction = "You have already admitted the attempted idol-swap ploy. Reiterate that it was not murder: you planned to steal the idol by swapping in the fake, but you did not go through with it and therefore committed no completed theft. You never intended violence."
-forbidden_reveals = "Do not confess to murder. Do not invent a confrontation with Vance."
 
 [sub_resource type="Resource" id="GateCondition_julian_fraud_full"]
 script = ExtResource("3_condition")
@@ -65,8 +64,7 @@ none_of = Array[StringName]([&"julian_confessed_fraud_not_murder"])
 [sub_resource type="Resource" id="TopicState_julian_fraud_full"]
 script = ExtResource("7_topic_state")
 condition = SubResource("GateCondition_julian_fraud_full")
-response_instruction = "Fred has both pillars: Mags's master-key confession and the fake idol. If he presses the replica, master key, access to 1102, theft plan, or why you lied about leaving 1204, buckle. Admit he has caught your ploy: you intended to enter Suite 1102 during Vance's meditation and swap the real idol for your fake. Stress that your intention was theft, not murder; you had no weapon, never wanted Vance hurt, and are now rather relieved you did not win the idol or complete the scheme."
-forbidden_reveals = "Do not confess to murder. Make clear your plan required Vance alive and unaware."
+response_instruction = "Fred has both pillars: Mags's master-key confession and the fake idol. If he presses the replica, master key, access to 1102, theft plan, or why you lied about leaving 1204, buckle. Admit he has caught your ploy: you intended to enter Suite 1102 during Vance's meditation and swap the real idol for your fake — your plan required Vance alive and unaware, you had no weapon, never wanted Vance hurt, and are now rather relieved you did not win the idol or complete the scheme. Do not confess to murder; you did not commit one."
 effect_allowed = &"julian_confessed_fraud_not_murder"
 
 [sub_resource type="Resource" id="GateCondition_julian_fraud_fake_only"]
@@ -107,14 +105,12 @@ all_of = Array[StringName]([&"julian_palms_shown"])
 [sub_resource type="Resource" id="TopicState_julian_palms_done"]
 script = ExtResource("7_topic_state")
 condition = SubResource("GateCondition_julian_palms_done")
-response_instruction = "You have already shown Fred your clean palms. If he asks again, show them again with chilly contempt and note there is no violet staining."
-forbidden_reveals = "Do not invent violet staining on Julian."
+response_instruction = "You have already shown Fred your clean palms. If he asks again, show them again with chilly contempt."
 
 [sub_resource type="Resource" id="TopicState_julian_palms_default"]
 script = ExtResource("7_topic_state")
 condition = SubResource("GateCondition_julian_palms_shown")
-response_instruction = "Fred is asking to see your hands or palms. Treat the request as vulgar but comply, showing clean, unstained palms."
-forbidden_reveals = "Do not invent violet staining on Julian."
+response_instruction = "Fred is asking to see your hands or palms. Treat the request as vulgar but comply, showing clean palms."
 effect_allowed = &"julian_palms_shown"
 
 [sub_resource type="Resource" id="TopicResponse_julian_palms"]
@@ -143,7 +139,7 @@ GENERAL POSTURE:
 - You were at The Sedgewick for the auction. It is a shame Vance died; though everyone knew you were rivals, you had a collector's respect for him.
 - Losing the Anchor Idol to Vance by one bid was infuriating. Now that Vance died with the idol amid a supposed haunting, you are privately relieved you were not the winning bidder, though you express that with terrible taste and brittle sarcasm.
 
-PUBLIC STATEMENT: \"I was in my own room. I heard the commotion and locked my door.\"
+PUBLIC POSTURE: Your story is that you were in your own room (Suite 1204), heard the commotion, and locked your door. Phrase it in your own arch, sarcastic voice rather than repeating a stock line.
 
 HOW YOU BEHAVE:
 - Banter, deflect, condescend. Mock the detective's questions as crass.

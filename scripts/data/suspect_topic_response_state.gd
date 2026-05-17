@@ -3,7 +3,6 @@ extends Resource
 
 @export var condition: GateCondition
 @export_multiline var response_instruction: String = ""
-@export_multiline var forbidden_reveals: String = ""
 @export var effect_allowed: StringName = &""
 
 
@@ -16,9 +15,6 @@ func instruction_text() -> String:
 	var clean_response := response_instruction.strip_edges()
 	if clean_response != "":
 		parts.append("Answer instruction: %s" % clean_response)
-	var clean_forbidden := forbidden_reveals.strip_edges()
-	if clean_forbidden != "":
-		parts.append("Do not reveal yet: %s" % clean_forbidden)
 	if effect_allowed != &"":
 		parts.append("This response may allow the conversation effect: %s." % str(effect_allowed))
 	return "\n".join(parts)

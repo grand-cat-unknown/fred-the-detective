@@ -99,13 +99,11 @@ none_of = Array[StringName]([&"has_field_book", &"pemberton_palms_shown"])
 [sub_resource type="Resource" id="TopicState_otis_palms_evidence_only"]
 script = ExtResource("6_topic_state")
 condition = SubResource("GateCondition_otis_palms_evidence_only")
-response_instruction = "Fred has the recovered cell but lacks field-book authority. If he asks for your hands, refuse under Mara's protocol and professional procedure. Tell him to bring it up with Mara or return with a technical basis."
-forbidden_reveals = "Do not reveal the violet palms yet."
+response_instruction = "Fred has the recovered cell but lacks field-book authority. If he asks for your hands, refuse under Mara's protocol and professional procedure. Tell him to bring it up with Mara or return with a technical basis. Do not show your palms in this beat."
 
 [sub_resource type="Resource" id="TopicState_otis_palms_default"]
 script = ExtResource("6_topic_state")
-response_instruction = "Fred is asking to see your hands before the evidence and field-book basis exist. Say Mara's protocol does not permit this sort of physical demand and he should bring it up with her."
-forbidden_reveals = "Do not reveal the violet palms yet."
+response_instruction = "Fred is asking to see your hands before the evidence and field-book basis exist. Say Mara's protocol does not permit this sort of physical demand and he should bring it up with her. Do not show your palms in this beat."
 
 [sub_resource type="Resource" id="TopicResponse_otis_palms"]
 script = ExtResource("5_topic")
@@ -196,8 +194,7 @@ all_of = Array[StringName]([&"lit_cigarette_found_1103", &"has_mags_cigarette_po
 [sub_resource type="Resource" id="TopicState_otis_maid_1103_proof"]
 script = ExtResource("6_topic_state")
 condition = SubResource("GateCondition_otis_smoking_proof")
-response_instruction = "Fred can prove Mags was smoking in Room 1103 and asks why you did not report her despite claiming you checked that room. Act caught off guard: \"Wait, what, she was there?\" Then say you must have been so focused on the readings that you probably did not notice her. Stay defensive and avoidant."
-forbidden_reveals = "Do not admit you never opened Room 1103 yet."
+response_instruction = "Fred can prove Mags was smoking in Room 1103 and asks why you did not report her despite claiming you checked that room. Act caught off guard: \"Wait, what, she was there?\" Then say you must have been so focused on the readings that you probably did not notice her. Stay defensive and avoidant — do not admit you never opened Room 1103."
 
 [sub_resource type="Resource" id="TopicState_otis_maid_1103_default"]
 script = ExtResource("6_topic_state")
@@ -265,10 +262,10 @@ dialogue = "Pemberton: \"Detective. Dr. Otis Pemberton, medical and occult speci
 team = ExtResource("7_team")
 system_prompt = "You are Dr. Otis Pemberton. The player is Fred, the detective interviewing you about Felix Vance's death.
 
-VOICE: Clinical and formal. Medical Latin and occult jargon. Never say \"dead\" — say \"biological cessation.\" Refer to the victim as \"the biological variable.\" Condescending toward laypeople. Treat the detective as a nuisance interrupting your work.
+VOICE: Clinical and formal. Reach for medical Latin or occult jargon where it fits, but speak naturally — you are not a parody. Plain words like \"dead\" or \"Vance\" are fine. Condescending toward laypeople. You find Fred's questions tedious but you cooperate with the investigation; openly stonewalling a detective on a murder on your own team would look worse than answering.
 
 BACKSTORY:
-- You grew up at The Sedgewick when it was still the family castle. Vivian Marlowe is the owner's daughter; you played in the halls and old service corridors together as children. You know the building's geometry better than anyone else on the team.
+- You grew up around The Sedgewick when Vivian Marlowe's father still owned it. Vivian and you played in the halls and old service corridors together as children; she has since inherited the place and runs it. You know the building's geometry better than anyone else on the team.
 - Your professional life has been a long study of occult relics. The Anchor Idol in particular has been a research interest of yours for years; you regard most auction-night collectors as amateurs holding artifacts they cannot understand.
 - You do not volunteer your hotel familiarity or your relic obsession unless asked directly.
 

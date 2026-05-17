@@ -60,20 +60,17 @@ all_of = Array[StringName]([&"vivian_gave_chute_room_key"])
 [sub_resource type="Resource" id="TopicState_vivian_key_done"]
 script = ExtResource("7_topic_state")
 condition = SubResource("GateCondition_vivian_key_done")
-response_instruction = "You have already given Fred the chute-room key. If he asks again, say that is the only key and you already gave it to him."
-forbidden_reveals = "Do not add new evidence or speculate about the killer."
+response_instruction = "You have already given Fred the chute-room key. If he asks again, say that is the only key and you already gave it to him. Do not invent new evidence or speculate about the killer in this beat."
 
 [sub_resource type="Resource" id="TopicState_vivian_key_ready"]
 script = ExtResource("7_topic_state")
 condition = SubResource("GateCondition_chute_key_request")
-response_instruction = "Fred has Iris's transcribed log and is asking for chute-room access with concrete backing such as heard sounds, recorded footsteps, or a route lead. Comply and give him the staff key to the ground-floor laundry/chute room."
-forbidden_reveals = "Do not imply the key proves who used the chute."
+response_instruction = "Fred has Iris's transcribed log and is asking for chute-room access with concrete backing such as heard sounds, recorded footsteps, or a route lead. Comply and give him the staff key to the ground-floor laundry/chute room. Hand it over neutrally — the key alone does not tell you who used the chute."
 effect_allowed = &"vivian_gave_chute_room_key"
 
 [sub_resource type="Resource" id="TopicState_vivian_key_default"]
 script = ExtResource("7_topic_state")
-response_instruction = "Fred is asking for staff-only chute/laundry access before he has concrete backing. Say you do not want him roaming around your castle-hotel as if it were public ground; ask him to show something viable to back the claim, and say you will help if he has that."
-forbidden_reveals = "Do not give the chute-room key yet."
+response_instruction = "Fred is asking for staff-only chute/laundry access before he has concrete backing. Say you do not want him roaming around your castle-hotel as if it were public ground; ask him to show something viable to back the claim, and say you will help if he has that. Do not hand over the key in this beat."
 
 [sub_resource type="Resource" id="TopicResponse_vivian_chute_key"]
 script = ExtResource("6_topic")
@@ -90,8 +87,7 @@ response_instruction = "Fred has recovered evidence and is pressing hidden passa
 [sub_resource type="Resource" id="TopicState_vivian_passages_default"]
 script = ExtResource("7_topic_state")
 condition = SubResource("GateCondition_vivian_no_evidence")
-response_instruction = "Fred is asking about hidden passages or old castle architecture without hard backing. Say an old castle has many secure and private things, but you cannot give away every family or hotel secret without evidence that it matters."
-forbidden_reveals = "Do not describe the Royal Suite curtain route, chute-room access, or east/west service entrances yet."
+response_instruction = "Fred is asking about hidden passages or old castle architecture without hard backing. Say an old castle has many secure and private things, but you cannot give away every family or hotel secret without evidence that it matters. Stay vague — do not describe the Royal Suite curtain route, chute-room access, or east/west service entrances in this beat."
 
 [sub_resource type="Resource" id="TopicResponse_vivian_hidden_passages"]
 script = ExtResource("6_topic")
@@ -141,14 +137,12 @@ all_of = Array[StringName]([&"vivian_palms_shown"])
 [sub_resource type="Resource" id="TopicState_vivian_palms_done"]
 script = ExtResource("7_topic_state")
 condition = SubResource("GateCondition_vivian_palms_done")
-response_instruction = "You have already shown Fred your clean palms. If he asks again, show them again with irritated professionalism and state that there is no violet staining."
-forbidden_reveals = "Do not invent violet staining on Vivian."
+response_instruction = "You have already shown Fred your clean palms. If he asks again, show them again with irritated professionalism."
 
 [sub_resource type="Resource" id="TopicState_vivian_palms_default"]
 script = ExtResource("7_topic_state")
 condition = SubResource("GateCondition_vivian_palms_shown")
-response_instruction = "Fred is asking to see your hands or palms. You find the request impertinent, but comply because you are not hiding anything. Show clean, unstained palms."
-forbidden_reveals = "Do not invent violet staining on Vivian."
+response_instruction = "Fred is asking to see your hands or palms. You find the request impertinent, but comply because you are not hiding anything. Show clean palms."
 effect_allowed = &"vivian_palms_shown"
 
 [sub_resource type="Resource" id="TopicResponse_vivian_palms"]
