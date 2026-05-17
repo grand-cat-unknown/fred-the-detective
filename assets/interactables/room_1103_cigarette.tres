@@ -15,10 +15,7 @@ condition = SubResource("GateCondition_cig_burned")
 title = "Cigarette"
 description = "The cigarette has burned down. Same brand."
 update_tile = true
-layer_name = "Doors"
 source_id = 8
-atlas_coords = Vector2i(0, 0)
-alternative_tile = 0
 update_blocks_movement = true
 blocks_movement = false
 
@@ -36,10 +33,7 @@ title = "Lit Cigarette"
 description = "A still-lit Lady Finger. Smoke curling. Someone was here moments ago."
 effects = [SubResource("StateEffect_see_cig")]
 update_tile = true
-layer_name = "Doors"
 source_id = 8
-atlas_coords = Vector2i(0, 0)
-alternative_tile = 0
 update_blocks_movement = true
 blocks_movement = false
 

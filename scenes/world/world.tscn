@@ -137,7 +137,7 @@ snap_to_map_grid = false
 z_index = 10
 position = Vector2(1584, 240)
 entity_id = &"maid"
-preview_name = "Mags Higgins"
+preview_name = "Dottie \"Mags\" Higgins"
 preview_texture = ExtResource("11_tytul")
 snap_to_map_grid = false
 
@@ -150,7 +150,8 @@ preview_texture = ExtResource("12_c7ath")
 snap_to_map_grid = false
 
 [node name="Inspectable_room_1103_cigarette" parent="." unique_id=100001 instance=ExtResource("9_insp")]
-position = Vector2(2379, -91)
+visible = false
+position = Vector2(2377, -86)
 object_id = &"room_1103_cigarette"
 title = "Lit Cigarette"
 description = "Placeholder — move to Room 1103 in editor."
@@ -158,6 +159,7 @@ body_color = Color(0.9, 0.6, 0.4, 1)
 snap_to_map_grid = false
 
 [node name="Inspectable_mags_cigarette_pouch" parent="." unique_id=100002 instance=ExtResource("9_insp")]
+visible = false
 position = Vector2(2285, -86)
 object_id = &"mags_cigarette_pouch"
 title = "Cigarette Pouch"
@@ -166,6 +168,7 @@ body_color = Color(0.7, 0.3, 0.4, 1)
 snap_to_map_grid = false
 
 [node name="Inspectable_julian_wax_idol" parent="." unique_id=100003 instance=ExtResource("9_insp")]
+visible = false
 position = Vector2(2065, 504)
 object_id = &"julian_wax_idol"
 title = "Wax Idol"
@@ -174,6 +177,7 @@ body_color = Color(0.6, 0.5, 0.7, 1)
 snap_to_map_grid = false
 
 [node name="Inspectable_ghostbusters_gear_cart_inventory" parent="." unique_id=100004 instance=ExtResource("9_insp")]
+visible = false
 position = Vector2(948, 462)
 object_id = &"ghostbusters_gear_cart_inventory"
 title = "Gear-Cart Clipboard"
@@ -182,6 +186,7 @@ body_color = Color(0.5, 0.7, 0.5, 1)
 snap_to_map_grid = false
 
 [node name="Inspectable_iris_listening_device" parent="." unique_id=100005 instance=ExtResource("9_insp")]
+visible = false
 position = Vector2(-161, -131)
 object_id = &"iris_listening_device"
 title = "Listening Device"
@@ -190,6 +195,7 @@ body_color = Color(0.4, 0.6, 0.8, 1)
 snap_to_map_grid = false
 
 [node name="Inspectable_chute_room_door" parent="." unique_id=100006 instance=ExtResource("9_insp")]
+visible = false
 position = Vector2(162, 1234)
 object_id = &"chute_room_door"
 title = "Chute-Room Door"
@@ -198,6 +204,7 @@ body_color = Color(0.5, 0.4, 0.3, 1)
 snap_to_map_grid = false
 
 [node name="Inspectable_chute_output_cell" parent="." unique_id=100007 instance=ExtResource("9_insp")]
+visible = false
 position = Vector2(-412, 1102)
 object_id = &"chute_output_cell"
 title = "Spent Siren Cell"
@@ -206,6 +213,7 @@ body_color = Color(0.4, 0.3, 0.6, 1)
 snap_to_map_grid = false
 
 [node name="Inspectable_stained_gloves_bin" parent="." unique_id=100008 instance=ExtResource("9_insp")]
+visible = false
 position = Vector2(197, -204)
 object_id = &"stained_gloves_bin"
 title = "Trash Bin"

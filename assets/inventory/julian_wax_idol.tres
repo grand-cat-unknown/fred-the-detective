@@ -1,9 +1,9 @@
-[gd_resource type="Resource" script_class="InventoryItemDefinition" format=3]
+[gd_resource type="Resource" script_class="InventoryItemDefinition" format=3 uid="uid://b02fv8fevlqh0"]
 
 [ext_resource type="Script" path="res://scripts/data/inventory_item_definition.gd" id="1_definition"]
 [ext_resource type="Script" uid="uid://dy1gfjjj466vx" path="res://scripts/data/gate_condition.gd" id="2_condition"]
 [ext_resource type="Script" uid="uid://bj1sj4y8aeenm" path="res://scripts/data/inventory_item_state.gd" id="3_state"]
-[ext_resource type="Texture2D" path="res://assets/art/environments/julian_wax_idol.png" id="4_image"]
+[ext_resource type="Texture2D" uid="uid://08i6twxc2uc0" path="res://assets/art/environments/julian_wax_idol.png" id="4_image"]
 
 [sub_resource type="Resource" id="GateCondition_has_idol"]
 script = ExtResource("2_condition")
