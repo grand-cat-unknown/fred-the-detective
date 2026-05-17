@@ -18,7 +18,7 @@ var _history: Dictionary = {}  # StringName id -> Array[Dictionary]
 var _streaming_suspect_id: StringName = &""
 var _streaming_suspect: SuspectData
 var _streaming_latest_player_message := ""
-var _streaming_topic_id: StringName = &""
+var _streaming_topic_ids: Array[StringName] = []
 var _streaming_text := ""
 var _pending_suspect: SuspectData
 var _pending_player_message := ""
@@ -99,7 +99,7 @@ func submit(message: String) -> bool:
 			return false
 		return true
 
-	if not _start_reply(_active_suspect, trimmed, &""):
+	if not _start_reply(_active_suspect, trimmed, []):
 		busy_changed.emit(false)
 		return false
 	return true
@@ -111,7 +111,7 @@ func reset() -> void:
 	_streaming_suspect_id = &""
 	_streaming_suspect = null
 	_streaming_latest_player_message = ""
-	_streaming_topic_id = &""
+	_streaming_topic_ids.clear()
 	_streaming_text = ""
 	_pending_suspect = null
 	_pending_player_message = ""
@@ -134,21 +134,21 @@ func _update_last_line(suspect_id: StringName, text: String) -> void:
 	_history[suspect_id] = lines
 
 
-func _start_reply(suspect: SuspectData, latest_player_message: String, topic_id: StringName) -> bool:
-	var err := _llm.send(_build_instructions(suspect, topic_id), _build_messages(suspect))
+func _start_reply(suspect: SuspectData, latest_player_message: String, topic_ids: Array[StringName]) -> bool:
+	var err := _llm.send(_build_instructions(suspect, topic_ids), _build_messages(suspect))
 	if err != OK:
 		error_received.emit("Could not reach the LLM (%s)." % err)
 		return false
 	_streaming_suspect_id = suspect.id
 	_streaming_suspect = suspect
 	_streaming_latest_player_message = latest_player_message
-	_streaming_topic_id = topic_id
+	_streaming_topic_ids = topic_ids.duplicate()
 	_streaming_text = ""
 	_append(suspect.id, suspect.display_name, "")
 	return true
 
 
-func _build_instructions(suspect: SuspectData, topic_id: StringName = &"") -> String:
+func _build_instructions(suspect: SuspectData, topic_ids: Array[StringName] = []) -> String:
 	var parts: Array[String] = []
 	parts.append("You are roleplaying a character in the detective game 'Fred the Detective'. The player is Detective Fred, who is interviewing you about the murder of Felix Vance at The Grandview Hotel.")
 	if suspect.subtitle != "":
@@ -164,7 +164,7 @@ func _build_instructions(suspect: SuspectData, topic_id: StringName = &"") -> St
 		parts.append("Current reactive interview beats. Apply these only when Fred's latest question or evidence makes them relevant; use them to change tone, evasiveness, or what the character will now admit.")
 		for block in reaction_blocks:
 			parts.append(block.text)
-	var topic_instructions := suspect.active_topic_response_instructions(_state, topic_id)
+	var topic_instructions := suspect.active_topic_response_instructions_for_topics(_state, topic_ids)
 	if not topic_instructions.is_empty():
 		parts.append("Current topic-specific response state. Fred's latest question matches these topic gates; follow the matching state exactly and do not jump to later facts.")
 		for instruction in topic_instructions:
@@ -173,7 +173,7 @@ func _build_instructions(suspect: SuspectData, topic_id: StringName = &"") -> St
 	return "\n\n".join(parts)
 
 
-func _on_topic_classifier_completed(topic_id: StringName) -> void:
+func _on_topic_classifier_completed(topic_ids: Array[StringName]) -> void:
 	var suspect := _pending_suspect
 	var latest_player_message := _pending_player_message
 	_pending_suspect = null
@@ -181,7 +181,7 @@ func _on_topic_classifier_completed(topic_id: StringName) -> void:
 	if suspect == null:
 		busy_changed.emit(false)
 		return
-	if not _start_reply(suspect, latest_player_message, topic_id):
+	if not _start_reply(suspect, latest_player_message, topic_ids):
 		busy_changed.emit(false)
 
 
@@ -190,7 +190,7 @@ func _on_topic_classifier_failed(message: String) -> void:
 	var latest_player_message := _pending_player_message
 	_pending_suspect = null
 	_pending_player_message = ""
-	if suspect != null and _start_reply(suspect, latest_player_message, &""):
+	if suspect != null and _start_reply(suspect, latest_player_message, []):
 		return
 	error_received.emit(message)
 	busy_changed.emit(false)
@@ -223,12 +223,12 @@ func _on_llm_completed(text: String, error: String) -> void:
 	var suspect_id := _streaming_suspect_id
 	var suspect := _streaming_suspect
 	var latest_player_message := _streaming_latest_player_message
-	var topic_id := _streaming_topic_id
+	var topic_ids := _streaming_topic_ids.duplicate()
 	var accumulated := _streaming_text
 	_streaming_suspect_id = &""
 	_streaming_suspect = null
 	_streaming_latest_player_message = ""
-	_streaming_topic_id = &""
+	_streaming_topic_ids.clear()
 	_streaming_text = ""
 	if error != "":
 		if suspect_id != &"":
@@ -246,7 +246,7 @@ func _on_llm_completed(text: String, error: String) -> void:
 		if _active_suspect != null and _active_suspect.id == suspect_id:
 			line_updated.emit(final_text)
 		if _effect_judge != null:
-			_effect_judge.judge(suspect, _build_recent_transcript(suspect_id), latest_player_message, final_text, topic_id)
+			_effect_judge.judge(suspect, _build_recent_transcript(suspect_id), latest_player_message, final_text, topic_ids)
 
 
 func _build_recent_transcript(suspect_id: StringName) -> Array:

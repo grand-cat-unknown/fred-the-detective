@@ -26,7 +26,7 @@ func judge(
 	recent_messages: Array,
 	latest_player_message: String,
 	latest_character_reply: String,
-	classified_topic_id: StringName = &""
+	classified_topic_ids: Array[StringName] = []
 ) -> void:
 	if suspect == null or _llm == null or _state == null:
 		return
@@ -36,7 +36,7 @@ func judge(
 		"recent_messages": recent_messages,
 		"latest_player_message": latest_player_message,
 		"latest_character_reply": latest_character_reply,
-		"classified_topic_id": classified_topic_id,
+		"classified_topic_ids": classified_topic_ids,
 	}
 	if _llm.is_busy() or not _pending_allowed_effects.is_empty():
 		_queued_jobs.append(job)
@@ -51,9 +51,9 @@ func _start_job(job: Dictionary) -> void:
 		_start_next_queued_job()
 		return
 
-	var available_effects := suspect.available_conversation_effects_for_topic(
+	var available_effects := suspect.available_conversation_effects_for_topics(
 		_state,
-		StringName(str(job.get("classified_topic_id", "")))
+		_normalize_topic_ids(job.get("classified_topic_ids", []))
 	)
 	if available_effects.is_empty():
 		_start_next_queued_job()
@@ -74,7 +74,7 @@ func _start_job(job: Dictionary) -> void:
 			"player": str(job.get("latest_player_message", "")),
 			"character": str(job.get("latest_character_reply", "")),
 		},
-		"classified_topic_id": str(job.get("classified_topic_id", "")),
+		"classified_topic_ids": _topic_ids_to_strings(job.get("classified_topic_ids", [])),
 		"recent_messages": _trim_recent_messages(job.get("recent_messages", [])),
 	}
 
@@ -105,6 +105,24 @@ func _trim_recent_messages(recent_messages: Variant) -> Array:
 	if messages.size() <= MAX_RECENT_MESSAGES:
 		return messages
 	return messages.slice(messages.size() - MAX_RECENT_MESSAGES)
+
+
+func _normalize_topic_ids(topic_ids: Variant) -> Array[StringName]:
+	var normalized: Array[StringName] = []
+	if typeof(topic_ids) != TYPE_ARRAY:
+		return normalized
+	for raw_topic_id in topic_ids:
+		var topic_id := StringName(str(raw_topic_id))
+		if topic_id != &"" and not normalized.has(topic_id):
+			normalized.append(topic_id)
+	return normalized
+
+
+func _topic_ids_to_strings(topic_ids: Variant) -> Array[String]:
+	var strings: Array[String] = []
+	for topic_id in _normalize_topic_ids(topic_ids):
+		strings.append(str(topic_id))
+	return strings
 
 
 func _build_effect_text_format(allowed_fact_ids: Array) -> Dictionary:

@@ -105,6 +105,14 @@ func active_topic_response_instructions(state: CaseState, topic_id: StringName) 
 	return instructions
 
 
+func active_topic_response_instructions_for_topics(state: CaseState, topic_ids: Array[StringName]) -> Array[String]:
+	var instructions: Array[String] = []
+	for topic_id in topic_ids:
+		for instruction in active_topic_response_instructions(state, topic_id):
+			instructions.append(instruction)
+	return instructions
+
+
 func topic_managed_effect_ids() -> Array[StringName]:
 	var effect_ids: Array[StringName] = []
 	for response in topic_responses:
@@ -129,12 +137,17 @@ func available_conversation_effects(state: CaseState) -> Array[ConversationEffec
 
 
 func available_conversation_effects_for_topic(state: CaseState, topic_id: StringName) -> Array[ConversationEffect]:
+	return available_conversation_effects_for_topics(state, [topic_id] if topic_id != &"" else [])
+
+
+func available_conversation_effects_for_topics(state: CaseState, topic_ids: Array[StringName]) -> Array[ConversationEffect]:
 	var available_effects := available_conversation_effects(state)
 	var topic_effect_ids := topic_managed_effect_ids()
 	var allowed_by_topic: Array[StringName] = []
-	for topic_state in active_topic_response_states(state, topic_id):
-		if topic_state.effect_allowed != &"" and not allowed_by_topic.has(topic_state.effect_allowed):
-			allowed_by_topic.append(topic_state.effect_allowed)
+	for topic_id in topic_ids:
+		for topic_state in active_topic_response_states(state, topic_id):
+			if topic_state.effect_allowed != &"" and not allowed_by_topic.has(topic_state.effect_allowed):
+				allowed_by_topic.append(topic_state.effect_allowed)
 	if topic_effect_ids.is_empty():
 		return available_effects
 

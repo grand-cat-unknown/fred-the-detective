@@ -1,7 +1,7 @@
 class_name ConversationTopicClassifier
 extends Node
 
-signal completed(topic_id: StringName)
+signal completed(topic_ids: Array[StringName])
 signal failed(message: String)
 
 const NONE_TOPIC_ID := &"none"
@@ -29,12 +29,12 @@ func classify(suspect: SuspectData, latest_player_message: String, recent_messag
 	if _llm.is_busy():
 		return ERR_BUSY
 	if suspect == null or not suspect.has_topic_responses():
-		completed.emit(&"")
+		completed.emit([])
 		return OK
 
 	var topic_options := suspect.topic_classifier_options()
 	if topic_options.is_empty():
-		completed.emit(&"")
+		completed.emit([])
 		return OK
 
 	_pending_topic_ids.clear()
@@ -53,8 +53,8 @@ func classify(suspect: SuspectData, latest_player_message: String, recent_messag
 		"You are a strict topic classifier for the detective game Fred the Detective.",
 		"Classify what specific subject Detective Fred is pressing in his latest message.",
 		"Use recent_messages only as context for pronouns, follow-ups, and short references. Classify the latest player message, not an older turn.",
-		"Choose exactly one topic_id from topic_options only when Fred is clearly pressing that topic.",
-		"If the message is small talk, unclear, about another subject, or only loosely related, choose none.",
+		"Return every topic_id from topic_options that Fred is clearly pressing in the latest message.",
+		"If the message is small talk, unclear, about another subject, or only loosely related to all options, return an empty topic_ids array.",
 		"Use the structured output schema. Do not invent topic ids.",
 	])
 	var messages := [
@@ -81,19 +81,22 @@ func _trim_recent_messages(recent_messages: Variant) -> Array:
 func _build_text_format() -> Dictionary:
 	return {
 		"type": "json_schema",
-		"name": "conversation_topic",
-		"description": "The specific suspect topic Detective Fred is pressing, or none.",
+		"name": "conversation_topics",
+		"description": "The suspect topics Detective Fred is clearly pressing.",
 		"strict": true,
 		"schema": {
 			"type": "object",
 			"additionalProperties": false,
 			"properties": {
-				"topic_id": {
-					"type": "string",
-					"enum": _pending_topic_ids,
+				"topic_ids": {
+					"type": "array",
+					"items": {
+						"type": "string",
+						"enum": _pending_topic_ids,
+					},
 				},
 			},
-			"required": ["topic_id"],
+			"required": ["topic_ids"],
 		},
 	}
 
@@ -110,11 +113,14 @@ func _on_llm_completed(text: String, error: String) -> void:
 		failed.emit("Conversation topic classifier returned invalid structured output.")
 		return
 
-	var topic_id := str((parsed as Dictionary).get("topic_id", str(NONE_TOPIC_ID)))
-	if not _pending_topic_ids.has(topic_id):
-		topic_id = str(NONE_TOPIC_ID)
+	var topic_ids: Array[StringName] = []
+	var raw_topic_ids: Variant = (parsed as Dictionary).get("topic_ids", [])
+	if typeof(raw_topic_ids) == TYPE_ARRAY:
+		for raw_topic_id in raw_topic_ids:
+			var topic_id := str(raw_topic_id)
+			if topic_id == str(NONE_TOPIC_ID):
+				continue
+			if _pending_topic_ids.has(topic_id) and not topic_ids.has(StringName(topic_id)):
+				topic_ids.append(StringName(topic_id))
 	_pending_topic_ids.clear()
-	if topic_id == str(NONE_TOPIC_ID):
-		completed.emit(&"")
-	else:
-		completed.emit(StringName(topic_id))
+	completed.emit(topic_ids)
