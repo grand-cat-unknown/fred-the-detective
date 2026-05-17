@@ -56,13 +56,32 @@ func available_reaction_blocks(state: CaseState) -> Array[PromptBlock]:
 	return blocks
 
 
-func active_topic_response_states(state: CaseState, latest_player_message: String) -> Array[SuspectTopicResponseState]:
+func has_topic_responses() -> bool:
+	for response in topic_responses:
+		if response is SuspectTopicResponse and (response as SuspectTopicResponse).is_valid():
+			return true
+	return false
+
+
+func topic_classifier_options() -> Array[Dictionary]:
+	var options: Array[Dictionary] = []
+	for response in topic_responses:
+		if response is SuspectTopicResponse:
+			var topic_response := response as SuspectTopicResponse
+			if topic_response.is_valid():
+				options.append(topic_response.classifier_dictionary())
+	return options
+
+
+func active_topic_response_states(state: CaseState, topic_id: StringName) -> Array[SuspectTopicResponseState]:
 	var responses: Array[SuspectTopicResponseState] = []
+	if topic_id == &"":
+		return responses
 	for response in topic_responses:
 		if not response is SuspectTopicResponse:
 			continue
 		var topic_response := response as SuspectTopicResponse
-		if not topic_response.matches_message(latest_player_message):
+		if topic_response.topic_id != topic_id:
 			continue
 		var active_state := topic_response.active_state(state)
 		if active_state != null:
@@ -70,18 +89,35 @@ func active_topic_response_states(state: CaseState, latest_player_message: Strin
 	return responses
 
 
-func active_topic_response_instructions(state: CaseState, latest_player_message: String) -> Array[String]:
+func active_topic_response_instructions(state: CaseState, topic_id: StringName) -> Array[String]:
 	var instructions: Array[String] = []
+	if topic_id == &"":
+		return instructions
 	for response in topic_responses:
 		if not response is SuspectTopicResponse:
 			continue
 		var topic_response := response as SuspectTopicResponse
-		if not topic_response.matches_message(latest_player_message):
+		if topic_response.topic_id != topic_id:
 			continue
 		var instruction := topic_response.active_instruction(state).strip_edges()
 		if instruction != "":
 			instructions.append(instruction)
 	return instructions
+
+
+func topic_managed_effect_ids() -> Array[StringName]:
+	var effect_ids: Array[StringName] = []
+	for response in topic_responses:
+		if not response is SuspectTopicResponse:
+			continue
+		var topic_response := response as SuspectTopicResponse
+		for entry in topic_response.states:
+			if not entry is SuspectTopicResponseState:
+				continue
+			var topic_state := entry as SuspectTopicResponseState
+			if topic_state.effect_allowed != &"" and not effect_ids.has(topic_state.effect_allowed):
+				effect_ids.append(topic_state.effect_allowed)
+	return effect_ids
 
 
 func available_conversation_effects(state: CaseState) -> Array[ConversationEffect]:
@@ -92,18 +128,19 @@ func available_conversation_effects(state: CaseState) -> Array[ConversationEffec
 	return effects
 
 
-func available_conversation_effects_for_message(state: CaseState, latest_player_message: String) -> Array[ConversationEffect]:
+func available_conversation_effects_for_topic(state: CaseState, topic_id: StringName) -> Array[ConversationEffect]:
 	var available_effects := available_conversation_effects(state)
+	var topic_effect_ids := topic_managed_effect_ids()
 	var allowed_by_topic: Array[StringName] = []
-	for topic_state in active_topic_response_states(state, latest_player_message):
+	for topic_state in active_topic_response_states(state, topic_id):
 		if topic_state.effect_allowed != &"" and not allowed_by_topic.has(topic_state.effect_allowed):
 			allowed_by_topic.append(topic_state.effect_allowed)
-	if allowed_by_topic.is_empty():
+	if topic_effect_ids.is_empty():
 		return available_effects
 
 	var filtered: Array[ConversationEffect] = []
 	for effect in available_effects:
-		if allowed_by_topic.has(effect.fact_id):
+		if not topic_effect_ids.has(effect.fact_id) or allowed_by_topic.has(effect.fact_id):
 			filtered.append(effect)
 	return filtered
 

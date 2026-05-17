@@ -3,19 +3,23 @@ extends Resource
 
 @export var topic_id: StringName
 @export var topic_label: String = ""
-@export var trigger_phrases: Array[String] = []
+@export_multiline var topic_description: String = ""
 @export var states: Array = []
 
 
-func matches_message(message: String) -> bool:
-	var clean_message := message.strip_edges().to_lower()
-	if clean_message == "":
-		return false
-	for phrase in trigger_phrases:
-		var clean_phrase := phrase.strip_edges().to_lower()
-		if clean_phrase != "" and clean_message.contains(clean_phrase):
-			return true
-	return false
+func is_valid() -> bool:
+	return topic_id != &"" and not states.is_empty()
+
+
+func classifier_dictionary() -> Dictionary:
+	var label := topic_label.strip_edges()
+	if label == "":
+		label = str(topic_id)
+	return {
+		"topic_id": str(topic_id),
+		"label": label,
+		"description": topic_description.strip_edges(),
+	}
 
 
 func active_state(state: CaseState) -> SuspectTopicResponseState:

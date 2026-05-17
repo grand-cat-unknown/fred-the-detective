@@ -15,9 +15,11 @@ var _pending_action_toast: String = ""
 var _pending_passive_toast: String = ""
 
 var _llm: LLMClient
+var _topic_llm: LLMClient
 var _effect_llm: LLMClient
 var _accusation_llm: LLMClient
 var _case_state: CaseState
+var _topic_classifier: ConversationTopicClassifier
 var _effect_judge: ConversationEffectJudge
 var _accusation_judge: Node
 var _dialogue: DialogueService
@@ -41,6 +43,10 @@ func _ready() -> void:
 	_llm.name = "LLMClient"
 	add_child(_llm)
 
+	_topic_llm = LLMClient.new()
+	_topic_llm.name = "ConversationTopicLLM"
+	add_child(_topic_llm)
+
 	_effect_llm = LLMClient.new()
 	_effect_llm.name = "ConversationEffectLLM"
 	add_child(_effect_llm)
@@ -48,6 +54,11 @@ func _ready() -> void:
 	_accusation_llm = LLMClient.new()
 	_accusation_llm.name = "AccusationLLM"
 	add_child(_accusation_llm)
+
+	_topic_classifier = ConversationTopicClassifier.new()
+	_topic_classifier.name = "ConversationTopicClassifier"
+	add_child(_topic_classifier)
+	_topic_classifier.configure(_topic_llm)
 
 	_effect_judge = ConversationEffectJudge.new()
 	_effect_judge.name = "ConversationEffectJudge"
@@ -66,7 +77,7 @@ func _ready() -> void:
 	_dialogue = DialogueService.new()
 	_dialogue.name = "DialogueService"
 	add_child(_dialogue)
-	_dialogue.configure(_llm, _case_state, _effect_judge)
+	_dialogue.configure(_llm, _case_state, _effect_judge, _topic_classifier)
 
 	_dialogue.line_appended.connect(_on_dialogue_line_appended)
 	_dialogue.line_updated.connect(_on_dialogue_line_updated)

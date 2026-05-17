@@ -25,7 +25,8 @@ func judge(
 	suspect: SuspectData,
 	recent_messages: Array,
 	latest_player_message: String,
-	latest_character_reply: String
+	latest_character_reply: String,
+	classified_topic_id: StringName = &""
 ) -> void:
 	if suspect == null or _llm == null or _state == null:
 		return
@@ -35,6 +36,7 @@ func judge(
 		"recent_messages": recent_messages,
 		"latest_player_message": latest_player_message,
 		"latest_character_reply": latest_character_reply,
+		"classified_topic_id": classified_topic_id,
 	}
 	if _llm.is_busy() or not _pending_allowed_effects.is_empty():
 		_queued_jobs.append(job)
@@ -49,9 +51,9 @@ func _start_job(job: Dictionary) -> void:
 		_start_next_queued_job()
 		return
 
-	var available_effects := suspect.available_conversation_effects_for_message(
+	var available_effects := suspect.available_conversation_effects_for_topic(
 		_state,
-		str(job.get("latest_player_message", ""))
+		StringName(str(job.get("classified_topic_id", "")))
 	)
 	if available_effects.is_empty():
 		_start_next_queued_job()
@@ -72,6 +74,7 @@ func _start_job(job: Dictionary) -> void:
 			"player": str(job.get("latest_player_message", "")),
 			"character": str(job.get("latest_character_reply", "")),
 		},
+		"classified_topic_id": str(job.get("classified_topic_id", "")),
 		"recent_messages": _trim_recent_messages(job.get("recent_messages", [])),
 	}
 
