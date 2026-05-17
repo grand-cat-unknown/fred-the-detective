@@ -13,7 +13,7 @@ all_of = Array[StringName]([&"has_evidence"])
 script = ExtResource("3_state")
 condition = SubResource("GateCondition_has_evidence")
 label = "Cell & Idol"
-description = "A spent Siren containment cell with the Crooked Idol stashed inside."
+description = "A spent Siren containment cell with the Anchor Idol stashed inside."
 action_input = &"open_evidence"
 action_key_hint = "E"
 action_kind = &"evidence"
@@ -21,7 +21,7 @@ evidence_title = "Recovered Cell & Idol"
 evidence_image = ExtResource("4_image")
 evidence_description = "[b]Recovered Cell & Idol[/b]
 
-Fred recovered a spent Siren Containment Cell from the laundry basin under the chute mouth. The genuine Crooked Idol was wedged inside the cell housing.
+Fred recovered a spent Siren Containment Cell from the laundry basin under the chute mouth. The genuine Anchor Idol was wedged inside the cell housing.
 
 The discharge end is exactly the right size for the wound. The back-pressure valve is popped — only happens when the nozzle is obstructed by a solid object during discharge. The Manual Override lever is flipped.
 

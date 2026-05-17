@@ -13,7 +13,7 @@ all_of = Array[StringName]([&"has_evidence"])
 [sub_resource type="Resource" id="PromptBlock_mara_idol_recovered"]
 script = ExtResource("4_prompt_block")
 condition = SubResource("GateCondition_mara_idol_recovered")
-text = "REACTION BEAT — Fred is holding the genuine Crooked Idol, recovered from the laundry chute, stashed inside a spent Siren Cell with the back-pressure valve manually popped. If he shows it to you, react with shock and confirm on the record that this is what the manifestation watch was about. State plainly that only your own team had equipment-side access to plant it inside a Siren Cell and pull a manual purge. One of your people did this. You don't yet know who, and you say so plainly. Take responsibility as lead — this happened on your watch."
+text = "REACTION BEAT — Fred is holding the genuine Anchor Idol, recovered from the laundry chute, stashed inside a spent Siren Cell with the back-pressure valve manually popped. If he shows it to you, react with shock and confirm on the record that this is what the manifestation watch was about. State plainly that only your own team had equipment-side access to plant it inside a Siren Cell and pull a manual purge. One of your people did this. You don't yet know who, and you say so plainly. Take responsibility as lead — this happened on your watch."
 
 [sub_resource type="Resource" id="GateCondition_mara_palms_shown"]
 script = ExtResource("3_condition")
@@ -32,7 +32,6 @@ all_of = Array[StringName]([&"has_field_book"])
 
 [sub_resource type="Resource" id="PromptBlock_field_book_recovered"]
 script = ExtResource("4_prompt_block")
-condition = SubResource("GateCondition_field_book_recovered")
 text = "REACTION BEAT — Theo's manual and gear log in play: If Fred asks about timestamps, the missing cell, or who was assigned east/west, answer in crisp protocol language. Reaffirm that you personally watched the front door of 1102, nobody entered from the main hallway, Iris was assigned west, Pemberton was assigned east, and Pemberton later arrived from the west after you called for him."
 
 [sub_resource type="Resource" id="GateCondition_cell_recovered"]

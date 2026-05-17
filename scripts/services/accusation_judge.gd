@@ -46,6 +46,9 @@ func judge(killer_id: StringName, killer_label: String, method_text: String, evi
 	if killer_id == &"" or method == "" or evidence == "":
 		completed.emit(false, "The accusation needs a suspect, a method, and evidence.")
 		return
+	if killer_id != CORRECT_KILLER:
+		completed.emit(false, _message_for_reason(false, REASON_WRONG_PERSON))
+		return
 	if not _has_all_required_final_facts():
 		completed.emit(false, _message_for_reason(false, REASON_MISSING_EVIDENCE))
 		return
@@ -166,7 +169,7 @@ func _message_for_reason(is_correct: bool, reason_code: String) -> String:
 		REASON_MISSING_EVIDENCE:
 			return "No. You are making an accusation without the evidence to back it up."
 		REASON_WRONG_PERSON:
-			return "No. The person does not add up."
+			return "No. That culprit does not add up."
 		REASON_WRONG_METHOD:
 			return "No. The method does not add up."
 		REASON_WRONG_EVIDENCE:

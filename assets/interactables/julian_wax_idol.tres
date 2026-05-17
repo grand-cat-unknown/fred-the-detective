@@ -26,7 +26,7 @@ script = ExtResource("2_condition")
 script = ExtResource("4_state")
 condition = SubResource("GateCondition_idol_default")
 title = "Carved Figurine"
-description = "A carved figurine on the writing desk. Heavier than it should be — wax beneath the paint. Not the real Crooked Idol."
+description = "A carved figurine on the writing desk. Heavier than it should be — wax beneath the paint. Not the real Anchor Idol."
 effects = [SubResource("StateEffect_see_idol")]
 
 [resource]

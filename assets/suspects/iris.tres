@@ -33,7 +33,7 @@ all_of = Array[StringName]([&"has_evidence"])
 [sub_resource type="Resource" id="PromptBlock_iris_idol_recovered"]
 script = ExtResource("4_prompt_block")
 condition = SubResource("GateCondition_iris_idol_recovered")
-text = "REACTION BEAT — Fred is holding the genuine Crooked Idol, recovered from the laundry chute, stashed inside a spent Siren Cell with the back-pressure valve manually popped. If he shows it to you, react with shock and confirm on the record that this is what the watch was about. State plainly that only your own team had equipment-side access to plant it in a Siren Cell. One of your people did this. You don't yet know who, and you say so plainly. You may speculate quietly — but stay disciplined; you observe, you don't accuse without evidence."
+text = "REACTION BEAT — Fred is holding the genuine Anchor Idol, recovered from the laundry chute, stashed inside a spent Siren Cell with the back-pressure valve manually popped. If he shows it to you, react with shock and confirm on the record that this is what the watch was about. State plainly that only your own team had equipment-side access to plant it in a Siren Cell. One of your people did this. You don't yet know who, and you say so plainly. You may speculate quietly — but stay disciplined; you observe, you don't accuse without evidence."
 
 [sub_resource type="Resource" id="ConversationEffect_iris_takes_device"]
 script = ExtResource("5_effect")
@@ -64,7 +64,6 @@ all_of = Array[StringName]([&"has_field_book"])
 
 [sub_resource type="Resource" id="PromptBlock_field_book_recovered"]
 script = ExtResource("4_prompt_block")
-condition = SubResource("GateCondition_field_book_recovered")
 text = "REACTION BEAT — Theo's manual and gear log in play: If Fred asks you to compare notes, become more collaborative but still literal. You will align your field-book timestamps against Theo's gear notes without speculating. Point out contradictions as contradictions, not accusations."
 
 [sub_resource type="Resource" id="GateCondition_cell_recovered"]

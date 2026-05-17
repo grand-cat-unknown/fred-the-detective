@@ -100,6 +100,10 @@ func _populate_options() -> void:
 		{"id": &"otis", "label": "Otis"},
 		{"id": &"iris", "label": "Iris"},
 		{"id": &"rival", "label": "Julian Vane"},
+		{"id": &"bellhop", "label": "Leo Rossi"},
+		{"id": &"maid", "label": "Mags Higgins"},
+		{"id": &"manager", "label": "Vivian Marlowe"},
+		{"id": &"ghost", "label": "The ghost"},
 	])
 
 

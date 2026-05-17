@@ -13,7 +13,7 @@ all_of = Array[StringName]([&"mags_confessed_bribe_master_key", &"julian_fake_id
 [sub_resource type="Resource" id="PromptBlock_julian_fold"]
 script = ExtResource("4_prompt_block")
 condition = SubResource("GateCondition_julian_fold")
-text = "REACTION BEAT — Fred knows two things: Mags admitted she gave you a master key, and Fred has identified the wax idol in your room as a forgery. The lawyer act will not hold. Fold. Admit you intended to swap the fake for the real Crooked Idol that night. State plainly that you stepped out with the master key and replica, saw the Ghostbusters setting up at 1102, abandoned the plan, retreated to Suite 1204, and locked yourself in before the watch began. You never entered 1102. You did not kill Vance. You are a thief and a fraud, not a murderer."
+text = "REACTION BEAT — Fred knows two things: Mags admitted she gave you a master key, and Fred has identified the wax idol in your room as a forgery. The lawyer act will not hold. Fold. Admit you intended to swap the fake for the real Anchor Idol that night. State plainly that you stepped out with the master key and replica, saw the Ghostbusters setting up at 1102, abandoned the plan, retreated to Suite 1204, and locked yourself in before the watch began. You never entered 1102. You did not kill Vance. You are a thief and a fraud, not a murderer."
 
 [sub_resource type="Resource" id="GateCondition_julian_confesses_fraud"]
 script = ExtResource("3_condition")
@@ -41,7 +41,6 @@ all_of = Array[StringName]([&"has_field_book"])
 
 [sub_resource type="Resource" id="PromptBlock_field_book_recovered"]
 script = ExtResource("4_prompt_block")
-condition = SubResource("GateCondition_field_book_recovered")
 text = "REACTION BEAT — field-book timestamps in play: If Fred pins the 9:00 window, your sarcasm thins. Admit you abandoned your plan when the Ghostbusters arrived if Fred has evidence placing you in the hallway, but keep denying entry into 1102."
 
 [resource]

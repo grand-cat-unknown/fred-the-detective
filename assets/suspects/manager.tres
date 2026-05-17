@@ -29,7 +29,7 @@ all_of = Array[StringName]([&"has_evidence"])
 [sub_resource type="Resource" id="PromptBlock_corridor_hint"]
 script = ExtResource("4_prompt_block")
 condition = SubResource("GateCondition_corridor_hint")
-text = "REACTION BEAT — Fred is showing you the recovered cell and the Crooked Idol from the chute. React with genuine shock — you didn't realise there was this much foul play under your roof. Then think about the geography out loud: the only way that cell crossed the floor without anyone seeing it is the staff service corridor behind the curtains. Tell Fred plainly that there's an access from the Royal Suite behind the curtains, the service hallway runs the whole north side, and he should check it — there may be more clues there. This is a verbal hint, not a hand-off. No object changes hands. You may bring it up again on later visits if it feels natural."
+text = "REACTION BEAT — Fred is showing you the recovered cell and the Anchor Idol from the chute. React with genuine shock — you didn't realise there was this much foul play under your roof. Then think about the geography out loud: the only way that cell crossed the floor without anyone seeing it is the staff service corridor behind the curtains. Tell Fred plainly that there's an access from the Royal Suite behind the curtains, the service hallway runs the whole north side, and he should check it — there may be more clues there. This is a verbal hint, not a hand-off. No object changes hands. You may bring it up again on later visits if it feels natural."
 
 [sub_resource type="Resource" id="GateCondition_field_book_recovered"]
 script = ExtResource("3_condition")
@@ -37,7 +37,6 @@ all_of = Array[StringName]([&"has_field_book"])
 
 [sub_resource type="Resource" id="PromptBlock_field_book_recovered"]
 script = ExtResource("4_prompt_block")
-condition = SubResource("GateCondition_field_book_recovered")
 text = "REACTION BEAT — field-book timestamps in play: If Fred asks you to compare official hotel records to Ghostbusters notes, become brisk and useful. You care about records, not theories. Confirm the meditation privacy request and official key-log gap plainly."
 
 [sub_resource type="Resource" id="GateCondition_cell_recovered"]

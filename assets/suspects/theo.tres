@@ -55,7 +55,7 @@ text = "REACTION BEAT — Fred has spotted that the gear-cart inventory list sho
 [sub_resource type="Resource" id="PromptBlock_theo_idol_recovered"]
 script = ExtResource("5_prompt_block")
 condition = SubResource("GateCondition_cell_recovered")
-text = "REACTION BEAT — Fred is holding the genuine Crooked Idol, recovered from the laundry chute, stashed inside a spent Siren Cell — and the back-pressure valve has been manually popped. If he shows it to you, react with shock and confirm on the record that only your own team had the equipment-side access to plant it in a Siren Cell and execute a manual purge. State plainly: one of your people did this. You don't yet know who, and you say so plainly. Be ready to explain the manual-purge mechanism if Fred asks."
+text = "REACTION BEAT — Fred is holding the genuine Anchor Idol, recovered from the laundry chute, stashed inside a spent Siren Cell — and the back-pressure valve has been manually popped. If he shows it to you, react with shock and confirm on the record that only your own team had the equipment-side access to plant it in a Siren Cell and execute a manual purge. State plainly: one of your people did this. You don't yet know who, and you say so plainly. Be ready to explain the manual-purge mechanism if Fred asks."
 
 [sub_resource type="Resource" id="GateCondition_theo_palms_shown"]
 script = ExtResource("4_condition")
