@@ -61,6 +61,15 @@ script = ExtResource("4_prompt_block")
 condition = SubResource("GateCondition_iris_idol_recovered")
 text = "REACTION BEAT — Fred is holding shocking equipment evidence. If he shows it to you, react with controlled alarm. Do not identify a culprit from this broad beat; you observe, you do not accuse without evidence."
 
+[sub_resource type="Resource" id="GateCondition_iris_log_done"]
+script = ExtResource("3_condition")
+all_of = Array[StringName]([&"iris_returned_transcribed_log"])
+
+[sub_resource type="Resource" id="TopicState_iris_device_done"]
+script = ExtResource("7_topic_state")
+condition = SubResource("GateCondition_iris_log_done")
+response_instruction = "You have already given Fred the transcribed log. If he asks again, say those were all the logs you had and you do not think there is anything more useful to gain from the device."
+
 [sub_resource type="Resource" id="TopicState_iris_device_log_ready"]
 script = ExtResource("7_topic_state")
 condition = SubResource("GateCondition_log_ready")
@@ -77,27 +86,12 @@ effect_allowed = &"iris_received_listening_device"
 script = ExtResource("7_topic_state")
 response_instruction = "Fred is asking about your listening device before he has found or returned it. Say you were using it today, but you probably forgot it somewhere. If he can help find it, that would be useful."
 
-[sub_resource type="Resource" id="GateCondition_iris_log_done"]
-script = ExtResource("3_condition")
-all_of = Array[StringName]([&"iris_returned_transcribed_log"])
-
-[sub_resource type="Resource" id="TopicState_iris_device_done"]
-script = ExtResource("7_topic_state")
-condition = SubResource("GateCondition_iris_log_done")
-response_instruction = "You have already given Fred the transcribed log. If he asks again, say those were all the logs you had and you do not think there is anything more useful to gain from the device."
-
 [sub_resource type="Resource" id="TopicResponse_iris_listening_device"]
 script = ExtResource("6_topic")
 topic_id = &"iris_listening_device"
 topic_label = "Listening Device And Transcript"
 topic_description = "Fred is pressing Iris about her abandoned listening device, machine recording, transcript, log, what it captured, or offering the device back to her."
 states = [SubResource("TopicState_iris_device_done"), SubResource("TopicState_iris_device_log_ready"), SubResource("TopicState_iris_device_handoff"), SubResource("TopicState_iris_device_default")]
-
-[sub_resource type="Resource" id="TopicState_iris_palms_full"]
-script = ExtResource("7_topic_state")
-condition = SubResource("GateCondition_iris_palms_shown")
-response_instruction = "Fred has the recovered cell and field book, so his palm request has a strong reason. If he asks to see your hands or palms, comply calmly and show clean palms."
-effect_allowed = &"iris_palms_shown"
 
 [sub_resource type="Resource" id="GateCondition_iris_palms_done"]
 script = ExtResource("3_condition")
@@ -107,6 +101,12 @@ all_of = Array[StringName]([&"iris_palms_shown"])
 script = ExtResource("7_topic_state")
 condition = SubResource("GateCondition_iris_palms_done")
 response_instruction = "You have already shown Fred your clean palms. If he asks again, show them again calmly and state that they are unchanged."
+
+[sub_resource type="Resource" id="TopicState_iris_palms_full"]
+script = ExtResource("7_topic_state")
+condition = SubResource("GateCondition_iris_palms_shown")
+response_instruction = "Fred has the recovered cell and field book, so his palm request has a strong reason. If he asks to see your hands or palms, comply calmly and show clean palms."
+effect_allowed = &"iris_palms_shown"
 
 [sub_resource type="Resource" id="TopicState_iris_palms_default"]
 script = ExtResource("7_topic_state")

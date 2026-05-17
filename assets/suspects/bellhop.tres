@@ -10,14 +10,14 @@
 script = ExtResource("3_condition")
 all_of = Array[StringName]([&"has_evidence"])
 
-[sub_resource type="Resource" id="GateCondition_leo_no_evidence"]
-script = ExtResource("3_condition")
-none_of = Array[StringName]([&"has_evidence"])
-
 [sub_resource type="Resource" id="TopicState_leo_water_delivery_evidence"]
 script = ExtResource("5_topic_state")
 condition = SubResource("GateCondition_leo_has_evidence")
 response_instruction = "Fred has recovered strong evidence and is asking about your water delivery or Vance before the watch. Keep the same factual account: you delivered the sparkling water and Vance looked nervous and over-excited. Say the day before he was happy-excited, but tonight the excitement had a nervous edge."
+
+[sub_resource type="Resource" id="GateCondition_leo_no_evidence"]
+script = ExtResource("3_condition")
+none_of = Array[StringName]([&"has_evidence"])
 
 [sub_resource type="Resource" id="TopicState_leo_water_delivery_default"]
 script = ExtResource("5_topic_state")

@@ -71,15 +71,15 @@ states = [SubResource("TopicState_mags_smoking_full"), SubResource("TopicState_m
 script = ExtResource("3_condition")
 all_of = Array[StringName]([&"mags_confessed_bribe_master_key"])
 
-[sub_resource type="Resource" id="GateCondition_mags_bribe_full"]
-script = ExtResource("3_condition")
-all_of = Array[StringName]([&"lit_cigarette_found_1103", &"has_mags_cigarette_pouch"])
-none_of = Array[StringName]([&"mags_confessed_bribe_master_key"])
-
 [sub_resource type="Resource" id="TopicState_mags_leverage_done"]
 script = ExtResource("7_topic_state")
 condition = SubResource("GateCondition_mags_bribe_done")
 response_instruction = "You have already admitted the master-key bribe. If Fred presses the leverage again, repeat only that Julian Vane paid you for a master key, you did not know anything about a murder, and you are still begging him not to tell anyone about the smoking."
+
+[sub_resource type="Resource" id="GateCondition_mags_bribe_full"]
+script = ExtResource("3_condition")
+all_of = Array[StringName]([&"lit_cigarette_found_1103", &"has_mags_cigarette_pouch"])
+none_of = Array[StringName]([&"mags_confessed_bribe_master_key"])
 
 [sub_resource type="Resource" id="TopicState_mags_leverage_full"]
 script = ExtResource("7_topic_state")

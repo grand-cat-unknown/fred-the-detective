@@ -8,44 +8,10 @@
 [ext_resource type="Script" path="res://scripts/data/suspect_topic_response_state.gd" id="6_topic_state"]
 [ext_resource type="Resource" path="res://assets/suspects/teams/ghostbusters.tres" id="7_team"]
 
-[sub_resource type="Resource" id="GateCondition_otis_has_evidence"]
-script = ExtResource("3_condition")
-all_of = Array[StringName]([&"has_evidence"])
-
-[sub_resource type="Resource" id="GateCondition_otis_no_evidence"]
-script = ExtResource("3_condition")
-none_of = Array[StringName]([&"has_evidence"])
-
 [sub_resource type="Resource" id="GateCondition_otis_palm_request"]
 script = ExtResource("3_condition")
 all_of = Array[StringName]([&"has_evidence", &"has_field_book"])
 none_of = Array[StringName]([&"pemberton_palms_shown"])
-
-[sub_resource type="Resource" id="GateCondition_otis_palms_done"]
-script = ExtResource("3_condition")
-all_of = Array[StringName]([&"pemberton_palms_shown"])
-
-[sub_resource type="Resource" id="GateCondition_otis_palms_evidence_only"]
-script = ExtResource("3_condition")
-all_of = Array[StringName]([&"has_evidence"])
-none_of = Array[StringName]([&"has_field_book", &"pemberton_palms_shown"])
-
-[sub_resource type="Resource" id="GateCondition_otis_stained_gloves"]
-script = ExtResource("3_condition")
-all_of = Array[StringName]([&"has_stained_gloves"])
-
-[sub_resource type="Resource" id="GateCondition_otis_stained_gloves_no_palms"]
-script = ExtResource("3_condition")
-all_of = Array[StringName]([&"has_stained_gloves"])
-none_of = Array[StringName]([&"pemberton_palms_shown"])
-
-[sub_resource type="Resource" id="GateCondition_otis_smoking_proof"]
-script = ExtResource("3_condition")
-all_of = Array[StringName]([&"lit_cigarette_found_1103", &"has_mags_cigarette_pouch"])
-
-[sub_resource type="Resource" id="GateCondition_otis_final_confrontation"]
-script = ExtResource("3_condition")
-all_of = Array[StringName]([&"has_evidence", &"has_field_book", &"pemberton_palms_shown"])
 
 [sub_resource type="Resource" id="ConversationEffect_pemberton_palms_shown"]
 script = ExtResource("4_effect")
@@ -53,15 +19,27 @@ condition = SubResource("GateCondition_otis_palm_request")
 fact_id = &"pemberton_palms_shown"
 description = "Set this only if Fred asks Otis to show his palms AND Otis agrees to show them (the UI then presents the photo of violet-stained hands)."
 
+[sub_resource type="Resource" id="GateCondition_otis_palms_done"]
+script = ExtResource("3_condition")
+all_of = Array[StringName]([&"pemberton_palms_shown"])
+
 [sub_resource type="Resource" id="TopicState_otis_sweep_palms_done"]
 script = ExtResource("6_topic_state")
 condition = SubResource("GateCondition_otis_palms_done")
 response_instruction = "Fred is pressing your east-side sweep after your violet palms have been exposed. Try to repeat the same east-side story, but make it brittle and defensive. Do not cleanly explain the contradiction unless Fred directly makes the final murder accusation."
 
+[sub_resource type="Resource" id="GateCondition_otis_has_evidence"]
+script = ExtResource("3_condition")
+all_of = Array[StringName]([&"has_evidence"])
+
 [sub_resource type="Resource" id="TopicState_otis_sweep_evidence"]
 script = ExtResource("6_topic_state")
 condition = SubResource("GateCondition_otis_has_evidence")
 response_instruction = "Fred has evidence suggesting a Ghostbuster used the cell. Respond coldly that this is horrible if true, but if it is this cell, Theo had the gear and inventory responsibility. Say the obvious suspicion goes to Theo; he was a newcomer with potential who may have gone badly wrong."
+
+[sub_resource type="Resource" id="GateCondition_otis_no_evidence"]
+script = ExtResource("3_condition")
+none_of = Array[StringName]([&"has_evidence"])
 
 [sub_resource type="Resource" id="TopicState_otis_sweep_default"]
 script = ExtResource("6_topic_state")
@@ -112,6 +90,11 @@ script = ExtResource("6_topic_state")
 condition = SubResource("GateCondition_otis_palm_request")
 response_instruction = "Fred has recovered evidence and field-book context. If he asks to see your hands or palms, cite protocol once, then slowly comply while trying to avoid it. Your palms are visibly violet-stained. Once exposed, you break down: you were so close to finishing your research, the idol was the missing piece, and Vance would not understand its value."
 effect_allowed = &"pemberton_palms_shown"
+
+[sub_resource type="Resource" id="GateCondition_otis_palms_evidence_only"]
+script = ExtResource("3_condition")
+all_of = Array[StringName]([&"has_evidence"])
+none_of = Array[StringName]([&"has_field_book", &"pemberton_palms_shown"])
 
 [sub_resource type="Resource" id="TopicState_otis_palms_evidence_only"]
 script = ExtResource("6_topic_state")
@@ -180,6 +163,11 @@ script = ExtResource("6_topic_state")
 condition = SubResource("GateCondition_otis_palms_done")
 response_instruction = "Fred presses stained gloves after your palms are exposed. Start conceding defeat: say he has caught you here, you thought you could get away with much of it, but you did fall to him. Do not give the full murder confession unless he directly accuses you."
 
+[sub_resource type="Resource" id="GateCondition_otis_stained_gloves_no_palms"]
+script = ExtResource("3_condition")
+all_of = Array[StringName]([&"has_stained_gloves"])
+none_of = Array[StringName]([&"pemberton_palms_shown"])
+
 [sub_resource type="Resource" id="TopicState_otis_gloves_found"]
 script = ExtResource("6_topic_state")
 condition = SubResource("GateCondition_otis_stained_gloves_no_palms")
@@ -200,6 +188,10 @@ states = [SubResource("TopicState_otis_gloves_palms_done"), SubResource("TopicSt
 script = ExtResource("6_topic_state")
 condition = SubResource("GateCondition_otis_palms_done")
 response_instruction = "Fred presses that Mags was in Room 1103 after your palms are exposed. You can no longer make the sweep story sound stable. Become terse and rattled; do not offer a clean explanation unless Fred directly accuses you of murder."
+
+[sub_resource type="Resource" id="GateCondition_otis_smoking_proof"]
+script = ExtResource("3_condition")
+all_of = Array[StringName]([&"lit_cigarette_found_1103", &"has_mags_cigarette_pouch"])
 
 [sub_resource type="Resource" id="TopicState_otis_maid_1103_proof"]
 script = ExtResource("6_topic_state")
@@ -238,6 +230,10 @@ topic_id = &"otis_west_east_contradiction"
 topic_label = "West/East Contradiction"
 topic_description = "Fred is pressing Otis that Mara assigned him to the east side, but witnesses say he came from the west; asking why he arrived from the west, whether he doubled back, or whether his direction of arrival contradicts his sweep story."
 states = [SubResource("TopicState_otis_west_east_palms_done"), SubResource("TopicState_otis_west_east_evidence"), SubResource("TopicState_otis_west_east_default")]
+
+[sub_resource type="Resource" id="GateCondition_otis_final_confrontation"]
+script = ExtResource("3_condition")
+all_of = Array[StringName]([&"has_evidence", &"has_field_book", &"pemberton_palms_shown"])
 
 [sub_resource type="Resource" id="TopicState_otis_final_full"]
 script = ExtResource("6_topic_state")

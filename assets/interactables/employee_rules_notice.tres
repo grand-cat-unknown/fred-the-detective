@@ -6,12 +6,18 @@
 [sub_resource type="Resource" id="InteractableState_employee_rules_notice_default"]
 script = ExtResource("2_state")
 title = "Employee Rules"
-description = "A neatly framed notice reads:\n\n1. Employees must wash their hands clean before beginning any cooking task.\n2. Maintain the highest standard of hygiene at every station, at all times.\n3. Smoking anywhere on hotel premises is a fireable offense.\n4. Hair must be tied back, covered, or otherwise secured before entering the kitchen.\n5. Knives, pans, and service tools must be cleaned and returned after each shift.\n6. Report spills, broken glass, strange odors, and missing supplies to management immediately.\n7. No guest food, medicine, or personal parcels may be stored in staff refrigerators."
+description = "A neatly framed notice reads:
+
+1. Employees must wash their hands clean before beginning any cooking task.
+2. Maintain the highest standard of hygiene at every station, at all times.
+3. Smoking anywhere on hotel premises is a fireable offense.
+4. Hair must be tied back, covered, or otherwise secured before entering the kitchen.
+5. Knives, pans, and service tools must be cleaned and returned after each shift.
+6. Report spills, broken glass, strange odors, and missing supplies to management immediately.
+7. No guest food, medicine, or personal parcels may be stored in staff refrigerators."
 update_tile = true
-layer_name = "Doors"
 source_id = 1
 atlas_coords = Vector2i(16, 23)
-alternative_tile = 0
 update_blocks_movement = true
 blocks_movement = false
 

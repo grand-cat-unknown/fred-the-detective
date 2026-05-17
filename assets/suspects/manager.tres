@@ -3,7 +3,6 @@
 [ext_resource type="Script" uid="uid://cxvank1ob4s06" path="res://scripts/data/suspect_data.gd" id="1_script"]
 [ext_resource type="Texture2D" uid="uid://86ddjl53th36" path="res://assets/art/characters/hs_retro/Char 26_A.png" id="2_tex"]
 [ext_resource type="Script" uid="uid://dy1gfjjj466vx" path="res://scripts/data/gate_condition.gd" id="3_condition"]
-[ext_resource type="Script" uid="uid://dabftyaocc5ft" path="res://scripts/data/prompt_block.gd" id="4_prompt_block"]
 [ext_resource type="Script" uid="uid://dqx0ob7wf7eix" path="res://scripts/data/conversation_effect.gd" id="5_effect"]
 [ext_resource type="Script" path="res://scripts/data/suspect_topic_response.gd" id="6_topic"]
 [ext_resource type="Script" path="res://scripts/data/suspect_topic_response_state.gd" id="7_topic_state"]
@@ -23,9 +22,26 @@ description = "Set this only if Vivian clearly agrees to give Fred the staff key
 script = ExtResource("3_condition")
 all_of = Array[StringName]([&"has_evidence"])
 
+[sub_resource type="Resource" id="TopicState_vivian_guest_records_evidence"]
+script = ExtResource("7_topic_state")
+condition = SubResource("GateCondition_vivian_has_evidence")
+response_instruction = "Fred has recovered strong evidence that this may have been an intentional murder, not a haunting. If he presses Vance's room, privacy request, or the 9:00 meditation window, be horribly shocked: you only called Fred as a formality, you truly thought it was a haunting. Say the Royal Suite and privacy ritual now look frightening in hindsight, and if he is asking how anyone could have bypassed the visible route, admit there are family service hallways behind the Royal Suite curtains."
+
 [sub_resource type="Resource" id="GateCondition_vivian_no_evidence"]
 script = ExtResource("3_condition")
 none_of = Array[StringName]([&"has_evidence"])
+
+[sub_resource type="Resource" id="TopicState_vivian_guest_records_default"]
+script = ExtResource("7_topic_state")
+condition = SubResource("GateCondition_vivian_no_evidence")
+response_instruction = "Fred is asking about Vance's registration, the Royal Suite, the auction, security, or the meditation routine before strong murder evidence. Say the Royal Suite is the best room in the hotel and you were happy the auction was happening here. It is horrible that Vance died; you keep the highest security for these auctions, which is why the Ghostbusters were here. You strongly believe it was a real haunting and do not budge from that without serious evidence."
+
+[sub_resource type="Resource" id="TopicResponse_vivian_guest_records"]
+script = ExtResource("6_topic")
+topic_id = &"vivian_guest_records"
+topic_label = "Vance's Room And Records"
+topic_description = "Fred is asking Vivian about Vance's registration, Suite 1102, the Royal Suite, the auction, the privacy request, the 9:00 to 9:45 meditation ritual, or why the Ghostbusters were hired."
+states = [SubResource("TopicState_vivian_guest_records_evidence"), SubResource("TopicState_vivian_guest_records_default")]
 
 [sub_resource type="Resource" id="GateCondition_vivian_key_done"]
 script = ExtResource("3_condition")
@@ -55,23 +71,6 @@ topic_id = &"vivian_chute_key"
 topic_label = "Chute-Room Key"
 topic_description = "Fred is asking Vivian for a staff key, laundry/chute-room access, permission to inspect the ground-floor chute room, or access to staff-only service areas."
 states = [SubResource("TopicState_vivian_key_done"), SubResource("TopicState_vivian_key_ready"), SubResource("TopicState_vivian_key_default")]
-
-[sub_resource type="Resource" id="TopicState_vivian_guest_records_evidence"]
-script = ExtResource("7_topic_state")
-condition = SubResource("GateCondition_vivian_has_evidence")
-response_instruction = "Fred has recovered strong evidence that this may have been an intentional murder, not a haunting. If he presses Vance's room, privacy request, or the 9:00 meditation window, be horribly shocked: you only called Fred as a formality, you truly thought it was a haunting. Say the Royal Suite and privacy ritual now look frightening in hindsight, and if he is asking how anyone could have bypassed the visible route, admit there are family service hallways behind the Royal Suite curtains."
-
-[sub_resource type="Resource" id="TopicState_vivian_guest_records_default"]
-script = ExtResource("7_topic_state")
-condition = SubResource("GateCondition_vivian_no_evidence")
-response_instruction = "Fred is asking about Vance's registration, the Royal Suite, the auction, security, or the meditation routine before strong murder evidence. Say the Royal Suite is the best room in the hotel and you were happy the auction was happening here. It is horrible that Vance died; you keep the highest security for these auctions, which is why the Ghostbusters were here. You strongly believe it was a real haunting and do not budge from that without serious evidence."
-
-[sub_resource type="Resource" id="TopicResponse_vivian_guest_records"]
-script = ExtResource("6_topic")
-topic_id = &"vivian_guest_records"
-topic_label = "Vance's Room And Records"
-topic_description = "Fred is asking Vivian about Vance's registration, Suite 1102, the Royal Suite, the auction, the privacy request, the 9:00 to 9:45 meditation ritual, or why the Ghostbusters were hired."
-states = [SubResource("TopicState_vivian_guest_records_evidence"), SubResource("TopicState_vivian_guest_records_default")]
 
 [sub_resource type="Resource" id="TopicState_vivian_passages_evidence"]
 script = ExtResource("7_topic_state")
