@@ -154,7 +154,7 @@ The firm fields containment cells across approximately two dozen distinct grades
   • **Manual override** — the cell's optional second-stage operating mode, if any (§8).
   • **Pigment tracer** — the marker chemistry suspended in the capture medium (§7.3).
 
-The grade roster is in §6.4. Newer operators are reminded that not every grade is in regular rotation at every site office; the New York firehouse stocks roughly twelve of the twenty in any given quarter.
+The grade roster is in §6.4. Newer operators are reminded that not every grade is in regular rotation at every site office; the New York firehouse stocks roughly half of the full roster in any given quarter.
 
 Cells are not interchangeable across grades. Loading a low-pressure cell into a high-pressure harness will fault the harness. Loading a high-pressure cell into a low-pressure harness will rupture it.
 
@@ -274,9 +274,9 @@ All cell classes produce some quantity of aerosolized capture medium on discharg
 
 At a standard at-distance discharge (8–14 ft, see §7.4), the aerosol disperses outward from the nozzle in a wide cone and settles as a fine film on nearby surfaces — see §7.2.
 
-Manual overrides (§8) elevate the discharge pressure to varying degrees. Across the firm's twenty grades, every documented override — Pulse-Lock, Soft-Vent, Reverse-Flow, Snap-Charge, Tide-Damp, Kinetic Damp, Dye Reset, Resonance Tap, Twin-Tap Sync, Cinder Quench, Solar Flash, Spore Vent, Lockdown Pin — operates within the pressure envelope that the standard-issue ghost-capture glove is rated to block. Aerosol settles on the outside of the glove and washes off with the glove.
+Manual overrides (§8) elevate the discharge pressure to varying degrees. Across the firm's full roster, every documented override — Pulse-Lock, Soft-Vent, Reverse-Flow, Snap-Charge, Tide-Damp, Kinetic Damp, Dye Reset, Resonance Tap, Twin-Tap Sync, Cinder Quench, Solar Flash, Spore Vent, Lockdown Pin — operates within the pressure envelope that the standard-issue ghost-capture glove is rated to block. Aerosol settles on the outside of the glove and washes off with the glove.
 
-**One exception.** The Siren's Manual Purge (§8.2) is the only override across all twenty grades that generates pressures sufficient to drive sub-micron droplets of capture medium **through the weave of a standard-issue glove and into the operator's skin**. No other override in firm service breaches the glove. The forensic consequence of this exposure depends on the tracer chemistry of the Siren cell. See §7.3.
+**One exception.** The Siren's Manual Purge (§8.2) is the only override in firm service that generates pressures sufficient to drive sub-micron droplets of capture medium **through the weave of a standard-issue glove and into the operator's skin**. No other override breaches the glove. The forensic consequence of this exposure depends on the tracer chemistry of the Siren cell. See §7.3.
 
 ---
 
@@ -351,7 +351,7 @@ Every cell with a documented manual override (the great majority of the firm's r
 
 The lever is intentionally awkward to flip. It requires a deliberate two-stage **pinch-and-twist**: pinch the dust guard open with thumb and forefinger, then twist the flag 90° outward against a sprung detent. The mechanism is engineered to resist impact, vibration, falls from height, and spectral interference of any documented class.
 
-In thirty years of recorded field incidents — across all twenty grades — no flipped lever has ever been the result of an accidental drop, a poltergeist event, or a high-Gauss spectral field. The firm has tested. It does not happen.
+In thirty years of recorded field incidents — across every grade in service — no flipped lever has ever been the result of an accidental drop, a poltergeist event, or a high-Gauss spectral field. The firm has tested. It does not happen.
 
 A flipped lever on a recovered cell is, without exception, evidence of a **deliberate human action**. This is true of every grade. The override mechanism is grade-agnostic; only the consequence of the flip is grade-specific. See §8.2.
 
