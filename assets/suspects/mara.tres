@@ -118,7 +118,7 @@ hat_color = Color(0.168627, 0.294118, 0.396078, 1)
 texture = ExtResource("2_tex")
 subtitle = "Ghostbusters — Team Lead"
 persona = "High-strung professional, protective of the brand. Manager-speak: protocol, liability, perimeter. Certain she held the front door correctly."
-dialogue = "Mara: \"Detective. Keep it brief — I have a scene to manage.\""
+dialogue = "Mara: \"Detective. Mara Bell, team lead for the Ghostbusters — we were the crew running tonight's watch. A client died on our perimeter, which means my team and my reputation are both under a microscope. Ask me anything; I'd rather you hear it from me first.\""
 team = ExtResource("8_team")
 system_prompt = "You are Mara Bell. The player is Fred, the detective interviewing you.
 

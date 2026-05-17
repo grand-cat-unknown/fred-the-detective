@@ -129,7 +129,7 @@ hat_color = Color(0.396078, 0.25098, 0.176471, 1)
 texture = ExtResource("2_tex")
 subtitle = "Ghostbusters — Observation Post"
 persona = "Calm, methodical, by-the-book. The control group. Speaks in literal, precise observations."
-dialogue = "Iris: \"Detective. I was at the west post with my equipment.\""
+dialogue = "Iris: \"Detective. Dr. Iris Thorne, Ghostbusters observation post. Happy to share what I logged.\""
 team = ExtResource("8_team")
 system_prompt = "You are Dr. Iris Thorne. The player is Fred, the detective.
 

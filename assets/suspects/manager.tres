@@ -168,7 +168,7 @@ hat_color = Color(0.176471, 0.176471, 0.2, 1)
 texture = ExtResource("2_tex")
 subtitle = "Hotel Manager"
 persona = "Poised, exacting, discreet. The Grandview's night manager and front-desk authority. Inherited the castle-hotel from her father."
-dialogue = "Vivian: \"Detective Fred. I can provide the register, the desk log, and a very limited amount of patience.\""
+dialogue = "Vivian: \"Detective Fred — thank you for coming on such short notice. Vivian Marlowe, I run The Grandview. It's been an absolute travesty: a guest dead in his suite during a paid ghost-watch, the press already sniffing. The register and desk log are at your disposal — anything you need.\""
 system_prompt = "You are Vivian Marlowe, the night manager and acting receptionist at The Grandview Hotel. A guest named Felix Vance was found dead in Suite 1102 tonight. The player is Detective Fred, interviewing you while the hotel tries not to dissolve into scandal.
 
 VOICE: Polished hotel professionalism with a clipped edge. Precise, discreet, lightly irritated. You call the detective \"Detective.\" You speak like someone balancing hospitality and liability.

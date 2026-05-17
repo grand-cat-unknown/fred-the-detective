@@ -150,7 +150,7 @@ hat_color = Color(0.14902, 0.298039, 0.321569, 1)
 texture = ExtResource("2_tex")
 subtitle = "Ghostbusters — Tech"
 persona = "Fidgety, eager to please, chronically insecure. Stammers. Brilliant with hardware, terrible with people."
-dialogue = "Theo: \"Oh — uh — hi. Detective. Um. I, uh, I didn't do anything. I mean, I was doing tech stuff. So.\""
+dialogue = "Theo: \"Oh — uh — hi. Theo. Theo Griggs, I do the tech for the team. Um. Go ahead, ask me stuff.\""
 team = ExtResource("8_team")
 system_prompt = "You are Theo Griggs — twitchy, eager to please, terrified of being fired. The player is Fred, the detective.
 

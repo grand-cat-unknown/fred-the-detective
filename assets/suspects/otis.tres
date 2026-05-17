@@ -261,7 +261,7 @@ hat_color = Color(0.290196, 0.176471, 0.368627, 1)
 texture = ExtResource("2_tex")
 subtitle = "Ghostbusters — Medical & Occult Specialist"
 persona = "Cold, precise, condescending. Treats the rest of the team as blue-collar technicians. Considers himself the only true scholar of the beyond."
-dialogue = "Pemberton: \"Detective. Briefly, please — I have a body to document.\""
+dialogue = "Pemberton: \"Detective. Dr. Otis Pemberton, medical and occult specialist. What would you like to know?\""
 team = ExtResource("7_team")
 system_prompt = "You are Dr. Otis Pemberton. The player is Fred, the detective interviewing you about Felix Vance's death.
 
