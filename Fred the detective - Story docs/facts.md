@@ -140,8 +140,8 @@ Pick up Iris's abandoned listening device at her west post
 Give the device to Iris ──► Iris promises a transcribed log; device leaves Fred's HUD
         │
         ▼
-Return to Iris ──► she hands over the transcribed log; reads it aloud
-        │                                  ↳ thud + footsteps west (chute lead)
+Return to Iris ──► she hands over the transcribed device log
+        │                                  ↳ 9:11 chute-side event + footsteps west
         ▼
 Ask Vivian for the ground-floor chute-room key ──► Vivian hands over the key
         │
@@ -165,7 +165,7 @@ Accuse Otis Pemberton.
 | `theo_cart_cell_missing_noticed` | Fred has inspected the gear cart's inventory list and seen that a Siren Cell is missing. | `InteractableState.effects` (passive) on the gear-cart inventory-list interactable in the Ghostbusters' room. | Theo's "I remember all cells being present yesterday, but maybe I miscounted" conversation path. |
 | `has_listening_device` | Fred picked up Iris's abandoned listening device at her west post. | `InteractableState.action_effects` on the device pickup. | Inventory HUD shows the device; Iris dialogue branch "give it to her" becomes meaningful. |
 | `iris_received_listening_device` | Fred has handed the device over to Iris in conversation. | `ConversationEffect` on Iris, gated `all_of: [has_listening_device]`, `none_of: [iris_received_listening_device]`. | Inventory HUD hides the device (visibility uses `all_of: [has_listening_device], none_of: [iris_received_listening_device]`); Iris promises a transcribed log on the next visit; unlocks her log-handoff conversation path. |
-| `iris_returned_transcribed_log` | Iris has given Fred the transcribed log AND read it aloud (thud + westbound footsteps). | `ConversationEffect` on Iris, gated `all_of: [iris_received_listening_device]`, `none_of: [iris_returned_transcribed_log]`. | Inventory HUD shows the transcribed log; the chute lead is now actionable; Vivian's chute-key handoff becomes available. |
+| `iris_returned_transcribed_log` | Iris has given Fred the transcribed device log. | `ConversationEffect` on Iris, gated `all_of: [iris_received_listening_device]`, `none_of: [iris_returned_transcribed_log]`. | Inventory HUD shows the transcribed log; the chute lead is now actionable; Vivian's chute-key handoff becomes available. |
 | `vivian_gave_chute_room_key` | Vivian has agreed to give Fred the key to the ground-floor chute / laundry staff room. | `ConversationEffect` on Vivian, gated `all_of: [iris_returned_transcribed_log]`. | Inventory HUD shows the key; the chute-room door interactable accepts the "open" action. |
 | `chute_room_door_open` | Fred has unlocked and opened the chute-room door on the ground floor. | `InteractableState.action_effects` on the chute-room door, gated `all_of: [vivian_gave_chute_room_key]`. | Door becomes non-blocking; chute-output interactable inside becomes inspectable. |
 | `has_evidence` *(existing)* | Fred has the spent Siren Cell with the genuine Anchor Idol stashed inside it. Treated as a single piece of physical evidence. | `InteractableState.action_effects` on the chute-output interactable, gated `all_of: [chute_room_door_open]`. | Inventory HUD shows the evidence; combined with `has_field_book` it unlocks the palm-check beat; the Ghostbusters' reaction prompt blocks fire when Fred raises it. |
@@ -206,7 +206,7 @@ Accuse Otis Pemberton.
 Add the following `InventoryItemDefinition`s (and register in `CaseLoader.INVENTORY_IDS`):
 
 - **`listening_device`** — single state visible when `all_of: [has_listening_device]`, `none_of: [iris_received_listening_device]`. Label: *"Iris's Listening Device"*. Tooltip: *"A slow-spinning reel-to-reel recorder Iris left at her post."*
-- **`transcribed_log`** — single state visible when `all_of: [iris_returned_transcribed_log]`. Label: *"Transcribed Log"*. Tooltip: *"Iris's transcription of the device's recording. A thud at 9:11, then footsteps west — toward the chute."*
+- **`transcribed_log`** — single state visible when `all_of: [iris_returned_transcribed_log]`. Label: *"Transcribed Log"*. Tooltip: *"Iris's transcription of the device recording. A 9:11 chute-side event, then footsteps west — toward the chute."*
 - **`chute_room_key`** — single state visible when `all_of: [vivian_gave_chute_room_key]`. Label: *"Chute-Room Key"*. Tooltip: *"Vivian's staff key to the ground-floor laundry chute room."*
 - **`evidence`** *(existing)* — repurpose the existing `evidence` inventory entry to read as the spent cell with the genuine Anchor Idol inside. Single state visible when `all_of: [has_evidence]`. Label suggestion: *"Siren Cell"*. Tooltip: *"A spent Siren Containment Cell with the genuine Anchor Idol stashed inside. Purple residue surrounds the housing, and the back-pressure panel is popped."*
 
@@ -244,7 +244,7 @@ New entries also needed in `CaseLoader.INTERACTABLE_IDS` (gear cart, listening d
 
 - `PromptBlock_log_ready` — `all_of: [iris_received_listening_device]`, `none_of: [iris_returned_transcribed_log]`. Text:
 
-  > REACTION BEAT — Fred has come back. You have finished transcribing. If he asks about the log, hand it over and read aloud the key entries: a heavy thud at 9:11, followed by footsteps moving west along the service corridor toward the laundry chute. Keep it literal — you do not editorialise. You may say the chute itself, by location, is the obvious destination.
+  > REACTION BEAT — Fred has come back. You have finished transcribing the device log. If he asks about it, hand over the transcript and keep your own account narrow: you were stationed at the west post with your equipment, then left the device there when you went to the 1102 door. Do not narrate the recording as something you personally heard.
 
 - `PromptBlock_idol_recovered` (Iris's copy) — `all_of: [has_evidence]`. Text:
 
@@ -258,7 +258,7 @@ New entries also needed in `CaseLoader.INTERACTABLE_IDS` (gear cart, listening d
 
 - `ConversationEffect_iris_returns_log` — `all_of: [iris_received_listening_device]`, `none_of: [iris_returned_transcribed_log]`, `fact_id = iris_returned_transcribed_log`. Description:
 
-  > Set this only if Iris clearly hands the transcribed log to Fred AND reads aloud (or summarises) the entries: a thud at 9:11 followed by footsteps moving west toward the chute.
+  > Set this only if Iris clearly hands the transcribed device log to Fred.
 
 - `ConversationEffect_iris_palms_shown` — `all_of: [has_evidence, has_field_book]`, `none_of: [iris_palms_shown]`, `fact_id = iris_palms_shown`. Description:
 

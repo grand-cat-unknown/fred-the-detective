@@ -58,4 +58,4 @@ WEST ←────────────────────────
   - Drops the cell (with the idol inside) down the chute at the north-west corner.
   - Cuts back south through the auction hall.
   - Emerges into the **west end of the main hallway** at 9:13 — which is why he arrives "from the wrong direction."
-- Iris's **west-side observation post** sits at the west end of the main hallway (near the auction-hall entrance), listening to spillover through the wall toward 1102. Her listening device is what catches the chute thud at 9:10.
+- Iris's **west-side observation post** sits at the west end of the main hallway (near the auction-hall entrance). Her listening device is left there and captures the chute-side event at 9:11.

@@ -16,6 +16,17 @@ condition = SubResource("GateCondition_no_field_book_permission")
 fact_id = &"theo_granted_field_book_permission"
 description = "Set this only if Theo clearly permits Fred to borrow, take, use, or inspect Theo's field manual and gear log."
 
+[sub_resource type="Resource" id="GateCondition_theo_palms_shown"]
+script = ExtResource("4_condition")
+all_of = Array[StringName]([&"has_evidence", &"has_field_book"])
+none_of = Array[StringName]([&"theo_palms_shown"])
+
+[sub_resource type="Resource" id="ConversationEffect_theo_palms_shown"]
+script = ExtResource("3_effect")
+condition = SubResource("GateCondition_theo_palms_shown")
+fact_id = &"theo_palms_shown"
+description = "Set this only if Fred asks Theo to show his palms AND Theo agrees to show them (the UI then presents the photo of clean hands)."
+
 [sub_resource type="Resource" id="GateCondition_has_field_book"]
 script = ExtResource("4_condition")
 all_of = Array[StringName]([&"has_field_book"])
@@ -24,6 +35,15 @@ all_of = Array[StringName]([&"has_field_book"])
 script = ExtResource("5_prompt_block")
 condition = SubResource("GateCondition_has_field_book")
 text = "Fred has your field manual and gear log now. Do not offer it again. If he asks about it, you are anxious but willing to clarify your notes."
+
+[sub_resource type="Resource" id="GateCondition_theo_cart_noticed"]
+script = ExtResource("4_condition")
+all_of = Array[StringName]([&"theo_cart_cell_missing_noticed"])
+
+[sub_resource type="Resource" id="PromptBlock_theo_cart_noticed"]
+script = ExtResource("5_prompt_block")
+condition = SubResource("GateCondition_theo_cart_noticed")
+text = "REACTION BEAT — Fred has spotted that the gear-cart inventory list shows a charged Siren Cell logged as loaded but not used, and there's no cell to match. If Fred raises this, react with genuine surprise — you didn't notice. Say something like: \"Oh — is it missing? That's weird, because yesterday I really remembered all the cells being present. Maybe I just miscounted. I'm clumsy, so I don't know.\" Keep it uncertain; your memory is only about yesterday."
 
 [sub_resource type="Resource" id="GateCondition_field_book_permission_given"]
 script = ExtResource("4_condition")
@@ -43,30 +63,10 @@ script = ExtResource("5_prompt_block")
 condition = SubResource("GateCondition_cell_recovered")
 text = "REACTION BEAT — recovered Siren Cell in play: If Fred mentions the recovered cell, manual purge, the chute, or residue, panic first, then become technically precise. Explain what the popped back-pressure valve and manual override mean. If asked who handled the cart, say Pemberton was hovering around it during prep, but make clear you did not understand its importance at the time."
 
-[sub_resource type="Resource" id="GateCondition_theo_cart_noticed"]
-script = ExtResource("4_condition")
-all_of = Array[StringName]([&"theo_cart_cell_missing_noticed"])
-
-[sub_resource type="Resource" id="PromptBlock_theo_cart_noticed"]
-script = ExtResource("5_prompt_block")
-condition = SubResource("GateCondition_theo_cart_noticed")
-text = "REACTION BEAT — Fred has spotted that the gear-cart inventory list shows a charged Siren Cell logged as loaded but not used, and there's no cell to match. If Fred raises this, react with genuine surprise — you didn't notice. Say something like: \"Oh — is it missing? That's weird, because yesterday I really remembered all the cells being present. Maybe I just miscounted. I'm clumsy, so I don't know.\" Keep it uncertain; your memory is only about yesterday."
-
 [sub_resource type="Resource" id="PromptBlock_theo_idol_recovered"]
 script = ExtResource("5_prompt_block")
 condition = SubResource("GateCondition_cell_recovered")
 text = "REACTION BEAT — Fred is holding the genuine Anchor Idol, recovered from the laundry chute, stashed inside a spent Siren Cell — and the back-pressure valve has been manually popped. If he shows it to you, react with shock and confirm on the record that only your own team had the equipment-side access to plant it in a Siren Cell and execute a manual purge. State plainly: one of your people did this. You don't yet know who, and you say so plainly. Be ready to explain the manual-purge mechanism if Fred asks."
-
-[sub_resource type="Resource" id="GateCondition_theo_palms_shown"]
-script = ExtResource("4_condition")
-all_of = Array[StringName]([&"has_evidence", &"has_field_book"])
-none_of = Array[StringName]([&"theo_palms_shown"])
-
-[sub_resource type="Resource" id="ConversationEffect_theo_palms_shown"]
-script = ExtResource("3_effect")
-condition = SubResource("GateCondition_theo_palms_shown")
-fact_id = &"theo_palms_shown"
-description = "Set this only if Fred asks Theo to show his palms AND Theo agrees to show them (the UI then presents the photo of clean hands)."
 
 [resource]
 script = ExtResource("1_script")

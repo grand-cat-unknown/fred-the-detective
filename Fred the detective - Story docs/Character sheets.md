@@ -12,7 +12,7 @@ This is where the game moves from a logic puzzle to a living, breathing investig
 **Who is honest (the anchors):**
 
 - **Mara** — tells the truth about the front door. Her certainty is what makes the locked-room puzzle airtight.
-- **Iris** — tells the literal truth about what she saw and heard, and nothing more.
+- **Iris** — tells the literal truth about where she was, what she did, and what her equipment can prove.
 - **Leo** — no skin in the game, full institutional memory.
 - **Vivian** — no skin in the game; she's the one who called Fred.
 
@@ -87,15 +87,15 @@ Here is the expanded character roster.
 
 - **Personality:** Calm, methodical, and by-the-book. The only team member who did exactly what they were supposed to do.
 - **Actual Timeline:**
-    - **9:00 – 9:09 PM:** Posted at the **west end of the main hallway**, just outside 1101's door, where 1102's spillover comes through strongest. Listening device on. Notes timestamps in her field book as a matter of habit.
-    - **~9:10 PM:** Manifestation noises in 1102 stop abruptly. She marks the time, **drops her listening device at the west-side post, and runs east along the main hallway to join Mara at the 1102 front door.** She is at the door before the chute thud happens.
+    - **9:00 – 9:09 PM:** Posted at the **west end of the main hallway**, just outside 1101's door, with her listening/scanning equipment.
+    - **~9:10 PM:** She **leaves her listening device at the west-side post, and runs east along the main hallway to join Mara at the 1102 front door.** She is at the door before the chute thud happens.
     - **9:10 – 9:11 PM:** With Mara (and Theo moments later), shoulders and pries the 1102 door. Three pairs of hands aren't enough on a solid suite door. They shout for Otis.
     - **9:13 PM:** Watches Pemberton come up behind her from the west end of the hallway.
-- **What She Said:** *"Manifestation noises through the west wall started around 9:07 and stopped abruptly at 9:10. I went to the front door of 1102 immediately. We called for Pemberton. He arrived behind me — from my side, the west — at 9:13."*
-- **What She Did NOT Hear:** She did **not** hear the chute thud. She was already at the 1102 door when it happened. Her listening device, abandoned at the west-side post, **logged it** — the device keeps a running audio log. Fred has to **recover the device and bring it back to her**. The ~9:11 entry on the device reads, roughly: *"loud thud (distant, low frequency) — followed by footsteps moving west."*
-- **The Truth:** She is the only team member telling the full truth — but she only knows what she literally saw and heard. She does **not** voluntarily layer "but Otis was assigned east" on top of "Otis arrived from the west." That contradiction is Fred's to surface, by combining her account with Mara's assignment record.
+- **What She Said:** *"I was at the west post with my equipment. I left the device there when I went to the front door of 1102. We called for Pemberton. He arrived behind me — from my side, the west — at 9:13."*
+- **What Her Device Logged:** She did **not** personally witness the chute event. She was already at the 1102 door when it happened. Her listening device, abandoned at the west-side post, **logged it**. Fred has to **recover the device and bring it back to her**.
+- **The Truth:** She is the only team member telling the full truth — but she only reports what she literally saw and what her equipment can prove. She does **not** voluntarily layer "but Otis was assigned east" on top of "Otis arrived from the west." That contradiction is Fred's to surface, by combining her account with Mara's assignment record.
 - **What She Gives the Player:**
-    - **The device log (after Fred recovers it)** — the 9:10 thud points the detective at the west-side laundry chute. Time-coded footsteps moving west corroborate Pemberton's route.
+    - **The device log (after Fred recovers it)** — the recorded 9:11 chute-side event points the detective at the west-side laundry chute. Time-coded footsteps moving west corroborate Pemberton's route.
     - **The direction Pemberton arrived from** — west side, behind her, at 9:13.
 
 ---

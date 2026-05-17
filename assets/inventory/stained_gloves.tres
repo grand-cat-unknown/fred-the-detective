@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="InventoryItemDefinition" format=3]
+[gd_resource type="Resource" script_class="InventoryItemDefinition" format=3 uid="uid://boe7lntp0xlmd"]
 
 [ext_resource type="Script" path="res://scripts/data/inventory_item_definition.gd" id="1_definition"]
 [ext_resource type="Script" uid="uid://dy1gfjjj466vx" path="res://scripts/data/gate_condition.gd" id="2_condition"]

@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="InteractableDefinition" format=3]
+[gd_resource type="Resource" script_class="InteractableDefinition" format=3 uid="uid://bmsmhw1ige4k2"]
 
 [ext_resource type="Script" uid="uid://crrwy2qm3y7s4" path="res://scripts/data/interactable_definition.gd" id="1_definition"]
 [ext_resource type="Script" uid="uid://dy1gfjjj466vx" path="res://scripts/data/gate_condition.gd" id="2_condition"]
@@ -15,12 +15,12 @@ condition = SubResource("GateCondition_idol_seen")
 title = "Wax Idol"
 description = "The carved figurine on Julian's desk. Wax beneath the paint. Definitely a forgery."
 
+[sub_resource type="Resource" id="GateCondition_idol_default"]
+script = ExtResource("2_condition")
+
 [sub_resource type="Resource" id="StateEffect_see_idol"]
 script = ExtResource("3_effect")
 fact_id = &"julian_fake_idol_seen"
-
-[sub_resource type="Resource" id="GateCondition_idol_default"]
-script = ExtResource("2_condition")
 
 [sub_resource type="Resource" id="InteractableState_idol_default"]
 script = ExtResource("4_state")

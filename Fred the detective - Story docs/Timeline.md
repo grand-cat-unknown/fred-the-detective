@@ -44,7 +44,7 @@ Mara sets assignments. Pemberton's east-side cover is now in place.
 | Character | Position |
 | --- | --- |
 | **Mara Bell** | Main hallway outside 1102. Visual on the front door. |
-| **Iris Thorne** | **West end** of the main hallway, near 1101 — listening to the 1102/1101 shared wall for spillover. Carrying her listening/scanning device. |
+| **Iris Thorne** | **West end** of the main hallway, near 1101 — stationed with her listening/scanning device. |
 | **Otis Pemberton** | Assigned **east wing / east-side structural route**. (Cover for being unseen during the murder window.) |
 | **Theo Griggs** | At the **gear cart / prep station**, near the watch perimeter. |
 | **Felix Vance** | Inside 1102, door locked from the inside, mid-meditation. |
@@ -62,7 +62,7 @@ The minute-by-minute. Every character is tracked, even if their state is "unchan
 | Character | Actual | Public / Witness |
 | --- | --- | --- |
 | Mara | Front door. Quiet so far. Periodic radio check-ins. | "Standard watch. Nothing on the readings." |
-| Iris | West-side post. Scanning corners. Nothing unusual. | Field book: clean. |
+| Iris | West-side post with her equipment. Nothing unusual. | — |
 | Theo | Gear cart. Fussing with inventory. Not yet realizing a cell is missing. | — |
 | Pemberton | Moves down the east-side service corridor toward the hidden Royal Suite emergency passage. Stolen Siren Cell on him. | Radio: "East sweep, nothing yet." |
 | Vance | Meditating. | — |
@@ -83,20 +83,20 @@ The minute-by-minute. Every character is tracked, even if their state is "unchan
 | --- | --- | --- |
 | Pemberton | Kills Vance point-blank with **Manual Purge** of the stolen Siren Cell. Takes the **Anchor Idol** from Vance's display. **Stages the "haunting"** — slams furniture, simulates a Class-5 manifestation. Loud enough to carry through the door and through 1101's shared wall. Wraps the staging around 9:09 and slips back into the concealed passage before the noises fully die. | Implied (to the team): "Entity manifesting in 1102." |
 | Mara | Hears manifestation noises starting ~9:07. Maintains visual on door. Radios urgently. | "We've got something — 1102, locked." |
-| Iris | West-side post. Hears noises through the shared wall. Logs **9:07 start** in field book. Holds position per protocol — perimeter first. | "Noises through the west wall." |
+| Iris | West-side post with her listening/scanning device. Holds position per protocol — perimeter first. | "I was at the west post with my equipment." |
 | Theo | Hears noises over radio. Panics. Starts grabbing backup gear. | — |
 | Mags | Hears muffled commotion. Assumes "those Ghostbuster fellows" are working. Stays put. | — |
 | Julian | Hears slamming through the hallway and the adjacent walls from his suite. Thinks the ghost has come for Vance. Stays frozen, lights off, fake idol on the desk. | — |
 
 ### 9:10 — The Abrupt Silence (Iris Converges)
 
-This is the critical re-ordering. Iris leaves her post **before** the thud, so the thud is captured only by her abandoned device.
+This is the critical re-ordering. Iris leaves her post **before** the chute-side event, so the event is captured only by her abandoned device.
 
 | Character | Actual | Public / Witness |
 | --- | --- | --- |
 | Pemberton | Already out of 1102 via the concealed passage. **In the north-side service corridor heading west**, carrying the spent Siren Cell with the Anchor Idol stashed inside. Stained gloves still on. | Silent. No radio. |
 | Mara | Notices the manifestation noises have stopped. Calls the team to converge. | "Noises stopped. Everyone in." |
-| Iris | Hears the noises stop. **Drops her listening/scanning device at the west-side post** and runs east along the main hallway to join Mara at the front door of 1102. **She is gone from the post before the chute thud happens.** | The device stays behind, still recording. Iris's own memory of 9:10 is: "noises stopped, I went to the door." Nothing more. |
+| Iris | **Leaves her listening/scanning device at the west-side post** and runs east along the main hallway to join Mara at the front door of 1102. **She is gone from the post before the chute-side event happens.** | The device stays behind, still recording. Iris's own account is only that she was at the west post with her equipment, then went to the door. |
 | Theo | Hears the converge call, leaves the gear cart, runs toward the front door. | — |
 | Mags | Hears the converge call faintly through her door. **Stays put.** | — |
 | Julian | Notices the noises have stopped. Considers cracking the door to look. Doesn't — fake idol still out, master key in his pocket. | — |
@@ -108,7 +108,7 @@ The cleanest moment of the cover-up. He gets out of the stained gloves **before*
 | Character | Actual | Public / Witness |
 | --- | --- | --- |
 | Pemberton | Reaches the **west-side service hall**. **Strips off his violet-stained Ghostbusters gloves and drops them in a service-hall trash can** — stain is on the *inside* of the fingers (Purge Pigment driven through the fabric by the Manual Purge). **Pulls the fresh sealed pair from his coat and snugs them on.** Picks the cell back up with clean gloves. Carries it the last few steps to the **north-west laundry chute** and drops it. Cell falls to the basement laundry bin, idol concealed inside. | The chute hatch only ever bears fresh-glove prints. The stained pair never touches the chute. |
-| Iris's device (abandoned at the west post) | **Logs the thud and the chute-side footsteps.** The 9:11 entry will read, roughly: *"9:11:XX — loud thud (distant, low frequency). 9:11:XX – 9:11:YY — footsteps moving west."* Recoverable later by Fred. | Iris herself does **not** hear this — she's already at the 1102 door. |
+| Iris's device (abandoned at the west post) | **Logs the chute-side event and footsteps.** The 9:11 entry points toward the laundry chute and is recoverable later by Fred. | Iris herself does **not** witness this — she's already at the 1102 door. |
 | Mara, Iris, Theo | At the front door of 1102, trying to force it. **Solid suite door — three pairs of hands aren't enough.** They repeatedly shout for Otis. No reply. | "Where the hell is Pemberton?" |
 | Mags | Does not register the chute thud clearly through the closed room. Stays put. | — |
 | Julian | Hears the team shouting "Pemberton!" through his door. Stays locked inside 1204. Hides the fake idol. | — |
@@ -180,7 +180,7 @@ These are inconsistencies between this draft and the older docs. Flagging for re
 
 - **Mara assignment timing.** This timeline locks assignments at **9:00**, when the watch begins.
 - **Iris and "Thorne."** Older docs use both "Iris" and "Thorne" interchangeably for the same character. Pick one ("Iris" preferred — first names match the rest of the cast).
-- **Who hears the thud.** `Story (Clean).md` §2 line 27 says "Iris hears the thud from the west-side observation post." This timeline overrides that: **Iris does not hear the thud herself.** When the manifestation noises stop abruptly at ~9:10, she drops her listening device at the west post and runs east to converge on the 1102 front door — *before* the thud happens. The device, left behind on the post, **logs the thud at ~9:11 with a timestamp**. She doesn't know the thud exists until Fred recovers the device and brings it back to her. Her own memory of 9:10 is "the noises stopped, I went to the door," nothing more.
+- **Chute event source.** Iris does not personally witness the 9:11 chute-side event. She leaves her listening device at the west post and runs east to converge on the 1102 front door before it happens. The device, left behind on the post, logs the event. Iris's own account should stay narrow: she was at the west post with her equipment, then she went to the door.
 - **Glove swap timing.** The stained gloves are dropped in the service-hall trash can **before** the cell goes down the chute, not after. The chute hatch and the cell in the basement bin only ever bear *fresh-glove* prints. The discarded stained pair is the forensic anchor in the service hall; the chute itself is forensically clean.
 - **Pemberton's arrival explanation.** Older docs (`Story (Clean).md`, `Character sheets.md`) have Pemberton say "It crossed through the service route — I cut west to flank it." This timeline removes that line. Pemberton **never** volunteers the service route — doing so would hand the player the hidden-passage idea for free. He arrives from the west with no explanation and mutters something vague if pressed.
 - **Mara doesn't know the service routes exist.** Older docs implicitly allow Mara to accept a "flanking through the service hallways" explanation. This timeline locks: **Mara does not know about the service routes.** She registers Otis's wrong-direction arrival as unexplained-and-weird, has no theory to paper it over with, and reports it as such to Fred. (Vivian is the route gatekeeper — see Open Question #10.)
