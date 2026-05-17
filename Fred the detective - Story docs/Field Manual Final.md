@@ -274,9 +274,9 @@ All cell classes produce some quantity of aerosolized capture medium on discharg
 
 At a standard at-distance discharge (8–14 ft, see §7.4), the aerosol disperses outward from the nozzle in a wide cone and settles as a fine film on nearby surfaces — see §7.2.
 
-Manual overrides (§8) elevate the discharge pressure to varying degrees. Across the firm's full roster, every documented override — Pulse-Lock, Soft-Vent, Reverse-Flow, Snap-Charge, Tide-Damp, Kinetic Damp, Dye Reset, Resonance Tap, Twin-Tap Sync, Cinder Quench, Solar Flash, Spore Vent, Lockdown Pin — operates within the pressure envelope that the standard-issue ghost-capture glove is rated to block. Aerosol settles on the outside of the glove and washes off with the glove.
+Manual overrides (§8) operate at elevated discharge pressures relative to standard at-distance firing. The standard-issue ghost-capture glove is rated to block aerosol exposure under normal at-distance and authorized override firing.
 
-**One exception.** The Siren's Manual Purge (§8.2) is the only override in firm service that generates pressures sufficient to drive sub-micron droplets of capture medium **through the weave of a standard-issue glove and into the operator's skin**. No other override breaches the glove. The forensic consequence of this exposure depends on the tracer chemistry of the Siren cell. See §7.3.
+Behavior under non-standard firing — contact-range discharge, obstructed nozzle, off-axis pressure spikes — is grade-specific. The persistence, removability, and skin-exposure characteristics of each grade's capture medium are tabulated in the per-grade tracer entries (§7.3).
 
 ---
 
@@ -313,7 +313,7 @@ Color identifies what was discharged. Pattern identifies how. Persistence identi
 
 **Sylph tracer.** *(Violet band, Class 2.)* Violet film. Removable from skin with soap and warm water within the engagement; settles on surfaces as a removable haze that wipes off with a damp cloth. No long-term persistence on skin documented.
 
-**Siren tracer.** *(Violet band, Class 4 / Class 5.)* Violet pigment. At standard at-distance discharge settles as a film on nearby surfaces, removable with soap and water within 24 hours. Under the cell's Manual Purge override (§8.2), the elevated discharge pressure drives the tracer through the weave of the ghost-capture glove and forces it sub-dermally into the operator's skin; once sub-dermal, the pigment cannot be removed by soap, alcohol, solvent, or scrub, and is metabolized over 48–72 hours regardless of washing.
+**Siren tracer.** *(Violet band, Class 4 / Class 5.)* Violet pigment. Removable from skin and surfaces with soap and water within 24 hours under standard at-distance discharge. Under contact-range firing the pigment passes the glove weave and settles sub-dermally; persists 48–72 hours through full metabolic clearance regardless of washing.
 
 **Wraith tracer.** *(Violet band, Class 3.)* Violet dust, almost entirely particulate, no liquid carrier. Brushed off cleanly from clothing and hard surfaces with a soft cloth; rinses from skin with cold water in under a minute.
 
@@ -393,7 +393,7 @@ A flipped lever on a recovered cell is, without exception, evidence of a **delib
 
 **Solar Flash.** *Apparition.* High-luminance pulse used to disorient a daylit manifestation. Authorized: team lead. Operator hazard: retinal injury possible without issue eyewear; permanent flash blindness has been documented in two recorded incidents. Aftermath: cell is removed from rotation and the operator is referred for an eye examination.
 
-**Manual Purge.** *Siren.* Dumps the cell's full charge at point-blank range through an opened back-pressure valve. Authorized: emergency only, against a confirmed Class-5 with no second cell available. Operator hazard: at contact range the discharge is lethal to anything organic seated against the nozzle; the pigment tracer is also driven sub-dermally and remains visible for 48–72 hours regardless of washing (§7.3). Aftermath: cell back-pressure valve is popped (§7.4); cell is returned to the works; the discharging operator is referred for medical evaluation.
+**Manual Purge.** *Siren.* Dumps the cell's full charge at point-blank range through an opened back-pressure valve. Authorized: emergency only, against a confirmed Class-5 with no second cell available. Operator hazard: at contact range the discharge is lethal to anything organic against the nozzle; sub-dermal tracer transfer is documented (§7.3). Aftermath: back-pressure valve is popped (§7.4); cell is returned to the works; the discharging operator is referred for medical evaluation.
 
 **Spore Vent.** *Boggart, Wraith.* Vents the cell's secondary aerosol cartridge under controlled pressure to flush a manifestation from concealment. Authorized: team lead. Operator hazard: respiratory irritation; respirator required during and for fifteen minutes after vent. Aftermath: cartridge requires refill at the works; cell discharges normally on next firing.
 
@@ -568,11 +568,11 @@ If a Form 14 is filed and the cell is later recovered, an addendum closes the fo
 
 The firm was incorporated in 1984 by Drs. Spengler, Stantz, Venkman, and Zeddemore as a private spectral containment service operating out of the disused Hook & Ladder 8 firehouse in lower Manhattan.
 
-The Siren cell line was developed in 1989 in response to a series of high-class manifestations in the Tri-State region. The original cell weighed 22 lbs; the present-day version, at 15 lbs, reflects three generations of pressure-vessel revision.
+The first containment cells fielded by the firm were the Wisp and Spectre grades; the heavy-grade roster (Class 3 and above) was developed in stages between 1986 and 2003 in response to a series of high-class manifestations across the Tri-State region. The Eidolon / Wight pair was the firm's first paired-deployment design and remains in service largely unmodified.
 
-The Manual Purge override was added to the Siren design in 1993, over the objection of the firm's first chief engineer, who reportedly walked out of the design review and remained on sick leave for a week.
+Manual overrides were introduced incrementally over the same period, often at the request of working operators and routinely over the objections of the firm's first chief engineer, who is on record as having walked out of at least four design reviews. The lever mechanism (§8.1) is unchanged in its essentials since 1995.
 
-The Purge Pigment tracer was introduced in 1996 as a federal regulatory requirement following an unrelated incident in Albany. The unwashable formulation was specified by the regulator, not by the firm.
+Pigment tracers were introduced across the roster in 1996 as a federal regulatory requirement following an unrelated incident in Albany. Each grade's tracer chemistry was selected by the regulator in consultation with the firm and is not modifiable by the operator or the proton works.
 
 This is the seventh edition of the manual since 2010. Errata are posted on the proton works bulletin board.
 
@@ -580,17 +580,15 @@ This is the seventh edition of the manual since 2010. Errata are posted on the p
 
 ## Page 42 — Appendix B — Glossary
 
-  **Aerosol Effect** — Sub-dermal transfer of capture medium through standard gloves under override pressure. §7.1.
   **At-Distance Discharge** — Standard cell firing at 8–14 ft from a manifested entity.
   **Back-Pressure Valve** — Safety valve above the cell nozzle. Pops only on obstructed discharge. §7.4.
   **Capture Medium** — The pigmented goo inside a containment cell. Its color is the cell's primary field identifier (§6.2).
-  **Form 11** — Override report for Dangerous or Lethal grade overrides. §8.3.
+  **Form 11** — Override report for Dangerous grade overrides. §8.3.
   **Form 14** — Filing for a missing cell. §13.
   **Lockdown Pin** — Irreversible override on Lemure cells. §8.2.
   **Manual Purge** — Emergency override on Siren cells. §8.2.
   **PKE** — Psychokinetic Energy, in μT-eq. §3.
   **Pulse-Lock** — Training-grade override on Pixie and Glimmer. §8.2.
-  **Purge Pigment** — The Siren-grade tracer. §7.3.
   **Tobin Scale** — Entity class rating, 1–5. §11.
   **Watch** — Contracted containment vigil for a client artifact.
 

@@ -302,6 +302,15 @@ draw_marker = false
 blocks_movement = false
 snap_to_map_grid = false
 
+[node name="Inspectable_auction_place" parent="." unique_id=100011 instance=ExtResource("9_insp")]
+position = Vector2(0, 0)
+object_id = &"auction_place"
+title = "Auction Place"
+description = "Looks like an auction place. This is probably where the auction was held earlier."
+draw_marker = false
+blocks_movement = false
+snap_to_map_grid = false
+
 [node name="Player" parent="." unique_id=1010292065 instance=ExtResource("8_player")]
 position = Vector2(1034, 421)
 
