@@ -26,6 +26,10 @@ const FACT_IDS := [
 	&"theo_palms_shown",
 	&"iris_palms_shown",
 	&"pemberton_palms_shown",
+	&"vivian_palms_shown",
+	&"mags_palms_shown",
+	&"julian_palms_shown",
+	&"leo_palms_shown",
 	&"has_stained_gloves",
 ]
 const INTERACTABLE_IDS := [
