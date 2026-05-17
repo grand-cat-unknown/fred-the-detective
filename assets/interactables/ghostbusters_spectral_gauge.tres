@@ -1,4 +1,4 @@
-[gd_resource type="Resource" script_class="InteractableDefinition" format=3]
+[gd_resource type="Resource" script_class="InteractableDefinition" format=3 uid="uid://bo26ojxns4j5y"]
 
 [ext_resource type="Script" uid="uid://crrwy2qm3y7s4" path="res://scripts/data/interactable_definition.gd" id="1_definition"]
 [ext_resource type="Script" uid="uid://ddrn77i41iqq5" path="res://scripts/data/interactable_state.gd" id="2_state"]
