@@ -155,6 +155,8 @@ func _build_instructions(suspect: SuspectData, topic_ids: Array[StringName] = []
 		parts.append("Role: %s" % suspect.subtitle)
 	if suspect.persona != "":
 		parts.append("Character notes: %s" % suspect.persona)
+	if suspect.team != null and suspect.team.body.strip_edges() != "":
+		parts.append(suspect.team.body)
 	if suspect.system_prompt != "":
 		parts.append(suspect.system_prompt)
 	for block in suspect.available_prompt_blocks(_state):

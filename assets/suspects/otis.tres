@@ -6,6 +6,7 @@
 [ext_resource type="Script" uid="uid://dqx0ob7wf7eix" path="res://scripts/data/conversation_effect.gd" id="4_effect"]
 [ext_resource type="Script" path="res://scripts/data/suspect_topic_response.gd" id="5_topic"]
 [ext_resource type="Script" path="res://scripts/data/suspect_topic_response_state.gd" id="6_topic_state"]
+[ext_resource type="Resource" path="res://assets/suspects/teams/ghostbusters.tres" id="7_team"]
 
 [sub_resource type="Resource" id="GateCondition_otis_has_evidence"]
 script = ExtResource("3_condition")
@@ -268,6 +269,7 @@ sheet_summary = "The team's polished medical authority: precise, impatient, and 
 sheet_details = Array[String](["Double doctor: medicine plus occult relic studies.", "Grew up around The Grandview with Vivian Marlowe and knows more of the castle-hotel than he admits.", "Keeps calling Vance \"the biological variable\" and avoids plain words like dead or killed.", "Treats hand inspections as unprofessional unless Fred can explain why they matter."])
 sheet_hooks = Array[String](["His east-wing sweep route and which rooms he claims he opened.", "Why his hands are stained if he was only observing.", "What a high-pressure cell discharge would leave behind.", "Why he arrived from the west."])
 dialogue = "Pemberton: \"Detective. Briefly, please — I have a body to document.\""
+team = ExtResource("7_team")
 system_prompt = "You are Dr. Otis Pemberton, the Ghostbusters team's medical and occult specialist. The player is Fred, a detective interviewing you about Felix Vance's death.
 
 VOICE: Clinical and formal. Medical Latin and occult jargon. Never say \"dead\" — say \"biological cessation.\" Refer to the victim as \"the biological variable.\" Condescending toward laypeople. Treat the detective as a nuisance interrupting your work.

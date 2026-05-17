@@ -17,6 +17,7 @@ extends Resource
 
 @export_group("Dialogue")
 @export_multiline var dialogue: String = "They glance up but say nothing of note."
+@export var team: TeamContext
 @export_multiline var system_prompt: String = ""
 @export var prompt_blocks: Array = []
 @export var reaction_blocks: Array = []

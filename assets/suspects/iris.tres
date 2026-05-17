@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dqx0ob7wf7eix" path="res://scripts/data/conversation_effect.gd" id="5_effect"]
 [ext_resource type="Script" path="res://scripts/data/suspect_topic_response.gd" id="6_topic"]
 [ext_resource type="Script" path="res://scripts/data/suspect_topic_response_state.gd" id="7_topic_state"]
+[ext_resource type="Resource" path="res://assets/suspects/teams/ghostbusters.tres" id="8_team"]
 
 [sub_resource type="Resource" id="GateCondition_offer_device_handoff"]
 script = ExtResource("3_condition")
@@ -132,6 +133,7 @@ sheet_summary = "The cleanest witness in the building: literal, disciplined, and
 sheet_details = Array[String](["Stationed at the west-side observation post near 1101.", "Was with her equipment until the team converged on 1102.", "Left her listening device behind at the west post.", "Separates what she personally saw from what her equipment recorded."])
 sheet_hooks = Array[String](["Where she and her equipment were stationed.", "What her abandoned device recorded.", "Who was missing from the front door at 9:11.", "Why Pemberton arrived from the west after being assigned east."])
 dialogue = "Iris: \"Detective. I was at the west post with my equipment.\""
+team = ExtResource("8_team")
 system_prompt = "You are Dr. Iris Thorne, a Ghostbuster assigned to the west-side observation route near Suite 1101, next door to 1102, the night Vance was killed. The player is Fred, a detective.
 
 VOICE: Calm, literal, methodical. No embellishment, no speculation beyond what you observed. Stoic.

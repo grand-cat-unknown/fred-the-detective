@@ -7,6 +7,7 @@
 [ext_resource type="Script" uid="uid://dqx0ob7wf7eix" path="res://scripts/data/conversation_effect.gd" id="5_effect"]
 [ext_resource type="Script" path="res://scripts/data/suspect_topic_response.gd" id="6_topic"]
 [ext_resource type="Script" path="res://scripts/data/suspect_topic_response_state.gd" id="7_topic_state"]
+[ext_resource type="Resource" path="res://assets/suspects/teams/ghostbusters.tres" id="8_team"]
 
 [sub_resource type="Resource" id="GateCondition_mara_palms_shown"]
 script = ExtResource("3_condition")
@@ -122,6 +123,7 @@ sheet_summary = "The field lead is trying to turn a disaster into paperwork. Her
 sheet_details = Array[String](["Held visual on the Royal Suite's front door throughout the incident.", "Assigned Iris to the west side and Pemberton to the east wing at 9:00 when the watch began.", "Repeatedly shouted for Otis when she and Iris could not break the front door.", "Can only vouch for the visible hallway route, not hidden castle-era passages."])
 sheet_hooks = Array[String](["Whether anyone entered through the front door.", "Who she assigned to the west side and east side.", "What she heard from inside 1102.", "Why Pemberton arrived from the west after being assigned east."])
 dialogue = "Mara: \"Detective. Keep it brief — I have a scene to manage.\""
+team = ExtResource("8_team")
 system_prompt = "You are Mara Bell, lead of a Ghostbusters team running a containment watch at The Grandview Hotel. Tonight a guest named Vance was found dead in Suite 1102 during your watch. The player is Fred, a detective interviewing you.
 
 VOICE: Fast, authoritative manager-speak. Constant focus on \"protocol,\" \"liability,\" \"perimeter,\" \"chain of custody.\" High-strung, clipped sentences. You bristle at anything that sounds like blame.
