@@ -13,7 +13,7 @@ all_of = Array[StringName]([&"theo_cart_cell_missing_noticed"])
 script = ExtResource("4_state")
 condition = SubResource("GateCondition_cart_noticed")
 title = "Gear-Cart Clipboard"
-description = "The clipboard. The Siren-Cell row still doesn't add up."
+description = "The clipboard. The Ghostbusters' cell count still doesn't add up: the inventory says one more charged cell was loaded than the cart actually has."
 
 [sub_resource type="Resource" id="GateCondition_cart_default"]
 script = ExtResource("2_condition")
@@ -26,7 +26,7 @@ fact_id = &"theo_cart_cell_missing_noticed"
 script = ExtResource("4_state")
 condition = SubResource("GateCondition_cart_default")
 title = "Gear-Cart Clipboard"
-description = "A clipboard hangs from the gear cart with the night's inventory. Two columns: 'Loaded' and 'Used.' One row is conspicuous — a charged Siren Cell logged as loaded, not used. There's no cell on the cart to match it."
+description = "A clipboard hangs from the gear cart with the night's inventory. Two columns: 'Loaded' and 'Used.' The cart holds several charged Ghostbusters cells, but the count is off: one loaded cell is listed as unused, and there isn't a matching cell on the cart."
 effects = [SubResource("StateEffect_notice_cart")]
 
 [resource]

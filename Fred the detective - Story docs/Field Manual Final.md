@@ -299,39 +299,33 @@ Color identifies what was discharged. Pattern identifies how. Persistence identi
 
 **Wisp / Shade / Mariner tracer.** *(Blue band.)* Blue marker dye suspended in the medium. Settles as a thin film on cool surfaces and as a faint mist on skin and gloves. Removable from skin in seconds with cold water; removable from soft surfaces with a damp cloth. Fades from porous surfaces over 12–24 hours without intervention.
 
-**Spectre / Glimmer / Boggart tracer.** *(Green band.)* Green marker dye. Settles brightly under UV; nearly invisible in daylight. Removable from skin with soap and warm water; removable from soft surfaces with the firm's standard neutralizer. Used in training because of its forgiving cleanup profile.
-
 **Cinder / Spook tracer.** *(Red band, low-grade.)* Red pigment in a light oil base. Settles as a film on cool surfaces. Removable from skin with soap and water; may stain porous fabrics permanently if not addressed within an hour. Two passes recommended on carpet.
+
+**Pixie tracer.** *(Violet band, Class 1.)* Violet wash, very dilute. Removable from skin in seconds with cold water; the tracer is thin enough that prolonged handling without gloves is permitted in training settings.
+
+**Mote / Cantrip / Apparition tracer.** *(Yellow band.)* Yellow particulate. Fades from skin within an hour even without washing; ventilation alone removes the airborne fraction from a room within thirty minutes. Considered the most forgiving of the field tracers.
 
 ---
 
 ## Page 22 — §7.3 (cont.)
 
-**Mote / Cantrip / Apparition tracer.** *(Yellow band.)* Yellow particulate. Fades from skin within an hour even without washing; ventilation alone removes the airborne fraction from a room within thirty minutes. Considered the most forgiving of the field tracers.
-
-**Revenant / Poltergeist tracer.** *(Red band, high-grade.)* Red alcohol-soluble pigment. Removable from skin and hard surfaces with isopropyl alcohol; soap and water alone are insufficient. Operators are issued a small alcohol wipe pack with these grades.
-
-**Pixie tracer.** *(Violet band, Class 1.)* Violet wash, very dilute. Removable from skin in seconds with cold water; the tracer is thin enough that prolonged handling without gloves is permitted in training settings.
-
 **Sylph tracer.** *(Violet band, Class 2.)* Violet film. Removable from skin with soap and warm water within the engagement; settles on surfaces as a removable haze that wipes off with a damp cloth. No long-term persistence on skin documented.
+
+**Siren tracer.** *(Violet band, Class 4 / Class 5.)* Violet pigment. At standard at-distance discharge settles as a film on nearby surfaces, removable with soap and water within 24 hours. Under the cell's Manual Purge override (§8.2), the elevated discharge pressure drives the tracer through the weave of the ghost-capture glove and forces it sub-dermally into the operator's skin; once sub-dermal, the pigment cannot be removed by soap, alcohol, solvent, or scrub, and is metabolized over 48–72 hours regardless of washing.
 
 **Wraith tracer.** *(Violet band, Class 3.)* Violet dust, almost entirely particulate, no liquid carrier. Brushed off cleanly from clothing and hard surfaces with a soft cloth; rinses from skin with cold water in under a minute.
 
-**Banshee tracer.** *(Violet band, Class 4.)* Violet powder. Slightly abrasive. Removed from skin with soap and a stiff brush, or with the firm's standard neutralizer. May require a second pass on porous surfaces.
+**Spectre / Glimmer / Boggart tracer.** *(Green band.)* Green marker dye. Settles brightly under UV; nearly invisible in daylight. Removable from skin with soap and warm water; removable from soft surfaces with the firm's standard neutralizer. Used in training because of its forgiving cleanup profile.
 
 ---
 
 ## Page 23 — §7.3 (cont.)
 
+**Banshee tracer.** *(Violet band, Class 4.)* Violet powder. Slightly abrasive. Removed from skin with soap and a stiff brush, or with the firm's standard neutralizer. May require a second pass on porous surfaces.
+
+**Revenant / Poltergeist tracer.** *(Red band, high-grade.)* Red alcohol-soluble pigment. Removable from skin and hard surfaces with isopropyl alcohol; soap and water alone are insufficient. Operators are issued a small alcohol wipe pack with these grades.
+
 **Eidolon / Wight / Lemure tracer.** *(Black band.)* Black ash. Removable from skin with soap and water; removable from hard surfaces with a damp cloth. Settles heavily and is easy to spot at a glance, which is a deliberate design feature given the irreversible nature of the Lemure's lockdown override (§8.2).
-
-**Siren tracer.** *(Violet band, Class 4 / Class 5.)* Violet pigment. At standard at-distance discharge the tracer behaves like the other heavy-grade tracers and settles as a film on nearby surfaces, removable with soap and water within 24 hours.
-
-Under the elevated pressure of the Siren's **Manual Purge** override (§8.2), the Aerosol Effect (§7.1) drives this tracer through the weave of the standard ghost-capture glove and forces it **sub-dermally into the operator's skin** — palms, finger pads, cuticles. The Siren is the only grade in the firm's twenty-cell roster whose override generates pressures sufficient to breach the glove (§7.1); every other override stays on the outside of the glove and washes off with it.
-
-Once driven sub-dermally, the Siren pigment **cannot be removed by soap, alcohol, solvent, industrial cleaner, or mechanical scrub.** Metabolized over 48–72 hours regardless of any washing attempt.
-
-The pigment is not a health hazard. It is, in regulatory terms, a forensic signature. Operators occasionally complain about it. The firm's legal counsel does not.
 
 ---
 
@@ -397,17 +391,11 @@ A flipped lever on a recovered cell is, without exception, evidence of a **delib
 
 **Solar Flash.** *Apparition.* High-luminance pulse used to disorient a daylit manifestation. Authorized: team lead. Operator hazard: retinal injury possible without issue eyewear; permanent flash blindness has been documented in two recorded incidents. Aftermath: cell is removed from rotation and the operator is referred for an eye examination.
 
+**Manual Purge.** *Siren.* Dumps the cell's full charge at point-blank range through an opened back-pressure valve. Authorized: emergency only, against a confirmed Class-5 with no second cell available. Operator hazard: at contact range the discharge is lethal to anything organic seated against the nozzle; the pigment tracer is also driven sub-dermally and remains visible for 48–72 hours regardless of washing (§7.3). Aftermath: cell back-pressure valve is popped (§7.4); cell is returned to the works; the discharging operator is referred for medical evaluation.
+
 **Spore Vent.** *Boggart, Wraith.* Vents the cell's secondary aerosol cartridge under controlled pressure to flush a manifestation from concealment. Authorized: team lead. Operator hazard: respiratory irritation; respirator required during and for fifteen minutes after vent. Aftermath: cartridge requires refill at the works; cell discharges normally on next firing.
 
 **Lockdown Pin.** *Lemure.* Drives a permanent mechanical pin into the cell housing to render the cell irreversibly inert after a single discharge. Authorized: team lead with second operator witness. Operator hazard: percussive recoil; bracing required. Aftermath: cell is retired from service permanently; the housing is returned to the works for ceremonial decommissioning.
-
----
-
-## Page 30 — §8.2 — Lethal
-
-**Manual Purge.** *Siren.* Dumps the cell's full charge at point-blank range through an opened back-pressure valve. Authorized: emergency only, with no second cell available, against a confirmed Class-5. Operator hazard: at contact range the discharge is, in practical terms, **lethal to anything organic seated against the nozzle** — a fact rehearsed in the basement training reels and routinely glossed over in field briefings. The pigment tracer is driven sub-dermally into the operator's skin and remains visible for 48–72 hours regardless of any washing attempt (§7.3). Aftermath: cell back-pressure valve is popped (§7.4); cell is returned to the works; the discharging operator is referred to the firm's medical and occult specialist for an evaluation.
-
-The Manual Purge is the only override across the firm's twenty grades that is rated lethal at contact range. The override exists. Nobody is meant to use it.
 
 ---
 
@@ -415,7 +403,7 @@ The Manual Purge is the only override across the firm's twenty grades that is ra
 
 Every override flip is logged. The cell's serial number, the override type, the flipping operator, and the time of flip are recorded in the watch log within fifteen minutes of the engagement's conclusion.
 
-Where the override is rated **Inconvenient** or higher (§8.2), the team lead co-signs the entry. Where the override is rated **Dangerous** or **Lethal**, the team lead also files a Form 11 with the office within twenty-four hours.
+Where the override is rated **Inconvenient** or higher (§8.2), the team lead co-signs the entry. Where the override is rated **Dangerous**, the team lead also files a Form 11 with the office within twenty-four hours.
 
 A recovered cell with a flipped lever and no corresponding log entry is treated as a Form 14 event (§13) regardless of the cell's grade. The firm's audit policy does not distinguish, in this regard, between an unlogged Pulse-Lock and an unlogged Manual Purge. Either is a regulatory event.
 
@@ -597,10 +585,10 @@ This is the seventh edition of the manual since 2010. Errata are posted on the p
   **Form 11** — Override report for Dangerous or Lethal grade overrides. §8.3.
   **Form 14** — Filing for a missing cell. §13.
   **Lockdown Pin** — Irreversible override on Lemure cells. §8.2.
-  **Manual Purge** — Point-blank override on Siren cells. §8.2.
+  **Manual Purge** — Emergency override on Siren cells. §8.2.
   **PKE** — Psychokinetic Energy, in μT-eq. §3.
   **Pulse-Lock** — Training-grade override on Pixie and Glimmer. §8.2.
-  **Purge Pigment** — Unwashable violet tracer in Siren cells. §7.3.
+  **Purge Pigment** — The Siren-grade tracer. §7.3.
   **Tobin Scale** — Entity class rating, 1–5. §11.
   **Watch** — Contracted containment vigil for a client artifact.
 

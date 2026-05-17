@@ -5,5 +5,5 @@
 [resource]
 script = ExtResource("1_script")
 id = &"theo_cart_cell_missing_noticed"
-label = "Fred saw a Siren Cell is missing from the cart"
-description = "Fred has inspected the Ghostbusters' gear-cart inventory clipboard. One charged Siren Cell is logged as loaded but not used — and there is no cell on the cart to match it."
+label = "Fred saw a Ghostbusters cell is missing from the cart"
+description = "Fred has inspected the Ghostbusters' gear-cart inventory clipboard. One charged cell is logged as loaded but not used, and there is no cell on the cart to match it."
