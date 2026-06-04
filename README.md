@@ -13,10 +13,23 @@ But Fred does not solve cases by believing the loudest story in the room. He sea
 - Explore The Sedgewick Hotel with WASD or arrow keys.
 - Inspect rooms, props, doors, clues, and suspicious leftovers with Space.
 - Question suspects in free text instead of clicking through a fixed dialogue tree.
-- Follow evidence through locked rooms, staff-only routes, missing equipment, forged objects, stained hands, and unreliable alibis.
+- Follow evidence through locked rooms, staff-only routes, missing equipment, suspicious objects, and unreliable alibis.
 - Make a final accusation by naming the killer and explaining the method and proof in your own words.
 
 This is a compact detective story, not a sandbox with mystery flavor. There is a real culprit, a real method, false leads, gated revelations, and a final theory the player has to earn.
+
+## How The Game Works
+
+Fred plays like a small top-down investigation RPG:
+
+- **Walk the hotel**: Move through halls, rooms, and special areas while looking for anything that seems placed, blocked, odd, or newly relevant.
+- **Inspect the environment**: Press Space near an object to read Fred's observation. Some objects only describe the scene; others can reveal a clue, offer an action, unlock a route, or change the room.
+- **Talk to suspects naturally**: Conversations are free text. You can ask about timelines, relationships, motives, access, objects, contradictions, or whatever detail caught your attention.
+- **Bring evidence back into interviews**: Suspects may respond differently once Fred has seen the right object, learned the right detail, or earned the right permission.
+- **Watch the inventory**: Key evidence and useful items appear in the HUD when Fred has actually obtained or understood them.
+- **Build a theory**: The final accusation is not just selecting a name. You also write the method and supporting evidence, so the ending checks whether your explanation really fits.
+
+The game does not expect magic phrasing. If a question is reasonable, the suspect should understand the topic. If an answer matters to progression, the game checks whether the conversation clearly earned that state change.
 
 ## What Makes It Special
 
@@ -29,7 +42,7 @@ facts -> gates -> world state, inventory, suspect behavior, accusations
 That gives the game its little spark:
 
 - **The mystery is authored, but the interviews breathe.** Suspects answer in free text with LLM support, while progression stays locked to hand-authored facts and effects.
-- **Rooms and conversations are one puzzle.** A thing learned from Iris can change what Vivian will hand over; a key from Vivian can open a door; what is behind that door can reshape the final accusation.
+- **Rooms and conversations are one puzzle.** A thing learned in one interview can change what another person will reveal; a new permission can open a route; what is behind that route can reshape the final accusation.
 - **Evidence matters mechanically.** Clues are not just lore pickups. They unlock topics, change suspect reactions, reveal inventory, alter tiles, remove blockers, and make the ending possible.
 - **The game resists hallucinated progress.** The LLM can perform a character, but it cannot invent new facts. Conversation state changes pass through explicit `ConversationEffect` rules and a strict judge.
 - **It is a mystery engine hiding inside a small game.** The same pattern can author doors, safes, clues, suspect secrets, inventory items, and final-case logic without scattering bespoke scripts everywhere.
@@ -47,12 +60,12 @@ assets/facts/
 Examples:
 
 ```text
-has_field_book
-iris_returned_transcribed_log
-vivian_gave_chute_room_key
-chute_room_door_open
-pemberton_palms_shown
-has_evidence
+has_key_item
+heard_important_alibi
+received_staff_permission
+locked_room_open
+suspect_detail_confirmed
+has_decisive_evidence
 ```
 
 Those facts are checked by `GateCondition` resources. A gate can require all facts in `all_of`, at least one fact in `any_of`, and no facts in `none_of`.
@@ -74,11 +87,11 @@ assets/interactables/
 
 An interactable is an ordered list of `InteractableState` entries. The first state whose condition passes wins.
 
-For example, the chute-room door has three states:
+For example, a locked door might have three states:
 
 ```text
 open      -> open tile, does not block movement
-can_open  -> Fred has Vivian's key, asks "Open the door?"
+can_open  -> Fred has the right key, asks "Open the door?"
 locked    -> no key, closed tile, blocks movement
 ```
 
@@ -108,7 +121,7 @@ This creates a useful middle ground: characters feel conversational, while the m
 
 The ending blends hard game rules with a structured-output LLM judge.
 
-The game first checks that Fred picked the right suspect and has the required evidence facts. Only then does `AccusationJudge` evaluate the player's written theory for the necessary ideas. The judge can accept natural wording, but it cannot reveal the answer or bypass missing evidence.
+The game first checks that Fred picked a suspect and has the required evidence facts for a complete theory. Only then does `AccusationJudge` evaluate the player's written explanation for the necessary ideas. The judge can accept natural wording, but it cannot reveal the answer or bypass missing evidence.
 
 ## Project Map
 
@@ -194,11 +207,11 @@ Most new investigation beats follow this pattern:
 Example:
 
 ```text
-Fred obtains a key
--> vivian_gave_chute_room_key = true
--> chute-room door enters "can_open" state
+Fred obtains a key item
+-> received_staff_permission = true
+-> locked door enters "can_open" state
 -> Fred opens it
--> chute_room_door_open = true
+-> locked_room_open = true
 -> new evidence becomes reachable
 ```
 
